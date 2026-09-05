@@ -113,6 +113,36 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract }) => {
       const glow = ctx.createRadialGradient(W/2, H*0.62, 20, W/2, H*0.62, H*0.95 * flicker);
       glow.addColorStop(0, COLORS.torchGlow); glow.addColorStop(1, 'rgba(0,0,0,0)');
       ctx.fillStyle = glow; ctx.fillRect(0, 0, W, H);
+
+      // foreground brazier (bottom-center) — the reference's presence cue
+      ctx.fillStyle = 'rgba(0,0,0,0)';
+      // black metal bowl
+      ctx.fillStyle = '#1c1612';
+      ctx.beginPath(); ctx.ellipse(W*0.5, H*0.92, 60, 16, 0, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#0d0a08';
+      ctx.fillRect(W*0.5-60, H*0.92, 120, 14);
+      // flame
+      const fl = 0.7 + 0.3 * Math.sin(anim * 0.35);
+      const fgx = W*0.5, fgy = H*0.90;
+      const flame = ctx.createRadialGradient(fgx, fgy, 4, fgx, fgy, 26*fl);
+      flame.addColorStop(0, '#ffd27a'); flame.addColorStop(0.4, '#f0a53a'); flame.addColorStop(1, 'rgba(232,120,10,0)');
+      ctx.fillStyle = flame; ctx.beginPath(); ctx.moveTo(fgx, fgy-34*fl); ctx.quadraticCurveTo(fgx+20, fgy-4, fgx+12, fgy+2); ctx.quadraticCurveTo(fgx, fgy+8, fgx-12, fgy+2); ctx.quadraticCurveTo(fgx-20, fgy-4, fgx, fgy-34*fl); ctx.fill();
+      // ember glow on floor
+      const e = ctx.createRadialGradient(W*0.5, H*0.93, 10, W*0.5, H*0.93, 68);
+      e.addColorStop(0, 'rgba(255,160,60,0.22)'); e.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = e; ctx.fillRect(0, H*0.82, W, H*0.18);
+
+      // HUD: heart bar (top-left) + act label (top-right) — makes it a game
+      ctx.fillStyle = 'rgba(5,3,2,0.55)';
+      ctx.fillRect(8, 8, 86, 16);
+      ctx.strokeStyle = '#e8a33a'; ctx.lineWidth = 1; ctx.strokeRect(8.5, 8.5, 86, 16);
+      for (let i = 0; i < 5; i++) {
+        ctx.fillStyle = i < 3 ? '#c02a2a' : '#3a1414';
+        ctx.font = 'bold 11px monospace';
+        ctx.fillText('♥', 15 + i * 16, 22);
+      }
+      ctx.fillStyle = '#e8a33a'; ctx.font = 'bold 8px monospace';
+      ctx.textAlign = 'right'; ctx.fillText('ACT I · THE SEALED VESTIBULE', W - 10, 20); ctx.textAlign = 'left';
     };
 
     const MOVE = 0.05, ROT = 0.05;
