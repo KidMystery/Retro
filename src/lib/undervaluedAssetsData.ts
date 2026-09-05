@@ -1,0 +1,242 @@
+import { UndervaluedAsset } from '../types';
+
+export const UNDERVALUED_ASSETS: { [key: string]: UndervaluedAsset } = {
+  'silver_mine': {
+    id: 'silver_mine',
+    name: 'The Sunken Silver Mine of Deep Value',
+    symbol: '$SLVR',
+    category: 'Hard Commodities & Mining - Act 1 Origin',
+    locationName: 'Forgotten Quarry - Grove of Strikes',
+    description: 'Hidden beneath moss and broken cart tracks, you discover deeds and assay reports of forgotten silver mine. Panic drove quote to $42 ƒ, yet vaults hold verified bullion + liquid cash worth $78 ƒ per share, zero debt! Oracle Stone reveals true worth: amber runes pulse 46% margin of safety. This is investor-path: buy wonderful business at discount, sell covered calls for income.',
+    marketSpot: 42,
+    intrinsicValue: 78,
+    bookValuePerShare: 78,
+    cashPerShare: 32,
+    peRatio: 4.1,
+    marginOfSafetyPercent: 46.1,
+    currentIv: 0.18,
+    catalyst: 'Next quarter sovereign audit will publicly verify vault holdings. Graham: Mr Market depressed.',
+    pathAffinity: 'INVESTOR',
+    oracleInsight: 'Oracle Lens: Dark stone and amber sigils show intrinsic $78 vs spot $42. IV 18% dirt cheap - options have minimal extrinsic. Perfect for deep ITM LEAPS or covered calls. Buffett-style.',
+    choices: [
+      {
+        title: 'Deep Value Buy & Sell Covered Call (Strike $50, 45 DTE) - Investor Path',
+        description: 'Acquire 100 shares at $42, sell OTM Call to harvest premium while retaining upside to $50. The farmer way.',
+        actionType: 'VALUE_BUY_COVERED_CALL',
+        costFlorins: 3800,
+        heartsEffect: 1.5,
+        awardsHeartContainer: true,
+        consequenceText: 'Exemplary discipline! Acquired physical assets 54c on dollar, collected 400ƒ premium. Audit publishes, stock re-rates $55. Covered call caps at +36% return, heart container! Investor path +3, Graham margin_of_safety protection hint.',
+        florinsGain: 1200,
+        spotShiftPercent: 0.28,
+        pathScore: { investor: 3 },
+        relicReward: 'Silver Vein Compass'
+      },
+      {
+        title: 'Deep ITM LEAPS (Strike $30 Call, 180 DTE) - Hybrid Path',
+        description: 'High-delta, low-extrinsic long-term options to gain leverage on rerating with defined downside.',
+        actionType: 'DEEP_ITM_LEAPS',
+        costFlorins: 1500,
+        heartsEffect: 1.0,
+        awardsHeartContainer: true,
+        consequenceText: 'Masterful! IV 18% depressed, LEAPS minimal extrinsic. Market wakes, call gains +190%! Heart container! Hybrid path.',
+        florinsGain: 2850,
+        spotShiftPercent: 0.35,
+        pathScore: { trader: 1, investor: 2 },
+        relicReward: 'LEAPS Hourglass'
+      },
+      {
+        title: 'Quick Flip to Shady Speculator for 300ƒ (Speculation - Fail Path)',
+        description: 'Sell deeds instantly to pawn merchant for meager markup.',
+        actionType: 'QUICK_SPECULATE_FLIP',
+        costFlorins: 0,
+        heartsEffect: 0,
+        consequenceText: 'Grabbed quick 300ƒ, but pawn sold mine for 4x to Royal Guild. Penny, dollars left. Speculation, not investment. Graham would frown.',
+        florinsGain: 300,
+        spotShiftPercent: 0.05,
+        pathScore: { trader: 0, investor: 0 }
+      },
+      {
+        title: 'Short Asset (Buy OTM Put) Betting Decline Continues (Wrong)',
+        description: 'Follow crowd momentum, buy Puts betting further fall.',
+        actionType: 'SHORT_THE_ASSET',
+        costFlorins: 400,
+        heartsEffect: -1.5,
+        consequenceText: 'Catastrophic! Shorted below liquid net cash. Graham: shorting deep value exposes to violent upward re-rating. Stock doubles, puts worthless, -1.5 hearts! Fail->Graham loop triggers: investment_vs_speculation lesson.',
+        florinsGain: -400,
+        spotShiftPercent: 0.40,
+        pathScore: { trader: -1 }
+      }
+    ]
+  },
+  'grain_silo': {
+    id: 'grain_silo',
+    name: 'The Royal Grain Mill & Granary',
+    symbol: '$WHEAT',
+    category: 'Essential Agriculture - Act 2 Time',
+    locationName: 'Stagnant Fields - Theta Steppes',
+    description: 'Temporary drought scare caused irrational panic. Traders dumped $WHEAT to $28 ƒ. Yet company has modernized silos, 5 years steady contracts, replacement cost $65 ƒ per share. Oracle Insight: Theta Steppes teaches patience, calendar spreads, selling premium while waiting. "Nothing happens" is profit.',
+    marketSpot: 28,
+    intrinsicValue: 65,
+    bookValuePerShare: 65,
+    cashPerShare: 18,
+    peRatio: 5.2,
+    marginOfSafetyPercent: 56.9,
+    currentIv: 0.22,
+    catalyst: 'Bumper harvest contracts arriving next month. Time + patience.',
+    pathAffinity: 'HYBRID',
+    oracleInsight: 'Theta 0.22 low, but time decay teaches: cash-secured puts = get paid to buy wonderful business at deeper bargain $25. If not assigned, keep premium. Buffett-style.',
+    choices: [
+      {
+        title: 'Cash-Secured Put Strike $25 Collect 250ƒ Premium - Investor',
+        description: 'Agree to buy at even deeper bargain $25 if assigned, collecting premium meanwhile.',
+        actionType: 'VALUE_BUY_COVERED_CALL',
+        costFlorins: 0,
+        heartsEffect: 1.0,
+        awardsHeartContainer: true,
+        consequenceText: 'Brilliant Buffett move! Offered to buy wonderful business at absurd bargain while pocketing 250ƒ. Stock stayed above $25, options expired worthless, kept 100% premium! Heart container! + margin_of_safety protection.',
+        florinsGain: 250,
+        spotShiftPercent: 0.20,
+        pathScore: { investor: 2 },
+        relicReward: 'Granary Deed'
+      },
+      {
+        title: 'Buy 50 Shares & Hold for Fair Value + Sell Covered Calls',
+        description: 'Invest directly with iron margin of safety, then harvest covered calls.',
+        actionType: 'VALUE_BUY_COVERED_CALL',
+        costFlorins: 1400,
+        heartsEffect: 1.0,
+        consequenceText: 'Patience rewarded! Fears subsided, $WHEAT rallied $52. Sell at fair value +1,200 ƒ profit, life force restored! Covered call income while waiting.',
+        florinsGain: 1200,
+        spotShiftPercent: 0.45,
+        pathScore: { investor: 2 },
+        relicReward: 'Harvest Scythe'
+      },
+      {
+        title: 'Gamble 0-DTE OTM Calls Strike $45 (Theta Trap)',
+        description: 'Bet stock jumps 60% by tomorrow.',
+        actionType: 'SHORT_THE_ASSET',
+        costFlorins: 350,
+        heartsEffect: -1.0,
+        consequenceText: 'Folly! Business great, but 0-DTE gives no time for value recognition. Theta crushed option to zero before harvest news. -1 Heart! Fail->Graham: theta_protection lesson. What does 0-DTE lottery truly cost? Patience + capital.',
+        florinsGain: -350,
+        spotShiftPercent: 0.05,
+        pathScore: { trader: -1 }
+      }
+    ]
+  },
+  'toll_bridge': {
+    id: 'toll_bridge',
+    name: 'The Iron River Bridge & Aqueduct',
+    symbol: '$TOLL',
+    category: 'Monopolistic Infrastructure - Act 3 Range',
+    locationName: 'High Fortress Gates - Iron Sanctuary',
+    description: 'Every wagon must cross stone bridge. Yields 11% dividend. Minor repair delay, paper-hands pushed stock $50 ƒ vs DCF $95. Iron Sanctuary teaches: Crab Golem clamped realm in iron bands, price can\'t break out. Iron Condors, selling premium, defined-risk range plays. Lesson: "nothing happens" is profit. Disciplined trader earns while gambler starves.',
+    marketSpot: 50,
+    intrinsicValue: 95,
+    bookValuePerShare: 95,
+    cashPerShare: 20,
+    peRatio: 6.8,
+    marginOfSafetyPercent: 47.3,
+    currentIv: 0.15,
+    catalyst: 'Repairs finish 2 weeks ahead, toll revenue spikes. Rangebound -> breakout.',
+    pathAffinity: 'INVESTOR',
+    oracleInsight: 'Oracle Lens: Moat utility, monopoly, 11% yield. IV 15% ultra cheap - perfect for bull call spread financing long with short. Defined risk, low theta.',
+    choices: [
+      {
+        title: 'Bull Call Spread Buy 50 Call / Sell 70 Call - Trader Defined Risk',
+        description: 'Define risk, finance long with short, target re-pricing $70.',
+        actionType: 'VALUE_BUY_COVERED_CALL',
+        costFlorins: 600,
+        heartsEffect: 2.0,
+        awardsHeartContainer: true,
+        consequenceText: 'Textbook institutional spread! Repairs concluded, stock rocketed $72. Spread captured max $2,000 payoff net +1,400ƒ! Heart container! Trader path + investor discipline = hybrid mastery.',
+        florinsGain: 1400,
+        spotShiftPercent: 0.42,
+        pathScore: { trader: 2, investor: 1 },
+        relicReward: 'Bridge Keystone'
+      },
+      {
+        title: 'Covered Call + Cash-Secured Put Combo - Pure Investor',
+        description: 'Buy 100 shares $50, sell $70 call + sell $45 put for income.',
+        actionType: 'VALUE_BUY_COVERED_CALL',
+        costFlorins: 4800,
+        heartsEffect: 1.5,
+        awardsHeartContainer: true,
+        consequenceText: 'Pure investor path! Own monopoly, collect premium both sides, 11% dividend + option income. Buffett would approve. Heart container!',
+        florinsGain: 900,
+        spotShiftPercent: 0.35,
+        pathScore: { investor: 3 },
+        relicReward: 'Toll Master Seal'
+      },
+      {
+        title: 'Pass By Ignore Opportunity (No Trade)',
+        description: 'Walk away without inspecting toll records.',
+        actionType: 'QUICK_SPECULATE_FLIP',
+        costFlorins: 0,
+        heartsEffect: 0,
+        consequenceText: 'Let rare moat utility slip. Buffett: opportunities to buy wonderful monopolies with deep margin of safety are rare gifts. Sometimes NO trade is lesson, but this was missed value.',
+        florinsGain: 0,
+        spotShiftPercent: 0.10,
+        pathScore: { trader: 0, investor: 0 }
+      }
+    ]
+  },
+  'vol_shrine': {
+    id: 'vol_shrine',
+    name: 'Volcanic Obsidian Options Shrine',
+    symbol: '$VOL',
+    category: 'Volatility - Act 4 Caldera',
+    locationName: 'Volatility Caldera - Hydra Lair',
+    description: 'Obsidian shrine pulsing with Vega energy. IV 80% euphoric before earnings. Hydra of Implied Vega every head market shock spitting IV crush. Teaches: Vega, buying cheap IV when others fearful, selling euphoric IV. Buy shield when everyone else fire.',
+    marketSpot: 135,
+    intrinsicValue: 180,
+    bookValuePerShare: 180,
+    cashPerShare: 45,
+    peRatio: 8.2,
+    marginOfSafetyPercent: 25.0,
+    currentIv: 0.80,
+    catalyst: 'Post-earnings IV crush 80%→25% - vertical spreads needed.',
+    pathAffinity: 'TRADER',
+    oracleInsight: 'IV 80% = SELL premium, not buy! Iron Condor or Bear Put Spread hedging Vega. Long straddle only if buying cheap IV at 15%, not euphoric 80%.',
+    choices: [
+      {
+        title: 'Iron Condor Sell Euphoric IV - Trader Mastery',
+        description: 'Sell 130 Put / Buy 125 Put & Sell 140 Call / Buy 145 Call for credit. Profit when IV crushes.',
+        actionType: 'VALUE_BUY_COVERED_CALL',
+        costFlorins: 0,
+        heartsEffect: 1.5,
+        awardsHeartContainer: true,
+        consequenceText: 'Supreme mastery! Sold euphoric 80% IV, IV crushed to 25%, condor max profit! +1,800ƒ! Vega protection granted! Trader path.',
+        florinsGain: 1800,
+        spotShiftPercent: 0.05,
+        pathScore: { trader: 3 },
+        relicReward: 'Hydra Scale'
+      },
+      {
+        title: 'Buy Cheap IV Straddle Before Pump - Contrarian',
+        description: 'Wait for IV 15% cheap, buy ATM Call+Put, sell into 80% euphoric.',
+        actionType: 'DEEP_ITM_LEAPS',
+        costFlorins: 800,
+        heartsEffect: 1.0,
+        awardsHeartContainer: true,
+        consequenceText: 'Contrarian! Bought cheap vol, sold euphoric. +1,200ƒ, vega protection. Hybrid path.',
+        florinsGain: 1200,
+        spotShiftPercent: 0.15,
+        pathScore: { trader: 2, investor: 1 },
+        relicReward: 'Vol Pearl'
+      },
+      {
+        title: 'Buy Naked 85% IV Calls Before Earnings (IV Crush Trap)',
+        description: 'FOMO buy overpriced calls.',
+        actionType: 'SHORT_THE_ASSET',
+        costFlorins: 700,
+        heartsEffect: -1.5,
+        consequenceText: 'IV Crush! Stock up 2% but calls down 60%! -1.5 hearts! Fail->Graham: vega_protection. Need spreads hedging Vega.',
+        florinsGain: -700,
+        spotShiftPercent: 0.02,
+        pathScore: { trader: -2 }
+      }
+    ]
+  }
+};

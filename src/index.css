@@ -1,0 +1,469 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --rpg-bg: #0a0e1d;
+    --rpg-panel: #141c2f;
+    --rpg-panel-deep: #0e1526;
+    --rpg-gold: #f5a623;
+    --rpg-gold-light: #ffef9c;
+    --rpg-amber-rune: #ffb700;
+    --rpg-emerald: #22c55e;
+    --rpg-ruby: #ef4444;
+    --rpg-sapphire: #38bdf8;
+    --rpg-stone: #1e293b;
+    --rpg-stone-light: #334155;
+    --rpg-ink: #f8fafc;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: #070a14;
+    color: var(--rpg-ink);
+    font-family: 'VT323', 'Fira Code', monospace;
+    font-size: 18px;
+    line-height: 1.4;
+    overflow-x: hidden;
+    user-select: none;
+    background-image: 
+      radial-gradient(ellipse at 30% 10%, rgba(245, 166, 35, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 90%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+      radial-gradient(ellipse at 50% 50%, rgba(16, 185, 129, 0.04) 0%, transparent 70%),
+      linear-gradient(180deg, #0a0e1d 0%, #070a14 100%);
+    /* SNES crisp pixel rendering */
+    image-rendering: pixelated;
+  }
+
+  /* Mobile-first: larger base font for thumb usability */
+  @media (max-width: 768px) {
+    body {
+      font-size: 20px;
+    }
+  }
+}
+
+/* ==================== SNES LTTP PANELS ==================== */
+.zelda-panel {
+  background: linear-gradient(180deg, #1a2744 0%, #121a2e 50%, #0e1526 100%);
+  border: 3px solid #c68a1a;
+  border-image: linear-gradient(180deg, #f5a623, #8a5a0a) 1;
+  box-shadow: 
+    0 0 0 1px #3a2500,
+    0 0 0 3px #0a0e1d,
+    0 4px 20px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 239, 156, 0.3),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.zelda-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(90deg, transparent 0%, rgba(245,166,35,0.03) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+.zelda-panel-gold {
+  background: linear-gradient(180deg, #2a3a5a 0%, #1a2744 100%);
+  border: 3px solid #f5a623;
+  box-shadow: 
+    0 0 20px rgba(245, 166, 35, 0.3),
+    0 0 0 1px #b45309,
+    inset 0 1px 1px rgba(255, 239, 156, 0.5);
+}
+
+.zelda-panel-dark {
+  background: rgba(14, 21, 38, 0.96);
+  border: 2px solid rgba(245, 166, 35, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+/* ==================== ORACLE CIRCLE - THE BLOOMBERG REPLACEMENT ==================== */
+.oracle-circle-frame {
+  background: 
+    radial-gradient(ellipse at center, #1e293b 0%, #0f172a 40%, #020617 100%);
+  border: 4px solid #2d1b00;
+  box-shadow: 
+    0 0 0 2px #f5a623,
+    0 0 0 4px #3a2500,
+    0 0 40px rgba(245, 166, 35, 0.25),
+    0 8px 32px rgba(0,0,0,0.8),
+    inset 0 0 60px rgba(0,0,0,0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.oracle-circle-frame::before {
+  /* Carved runes border */
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 2px solid rgba(245, 166, 35, 0.15);
+  border-radius: 50%;
+  background: 
+    repeating-conic-gradient(from 0deg, transparent 0deg 8deg, rgba(245,166,35,0.03) 8deg 10deg);
+  pointer-events: none;
+}
+
+.oracle-rune-glow {
+  color: #ffb700;
+  text-shadow: 
+    0 0 8px rgba(255, 183, 0, 0.8),
+    0 0 16px rgba(255, 183, 0, 0.4),
+    0 0 24px rgba(245, 166, 35, 0.2);
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.oracle-glyph {
+  width: 56px;
+  height: 56px;
+  background: radial-gradient(circle, #1e293b 0%, #0f172a 60%, #020617 100%);
+  border: 2px solid #f5a623;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 0 12px rgba(245, 166, 35, 0.5),
+    inset 0 1px 2px rgba(255, 239, 156, 0.3);
+  position: relative;
+}
+
+.oracle-glyph::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(245, 166, 35, 0.2);
+  border-radius: 50%;
+}
+
+.oracle-emerald-core {
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle, #22c55e 0%, #16a34a 100%);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 10px rgba(34, 197, 94, 0.8),
+    0 0 20px rgba(34, 197, 94, 0.4);
+  animation: emerald-pulse 2s ease-in-out infinite;
+}
+
+@keyframes emerald-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+/* Divination lens overlay */
+.divination-lens {
+  background: 
+    radial-gradient(ellipse at 30% 20%, rgba(245, 166, 35, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at center, rgba(14, 21, 38, 0.95) 0%, rgba(7, 10, 20, 0.98) 100%);
+  border: 2px solid rgba(245, 166, 35, 0.3);
+}
+
+/* ==================== BACKWARD COMPAT ==================== */
+.dos-box {
+  background: linear-gradient(180deg, #1a2744 0%, #0e1526 100%);
+  border: 3px solid #f5a623;
+  box-shadow: 
+    0 0 0 1px #3a2500,
+    0 8px 24px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(255, 239, 156, 0.25);
+}
+
+.dos-box-double {
+  border: 3px double #f5a623;
+  background: linear-gradient(180deg, #1e2d4a 0%, #121a2e 100%);
+}
+
+/* ==================== FONTS - SNES DIALOGUE STYLE ==================== */
+.font-pixel {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.7em;
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.font-snes {
+  font-family: 'VT323', monospace;
+  font-size: 1.2em;
+  letter-spacing: 0.02em;
+}
+
+/* Chunky readable for mobile thumbs */
+.text-snes-body {
+  font-family: 'VT323', monospace;
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+.text-snes-small {
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .text-snes-body {
+    font-size: 24px;
+  }
+  .text-snes-small {
+    font-size: 20px;
+  }
+}
+
+/* ==================== SCROLLBARS - SNES STYLE ==================== */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f5a623 0%, #c68a1a 100%);
+  border: 2px solid #3a2500;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ffef9c 0%, #f5a623 100%);
+}
+
+/* ==================== REMOVED CRT - NOW SUBTLE VIGNETTE ==================== */
+.crt-overlay {
+  /* Was CRT scanlines, now subtle SNES vignette - no green, no DOS */
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0,0,0,0) 60%,
+    rgba(0,0,0,0.25) 100%
+  );
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.crt-overlay::after {
+  display: none;
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes heart-pulse {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.08); filter: brightness(1.2); }
+}
+
+.animate-heart-pulse {
+  animation: heart-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes save-sparkle {
+  0% { opacity: 0; transform: translateY(8px) scale(0.8) rotate(0deg); }
+  50% { opacity: 1; transform: translateY(-8px) scale(1.2) rotate(180deg); }
+  100% { opacity: 0; transform: translateY(-20px) scale(0.9) rotate(360deg); }
+}
+
+.animate-save-sparkle {
+  animation: save-sparkle 1.8s ease-out infinite;
+}
+
+@keyframes rune-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-rune-float {
+  animation: rune-float 3s ease-in-out infinite;
+}
+
+@keyframes ledger-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(245, 166, 35, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(245, 166, 35, 0.5), 0 0 50px rgba(245, 166, 35, 0.2); }
+}
+
+.animate-ledger-glow {
+  animation: ledger-glow 2.5s ease-in-out infinite;
+}
+
+/* ==================== MOBILE TOUCH CONTROLS ==================== */
+.touch-dpad {
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border: 3px solid rgba(245, 166, 35, 0.4);
+  border-radius: 50%;
+  box-shadow: 
+    0 4px 16px rgba(0,0,0,0.5),
+    inset 0 1px 2px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+}
+
+.touch-dpad-btn {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(180deg, #334155 0%, #1e293b 100%);
+  border: 2px solid #f5a623;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffef9c;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  transition: all 0.1s;
+  user-select: none;
+}
+
+.touch-dpad-btn:active {
+  transform: scale(0.92);
+  background: linear-gradient(180deg, #f5a623 0%, #c68a1a 100%);
+  color: #000;
+}
+
+.touch-action-btn {
+  width: 72px;
+  height: 72px;
+  background: radial-gradient(circle, #f5a623 0%, #c68a1a 100%);
+  border: 3px solid #ffef9c;
+  border-radius: 50%;
+  box-shadow: 
+    0 4px 12px rgba(0,0,0,0.4),
+    0 0 16px rgba(245, 166, 35, 0.4);
+  color: #000;
+  font-weight: 900;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s;
+}
+
+.touch-action-btn:active {
+  transform: scale(0.9);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+/* ==================== SNES BUTTONS ==================== */
+.snes-btn {
+  background: linear-gradient(180deg, #2a3a5a 0%, #1a2744 100%);
+  border: 2px solid #f5a623;
+  color: #ffef9c;
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 10px 18px;
+  box-shadow: 
+    0 2px 0 #3a2500,
+    0 4px 12px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255, 239, 156, 0.2);
+  transition: all 0.12s;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.snes-btn:hover {
+  background: linear-gradient(180deg, #334a6a 0%, #1e2d4a 100%);
+  border-color: #ffef9c;
+  transform: translateY(-1px);
+  box-shadow: 
+    0 3px 0 #3a2500,
+    0 6px 16px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255, 239, 156, 0.3);
+}
+
+.snes-btn:active {
+  transform: translateY(2px);
+  box-shadow: 
+    0 0 0 #3a2500,
+    0 2px 8px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255, 239, 156, 0.1);
+}
+
+.snes-btn-primary {
+  background: linear-gradient(180deg, #f5a623 0%, #c68a1a 100%);
+  border: 3px solid #ffef9c;
+  color: #000;
+  font-weight: 900;
+  box-shadow: 
+    0 3px 0 #3a2500,
+    0 0 16px rgba(245, 166, 35, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.snes-btn-primary:hover {
+  background: linear-gradient(180deg, #ffef9c 0%, #f5a623 100%);
+  box-shadow: 
+    0 4px 0 #3a2500,
+    0 0 24px rgba(245, 166, 35, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* ==================== ORACLE LEDGER BOTTOM SHEET (MOBILE) ==================== */
+.oracle-bottom-sheet {
+  background: linear-gradient(180deg, #1a2744 0%, #0e1526 100%);
+  border-top: 4px solid #f5a623;
+  border-left: 3px solid #f5a623;
+  border-right: 3px solid #f5a623;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 
+    0 -8px 32px rgba(0,0,0,0.6),
+    0 0 0 1px #3a2500,
+    inset 0 1px 0 rgba(255, 239, 156, 0.2);
+}
+
+@media (min-width: 768px) {
+  .oracle-bottom-sheet {
+    border-radius: 12px;
+    border: 3px solid #f5a623;
+  }
+}
+
+/* ==================== PATH INDICATORS ==================== */
+.path-trader {
+  border-color: #ef4444;
+  background: linear-gradient(180deg, rgba(239,68,68,0.15) 0%, rgba(239,68,68,0.05) 100%);
+}
+
+.path-investor {
+  border-color: #22c55e;
+  background: linear-gradient(180deg, rgba(34,197,94,0.15) 0%, rgba(34,197,94,0.05) 100%);
+}
+
+.path-hybrid {
+  border-color: #38bdf8;
+  background: linear-gradient(180deg, rgba(56,189,248,0.15) 0%, rgba(56,189,248,0.05) 100%);
+}
+
+/* ==================== GRAHAM PROTECTION BADGE ==================== */
+.graham-badge {
+  background: linear-gradient(180deg, #1e3a8a 0%, #1e293b 100%);
+  border: 2px solid #38bdf8;
+  color: #7dd3fc;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+}
+
+.graham-badge.unlocked {
+  background: linear-gradient(180deg, #22c55e 0%, #16a34a 100%);
+  border-color: #86efac;
+  color: #000;
+  font-weight: bold;
+}

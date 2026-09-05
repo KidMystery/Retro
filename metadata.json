@@ -1,0 +1,6 @@
+{
+  "name": "Legend of Valuaria: Myth & Margin",
+  "description": "An epic 16-bit mythical options RPG inspired by A Link to the Past, where you name and customize your hero, explore vibrant lands, discover deep value assets, manage options Greeks as your life force, and conquer market guardians.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
