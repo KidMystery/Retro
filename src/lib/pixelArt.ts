@@ -24,6 +24,8 @@ export const BASE_PALETTE: Palette = {
   P: '#8a6b3f', // path
   p: '#a98a55', // path light
   pt: '#5a4630', // path dark
+  D: '#70502a', // dirt edge (darker)
+  F: '#4a5a34', // ledge face fill (desaturated grass)
   ' ': '',       // transparent
 };
 
@@ -112,6 +114,120 @@ export const TREE: string[] = [
   '     kttttttk    ',
   '      kttttk     ',
   '      kkkkkk     ',
+];
+
+// ===== 16x16 NATIVE TILE SET (B-spec: small grid, per-tile detail) =====
+// Each pattern is 16 rows x 16 cols of palette keys. Drawn with the
+// 2px-per-native-pixel scale so a 38px tile renders as 16px art upscaled.
+
+// Grass: 3 shades + darker speck pixels + a couple tuft blades.
+export const TILE_GRASS16: string[] = [
+  'ggggGGgggggggggg',
+  'gGGgddGgggdggggg',
+  'gggggGggggdggdgg',
+  'dggggggggggggGgg',
+  'gGgddggggggdggGg',
+  'gggggdGdgggggggg',
+  'ggggggggggGgdggg',
+  'gddggGgggggggdgg',
+  'ggggGgggggggggGg',
+  'ggggggdGggGgddgg',
+  'Gdgggggggggggggg',
+  'gggdgGggggddgggg',
+  'gggggggggGgGgggg',
+  'gGgddggdgggggggG',
+  'ggggggggGggggggg',
+  'gggGgGgdgggdgggg',
+];
+
+// Dirt path: tan base, darker edge pixels on top/left, lighter heart.
+export const TILE_DIRT16: string[] = [
+  'pppDpppppDpppppD',
+  'ppDpppppDppppppp',
+  'DppPpppDppPPpppp',
+  'pppPppppppPpppDp',
+  'ppppPpDppppPPppp',
+  'ppppPpppppPppppp',
+  'DpppPPppppppPppp',
+  'ppPpppPppDpppPpp',
+  'ppppPpppppppppDp',
+  'pppPpppppPpppppp',
+  'DpppppppPPPppppD',
+  'ppppPppppppppppp',
+  'ppppPpppppPppppp',
+  'ppDpppppppppPppp',
+  'ppppppPppppppppp',
+  'pDppDpPpppDppppp',
+];
+
+// Water: base blue, lighter shine streaks, darker under-edge.
+export const TILE_WATER16: string[] = [
+  'wwwwwWwwwwwwWwww',
+  'wwwwwwwwwwwwwwww',
+  'wwWwwwwwwwwwwWww',
+  'wwwwwwwwwwwwwwww',
+  'wwwwwwWwwwwwwwww',
+  'wWWwwwwwwwwWwwww',
+  'wwwwWwwwwwwwwWww',
+  'wwwwwwwwwwwwwwww',
+  'wwwWwwwwwwwwwwww',
+  'wwwwwwWwwwwwwwww',
+  'wwwwWWwwwwwwwwWw',
+  'wwwwwwwwwwwwwwww',
+  'wWwwwwwwwwwwwwww',
+  'wwwwwwwwWwwwWwww',
+  'wwwwwwWwwwwwwwww',
+  'wwwwwWwwwwwwwwww',
+];
+
+// faux-3D ledge FACE: darker, desaturated version of grass with a clear
+// top edge — used BELOW a raised grass tile to fake elevation.
+export const TILE_FACE16: string[] = [
+  'dDDDDDDdDDDDDDDD',
+  'FdFFdFFdFdFFFFdF',
+  'dFddFdFddFdFdddd',
+  'FdFdFFdFdFFFFdFd',
+  'ddFddFdFddFdddFd',
+  'FFFFdFFdFddFFdFF',
+  'dFdFddFdFdFFFFdF',
+  'FFFdFFdFdFFFFdFd',
+  'dFdddFdFddFdFdFd',
+  'FFFFFdFdFdFdFFdF',
+  'ddFddFdFddFdddFd',
+  'FdFFFFdFdFdFFFdF',
+  'dFddFFdFddFdFdFd',
+  'FFdFdFdFdFFFdFdF',
+  'ddFddFdFddFdFFdF',
+  'FFFFFdFdFdFFFFdF',
+];
+
+// Blocky oak (2x2 canopy + trunk and a solid dark base shadow) per B-spec:
+// objects composed of tile blocks, solid shadow directly beneath.
+export const OAK: string[] = [
+  '  kkLLLLLLLkk   ',
+  ' kLLLLLLLLLLLk  ',
+  ' kLLLHLLLLLLLk  ',
+  'kLLLLLLLLLLLHk  ',
+  'kLLLkLLLLkLLLk  ',
+  'kLLkLLLkkLLkLLk ',
+  'kLkLLLLLLLLkLk  ',
+  'kLLkLLkkLLkLLk  ',
+  'kLLLLLLkLLLLLk  ',
+  ' kkLLLLLLLLkk   ',
+  '   kkkkkkkkk    ',
+  '      kktt      ',
+  '     kktttt     ',
+  '     kktttt     ',
+  '     kkkkkk     ',
+  '    kkkkksk     ',
+];
+
+// solid dark shadow plate (the B-spec blocky shadow under objects)
+export const SHADOW_PLATE: string[] = [
+  '   sssssssss    ',
+  '  sssssssssss   ',
+  '  sssssssssss   ',
+  ' sssssssssssss  ',
 ];
 
 export interface Sprite {

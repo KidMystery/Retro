@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState, useCallback } from "react";
 import { ZeldaMap, ZeldaEntity, ZELDA_MAPS } from '../lib/zeldaWorldData';
 import { PlayerStats, AssetQuote, TunicColor, HairColor } from '../types';
 import { sound } from '../lib/audioEngine';
-import { blitGrid, BASE_PALETTE, TREE, HERO_D } from '../lib/pixelArt';
+import { blitGrid, BASE_PALETTE, HERO_D, TILE_GRASS16, TILE_DIRT16, TILE_WATER16, OAK } from '../lib/pixelArt';
 import {
   ArrowUp,
   ArrowDown,
@@ -174,7 +174,6 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
     if (!ctx) return;
     ctx.fillStyle = "#060a12";
     ctx.fillRect(0, 0, width, height);
-    const waterOffset = Math.sin(animTick * 0.05) * 3;
     const fairySparkOffset = (animTick * 0.8) % 30;
 
     for (let y = 0; y < mapData.height; y++) {
@@ -183,32 +182,8 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
         const px = x * TILE_SIZE;
         const py = y * TILE_SIZE;
         if (tile === ".") {
-          ctx.fillStyle = (x + y) % 2 === 0 ? "#2d6a2f" : "#265928";
-          ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
-          // vertical ground depth (top-down camera angle): light catch at
-          // top, dark receding edge at bottom => reads as 3D terrain.
-          const grad = ctx.createLinearGradient(px, py, px, py + TILE_SIZE);
-          grad.addColorStop(0, "rgba(255,255,200,0.10)");
-          grad.addColorStop(0.7, "rgba(0,0,0,0)");
-          grad.addColorStop(1, "rgba(0,0,0,0.28)");
-          ctx.fillStyle = grad;
-          ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
-          // dither: scattered lighter blades for SNES depth
-          const dg = (x * 7 + y * 13) % 4;
-          ctx.fillStyle = "#3c853f";
-          ctx.fillRect(px + 6, py + 10, 2, 5);
-          ctx.fillRect(px + 8, py + 12, 2, 3);
-          ctx.fillRect(px + 24, py + 22, 2, 5);
-          ctx.fillRect(px + 26, py + 24, 2, 3);
-          ctx.fillStyle = dg === 0 ? "#3c853f" : "#4daa50";
-          ctx.fillRect(px + ((x * 5) % 14) + 6, py + 3 + ((y * 7) % 10), 2, 4);
-          ctx.fillRect(px + ((x * 9) % 16), py + 20 + ((y * 5) % 12), 2, 3);
-          ctx.fillStyle = "rgba(0,0,0,0.06)";
-          ctx.fillRect(px, py + TILE_SIZE - 2, TILE_SIZE, 2);
-          // SNES: subtle dark top-left outline for tile depth
-          ctx.strokeStyle = "rgba(0,0,0,0.25)";
-          ctx.lineWidth = 1;
-          ctx.strokeRect(px + 0.5, py + 0.5, TILE_SIZE - 1, TILE_SIZE - 1);
+          // B-spec: 16x16 native grass tile (3 shades + speck + tuft), crisp.
+          blitGrid(ctx, TILE_GRASS16, BASE_PALETTE, px, py, 2);
         } else if (tile === "F") {
           ctx.fillStyle = "#2d6a2f";
           ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
@@ -220,35 +195,16 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
           ctx.fillStyle = "#ffffff";
           ctx.fillRect(px + 17, py + 15, 4, 4);
         } else if (tile === "P") {
-          ctx.fillStyle = "#3f4a3c";
-          ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
-          ctx.fillStyle = "#556350";
-          ctx.fillRect(px + 3, py + 3, TILE_SIZE - 6, TILE_SIZE - 6);
-          ctx.fillStyle = "#6f8169";
-          ctx.fillRect(px + 5, py + 5, 12, 10);
-          ctx.fillRect(px + 20, py + 18, 12, 12);
-          ctx.fillStyle = "#262d24";
-          ctx.fillRect(px + 17, py + 5, 2, 26);
+          // B-spec: native dirt path tile with distinct edges.
+          blitGrid(ctx, TILE_DIRT16, BASE_PALETTE, px, py, 2);
         } else if (tile === "T") {
           ctx.fillStyle = "#1a2e1a";
           ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
-          // SNES pixel tree: outlined round canopy + trunk, crisp edges.
-          blitGrid(ctx, TREE, BASE_PALETTE, px + 2, py + 4, 2);
-          // depth: soft shadow cast on the ground below the canopy — the
-          // signature "tall thing sitting on the ground" 3D cue.
-          ctx.fillStyle = "rgba(0,0,0,0.30)";
-          ctx.beginPath();
-          ctx.ellipse(px + 19, py + 33, 14, 5, 0, 0, Math.PI * 2);
-          ctx.fill();
+          // B-spec: blocky oak (canopy + trunk + solid shadow plate beneath).
+          blitGrid(ctx, OAK, BASE_PALETTE, px, py, 2);
         } else if (tile === "~") {
-          ctx.fillStyle = "#0284c7";
-          ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
-          ctx.fillStyle = "#0369a1";
-          ctx.fillRect(px, py + 14, TILE_SIZE, TILE_SIZE - 14);
-          ctx.fillStyle = "#bae6fd";
-          const waveY = (py + 8 + waterOffset) % TILE_SIZE;
-          ctx.fillRect(px + 4, waveY + py, 14, 2);
-          ctx.fillRect(px + 22, ((waveY + 12) % TILE_SIZE) + py, 12, 2);
+          // B-spec: native water tile with shine streaks.
+          blitGrid(ctx, TILE_WATER16, BASE_PALETTE, px, py, 2);
         } else if (tile === "=") {
           ctx.fillStyle = "#0369a1";
           ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
