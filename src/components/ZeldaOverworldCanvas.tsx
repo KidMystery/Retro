@@ -185,6 +185,14 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
         if (tile === ".") {
           ctx.fillStyle = (x + y) % 2 === 0 ? "#2d6a2f" : "#265928";
           ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
+          // vertical ground depth (top-down camera angle): light catch at
+          // top, dark receding edge at bottom => reads as 3D terrain.
+          const grad = ctx.createLinearGradient(px, py, px, py + TILE_SIZE);
+          grad.addColorStop(0, "rgba(255,255,200,0.10)");
+          grad.addColorStop(0.7, "rgba(0,0,0,0)");
+          grad.addColorStop(1, "rgba(0,0,0,0.28)");
+          ctx.fillStyle = grad;
+          ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
           // dither: scattered lighter blades for SNES depth
           const dg = (x * 7 + y * 13) % 4;
           ctx.fillStyle = "#3c853f";
@@ -226,6 +234,12 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
           ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
           // SNES pixel tree: outlined round canopy + trunk, crisp edges.
           blitGrid(ctx, TREE, BASE_PALETTE, px + 2, py + 4, 2);
+          // depth: soft shadow cast on the ground below the canopy — the
+          // signature "tall thing sitting on the ground" 3D cue.
+          ctx.fillStyle = "rgba(0,0,0,0.30)";
+          ctx.beginPath();
+          ctx.ellipse(px + 19, py + 33, 14, 5, 0, 0, Math.PI * 2);
+          ctx.fill();
         } else if (tile === "~") {
           ctx.fillStyle = "#0284c7";
           ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
@@ -380,7 +394,7 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
     const hair = HAIR_COLORS[player.avatar?.hairColor || "blonde"];
     ctx.fillStyle = "rgba(0,0,0,0.45)";
     ctx.beginPath();
-    ctx.ellipse(px + 19, py + 33, 11, 5, 0, 0, Math.PI * 2);
+    ctx.ellipse(px + 19, py + 33, 12, 6, 0, 0, Math.PI * 2);
     ctx.fill();
     ctx.fillStyle = "#5c381c";
     const isOdd = walkFrame % 2 === 1;
