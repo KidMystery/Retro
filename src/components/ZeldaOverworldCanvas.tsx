@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
-import { ZeldaMap, ZeldaEntity, ZELDA_MAPS } from "../lib/zeldaWorldData";
-import { PlayerStats, AssetQuote, TunicColor, HairColor } from "../types";
-import { sound } from "../lib/audioEngine";
+import { ZeldaMap, ZeldaEntity, ZELDA_MAPS } from '../lib/zeldaWorldData';
+import { PlayerStats, AssetQuote, TunicColor, HairColor } from '../types';
+import { sound } from '../lib/audioEngine';
+import { blitGrid, BASE_PALETTE, TREE, HERO_D } from '../lib/pixelArt';
 import {
   ArrowUp,
   ArrowDown,
@@ -221,29 +222,10 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
           ctx.fillStyle = "#262d24";
           ctx.fillRect(px + 17, py + 5, 2, 26);
         } else if (tile === "T") {
-          ctx.fillStyle = "#2d6a2f";
+          ctx.fillStyle = "#1a2e1a";
           ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
-          ctx.fillStyle = "#5c381c";
-          ctx.fillRect(px + 14, py + 22, 10, 14);
-          ctx.fillStyle = "#3d2311";
-          ctx.fillRect(px + 14, py + 28, 3, 8);
-          ctx.fillRect(px + 21, py + 28, 3, 8);
-          ctx.fillStyle = "#143818";
-          ctx.beginPath();
-          ctx.arc(px + 19, py + 18, 17, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.fillStyle = "#1e5424";
-          ctx.beginPath();
-          ctx.arc(px + 19, py + 16, 15, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.fillStyle = "#2d7a36";
-          ctx.beginPath();
-          ctx.arc(px + 14, py + 13, 8, 0, Math.PI * 2);
-          ctx.arc(px + 23, py + 13, 8, 0, Math.PI * 2);
-          ctx.arc(px + 19, py + 9, 8, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.fillStyle = "#4ade80";
-          ctx.fillRect(px + 17, py + 7, 3, 3);
+          // SNES pixel tree: outlined round canopy + trunk, crisp edges.
+          blitGrid(ctx, TREE, BASE_PALETTE, px + 2, py + 4, 2);
         } else if (tile === "~") {
           ctx.fillStyle = "#0284c7";
           ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
@@ -486,21 +468,21 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
       ctx.fillRect(px + 25, py + 12, 5, 3);
     }
 
-    // SNES signature: dark 1px outline around the whole hero + head cap,
-    // so the character reads as pixel-art, not a C64 flat shape.
-    ctx.strokeStyle = "rgba(15,23,42,0.9)";
-    ctx.lineWidth = 1;
-    ctx.strokeRect(px + 9, py + 6, 24, 29); // body outline
-    ctx.strokeRect(px + 13, py + 3, 14, 8); // head outline
-    // hat/hair silhouette
-    ctx.fillStyle = hair;
-    ctx.fillRect(px + 12, py + 4, 3, 4);
-    ctx.fillRect(px + 23, py + 4, 3, 4);
-    // cel-shade highlight on chest
-    ctx.fillStyle = tunic.highlight;
-    ctx.globalAlpha = 0.35;
-    ctx.fillRect(px + 13, py + 16, 5, 4);
-    ctx.globalAlpha = 1;
+    // SNES pixel-art hero: blit the hand-authored 16x20 sprite over the
+    // flat fallback, scaled to ~2 so it reads as crisp pixel-art with a
+    // bold dark outline, tunic + hair + accent colored from the avatar.
+    const heroScale = 2;
+    const heroW = 16 * heroScale; // 32
+    const heroH = 20 * heroScale; // 40
+    blitGrid(
+      ctx,
+      HERO_D,
+      BASE_PALETTE,
+      px + (TILE_SIZE - heroW) / 2,
+      py + (TILE_SIZE - heroH) - 2,
+      heroScale,
+      { tunic: tunic.main, hair, accent: '#f59e0b' }
+    );
     ctx.fillStyle = "rgba(15,23,42,0.85)";
     ctx.fillRect(px - 6, py - 14, TILE_SIZE + 12, 13);
     ctx.strokeStyle = "#f59e0b";
