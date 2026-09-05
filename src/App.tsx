@@ -36,6 +36,7 @@ import {
 import { DOSHeader } from './components/DOSHeader';
 import { ZeldaHeartsHUD } from './components/ZeldaHeartsHUD';
 import { ZeldaOverworldCanvas } from './components/ZeldaOverworldCanvas';
+import { DungeonView } from './components/DungeonView';
 import { ZeldaCombatModal } from './components/ZeldaCombatModal';
 import { UndervaluedAssetModal } from './components/UndervaluedAssetModal';
 import { RugPullLessonModal } from './components/RugPullLessonModal';
@@ -1020,16 +1021,11 @@ export default function App() {
 
           {currentView === 'MAP' && (
             <>
-              <ZeldaOverworldCanvas
-                act={player.chapter}
-                player={player}
-                asset={assetQuote}
-                onMove={handleOverworldMove}
-                onInteractEntity={handleInteractEntity}
-                onSwordSlash={() => {}}
-                onOpenSave={() => { setSaveModalMode('SAVE'); setIsAtSaveShrine(false); setShowSaveModal(true); }}
-                onOpenCustomize={() => setShowCustomizeModal(true)}
-              />
+              <DungeonView onInteract={() => {
+                              const mapData = ZELDA_MAPS[player.chapter] || ZELDA_MAPS[1];
+                              const found = mapData.entities.find(e => Math.abs(e.x - player.mapX) + Math.abs(e.y - player.mapY) <= 1.2);
+                              if (found) handleInteractEntity(found);
+                            }} />
               <TouchDPad
                 onMove={(dir) => {
                   const dirMap = { UP: [0,-1,'UP'], DOWN: [0,1,'DOWN'], LEFT: [-1,0,'LEFT'], RIGHT: [1,0,'RIGHT'] } as const;
