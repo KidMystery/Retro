@@ -1,5 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { sound } from '../lib/audioEngine';
+import wallTexUrl from '../assets/textures/dungeon_wall.png';
+import floorTexUrl from '../assets/textures/dungeon_floor.png';
+import sageSpriteUrl from '../assets/sprites/sage.png';
+import brokerSpriteUrl from '../assets/sprites/broker.png';
+import scammerSpriteUrl from '../assets/sprites/scammer.png';
+import chestSpriteUrl from '../assets/sprites/chest.png';
 
 /**
  * DungeonView — first-person 3D dungeon crawler (raycaster, Doom/Duke-style).
@@ -51,6 +57,15 @@ interface DungeonViewProps {
 
 const ENCOUNTER_RANGE = 0.75;
 
+// Encounter id prefix → real generated sprite (batch-1 art pass)
+const spriteFor = (id: string): string | null => {
+  if (id.startsWith('sage')) return sageSpriteUrl;
+  if (id.startsWith('broker')) return brokerSpriteUrl;
+  if (id.startsWith('scam')) return scammerSpriteUrl;
+  if (id.startsWith('chest')) return chestSpriteUrl;
+  return null;
+};
+
 export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters = [], onEncounter }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const posRef = useRef({ x: 2.5, y: 4.5 });
@@ -73,6 +88,33 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters
     canvas.width = W; canvas.height = H;
     ctx.imageSmoothingEnabled = false;
 
+    // ===== GENERATED TEXTURES (art batch 1) =====
+    let wallTex: HTMLImageElement | null = null;
+    let floorTexData: ImageData | null = null;
+    const spriteImgs: Record<string, HTMLImageElement> = {};
+    const loadTex = (src: string, cb: (img: HTMLImageElement) => void) => {
+      const img = new Image();
+      img.onload = () => cb(img);
+      img.src = src;
+    };
+    loadTex(wallTexUrl, (img) => { wallTex = img; });
+    loadTex(floorTexUrl, (img) => {
+      const c = document.createElement('canvas');
+      c.width = 256; c.height = 256;
+      const cc = c.getContext('2d');
+      if (cc) { cc.drawImage(img, 0, 0); floorTexData = cc.getImageData(0, 0, 256, 256); }
+    });
+    [sageSpriteUrl, brokerSpriteUrl, scammerSpriteUrl, chestSpriteUrl].forEach((u) => {
+      loadTex(u, (img) => { spriteImgs[u] = img; });
+    });
+
+    // Low-res floor-casting buffer (chunky upscaled pixels = on-aesthetic)
+    const FW = 210, FH = 65;
+    const floorCanvas = document.createElement('canvas');
+    floorCanvas.width = FW; floorCanvas.height = FH;
+    const floorCtx = floorCanvas.getContext('2d');
+    const floorBuf = floorCtx ? floorCtx.createImageData(FW, FH) : null;
+
     const MAPW = MAP[0].length, MAPH = MAP.length;
     const getTile = (mx: number, my: number) =>
       my < 0 || my >= MAPH || mx < 0 || mx >= MAPW ? '#' : MAP[my][mx];
@@ -85,9 +127,39 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters
       const cg = ctx.createLinearGradient(0, 0, 0, H / 2);
       cg.addColorStop(0, COLORS.ceiling1); cg.addColorStop(1, COLORS.ceiling2);
       ctx.fillStyle = cg; ctx.fillRect(0, 0, W, H / 2);
-      const fg = ctx.createLinearGradient(0, H / 2, 0, H);
-      fg.addColorStop(0, COLORS.floor1); fg.addColorStop(1, COLORS.floor2);
-      ctx.fillStyle = fg; ctx.fillRect(0, H / 2, W, H / 2);
+      // FLOOR — perspective-correct textured floor casting at half res
+      if (floorCtx && floorBuf && floorTexData) {
+        const d = floorBuf.data, td = floorTexData.data;
+        const rdx0 = sx - plx, rdy0 = sy - ply;
+        const rdx1 = sx + plx, rdy1 = sy + ply;
+        for (let j = 0; j < FH; j++) {
+          const p = (j + 0.5) * 2;             // screen px below horizon
+          const rowDist = (H * 0.5) / p;       // camera height 0.5 world units
+          let fx = pos.x + rowDist * rdx0;
+          let fy = pos.y + rowDist * rdy0;
+          const stx = rowDist * (rdx1 - rdx0) / FW;
+          const sty = rowDist * (rdy1 - rdy0) / FW;
+          const shade = Math.max(0.26, 1 - rowDist / 8);
+          const rowOff = j * FW * 4;
+          for (let i = 0; i < FW; i++) {
+            const tu = (((fx - Math.floor(fx)) * 256) | 0) & 255;
+            const tv = (((fy - Math.floor(fy)) * 256) | 0) & 255;
+            const toff = (tv * 256 + tu) * 4;
+            const o = rowOff + i * 4;
+            d[o] = td[toff] * shade;
+            d[o + 1] = td[toff + 1] * shade;
+            d[o + 2] = td[toff + 2] * shade;
+            d[o + 3] = 255;
+            fx += stx; fy += sty;
+          }
+        }
+        floorCtx.putImageData(floorBuf, 0, 0);
+        ctx.drawImage(floorCanvas, 0, 0, FW, FH, 0, H / 2, W, H / 2);
+      } else {
+        const fg = ctx.createLinearGradient(0, H / 2, 0, H);
+        fg.addColorStop(0, COLORS.floor1); fg.addColorStop(1, COLORS.floor2);
+        ctx.fillStyle = fg; ctx.fillRect(0, H / 2, W, H / 2);
+      }
 
       for (let col = 0; col < W; col++) {
         const camX = (2 * col) / W - 1;
@@ -110,17 +182,31 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters
         const drawEnd = Math.min(H, lineH / 2 + H / 2);
 
         // wall shade by depth + side
-        const shade = Math.max(0.3, 1 - perp / 7);
-        const base = tile === 'C' ? '#7a3b10' : (side === 1 ? COLORS.stone3 : '#2a2420');
-        // vertical blend toward black for depth (atmospheric fog)
-        const mix = Math.max(0, (perp - 2) / 5);
-        ctx.fillStyle = blendColor(base, '#000000', mix * 0.5);
-        ctx.fillRect(col, drawStart, 1, Math.max(1, drawEnd - drawStart));
-        // stone block lines
-        if (lineH > 50) {
-          ctx.fillStyle = 'rgba(0,0,0,0.35)';
-          const block = Math.round(lineH / 26);
-          for (let b = 1; b <= block; b++) ctx.fillRect(col, drawStart + b * 26, 1, 1);
+        const isDoor = tile === 'C';
+        if (wallTex) {
+          // textured wall slice: hit fraction along wall face → texture u
+          let wallX = side === 0 ? pos.y + perp * rdy : pos.x + perp * rdx;
+          wallX -= Math.floor(wallX);
+          const texX = Math.min(255, Math.floor(wallX * 256));
+          const fullStart = H / 2 - lineH / 2;
+          const srcY = Math.max(0, (0 - fullStart) / lineH) * 256;
+          const srcH = Math.max(1, ((drawEnd - drawStart) / lineH) * 256);
+          ctx.drawImage(wallTex, texX, srcY, 1, srcH, col, drawStart, 1, Math.max(1, drawEnd - drawStart));
+          // depth fog + side darkening (+ bronze tint for sealed relic doors)
+          if (isDoor) { ctx.fillStyle = 'rgba(122,59,16,0.5)'; ctx.fillRect(col, drawStart, 1, Math.max(1, drawEnd - drawStart)); }
+          if (side === 1) { ctx.fillStyle = 'rgba(0,0,0,0.28)'; ctx.fillRect(col, drawStart, 1, Math.max(1, drawEnd - drawStart)); }
+          const mix = Math.max(0, (perp - 2) / 5);
+          if (mix > 0) { ctx.fillStyle = `rgba(0,0,0,${(mix * 0.5).toFixed(3)})`; ctx.fillRect(col, drawStart, 1, Math.max(1, drawEnd - drawStart)); }
+        } else {
+          const base = isDoor ? '#7a3b10' : (side === 1 ? COLORS.stone3 : '#2a2420');
+          const mix = Math.max(0, (perp - 2) / 5);
+          ctx.fillStyle = blendColor(base, '#000000', mix * 0.5);
+          ctx.fillRect(col, drawStart, 1, Math.max(1, drawEnd - drawStart));
+          if (lineH > 50) {
+            ctx.fillStyle = 'rgba(0,0,0,0.35)';
+            const block = Math.round(lineH / 26);
+            for (let b = 1; b <= block; b++) ctx.fillRect(col, drawStart + b * 26, 1, 1);
+          }
         }
       }
 
@@ -145,21 +231,36 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters
         const bob = Math.sin(anim * 0.12 + enc.x * 3 + enc.y) * size * 0.35;
         const sy2 = H / 2 + bob;
         const pulse = 0.65 + 0.35 * Math.sin(anim * 0.22 + dist);
+        // occlusion: skip if a wall blocks the line of sight
+        let occluded = false;
+        for (let t = 0.15; t < dist - 0.05; t += 0.1) {
+          if (getTile(Math.floor(pos.x + dx / dist * t), Math.floor(pos.y + dy / dist * t)) !== '.') { occluded = true; break; }
+        }
+        if (occluded) continue;
         // glow halo
         const halo = ctx.createRadialGradient(screenX, sy2, 1, screenX, sy2, size * 3.2);
         halo.addColorStop(0, `rgba(120,230,160,${0.5 * pulse})`);
         halo.addColorStop(1, 'rgba(120,230,160,0)');
         ctx.fillStyle = halo;
         ctx.fillRect(screenX - size * 3.2, sy2 - size * 3.2, size * 6.4, size * 6.4);
-        // glyph diamond
-        ctx.fillStyle = pulse > 0.8 ? '#a8ffcf' : '#4ade80';
-        ctx.beginPath();
-        ctx.moveTo(screenX, sy2 - size);
-        ctx.lineTo(screenX + size * 0.7, sy2);
-        ctx.lineTo(screenX, sy2 + size);
-        ctx.lineTo(screenX - size * 0.7, sy2);
-        ctx.closePath(); ctx.fill();
-        ctx.strokeStyle = 'rgba(20,60,35,0.8)'; ctx.stroke();
+        // real generated sprite billboard (batch-1 art pass), grounded on floor plane
+        const sprUrl = spriteFor(enc.id);
+        const spr = sprUrl ? spriteImgs[sprUrl] : null;
+        if (spr) {
+          const sh = Math.min(H * 1.4, (H / ty) * 0.6);
+          const floorScreenY = H / 2 + (H * 0.5) / ty;
+          ctx.drawImage(spr, screenX - sh / 2, floorScreenY - sh + bob * 0.5, sh, sh);
+        } else {
+          // fallback glyph diamond
+          ctx.fillStyle = pulse > 0.8 ? '#a8ffcf' : '#4ade80';
+          ctx.beginPath();
+          ctx.moveTo(screenX, sy2 - size);
+          ctx.lineTo(screenX + size * 0.7, sy2);
+          ctx.lineTo(screenX, sy2 + size);
+          ctx.lineTo(screenX - size * 0.7, sy2);
+          ctx.closePath(); ctx.fill();
+          ctx.strokeStyle = 'rgba(20,60,35,0.8)'; ctx.stroke();
+        }
       }
 
       // foreground brazier (bottom-center) — the reference's presence cue

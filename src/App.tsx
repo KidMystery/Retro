@@ -63,6 +63,8 @@ import { ChartPuzzleModal } from './components/ChartPuzzleModal';
 import { ProvingVaultModal } from './components/ProvingVaultModal';
 import { ProvingVaultResult, TOTAL_CURRICULUM_LESSONS } from './lib/curriculum/provingVault';
 import { Play, Award, Save, User, Sparkles, Crown, Shield, BookOpen, Coins } from 'lucide-react';
+import titleBgUrl from './assets/textures/title_background.jpg';
+import sageSpriteUrl from './assets/sprites/sage.png';
 
 export default function App() {
   const [theme, setTheme] = useState<DOSTheme>('snes');
@@ -84,7 +86,7 @@ export default function App() {
   const [sanctuaryLessonId, setSanctuaryLessonId] = useState<GrahamProtectionId>('margin_of_safety');
   // McMillan mechanic gate: blocks a trade encounter until a real options-mechanics MCQ is answered.
   const [mechanicGate, setMechanicGate] = useState<{ lessonId: GrahamProtectionId } | null>(null);
-  const [npcDialogue, setNpcDialogue] = useState<{ name: string; lines: string[]; lore?: string } | null>(null);
+  const [npcDialogue, setNpcDialogue] = useState<{ name: string; lines: string[]; lore?: string; portrait?: string } | null>(null);
 
   const [player, setPlayer] = useState<PlayerStats>({
     name: 'Valen',
@@ -867,7 +869,7 @@ export default function App() {
   const handleInteractEntity = (entity: ZeldaEntity) => {
     if (entity.type === 'NPC_SAGE') {
       sound.playSecretChime();
-      setNpcDialogue({ name: entity.name, lines: entity.dialogue || ['"Margin of Safety, apprentice."'], lore: entity.lore });
+      setNpcDialogue({ name: entity.name, lines: entity.dialogue || ['"Margin of Safety, apprentice."'], lore: entity.lore, portrait: sageSpriteUrl });
     } else if (entity.type === 'NPC_BROKER') {
       sound.playCommandBeep();
       // McMillan mechanic gate first: read the mechanic beat + answer a real options MCQ
@@ -1175,6 +1177,8 @@ export default function App() {
         <main className="flex-1 my-1">
           {currentView === 'INTRO' && (
             <div className="zelda-panel p-4 sm:p-8 text-center flex flex-col items-center justify-center min-h-[75vh] rounded-xl shadow-2xl relative overflow-hidden">
+              <img src={titleBgUrl} alt="" className="absolute inset-0 w-full h-full object-cover opacity-45 pointer-events-none" style={{ imageRendering: 'pixelated' }} />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/65 pointer-events-none" />
               <div className="absolute inset-0 bg-gradient-to-b from-amber-500/5 via-transparent to-sky-500/5 pointer-events-none" />
               <div className="flex items-center justify-center gap-3 mb-3">
                 <div className="oracle-glyph w-14 h-14">
@@ -1537,11 +1541,16 @@ export default function App() {
                 </span>
                 <button onClick={() => { setNpcDialogue(null); setPlayer(prev => ({ ...prev, oracleBondLevel: Math.min(5, prev.oracleBondLevel + 0.1) })); }} className="snes-btn px-2 py-1 text-xs rounded-md">[ESC] CLOSE</button>
               </div>
-              <div className="space-y-2 text-sm leading-relaxed text-slate-200 font-snes">
+              <div className="space-y-2 text-sm leading-relaxed text-slate-200 font-snes flex gap-3">
+                {npcDialogue.portrait && (
+                  <img src={npcDialogue.portrait} alt={npcDialogue.name} className="w-24 h-24 shrink-0 rounded-lg border-2 border-amber-500/50 bg-black/60 object-contain" style={{ imageRendering: 'pixelated' }} />
+                )}
+                <div className="space-y-2">
                 {npcDialogue.lines.map((line, idx) => (
                   <p key={idx} className="italic">{line}</p>
                 ))}
                 {npcDialogue.lore && <p className="text-[11px] text-amber-200/50 italic border-l-2 border-amber-500/30 pl-2">{npcDialogue.lore}</p>}
+                </div>
               </div>
               <button onClick={() => { setNpcDialogue(null); setPlayer(prev => ({ ...prev, oracleBondLevel: Math.min(5, prev.oracleBondLevel + 0.1) })); }} className="snes-btn-primary w-full py-2.5 text-sm rounded-xl">CONTINUE [SPACE] • Oracle Bond +0.1</button>
             </div>

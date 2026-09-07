@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ScamEncounter, PlayerStats } from '../types';
 import { sound } from '../lib/audioEngine';
 import { AlertTriangle, ShieldCheck, Skull, BookOpen, Coins, Crown } from 'lucide-react';
+import scammerSpriteUrl from '../assets/sprites/scammer.png';
 
 interface RugPullLessonModalProps {
   scam: ScamEncounter;
@@ -49,10 +50,15 @@ export const RugPullLessonModal: React.FC<RugPullLessonModalProps> = ({ scam, pl
         {phase === 'PITCH' && (
           <div className="space-y-3">
             <div className="bg-black/60 border border-amber-500/20 p-3 rounded-xl">
+              <div className="flex gap-3 items-start">
+                <img src={scammerSpriteUrl} alt={scam.shillerName} className="w-20 h-20 shrink-0 rounded-lg border-2 border-purple-500/50 bg-black/60 object-contain" style={{ imageRendering: 'pixelated' }} />
+                <div className="flex-1">
               <div className="font-bold text-amber-300 text-sm mb-1">PITCH • Charm Monster Overpromises:</div>
               <p className="text-sm leading-relaxed text-slate-200 italic">"{scam.pitch}"</p>
               <div className="mt-2 p-2 bg-amber-950/20 border border-amber-500/30 rounded-lg text-xs text-amber-200"><strong>Promise:</strong> {scam.promiseText}</div>
               <div className="mt-2 text-[11px] text-slate-500">Cost to fall: {scam.costFlorins}ƒ • Fail Reason: {scam.temptationOutcome.failReason} • Lesson: {scam.temptationOutcome.lessonId}</div>
+                </div>
+              </div>
             </div>
 
             <div className="bg-sky-950/20 border border-sky-500/30 p-2.5 rounded-xl text-xs text-sky-200">

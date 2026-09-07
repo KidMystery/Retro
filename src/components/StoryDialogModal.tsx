@@ -2,6 +2,19 @@ import React, { useState } from 'react';
 import { QuestNode, StoryChoice } from '../types';
 import { sound } from '../lib/audioEngine';
 import { MessageSquare, ArrowRight, X, AlertCircle, Crown } from 'lucide-react';
+import sageSpriteUrl from '../assets/sprites/sage.png';
+import brokerSpriteUrl from '../assets/sprites/broker.png';
+import scammerSpriteUrl from '../assets/sprites/scammer.png';
+import chestSpriteUrl from '../assets/sprites/chest.png';
+
+// Encounter portrait by quest id (batch-1 art pass)
+const portraitFor = (id: string): string | null => {
+  if (id.startsWith('sage')) return sageSpriteUrl;
+  if (id.startsWith('broker')) return brokerSpriteUrl;
+  if (id.startsWith('scam')) return scammerSpriteUrl;
+  if (id.startsWith('chest')) return chestSpriteUrl;
+  return null;
+};
 
 interface StoryDialogModalProps {
   quest: QuestNode;
@@ -12,6 +25,7 @@ interface StoryDialogModalProps {
 
 export const StoryDialogModal: React.FC<StoryDialogModalProps> = ({ quest, playerFlorins, onChoiceSelect, onClose }) => {
   const [selectedChoice, setSelectedChoice] = useState<StoryChoice | null>(null);
+  const portrait = portraitFor(quest.id);
 
   const handleChoose = (choice: StoryChoice) => {
     if (choice.costFlorins && playerFlorins < choice.costFlorins) { sound.playAlarmSound(); return; }
@@ -35,8 +49,11 @@ export const StoryDialogModal: React.FC<StoryDialogModalProps> = ({ quest, playe
         </div>
 
         <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-[#121a2e] to-[#0a0e1d]">
-          <div className="p-3 border-2 border-amber-500/20 bg-slate-900/60 rounded-xl leading-relaxed text-sm text-slate-200">
-            {quest.description}
+          <div className="p-3 border-2 border-amber-500/20 bg-slate-900/60 rounded-xl leading-relaxed text-sm text-slate-200 flex gap-3 items-start">
+            {portrait && (
+              <img src={portrait} alt={quest.speaker || quest.title} className="w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-lg border-2 border-amber-500/50 bg-black/60 object-contain" style={{ imageRendering: 'pixelated' }} />
+            )}
+            <span>{quest.description}</span>
           </div>
           <div className="p-2.5 border-2 border-sky-500/30 bg-sky-950/20 rounded-xl text-sky-200 text-xs">
             <div className="font-bold flex items-center gap-1.5 text-sky-300 mb-1"><AlertCircle className="w-3.5 h-3.5" /> ORACLE LAW • Olmstead + Graham:</div>
