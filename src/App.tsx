@@ -58,6 +58,8 @@ import { MarginEvent, MarginState, describeMarginDanger, marginUtilization } fro
 import { MarginMeter } from './components/MarginMeter';
 import { checkBadges, Badge } from './lib/curriculum/dopamineBadges';
 import { BadgeFanfare, BadgeShelf } from './components/BadgeFanfare';
+import { chartPuzzles, ChartPuzzle } from './lib/curriculum/chartPuzzles';
+import { ChartPuzzleModal } from './components/ChartPuzzleModal';
 import { Play, Award, Save, User, Sparkles, Crown, Shield, BookOpen, Coins } from 'lucide-react';
 
 export default function App() {
@@ -167,6 +169,8 @@ export default function App() {
   // ── Wiring 3: dopamine badge ladder ──
   const [earnedBadgeIds, setEarnedBadgeIds] = useState<string[]>([]);
   const [fanfareBadge, setFanfareBadge] = useState<Badge | null>(null);
+  // ── Wiring 4: chart puzzle rooms ──
+  const [activeChartPuzzle, setActiveChartPuzzle] = useState<ChartPuzzle | null>(null);
 
   const [terminalLog, setTerminalLog] = useState<string[]>([
     '◈ Daen Alterspire awakens... Obsidian altar with floating amber runes, pulsing emerald core.',
@@ -752,6 +756,15 @@ export default function App() {
       [9, 15],  // chest
       [17, 15], // boss
     ];
+    // Wiring 4: chart puzzle rooms — 4 extra encounter nodes on open floor tiles.
+    const chartRoomCoords: Array<[number, number]> = [[6, 4], [14, 12], [5, 8], [15, 3]];
+    const chartRooms = chartRoomCoords.map((c, i) => ({
+      id: `chart-room-${i}`,
+      name: `Chart Shrine ${i + 1}`,
+      x: c[0] + 0.5,
+      y: c[1] + 0.5,
+      prompt: `Read the tape • ${chartPuzzles[i % chartPuzzles.length].pattern}`,
+    }));
     const mapData = ZELDA_MAPS[player.chapter] || ZELDA_MAPS[1];
     return mapData.entities.slice(0, coords.length).map((e, i) => ({
       id: e.id,
@@ -759,8 +772,31 @@ export default function App() {
       x: coords[i][0] + 0.5,
       y: coords[i][1] + 0.5,
       prompt: e.interactPrompt,
-    }));
+    })).concat(chartRooms);
   }, [player.chapter]);
+
+  // Wiring 4: resolve a chart puzzle answer. Correct = rune + florin bonus;
+  // wrong = sanctuary loop with the explanation as the lesson.
+  const handleChartPuzzleAnswer = (correct: boolean) => {
+    const puzzle = activeChartPuzzle;
+    setActiveChartPuzzle(null);
+    if (!puzzle) return;
+    if (correct) {
+      sound.playFanfare();
+      setPlayer(prev => ({
+        ...prev,
+        florins: prev.florins + 400,
+        grahamProtections: prev.grahamProtections.includes(puzzle.protectionId as any)
+          ? prev.grahamProtections
+          : [...prev.grahamProtections, puzzle.protectionId as any]
+      }));
+      setTerminalLog(prev => [...prev.slice(-10), `🕯 CHART ROOM SOLVED: ${puzzle.pattern} read correctly! +400ƒ • ${puzzle.explanation}`]);
+    } else {
+      sound.playAlarmSound();
+      setTerminalLog(prev => [...prev.slice(-10), `🕯 CHART ROOM FAILED: ${puzzle.trap} • Sanctuary lesson: ${puzzle.lesson}`]);
+      triggerSanctuary('DIRECTIONAL_WRONG', 'margin_of_safety', 300);
+    }
+  };
 
   const handleInteractEntity = (entity: ZeldaEntity) => {
     if (entity.type === 'NPC_SAGE') {
@@ -1181,6 +1217,13 @@ export default function App() {
                 }}
                 encounters={dungeonEncounters}
                 onEncounter={(id) => {
+                  // Wiring 4: chart puzzle rooms open the ChartPuzzle, not entity flow.
+                  if (id.startsWith('chart-room-')) {
+                    const idx = parseInt(id.split('-')[2], 10);
+                    sound.playSecretChime();
+                    setActiveChartPuzzle(chartPuzzles[idx % chartPuzzles.length]);
+                    return;
+                  }
                   const mapData = ZELDA_MAPS[player.chapter] || ZELDA_MAPS[1];
                   const found = mapData.entities.find(e => e.id === id);
                   if (found) handleInteractEntity(found);
@@ -1443,6 +1486,15 @@ export default function App() {
         {/* Wiring 3: full-screen badge fanfare */}
         {fanfareBadge && (
           <BadgeFanfare badge={fanfareBadge} onDismiss={() => setFanfareBadge(null)} />
+        )}
+
+        {/* Wiring 4: chart puzzle room */}
+        {activeChartPuzzle && (
+          <ChartPuzzleModal
+            puzzle={activeChartPuzzle}
+            onAnswer={handleChartPuzzleAnswer}
+            onLeave={() => setActiveChartPuzzle(null)}
+          />
         )}
 
         {activeModal === 'QUEST' && activeQuest && (
