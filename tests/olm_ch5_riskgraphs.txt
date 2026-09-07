@@ -1,0 +1,161 @@
+is much more convenient to have those options prices converted into a
+net profit or loss figure for display purposes. This allows the observer
+to easily identify the desired price range of the stock for achieving a
+profit on the trade.
+T o illustrate how the progression of time influences a trade, four time
+lines are displayed on each risk graph. One of the time lines always rep-
+resents the current state of the trade. If the trade has just been initiated,
+that time line is the current state. Another time line always provides the
+projected profit or loss information at expiration. The other two time
+lines provide the projected state of the trade at times between the cur-
+rent state and expiration.
+Single Option Trade
+Let’s look at an example of a risk graph to illustrate a trade involving a
+single long call:
+■ Example 1. This example recalls Example 3 from Chapter 2,
+“Option Selection. ” We use a risk graph to demonstrate how the
+information provided in that example was determined.
+Y ou think that XYZ is going to rise in price in the near to inter-
+mediate future. In early April, XYZ is at $67.
+Y ou buy 1 Apr 70 call, which is priced at $1.50 per share.
+See Figure 5-1 for the risk graph that depicts this trade of being a long
+one XYZ Apr 70 call with 17 days until the option expires.
+In Figure 5-1, the price of XYZ stock is shown on the vertical axis. On
+the horizontal axis is the profit or loss in the value of the option, with
+the zero point dividing the profit and loss regimes. The trade at the
+time of initiation is represented by the line labeled as “today: 17 days
+left. ” The time line representing the trade at expiration is labeled as
+“Expiry: 0 days left. ” In between are additional time lines for “12 days
+left” and “6 days left. ”
+This option seems cheap enough, but is it a good one to buy? T o answer
+this question, let’s see what XYZ needs to do for this option to provide
+a reasonable profit.
+42 OPTIONS FOR THE BEGINNER AND BEYOND
+Chapter 5 Risk Graphs 43
+The Apr 70 call expires in a little over two weeks. Because this option is
+out-of-the-money, all of its $1.50 price is time value.
+If XYZ rockets up to $73 in one week, the option might become worth
+$3.70 ($3 intrinsic value and $.70 time value). This represents a nice
+$2.20 profit on a $1.50 investment, but it required a 9 percent gain in
+the stock price in one week.
+This profit information is found from the risk graph by moving hori-
+zontally along the stock price line for $73 until a point is reached,
+between the 6 days and 12 days time lines, which would represent
+10 days left. Dropping down from that point to the horizontal axis
+indicates a profit in the trade of approximately $220. Because this trade
+involves only one Apr 70 call contract purchased for $150, this implies
+an option price of $3.70 per share [(150 + 220)/100 = 3.7].
+Today: 17 days left
+12 days left
+6 days left
+Expiry: 0 days left
+–1000
+60 80 70
+Stock Price
+500 700 900100 300–500 –300 –100–700
+Figure 5-1
+44 OPTIONS FOR THE BEGINNER AND BEYOND
+If XYZ only manages to rise gradually over the next two weeks to reach
+$71.50 just at expiration, the option will be worth $1.50 (all intrinsic
+value and no time value at expiration). In this scenario, XYZ has gone up
+by 7 percent in three weeks, but you only break even on the option trade.
+This information is found from the risk graph by noting that the time
+line at expiration crosses the zero profit axis at $71.50.
+Suppose XYZ barely edges up to $68.50 with one week remaining.
+Then, this option might be worth only $1 (all time value), because it is
+still out-of-the-money and has only one week of life remaining. Now
+you have lost $.50 per share on the option even though the stock has
+moved up slightly, and there is almost no time left to recover.
+This information is found from the risk graph by moving horizontally
+along the stock price line for $68.50 until a point is reached just to the
+right of the 6 days time line. Dropping down from that point to the
+horizontal axis indicates a loss in the trade of approximately $50. This
+implies an option price of $1 per share [(150 – 50)/100 = 1.0].
+Multiple Option Trade
+Next, let’s consider a trade involving two options. One option will be a
+long call that expires in a distant month, and the other option will be a
+short call in a near month. Both options have the same strike price. This
+type of trade is known as a calendar spread.
+■ Example 2. This example of a calendar spread is presented and
+discussed in Chapter 12, “Calendar Spreads. ” Our goal here is
+just to look at the risk graph and see how to read it.
+The stock price of XYZ is expected to trade within a narrow
+range around $35 for the next several months. In early May with
+XYZ at $34.70, the following trade is initiated. Y ou buy 1 Nov
+35 call for $3.50 per share and sell 1 Jun 35 call for $1.30 per
+share. Y our net cost and maximum risk on this trade is $220
+[(3.50 − 1.30) × 100 = 220].
+See Figure 5-2 for a risk graph that depicts this calendar trade.
+Chapter 5 Risk Graphs 45
+In Figure 5-2, note that on the day this trade is initiated, it is shown to
+expire in 39 days. This is reflecting that the Jun 35 call will expire 39 days
+after the date it is sold in early May. The Nov 35 call does not expire for
+another 150 days following the June expiration. This illustrates an
+important feature of risk graphs. They are only valid up until the expi-
+ration date of the earliest expiring option. T o follow the progress of the
+trade after that date requires the calculation of a new risk graph.
+From Figure 5-2, it is easy to see where you would like the price of XYZ
+stock to be when the Jun 35 call expires. The time line representing the
+trade at the June expiration date crosses the zero profit axis at $33 and
+$38. Thus, this calendar trade returns a profit at the June expiration if
+the price of XYZ is between $33 and $38 with a maximum profit of $90
+if the stock price is exactly $35.
+Today: 39 days left
+26 days left
+13 days left
+Expiry: 0 days left
+–300 –200 –100 0
+30 40
+Stock Price
+Figure 5-2
+Comments
+Even for a single option trade like that of Example 1, a risk graph can
+prove useful in making decisions about exiting a trade. Knowing that
+the option will achieve a profit only if the stock price rises by a certain
+amount before a particular date can be crucial information.
+For trades with multiple options, particularly where the options have
+different expiration dates, the risk graph provides information that is
+very difficult to otherwise determine. In Example 2, the existence of a
+profit zone between $33 and $38 would be a mystery without the ben-
+efit of the risk graph.
+Note in both of the examples that the point on the initial time line cor-
+responding to the stock price at the time of entry lies slightly to the left
+of the zero profit axis. That is, as soon as the trade is entered, it is show-
+ing a small loss. This is known as slippage. It results from the difference
+between the bid and ask prices for an option, which was discussed in
+Chapter 3, “Entering and Exiting Option Trades. ”
+Risk graphs can also be adjusted to reflect the influence of other factors
+that affect the price of an option. Most notable are the changes in the
+risk graph due to a significant change in the volatility of the option
+prices.
+46 OPTIONS FOR THE BEGINNER AND BEYOND
+47
+6
+LEAPS
+ome stocks and indexes have options with expiration dates that
+occur two to three years into the future. These options are called
+LEAPS, which is an acronym for Long-term Equity AnticiPation
+Securities. Most LEAPS expire in January of their designated expiration
+year. These options include both calls and puts that function in the
+same manner as options associated with more-current expiration dates.
+Of course, these long-term options are relatively expensive because of
+their greatly extended lifetime.
+Y ou can use LEAPS in numerous ways. We discuss some of those uses
+here, while pointing out both the advantages and disadvantages of
+LEAPS. Because there can be drawbacks to using these long-term
+options, you should always “Look before you LEAPS. ”
+One of the more popular uses of LEAPS is as a substitute for a buy-and-
+hold stock. In fact, LEAPS are sometimes referred to as the poor man’s
+stock. This is because they can be purchased for a fraction of the cost of
+stock and then held for a long period of time.
+T o explore this concept of using a LEAPS call as a stock surrogate, let’s
+look at an example in which we compare the performances of the
+option and the stock.
+In early December 2004, XYZ stock is trading near $98 per share. If we
+buy 100 shares of stock, the cost is $9,800. Suppose instead, we buy a
+LEAPS call that will expire in about 25 months.
+Trade: Buy 1 Jan (07) 100 call option for $11.50 per share.
+Cost = $1,150.
+Max risk = $1,150.
+See Figure 6-1 for a risk graph that depicts this trade.
+S

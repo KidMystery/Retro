@@ -1,0 +1,467 @@
+An (equity) option is linked to a specific stock. The price of the option
+is much less than the price of the underlying stock, which is a major
+reason for the attractiveness of options. If the price of the stock
+changes, the price of the option will also change, although by a smaller
+amount. As the price of a stock goes through its daily ups and downs,
+the price of an associated option will undergo related fluctuations.
+The price of an option can be viewed and followed in much the same
+way as a stock price. There are numerous online services, including the
+data feed for your brokerage account, that provide the prices of options.
+The Chicago Board Options Exchange (CBOE) offers a free online serv-
+ice for quotes on option prices that are 20 minutes delayed.
+For a call option, if the stock price goes up, the option price also
+increases. If the stock price goes down, the price of the call decreases.
+For a put option, if the stock price goes down, the option price increases.
+If the stock price goes up, the price of the put decreases.
+This sounds like owning a call option is similar to holding a long posi-
+tion in the stock, because you have the potential to make a profit when
+the stock price goes up. And owning a put option is similar to holding
+a short position in the stock, because you have the potential to make a
+profit when the stock price goes down. In a rough sense, this analogy is
+true, but there are some significant differences.
+Major Differences Between Stocks and Options
+Leverage
+Options typically cost only a fraction of the stock price. If you think
+XYZ stock, currently at $49 per share, is going up in price, you can pur-
+chase 100 shares at a cost of $4,900. If instead you buy 1 call option
+contract (1 contract represents 100 shares of stock), you might pay only
+$2 per share for a total of only $200 to participate in an upward price
+movement of XYZ.
+Analogously, if you think XYZ is going down in price, you could short
+100 shares of stock, but that creates a margin responsibility in your bro-
+kerage account, which can become costly if XYZ goes up. If instead you
+4 OPTIONS FOR THE BEGINNER AND BEYOND
+buy one put contract, you might pay just $2 per share for a total of only
+$200 to participate in a downward price movement of XYZ.
+Time Limitation
+One reason options are cheap is that they are time limited. A long or
+short position involving stock can be held indefinitely, but an option
+expires on a fixed date. The expiration date is typically the third Friday
+of the expiration month designated in the option contract. When you
+buy an option, you can select from various expiration months, includ-
+ing the current month as well as other months going out possibly as far
+as two years.
+The longer you want to hold an option, the more expensive it will be. If
+a price of $1 per share applies to an option expiring in two months, a
+similar option expiring in four months might be priced at $2 per share.
+For 12 months, the price could be as much as $7 per share, but even this
+would typically be a small fraction of the stock price.
+Another important aspect of being time limited is that the value of an
+option will decrease with time when there is no change in the stock
+price. If you buy an option for $1 per share with two months until expi-
+ration, for example, it might be worth only $.65 with one month to go
+if the stock price has not gone up. This is one of the risks of owning an
+option, namely that its value diminishes over time when the stock price
+remains unchanged.
+Price Movement
+As the stock price changes, the option price also changes, but by a lesser
+amount. How closely the change in the option price matches the
+change in the stock price depends on the reference price designated in
+the option contract. This reference price is called the strike price.
+When you decide to purchase an option, there will be several strike
+prices from which to make a selection. For most stocks, the strike prices
+of its options are set at $5 increments within the broad trading range of
+the stock. For some lower- and medium-priced stocks, strike prices are
+offered in increments of $2.50, whereas options on some high-priced
+stocks only have strike price increments of $10.
+Chapter 1 Introduction 5
+There is a terminology used by options traders to describe the relative
+relationship between the stock price and the strike price of an option. If
+the strike price of either a call or a put is close to the price of the stock,
+the option is said to be at-the-money. If the strike price of a call (put) is
+above (below) the stock price, the option is said to beout-of-the-money.
+If the strike price of a call (put) is below (above) the stock price, the
+option is said to be in-the-money.
+For an at-the-money option, the price of the option will change by about
+50 percent of the amount of change in the stock price. For an out-of-the
+money option, the price of the option will change by less than 50 percent
+of the change in the stock price. The price of an in-the-money option
+will move by more than 50 percent of the change in the stock price.
+For example, suppose XYZ stock is priced at $49 and a call option with
+a $50 strike price is purchased for $2 per share. If the price of XYZ stock
+rises by $2 up to $51 soon after purchasing the option, the price of the
+call would typically increase by about $1, raising its price by up to
+$3 per share. Suppose instead, a call option with a $55 strike price was
+purchased for $.75 per share. Then the same $2 move in the stock price
+might increase the price of the call by only $.20, up to $.95 per share.
+On the other hand, a call option with a $45 strike price and a cost of
+$5 per share might see an increase in the price of the call by as much as
+$1.60, up to $6.60 per share.
+Of course, if XYZ fell $2 from $49 down to $47, the call option with a
+$50 strike price could be expected to lose about $1 per share, reducing
+its price from $2 down to $1. This illustrates how the leverage of options
+works in both directions.
+Financial Risk
+When you buy an option, your maximum risk is limited to your origi-
+nal cost of that option. The worst outcome is that you hold the option
+until expiration, at which time it has become worthless because the
+stock price failed to move in a beneficial manner.
+For example, if you buy one option contract for a price of $2 per share,
+your cost is $200 (2 × 100 = 200). This is the most that you can lose.
+Compare that dollar risk with the risk of either owning or shorting
+6 OPTIONS FOR THE BEGINNER AND BEYOND
+100 shares of stock. When the stock price undergoes a substantial move
+against your long or short position in the stock, the dollar loss will be
+much greater than the cost of a call or put option.
+A major risk with options is that you invest heavily by purchasing
+numerous contracts and then allow them to expire worthless. This rep-
+resents a 100 percent loss on a significant investment. Of course, it is
+rarely necessary to lose all of your original investment when the stock
+does not move as expected. Typically, you can sell your options before
+expiration and recover some part of your original cost.
+A Detailed Explanation of Options
+Additional insight into options from both the owner and seller view-
+points is provided in the more detailed explanation that follows here.
+The Option Contract
+An (equity) option represents a contract between a buyer and a seller.
+This contract is an agreement concerning the buying or selling of a
+stock at a reference price during a stipulated time frame. Y ou will never
+see any written document for this contract, just as you do not see actu-
+al shares of stock that you purchase in your brokerage account. The
+existence of the option contract is implied as soon as you buy or sell an
+option through your broker.
+We will continually refer to the buying and selling of options. In case
+you are wondering where all this buying and selling takes place, there
+are exchanges for trading options similar to the exchanges for trading
+stocks. Y our broker routes your order to buy or sell an option to one of
+those option exchanges, just like he sends your order to buy or sell stock
+to a stock exchange.
+There are rights and obligations associated with an option contract,
+which need to be understood. Options associated with individual
+stocks trade in a manner called “American style, ” which permits the
+owner of the option to exercise the rights of the contract at any time
+before the option expires. T o better comprehend the implications of
+an option being exercised, we examine the call option and the put
+Chapter 1 Introduction 7
+option from the viewpoints of both the buyer (owner) and the seller
+(writer).
+The Call Option
+The buyer (owner) of a call option has the right to purchase 100 shares
+of stock at the strike price designated in the contract. This right to pur-
+chase can be exercised anytime before the contract expires. Typically,
+the time frame of the option extends through the third Friday of the
+expiration month stipulated in the contract.
+The seller (writer) of a call option has the obligation to supply 100 shares
+of stock for purchase at the strike price, if so requested by the owner of
+the option. This obligation to supply the stock may be required at any
+time before the contract expires. As a practical matter, if the stock price
+is below the strike price, the stock is almost never “called” away from the
+seller. Even when the stock price goes above the strike price, the assign-
+ment of a call rarely happens until near the expiration date.
+BUYING A CALL OPTION
+The motivation to buy a call option could be based on your expectation
+that the price of XYZ stock will soon rise above its current level. Let’s
+set up a possible trade, clarify its risk, and examine some possible out-
+comes resulting from the trade:
+■ Tr ade.In early February, with XYZ trading at $49, you decide
+to buy one call contract to benefit from the expected rise in the
+stock price. T o allow a reasonable amount of time for XYZ to
+advance, you select a contract with an April expiration. Y ou also
+select a strike price of $50. Option prices are quoted on a per-
+share basis, and let’s suppose that this call option costs $2 per
+share. Because the option covers 100 shares of stock, this means
+you pay $200 to own this particular call contract.
+In the jargon of options, you are “long one XYZ Apr 50 call. ”
+Now you have the right to purchase 100 shares of XYZ stock at
+$50 per share anytime before the close of trading on the third
+Friday of April.
+8 OPTIONS FOR THE BEGINNER AND BEYOND
+This right to purchase XYZ stock for $50 per share does not
+look so good at the moment, because the stock is priced in the
+market at only $49. Indeed, why have you paid $2 per share for
+something that presently has no intrinsic value? Because the
+expression “time is money” is most appropriate as it applies to
+options. Y ou paid $2 per share as a cheap way to participate in
+the movement of the price of XYZ stock until the call expires in
+two months.
+■ Risk. Y our risk on this trade is limited to the $200 paid for one
+call contract.
+■ Outcome. Let’s examine a few scenarios to see how this trade
+might work out:
+1. Suppose your faith in XYZ stock is validated as its price
+reaches $54 by the end of March. Now your right to pur-
+chase XYZ at $50 looks good, and you decide it is time to
+take your profit. Should you call your broker and tell him to
+exercise your right to purchase this stock at $50? No, because
+you will do much better if you just sell the option. The
+option you bought for $2 is likely to now be worth $5.50. So,
+the contract for which you paid $200 can now be sold for
+$550, giving you a nice $350 profit. That represents a
+175 percent profit on the option, whereas the stock price has
+risen only 15 percent.
+Why is this option worth $5.50 when its intrinsic value is
+only $4 (54 – 50 = 4)? Again, because “time is money, ” and
+the person who buys your call option is paying the extra
+$1.50 per share over its intrinsic value in hopes that XYZ
+stock will go even higher before the April expiration.
+Let’s see why selling the option is more profitable than
+exercising it. If you had exercised your option to buy XYZ
+stock at $50 and then immediately sold the stock at $54,
+that would be a $400 gain on the stock, less the $200 cost
+of the option for a net profit of only $200. So, exercising the
+option yields only a 100 percent profit as compared with
+the 175 percent profit received from selling the option. Also,
+Chapter 1 Introduction 9
+selling the option avoids any issue about having enough
+cash in your brokerage account to take ownership of the
+stock.
+2. In contrast to the happy Scenario 1, let’s see what happens in
+the unfortunate case when XYZ is under $50 when the April
+options expiration date arrives. If you remained stubbornly
+optimistic until the end, you would have seen the value of
+your option diminish until it expired worthless. In this
+worst-case situation, you would lose all of the $200 that you
+originally paid for the option. Usually, there is no need to
+incur such a complete loss. If XYZ is still around $49 in early
+April with only a couple of weeks left until expiration, you
+might conclude that the chance for success looks remote.
+Then sell your option for whatever value remains. Suppose
+that you could sell the option for $1 per share and thereby
+close the trade for a 50 percent loss. The decision to limit
+your loss on a long option trade to 50 percent is a reasonable
+exit strategy.
+SELLING A CALL OPTION
+Suppose that you own 100 shares of ZYX stock, which at the current
+price of $67 is above where you bought it, but now seems to be stalled.
+It would be nice to make a bit more money on this stock, and you
+would be quite happy to part with it at $70 per share. This could be
+your motivation to sell a call. Selling a call would immediately bring
+some cash into your brokerage account, and if ultimately you are
+required to give up your stock for $70 per share, that is an additional
+gain. Let’s set up a possible trade, clarify its risk, and examine some pos-
+sible outcomes resulting from the trade:
+■ Tr ade.In early February, you decide to sell one call contract on
+ZYX. Y ou pick the $70 strike price and a March expiration. The
+March option is selected so as to have an early resolution as to
+whether your stock will be retained or sold. Suppose that you
+are able to sell the March call for $2 per share. Because the
+contract covers 100 shares of stock, that brings in $200, which
+is yours to keep.
+10 OPTIONS FOR THE BEGINNER AND BEYOND
+In the jargon of options, you are “short one ZYX Mar 70 call. ”
+Also, this particular combination of owning a stock and selling
+a call is referred to as a covered call position. Chapter 14,
+“Covered Calls, ” discusses this type of trade more fully.
+Y ou now have the obligation to give up your stock at $70 a
+share if someone exercises that right against you before the
+close of trading on the third Friday of March. Does this mean
+your stock will be called away as soon as its price is a penny
+over $70? No, because under most circumstances you only need
+worry about losing your stock within a few days of the expira-
+tion date. Why? As illustrated previously, until near the expira-
+tion date, the owner of the option will always profit more by
+selling it than by exercising it. Of course, as the expiration date
+is reached with ZYX above $70, someone is ultimately going to
+exercise their option and call away your stock.
+■ Risk. Y our risk here is the usual risk of owning a stock, because
+its price could drop significantly. T o a small degree, this risk is
+offset by the decrease in value of the short call.
+■ Outcome. Let’s examine a few scenarios to see how this trade
+might work out:
+1. At expiration, ZYX is at $71. Y our stock is called away for
+$70. Y ou have made $2 per share for the call that you sold,
+and the stock is being sold for $3 more than the $67 it was
+worth when you sold the option. Thus, you have a $500 gain
+since the time that you initiated the option trade.
+Things look a little different if ZYX is $74 at expiration.
+Y our stock will still be taken away at $70, and you have
+exactly the same $500 gain that you had when ZYX closed
+at $71. But in this case, you could have made $700 on the
+stock if you had not sold the option. Of course, that $700
+gain is unrealized unless you actually sell the stock at $74.
+One benefit of the covered call trade is that it forces some
+discipline upon you to take a profit and get rid of a stock
+that possibly has little upside left in it.
+Chapter 1 Introduction 11
+2. If ZYX is slightly above $70 as expiration nears, you might
+decide that you do not want to part with your stock. Then
+you must buy back the short call. If ZYX is hovering around
+$71 on the expiration day, you can probably buy back the
+call option for a bit more than $1 a share (even at expiration
+it will cost you a little more than its intrinsic value). This
+gives you a profit of the difference between the $2 that you
+took in from the sale of the call less your approximate cost of
+$1 from buying it back. Now you get to keep your stock, but
+if its price soon begins to fall, you may regret the decision to
+keep it.
+3. If ZYX is only $69 at expiration, the call that you sold
+expires worthless. Y ou already have the $2 from selling the
+option, and you also retain your stock. The cost basis for
+your stock has been lowered by $2 per share. Now you can
+repeat the process in the next month. If you were able to
+continue bringing in $200 every month with this covered call
+strategy, that represents a 36 percent annual return on a
+$67 stock that does not even need to go up in price. If the
+stock goes up gradually and each month you can sell a call at
+a higher strike price, things are even better.
+4. Suppose that ZYX has pulled back to $64 at expiration. Now
+your stock has lost $3 per share from the time that you sold
+the call. This unpleasant situation is somewhat relieved by
+the $2 per share received for the call that you sold. In this
+case, your net loss is only $1 per share.
+The Put Option
+The buyer (owner) of a put option has the right to sell 100 shares of
+stock at the strike price designated in the contract. This right to sell can
+be exercised anytime before the contract expires. Typically, the time
+frame of the option extends through the third Friday of the expiration
+month stipulated in the contract.
+The seller (writer) of a put option has the obligation to buy 100 shares
+of stock at the strike price, if so requested by the owner of the option.
+12 OPTIONS FOR THE BEGINNER AND BEYOND
+This obligation to purchase the stock may be required at any time
+before the contract expires. As a practical matter, the stock is never
+“put” to seller if the stock price is above the strike price. Even if the
+stock price is below the strike price, the put assignment typically does
+not happen until near the expiration date.
+BUYING A PUT OPTION
+The motivation to buy a put option could be based on your expectation
+that the price of XYZ stock will soon fall from its current level. Let’s set
+up a possible trade, clarify its risk, and examine some possible out-
+comes resulting from the trade:
+■ Tr ade.In early February, with XYZ trading at $39, you decide
+to buy one put contract to benefit from the expected fall in the
+stock price. Because you expect XYZ to decline following an
+earnings report in early March, you choose a March option.
+Y ou also decide on a strike price of $40. Let’s say this put
+option costs $3 per share. Because the option covers 100 shares
+of stock, this means that you pay $300 to become the owner of
+this particular put contract. Y ou are now “long one XYZ Mar 40
+put. ” This gives you the right to sell 100 shares of XYZ stock at
+$40 per share anytime before the close of trading on the third
+Friday of March. This right to sell at $40 per share is a slight
+improvement over its current price of $39; however, that gain
+of $1 per share is offset by the $3 per share paid for the option.
+Why have you paid $3 for something that has an intrinsic value
+of only $1? Again, “time is money, ” and you have paid an extra
+$2 per share of time value in order to play XYZ for a downward
+move until the put expires in March.
+■ Risk. Y our risk on this trade is limited to the $300 paid for one
+put contract.
+■ Outcome. Let’s examine a few scenarios to see how this trade
+might work out:
+1. The earnings report for XYZ is indeed weak and the stock
+sinks to $34. Now your right to sell XYZ at $40 per share
+looks good. Does it matter that you do not own any XYZ
+Chapter 1 Introduction 13
+stock to sell? No, because if you are ready to take your profit,
+all you need do is sell the option. The option you bought for
+$3 is likely to now be worth $7. So, the contract for which
+you paid $300 can now be sold for $700, giving you a nice
+$400 profit. That represents a 133 percent profit on the
+option, whereas the stock dropped only about 13 percent.
+Why is the option worth $7 when its intrinsic value is only
+$6 (40 – 34 = 6)? As said before, time is money, and the
+person who buys your put option for $7 is paying an extra
+$1 per share over its intrinsic value in hopes that XYZ will go
+even lower before the March expiration.
+Let’s see why selling the option is better than exercising it. T o
+assign the option, you would first need to buy the stock at
+$34 per share and then exercise your right to have someone
+buy the stock at $40 per share. Y our gain would be $600 on
+the stock less the $300 you paid for the option, giving a net
+profit of only $300. So, exercising the option yields a
+100 percent profit as compared with the 133 percent profit
+received from selling the option.
+2. In contrast to the happy Scenario 1, let’s see what happens in
+the case when the price of XYZ stock is still at $39 when the
+March options expiration date arrives. The earnings report
+failed to negatively impact the stock price and you have
+stubbornly refused to accept that outcome until the end.
+Then you would have seen the value of your option shrink
+from $3 down to its intrinsic value of $1. Y ou could then sell
+the option for $100, which represents a $200 loss based on
+the $300 paid for the option.
+SELLING A PUT OPTION
+Suppose that you shorted 100 shares of ZYX stock when it was $65 a
+share. It has fallen to $62 in early February, but seems to be stalled at
+that price level. Y ou do have a $300 profit, but your original goal was to
+ride this stock down to $60 for a profit of $500. This could be the moti-
+vation for selling a put option. Selling a put would immediately bring
+some cash into your brokerage account, and if ultimately you are
+14 OPTIONS FOR THE BEGINNER AND BEYOND
+required to close your short position at $60 per share, that is an addi-
+tional gain. Let’s set up a possible trade, clarify its risk, and examine
+some possible outcomes resulting from the trade:
+■ Tr ade.In February, you decide to sell a March contract so as to
+have an early resolution on the position of being short ZYX
+stock. Y ou find that you can sell the March $60 put for $2 per
+share, which brings $200 into your brokerage account. Y ou are
+now “short one Mar 60 put. ” This means that you might be
+required to buy 100 shares of ZYX at $60 per share at anytime
+before the March options expiration date. For all practical pur-
+poses, this is not going to happen unless ZYX is below $60 as
+the expiration date nears. If you are required to buy the stock at
+$60, your broker will immediately use those shares to close
+your short position in ZYX, which you initiated at $65.
+■ Risk. Y our risk here is the usual risk of being short a stock,
+because its price could rise significantly. T o a small degree, this
+risk is offset by the decrease in value of the short put.
+■ Outcome. Let’s examine some scenarios to see how this trade
+might work out:
+1. Suppose that ZYX is still at $62 when the March expiration
+date arrives. Because the stock price is above the strike price
+at expiration, the option expires worthless. Now you can keep
+the $200 that you received from selling the put option and
+your short position in the stock remains in place. Thus, you
+have managed to make some additional profit on this short
+position, even though the stock is right where it was when
+you sold the put.
+2. If the price of ZYX is at $59 at expiration in March, you
+would be required to buy 100 shares of the stock at $60 per
+share. These purchased shares would immediately close your
+short position in ZYX. Now you have achieved your original
+goal of riding the stock down from $65 to $60, plus you have
+brought in an extra $2 per share from selling the put. This
+yields $500 from the short sale of the stock plus $200 from
+the option for a total profit of $700.
+Chapter 1 Introduction 15
+Comments
+The discussion in this chapter focused only on some of the more com-
+mon uses of call and put options. A variety of strategies use options in
+other ways to enhance the opportunity for making a profit under the
+appropriate circumstances. Many of those strategies are presented in
+this book.
+Time is money. This phrase should always be in the back of your mind
+as you deal with options. Remember that the value of an option
+decreases in time when everything else remains unchanged. When you
+own an option, time is your enemy. When you have sold an option,
+time is your friend.
+Before you can begin trading options, you need to consult your broker
+to determine what types of option trading will be allowed in your
+account. The types of allowed trades will depend on the size of
+your account as well as whether it is a retirement account. Upon receiv-
+ing approval, you will be able to do options trading in your brokerage
+account much like you do stock trading, either by directing your broker
+to place orders or by online transactions done by yourself.
+16 OPTIONS FOR THE BEGINNER AND BEYOND
+17
+2
+OPTION SELECTION
+What Is a Cheap Option?
+ach of us has our own idea about when something is cheap. On a
+superficial level, something that costs $1 is cheap, and something
+that costs $100 is expensive. But it is not really the dollar cost that
+makes something cheap or expensive. Rather, it is whether the intrinsic
+value of the item purchased is close to the cost paid to own that item.
+Often, we are tempted to buy something at a price which has been
+“hyped” way beyond its intrinsic value. Remember the Beanie Baby
+craze of a few years ago, when those cute little stuffed animals were
+being hyped as collector’s items and as such were being bought for way
+more than their intrinsic value? Now that the craze has passed, these
+items are being sold at garage sales for a price that is much closer to
+their intrinsic value. The hype value of the Beanie Baby has disappeared
+over time.
+What does this have to do with options? Well, every option has a price
+that represents its intrinsic value plus a hyped value. In the language of
+option traders, the hyped value of the option is called its time value.W e
+are all familiar with the cliché “time is money, ” and never was this
+expression truer than as it applies to the price of an option. Options are
+time-limited financial instruments, and it makes sense that an option
+with a life of five months should cost more than an option with only
+one month of life. With any option, you do not want to pay for too
+much time value. One situation that warrants caution is when a stock is
+generating lots of excitement (good or bad), because the price of its
+options will be hyped up with extra time value.
+Whenever you consider buying an option, it is a good idea to identify
+just how much of its price is intrinsic value and how much is time
+E

@@ -1,0 +1,202 @@
+Suppose that six weeks later, at the June options expiration date, XYZ is
+still at $34.70. The short Jun 35 call will expire worthless. This leaves the
+Nov 35 call with a cost basis of $2.20 per share. Using an options calcu-
+lator, we can estimate the value of the Nov 35 call at that time to be
+$3 per share. If on the Monday after the June expiration date, the Nov 35
+is sold for that price, then a profit of $80 is achieved [(3.00 – 2.20) ×
+100 = 80]. That gain is also seen in the risk graph of Figure 12-1. The
+profit here represents a gain of 36 percent based on the original risk of
+$220. Note that this gain is achieved in about six weeks.
+T o understand how this profit was made, let’s look at the details of the
+trade. The Jun 35 call was sold for $1.20 per share, which was all time
+value. Because the price of XYZ was under $35 at the expiration date,
+the Jun 35 call expired worthless, and all of that time value is gained.
+The Nov 35 call lost only $.50 of time value as its price decreased from
+88 OPTIONS FOR THE BEGINNER AND BEYOND
+Today: 39 days left
+26 days left
+13 days left
+Expiry: 0 days left
+–300 –200 –100 0 30 40
+Stock Price
+Figure 12-1
+$3.50 per share to $3 per share at the June expiration. Our profit was
+derived from the fact that the November option was less sensitive to the
+loss of time value than was the June option. Thus, the calendar spread
+profited by gaining $1.30 per share from the Jun 35 call, while losing
+only $.50 per share in the Nov 35 call. This resulted in a net profit of
+$.80 per share [1.30 – .50 = .80].
+As an alternative to selling the Nov 35 call following the June expiration
+date, it may be worthwhile to hold this option and establish a new cal-
+endar spread by selling the Jul 35 call. This illustrates one of the poten-
+tial benefits of calendar spreads, namely the ability to continue selling
+front-month options to reduce the cost basis of the longer-term option.
+Let’s examine this new calendar spread.
+Following the expiration of the Jun 35 call, you are holding one Nov 35
+call with an effective cost basis of $2.20 per share. Then sell one Jul 35
+call for $1 per share. (Note that this is less than received for the Jun 35 call
+because there would be only about four weeks until the July expiration
+date.) Now, your current net debit and maximum risk is $120 [(2.20 –
+1.00) × 100 = 120].
+At the July expiration date, suppose that XYZ is again at the same price
+of $34.70. The short Jul 35 call would expire worthless. This leaves the
+Nov 35 call with an even lower cost basis of $1.20 per share. Using an
+options calculator, we can estimate the value of the Nov 35 call to be
+$2 per share. If on the Monday after the July expiration date, the Nov 35
+call is sold for that price, a profit of $80 is achieved. That represents a
+gain of 67 percent based on the current risk of $120.
+The preceding results assume a highly idealized scenario in which the
+price of XYZ at the June expiration date is $34.70, exactly the same as
+when the trade was initiated in early May. Furthermore, if the trade was
+continued by selling the Jul 35 call, the stock price was assumed to be
+again at $34.70 at the July expiration. T o have a more realistic view of
+calendar spreads, we need to see what happens when the stock price is
+not the same at expiration as it was when the trade was initiated.
+Suppose that the price of XYZ has fallen to $33.75 at the June expira-
+tion date. The short Jun 35 call will again expire worthless. An options
+calculator estimates that the value of the Nov 35 call at that time would
+Chapter 12 Calendar Spreads 89
+be $2.50 per share. Selling the Nov 35 call at that value returns a $30
+profit [(2.50 – 2.20) × 100 = 30]. Even though the price of XYZ has
+fallen, there is still a gain on the trade of 9 percent based on the original
+risk of $220. The lower return in this scenario is a result of not only the
+lost time value in the Nov 35 call, but also lost intrinsic value due to the
+lower stock price.
+How low can the price of XYZ be at the June expiration and still achieve
+a profit? An options calculator shows that the break-even point is a
+stock price of about $33, as seen in Figure 12-1. If the stock price is
+below that level at the June expiration date, the calendar spread will
+show a net loss. For example, if XYZ is at $31, the net loss will be about
+$80. The maximum that can be lost is the original cost of $220 to estab-
+lish the spread. A loss close to the maximum is incurred if XYZ drops
+to $25 or less.
+Even if XYZ is below $33 at the June expiration and the spread fails to
+show a profit at that time, it might still be worthwhile to continue hold-
+ing the Nov 35 call with a reduced cost basis of $2.20 per share. This
+makes it easier to achieve profitability if the stock price eventually
+begins to rise.
+Consider another scenario in which the price of XYZ has risen to
+$36.50 at the June expiration date. Then, the short Jun 35 call will have
+a value of $1.50 per share (all intrinsic value). An options calculator
+estimates the value of the Nov 35 call to be $4 per share. T o close the
+trade near the June expiration, it is necessary to buy back the Jun 35 call
+and sell the Nov 35 call for a net of $2.50 per share [4.00 – 1.50 = 2.50].
+This represents a profit of $30 [(2.50 – 2.20) × 100 = 30], for a 14 per-
+cent gain on the original risk of $220.
+In this scenario where XYZ is above $35 at the June expiration, the fact
+that the Jun 35 call did not expire worthless was offset by the increased
+value of the Nov 35 call. With an even higher price of XYZ at expira-
+tion, the value of the Nov 35 call would also be even higher, but that
+gain would be offset by an increased value of the Jun 35 call.
+How high can the price of XYZ be at the June expiration and still have
+the calendar spread achieve a profit? An options calculator shows that
+the break-even point is a stock price of about $38, as seen in Figure 12-1.
+90 OPTIONS FOR THE BEGINNER AND BEYOND
+At that level, the Jun 35 call would have a value of $3 per share, while
+the Nov 35 call would have a value of $5.20 per share. Closing out both
+options would produce $220 [(5.20 – 3.00) × 100 = 220], which exactly
+offsets the original cost of the spread trade. If the price of XYZ is above
+$38 at expiration, the price of the Jun 25 call will have increased more
+than the Nov 35 call. This results in a net difference of less than $220
+and hence a loss on the trade. If XYZ reaches $42, the calendar spread
+will show a net loss of about $100 at expiration.
+The Rollout Maneuver
+As previously mentioned, a primary feature of the calendar spread is
+the ability to continue establishing a new calendar spread each month.
+In the ideal scenario, as illustrated previously, the front-month option
+is allowed to expire worthless, thereby leaving the long-term option
+with a reduced cost basis. Then the next-month option with the same
+strike can be sold to establish the new calendar spread.
+The process of converting the old calendar spread into a new calendar
+spread does not necessarily require waiting until the expiration date
+arrives. Frequently, the conversion is best accomplished by buying back
+the front-month option before expiration while simultaneously selling
+the next-month option. This maneuver is called the rollout.
+The rollout maneuver is a necessity when the short option is in-the-
+money as expiration nears. In this situation, the short option must be
+bought back to avoid an assignment. It may also be advantageous to use
+a rollout even when the short option is out-of-the-money. What are the
+circumstances under which a rollout should be considered?
+Let’s first look at the case where the short option is in-the-money as
+expiration nears. An in-the-money option will often have lost almost all
+of its time value with 8 to 10 days still remaining until expiration. In
+this circumstance, there is a good reason to proceed immediately with a
+roll into the next month. There is little to be gained from holding the
+front-month option until expiration, while the next-month option that
+you hope to sell is undergoing some significant price erosion. The goal
+is to perform the rollout when the differential between the front-month
+Chapter 12 Calendar Spreads 91
+option and the next-month option is maximized. This frequently occurs
+before the expiration date.
+The case in which the short option is out-of-the-money is a bit differ-
+ent. The market makers will often keep the ask price for an out-of-the-
+money option abnormally high, even going into the day of expiration.
+They may keep the ask price at $0.15 per share or higher with only a few
+days remaining until expiration, so as to make it expensive for you to
+eliminate the risk of your short option. In this circumstance, it is often
+best to proceed with the rollout several days early and not wait until
+expiration just to collect that extra $0.15 per share. Here again, the goal
+is to perform the rollout when the differential between the front-month
+option and the next-month option is greatest.
+Comments
+The objective of a calendar spread trade is to capture the time value in
+a front-month option, which will decay faster than the time value in a
+more distant month option. T o exploit this difference, it is generally
+wise to initially have at least one month between the expiration of the
+long option and that of the short option. This allows for at least one
+new calendar spread to be established after the first expiration date.
+A calendar spread is only profitable if the stock price at the options
+expiration date is within a fairly narrow range. The risk graph of
+Figure 12-1 is fairly typical for a calendar spread. As seen in that exam-
+ple, the range of profitability at the June expiration was $33 to $38. This
+means that the price of XYZ at expiration needs to be within a price
+range that is neither 9 percent above nor 6 percent below the $35 strike
+price to achieve a profit. This emphasizes the importance of analyzing
+the expected trading range of a stock being considered for a calendar
+spread.
+The preceding discussion focused on calendar spread trades using call
+options. Calendar spread trades using put options can work equally
+well. Often the decision as to whether to use calls or puts for a calendar
+spread depends upon a more likely direction of drift in the stock price.
+Generally speaking, a call spread is used when the expected drift is
+92 OPTIONS FOR THE BEGINNER AND BEYOND
+toward a higher stock price, whereas a put spread is used when a down-
+ward drift in the stock price is considered more likely.
+When should a calendar spread be abandoned? Although it is true that
+you can never lose more than your original debit in a calendar spread
+trade, it may nevertheless be prudent to exit early to limit your loss. A
+reasonable criterion is to exit a calendar spread when the loss reaches
+50 percent of the amount paid to establish the trade.
+When should you take a profit and terminate the calendar spread rather
+than establish a new calendar in the next month? Anytime you can real-
+ize at least 50 percent of the maximum possible profit in a calendar
+spread, consider closing the trade for a profit.
+Chapter 12 Calendar Spreads 93
+This page intentionally left blank 
+95
+13*
+ADV ANCED
+CALENDAR SPREADS
+his chapter discuses some advanced concepts for calendar
+spreads.
+V olatility Skew Trades
+Implied volatility (IV) is one of the most important pieces of options
+data used in finding a good calendar spread. The primary use of IV is to
+determine whether an option is comparatively overpriced or under-
+priced. Most options friendly brokerage firms provide IV data for
+options. The value of the IV for an option is calculated from a theoret-
+ical model for options pricing known as the Black-Scholes formula .
+Some discussion of the calculation of implied volatility is provided in
+Chapter 29, “Implied Volatility and the Black-Scholes Formula. ”
+If the current IV of an option is high compared to an annual average, it
+means that the price of the option is inflated with extra time value. In
+the case of calendar spreads, the IV data is used to make a comparison
+between the long and short legs of the spread. T o increase our chance
+for success with a calendar spread, we want the short leg of the spread
+to be overpriced as compared with the long leg. This volatility skew is
+observed when the IV of the short option is larger than the IV of the
+long option.
+The numeric value of the volatility skew is the percentage increase in
+the IV of the short option as compared with the IV of the long option.
+Y ou might think that the greater the skew, the better the chance for a
+T

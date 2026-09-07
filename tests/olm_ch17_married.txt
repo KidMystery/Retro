@@ -1,0 +1,149 @@
+The married put strategy offers a way to avoid the problems posed by
+the stop loss order. It will allow you to hold your stock for several weeks
+(or longer) without concern for a pullback, while waiting for the antic-
+ipated move up in price. There are several variations of the married put
+strategy, but the one described here is the simplest and least expensive
+to employ.
+The basic idea of the married put strategy is to buy an appropriate put
+option at the same time you purchase stock. Typically, a put is selected
+that will provide several weeks of protection against a downside move
+in the stock price, while you comfortably wait for the expected uptrend
+to begin. As the put nears its expiration date, some decision will have to
+be made about continuing to hold the stock. We examine several sce-
+narios to see how an appropriate decision is reached.
+Let’s look at an example to see how the married put strategy works.
+In late August, you decide to buy 100 shares of XYZ at $31 per share,
+because you are convinced that this stock will soon be headed toward
+$35 and perhaps much higher. For protection you also buy the Sept 30
+put at $.80 per share.
+Trade: Buy 100 shares of XYZ at $31 a share and buy 1 contract
+of the Sept 30 put at $.80 per share.
+Cost = (100 × 31) + (100 × .8) = $3,180.
+Max risk = $180.
+See Figure 17-1 for a risk graph that depicts this trade.
+Note that the maximum risk on this combination of the stock and the
+married put is only $180. Compare that with a maximum risk of $3,100
+if the protective put is not in place.
+How do we determine that the maximum risk is $180? If the stock is
+anywhere below $30 at any time before the September options expira-
+tion date, you can elect to exercise your option and sell your stock for
+$30 per share. That represents a loss of $1 per share on 100 shares for a
+total of $100. We must also include the expense of buying the put
+option at $.80 per share for a cost of $80 for the one contract. Thus, we
+obtain the maximum risk of $180 [100 + 80 = 180].
+132 OPTIONS FOR THE BEGINNER AND BEYOND
+If some unexpected bad news on XYZ surfaces overnight and the
+stock opens at $25 on the following day, those who own 100 shares
+of stock without the married put will suffer an immediate loss of
+$600. Moreover, things might get even worse as the price of XYZ
+falls even further in the next few days. Do you sell or hang on with
+the hope of some recovery? This difficult question is of no concern if
+you own the Sept 30 put. Y ou know that you cannot lose more than
+$180 no matter what happens to the stock. Y ou can comfortably wait
+to see whether the bad news is reversed and the stock recovers to show
+a profit.
+How is the appropriate put selected for protection of the stock? First,
+decide on the expiration month and then choose a strike price.
+My recommendation for the choice of expiration month is the current
+month if there are at least three weeks remaining until expiration. If
+Chapter 17 Married Puts 133
+Today: 21 days left
+14 days left
+7 days left
+Expiry: 0 days left
+–200 –100 0 100 200 30023 24 25 26 27 28 29 30 31 32 33 34 35
+Stock Price
+Figure 17-1
+there are less than three weeks until expiration, use a put that expires
+the following month. In the latter case, you are going to have at least
+five weeks and possibly as many as seven weeks of protection. Avoid
+going out any further in time, because the options will be too expen-
+sive. The general idea here is to allow your stock between three and
+seven weeks to start showing the strength you are expecting.
+As for the strike price, it is usually best to select the nearest strike price
+that is below the stock price, as illustrated in the preceding example.
+This way, you will only be paying for time value and that should not be
+too expensive since the option is never more than seven weeks from
+expiration. The exception to this choice is when the stock price is just
+below the next higher strike price. Then consider going to that higher
+strike option so as to provide sufficient protection. In the preceding
+example, suppose the purchase price for the XYZ stock had been $34.
+Then, the Sept 35 put at $1.90 per share might be a better choice to
+avoid $4 of risk in the stock price. The general idea here is to provide
+some protection of the purchase price of your stock without paying too
+much for the put.
+What happens when the expiration date for the protective put arrives?
+This is when you will need to make a hard decision as to how you feel
+about this stock that interested you several weeks ago. Y ou have had a
+chance to “test drive” this stock without concern. Now you must decide
+whether you really want to own it for the long term.
+If the stock price has gone up, the decision will be easy. Before the put
+expires, initiate a stop loss order to protect some of your gain in the
+stock price. (Note that a stop loss order makes more sense now that
+there is some profit to act as a cushion.) This leaves you in a reasonable
+position to hold the stock for additional gains.
+If the stock price has gone down, you have a choice of actions: (1) Get
+rid of the stock by exercising the put option, which enables you to sell
+the stock at the strike price. (2) If you want to continue holding
+this stock because it seems to have found its bottom, sell the put for a
+profit, thereby lowering the cost basis for the stock.
+If the stock price has gone sideways, you might want to give serious
+thought to selling the stock and also selling the put if it has any residual
+134 OPTIONS FOR THE BEGINNER AND BEYOND
+value. T o justify a decision to continue holding the stock, you will need
+to consider another married put. This means the stock will need to
+make an even larger gain to offset the expense of two protective puts—
+not usually an attractive scenario.
+Comments
+Here are some variations of the married put strategy:
+■ There are times to employ this strategy other than when you
+first buy a stock. Suppose you already own a stock that has pro-
+vided a nice profit, but there is an upcoming special event
+(earnings report, FDA approval, court decision, and so on) that
+could send it into a steep decline. Use a married put to get past
+the special event. Then you will be much better placed to
+decide whether you should continue to hold the stock.
+■ For more-volatile stocks, the protective put that you would like
+to own may be rather expensive. Y ou can reduce the cost by
+using a vertical Bear Put Spread instead of a simple protective
+put. T o create the spread, buy the put you want for protection
+and then sell the one at the next-lower strike to offset the
+expense. There is risk with this approach, because the vertical
+bear spread can provide only limited protection.
+■ Another way to help finance the cost of the protective put is to
+sell a call at a strike price above the purchase price of the stock.
+This combination, known as a “collar, ” provides the desired
+protection, but it caps your upside profit. In Chapters 18,
+“Collars, ” and 19, “Advanced Collars, ” these collar trades are
+discussed in detail.
+Chapter 17 Married Puts 135
+This page intentionally left blank 
+137
+18
+COLLARS
+he collar trade has particular appeal to conservative investors.
+This is a trade for those who like to hold stocks for the long-
+term, while using options to provide insurance and still allow for
+a nice return. One reason the collar trade is so attractive is its high level
+of protection of principal.
+During 2000 to 2002, there were many stocks that investors and ana-
+lysts believed were good to hold for the long term. Unfortunately, a sig-
+nificant number of those “good stocks” lost 40 percent to 50 percent or
+even more of their value during that period of time. If those stocks
+whose price collapsed had been properly collared with options, the loss
+would have been held to less than 10 percent. And for those collared
+stocks that did manage to move up during the bear market, annualized
+returns of 15 percent to 25 percent were possible.
+The collar trade is intended for use with stocks that are worthy of being
+held for at least 10 to 12 months. T o do a collar trade, the stock needs
+to have LEAPS options associated with it. As discussed in Chapter 6,
+“LEAPS, ” these long-term options have expiration dates that may be as
+much as two years or more into the future.
+Let’s look at an example of a collar trade:
+■ Example 1. In November 2004, you identify XYZ as a stock
+worthy of being held for the next 14 months. XYZ is currently
+trading at $19 per share and it has LEAPS options.
+Trade: Buy 100 shares of XYZ for $1,900. Buy 1 Jan (06)
+20 put for $2.90 per share and sell 1 Jan (06) 25 call for
+$1.00 per share. The net cost for the two options is
+T

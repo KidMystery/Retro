@@ -1,0 +1,171 @@
+existing positions or attempt to ride the momentum wave in the hope
+that a second burst will follow.
+The idea is to not enter the credit spread until the dust has had a chance
+to settle. The aim is to place the short leg of the spread near the extreme
+price attained during the dramatic move. This may require careful
+observation for a few days in case there is another surge that needs to
+exhaust itself.
+What kind of events might produce the desired scenario:
+■ A major earnings surprise. Once announced, there is nothing
+else to be said about earnings for the immediate future. It may
+take a couple of days for stock traders to unravel their posi-
+tions, but then the story is over.
+■ Government approval or disapproval of a product. This often
+describes a well-publicized drug that has been awaiting an FDA
+ruling for testing or marketing. After the decision has been
+made, the effect on the company profits is calculated, and the
+price moves to reflect the revised view of stock value. This is
+the end of story for the immediate future.
+■ A proposed buyout (particularly when viewed as a buyout that
+might not ultimately occur). The stock price gaps up to reflect
+the suggested buyout price, but then begins to pull back as the
+likelihood of the buyout begins to be questioned.
+Let’s look at some examples of setting up a credit spread following a
+special event:
+■ Example 1. Rambus, Inc (RMBS). On February 12, 2004, it was
+announced that European patent officials had revoked a patent
+claim by RMBS. This meant that the company would not be
+able to collect on a large amount of royalty fees from competi-
+tors in certain global markets. On huge volume, the stock
+quickly fell from the $30 level to close at $24.35.
+The bad news was out and the damage was done. This was a
+one-time type of event that was not likely to lead to any further
+80 OPTIONS FOR THE BEGINNER AND BEYOND
+related bad news. The big drop on huge volume suggested that
+the sellers had completed expressing their feelings. The chart
+on RMBS provided additional evidence that the stock had
+bottomed because of strong support at $24 going back to
+November 2003. The next day the stock began a little rebound
+back to the $25 level. This was a good opportunity to initiate
+the following credit spread:
+Trade: Buy 1 Mar 22.5 put and sell 1 Mar 25 put for a net credit
+of $1.25 per share.
+Credit = $125.
+Max risk = $125 [(25 – 22.5 – 1.25) × 100 = 125].
+See Figure 11-1 for a risk graph that depicts this trade.
+Chapter 11 Event-Producing Credit Spreads 81
+Today: 35 days left
+24 days left
+12 days left
+Expiry: 0 days left
+–200 100 0–100
+Figure 11-1
+A good goal on these credit spreads is to receive a credit that
+nearly equals or possibly even exceeds the max risk. This kind
+of opportunity often presents itself following a special event
+that produces a dramatic price move accompanied by high vol-
+ume. Such circumstances often pump the extra premium into
+the at-the-money options that creates good credit spreads.
+As with most credit spreads, time is your friend, which suggests
+the use of near-term options. In this case with RMBS, the
+February options were expiring in only eight days, which was a
+little too soon and did not offer the desired credit. Hence the
+choice of the March puts for the trade. T o realize the max profit
+on this trade, RMBS just needed to close above $25 at the
+March options expiration in five weeks.
+On March 19, 2004, RMBS closed at $27.21, and the options
+expired worthless. The maximum profit was realized.
+■ Example 2. Walt Disney Co. (DIS). On February 11, 2004, there
+was news of the intention of Comcast Corp to buy DIS. The
+price of DIS rose quickly from the $24 level to a high of $28 on
+huge volume. It was immediately made clear that DIS regarded
+this as a hostile offer that would be resisted. So, unless Comcast
+was going to increase their offer, this situation would be in
+doubt for the immediate future. Within two days, the excite-
+ment was quieting, and the price of DIS began to retreat back
+to $27. This was a good opportunity to initiate the following
+credit spread:
+Trade: Buy 1 Mar 30 call and sell 1 Mar 27.5 call for a net credit
+of $1.30 per share.
+Credit = $130.
+Max risk = $120 [(30.0 – 27.5 – 1.3) × 100 = 120].
+See Figure 11-2 for a risk graph that depicts this trade.
+82 OPTIONS FOR THE BEGINNER AND BEYOND
+In this example, a special event has created considerable
+interest in an otherwise quiet stock. The gap up in price on
+huge volume pumped extra premium into the at-the-money
+options. T o achieve a max profit on this credit spread only
+required that DIS close below $27.50 at the March options
+expiration.
+On March 19, 2004, DIS closed at $25.39, and the options
+expired worthless. The maximum profit was realized.
+■ Example 3. Apple Computer Inc. (AAPL). On April 14, 2005,
+the stock began to fall from the $40 level with high volume
+in spite of a good earnings report. Over the next few
+sessions, the stock price fell to $34 before beginning to stabilize.
+Chapter 11 Event-Producing Credit Spreads 83
+Today: 35 days left
+24 days left
+12 days left
+Expiry: 0 days left
+–200 –100 0 100 20 30
+Stock Price
+Figure 11-2
+This was a good opportunity to initiate the following credit
+spread:
+Trade: Buy 1 May 32.5 put and sell 1 May 35 put for a net
+credit of $1.20 per share.
+Credit = $120.
+Max risk = $130 [(35 – 32.5 – 1.20 ) × 100 = 130].
+See Figure 11-3 for a risk graph that depicts this trade.
+In this example, a strong company sold off on good earnings,
+apparently because investors worried about how long it could
+continue to produce such outstanding growth. The excessive
+selling pumped extra premium into the near-term options.
+84 OPTIONS FOR THE BEGINNER AND BEYOND
+Today: 35 days left
+24 days left
+12 days left
+Expiry: 0 days left
+–200 –100 0 10020 30 40 50
+Stock Price
+Figure 11-3
+T o achieve a max profit on this credit spread only requires that
+AAPL close above $35 at the May options expiration.
+On May 20, 2005, AAPL closed at $37.55, and the options
+expired worthless. The maximum profit was realized.
+Comments 
+Finding opportunities for these credit spreads does not require hearing
+about the special event as it is happening. In fact, you should wait a day
+or two (perhaps even longer) for the price burst associated with the
+public awareness of the event to exhaust itself. On the other hand, you
+cannot wait too long, because the extra premium pumped into the
+option prices will soon dissipate.
+It is important to research the background of the special event that
+caused the dramatic move in the stock price. Make sure it is the type of
+event that is unlikely to have further repercussions in the near future.
+The event can be either a good-news or a bad-news situation, as long as
+it is all of the story. Avoid events announced as “accounting irregularities”
+or “possible restatement of earnings, ” because these are all too often fol-
+lowed by further revelations that push the stock down even more.
+Chapter 11 Event-Producing Credit Spreads 85
+This page intentionally left blank 
+87
+12
+CALENDAR SPREADS
+he focus of this chapter is on calendar spread trades, also known
+as horizontal spread tradesor time spread trades. These trades work
+best on stocks whose price moves within a reasonably narrow
+range. Volatile stocks that can move up or down 15 percent within the
+time frame of one month are generally not suitable for calendar spreads.
+In a basic calendar spread, you buy a distant month option and sell a
+closer month option. Both options have the same strike price, which is
+typically selected to be the one nearest the price of the stock at the time
+the trade is initiated. When things progress well in a calendar spread, the
+short option ultimately expires worthless while the stock price remains
+essentially unchanged. This leaves the long option with a reduced cost
+basis, which can be either sold for profit or used for further trading.
+Calendar spreads can be created with either call options or with put
+options. For purposes of this introductory discussion, we assume that
+call options are used. A comment on using put options for a calendar
+spread will be included at the end.
+Suppose that XYZ has traded in a relatively narrow price range over the
+past few months and you expect that trend to continue. In early May,
+XYZ is trading at $34.70, which makes the $35 strike price a good choice
+for a calendar spread. Here is a typical calendar spread trade on XYZ:
+Trade: Buy 1 Nov 35 call for $3.50 per share and sell 1 Jun 35
+call for $1.30 per share.
+Cost = $220.
+Maximum risk = $220.
+See Figure 12-1 for a risk graph that depicts this trade.
+T

@@ -1,0 +1,282 @@
+value. It is easy to compute its intrinsic value by asking this question:
+What would this option be worth if it expired immediately today?
+When that intrinsic value is deducted from the full option price, the
+remainder is the time value.
+Let’s look at a couple of examples:
+■ Example 1. In mid-November, XYZ stock is at $89. The
+December 85 call gives you the right to purchase 100 shares of
+XYZ stock at $85 per share at anytime before this option
+expires in about four weeks. The asking price for this call is
+$4.50 per share. How much of this price is intrinsic value and
+how much is time value?
+If this option were to expire as you are looking at it, you could
+exercise your right to buy XYZ at $85 and then sell it at the cur-
+rent market price of $89 for a profit of $4. So, the December 85
+call has an intrinsic value of $4 per share. The rest of the price
+of the option is its time value, which in this example is $.50 per
+share [4.50 – 4.00 = .50].
+Compare the December 85 call priced at $4.50 per share with
+the April 85 call priced at $7.50 per share. The intrinsic value is
+still $4, but for the April option, the time value has increased to
+$3.50 per share [7.5 – 4.0 = 3.5]. This illustrates that “time is
+money” because you will have to pay $3.50 per share to control
+this stock for five months as compared with $.50 per share to
+control it for four weeks.
+■ Example 2. Again, XYZ is at $89 in mid-November. The
+December 90 call is priced at $1.50 per share. How much of
+this price is intrinsic value and how much is time value?
+If this option were to expire as you are looking at it, it would be
+worthless. The right to buy XYZ for $90 per share is worthless
+when the stock can be bought in the open market for $89 per
+share. So, the December 90 call has an intrinsic value of $0. The
+rest of the price of the option is time value, which in this case is
+the total price of $1.50. If XYZ does not go up during the four
+weeks before the December 90 call expires, the value of this
+option will shrink to $0.
+18 OPTIONS FOR THE BEGINNER AND BEYOND
+Now, let’s get back to the original question: What is a cheap option? The
+XYZ December 85 call is $4.50 per share, while the December 90 call is
+only $1.50 per share. Is the December 90 call really cheaper? If we just
+consider time value, the December 90 call is three times more expensive
+than the December 85 call ($1.50 versus $.50). Of course, if XYZ is
+going to $95 before the December expiration in four weeks, you will
+have a much larger percentage profit if you bought the December 90
+call. But suppose XYZ only edges up to $91 at the December expiration.
+The December 90 call would be worth $1 and you would have a loss of
+$.50 per share [1.00 – 1.50 = –.50]. Compare that with the December 85
+call, which would be worth $6, and you would have a profit of $1.50 per
+share [6.00 – 4.50 = 1.50].
+Now let’s ask the same question—What is a cheap option?—in a differ-
+ent context. The XYZ April 85 call is $7.50 per share, while the December
+85 call is only $4.50 per share. Is the December 85 call really cheaper?
+Although the time value of the April 85 call is much more than the
+December 85 call ($3.50 versus $.50), keep in mind that the April option
+has four extra months of life after the December option expires. It
+might seem expensive to buy that extra time value, but you are paying
+for a much longer window of opportunity to be right about a signifi-
+cant rise in XYZ stock. Of course, if your timing is impeccable and XYZ
+makes a run within the next four weeks, the December 85 call will yield
+a larger percentage profit than the April 85 call. But suppose XYZ goes
+nowhere before the December expiration, and then in January starts a
+leisurely climb to $95 by mid-March. In this scenario, the December 85
+call expires with a loss of $.50 per share, whereas in mid-March with
+XYZ at $95, the April 85 call could easily be worth $11 per share for a
+profit of $3.50 per share [11.00 – 7.50 = 3.50].
+The objective of this discussion is to start you thinking about intrinsic
+value and time value when you look at an option price. When you buy
+an option, you are almost always going to be paying for some time
+value—it is the nature of the beast. Just remember that for your option
+to make a profit, the stock price must move enough to overcome the
+loss of some if not all of that time value. The preceding examples
+demonstrate that the option with the lowest price is not always the best
+bargain.
+Chapter 2 Option Selection 19
+Let’s continue with the thought process that you should develop in
+selecting a particular call option or put option to buy. We will assume
+that you have identified a stock, which you think is going to make a
+move in price (either up or down). T o play this expected move in the
+stock price, you decide to use options to achieve more leverage for prof-
+it. Now you need to determine which option is going to work best.
+T o select the best option, you need to examine various choices to arrive
+at a proper decision. In the following illustrations, we focus on the case
+in which the stock price is expected to go up and hence we want to buy
+a call option. At the end, you learn how a similar analysis can be applied
+to the case of buying a put when the stock price is expected to go down.
+In the context of buying a call, three example choices are presented. For
+each example, we follow several scenarios to see whether the outcome is
+compatible with our expectations. The three examples do not cover
+every possible situation, but they should provide enough illustration
+for you to begin developing your own skills at analyzing outcomes.
+Selecting a Call 
+When you buy a call option on a stock, you are taking the view that
+the stock is going to rise in price. Y ou buy a call option instead of buy-
+ing the stock to give yourself more leverage for a greater profit. If the
+stock goes up by 15 percent, your option might easily increase in value
+by 100 percent or even more.
+After you have decided what stock you want to play for a gain, you need
+to select an appropriate call option to buy. This is not as simple as it
+might seem. Y ou will have many possibilities from which to make a
+choice. There will be several expiration months to consider, including the
+current month and other months that possibly go out as far as two years
+into the future. Y ou will also have various strike prices to consider,
+including ones below the stock price (in-the-money), near the stock price
+(at-the-money), and above the stock price (out-of-the-money).
+Which option is best? T o answer this question, you must decide what
+you believe will be the manner in which XYZ makes its upward move.
+Is this a stock that is going to jump up 15 percent in the next two weeks
+due to a much better than expected earnings announcement? Or, is this
+20 OPTIONS FOR THE BEGINNER AND BEYOND
+a stock that will slowly rise by 25 percent over the next year? As you
+review various choices of call options, think about how much the stock
+must rise and the time frame during which that rise must occur to pro-
+duce a profit. Also, if the stock does not make the expected move up,
+check to see when you can exit the trade to minimize your loss.
+General approach: When you consider buying a particular call option,
+first determine what portion of its total price is time value. Keep in mind
+that this time value will ultimately be lost as the option expiration date
+arrives. Then ask yourself, “Can the stock price rise high enough and fast
+enough to increase the value of this option by an amount that will offset
+the loss of its time value and provide an acceptable profit?” If you can
+answer yes to that question, you have a good reason to buy the option.
+Let’s look at some examples to illustrate this general approach. Some of
+the prices used in these examples have been estimated by using an
+options pricing calculator.
+Y ou think that XYZ is going to rise in price in the near to intermediate
+future. In early April, XYZ is at $67.
+■ Example 3. Y ou consider buying the Apr 70 call, which is priced
+at $1.50 per share. This option seems cheap enough, but is it a
+good one to buy? T o answer this question, let’s see what XYZ
+needs to do for this option to provide a reasonable profit.
+The Apr 70 call expires in a little more than two weeks. Because
+this option is out-of-the-money, all of its $1.50 price is time value.
+If XYZ rockets up to $73 in one week, the option might become
+worth $3.70 ($3 intrinsic value and $.70 time value). This rep-
+resents a nice $2.20 profit on a $1.50 investment, but it
+required a 9 percent gain in the stock price in one week.
+If XYZ only manages to rise gradually over the next two weeks
+to reach $71.50 just at expiration, the option will be worth
+$1.50 (all intrinsic value and no time value at expiration). In
+this scenario, XYZ has gone up by 7 percent in three weeks, but
+you only break even on the option trade.
+Suppose XYZ barely edges up to $68.50 with one week remain-
+ing. Then, this option might be worth only $1 (all time value),
+Chapter 2 Option Selection 21
+because it is still out-of-the-money and has only one week of
+life remaining. Now you have lost $.50 per share on the option
+even though the stock has moved up slightly, and there is
+almost no time left to recover.
+Summary: This April option is cheap, but to make a nice profit,
+the stock needs to make a significant rise soon after the trade is
+initiated. This is not a likely scenario, which makes this trade
+quite risky.
+■ Example 4. Y ou consider buying the May 65 call, which is
+priced at $4.20 per share. This option seems much more expen-
+sive than the Apr 70 call, but is that really true? Let’s see what
+XYZ needs to do for this option to provide a reasonable profit.
+The May 65 call expires in seven weeks. Because this option is
+in-the-money, it has an intrinsic value of $2 [67 – 65 = 2].
+Therefore, its time value is $2.20 [4.2 – 2.0 = 2.2]. In comparison
+with Example 1, we are paying for an extra $.70 of time value
+[2.2 – 1.5 = .7], but we have considerably more time for this
+option to return a reasonable profit.
+If XYZ is able to make the 9 percent gain to $73 in five to six
+weeks, this option might be worth $8.60 ($8 intrinsic value and
+$.60 time value). This represents a nice profit of $4.40 on a $4.20
+investment. Although the percentage profit on this option
+trade is not quite as good as compared with Example 1, the
+May option has allowed more time for the stock to achieve its
+rise to $73.
+Suppose that XYZ does nothing for six weeks and then finally
+manages to move up to $71.50 in the seventh week just as expi-
+ration is reached. In this scenario, the option will be worth $6.50
+(all intrinsic value and no time value at expiration). Here you
+have made a profit of $2.30 per share [6.5 – 4.2 = 2.3]. Compare
+this with Example 1, in which XYZ reached $71.50 at expira-
+tion and produced no profit.
+If XYZ is at $69.20 at the May options expiration, the May 65
+call will be worth $4.20 [69.2 – 65 = 4.2] for break-even.
+22 OPTIONS FOR THE BEGINNER AND BEYOND
+Summary: Although this May option may seem expensive, it has
+some important advantages. By having a later expiration date, it
+gives the stock more time to make the desired move. By having a
+strike price that is in-the-money, the break-even point at expira-
+tion is lower.
+■ Example 5. Y ou consider buying the Oct 65 call, which is priced
+at $8.30 per share. This option costs almost twice as much as
+the May 65 call in Example 4, but keep in mind that you are
+buying a lot more time. Let’s see what XYZ needs to do to for
+this option to provide a reasonable profit.
+The Oct 65 call expires in 27 weeks. Because this option has the
+same strike price of $65 as that of Example 2, its intrinsic value
+is the same $2 [67 – 65 = 2]. But this option has a time value of
+$6.30 [8.3 – 2.0 = 6.3]. In comparison with Example 2, we are
+paying for an extra $4.10 worth of time value [6.3 – 2.2 = 4.1],
+but we have an extra 20 weeks beyond the May expiration for
+this option to perform.
+If XYZ is able to make a 9 percent gain to $73 in 18 weeks
+(about mid-August), this option might be worth $11 ($8
+intrinsic value and $3 time value). This represents a profit of
+$2.70 on an $8.30 investment. Although the percentage profit
+on this option trade is not as good as compared with Examples
+1 or 2, the October option has allowed considerably more time
+than either the April or May options to achieve its rise to $73.
+Suppose that XYZ is able to make a 20 percent gain to $80 as
+the option nears expiration in October. Then the option will be
+worth $15 (all intrinsic value and no time value at expiration),
+and you will have made a profit of $6.70 on an $8.30 investment
+for an 81 percent gain. In this scenario, we have allowed almost
+seven months to achieve the 20 percent rise in XYZ. Such a rise
+would be much less likely in the shorter time spans described
+in Examples 1 or 2.
+If XYZ is only at $70 in mid-September, this trade should be
+close to a break-even situation. At that time, you will have been
+able to follow the progress of XYZ for about 22 weeks. If the
+Chapter 2 Option Selection 23
+stock does not seem to be performing as expected, you could
+exit the trade without a loss.
+Summary: This October option is the most expensive because it
+goes out the furthest in time and its strike price is in-the-
+money. The big advantage of this option is that it allows lots of
+time for the expected move in the price of XYZ to happen.
+Overall Evaluation
+Depending on the price action in XYZ stock, any of the Examples 3, 4,
+or 5 might produce the best profit.
+Example 3 requires that you have impeccable timing about the move up
+in stock price. This super-aggressive trade is only going to pay off under
+special circumstances.
+Example 4 illustrates the advantage of selecting an in-the-money option
+and allowing a little more time to be right about the stock price move-
+ment. This is a less-aggressive approach. If XYZ is a fairly volatile stock
+that cycles through a 10 percent to 15 percent move every few months,
+this could be the best choice.
+Example 5 lends itself to a longer-term move up in the price of XYZ.
+This trade works best for a stock that is less volatile and more likely to
+show a steady upward growth over an extended time period. If LEAPS
+options are available, they would be a more-expensive choice that could
+extend the time frame out for two years.
+Selecting a Put
+When you buy a put option on a stock, you are taking the view that the
+stock is going to fall in price. Y ou buy a put option instead of shorting
+the stock to give yourself more leverage for a greater profit.
+The preceding examples illustrating the thought process in selecting
+a call option carry over to analogous examples for selecting a put.
+Different strike prices would be used for the corresponding puts,
+because an out-of-the-money put means the strike price is below the
+24 OPTIONS FOR THE BEGINNER AND BEYOND
+stock price, whereas an in-the-money put means the strike price is
+above the stock price.
+Example 3 could be based on an Apr 65 put with similar option prices
+and profits resulting from analogous stock price movement down
+rather than up.
+Examples 4 and 5 could be based on a May 70 put and Oct 70 put,
+respectively. Again, similar option prices and profits would follow from
+analogous stock price movement down rather than up.
+Chapter 2 Option Selection 25
+This page intentionally left blank 
+27
+3
+ENTERING AND
+EXITING OPTION
+TRADES
+ften, the success of an options trade is strongly influenced by
+how carefully the entry and exit prices are negotiated. The gain
+or loss of $.10 per share in a stock trade is usually insignificant,
+whereas in an option trade it can make a huge difference. Suppose that
+you buy an option for $2 per share and later sell it for $3 per share. The
+profit of $1 per share represents a nice 50 percent return on your
+investment. If you could have shaved your entry price by $.10 to $1.90
+and managed to pad your exit price by $.10 to $3.10, your profit of
+$1.20 per share represents a dramatically improved 63 percent return.
+The point here is that, in options trading, it is very worthwhile for you
+to work at achieving good entry and exit prices. Saving an extra $.10 on
+either the entry price or the exit price of a trade is usually enough to
+cover the brokerage fees on both ends of the trade.
+T o begin, let’s review the basics of how options prices are maintained.
+Nowadays, with the decimal pricing of stocks, the price of a stock is
+shown down to $.01 changes. The situation with options is much dif-
+ferent. Options that cost less than $3 per share can change price in
+increments of $.05, but no smaller. Options that cost $3 per share or
+more can change price in increments of $.10, but no smaller.
+Each option exchange will list a bid price (called the bid) and an ask
+price (called the ask) for every option that is available on a stock or
+O

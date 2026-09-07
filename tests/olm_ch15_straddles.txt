@@ -1,0 +1,215 @@
+The major obstacle to a successful straddle trade is time. Remember
+that when you own an option, time is your enemy. With a straddle, you
+own two options, so time is working against both legs of the trade.
+Sooner or later, you will want to try a straddle trade. Under the right
+circumstances, a straddle can work well. The difficulty is in identifying
+a stock that meets the right criteria.
+Let’s look at an example of a straddle trade:
+■ Example 1. In late May, XYZ stock is trading around $30. There
+is conflicting news surrounding XYZ. Some reports are saying
+that the company will soon issue a warning that its next quarter
+earnings will fall far short of expectations. Other reports are
+suggesting that a competitor is planning to make an offer to
+buy out XYZ at a substantial premium.
+T o cater to either of these dramatic events, you initiate a strad-
+dle trade by buying both a call option and a put option with
+the same strike price. Here is how that might look:
+Trade: Buy 1 Aug 30 call for $2.10 per share and buy 1 Aug 30
+put for $1.90 per share.
+Cost = $400 [(2.10 + 1.90) × 100 = 400].
+Max risk = $400.
+Figure 15-1 provides a risk graph that depicts this trade.
+Now the argument is made that you do not care what happens with XYZ.
+If the stock makes a big move up or down, one of your options is going to
+provide a nice profit. This is the attractive feature of the straddle trade; it
+has the potential to make money no matter which way the stock moves.
+First, let’s consider some ideal scenarios which lead to profitable out-
+comes for this straddle trade on XYZ:
+1. In mid-June, the earnings warning on XYZ is issued, and the
+stock price quickly drops to $25. Because of the rapid drop,
+the price of the Aug 30 put expands to $6.20 per share. The
+Aug 30 call still has two months before expiration and man-
+ages to hold on to a price of $.50 a share. By selling both
+options for a total of $670 [(6.20 + .50) × 100 = 670], you
+have made a $270 profit for a gain of 68 percent.
+116 OPTIONS FOR THE BEGINNER AND BEYOND
+2. There is no earnings warning and in early July an offer is
+made to buy out XYZ at $35 per share. The price of XYZ
+stock becomes essentially frozen at the buy out price, and the
+options lose most of their time value. The Aug 30 call is priced
+at $5.30 per share and the Aug 30 put at $.20 per share. By
+selling both options for a total of $550 [(5.30 + .20) × 100 =
+550], you have made a $150 profit for a gain of 38 percent.
+3. Occasionally, it is possible to profit from both options. When
+XYZ issues the earnings warning that drops the stock to $25,
+you sell the Aug 30 put for $6.20 per share. The put leg of the
+straddle has then produced a profit of $430 [(6.20 – 1.90) ×
+100 = 430]. Having a guaranteed profit of $30 [430 – 400 =
+30] on the overall trade, you decide not to sell your Aug 30
+call for $.50 per share, but rather hold it for future
+developments. This decision is rewarded a few weeks
+later when the deal to buy XYZ at $35 does take place and
+Chapter 15 Straddles and Strangles 117
+Today: 106 days left
+71 days left
+36 days left
+Expiry: 0 days left
+–1000 –700 –500 –300 –100 100 300 500 700 90020 30 40
+Stock Price
+Figure 15-1
+118 OPTIONS FOR THE BEGINNER AND BEYOND
+you are able to sell the Aug 30 call for $5.30 per share.
+The call leg of the straddle has then produced a profit $320
+[(5.30 – 2.10) × 100 = 320]. The combined profits from both
+legs of the straddle trade is $750 [430 + 320 = 750], for a
+fantastic gain of 188 percent.
+Now let’s be a little more realistic and see how easy it is for the possible
+outcomes of the straddle trade to be less than ideal:
+1A. The disappointing earnings for XYZ are not revealed until
+late July, and the stock price only drops to $27.50. With
+just a few weeks remaining until the options expire, there
+is little time value remaining in the Aug 30 put, which is
+priced at $2.80 per share. The Aug 30 call is priced at only
+$.20 per share. Y ou exit both options for $300 [(2.80 +
+.20) × 100 = 300]. This represents a loss of $100 or
+25 percent of your original investment of $400.
+2A. There is no earnings warning and in early August a hostile
+offer for XYZ at $32 is made public. Again with just a cou-
+ple of weeks of life remaining in the Aug 30 call, it is priced
+at only $2.30 per share, whereas the Aug 30 put has fallen
+to $.15 per share. Y ou exit both options for $245 [(2.30 +
+.15) × 100 = 245]. This represents a loss of $155, or
+39 percent of your original investment.
+3A. Y ou wait hopefully until the second week of August, but no
+bad earnings news or potential buyout of XYZ is reported.
+The stock price has remained in a narrow range around
+$30 ever since you initiated the straddle trade. Now with
+almost no time remaining until the options expire, the
+Aug 30 call is priced at $.80 per share and the Aug 30 put
+at $.60 per share. If you exit both options for $140 [(.80 +
+.60) × 100 = 140], you will have experienced a loss of $360,
+or 90 percent of your original investment.
+By contrasting the losing outcomes 1A, 2A, and 3A with the profitable
+outcomes of 1, 2, and 3, several drawbacks of the straddle trade become
+apparent. Most important, any event that you are expecting to move the
+stock price must be significant enough to cause a large increase in the
+price of the appropriate option. Also, the event must occur relatively
+soon after initiating the straddle to avoid the loss of too much time
+value. With a straddle, the ongoing loss of time value is doubly harmful
+because it is occurring in both options of the trade.
+There is another subtle danger with straddle trades. If the rumors about
+a possible price-altering event are fairly well circulated, the prices of the
+at-the-money options will become inflated due to the increase in
+implied volatility (see Chapter 28, “Theory of Maximum Pain”). This
+makes it more expensive to initiate the straddle, thereby reducing the
+chance for a profit even if the desired event does come to pass. In
+the preceding example, a heightened interest in XYZ might increase the
+purchase price of the Aug 30 call and Aug 30 put by $.85 per share each.
+Then the cost of initiating the straddle would become $570. Now out-
+come 2 results in a loss, and 1 is substantially less profitable.
+Comments
+The key to a successful straddle trade is to identify a stock that satisfies
+the right criteria. Here are some guidelines:
+1. The stock price should be within the range of $20 to $50. If
+the stock is cheaper than $20, it may not have enough room
+for the price to fall. If the stock price is above $50, the
+options may be too expensive to create a straddle with a
+good potential for profit.
+2. Identify an upcoming event that could significantly impact
+the price of the stock. Ideally, the event needs to be such that
+the stock price will rise on positive news and fall on negative
+news. Good candidates are earnings announcements, court
+decisions, and FDA rulings.
+3. The upcoming event should be at least 30 to 60 days away.
+The options used for the straddle should not expire until at
+least 30 days after the expected event. This typically means
+that the options used will have a life of at least 60 to 90 days
+at the time the straddle is initiated.
+4. The upcoming event should not yet have generated enough
+excitement to cause the options prices to be overly inflated.
+This can be judged in several ways. Check the level of open
+Chapter 15 Straddles and Strangles 119
+interest and trading volume in the options. Compare the
+current implied volatility of the options against historical
+averages.
+5. Look for a stock that has been trading sideways within a nar-
+row price range. This signifies an even battle between the
+buyers and sellers of the stock. When the stock does break-
+out (up or down), the option prices will gain extra time
+value and the straddle has an increased potential for profit.
+Here are some guidelines for exiting the straddle trade:
+1. Sometimes it will be best to exit one side of the straddle
+before the expected event occurs. For example, in an earn-
+ings run, the stock price may move up sharply just prior to
+the scheduled earnings announcement. In this case, it may
+be wise to take the profit on the call leg before the actual
+announcement and hold the put until afterward. If the stock
+price then falls after the announcement, there will be a better
+exit price for the put.
+2. Do not stay in the straddle too long after the event has
+taken place. If the event does cause a significant move in the
+stock price, it will temporarily pump extra time value into
+the price of the profitable option. Sell the profitable option
+before that extra time value shrinks.
+3. Never hold both sides of the straddle until expiration.
+Generally, this will lead to a near maximum loss on the
+trade. If nothing has happened to create a price move, the
+straddle will lose a substantial portion of its value during the
+last three to four weeks of its life. Exit when there is at least
+three to four weeks before the options expire to recover what
+you can of your original investment. This is the reason that
+options expiring at least 30 days after the expected event are
+used in the straddle trade.
+The Strangle Trade
+A strangle trade is similar to a straddle trade, except that the call and
+put options have different strike prices. The idea is to lower the cost of
+120 OPTIONS FOR THE BEGINNER AND BEYOND
+the trade by using out-of-the-money options. Essentially, this is a more
+aggressive version of the straddle trade.
+Let’s reconsider Example 1, where XYZ is trading around $30 in late
+May. Now try to play the upcoming events with a strangle trade.
+Trade: Buy 1 Aug 35 call for $.80 per share and buy 1 Aug 25 put
+for $.70 per share.
+Cost = $150 [(0.80 + 0.70) × 100 = 150].
+Max risk = $150.
+See Figure 15-2 for a risk graph that depicts this trade.
+Chapter 15 Straddles and Strangles 121
+Today: 106 days left
+71 days left
+36 days left
+Expiry: 0 days left
+–1000 –700 –500 –300 –100 100 300 500 700 90020 30 40
+Stock Price
+Figure 15-2
+This straddle trade is a much cheaper trade than the corresponding
+straddle trade. A comparison of Figure 15-1 and Figure 15-2 indicates
+that for the strangle to achieve the same percentage profit after 70 days
+requires a larger move in the stock price.
+This page intentionally left blank 
+123
+16
+STOCK REPAIR 
+AND STOCK
+ENHANCEMENT
+e all have experienced the situation in which we buy a good
+stock only to see it undergo a significant pullback in price. We
+still like the stock and feel that it will recover at least some of
+the ground that it lost. There is a low-cost option strategy that can help
+you get back to a break-even status when the stock regains only part of
+its lost value. The same strategy also can be used to greatly enhance
+your profit in a stock for essentially no additional expense beyond the
+original cost of the stock.
+The stock repair strategy uses options to assist in bringing your stock
+investment back to a break-even level. This strategy is structured to
+attain the break-even status at a stock price that is significantly lower
+than the original purchase price. The great appeal of this strategy is that
+it involves no additional risk since it can be applied for little or no addi-
+tional expense.
+Another version of this strategy, referred to as the stock enhancement
+strategy, can be used to greatly improve the return on a stock that
+you have purchased. As with the stock repair strategy, little or no
+additional expense is required. The stock enhancement strategy
+provides even greater leverage when the stock itself is replaced by a
+cheaper substitute, such as an in-the-money, long-term call with a high
+delta.
+W

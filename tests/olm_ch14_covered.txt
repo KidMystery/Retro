@@ -1,0 +1,194 @@
+If the covered call trade can be successfully repeated month after
+month, it has the potential to produce a regular infusion of cash into
+your brokerage account. Unfortunately, the process is not as simple as it
+might seem. T o do covered call trading, you need to understand the
+inherent risk in this type of trade and be prepared to make some tough
+decisions as each month’s expiration date draws near.
+An Idealized Trade
+Let’s first examine how an idealized covered call trade might work to
+perfection.
+Y ou buy 100 shares of XYZ at $30 per share for a total investment of
+$3,000. Over the next seven months, this stock averages a monthly rise
+of 9.5 percent as it moves up to $50 per share, for a great $2,000 profit.
+T o enhance this profit in each month along the way, you sell 1 call con-
+tract (1 contract = 100 shares) on XYZ at a strike price that is about
+10 percent to 15 percent above the stock price. Suppose that your sell-
+ing price for each covered call is $1.20 per share, which brings in an
+additional $120 per month. Assuming that the price of XYZ is never
+above the strike price of the current month option as it expires, you will
+be able to hold the stock through all seven months while bringing in an
+additional profit of $840 [7 × 120 = 840]. So, when this covered call
+strategy is working perfectly, you have increased your profit on this
+investment from $2,000 (67 percent) to $2,840 (95 percent).
+Although this idealized scenario could happen as described, it rarely
+does. The most unrealistic aspect of this idealized trade is that it
+requires the stock price to move up month by month in a perfectly
+coordinated manner with the strike price of the short call.
+A Realistic Trade
+Let’s look at a real-life example of a covered call trade that did not
+progress quite so idealistically.
+In the preceding idealized example, the overall price movement of XYZ
+is similar to that of Qualcomm Inc (QCOM) during 2003. From May
+2003 to December 2003, QCOM moved from $30 to $50. Unfortunately,
+108 OPTIONS FOR THE BEGINNER AND BEYOND
+the month-by-month price movement of QCOM was not always coor-
+dinated with the options expiration date so as to allow for an easy deci-
+sion about how to proceed into the next month.
+Suppose that you bought 100 shares of QCOM in May 2003 for $30
+and sold 1 Jun 35 call for $1 a share. See Figure 14-1 for the risk graph
+that depicts this trade. Note in the risk graph that the maximum profit
+on the trade is $600 no matter how high the stock price climbs.
+Chapter 14 Covered Calls 109
+Today: 50 days left
+34 days left
+17 days left
+Expiry: 0 days left
+–1000 –700 –500 –300 –100 100 300 500 700 90020 30 40 50
+Stock Price
+Figure 14-1
+When the June expiration date arrives, you are confronted with a diffi-
+cult decision, because the stock price is near $37. Do you (1) buy back
+the short option for a loss so as to continue holding the stock or (2) do
+you give up on any future gains in the stock by letting it be called away,
+for a quick profit of $6 per share [35 – 30 + 1 = 6]?
+If you decide to hold on to the stock, you must buy back the short call
+for $2 per share, resulting in a loss of $1 per share in the option. Y ou
+could then sell the Jul 40 call for $2 per share. At the July expiration, the
+$40 call expired worthless because QCOM had fallen back to $35. Y ou
+again had a difficult decision to make. Do you (1) sell one Aug 40 call
+for only $.35 per share, while hoping for the stock price to recover, or
+(2) sell one Aug 35 call for $2 per share in case the stock continues to
+fall or just goes sideways for the next month? 
+So, in both of the first two months of this trade, tough decisions had to
+be made. In later months, other difficult decisions presented them-
+selves. Although not every month will necessarily pose such problems,
+you can be sure that similar difficult decisions are going to arise if you
+plan to hold your stock over a long period of time. The lesson here is
+that the actual management of covered calls is rarely as straightforward
+as described by an idealized example.
+Covered Call vs. Naked Put
+Now let’s get back to the issue of the risk in a covered call trade. T o
+make things definite, we will again use QCOM as an example. In late
+December 2003, you buy 100 shares of QCOM at $53, and to complete
+the covered call trade, you sell 1 Feb 55 call for $2 per share. This means
+that you have equivalently purchased the stock for $51 per share, and
+hence your maximum risk on this covered call trade is $5,100. See
+Figure 14-2 for a risk graph that depicts this trade.
+If QCOM is above $55 at the February options expiration, your stock will
+be called away, which provides you a profit of $4 per share [55 – 51 = 4].
+On the other hand, if QCOM has fallen to $45 as the option expires, you
+will be able to keep your stock, but the value of your stock will have
+decreased by $6 per share [51 – 45 = 6]. Now you are showing a loss of
+$600 on the covered call trade.
+Let’s compare this “conservative” covered call trade with the “risky”
+trade of selling a naked put on QCOM. Instead of buying QCOM stock,
+suppose that you sell one Feb 55 put for $4 per share. The risk here is
+that you will be required to buy 100 shares of QCOM at the equivalent
+price of $51 per share [55 – 4 = 51], so again your maximum risk is
+$5,100. See Figure 14-3 for a risk graph that depicts this trade.
+110 OPTIONS FOR THE BEGINNER AND BEYOND
+If QCOM is above $55 at the February options expiration, the short
+option will expire worthless and the cash brought in from selling the
+put can then be counted as a $4 profit [4 – 0 = 4]. On the other hand,
+if QCOM has fallen to $45 as the option expires, the put will be exer-
+cised, requiring you to buy the stock at $55 per share. This means that
+you will then own 100 shares of QCOM stock in which you have suf-
+fered a loss of $6 per share [55 – 4 – 45 = 6].
+Thus, in either trade, similar circumstances lead to the same result of
+net profit or net loss. This equivalence of the two trades is further
+demonstrated by comparing Figure 14-2 with Figure 14-3. The bottom
+line is that no matter what QCOM does, our profit or loss in selling a
+naked put is the same as the covered call trade.
+Chapter 14 Covered Calls 111
+Today: 53 days left
+36 days left
+18 days left
+Expiry: 0 days left
+–1000 –700 –500 –300 –100 100 300 500 700 90050 60 70
+Stock Price
+Figure 14-2
+Comments
+Covered call trades are not really “conservative. ” Buying 100 shares of
+stock typically involves a significant outlay of capital. If the stock price
+then falls precipitously, the dollar loss on the trade can be substantial.
+This loss is exactly the same as if a naked put was sold and then the
+stock price fell. Also, the potential profit from a covered call is capped,
+just as it is when a naked put is sold.
+The month-by-month management of covered call trades can be tricky.
+Some months are going to require a tough decision as the expiration
+date arrives.
+One advantage enjoyed by a covered call over a naked put is that you do
+participate in any dividend payments. Naked put positions enjoy the
+advantage of tying up less cash and creating extra leverage in your bro-
+kerage account. Y ou must, however, be wary of using that extra leverage
+112 OPTIONS FOR THE BEGINNER AND BEYOND
+Today: 53 days left
+36 days left
+18 days left
+Expiry: 0 days left
+–1000 –700 –500 –300 –100 100 300 500 700 90050 60 70
+Stock Price
+Figure 14-3
+in an unwise manner, such as increasing the size of your naked put
+position beyond a reasonable level. This can lead to an unpleasant mar-
+gin call from your broker if the stock suffers a sudden drop.
+Here are some suggestions for handling covered call trades:
+1. Because almost all your risk is in what you paid for the
+stock, keep you eyes on the stock price and to a much lesser
+extent on the option price. Decide on an appropriate stop
+loss price for the stock, and if it falls to that level, protect the
+major portion of your investment by selling the stock and
+buying back the call. Do not hang on to a falling stock to
+collect an extra $.40 on the short option.
+2. When deciding on the strike price of the call that you are
+going to sell, make sure it is a price you will feel comfortable
+about giving up your stock if that becomes necessary. If your
+primary goal is to keep your stock, select a higher strike
+price. If you are willing to sell your stock at a price closer to
+its current value, pick a nearby strike price to bring in more
+cash.
+3. Do not go too far out in time. Those juicy premiums in the
+longer-term options are tempting, but you will generally do
+better by selling either the front-month call or the next
+month out. In today’s volatile market, the price of a stock
+can move significantly (up or down) in four to eight weeks.
+By selling near-month options, you will be better placed to
+make an adjustment when the expiration date arrives.
+4. Do not be greedy. If the stock price is above the strike price
+at expiration, avoid buying back the option for a loss unless
+you have a good reason to do so. If you have followed Step 2,
+you should be willing to let the stock go and take your profit.
+Avoid the situation in which you buy back the option for a
+loss to keep your stock, and then have the stock price col-
+lapse. This compounds a loss on the option with a loss on
+the stock.
+Chapter 14 Covered Calls 113
+This page intentionally left blank 
+115
+15
+STRADDLES AND
+STRANGLES
+he straddle trade and the strangle trade are intended to take
+advantage of stock movement in either direction. They use a
+combination of a call option and a put option to benefit from a
+significant move up or down in the stock price.
+The Straddle Trade
+Upon first learning about the straddle trade, it sounds like the answer
+to a trader’s dream. Y ou will hear that, with a straddle, you do not need
+to guess which way the stock will move. The straddle can make money
+if either the stock price goes up or it goes down. What could be better
+than that?
+The basic idea of a straddle trade is to buy a call and buy a put with the
+same strike price. These options should also have the same expiration
+month, usually about two to three months in the future. The reason
+given for doing this type of trade is that if the stock price goes up, the
+call will show a profit; and if the stock price goes down, the put will
+show a profit. The catch here is that when one option shows a profit,
+the other option will show a loss.
+Even though the straddle trade concept sounds wonderful, it is actually
+one of the more difficult option trades with which to make a profit. For
+the straddle to become profitable, the stock price must move far
+enough so that the profit in one option more than offsets the loss in the
+other. If the stock price manages only a modest move in either direction
+before the options expire, the trade will lose money.
+T

@@ -1,0 +1,225 @@
+will cause the price of the Mar 30 call to increase by $1 up to
+$3 per share.
+Let’s compute the delta for this Mar 30 call: Its price increased
+by $1 when the stock price increased by $2. Thus, the delta is
+given by the fraction 1/2 = .50, or 50 percent. So, a delta of
+.50 indicates that the price of the option increases by 50 percent
+the amount of the increase in the price of the stock.
+This example illustrates an important basic property that
+holds for most options, namely, an at-the-money call (that is,
+strike price nearly the same as the stock price) typically has a
+delta of about .50.
+■ Example 2. XYZ is at $30 per share. The Mar 25 call, which
+expires in three weeks, is priced at $6 per share. Suppose the
+price of XYZ increases by $2 up to $32 per share. This might
+cause the price of the Mar 25 call to increase by $1.60 up to
+$7.60 per share.
+Let’s compute the delta for this Mar 25 call: Its price increased
+by $1.60 when the stock priced increased by $2. Thus the delta
+is given by the fraction 1.6/2 = .80, or 80 percent.
+This example illustrates another basic property of options,
+namely, an in-the-money call (that is, strike price well below the
+stock price) will have a delta greater than .50 but less than 1.0.
+The deeper-in-the-money, the closer the delta will be to 1.0.
+■ Example 3. XYZ is at $30 per share. The Mar 35 call, which
+expires in three weeks, is priced at $.60 per share. Suppose the
+price of XYZ increases by $2 up to $32 per share. This might
+cause the price of the Mar 35 call to increase by $.20 up to
+$.80 per share.
+Let’s compute the delta for this Mar 35 call: Its price increased
+by $.20 when the stock price increased by $2. Thus the delta is
+given by the fraction 0.2/2 = .10, or 10 percent.
+This example illustrates yet another basic property of options,
+namely an out-of-the-money call (that is, strike price well
+above the stock price) will have a delta less than .50. The fur-
+ther out-of the-money, the smaller will be the delta.
+34 OPTIONS FOR THE BEGINNER AND BEYOND
+The delta values described in the preceding examples are typical for
+options that are not too close to expiration. Near-expiration, all in-the-
+money options will have a delta close to one, and all out-of-the-money
+will have a delta close to zero.
+Application of the Delta
+Now let’s see how our experience with these three examples can help us
+with our options trading. Y ou believe that the stock price of XYZ is
+going to increase in the near future and you want to play this move with
+options. What are you choices?
+Buy an in-the-money call: If you want to capture an almost dollar-for-
+dollar increase in the price of the stock, you need to purchase an
+option with a high delta. This means selecting a deep-in-the-money
+call. If the option has a delta of .80, it will increase $.80 in price for
+every $1 increase in the price of XYZ. The deep-in-the-money call will
+be relatively expensive, but it will capture more of the price move in
+the stock.
+Buy an at-the-money or out-of-the-money call: If you can count on
+a significant move in the stock within a short period of time, an at-
+the-money or out-of-the money call can yield a higher percentage
+increase in the price of the call. If the option has a delta of .50, a
+$2 increase in the price of XYZ will produce a $1 increase in the price
+of the option. If the option has delta of .20, a $2 increase the stock
+price will produce a $.40 increase in the price of the option. Because
+an at-the-money call will be relatively cheap and an out-of-the-
+money call will be even cheaper, these options offer more leverage for
+a profit.
+At first glance, it might seem that you would always choose the at-the-
+money or out-of-the money call, because of the higher leverage.
+The real issue is whether the stock price will rise high enough and
+quickly enough for the extra leverage to yield a better profit. Suppose
+the trades in the above Examples 1, 2, and 3 were initiated when the
+March options were only three weeks from expiration. Also, suppose
+that XYZ waits until one week before expiration to make the $2 rise
+Chapter 4 The Greeks 35
+from $30 to $32. Let’s follow up to see what might happen in the above
+examples.
+■ Example 1 follow-up. All the value of the Mar 30 call was
+time value. With only one week to go until expiration, its price
+could have fallen to $1, whereas its delta might still be .50.
+Then, the $2 move in XYZ would yield a $1 increase in the
+price of the option, bringing its value back to $2 per share for
+break-even.
+■ Example 2 follow-up. The Mar 25 call had only $1 of time
+value (25 + 6 – 30 = 1), so its price might have fallen to $5.40,
+with its delta remaining at .80. Then, the $2 move in XYZ
+would yield a $1.60 increase in the price of the option, bringing
+its value to $7 per share, for a net profit of $1 per share.
+■ Example 3 follow-up. All of the value of the Mar 35 call
+was time value. Being so far out-of-the money with only a
+week until expiration, its price might have dropped to $.15 a
+share with its delta remaining at .10. Then, the $2 move in
+XYZ would yield a $.20 increase in the price of the option,
+bringing its value to $.35 per share, for a net loss of $.25 per
+share.
+What has been learned about the delta in these examples?
+When considering an option to buy, make a mental estimate of the
+delta for that option. Y ou do not necessarily need a precise value.
+Decide on a realistic increase in the price of the stock you are following.
+T o estimate the new option price, first multiply the change in the stock
+price by the (approximate) delta of the option to see how much the
+value of the option would increase. Add that increase to the purchase
+price of the option, while allowing for some loss of time value in the
+option. If this estimate of the new price of the option represents an
+acceptable profit, you have a good reason to buy the option.
+The delta of an option is not fixed. When the price of the stock moves
+significantly, the delta of an option will change. In Example 1, if XYZ
+moves up to $35, the Mar 30 call is no longer an at-the-money option.
+It has become an in-the-money option, and its delta will then be
+36 OPTIONS FOR THE BEGINNER AND BEYOND
+Chapter 4 The Greeks 37
+considerably larger. This works in your favor, because as the stock price
+rises to higher levels, the option price responds with a greater percent-
+age of the stock gain.
+Computing the Delta of a Put Option
+The distinction between the delta for a call and the delta for a put
+is that the delta of a long put is always negative. This is because
+an increase in the stock price results in a decrease in the price of a
+put. Analogous to a call option, an at-the-money put generally has a
+delta of about –.50. An in-the-money put will have a delta between
+–.50 and –1.0. An out-of-the-money put will have a delta between –.5
+and 0.
+Theta
+The next most commonly encountered Greek is the theta. The
+theta provides an estimate of how quickly your option is losing it time
+value.
+Theta: The amount that the price of an option changes as compared to
+the passage of a unit of time (typically one day).
+The value of theta is always a negative number, because the value of an
+option diminishes over time. In the terminology of options, the loss of
+time value is referred to as theta decay.
+As a rough guide, the magnitude of theta for an at-the-money option
+varies inversely as the square root of the time remaining until expira-
+tion. For example, an option that has 40 days until expiration loses time
+value twice as fast as it did when it had 160 days until expiration
+[square root (160/40) = 2]. An option that has only 10 days until expi-
+ration loses value 6 times as fast as it did when it had 360 days until
+expiration [square root (360/10) = 6].
+Some traders make a practice of never holding a long at-the-money
+option that has less than three weeks until expiration, because of the
+increasing rate at which the option will lose its value. With an out-of-
+the-money option, the situation can be even worse.
+An easy way to get a rough measure of the theta of an option is to com-
+pare two options with the same strike price that have different expira-
+tion dates. For example, suppose your at-the-money option has a value
+of $4.30 per share with four months until expiration, whereas the option
+with the same strike price and only two months until expiration has a
+value of $2.50 per share. This means that, if the stock price remains
+unchanged over the next 60 days, your option will lose about $1.80 in
+value. That translates to a theta of approximately –$.03 per day
+[–1.80/60 = –.03], which may not seem like much until you recognize
+that it can add up to a 42 percent loss in the value of your option over
+the next two months.
+Gamma
+Gamma: The amount that the delta changes as compared to a $1 increase
+in the price of the stock.
+The gamma becomes important in situations where the delta of an
+option becomes especially sensitive to changes in the price of the stock.
+Such situations are said to have gamma risk . One such scenario in
+which gamma becomes important occurs as an option approaches its
+expiration date.
+As expiration gets close, the usual delta values of in-the-money and
+out-of-the-money options become distorted. All in-the-money options
+will have a delta closer to one, whereas all out-of-the-money options
+will have a delta that is closer to zero. So, a small increase in the stock
+price, from slightly below a strike price to slightly above it, will cause a
+change in the option delta from near zero to near one. This yields a
+large value of gamma. There is considerable risk in such situations,
+because a small decrease in the stock price can change a profitable call
+into one that is worthless.
+Ve g a  
+The “vega” of an option provides a measure of its volatility. Just as
+stocks can be volatile, options can also be volatile, although there is not
+always a direct correlation of those volatilities. A stock whose price is
+38 OPTIONS FOR THE BEGINNER AND BEYOND
+volatile will typically have options with inflated prices, but it is also
+possible for options prices to inflate with little or no movement in the
+underlying stock price.
+The point here is that each option has its own individual measure of
+volatility that is dictated by its particular price action. In options termi-
+nology, this individual volatility is called the implied volatility .T h e
+manner in which implied volatility is determined is discussed in
+Chapter 29, “Implied Volatility and the Black-Scholes Formula. ”
+Ve ga:The amount that the price of an option changes as compared to a
+unit increase in the volatility of the stock.
+The importance of vega is seen whenever circumstances surrounding
+the stock become excited for any one of a variety of reasons. Rumors
+that a stock might be bought out will quickly inflate the prices of the
+options associated with the stock. Under such a scenario, there can be a
+large increase in the price of an option even if the stock price changes
+little. This gives rise to a high vega.
+Rho
+Rho: The amount that the price of an option changes as compared to a
+unit increase in the risk-free interest rate (that is, the rate for a U.S.
+treasury bill).
+Rho is positive for calls and negative for puts. With interest rates at the
+relatively modest levels seen in recent years, the influence on the price
+of options is slight.
+Chapter 4 The Greeks 39
+This page intentionally left blank 
+41
+5
+RISK GRAPHS
+n ancient Chinese proverb declares: “One picture is worth more
+than ten thousand words. ” And so it is with understanding
+options trading. Because the value of an option depends on sev-
+eral factors, it is difficult to visualize the variety of ways its price can
+change without some kind of chart. The chart used to track the progress
+of an options trade is called a risk graph.
+T o follow the price movement of a specific option, the two factors of
+primary importance are the price of the underlying stock and the time
+remaining until expiration. The risk graph provides the visual means to
+comprehend how the profit or loss in an options trade is affected by
+changes in stock price as well as changes in time.
+Risk graphs are used liberally throughout this book as a supplemental
+tool for visualizing the detailed workings of an options trade. These
+graphs are generated by a special calculator based on the Black-Scholes
+formula for pricing options, which is discussed in Chapter 29, “Implied
+Volatility and the Black-Scholes Formula. ” It is not necessary to under-
+stand how this calculator works, but only to accept that it does an excel-
+lent job in generating accurate options pricing data.
+Basically, the risk graph is a two-dimensional plot of stock price versus
+the profit or loss in the options trade. In this book, the modern style of
+presentation is used, where the stock price is shown on the vertical scale
+and the profit or loss in the trade is displayed on the horizontal scale.
+(The old-fashion style of presentation interchanges these vertical and
+horizontal scales.)
+Note that it is not an option price shown on the horizontal scale of the
+risk graph, because many risk graphs involve more than one option. It
+A

@@ -1,0 +1,175 @@
+The basic concept is essentially the same for both of these strategies. We
+discuss that concept and use examples to illustrate the strategies.
+Stock Repair Strategy
+For this strategy to work, it is necessary for your fallen stock to make at
+least a partial recovery. The stock repair strategy uses options to expand
+that partial recovery into a full recovery of your original investment,
+with little or no additional expense. If the stock price remains
+unchanged or continues to fall, this strategy offers no help.
+The basic plan is to buy one at-the-money call for each 100 shares of
+stock that you own. Y ou are going to pay for this one long call by selling
+two out-of-the money calls with the same expiration date. The idea is
+to use the cash received from the two short calls to pay for the one long
+call. Choose an expiration month for the options that is far enough out
+in time for the price of your stock to recover back to the strike price of
+the short calls.
+Let’s look at some examples to illustrate the stock repair strategy:
+■ Example 1. Y ou bought 100 shares of XYZ back in December
+when it was $35. Y ou watched it initially go up, but then
+undergo a dramatic slide to its current price in early March of
+$23. Y ou still like the stock and feel that there is some hope for
+a recovery, although getting back to break-even at $35 seems far
+away. Let’s see how stock repair might help.
+Trade: Buy 1 Jun 25 call for $3.30 per share and sell 2 Jun 30
+calls for $1.75 per share. This actually produces a net credit of
+$.20 per share [(1.75 × 2) – 3.3 = .20].
+Position: Along with an extra $.20 per share in your account,
+you hold the combination of a covered call (long 100 shares
+XYZ and short 1 Jun 30 call) and a bull call spread (long 1
+Jun 25 call and short 1 Jun 30 call). See Figure. 16-1 for a risk
+graph that depicts this position.
+124 OPTIONS FOR THE BEGINNER AND BEYOND
+Payoff: If XYZ is above $30 at the June options expiration, the
+stock will be called away at $30 per share, for a $7 per share
+gain over its present price of $23. The bull call spread will be
+worth $5 per share. The total gain (including the $.20 credit
+received) is $12.20 per share [7.0 + 5.0 + .2 = 12.2], which is
+equivalent to a stock price of $35.20. Thus, you will have
+reached slightly better than break-even, although the stock is
+still as much as $5 below your original purchase price.
+■ Example 2. Y ou bought 100 shares of YZX back in December
+when it was $19.50. Now in early March the stock is down
+15 percent with a slide to $16.50. Let’s see how stock repair
+can get you back to slightly better than break-even in only
+10 weeks with the stock recovering just 6 percent from its
+current level.
+Chapter 16 Stock Repair and Stock Enhancement 125
+Today: 140 days left
+94 days left
+47 days left
+Expiry: 0 days left
+–4000 –3000 –2000 –1000 0
+10 20 30 40
+Stock Price
+Figure 16-1
+Trade: Buy 1 May 15 call for $2.40 per share and sell 2 May
+17.5 calls for $1.10 per share. This does require a small cash
+outlay, specifically $.20 per share [(1.1 × 2) – 2.4 = –.2].
+Position: It has cost you an extra $.20 per share to hold the
+combination of a covered call (long 100 shares of YZX and
+short 1 May 17.5 call) and a bull call spread (long 1 May 15 call
+and short 1 May 17.5 call). See Figure. 16-2 for a risk graph
+that depicts this position.
+Payoff: If YZX is up by only 6 percent from its current level to
+$17.50 at the May options expiration, you will be slightly
+better than break-even. The stock will be called away at
+$17.50 per share for a $1 per share gain over its present price
+of $16.50. The bull call spread will be worth $2.50 per share.
+Allowing for the small extra cost to establish this trade, the net
+126 OPTIONS FOR THE BEGINNER AND BEYOND
+Today: 71 days left
+48 days left
+24 days left
+Expiry: 0 days left
+–1000 –700 –500 –300 –100 100 300 500 700 900
+20
+Stock Price
+Figure 16-2
+gain is $3.30 per share [1.0 + 2.5 – .2 = 3.3], which is equiva-
+lent to a stock price of $19.80. Thus, you have reached slightly
+better than break-even with the stock recovering less than half
+of its loss.
+Comment 
+In comparing Examples 1 and 2, note that the stock repair for 1 was
+done for a small credit, whereas 2 required a small debit. The explana-
+tion for this is the amount of time until the options expire (June versus
+May). T o do the stock repair strategy for little or no cost, it typically
+requires options with at least two months until expiration. The more
+time allowed, the more likely a credit will be generated.
+Stock Enhancement Strategy 
+Using the same concept as the stock repair strategy, you will see how to
+significantly enhance the return on a stock investment. The stock
+enhancement strategy uses options to expand the profit on your stock
+with no additional cost. A further enhanced return is achieved when a
+cheap surrogate is substituted for the stock.
+Let’s look at an example to illustrate the stock enhancement strategy:
+■ Example 3. In early March, you buy 100 shares of ZYX at $58
+per share. Y our plan is to hold this stock for the long-term with
+a target of $75.
+If your target is reached, that represents a nice profit of 29 per-
+cent. Let’s see how we can do much better for no extra expense
+using stock enhancement:
+Trade: Buy 1 Jan 70 call for $3.70 per share and sell 2 Jan
+75 calls for $2.50 per share. This produces a net credit of
+$1.30 per share [(2.5 × 2) – 3.7 = 1.3].
+Position: Along with an extra $1.3 per share in your account,
+you hold the combination of a covered call (long 100 shares of
+ZYX and short 1 Jan 75 call) and a bull call spread (long 1 Jan
+Chapter 16 Stock Repair and Stock Enhancement 127
+70 call and short 1 Jan 75 call). See Figure 16-3 for a risk graph
+that depicts this position.
+Payoff: If ZYX is above $75 in 10 months at the January options
+expiration, the stock will be called away at $75, for a $17 per
+share gain over its purchase price of $58. The bull call spread
+will be worth $5 per share. Including the initial credit, the total
+gain is $23.30 per share [17.0 + 5.0 + 1.3 = 23.3], which is
+equivalent to a stock price of $81.30. This represents a profit
+of 41 percent, even though the stock may have moved up by as
+little as 29 percent.
+Modification: Instead of buying 100 shares of ZYX stock at
+$58 per share, buy 1 Jan 40 call for $19.70 per share. This option
+128 OPTIONS FOR THE BEGINNER AND BEYOND
+Today: 351 days left
+234 days left
+117 days left
+Expiry: 0 days left
+–3000 –2000 –1000 1000 2000 0
+40 50 60 70 80
+Stock Price
+Figure 16-3
+has a delta of .87, and hence its price will advance almost dollar
+for dollar with the stock price. In this case, the payoff at expira-
+tion if ZYX is above $75 will be $21.60 per share [(75.0 – 40.0) –
+19.7 + 5.0 + 1.3 = 21.6]. This represents a profit of 110 percent
+based on the original cost of the Jan 40 call. See Figure. 16-4 for
+a risk graph that depicts this modification of Example 3.
+Chapter 16 Stock Repair and Stock Enhancement 129
+Today: 351 days left
+234 days left
+117 days left
+Expiry: 0 days left
+–2000 –1000 0 1000 2000
+30 40 50 60 70 80
+Stock Price
+Figure 16-4
+This page intentionally left blank 
+131
+17
+MARRIED PUTS
+very time you buy a stock, you are exposing your investment
+capital to substantial risk. Fortunately, there is an inexpensive
+way to protect your investment while waiting for the stock to
+move up. This protection is established through an “arranged mar-
+riage” between your stock and an appropriate put option. In options
+terminology, this is known as the married put strategy.
+As soon as you buy a stock, you are particularly anxious as you wait for
+it to begin moving upward. Obviously, you bought the stock because
+you believe its price is going up and you also believe that this upward
+move is going to happen soon. Even for disciplined investors, it is diffi-
+cult to get rid of a nonperforming stock within the first few weeks after
+it is purchased. This means admitting you were either wrong about the
+stock or wrong about the timing, or both. So, all too frequently, we
+watch the price of our newly purchased stock drift downward as we try
+to assure ourselves that this is only a temporary setback and soon our
+rosy evaluation of this stock will be validated.
+Many investors think that the solution to this situation is to use a stop
+loss order, which is set to trigger when the stock price moves down
+about 7 percent to 10 percent below the purchase price of the stock.
+There are two major problems with the stop loss approach: (1) If the
+stock gaps down, say 15 percent to 20 percent or more on some unex-
+pected bad news, your stop loss will be executed at that much lower
+level. (2) Soon after you purchase the stock, it pulls back just enough to
+trigger the stop loss and then rebounds to a 15 percent gain. Y ou will
+have been taken out of the trade and miss the opportunity to make a
+nice profit.
+E

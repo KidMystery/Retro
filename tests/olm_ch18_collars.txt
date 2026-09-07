@@ -1,0 +1,222 @@
+$190 [(2.90 – 1.00) × 100 = 190]. The net cost for the whole
+trade is $2,090 [1,900 + 190 = 2,090].
+See Figure 18-1 for a risk graph that depicts this trade.
+Although it is possible to exit this trade at any time, it is
+designed to be held until the options expiration date in
+January 2006. Let’s examine the best- and worst-case scenarios
+at expiration.
+The worst-case scenario means that the stock price is below $20
+on the options expiration date. In this situation, the Jan (06)
+25 call expires worthless, while you exercise the Jan (06) 20 put
+to force someone to buy your stock at $20 per share. Y ou
+receive $2,000 from the sale of your stock and your net loss on
+the trade is only $90 [2090 – 2000 = 90]. This small loss
+represents only 4.3 percent of your original investment.
+138 OPTIONS FOR THE BEGINNER AND BEYOND
+Today: 506 days left
+338 days left
+169 days left
+Expiry: 0 days left
+–100 0 100 200 300 400 20 30
+Stock Price
+Figure 18-1
+The best-case scenario occurs when the stock price is over $25
+on the option’s expiration date. In this situation, the Jan (06) 20
+put expires worthless and someone exercises the Jan (06) 25 call
+against you, so that your stock is sold for $25 per share. Y ou
+receive $2,500 for your 100 shares of stock, and your net profit
+on the trade is $410 [2,500 – 2,090 = 410]. This represents a
+gain of 20 percent on your original investment. For the
+14-month period that you are in this trade, that translates
+to a 17 percent gain on an annualized basis.
+From Example 1, you can see why this combination of stock and
+options is called a collar trade. The two options form a “collar”
+around the long stock position. The long Jan (06) 20 put forms
+the protective part of the collar by insuring that the stock can be
+sold for no less than $20 per share anytime before the option
+expires. The Jan (06) 25 call, which was sold to reduce the cost
+of the put, forms the restrictive part of the collar that limits the
+upside selling price of the stock to $25 per share.
+It is often possible to arrange the collar trade so that it is com-
+pletely without risk. Usually, this will mean giving up some of
+the potential profit. Let’s look at an example:
+■ Example 2. As in Example 1, we will buy XYZ stock for $19 per
+share with the intention of holding it for the next 14 months.
+But now we will go for an even higher level of protection.
+Trade: Buy 100 shares of XYZ for $1900. Buy 1 Jan (06) 22.5
+put for $4.50 per share and sell 1 Jan (06) 25 call for $1 per
+share. The net cost of the two options is $350 [(4.50 – 1.00) ×
+100 = 350]. The net cost for the whole trade is $2,250 [1,900 +
+350 = 2,250].
+See Figure 18-2 for a risk graph that depicts this trade.
+In this example, the worst-case scenario is the stock price below
+$22.50 on the option’s expiration date. In this situation, the Jan
+(06) 25 call expires worthless, while you exercise the Jan (06)
+22.5 put to force someone to buy your stock at $22.50 per
+share. Y ou receive $2,250 from the sale of your stock, which is
+Chapter 18 Collars 139
+exactly the original cost of the trade, thereby allowing you to
+exit with no loss.
+The best-case scenario is again when the price of XYZ is over
+$25 at expiration. The Jan (06) 22.5 put expires worthless and
+someone exercises the Jan (06) 25 call against you so that your
+stock is sold for $25 per share. Y ou receive $2,500 for your
+100 shares of stock and your net profit on the trade is $250
+[2,500 – 2,250 = 250]. This represents a gain of 11 percent on
+your original investment. For the 14-month period that you
+are in this trade, that translates to a 9.5 percent gain on an
+annualized basis.
+Although the maximum potential gain in Example 2 is signifi-
+cantly less than in Example 1, keep in mind that the collar
+trade in Example 2 carries no risk of principal. This may be
+140 OPTIONS FOR THE BEGINNER AND BEYOND
+Today: 506 days left
+338 days left
+169 days left
+Expiry: 0 days left
+–100 0 100 200 20 30
+Stock Price
+Figure 18-2
+particularly important for someone whose portfolio includes a
+large holding in XYZ stock.
+If you are willing to accept a little more risk, the collar can be
+loosened to allow for a larger profit potential, as Example 3
+shows.
+■ Example 3. As in the previous two examples, we buy XYZ stock
+for $19 per share with the intention of holding it for the next
+14 months. But now we go for a higher maximum return while
+accepting a little more risk.
+Trade: Buy 100 shares of XYZ for $1,900. Buy 2 Jan (06) 20 put
+for $2.90 per share and sell 1 Jan (06) 30 call for $.60 per share.
+The net cost for the 2 options is $230 [(2.90 – .60) × 100 = 230].
+The net cost for the whole trade is $2,130 [1,900 + 230 = 2,130].
+See Figure 18-3 for a risk graph that depicts this trade.
+Chapter 18 Collars 141
+Today: 506 days left
+338 days left
+169 days left
+Expiry: 0 days left
+–1000 –700 –500 –300 –100 100 300 500 700 90020 30
+Stock Price
+Figure 18-3
+As in Example 1, the worst-case scenario is the stock price
+below $20 on the option’s expiration date. In this situation, the
+Jan (06) 30 call expires worthless, while you exercise the Jan
+(06) 20 put to force someone to buy your stock at $20 per
+share. Y ou receive $2,000 from the sale of your stock, and your
+net loss on the trade is $130 [2,130 – 2,000 = 130]. This loss
+represents 6.1 percent of your original investment.
+The best-case scenario occurs again when the stock price
+is over $30 on the option’s expiration date. In this situation,
+the Jan (06) 20 put expires worthless, and someone exercises
+the Jan (06) 30 call against you, so that your stock is sold for
+$30 per share. Y ou receive $3,000 for your 100 shares of
+stock and your net profit on the trade is $870 [3,000 – 2,130 =
+870]. This represents a gain of 41 percent on your original
+investment. For the 14-month period that you are in this
+trade, that translates to a 35 percent gain on an annualized
+basis.
+In this example, the maximum gain is significantly better than
+that of Example 1, but the maximum loss has been increased.
+Let’s reconsider the Example 1 trade and see the difference if we
+extend that trade for an additional 12 months.
+■ Example 4. As in Example 1, we buy XYZ stock for $19 per
+share. But now the intention is to hold it for the next 26 months.
+Trade: Buy 100 shares of XYZ stock for $1,900. Buy 1 Jan (07)
+20 put for $3.40 per share and sell 1 Jan (07) 25 call for $2.30
+per share. The net cost for the 2 options is $110 [(3.40 – 2.30) ×
+100 = 110]. The net cost for the whole trade is $2010 [1,900 +
+110 = 2,010].
+See Figure 18-4 for a risk graph that depicts this trade.
+The worst-case scenario means that the stock price is below
+$20 on the option’s expiration date. In this situation, the
+Jan (07) 25 call expires worthless, while you exercise the
+Jan (07) 20 put to force someone to buy your stock at $20 per
+share. Y ou receive $2,000 from the sale of your stock and your
+142 OPTIONS FOR THE BEGINNER AND BEYOND
+net loss on the trade is only $10 [2,010 – 2,000 = 10].
+This small loss represents only 0.5 percent of your original
+investment. This is essentially a riskless trade.
+The best-case scenario occurs when the stock price is over $25
+on the option’s expiration date. In this situation, the Jan (07)
+20 put expires worthless and someone exercises the Jan (07)
+25 call against you, so that your stock is sold for $25 per share.
+Y ou receive $2,500 for your 100 shares of stock, and your net
+profit on the trade is $490 [2,500 – 2,010 = 490]. This
+represents a gain of 24 percent on your original investment. For
+the 26-month period that you are in this trade, that translates
+to an 11 percent return on an annualized basis.
+It is worthwhile to compare Examples 1 and 4. We see that by going to
+a longer-term scenario, the trade becomes essentially riskless. The max-
+imum potential profit has increased slightly, although the return on an
+Chapter 18 Collars 143
+Today: 870 days left
+580 days left
+290 days left
+Expiry: 0 days left
+–100 0 100 200 300 400 20 30
+Stock Price
+Figure 18-4
+annualized basis is less. The trade in Example 4 would appeal to a con-
+servative investor who is willing to accept a modest return when his
+investment capital is almost fully protected from loss.
+Comments
+Collar trades are designed to be long-term trades. Trying to set up a col-
+lar trade for a period of less than 10 to 12 months will not provide the
+level of protection seen in the examples presented here.
+Because the collar trades use LEAPS options, they generally can be
+structured for 22 to 24 months duration if so desired. With the longer
+duration, the maximum potential gain and maximum loss are typically
+better than the 10-to-12-month versions of the collar trade, as seen
+by comparing Examples 1 and 4. A major drawback to the 22-to-
+24-months collar trade is the cap placed on the upward price move-
+ment of the stock. If your stock is well above the strike price of the
+short call after 12 months, you will not be pleased that your profit is
+already capped while it will take another 10 to 12 months before the
+maximum return is achieved.
+It is possible to exit a collar trade early; however, to achieve the maxi-
+mum return generally requires staying in the trade until expiration. In
+Example 1, if XYZ reaches $25 with six months remaining until expira-
+tion, the profit would be only about half of the $410 maximum. When
+the stock price falls, it is often possible to exit the collar trade early for
+a slightly smaller loss than the maximum.
+The collar trade is enhanced if the stock pays a dividend. In Example 1,
+suppose that XYZ pays an annual dividend of $.65 per share. That rep-
+resents an annualized yield of 3.4 percent, which is equivalent to 4.0 per-
+cent for the 14-month duration of the collar. This means that the
+maximum return on the trade in Example 1 is increased to 24 percent,
+whereas the maximum loss has been reduced to a miniscule 0.3 percent.
+Collar trades on highly volatile stocks are generally not as appealing as
+they are for more conservative stocks. The higher volatility will usually
+result in a much greater net cost for the options that provide the collar.
+This will increase the maximum possible loss on the trade.
+144 OPTIONS FOR THE BEGINNER AND BEYOND
+145
+19*
+ADV ANCED COLLARS
+n this chapter, we consider some variations of the standard collar
+trades that were presented in Chapter 18, “Collars. ” These varia-
+tions do introduce some additional risk with the goal of enhancing
+the return.
+Let’s consider a variation of Example 1 in Chapter 18 that introduces a
+deep-in-the-money call with a high delta as a substitute for stock.
+■ Example 1A. In November 2004, you are interested in holding
+XYZ stock for the next 14 months. Instead of buying the stock
+at $19 per share, the Jan (06) 10 call is used as a substitute for
+the stock. The Jan (06) call is priced at $9.60 per share. This
+option is a good surrogate for XYZ stock because it has a delta
+of .95 and its time value is only $.60 per share [(10.00 + 9.60) –
+19.00 = .60].
+Trade: Buy 1 Jan (06) 10 call for $9.60 per share as a substitute
+for 100 shares of XYZ stock. As before, buy 1 Jan (06) 20 put
+for $2.90 per share and sell 1 Jan (06) 25 call for $1.00 per
+share. The net cost of the three options is $1,150 [(9.60 +
+2.90 – 1.00) × 100 = 1,150].
+See Figure 19-1 for a risk graph that depicts this trade.
+For this collar trade, the worst-case scenario is not as simple to
+describe, because we have substituted an option for stock. The
+maximum loss is incurred at the option’s expiration date if the
+stock price is below $20 but above $10, as seen in Figure 19-1.
+In this situation, the Jan (06) 25 call expires worthless, while the
+net value of the Jan (06) 10 call and the Jan (06) 20 put will be
+I

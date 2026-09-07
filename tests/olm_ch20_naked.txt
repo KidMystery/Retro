@@ -1,0 +1,181 @@
+in that type of account. It is interesting, however, that almost all brokers
+do permit covered call strategies in retirement accounts, because a cov-
+ered call carries exactly the same risk as a naked put. This was demon-
+strated in Chapter 14, “Covered Calls. ”
+The goal of this chapter is to make you aware of the potential risks as
+well as the potential rewards of selling naked calls and puts. Let’s begin
+with the risks.
+The Risk of Naked Option Writing
+Y ou will often hear that selling a naked option exposes you to “un-
+limited risk. ” Although this is not literally true, the risk can be large
+enough to cause considerable loss in you brokerage account. T o realis-
+tically illustrate the magnitude of the risk, we will consider some actual
+market situations where substantial losses were generated for those
+traders who sold naked options.
+■ Example 1. Naked put
+In early June 2004, OVTI stock was moving up nicely as the
+earnings announcement scheduled for June 9 was approaching.
+Many analysts expected the announcement to reveal that the
+profits of this high profile company were continuing to grow as
+had been reported in the past. With the stock trading a little
+over $25 on June 8, it was certainly tempting to sell a few
+June 25 puts naked for $1 per share.
+Suppose that on June 8 you sold 5 Jun 25 puts naked to bring
+$500 cash into your account. This looked like easy money
+because the stock price seemed likely to continue upward, or at
+least stay level, following the expected rosy earnings report.
+Also, these options would expire in only two and a half weeks
+on June 18, which meant that you did not have long to wait for
+the capture of the $500 credit to be completed. See Figure 20-1
+for a risk graph that depicts this trade on June 8.
+After the market closed on June 8, OVTI issued a statement
+that its earnings announcement would be delayed until June 23
+154 OPTIONS FOR THE BEGINNER AND BEYOND
+due to an internal investigation regarding the need to restate its
+earnings for the past year. On June 9, the stock opened at $19
+and continued trading down until it closed at $15.50 as the
+options expired on June 18. At this point, you would have to
+decide between two unpleasant choices: (1) Buy back the
+5 short puts for $9.50 per share, or (2) accept the assignment
+to buy 500 shares of the stock at $25 per share. In either case,
+the value of your brokerage account was diminished by $4,250.
+The reason for this massive loss was that the short Jun 25 puts
+were naked. They were not covered by any other position to
+limit the risk.
+See Figure 20-2 for a risk graph that depicts this situation on
+June 18.
+Chapter 20 Naked Option Writing 155
+Today: 10 days left
+7 days left
+4 days left
+Expiry: 0 days left
+–6000 –5000 –4000 –3000 –2000 –1000 020 30
+Stock Price
+Figure 20-1
+■ Example 2. Naked call
+In early June 2004, CYBX stock was trading at $18. The
+rumor surrounding this company was that an FDA panel
+might disapprove its implant device to treat severely depressed
+patients. The Jun 20 calls were trading at $3.50 per share.
+It seemed that selling a few of these calls naked might be
+profitable, because some analysts projected that the stock price
+would only move up a few dollars even if the implant device
+was approved.
+Suppose that on Jun 10 you sold three Jun 20 calls naked to
+bring $1,050 cash into your account.
+See Figure 20-3 for a risk graph that depicts this trade on
+June 10.
+156 OPTIONS FOR THE BEGINNER AND BEYOND
+Today: 0 days left
+0 days left
+0 days left
+Expiry: 0 days left
+–6000 –5000 –4000 –3000 –2000 –1000 020 30
+Stock Price
+Figure 20-2
+After the close of trading on June 15, just three days before the
+options were to expire, CYBX announced that the implant
+device had been approved by the FDA panel. The next day,
+CYBX opened at $31, and by the expiration date of June 18,
+the stock was at $37. At this point, you would have to decide
+between two unpleasant choices: (1) Buy back the 3 short calls
+for $19 per share, or (2) wait for the assignment on the follow-
+ing Monday and be forced to buy 300 shares of CYBX stock at
+$37 (possibly even higher) and deliver it at $20. In either case,
+you would see an immediate reduction in the value of your
+brokerage account by an amount of $4,650.
+Again, the reason for this massive loss was that the short Jun 20
+calls were naked. They were not covered by any other position
+to limit the risk.
+Chapter 20 Naked Option Writing 157
+Today: 8 days left
+6 days left
+3 days left
+Expiry: 0 days left
+–2000 –1000 0 100010 20
+Stock Price
+Figure 20-3
+See Figure 20-4 for a risk graph that depicts this situation on
+June 18.
+Now that you have been sufficiently warned about the danger of naked
+option writing, let’s look at one situation in which it might be an
+acceptable strategy.
+Acquiring Stock with Naked Puts
+Let’s see how naked puts can be used as a strategy to acquire a good stock
+at a desirable price. An example will be used to illustrate this strategy:
+■ Example 3. Suppose that you have carefully researched XYZ
+stock. Y ou believe that buying 200 shares of this stock would be
+a sound investment for the future. XYZ is currently selling for
+$31 per share, and although you are prepared to buy the stock
+at that price, it would be nice to get it for a little less.
+158 OPTIONS FOR THE BEGINNER AND BEYOND
+Today: 0 days left
+0 days left
+0 days left
+Expiry: 0 days left
+–5000 –4000 –3000 –2000 –1000 0 1000
+10 20 30 40
+Stock Price
+Figure 20-4
+Y ou note that the front month $30 puts are being sold at $1.25
+per share. If you sell two of these puts naked, this brings $250
+into your brokerage account. By being naked in those 2 puts,
+you must be prepared to buy 200 shares of the stock at $30 if
+necessary. This must be regarded as acceptable, because you
+were already prepared to purchase the stock for $31.
+When the front-month options expire, there are two possible
+outcomes to consider:
+1. If XYZ is above $30, the short puts expire worthless and you
+keep the $250. If it still seems like a good investment to
+acquire this stock, you can repeat the process for the follow-
+ing month. Otherwise, you move on to another stock of
+interest.
+2. If XYZ is below $30, the short puts will be exercised and you
+will be required to buy the 200 shares for $30 per share. Y our
+actual cost basis for the stock is only $28.75 per share
+because of the $1.25 per share that you received from the
+sale of the puts.
+If XYZ had experienced a pullback to $29, you would still be
+buying the stock for an equivalent price of $28.75 per share.
+Note how this is much better than having bought the stock at
+$31 per share when you initially decided to acquire this stock.
+It is wise to have some sort of stop loss strategy in mind when selling
+naked options. Think of this as the same as initiating stop loss when
+you buy the stock. In the preceding example, if XYZ was at $31 when
+you sold the naked put, your mental stop loss might be at $28, which
+represents a 10 percent pullback in the stock price. So, if XYZ falls to
+$28, buy back the naked put for, say, $2.60 per share. This represents a
+loss of $1.35 per share [2.60 – 1.25 = 1.35]. Notice that this is a signifi-
+cant improvement over a loss of $3 per share that would have been real-
+ized if the stock had been purchased at $31.
+Chapter 20 Naked Option Writing 159
+This page intentionally left blank 
+161
+21
+STOCK SUBSTITUTES
+s discussed in Chapter 20, “Naked Option Writing, ” there is
+substantial risk in trades that involve uncovered short options.
+Nevertheless, in some circumstances, it is worthwhile to consider
+naked positions. In this chapter, we examine some situations in which
+you can use naked puts and calls as cheap substitutes for stock.
+Synthetic Long Stock
+An at-the-money long call has a delta = 0.5, whereas an at-the-money
+short (naked) put has a delta = –(–0.5) = 0.5. When held as a unit, the
+combination of a long call and a short put, with the same at-the-money
+strike price, has a delta of 1.0 [0.5 – (–0.50) = 1.0]. Because long stock
+has a delta of 1.0, this combination of options is known as synthetic
+stock. What makes this combination particularly appealing is that its net
+cost is almost zero. The premium received from selling the naked put
+will come very close to paying for the long call.
+Although the net cost of the synthetic stock position is nearly zero, it
+does come with some strings attached. Y our broker will require some
+margin to maintain this position, because of the naked put, but that is
+typically far less than the cost of owning the real stock. The margin
+required by brokerage firms varies, but a rule of thumb is 25 percent of
+the underlying stock (or index) price plus the price of the option if the
+option is in-the-money. If the option is out-of-the-money, that margin
+figure is reduced by the amount that the option is out-of-the-money.
+Let’s look at an example to illustrate synthetic long stock:
+■ Example 1. In early June, XYZ stock is trading at $76. T o par-
+ticipate in the movement of this stock over the next three
+A

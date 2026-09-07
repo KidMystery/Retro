@@ -1,0 +1,194 @@
+index listed with that exchange. The bid is the highest per-share price
+that some trader (or market maker) is willing to pay to buy the option.
+The ask is the lowest per-share price that some trader (or market
+maker) is willing to accept for the purchase of an option. Most financial
+data feed services that provide options prices show only the best bid
+and best ask prices as selected from a survey of all the exchanges.
+The ask is always greater than the bid, and the difference between these
+is called the bid/ask spread, or more simply the spread. Depending on
+the liquidity of the option, the spread may be as narrow as $.05 for
+options trading under $3 or as wide as $1 or more for some high-
+priced, illiquid options. Whenever the spread is wide enough, there is
+the possibility of negotiating a more favorable price somewhere
+between the bid and the ask.
+The width of the spread for an option is essentially controlled by the
+market maker. He earns his living by managing an appropriate spread.
+His goal is to have someone buy an option from him at the ask, while
+someone else is willing to sell him the same option at the bid. The two
+option positions cancel each other, and the market maker pockets a
+profit equal to the value of the spread. This may seem like a small prof-
+it if the spread is only $.05 to $.10, but when repeated over a large num-
+ber of contracts, it soon becomes quite substantial.
+In a nonvolatile situation in which there is a high-volume demand for
+both buying and selling an option, the market maker is content with a
+narrow spread, because it is easy to match up his long and short posi-
+tions while repeatedly collecting the value of the spread. In a highly
+volatile situation in which a large but unbalanced demand for an
+option exists, or in a low-volume situation, the market maker main-
+tains a wide spread. In those situations, it is more difficult to find a
+matching trade, and the market maker wants a bigger spread to offset
+his risk.
+Now let’s turn our attention to the details of entering and exiting a
+trade. For simplicity, we confine our attention to the opening and clos-
+ing of a long option position. That is, first buy an option in an “open-
+ing transaction” and then later sell the option in a “closing
+transaction. ”
+28 OPTIONS FOR THE BEGINNER AND BEYOND
+Entering a Trade
+There are two main ways to initiate an “opening transaction” for an
+option. Similar to buying stock, the purchase of an option can be
+accomplished by means of either (1) a market order or (2) a limit
+order.
+My recommendation is to never use a market order in an opening
+transaction. The best that you can do is to be filled at the ask price, and
+quite often you will do worse. If your order is for several contracts, you
+may find that only a few are filled at the ask before the price slides to a
+higher level for the remaining fills.
+In a fast market where option prices are changing quickly, you may
+believe that you will only succeed in entering the trade by the use of a
+market order. In such a situation, you will be placing yourself at the
+mercy of the market maker, who is allowed considerable latitude in fill-
+ing market orders during fast conditions.
+So this leaves us with only the limit order as the principal way to initi-
+ate an option trade. With the limit order, you select the price that you
+believe is reasonable to pay for the option and enter that price with the
+order. There is no guarantee that your order will be filled, but if it is, it
+must be at your price or lower. Let’s look at some examples to illustrate
+how to determine an appropriate price for a limit order to enter a
+trade:
+■ Example 1A. Bid = $2.40 and ask = $2.45. There is no room for
+negotiation here. The spread = $.05, which is the minimum
+possible for an option trading under $3 per share. Typically, the
+spread is this tight only for highly liquid options such as those
+associated with the NASDAQ 100 Trust (QQQQ). Place a limit
+order to buy at $2.45 and you should get a quick fill.
+■ Example 2A. Bid = $2.40 and ask = $2.80. With the spread =
+$.40, there is some room for negotiation. Y ou could try to split
+the spread in the middle with a limit order to buy at $2.60.
+Getting filled at that price under slow conditions could be diffi-
+cult. If you move the limit price up to $2.65 or $2.70, you are
+much more likely to get filled.
+Chapter 3 Entering and Exiting Option Trades 29
+■ Example 3A. Bid = $4.10 and ask = $4.40. Because the option is
+trading over $3 per share, the minimum spread would be $.10.
+Here the spread is $.30, which suggests that there may be some
+room for negotiation. Y ou cannot split the difference at $4.15
+because an option over $3.00 must be priced in $.10 incre-
+ments. Typically, a limit order to buy at $4.20 is pointless,
+because you are asking the market maker to give up more than
+half the spread. A more realistic approach is to place a limit
+order at $4.30. This gives the market maker a $.20 spread,
+which should be enough to get the trade filled.
+■ Example 4A. Bid = $8.50 and ask = $9.10. With the spread =
+$.60, this is what you might see for a deep-in-the-money
+option that has no open interest. The market maker is not
+really interested in trading this option, but if you insist, he is
+going to make it worthwhile for himself. In this type of
+situation, be prepared to struggle to get a decent fill price.
+Exiting a Trade
+As it is with entering a trade, you can exit an option trade in a closing
+transaction by means of either (1) a market order or (2) a limit order.
+There are two additional ways to exit an option trade that are worthy of
+discussion, namely (3) a stop loss order and (4) a stop limit order.
+I recommend never using a market order to exit a trade, except in
+extreme situations in which it seems imperative to exit a trade immedi-
+ately to avoid substantial loss. Keep in mind that the fill price you
+receive on a market order to sell an option will not be any higher than
+the bid and will often be significantly lower.
+As for a limit order, the situation is analogous to that of entering the
+trade. Y ou select a price that you believe is reasonable to sell your long
+option and enter that price with the limit order. Y ou may not get a fill,
+but if you do, it must be at that price or higher. Let’s reexamine
+Examples 1A through 3A to illustrate how to determine an appropriate
+price for a limit order to exit a trade:
+■ Example 1B. Bid = $2.40 and ask = $2.45. Again, there is no
+room for negotiation here. The spread = $.05, which is the
+30 OPTIONS FOR THE BEGINNER AND BEYOND
+minimum possible for an option trading under $3 per
+share. Place a limit order to sell at $2.40 and you should get
+a quick fill.
+■ Example 2B. Bid = $2.40 and ask = $2.80. With the spread =
+$.40, there is some room for negotiation. Y ou could try to split
+the spread in the middle with a limit order to sell at $2.60.
+Getting filled at that price under slow conditions could prove
+difficult. If you move the limit price down to $2.55 or $2.50,
+you are much more likely to get filled.
+■ Example 3B. Bid = $4.10 and ask = $4.40. Because the option is
+trading over $3 per share, the minimum spread would be $.10.
+Here the spread is $.30, which suggests that there may be some
+room for negotiation. Y ou cannot split the difference at $4.15
+because an option over $3 must be priced in $.10 increments.
+Typically, a limit order to sell at $4.30 is pointless, because you
+are asking the market maker to give up more than half the
+spread. A more realistic approach is to place a limit order at
+$4.20. This gives the market maker a $.20 spread, which should
+be enough to get the trade filled.
+Next, let’s examine the use of the stop loss order for selling an option.
+With this order, you indicate a trigger price at which you want the order
+to be initiated. The order to sell is then activated when either (1) the
+option trades at the trigger price or lower, or (2) the ask is at the trigger
+price or lower. When the order is activated, it becomes a market order
+to sell the option. As with a straight market order, this means the fill
+will not be any better than the bid when the order is activated and it
+may be substantially worse. My recommendation about using this type
+of order is only under extreme circumstances in which you are trying to
+avoid substantial loss.
+Finally, let’s consider the stop limit order for selling an option. As with
+a stop loss order, you indicate a trigger price at which you want the
+order to be initiated. But here you also indicate a limit price at which
+you want to sell your long option. The order is activated under the
+same two conditions previously described for the stop loss order. The
+difference here is that when the order is activated, it becomes a limit
+order to sell at the price you selected.
+Chapter 3 Entering and Exiting Option Trades 31
+Getting filled on a stop limit order can prove tricky. Y ou must carefully
+select your trigger price and your limit price to give yourself the best
+opportunity for a fill. If you set the limit price too close to the trigger
+price, you may not get a fill in circumstances in which you definitely
+want to be filled. Let’s look at an example:
+■ Example 1C. Y ou have a long call currently trading at $4. Y ou
+want to try and protect this position with a stop limit order so
+that you will sell this option for no less than $3.50. Let’s see
+what might happen if you set a trigger price of $3.60 and a
+limit price of $3.50. Suppose it occurs that the option price
+drops until the ask = $3.60 and the bid = $3.40. Because the ask
+has reflected your trigger price, your limit order to sell at $3.50
+is then activated. Unfortunately, you will not get a fill here
+because the bid is lower than your limit price.
+T o avoid this situation, the gap between the trigger price and the limit
+price should be adjusted to reflect the anticipated bid/ask spread when
+the order is activated. In this example, it looks as if the trigger should
+have been set at $3.70 so as to account for the spread = $.20. Then, if the
+option price drops until the ask = $3.70 and the bid = $3.50, your order
+to sell will be activated with a limit price which is the same as the bid.
+This provides a much better chance of being filled at your desired price
+of $3.50.
+32 OPTIONS FOR THE BEGINNER AND BEYOND
+33
+4
+THE GREEKS
+s you learn about options and listen to the conversations of
+options traders, you will hear certain Greek letters mentioned.
+What are they talking about when they mention the delta, theta,
+gamma, vega (not a Greek letter), and rho? Are they referring to their
+favorite college fraternity or sorority?
+The “Greeks, ” as they are called in the terminology of options trading,
+are one-word expressions used to describe how the price of an option
+changes when something else changes. The origin of this terminology
+lies in the theory of options pricing where these Greek letters were first
+introduced to define these price changes in exact mathematical state-
+ments. The main goal of this chapter is to provide an overview of the
+Greeks and their role in the trading of options.
+Delta
+The most basic and useful of the Greeks is the delta. Even with a simple
+working knowledge of the delta, you are immediately going to be a bet-
+ter options trader.
+Delta: The amount that the price of an option changes as compared to
+a $1 increase in the stock price. This quantity is typically expressed as
+either a decimal or a percentage.
+Computing the Delta of a Call Option 
+Let’s illustrate with some examples:
+■ Example 1. XYZ is at $30 per share. The Mar 30 call, which
+expires in three weeks, is priced at $2 per share. Suppose the
+price of XYZ increases by $2 up to $32 per share. Typically, this
+A

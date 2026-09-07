@@ -1,0 +1,167 @@
+months, October options are selected. The nearest strike price
+is $75. Here is the trade that establishes the synthetic stock
+position:
+Trade: Buy 1 Oct 75 call for $4.50 per share and sell 1 Oct 75
+put for $2.70, for a net cost of $1.80 per share.
+Cost = $180.
+Max risk = Essentially the same as the max loss from stock
+ownership.
+This synthetic stock position was created by using options with a $75
+strike price. This means that all gains and losses in the synthetic stock
+are referenced to $75. With the current price of XYZ at $76, this sug-
+gests that the cost of this synthetic stock should ideally be $1 per share.
+The actual cost of $1.80 per share contains an extra $.80, which repre-
+sents the time value cost of holding this position.
+See Figure 21-1 for a risk graph that depicts this trade.
+162 OPTIONS FOR THE BEGINNER AND BEYOND
+Today: 134 days left
+90 days left
+45 days left
+Expiry: 0 days left
+–4000 –3000 –2000 –1000 0 1000 2000 300040 50 60 70 80 90 100 110
+Stock Price
+Figure 21-1
+T o calculate the margin requirement on the preceding trade, notice that
+the naked put is out-of-the-money by $1. Therefore, the margin
+required is 25 percent of the XYZ stock price plus the price of the
+Oct 75 put less the amount the option is out-of-the-money. In this case,
+the margin on one contract would be $2,070 {[(.25 × 76.00) + 2.70 –
+1.00] × 100 = 2,070}. This margin requirement of $2,070 for the
+synthetic stock is considerably less than the $7,600 cost of owning
+100 shares of the stock. Note that the margin requirement is not fixed,
+but changes daily as the stock and option prices change.
+From Figure 21-1, you can see that the profit and loss on this trade is
+exactly the same as stock that was purchased for $76.80.
+Comments
+There are some drawbacks to synthetic stock. If the real stock pays div-
+idends, this surrogate does not get a penny. And if the stock price were
+to fall so far that the naked put becomes deep-in-the-money, there is
+the possibility of an early assignment. When there is an assignment of
+real stock, the synthetic position has been dismantled. Another minor
+drawback is that when the options expire, a new synthetic position
+needs to be established if you want to continue participating in the
+stock price movement.
+A synthetic position that is equivalent to a short stock position is creat-
+ed by buying a put and selling a call with the same strike price. Unlike
+shorting a stock, very little if any cash will be credited to your broker-
+age account. The margin required to hold the position will be based on
+the naked short call.
+Deep-in-the-Money Put 
+A short deep-in-the-money naked put will have a delta very close to one.
+This makes this position a viable substitute for stock. As the stock
+moves up in price, this position will capture the move almost dollar for
+dollar, until the stock price nears the strike price of the short put. An
+attractive feature of this stock surrogate is the large amount of cash
+Chapter 21 Stock Substitutes 163
+brought into your brokerage account from the sale of the very expen-
+sive put. This cash earns interest as it sits in your account.
+This naked put position will require margin in your brokerage account,
+but still should not tie up nearly as much capital as owning the real
+stock. The main disadvantage to this stock substitute is the possibility
+of an early assignment. Even though a naked put has an expiration date
+in the distant future, it may have almost no time value included in its
+price when it becomes very deep-in-the-money. This makes it vulnera-
+ble to early assignment. If assigned, you can always reestablish the posi-
+tion, but that can become tiresome and expensive because the
+commission costs add up after several assignments. The best way to
+avoid this problem is to pick a strike price not too deep-in-the-money,
+so that the put price still includes some time value. Also, check the open
+interest of the option. With a large open interest, the possibility of an
+early assignment is diminished.
+Let’s look at an example:
+■ Example 2. In early June, XYZ stock is trading at $76. T o par-
+ticipate in the (upward) movement of this stock over the next
+three months, an October put is selected.
+Trade: Sell 1 Oct 90 put for $14.80 per share.
+Credit = $1,480.
+Max risk = Essentially the same as the max loss from stock
+ownership.
+Note that the option selected has a time value of $.80 per share [(76.00
++ 14.80) – 90.00 = 0.80]. This time value together with an ample open
+interest (say, at least 300 contracts) would mean that the chance for an
+early assignment is unlikely.
+See Figure 21-2 for a risk graph that depicts this trade.
+T o calculate the margin requirement on this trade, notice that the naked
+put is in-the-money. Therefore, the margin required is 25 percent of the
+XYZ stock price plus the price of the Oct 90 put. In this case, the margin
+on one contract would be $3,380 {[(.25 × 76.00) + 14.80] × 100 =
+3,380}. This margin requirement of $3,380 is not as expensive as it first
+164 OPTIONS FOR THE BEGINNER AND BEYOND
+seems, because the $1,480 cash brought into your account from the sale
+of the put is used to meet the requirement. Thus, the effective margin
+requirement is only $1,900, which is considerably less than the $7,600
+cost of owning 100 shares of the stock. Again, the margin requirement is
+not fixed, but changes as the stock and option prices change.
+A disadvantage of this naked put strategy is that its maximum profit is
+limited to the amount of money received from the sale of the put. If the
+stock price closes above the strike price of the put at expiration, there
+will not be any additional profit related to the amount that the stock
+price exceeds the strike price (as shown in Figure 21-2).
+Deep-in-the-Money Call
+A short deep-in-the-money naked call will have a delta very close to
+minus one. This makes this position a viable substitute for short stock.
+Chapter 21 Stock Substitutes 165
+Today: 134 days left
+90 days left
+45 days left
+Expiry: 0 days left
+–4000 –3000 –2000 –1000 0 1000
+40 50 60 70 80 90 100 110
+Stock Price
+Figure 21-2
+As the stock moves down in price, this position will capture the move
+almost dollar-for-dollar, until the stock price nears the strike price of
+the short call. As with shorting the actual stock, this short stock surro-
+gate brings cash into your brokerage account from the sale of the
+expensive call. This cash earns interest as it sits in your account.
+This naked call position will require margin in your brokerage account,
+but still should not tie up nearly as much capital as shorting the real
+stock. The possibility of an early assignment is somewhat less than for
+the naked put position previously described, because calls always tend
+to have more time value than puts. Also, with a large open interest, the
+possibility of an early assignment is diminished. One situation that
+does make the possibility of early assignment more likely is when a
+stock pays a dividend. The owners of deep-in-the-money calls will
+often exercise them before expiration when that action leads to the
+receipt of a dividend.
+This strategy for a synthetic short stock using naked calls is less often
+used because it does not offer much advantage over shorting the real
+stock.
+Let’s look at an example:
+■ Example 3. In early May, XYZ stock is trading at $76. T o partic-
+ipate in the downward movement of this stock over the next
+three months, an October call is selected.
+Trade: Sell 1 Oct 60 call for $16.90 per share.
+Credit = $1,690.
+Max risk = Essentially the same as the max loss from shorting
+the stock.
+Note that the option selected has a time value of $.90 per share [60.00 –
+(76.00 – 16.90) = 0.90]. This time value together with an ample open
+interest (say, at least 300 contracts) means that the chance for an early
+assignment is unlikely.
+See Figure 21-3 for a risk graph that depicts this trade.
+T o calculate the margin requirement on this trade, notice that the naked
+call is in-the-money. Therefore, the margin required is 25 percent of
+166 OPTIONS FOR THE BEGINNER AND BEYOND
+the XYZ stock price plus the price of the Oct 60 call. In this case, the
+margin on one contract would be $3,590 {[(.25 × 76.00) + 16.90] ×
+100 = 3,590}. As in the previous example, this margin requirement of
+$3,590 is effectively reduced to $1,900 because of the $1,690 cash
+brought into your account from the sale of the call. Again, the margin
+requirement is not fixed, but changes as the stock and option prices
+change.
+A disadvantage of this naked call strategy is that its maximum profit is
+limited to the amount of money received from the sale of the call. If the
+stock price manages to be below the strike price of the short call at
+expiration, there will not be any additional profit based on the amount
+that the strike price exceeds the stock price, as shown in Figure 21-3.
+Chapter 21 Stock Substitutes 167
+Today: 134 days left
+90 days left
+45 days left
+Expiry: 0 days left
+–4000 –3000 –2000 –1000 0 1000
+40 50 60 70 80 90 100 110
+Stock Price
+Figure 21-3
+This page intentionally left blank 

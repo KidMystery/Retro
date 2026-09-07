@@ -1,0 +1,173 @@
+is currently at $35 per share, and you feel it will be at $40 or higher
+by November.
+T o play this expected rise in XYZ with options, you consider buying a
+Nov 35 call for $4.10 per share. But this is an expensive option, when
+you recognize that all of the $4.10 is time value. Suppose that XYZ
+barely reaches $40 just as this option expires in November. In this situ-
+ation, the Nov 35 call option would only be worth $5 per share. This
+represents a profit of just $.90 per share [5.0 – 4.1 = 0.9], for a return of
+just 22 percent on your original risk of $410 per contract.
+T o lower the risk, consider a bull call spread.
+Trade: Buy 1 Nov 35 call for $4.10 per share and sell 1 Nov 40 call
+for $2.10 per share. This represents a net debit of $2 per share.
+Cost = $200 [(4.10 – 2.10) × 100 = 200].
+Max risk = $200.
+Suppose that XYZ is $40 (or higher) at the November options expira-
+tion. Because all the time value in both options will have vanished, the
+difference in their prices will be equal to the difference in the strike
+prices, or $5 in this example. Thus, you will have a profit of $3 per share
+[5.0 – 2.0 = 3.0], for a return of 150 percent on your original risk of
+$200 per contract.
+See Figure 10-1 for a risk graph that depicts this trade.
+Bear Put Spread
+During July, you decide that XYZ has no more upside and should
+fall back to a lower level over the next four months. With XYZ currently
+at $35, you judge that it will drop to the $30 level or lower by next fall.
+T o play this drop in XYZ with options, you consider buying a Nov 35
+put for $3.90 per share. Again, this is an expensive option, because you
+are buying only time value. Suppose that XYZ barely falls to $30 as this
+option expires in November. This option could only be sold for $5 per
+share for a profit of $1.10 per share [5.0 – 3.9 = 1.10]. This represents
+just a 28 percent profit on your original risk of $390 per contract.
+72 OPTIONS FOR THE BEGINNER AND BEYOND
+T o lower the risk, consider a bear put spread.
+Trade: Buy 1 Nov 35 put for $3.90 per share and sell 1 Nov 30 put
+for $1.80 per share. This represents a net debit of $2.10 per share.
+Cost = $210[(3.9 – 1.8) × 100 = 210].
+Max risk = $210.
+Now, suppose that your negative view of XYZ is correct and the stock is
+at $30 at the November options expiration. Because all the time value
+in both options will have vanished, the difference in their prices will be
+equal to the difference in the strike prices, or $5 in this example. Thus,
+you will have a profit of $2.90 per share [5.0 – 2.1 = 2.9], for a return of
+138 percent on your original risk of $210 per contract.
+See Figure 10-2 for a risk graph that depicts this trade.
+Chapter 10 V ertical Spreads 73
+Today: 126 days left
+84 days left
+42 days left
+Expiry: 0 days left
+–300 –200 –100 0 100 200 300 4030 50
+Stock Price
+Figure 10–1
+Comments 
+The bull call spread and the bear put spread are debit spreads. For these
+trades to pay off, the stock needs to have enough time to move to the
+targeted level. For this reason, you want to use options with expiration
+months that allow enough time for this move to occur.
+T o achieve the maximum profit, the stock price needs to have reached
+(or exceeded) the strike price of the short option at expiration. The
+maximum possible profit is always the difference between the strike
+prices of the long and short options less the original cost of the spread.
+Typically, you need to wait until near expiration to get the best payoff
+from a debit spread. This allows the short option to lose all of its time
+value. If the stock reaches (or exceeds) the target price well before the
+options expire, the spread will show a profit that is usually much less
+than the maximum.
+74 OPTIONS FOR THE BEGINNER AND BEYOND
+Today: 126 days left
+84 days left
+42 days left
+Expiry: 0 days left
+–300 –200 –100 0 100 20030 50 40
+Stock Price
+Figure 10–2
+Credit V ertical Spreads
+Bull Put Spread
+Y ou feel that current circumstances surrounding ZYX are likely to drive
+up the price of ZYX in the near future. ZYX is currently at $45, and you
+feel that it will surpass its recent high of $50 before the May options
+expire in six weeks.
+This scenario can be played with a bull put spread.
+Trade: Buy 1 May 45 put for $2.70 per share and sell 1 May 50 put
+for $5.30 per share. This produces a net credit of $2.60 per share.
+Credit = $260.
+Max risk = $240.
+If ZYX is above $50 at the May options expiration, both options will
+expire worthless and the initial credit of $260 will be yours to keep. This
+is the maximum possible profit on the trade. In the case of credit trades,
+the return is calculated from comparing the profit achieved to the max-
+imum risk, or 108 percent in this example [(260/240) = 1.08].
+The maximum loss of $240 occurs if ZYX is below $45 at the May
+expiration date. In this situation, both options must be closed at a cost
+equal to the difference in the strike prices, or $5 in this example.
+[(2.6 – 5.0) × 100 = –240] 
+See Figure 10-3 for a risk graph that depicts this trade.
+Bear Call Spread
+Due to some weakening of the economy, you foresee a dramatic fall in
+the price of ZYX in the near future. With ZYX currently at $45, you
+judge that it will fall back to its recent low of $40 by mid-May.
+This scenario can be played with a bear call spread.
+Trade: Buy 1 May 45 call for $3 per share and sell 1 May 40 call
+for $5.70 per share. This produces a net credit of $2.70 per share.
+Credit = $270.
+Max risk = $230.
+Chapter 10 V ertical Spreads 75
+If ZYX is below $40 at the May options expiration, both options
+will expire worthless and the initial credit of $270 will be yours to keep.
+This is the maximum possible profit on this trade. The profit achieved
+as compared to the maximum risk on this trade is 117 percent
+[(270/230) = 1.17].
+The maximum loss of $230 occurs if ZYX is above $45 at the May expi-
+ration date. In this situation, both options must be closed at a cost
+of the difference between the two strike prices, or $5 in this example.
+[(2.7 – 5.0) × 100 = –230].
+See Figure 10-4 for a risk graph that depicts this trade.
+Comments 
+The bull put spread and the bear call spread are credit spreads. These
+trades bring money into your account, which ultimately becomes a
+76 OPTIONS FOR THE BEGINNER AND BEYOND
+Today: 44 days left
+30 days left
+15 days left
+Expiry: 0 days left
+–300 –200 –100 0 100 20030 40 60 50
+Stock Price
+Figure 10–3
+profit if the stock price reaches (or exceeds) the targeted level at expira-
+tion. These trades are typically short-term trades that seek to capture
+the credit as soon as reasonably possible.
+As in the case of debit spreads, the maximum profit is achieved if the
+stock price reaches (or exceeds) the strike price of the short option at
+expiration. The maximum profit is the amount of the original credit.
+Also, as in the case of debit spreads, the maximum profit will typically
+be realized at expiration. Credit spreads enjoy an advantage over debit
+spreads in that, when their target is reached, no action is required at
+expiration. Both options expire worthless.
+Chapter 10 V ertical Spreads 77
+Today: 44 days left
+30 days left
+15 days left
+Expiry: 0 days left
+–300 –200 –100 0 100 200
+30 40 50
+Stock Price
+Figure 10–4
+This page intentionally left blank 
+79
+11*
+EVENT-PRODUCING
+CREDIT SPREADS
+o further illustrate vertical spread trades, this chapter explores an
+idea for finding good credit spreads with options. We indicate
+when to enter the credit spread and how to structure it.
+First let’s review the three major elements that typically characterize a
+good vertical credit spread:
+1. A credit spread works best when extra premium has been
+pumped into the price of the option being sold.
+2. A good credit spread is structured so that the underlying
+stock price needs little or no movement to achieve maxi-
+mum profit.
+3. Conditions are such that 1 and 2 can be realized using front-
+month options.
+Now let’s see when we might expect to find the circumstances that
+would give rise to 1, 2, and 3.
+Look for an event that produces a major move in the price of a stock
+price accompanied by exceptionally high volume. This can be a move
+up or down in price. Most important, the cause for this major move
+must be an event that is essentially concluded after the news is out. We
+want to see a dramatic move in the stock price followed by a relatively
+short period of time in which the stock price stabilizes or slightly
+reverses the big move. This kind of situation pumps lots of extra time
+value into the front-month options as traders scramble to cover
+T

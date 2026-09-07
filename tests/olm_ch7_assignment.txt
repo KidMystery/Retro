@@ -1,0 +1,177 @@
+T o understand why this is true, consider these examples:
+■ Example 1. In early November, the price of XYZ stock is $38,
+and you are short the Nov 40 call. Someone who wants to own
+XYZ stock is not going to exercise his right to buy the stock
+from you at $40 per share, because he can buy the stock in the
+market for only $38 per share.
+■ Example 2. In early November, the price of XYZ stock is $38,
+and you are short the Nov 35 put. Someone who wants to sell
+his XYZ stock is not going to exercise his right to make you buy
+his stock at $35 per share when he can sell it in the market for
+$38 per share.
+Guideline 2: If the option is in-the-money, there is not going to be an
+early assignment as long as there is sufficient time value included in the
+price of the option.
+T o illustrate this concept, consider these examples:
+■ Example 3. In early November, the price of XYZ stock is $41,
+and you are short the Nov 40 call, which is currently being bid
+at $2. Y ou are not going to receive an assignment when the
+option price includes time value of $1 [2.0 – (41 – 40) = 1.0].
+If the person who holds the Nov 40 call wants to own the stock,
+he is much better off buying the stock in the market for $41
+and selling his call to someone else for $2. If he did require
+you to sell him your stock at $40, it is true that he would save
+$1 per share on the purchase price of the stock, but he would
+give up the opportunity to collect $2 per share by selling his
+option.
+■ Example 4. In early November, the price of XYZ stock is $34,
+and you are short the Nov 35 put, which is currently being bid
+at $2. Y ou are not going to receive an assignment when there is
+time value of $1 [2.0 – (35 – 34) = 1.0]. If the person who
+holds the Nov 35 put wants to get rid of his stock, he is much
+better off selling the stock in the market for $34 and selling his
+put to someone else for $2. If he did require you to buy his
+stock at $35, it is true that he would gain $1 per share on the
+54 OPTIONS FOR THE BEGINNER AND BEYOND
+sale price of the stock, but he would give up the opportunity to
+collect $2 per share by selling his option.
+Guideline 3: When the expiration date of a short option is close and the
+time value of an in-the-money option has almost disappeared, the pos-
+sibility of an early assignment becomes much more likely.
+Let’s reexamine Examples 3 and 4 in the last few days before the
+November expiration date:
+■ Example 5. One week before the November options expire, the
+price of XYZ is $41. Y ou are short the Nov 40 call, which is cur-
+rently bid at $1.10. With time value of only $.10 [1.10 – (41 –
+40) = .10], there is a real possibility of an early assignment.
+Someone who wants to own this stock may decide that the
+extra $.10 per share that could be gained from buying the stock
+and selling the option is not worth the trouble.
+■ Example 6. One week before the November options expire, the
+price of XYZ is $34. Y ou are short the Nov 35 put, which is cur-
+rently bid at $1.10. With time value of only $.10 [1.10 – (35 –
+34) = .10], there is a real possibility of an early assignment.
+Someone who wants to get rid of his stock may decide that the
+extra $.10 per share that could be gained from selling the stock
+and selling the option is not worth the trouble.
+Comments 
+Examples 1 and 2 suggest that an early assignment is not going to occur
+when there is $1 (or more) of time value, whereas Examples 3 and 4
+suggest that you should be prepared for an early assignment when the
+time value is $.10 (or less). As a general guideline, the dividing point
+between these two outcomes is about $.15 to $.20 of time value. If the
+bid price of the option includes at least $.20 of time value, an early
+assignment is rather unlikely. If the bid price of the option includes no
+more than $.15 of time value, the possibility of an early assignment is
+more likely.
+In comparing the scenarios of Examples 5 and 6, the early assignment
+of the put option happens more often than the early assignment of the
+Chapter 7 Assignment Anxiety 55
+call option. Someone who wants to get rid of his stock via an assign-
+ment is usually in a rush to get the cash from the sale and move on to a
+new investment. Someone who is considering buying the stock via an
+assignment is more likely to postpone the purchase as long as possible
+so as to avoid committing the cash until absolutely necessary.
+The possibility of an early assignment can sometimes depend on a divi-
+dend payment. Y ou may be more susceptible to the early assignment of
+a short call from someone who wants to collect an upcoming dividend.
+Y ou may be less susceptible to an early assignment of a short put from
+someone who wants to wait for the dividend payment before selling his
+stock.
+Whenever your short option becomes deep-in-the-money, there will be
+very little time value in the bid price of the option, even if the expira-
+tion date is far into the future. This situation makes early assignment a
+definite possibility.
+If you judge that your situation is such that an early assignment is a
+possibility, check the open interest (number of outstanding contracts)
+on your option. A low level of open interest makes an early assignment
+more likely.
+Applications
+Now let’s look at some situations involving either a covered call trade or
+a spread trade. In a covered call trade, your short option is hedged by
+stock that you own. In a spread trade, your short option is hedged by a
+long option.
+■ Example 7. Covered call. Y ou own 100 shares of XYZ stock, and
+you have sold one Nov 40 call for $2.50 per share. As long as
+the stock price is below $40, as in Example 1, you have no con-
+cern about early assignment. Even when the stock price is above
+$40, there is no concern if there is sufficient time value in the
+option price, as in Example 3. Only when the stock price is
+above $40 and the time value included in the option price falls
+to $.15 or less do you need to worry about an early assignment,
+as in Example 5.
+56 OPTIONS FOR THE BEGINNER AND BEYOND
+In a covered call trade, if an early assignment becomes a real
+possibility, you must decide on a course of action:
+1. Y ou can elect to do nothing, in which case your stock even-
+tually will be bought from you at the strike price of the short
+option. This need not be viewed as an undesirable outcome.
+Y ou get to keep the cash received from the sale of the short
+call, and you might be taking a profit on a stock that is soon
+due for a pullback.
+2. Y ou can elect to “roll out” of your short call. In Example 5,
+you can buy back the Nov 40 call and then sell a Dec 45 call.
+This will allow your stock to run to the $45 level until the
+December options expiration date.
+■ Example 8. Bull call spread. Being bullish on XYZ stock, you
+buy one Nov 35 call for $4.70 per share and sell one Nov 40 call
+for $2.50 per share. This represents a net cost of $220 [(4.70 –
+2.50) × 100 = 220]. If XYZ is above $40 at expiration, the
+spread should ideally be showing a profit of $280 [(40 – 35) ×
+100 – 220 = 280]. Suppose that as the November expiration
+arrives, XYZ is trading at $41. Y ou will often find that if you try
+to exit the spread by buying back the Nov 40 call and then sell-
+ing the Nov 35 call, you will only be able to bring in something
+like $4.80 per share rather than the expected $5 per share. This
+is due to the slippage in the bid and ask prices on the options.
+T o get the full $5, allow your short Nov 40 call to be assigned,
+while you exercise your right of the Nov 35 call to buy the stock
+at $35. So XYZ stock will be bought at exactly $35 and then
+sold at exactly $40, giving you the $5 difference that you
+deserve.
+■ Example 9. Calendar spread. XYZ is trading near $40 and the
+front-month options seem to have extra time value, so you
+decide to capture some of that premium through a calendar
+spread. Y ou buy one Jan 40 call for $4 per share and sell one
+Nov 35 call for $2.50 per share for a net cost of $150 [(4.00 –
+2.50) × 100 = 150]. Soon after you initiate this trade, it is
+announced that XYZ is being bought by another company for
+Chapter 7 Assignment Anxiety 57
+$50 per share. As a result of this situation, you will find that
+both the Nov 40 call and the Jan 40 call are priced close to
+$10 per share with essentially no time value. Y ou are likely
+to soon be assigned on your short call. The easiest way to
+counteract this assignment is to exercise your right of the
+Jan 40 call to buy XYZ at $40 per share. So XYZ stock will be
+bought at $40 per share and sold at $40 per share. Y our loss on
+this calendar spread is limited to the original cost of $150 to
+initiate the trade.
+58 OPTIONS FOR THE BEGINNER AND BEYOND
+59
+8
+BROKER SELECTION
+o enhance your success at trading options, it is important that
+you give careful consideration to your choice of a brokerage
+firm. If you were only going to trade stocks, there are plenty of
+brokers whose services are adequate. T o trade options, you must be
+more selective in picking a broker.
+All brokers claim that they are “options friendly, ” but you need to exam-
+ine their services closely to see whether this claim is justified. The goal
+here is to outline elements of broker services that are most important to
+options trading.
+Types of Brokers
+For purposes of this discussion, we refer to three types of brokers: full
+service, discount, and options specialty.
+Although your broker should address all of your investment needs, you
+need to check that their options service is suitable for your purposes.
+Y ou do not necessarily need an options specialty broker, but you should
+review the various items discussed in this chapter to make sure that
+your broker is truly options friendly.
+Commissions 
+If you are going to trade options on a regular basis, you should be con-
+cerned about commissions. Because commissions on options trades are
+always higher than on similar stock trades, it is worthwhile to pick a
+broker who offers a reasonable rate.
+With some full-service brokers, the commissions are so expensive that
+your potential to make a profit is significantly diminished. Until recently,
+T
