@@ -429,7 +429,7 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
                 <span className="text-slate-400">Day #{player.day}</span>
               </div>
             </div>
-            <div className="mt-1 text-[11px] text-slate-400 italic">
+            <div className="mt-1 text-[11px] text-slate-400 italic line-clamp-2">
               {asset.lore} • Oracle Bond reveals true worth beneath Mr. Market's mood swings.
             </div>
           </div>
@@ -438,7 +438,7 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
           <div>
             <div className="flex items-center justify-between mb-2">
               <span className="font-cinzel text-amber-200 text-sm tracking-widest">◆ CHOOSE YOUR RUNE • OLMSTEAD CHAPTERS ◆</span>
-              <span className="text-[11px] text-slate-400">Each strategy = a chapter from "Options For The Beginner And Beyond"</span>
+              <span className="hidden sm:inline text-[11px] text-slate-400">Each strategy = a chapter from "Options For The Beginner And Beyond"</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
               {(Object.keys(STRATEGY_RUNES) as StrategyType[]).map((key) => {
@@ -475,7 +475,7 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
                       </span>
                     </div>
                     <div className="font-bold text-sm mt-1 leading-tight">{meta.name}</div>
-                    <div className="text-[11px] opacity-70 mt-0.5">{meta.lore}</div>
+                    {isSelected && <div className="text-[11px] opacity-70 mt-0.5 leading-tight">{meta.lore}</div>}
                     <div className="text-[11px] mt-1 opacity-80 leading-tight">{meta.description}</div>
                     <div className="flex items-center gap-2 mt-1.5">
                       <span className={`text-[10px] px-1 py-0.5 rounded ${

@@ -88,7 +88,7 @@ export const DOSHeader: React.FC<DOSHeaderProps> = ({
     'text-amber-200/60 border-amber-500/20';
 
   return (
-    <header className="zelda-panel p-3 mb-3 select-none rounded-lg shadow-xl">
+    <header className="zelda-panel p-2.5 mb-2.5 select-none rounded-lg shadow-xl">
       {/* Top Bar: Hero + Oracle Bond + Audio */}
       <div className="flex flex-wrap items-center justify-between gap-2 border-b-2 border-amber-500/20 pb-2.5 mb-2.5">
         {/* Hero */}
@@ -318,10 +318,6 @@ export const DOSHeader: React.FC<DOSHeaderProps> = ({
         </div>
       </div>
 
-      {/* Lore subtitle */}
-      <div className="mt-2 text-[11px] text-center text-amber-200/40 font-snes tracking-wide hidden md:block">
-        "Zelda found a Bloomberg terminal" — Oracle's Stone • Daen Alterspire • Carved obsidian altar with floating amber runes and pulsing emerald core • Enchanted divination lens, not terminal
-      </div>
-    </header>
+</header>
   );
 };
