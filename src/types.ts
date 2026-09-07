@@ -223,6 +223,7 @@ export interface PlayerStats {
   // NEW GAME+ (The Second Oracle regime): unlocked after the Seal of Discipline.
   ngPlus?: boolean; // bear regime: doubled IV floor, wider spreads, 2 starting hearts
   secondOracleDefeated?: boolean; // mirror-self boss conquered in NG+
+  items?: string[]; // Item chain (itemsData.ts) — curriculum boss drops
 
 }
 

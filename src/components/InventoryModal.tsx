@@ -2,6 +2,7 @@ import React from 'react';
 import { BadgeShelf } from './BadgeFanfare';
 import { PlayerStats } from '../types';
 import { INTELLIGENT_INVESTOR_LESSONS } from '../lib/intelligentInvestorData';
+import { ITEMS, ItemId } from '../lib/itemsData';
 import { Heart, Sparkles, Crown, Shield, Coins, BookOpen, Zap, X } from 'lucide-react';
 
 interface InventoryModalProps {
@@ -28,6 +29,28 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({ player, earnedBa
 
         <div className="flex-1 min-h-0 overflow-y-auto p-4 grid grid-cols-1 md:grid-cols-2 gap-4 bg-gradient-to-b from-[#121a2e] to-[#0a0e1d]">
           <div className="space-y-3">
+            {/* Item chain — curriculum boss drops with SNES icons */}
+            <div className="bg-slate-900/80 border-2 border-purple-500/30 p-3 rounded-xl">
+              <h3 className="font-cinzel text-purple-200 text-sm mb-2 flex items-center gap-2"><Sparkles className="w-4 h-4 text-purple-400" /> Artifacts • Item Chain ({(player.items || []).length}/10)</h3>
+              <div className="space-y-1.5">
+                {(player.items || []).map(id => {
+                  const item = ITEMS[id as ItemId];
+                  if (!item) return null;
+                  return (
+                    <div key={id} className={`p-2 bg-black/40 border rounded-lg flex items-start gap-2.5 text-sm ${item.cursed ? 'border-red-500/50' : 'border-purple-500/25'}`}>
+                      <span className="text-2xl leading-none shrink-0" aria-label={item.name}>{item.icon}</span>
+                      <div className="min-w-0">
+                        <div className={`font-bold text-sm ${item.cursed ? 'text-red-300' : 'text-purple-200'}`}>{item.name}{item.cursed && <span className="ml-1.5 text-[10px] px-1 py-0.5 bg-red-900/60 border border-red-500/40 rounded text-red-200">CURSED</span>}</div>
+                        <div className="text-[11px] text-slate-300 leading-snug">{item.effect}</div>
+                        <div className="text-[10px] text-slate-500 italic mt-0.5">{item.source}</div>
+                      </div>
+                    </div>
+                  );
+                })}
+                {(player.items || []).length === 0 && <div className="text-xs text-slate-500">No artifacts yet — act bosses drop their curriculum relics. Defeat the Grizzly Bear of Drawdowns to begin the chain.</div>}
+              </div>
+            </div>
+
             <div className="bg-slate-900/80 border-2 border-amber-500/20 p-3 rounded-xl">
               <h3 className="font-cinzel text-amber-200 text-sm mb-2 flex items-center gap-2"><Heart className="w-4 h-4 text-red-400" /> Potions • Life Force</h3>
               <div className="space-y-2">

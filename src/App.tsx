@@ -63,6 +63,7 @@ import { chartPuzzles, ChartPuzzle } from './lib/curriculum/chartPuzzles';
 import { ChartPuzzleModal } from './components/ChartPuzzleModal';
 import { ProvingVaultModal } from './components/ProvingVaultModal';
 import { ProvingVaultResult, TOTAL_CURRICULUM_LESSONS } from './lib/curriculum/provingVault';
+import { ITEMS, BOSS_DROPS, grantItems, hasItem, ItemId } from './lib/itemsData';
 import { Play, Award, Save, Sparkles, Crown, Shield, BookOpen, Coins } from 'lucide-react';
 import titleBgUrl from './assets/textures/title_background.jpg';
 import sageSpriteUrl from './assets/sprites/sage.png';
@@ -142,7 +143,8 @@ export default function App() {
     maxDrawdownPct: 0,
     sanctuaryLessonsCompleted: 0,
     heldThroughNoise: false,
-    survivedCrash: false
+    survivedCrash: false,
+    items: [],
   });
 
   const [positions, setPositions] = useState<OptionContract[]>([]);
@@ -388,10 +390,12 @@ export default function App() {
       if (evt.severity === 'liquidation') {
         setPositions([]);
         setPlayer(prev => {
-          const newHearts = Math.max(0, prev.hearts - 1);
+          // Margin Boots are CURSED: liquidation hits for DOUBLE hearts.
+          const dmg = hasItem(prev, 'margin_boots') ? 2 : 1;
+          const newHearts = Math.max(0, prev.hearts - dmg);
           return { ...prev, marginUsed: 0, hearts: newHearts, hp: Math.round(newHearts * 25) };
         });
-        setTerminalLog(prev => [...prev.slice(-10), `⚠ LIQUIDATION! Broker force-closed all positions. -1♥ • ${evt.consequence}`]);
+        setTerminalLog(prev => [...prev.slice(-10), `⚠ LIQUIDATION! Broker force-closed all positions. -${hasItem(player, 'margin_boots') ? 2 : 1}♥ ${hasItem(player, 'margin_boots') ? '(Margin Boots curse: doubled!) ' : ''}• ${evt.consequence}`]);
       } else {
         setTerminalLog(prev => [...prev.slice(-10), `⚠ MARGIN ${evt.severity.toUpperCase()} @ ${Math.round(util * 100)}%: ${evt.message}`]);
       }
@@ -626,6 +630,15 @@ export default function App() {
     sound.playCoinSound();
     setPositions(prev => prev.filter(p => p.id !== positionId));
 
+    // Stop-Loss Talisman: auto-caps any single position loss at 15% of entry.
+    // The excess beyond the talisman's mark is severed (refunded) automatically.
+    let talismanRefund = 0;
+    if (hasItem(player, 'stop_loss_talisman') && currentMarketValue < entryCost * 0.85) {
+      const floorValue = entryCost * 0.85;
+      talismanRefund = floorValue - currentMarketValue;
+      currentMarketValue = floorValue;
+    }
+
     // iron-hands: panic-selling a loser while a noise event is on screen kills the flag.
     if (isLoss && activeNoise) soldLossDuringNoiseRef.current = true;
 
@@ -681,7 +694,7 @@ export default function App() {
 
     setTerminalLog(prev => [
       ...prev.slice(-12),
-      isLoss ? `◈ POSITION CLOSED LOSS: ${pos.strategy} ${pnl >=0?'+':''}${Math.round(pnl)}ƒ • Fail->Graham loop may trigger if no protection` : `◈ POSITION CLOSED WIN: ${pos.strategy} +${Math.round(pnl)}ƒ • Discipline rewarded!`
+      isLoss ? `◈ POSITION CLOSED LOSS: ${pos.strategy} ${pnl >=0?'+':''}${Math.round(pnl)}ƒ${talismanRefund > 0 ? ` • 🧿 Stop-Loss Talisman capped the loss at 15% (+${Math.round(talismanRefund)}ƒ severed from the shadow)` : ''} • Fail->Graham loop may trigger if no protection` : `◈ POSITION CLOSED WIN: ${pos.strategy} +${Math.round(pnl)}ƒ • Discipline rewarded!`
     ]);
   };
 
@@ -843,10 +856,18 @@ export default function App() {
         // Seal of Discipline endgame: boss #5 down → the Proving Vault exam,
         // then the seal-judged ending. VICTORY is only reached through it.
         sound.playSecretChime();
-        setTerminalLog(prev => [...prev.slice(-10), `⚖ MARDUK VEX FALLEN — but the crown is not yet yours. The Oracle opens THE PROVING VAULT: a 60-day scripted exam. Three seals judge you.`]);
+        // Item chain: Vex drops the Seal Sigil — the NG+ key.
+        setPlayer(prev => ({ ...prev, items: grantItems(prev.items, ['seal_sigil']) }));
+        setTerminalLog(prev => [...prev.slice(-10), `⚖ MARDUK VEX FALLEN — but the crown is not yet yours. 🔏 SEAL SIGIL dropped — the NG+ key. The Oracle opens THE PROVING VAULT: a 60-day scripted exam. Three seals judge you.`]);
         setVaultResult(null);
         setCurrentView('PROVING_VAULT');
         return;
+      }
+      // Item chain: act bosses drop their curriculum items.
+      const drops = BOSS_DROPS[player.chapter] || [];
+      if (drops.length > 0) {
+        setPlayer(prev => ({ ...prev, items: grantItems(prev.items, drops) }));
+        setTerminalLog(prev2 => [...prev2.slice(-10), `🎁 LOOT: ${drops.map(d => `${ITEMS[d].icon} ${ITEMS[d].name}`).join(' + ')} dropped! Check INVENTORY.`]);
       }
       setTerminalLog(prev => [...prev.slice(-10), `◈ GUARDIAN VANQUISHED! Act ${player.chapter} cleared! +${lootGold}ƒ +1 Heart Container! Oracle Bond +0.5! Path ${player.currentPath}`]);
       setPlayer(prev => ({ ...prev, chapter: prev.chapter + 1, mapX: 5, mapY: 4 }));
@@ -1032,6 +1053,17 @@ export default function App() {
       sound.playCoinSound();
       const rewardFlorins = 400 + player.chapter * 180;
       const relicChance = Math.random() > 0.6 ? ['Silver Vein Compass'] : [];
+      // Item chain (cursed loot): deep-dark chests (Act IV+) hold the Margin Boots.
+      const bootsDrop = player.chapter >= 4 && !hasItem(player, 'margin_boots');
+      if (bootsDrop) {
+        setPlayer(prev => ({
+          ...prev,
+          items: grantItems(prev.items, ['margin_boots']),
+          // CURSED: leverage forced ON the moment you lace them.
+          marginUsed: Math.max(prev.marginUsed, 8000)
+        }));
+        setTerminalLog(prev => [...prev.slice(-10), `🥾 CURSED LOOT: Margin Boots! Leverage forced ON (8,000ƒ drawn) and liquidation now hits DOUBLE hearts. Beware the bog.`]);
+      }
       setPlayer(prev => ({
         ...prev,
         florins: prev.florins + rewardFlorins,
@@ -1197,7 +1229,8 @@ export default function App() {
   const handleRestart = (startNGPlus: boolean = false) => {
     sound.playCommandBeep();
     const sealsOk = player.chapter >= 5 && player.grahamProtections.length >= TOTAL_CURRICULUM_LESSONS && vaultResult?.win === true;
-    if (startNGPlus && !sealsOk) return; // seal-gated
+    // The Seal Sigil (Vex drop) is the NG+ key.
+    if (startNGPlus && (!sealsOk || !hasItem(player, 'seal_sigil'))) return;
     setPlayer({
       name: 'Valen',
       title: startNGPlus ? 'Oracle of the Second Cycle' : 'Orphan of Whispering Grove',
@@ -1250,7 +1283,9 @@ export default function App() {
       heldThroughNoise: false,
       survivedCrash: false,
       ngPlus: startNGPlus,
-      secondOracleDefeated: false
+      secondOracleDefeated: false,
+      // Items persist through the Second Cycle (they were earned once).
+      items: startNGPlus ? player.items : []
     });
     setPositions([]);
     setGauntletProgress(0);
@@ -1341,7 +1376,7 @@ export default function App() {
               onAdvanceDay={handleAdvanceDay}
             />
             {/* Wiring 2: margin utilization meter + danger warning banner */}
-            {(player.marginUsed > 0 || player.relics.includes('Margin Boots')) && (
+            {(player.marginUsed > 0 || hasItem(player, 'margin_boots')) && (
               <div className="flex justify-end px-2 -mt-1">
                 <MarginMeter
                   marginUsed={player.marginUsed}
@@ -1621,10 +1656,10 @@ export default function App() {
                 </div>
               </div>
               <div className="flex gap-3 flex-wrap justify-center">
-                {!player.ngPlus && allSeals && (
+                {!player.ngPlus && allSeals && hasItem(player, 'seal_sigil') && (
                   <button onClick={() => handleRestart(true)} className="snes-btn-primary px-6 py-3 flex items-center gap-2 rounded-xl">
                     <Play className="w-4 h-4" />
-                    <span>NEW GAME+ • THE SECOND ORACLE • bear regime</span>
+                    <span>🔏 NEW GAME+ • THE SECOND ORACLE • bear regime</span>
                   </button>
                 )}
                 <button onClick={() => handleRestart(false)} className="snes-btn px-6 py-3 flex items-center gap-2 rounded-xl">
