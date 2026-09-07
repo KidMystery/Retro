@@ -1,0 +1,346 @@
+
+===== PDF page index 348 =====
+314 Part Ill: Put Option Strategies 
+position. Another advantage of buying the protection initially is that one is protected 
+if the stock should experience a gap opening or a trading halt. If he already owns the 
+protection, such stock price movement in the direction of the protection is of little 
+consequence. However, if he was planning to buy the protection as a follow-up 
+action, the sudden surge in the stock price may ruin his strategy. 
+The overall profit potential of this position is smaller than that of the normal 
+straddle write, since the premium paid for the long call will be lost if the stock is 
+below 50 at expiration. However, the automatic risk-limiting feature of the long call 
+may prove to be worth more than the decrease in profit potential. The strategist has 
+peace of mind in a rally and does not have to worry about unlimited losses accruing 
+to the upside. 
+Downside protection for a straddle writer can be achieved in a similar manner 
+by buying an out-of-the-money put at the outset. 
+Example: With XYZ at 45, one might write the January 45 straddle for 7 and buy a 
+January 40 put for l point if he is concerned about the stock dropping in price. 
+It should now be fairly easy to see that the straddle writer could limit risk in 
+either direction by initially buying both an out-of-the-money call and an out-of-the­
+money put at the same time that the straddle is written. The major benefit in doing 
+this is that risk is limited in either direction. Moreover, the margin requirements are 
+significantly reduced, since the whole position consists of a call spread and a put 
+spread. There are no longer any naked options. The detriment of buying protection 
+on both sides initially is that commission costs increase and the overall profit poten­
+tial of the straddle write is reduced, perhaps significantly, by the cost of two long 
+options. Therefore, one must evaluate whether the cost of the protection is too large 
+in comparison to what is received for the straddle write. This completely protected 
+strategy can be very attractive when available, and it is described again in Chapter 23, 
+Spreads Combining Calls and Puts. 
+In summary, any strategy in which the straddle writer also decides to buy pro­
+tection presents both advantages and disadvantages. Obviously, the risk-limiting fea­
+ture of the purchased options is an advantage. However, the seller of options does not 
+like to purchase pure time value premium as protection at any time. He would gen­
+erally prefer to buy intrinsic value. The reader will note that, in each of the protec­
+tive buying strategies discussed above, the purchased option has a large amount of 
+time value premium left in it. Therefore, the ·writer must often try to strike a delicate 
+balance between trying to limit his risk on one hand and trying to hold down the 
+expenses of buying long options on the other hand. In the final analysis, however, the 
+risk must be limited regardless of the cost. 
+===== PDF page index 349 =====
+314 Part Ill: Put Option Strategies 
+position. Another advantage of buying the protection initially is that one is protected 
+if the stock should expe1ience a gap opening or a trading halt. If he already owns the 
+protection, such stock price movement in the direction of the protection is of little 
+consequence. However, if he was planning to buy the protection as a follow-up 
+action, the sudden surge in the stock price may ruin his strategy. 
+The overall profit potential of this position is smaller than that of the normal 
+straddle write, since the premium paid for the long call will be lost if the stock is 
+below 50 at ex-piration. However, the automatic risk-limiting feature of the long call 
+may prove to be worth more than the decrease in profit potential. The strategist has 
+peace of mind in a rally and does not have to worry about unlimited losses accruing 
+to the upside. 
+Downside protection for a straddle writer can be achieved in a similar manner 
+by buying an out-of-the-money put at the outset. 
+Example: With XYZ at 45, one might write the January 45 straddle for 7 and buy a 
+January 40 put for l point if he is concerned about the stock dropping in price. 
+It should now be fairly easy to see that the straddle writer could limit risk in 
+either direction by initially buying both an out-of-the-money call and an out-of-the­
+money put at the same time that the straddle is written. The major benefit in doing 
+this is that risk is limited in either direction. Moreover, the margin requirements are 
+significantly reduced, since the whole position consists of a call spread and a put 
+spread. There are no longer any naked options. The detriment of buying protection 
+on both sides initially is that commission costs increase and the overall profit poten­
+tial of the straddle write is reduced, perhaps significantly, by the cost of two long 
+options. Therefore, one must evaluate whether the cost of the protection is too large 
+in comparison to what is received for the straddle write. This completely protected 
+strategy can be very attractive when available, and it is described again in Chapter 23, 
+Spreads Combining Calls and Puts. 
+In summary, any strategy in which the straddle writer also decides to buy pro­
+tection presents both advantages and disadvantages. Obviously, the risk-limiting fea­
+ture of the purchased options is an advantage. However, the seller of options does not 
+like to purchase pure time value premium as protection at any time. He would gen­
+erally prefer to buy intrinsic value. The reader will note that, in each of the protec­
+tive buying strategies discussed above, the purchased option has a large amount of 
+time value premium left in it. Therefore, the writer must often try to strike a delicate 
+balance between trying to limit his risk on one hand and trying to hold down the 
+expenses of buying long options on the other hand. In the final analysis, however, the 
+risk must be limited regardless of the cost. 
+===== PDF page index 350 =====
+Chapter 20: The Sale of a Straddle 315 
+STRANGLE (COMBINATION) WRITING 
+Recall that a strangle is any position involving both puts and calls, when there is some 
+difference in the terms of the options. Commonly, the puts and calls will have the 
+same expiration date but differing striking prices. A strangle write is usually estab­
+lished by selling both an out-of-the-money put and an out-of-the-money call with the 
+stock approximately centered between the two striking prices. In this way, the naked 
+option writer can remain neutral on the outlook for the underlying stock, even when 
+the stock is not near a striking price. 
+This strategy is quite similar to straddle writing, except that the strangle 
+writer makes his maximum profit over a much wider range than the straddle 
+writer does. In this or any other naked writing strategy, the most money that the 
+strategist can make is the amount of the premium received. The straddle writer 
+has only a minute chance of making a profit of the entire straddle premium, since 
+the stock would have to be exactly at the striking price at expiration in order for 
+both the written put and call to expire worthless. The strangle writer will make his 
+maximum profit potential if the stock is anywhere between the two strikes at expi­
+ration, because both options will expire worthless in that case. This strategy is 
+equivalent to the variable ratio write described previously in Chapter 6 on ratio 
+call writing. 
+Example: Given the following prices: 
+XYZ common, 65; 
+XYZ January 70 call, 4; and 
+XYZ January 60 put, 3, 
+a strangle write would be established by selling the January 70 call and the January 
+60 put. IfXYZ is anywhere between 60 and 70 at January expiration, both options will 
+expire worthless and the strangle writer will make a profit of 7 points, the amount of 
+the original credit taken in. If XYZ is above 70 at expiration, the strategist will have 
+to pay something to buy back the call. For example, if XYZ is at 77 at expiration, the 
+January 70 call will have to be bought back for 7 points, thereby creating a break-even 
+situation. To the downside, if XYZ were at 53 at expiration, the January 60 put would 
+have to be bought back for 7 points, thereby defining that as the downside break­
+even point. Table 20-3 and Figure 20-3 outline the potential results of this strangle 
+write. The profit range in this example is quite wide, extending from 53 on the down­
+side to 77 on the upside. With the stock presently at 65, this is a relatively neutral 
+position. 
+===== PDF page index 351 =====
+316 
+TABLE 20-3. 
+Results of a combination write. 
+Stock Price at Coll 
+Expiration Profit 
+40 +$ 400 
+50 + 400 
+53 + 400 
+57 + 400 
+60 + 400 
+65 + 400 
+70 + 400 
+73 + 100 
+77 300 
+80 600 
+90 - 1,600 
+FIGURE 20-3. 
+Sale of a combination. 
+C: 
+~ +$700 
+·5. 
+X 
+UJ 
+rn 
+en en 
+0 ....I 
+ci 
+e a.. 
+$0 
+Put 
+Profit 
+$1,700 
+700 
+400 
+0 
++ 300 
++ 300 
++ 300 
++ 300 
++ 300 
++ 300 
++ 300 
+Stock Price at Expiration 
+Part Ill: Put Option Strategies 
+Total 
+Profit 
+-$1,300 
+300 
+0 
++ 400 
++ 700 
++ 700 
++ 700 
++ 400 
+0 
+300 
+- 1,300 
+At first glance, this may seem to be a more conservative strategy than straddle 
+writing, because the profit range is wider and the stock needs to move a great deal to 
+reach the break-even points. In the absence of follow-up action, this is a true obser­
+vation. However, if the stock begins to rise quickly or to drop dramatically, the stran­
+gle writer often has little recourse but to buy back the in-the-money option in order 
+===== PDF page index 352 =====
+Chapter 20: The Sale of a Straddle 317 
+to limit his losses. This can, as has been shown previously, entail a purchase price 
+involving excess amounts of time value premium, thereby generating a significant 
+loss. 
+The only other alternative that is available to the strangle writer ( outside of 
+attempting to trade out of the position) is to convert the position into a straddle if the 
+stock reaches either break-even point. 
+Example: IfXYZ rose to 70 or 71 in the previous example, the January 70 put would 
+be sold. Depending on the amount of collateral available, the January 60 put may or 
+may not be bought back when the January 70 put is sold. This action of converting 
+the strangle write into a straddle write will work out well if the stock stabilizes. It 
+will also lessen the pain if the stock continues to rise. However, if the stock revers­
+es direction, the January 70 put write will prove to be unprofitable. Technical analy­
+sis of the underlying stock may prove to be of some help in deciding whether or not 
+to convert the strangle write into a straddle. If there appears to be a relatively large 
+chance that the stock could fall back in price, it is probably not worthwhile to roll 
+the put up. 
+This example of a strangle write is one in which the writer received a large 
+amount of premium for selling the put and the call. Many times, however, an aggres­
+sive strangle writer is tempted to sell two out-of-the-money options that have only a 
+short life remaining. These options would generally be sold at fractional prices. This 
+can be an extremely aggressive strategy at times, for if the underlying stock should 
+move quickly in either direction through a striking price, there is little the strangle 
+writer can do. He must buy in the options to limit his loss. Nevertheless, this type of 
+strangle writing - selling short-term, fractionally priced, out-of-the-money options -
+appeals to many writers. This is a similar philosophy to that of the naked call writer 
+described in Chapter 5, who writes calls that are nearly restricted, figuring there will 
+be a large probability that the option will expire worthless. It also has the same risk: 
+A large price change or gap opening can cause such devastating losses that many 
+profitable trades are wiped away. Selling fractionally priced combinations is a poor 
+strategy and should be avoided. 
+Before leaving the topic of strangle writing, it may be useful to determine how 
+the margin requirements apply to a strangle write. Recall that the margin require­
+ment for writing a straddle is 20% of the stock price plus the price of either the put 
+or the call, whichever is in-the-money. In a strangle write, however, both options may 
+be out-of-the-money, as in the example above. When this is the case, the straddle 
+writer is allowed to deduct the smaller out-of-the-money amount from his require­
+ment. Thus, if XYZ were at 68 and the January 60 put and the January 70 call had 
+been written, the collateral requirement would be 20% of the stock price, plus the 
+===== PDF page index 353 =====
+318 Part Ill: Put Option Strategies 
+call premium, less $200 - the lesser out-of-the-money amount. The call is 2 points 
+out-of-the-money and the put is 8 points out-of-the-money. Actually, the true collat­
+eral requirement for any write involving both puts and calls - straddle write or stran­
+gle write - is the greater of the requirement on the put or the call, plus the amount by 
+which the other option is in-the-nwney. The last phrase, the amount by which the 
+other option is in-the-money, applies to a situation in which a strangle had been con­
+structed by selling two in-the-money options. This is a less popular strategy, since the 
+writer generally receives less time value premium by writing two in-the-money 
+options. An example of an in-the-money strangle is to sell the January 60 call and the 
+January 70 put with the stock at 65. 
+FURTHER COMMENTS ON UNCOVERED STRADDLE 
+AND STRANGLE WRITING 
+When ratio writing was discussed, it was noted that it was a strategy with a high prob­
+ability of making a limited profit. Since the straddle write is equivalent to the ratio 
+write and the strangle write is equivalent to the variable ratio write, the same state­
+ment applies to these strategies. The practitioner of straddle and strangle writing 
+must realize, however, that protective follow-up action is mandatory in limiting loss­
+es in a very volatile market. There are other techniques that the straddle writer can 
+sometimes use to help reduce his risk. 
+It has often been mentioned that puts lose their time value premium more 
+quickly when they become in-the-money options than calls do. One can often con­
+struct a neutral position by writing an extra put or two. That is, if one sells 5 or 6 puts 
+and 4 calls 'Ai.th the same terms, he may often have created a more neutral position 
+than a straddle write. If the stock moves up and the call picks up time premium in a 
+bullish market, the extra puts 'Aill help to offset the negative effect of the calls. On 
+the other hand, if the stock drops, the 5 or 6 puts will not hold as much time premi­
+um as the 4 calls are losing - again a neutral, standoff position. If the stock begins to 
+drop too much, the writer can always balance out the position by selling another call 
+or two. The advantage of writing an extra put or two is that it counterbalances the 
+straddle writer's most severe enemy: a quick, extremely bullish rise by the underly­
+ing stock. 
+USING THE DELTAS 
+This analysis, that adding an extra short put creates a neutral position, can be sub­
+stantiated more rigorously. Recall that a ratio writer or ratio spreader can use the 
+===== PDF page index 354 =====
+Chapter 20: The Sale of a Straddle 319 
+deltas of the options involved in his position to determine a neutral ratio. The strad­
+dle writer can do the same thing, of course. It was stated that the difference between 
+a call's delta and a put' s delta is approximately one. Using the same prices as in the 
+previous straddle writing example, and assuming the call's delta to be .60, a neutral 
+ratio can be determined. 
+Prices 
+XYZ common: 
+XYZ January 45 call: 
+XYZ January 45 put: 
+45 
+4 
+3 
+Deltas 
+.60 
+-.40 (.60 - 1) 
+The put has a negative delta, to indicate that the put and the underlying stock are 
+inversely related. A neutral ratio is determined by dividing the call's delta by the put's 
+delta and ignoring the minus sign. The resultant ratio - 1.5:1 (.60/.40) in this case -
+is the ratio of puts to sell for each call that is sold. Thus, one should sell 3 puts and 
+sell 2 calls to establish a neutral position. The reader may wonder if the assumption 
+that an at-the-money call has a delta of .60 is a fair one. It generally is, although very 
+long-term calls will have higher at-the-money deltas, and very short-term calls will 
+have deltas near .50. Consequently, a 3:2 ratio is often a neutral one. When neutral 
+ratios were discussed with respect to ratio writing, it was mentioned that selling 5 
+calls and buying 300 shares of stock often results in neutral ratio. The reader should 
+note that a straddle constructed by selling 3 puts and 2 calls is equivalent to the ratio 
+write in which one sells 5 calls and buys 300 shares of stock. 
+If a straddle writer is going to use the deltas to determine his neutral ratio, he 
+should compute each one at the time of his initial investment, of course, rather than 
+relying on a generality such as that 3 puts and 2 calls often result in a neutral posi­
+tion. The deltas can be used as a follow-up action, by adjusting the ratio to remain 
+neutral after a move by the underlying stock. 
+AVOID EXCESS TRADING 
+In any of the straddle and strangle writing strategies described above, too much fol­
+low-up action can be detrimental because of the commission costs involved. Thus, 
+although it is important to take protective action, the straddle writer should plan in 
+advance to make the minimum number of strategic moves to protect himself. That is 
+why buying protection is often useful; not only does it limit the risk in the direction 
+that the stock is moving, but it also involves only one additional option commission. 
+In fact, if it is feasible, buying protection at the outset is often a better strategy than 
+protecting as a secondary action. 
+===== PDF page index 355 =====
+320 Part Ill: Put Option Strategies 
+An extension of this concept of trying to avoid too much follow-up action is that 
+the strategist should not attempt to anticipate movement in an underlying stock. For 
+example, if the straddle writer has planned to take defensive action should the stock 
+reach 50, he should not anticipate by taking action with the stock at 48 or 49. It is 
+possible that the stock could retreat back down; then the writer would have taken a 
+defensive action that not only cost him commissions, but reduced his profit potential. 
+Of course, there is a little trader in everyone, and the temptation to anticipate (or to 
+wait too long) is always there. Unless there are very strong technical reasons for doing 
+so, the strategist should resist the temptation to trade, and should operate his strate­
+gy according to his original plan. The ratio writer may actually have an advantage in 
+this respect, because he can use buy and sell stops on the underlying stock to remove 
+the emotion from his follow-up strategy. This technique was described in Chapter 6 
+on ratio call writing. Unfortunately, no such emotionless technique exists for the 
+straddle or strangle writer. 
+USING THE CREDITS 
+In previous chapters, it was mentioned that the sale of uncovered options does not 
+require any cash investment on the pait of the strategist. He may use the collateral 
+value of his present portfolio to finance the sale of naked options. Moreover, once he 
+sells the uncovered options, he can take the premium dollars that he has brought in 
+from the sales to buy fixed-income securities, such as Treasury bills. The same state­
+ments naturally apply to the straddle writing and strangle writing strategies. However, 
+the strategist should not be overly obsessed with continuing to maintain a credit bal­
+ance in his positions, nor should he strive to hold onto the Treasury bills at all costs. If 
+one's follow-up actions dictate that he must take a debit to avoid losses or that he 
+should sell out his Treasury bills to keep a credit, he should by all means do so. 
+===== PDF page index 356 =====
+Synthetic Stock Positions 
+Created by Puts and Calls 
+It is possible for a strategist to establish a position that is essentially the same as a 
+stock position, and he can do this using only options. The option position generally 
+requires a smaller margin investment and may have other residual benefits over sim­
+ply buying stock or selling stock short. In brief, the strategies are summarized by: 
+1. Buy call and sell put instead of buying stock. 
+2. Buy put and sell call instead of selling stock short. 
+SYNTHETIC LONG STOCK 
+When one buys a call and sells a put at the same strike, he sets up a position that is 
+equivalent to owning the stock. His position is sometimes called "synthetic" long 
+stock. 
+Example: To verify that this option position acts much like a long stock position 
+would, suppose that the following prices exist: 
+XYZ common, 50; 
+XYZ January 50 call, 5; and 
+XYZ January 50 put, 4. 
+If one were bullish on XYZ and wanted to buy stock at 50, he might consider the 
+alternative strategy of buying the January 50 call and selling (uncovered) the January 
+321 

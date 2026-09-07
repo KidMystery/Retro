@@ -1,0 +1,468 @@
+
+===== PDF page index 299 =====
+272 Part Ill: Put Option Strategies 
+TABLE 17-1. 
+Results at expiration on a protected stock holding. 
+XYZ Price at Stock Put 
+Expiration Profit Profit 
+30 -$2,200 +$1,800 
+40 - 1,200 + 800 
+50 200 200 
+54 + 200 200 
+60 + 800 200 
+70 + 1,800 200 
+80 + 2,800 200 
+FIGURE 17-1. 
+long common stock and long put. 
+C: 
+0 
+e ·5. 
+X 
+w 
+1i'i $0 Cf) 
+Cf) 
+0 ..J 
+c5 
+e 
+0. 
+-$400 
+, 
+, , , 
+Long ,' 
+Stock ,, 
+,, ,, 
+, , , 
+48 50 ,'52 
+, ,, , 
+,, , 
+, 
+, ,, , 
+, , ,, 
+Stock Price at Expiration 
+,, ,, 
+,, ,, 
+, , 
+Total 
+Profit 
+-$ 400 
+400 
+400 
+0 
++ 600 
++ 1,600 
++ 2,600 
+one's profit potential on the common stock, but rather provides the stock owner with 
+protection, eliminating the possibility of any devastating loss on the stock holding during 
+the life of the put. In all the put buying strategies discussed in this chapter and Chapter 
+18, the put must be paid for in full. That is the only increase in investment. 
+Although any common stockholder may use this strategy, two general classes of 
+stock owners find it particularly attractive: First, the long-term holder of the stock 
+who is not considering selling the stock may utilize the put protection to limit losses 
+over a short-term horizon. Second, the buyer of common stock who wants some 
+"insurance" in case he is wrong may also find the put protection attractive. 
+===== PDF page index 300 =====
+Cl,apter 17: Put Buying in Conjunction with Common Stock Ownership 273 
+The long-term holder who strongly feels that his stock will drop should proba­
+bly sell that stock. However, his cost basis may make the capital gains tax on the sale 
+prohibitive. He also may not be entirely sure that the stock will decline - and may 
+want to continue to hold the stock in case it does go up. In either case, the purchase 
+of a put will limit the stockholder's downside risk while still allowing room for upside 
+appreciation. A large number of individual and institutional investors have holdings 
+that they might find difficult to sell for one reason or another. The purchase of a low­
+cost put can often reduce the negative effects of a bear market on their holdings. 
+The second general class of put buyers for protection includes the investor who 
+is establishing a position in the stock. He might want to buy a put at the same time 
+that he buys the stock, thereby creating a position with profitability as depicted in the 
+previous profit graph. He immediately starts out with a position that has limited 
+downside risk with large potential profits if the stock moves up. In this way, he can 
+feel free to hold the stock during the life of the put without worrying about when to 
+sell it if it should experience a temporary setback. Some fairly aggressive stock traders 
+use this technique because it eliminates the necessity of having to place a stop loss 
+order on the stock. It is often frustrating to see a stock fall and touch off one's stop 
+loss limit order, only to subsequently rise in price.' The stock owner who has a put for 
+protection need not overreact to a downward move. He can afford to sit back and 
+wait during the life of the put, since he has built-in protection. 
+WHICH PUT TO BUY 
+The selection of which put the stock owner purchases will determine how much of 
+his profit potential he is giving up and how much risk he is limiting. An out-of-the­
+money put will cost very little. Therefore, it will be less of a hindrance on profit 
+potential if the underlying stock rises in price. Unfortunately, the put's protective fea­
+ture is small until the stock falls to the striking price of the put. Therefore, the pur­
+chase of the out-ofthe-rrwney put will not provide as much downside protection as 
+an at- or in-the-money put would. The purchase of a deeply out-of-the-money put as 
+protection is more like "disaster insurance": It will prevent a stock owner from expe­
+riencing a disaster in terms of a downside loss during the life of the put, but will not 
+provide much protection in the case of a limited stock decline. 
+Example: XYZ is at 40 and the October 35 put is selling for ½. The purchase of this 
+put as protection for the common stock would not reduce upside potential much at 
+all, only by ½ point. However, the stock owner could lose 5½ points if XYZ fell to 35 
+or below. That is his maximum possible loss, for if XYZ were below 35 at October expi­
+ration, he could exercise his put to sell the stock at 35, losing 5 points on the stock, and 
+he would have paid ½ point for the put, bringing his total loss to 5½ points. 
+===== PDF page index 301 =====
+274 Part Ill: Put Option Strategies 
+At the opposite end of the spectrum, the stock owner might buy an in-the­
+money put as protection. This would quite severely limit his profit potential, since the 
+underlying stock would have to rise above the strike and more for him to make a 
+profit. However, the in-the-money put provides vast quantities of downside protec­
+tion, limiting his loss to a very small amount. 
+Example: XYZ is again at 40 and there is an October 45 put selling for 5½. The stock 
+owner who purchases the October 45 put would have a maximum risk of½ point, for 
+he could always exercise the put to sell stock at 45, giving him a 5-point gain on the 
+stock, but he paid 5½ points for the put, thereby giving him an overall maximum loss 
+of ½ point. He would have difficulty making any profit during the life of the put, 
+however. XYZ would have to rise by more than 5½ points (the cost of the put) for 
+him to make any total profit on the position by October expiration. 
+The deep in-the-money put purchase is overly conservative and is usually not a 
+good strategy. On the other hand, it is not wise to purchase a put that is too deeply 
+out-of-the-money as protection. Generally, one should purchase a slightly out-ofthe­
+money put as protection. This helps to achieve a balance between the positive feature 
+of protection for the common stock and the negative feature of limiting profits. 
+The reader may find it interesting to know that he has actually gone through this 
+analysis, back in Chapter 3. Glance again at the profit graph for this strategy of using 
+the put purchase to protect a common stock holding (Figure 17-1). It has exactly the 
+same shape as the profit graph of a simple call purchase. Therefore, the call purchase 
+and the long put/long stock strategies are equivalent. Again, by equivalent it is meant 
+that they have similar profit potentials. Obviously, the ownership of a call differs sub­
+stantially from the ownership of common stock and a put. The stock owner continues 
+to maintain his position for an indefinite period of time, while the call holder does not. 
+Also, the stockholder is forced to pay substantially more for his position than is the call 
+holder, and he also receives dividends whereas the call holder does not. Therefore, 
+"equivalent" does not mean exactly the same when comparing call-oriented and put­
+oriented strategies, but rather denotes that they have similar profit potentials. 
+In Chapter 3, it was determined that the slightly in-the-money call often offers 
+the best ratio between risk and reward. When the call is slightly in-the-money, the 
+stock is above the striking price. Similarly, the slightly out-of-the-money put often 
+offers the best ratio between risk and reward for the common stockholder who is buy­
+ing the put for protection. Again, the stock is slightly above the striking price. Actually, 
+since the two positions are equivalent, the same conclusions should be arrived at; that 
+is why it was stated that the reader has been through this analysis previously. 
+===== PDF page index 302 =====
+G,pter 17: Put Buying in Conjunction with Common Stock Ownership 
+TAX CONSIDERATIONS 
+275 
+Although tax considerations are covered in detail in a later chapter, an important tax 
+law concerning the purchase of puts against a common stock holding should be men­
+tioned at this time. If the stock owner is already a long-term holder of the stock at the 
+time that he buys the put, the put purchase has no effect on his tax status. Similarly, 
+if the stock buyer buys the stock at the time that he buys the put and identifies the 
+position as a hedge, there is no effect on the tax status of his stock. However, if one 
+Is currently a short-tenn holder of the common stock at the time that he buys a put, 
+he eliminates any accrued holding period on his common stock. Moreover, the hold­
+ing period for that stock does not begin again until the put is sold. 
+Example: Assume the long-term holding period is 6 months. That is, a stock owner 
+must own the stock for 6 months before it can be considered a long-term capital gain. 
+An investor who bought the stock and held it for 5 months and then purchased a put 
+would wipe out his entire holding period of 5 months. Suppose he then held the put 
+and the stock simultaneously for 6 months, liquidating the put at the end of 6 months. 
+His holding period would start all over again for that common stock. Even though he 
+has owned the stock for 11 months - 5 months prior to the put purchase and 6 
+months more while he simultaneously owned the put - his holding period for tax pur­
+poses is considered to be zero! 
+This law could have important tax ramifications, and one should consult a tax advisor 
+if he is in doubt as to the effect that a put purchase might have on the taxability of 
+his common stock holdings. 
+PUT BUYING AS PROTECTION FOR THE COVERED CALL WRITER 
+Since put purchases afford protection to the owner of common stock, some investors 
+naturally feel that the same protective feature could be used to limit their downside 
+risk in the covered call writing strategy. Recall that the covered call writing strategy 
+involves the purchase of stock and the sale of a call option against that stock. The cov­
+ered write has limited upside profit potential and offers protection to the downside in 
+the amount of the call premium. The covered writer will make money if the stock falls 
+a little, remains unchanged, or rises by expiration. The covered writer can actually lose 
+money only if the stock falls by more than the call premium received. He has poten­
+tially large downside losses. This strategy is known as a protective collar or, more sim­
+ply, a "collar." (It is also called a "hedge wrapper," although that is an outdated term.) 
+===== PDF page index 303 =====
+274 Part Ill: Put Option Strategies 
+At the opposite end of the spectrum, the stock owner might buy an in-the­
+money put as protection. This would quite severely limit his profit potential, since the 
+underlying stock would have to rise above the stiike and more for him to make a 
+profit. However, the in-the-money put provides vast quantities of downside protec­
+tion, limiting his loss to a very small amount. 
+Example: XYZ is again at 40 and there is an October 45 put selling for 5½. The stock 
+owner who purchases the October 45 put would have a maximum risk of½ point, for 
+he could always exercise the put to sell stock at 45, giving him a 5-point gain on the 
+stock, but he paid 5½ points for the put, thereby giving him an overall maximum loss 
+of ½ point. He would have difficulty making any profit during the life of the put, 
+however. XYZ would have to rise by more than 5½ points (the cost of the put) for 
+him to make any total profit on the position by October expiration. 
+The deep in-the-money put purchase is overly conservative and is usually not a 
+good strategy. On the other hand, it is not wise to purchase a put that is too deeply 
+out-of-the-money as protection. Generally, one should purchase a slightly out-ofthe­
+nwney put as protection. This helps to achieve a balance between the positive feature 
+of protection for the common stock and the negative feature of limiting profits. 
+The reader may find it interesting to know that he has actually gone through this 
+analysis, back in Chapter 3. Glance again at the profit graph for this strategy of using 
+the put purchase to protect a common stock holding (Figure 17-1). It has exactly the 
+same shape as the profit graph of a simple call purchase. Therefore, the call purchase 
+and the long put/long stock strategies are equivalent. Again, by equivalent it is meant 
+that they have similar profit potentials. Obviously, the ovvnership of a call differs sub­
+stantially from the ownership of common stock and a put. The stock owner continues 
+to maintain his position for an indefinite period of time, while the call holder does not. 
+Also, the stockholder is forced to pay substantially more for his position than is the call 
+holder, and he also receives dividends whereas the call holder does not. Therefore, 
+"equivalent" does not mean exactly the same when comparing call-oriented and put­
+oriented strategies, but rather denotes that they have similar profit potentials. 
+In Chapter 3, it was determined that the slightly in-the-money call often offers 
+the best ratio between 1isk and reward. When the call is slightly in-the-money, the 
+stock is above the striking price. Similarly, the slightly out-of-the-money put often 
+offers the best ratio between risk and reward for the common stockholder who is buy­
+ing the put for protection. Again, the stock is slightly above the striking price. Actually, 
+since the two positions are equivalent, the same conclusions should be arrived at; that 
+is why it was stated that the reader has been through this analysis previously. 
+===== PDF page index 304 =====
+0.,,,,, I 7: Put Buying in Conjundion with Common Stock Ownership 
+JAX CONSIDERATIONS 
+275 
+Although tax considerations are covered in detail in a later chapter, an important tax 
+law concerning the purchase of puts against a common stock holding should be men­
+tioned at this time. If the stock owner is already a long-term holder of the stock at the 
+time that he buys the put, the put purchase has no effect on his tax status. Similarly, 
+if the stock buyer buys the stock at the time that he buys the put and identifies the 
+position as a hedge, there is no effect on the tax status of his stock. However, if one 
+is currently a short-term holder of the comrrwn stock at the time that he buys a put, 
+he eliminates any accrued holding period on his comrrwn stock. Moreover, the hold­
+ing period for that stock does not begin again until the put is sold. 
+Example: Assume the long-term holding period is 6 months. That is, a stock owner 
+must own the stock for 6 months before it can be considered a long-term capital gain. 
+An investor who bought the stock and held it for 5 months and then purchased a put 
+would wipe out his entire holding period of 5 months. Suppose he then held the put 
+and the stock simultaneously for 6 months, liquidating the put at the end of 6 months. 
+His holding period would start all over again for that common stock. Even though he 
+has owned the stock for 11 months - 5 months prior to the put purchase and 6 
+months more while he simultaneously owned the put - his holding period for tax pur­
+poses is considered to be zero! 
+This law could have important tax ramifications, and one should consult a tax advisor 
+if he is in doubt as to the effect that a put purchase might have on the taxability of 
+his common stock holdings. 
+PUT BUYING AS PROTECTION FOR THE COVERED CALL WRITER 
+Since put purchases afford protection to the owner of common stock, some investors 
+naturally feel that the same protective feature could be used to limit their downside 
+risk in the covered call writing strategy. Recall that the covered call writing strategy 
+involves the purchase of stock and the sale of a call option against that stock. The cov­
+ered write has limited upside profit potential and offers protection to the downside in 
+the amount of the call premium. The covered writer will make money if the stock falls 
+a little, remains unchanged, or rises by expiration. The covered writer can actually lose 
+money only if the stock falls by more than the call premium received. He has poten­
+tially large downside losses. This strategy is known as a protective collar or, more sim­
+ply, a "collar." (It is also called a "hedge wrapper," although that is an outdated term.) 
+===== PDF page index 305 =====
+276 Part Ill: Put Option Strategies 
+The purchase of an out-of the-money put option can eliminate the risk of large 
+potential losses for the covered write, although the money spent for the put purchase 
+will reduce the overall return from the covered write. One must therefore include 
+the put cost in his initial calculations to determine if it is worthwhile to buy the put. 
+Example: X'YZ is at 39 and there is an XYZ October 40 call selling for 3 points and an 
+XYZ October 35 put selling for ½ point. A covered write could be established by buy­
+ing the common at 39 and selling the October 40 call for 3. This covered write would 
+have a maximum profit potential of 4 points if XYZ were anywhere above 40 at expi­
+ration. The write would lose money if XYZ were anywhere below 36, the break-even 
+point, at October expiration. By also purchasing the October 35 put at the time the 
+covered write is initiated, the covered writer will limit his profit potential slightly, but 
+will also greatly reduce his risk potential. If the put purchase is added to the covered 
+write, the maximum profit potential is reduced to 3½ points at October expiration. The 
+break-even point moves up to 36½, and the writer will experience some loss if XYZ is 
+below 36½ at expiration. However, the most that the writer could lose would be 1 ¼ 
+points if XYZ were below 35 at expiration. The purchase of the put option produces 
+this loss-limiting effect. Table 17-2 and Figure 17-2 depict the profitability of both the 
+regular covered write and the covered write that is protected by the put purchase. 
+Commissions should be carefully included in the covered writer's return calcula­
+tions, as well as the cost of the put. It was demonstrated in Chapter 2 that the covered 
+writer must include all commissions and margin interest expenses as well as all divi­
+dends received in order to produce an accurate "total return" picture of the covered 
+write. Figure 17-2 shows that the break-even point is raised slightly and the overall prof­
+it potential is reduced by the purchase of the put. However, the maximum risk is quite 
+small and the writer need never be forced to roll down in a disadvantageous situation. 
+Recall that the covered writer who does not have the protective put in place is 
+forced to roll down in order to gain increased downside protection. Rolling down 
+merely means that he buys back the call that is currently written and writes another 
+call, with a lower striking price, in its place. This rolling-down action can be helpful 
+if the stock stabilizes after falling; but if the stock reverses and climbs upward in price 
+again, the covered writer who rolled down would have limited his gains. In fact, he 
+may even have "locked in" a loss. The writer who has the protective put need not be 
+bothered with such things. He never has to roll down, for he has a limited maximum 
+loss. Therefore, he should never get into a "locked-in" loss situation. This can be a 
+great advantage, especially from an emotional viewpoint, because the writer is never 
+forced to make a decision as to the future price of the stock in the middle of the 
+stock's decline. With the put in place, he can feel free to take no action at all, since 
+his overall loss is limited. If the stock should rally upward later, he will still be in a 
+position to make his maximum profit. 
+===== PDF page index 306 =====
+Chapter 17: Put Buying in Conjundion with Common Stock Ownership 
+TABLE 17·2. 
+Comparison of regular and protected covered writes. 
+XYZ Price at Stock October 40 October 35 
+Expiration Profit Call Profit Put Profit 
+25 -$1,400 +$300 +$950 
+30 900 + 300 + 450 
+35 400 + 300 - 50 
+36.50 250 + 300 - 50 
+38 100 + 300 - 50 
+40 + 100 + 300 - 50 
+45 + 600 - 200 - 50 
+50 + 1,100 - 700 - 50 
+FIGURE 17-2. 
+Covered call write protected by a put purchase. 
+C 
+0 
+e ·5. 
+X 
+LU 
+co $0 CJ) 
+CJ) 
+0 .J 
+0 
+~ -$150 a.. 
+,, 
+},.,,' 
+; 
+,, 
+Regular 
+Covered ,,' 
+Write/ 
+36 / , , 
+;
+,,' 
++$400 
+,----------➔ ,,,' _____ ...,.. 
+, +$350 
+,,,' 
+40 
+Stock Price at Expiration 
+277 
+Total 
+Profit 
+-$150 
+- 150 
+- 150 
+0 
++ 150 
++ 350 
++ 350 
++ 350 
+The longer-term effects of buying puts in combination with covered writes are 
+not easily definable, but it would appear that the writer reduces his overall rate of 
+return slightly by buying the puts. This is because he gives something away if the 
+stock falls slightly, remains unchanged, or rises in price. He only "gains" something if 
+the stock falls heavily. Since the odds of a stock falling heavily are small in compari­
+son to the other events (falling slightly, remaining unchanged, or rising), the writer 
+will be gaining something in only a small percentage of cases. However, the put buy­
+ing strategy may still prove useful in that it removes the emotional uncertainty of 
+===== PDF page index 307 =====
+278 Part Ill: Put Option Strategies 
+large losses. The covered writer who buys puts may often find it easier to operate in 
+a more rational manner when he has the protective put in place. 
+This strategy is equivalent to one that has been described before, the bull 
+spread. Notice that the profit graph in Figure 17-2 has the same shape as the bull 
+spread profit graph (Figure 7-1). This means that the two strategies are equivalent. 
+In fact, in Chapter 7 it was pointed out that the bull spread could sometimes be con­
+sidered a "substitute" for covered writing. Actually, the bull spread is more akin to 
+this strategy - the covered write protected by a put purchase. There are, of course, 
+differences between the strategies. They are equivalent in profit and loss potential, 
+but the covered writer could never lose all his investment in a short period of time, 
+although the spreader could. In order to actually use bull spreads as substitutes for 
+covered writes, one would invest only a small portion of his available funds in the 
+spread and would place the remainder of his funds in fixed-income securities. That 
+strategy was discussed in more depth in Chapter 7. 
+NO-COST COLLARS 
+The "collar" strategy is often arrived at in another manner: a stockholder begins 
+to worry about the downside potential of the stock market and decides to buy puts 
+on his stock as protection. However, he is dismayed by the cost of the puts and so he 
+also considers the sale of calls. If he buys an out-of-the-money put, it is quite possi­
+ble that he might be able to sell an out-of-the-money call whose proceeds complete­
+ly cover the cost of the put. Thus, he has established a protective collar at no cost -
+at least no debit. His "cost" is the fact that he has forsaken the upside profit poten­
+tial on his stock, above the striking price of the written call. 
+In fact, certain large institutional traders are able to transact collars through 
+large over-the-counter option brokers, such as Goldman Sachs or Morgan Stanley. 
+They might even give the broker instructions such as this: "I own XYZ and I want to 
+buy a put 10 percent out of the money that expires in a year. What would the strik­
+ing price of a one-year call have to be in order to create a no-cost collar?" The bro­
+ker might then tell him that such a call would have to be struck 30 percent out of the 
+money. The actual strike price of the call would depend on the volatility estimate for 
+the underlying stock, as well as interest rates and dividends. These types of transac­
+tions occur with a fair amount of frequency. 
+Some very interesting situations can be created with long-term options. One of 
+the most interesting occurred in 1999, when a company that owned 5 million shares 
+of Cisco ( CSCO) decided it would like to hedge them by creating a no-cost collar 
+over the next three years. At the time, CSCO was trading at about 130, and its volatil­
+ity was about 50%. It turns out that a three-year put struck at 130 sells for about the 
+===== PDF page index 308 =====
+278 Part Ill: Put Option Strategies 
+large losses. The covered writer who buys puts may often find it easier to operate in 
+a more rational manner when he has the protective put in place. 
+This strategy is equivalent to one that has been described before, the bull 
+spread. Notice that the profit graph in Figure 17-2 has the same shape as the bull 
+spread profit graph (Figure 7-1). This means that the two strategies are equivalent. 
+In fact, in Chapter 7 it was pointed out that the bull spread could sometimes be con­
+sidered a "substitute" for covered writing. Actually, the bull spread is more akin to 
+this strategy- the covered write protected by a put purchase. There are, of course, 
+differences between the strategies. They are equivalent in profit and loss potential, 
+but the covered writer could never lose all his investment in a short period of time, 
+although the spreader could. In order to actually use bull spreads as substitutes for 
+covered writes, one would invest only a small portion of his available funds in the 
+spread and would place the remainder of his funds in fixed-income securities. That 
+strategy was discussed in more depth in Chapter 7. 
+NO-COST COLLARS 
+The "collar" strategy is often arrived at in another manner: a stockholder begins 
+to worry about the downside potential of the stock market and decides to buy puts 
+on his stock as protection. However, he is dismayed by the cost of the puts and so he 
+also considers the sale of calls. If he buys an out-of-the-money put, it is quite possi­
+ble that he might be able to sell an out-of-the-money call whose proceeds complete­
+ly cover the cost of the put. Thus, he has established a protective collar at no cost -
+at least no debit. His "cost" is the fact that he has forsaken the upside profit poten­
+tial on his stock, above the striking price of the written call. 
+In fact, certain large institutional traders are able to transact collars through 
+large over-the-counter option brokers, such as Goldman Sachs or Morgan Stanley. 
+They might even give the broker instructions such as this: "I own XYZ and I want to 
+buy a put 10 percent out of the money that e.:\.J)ires in a year. What would the strik­
+ing price of a one-year call have to be in order to create a no-cost collar?" The bro­
+ker might then tell him that such a call would have to be struck 30 percent out of the 
+money. The actual strike price of the call would depend on the volatility estimate for 
+the underlying stock, as well as interest rates and dividends. These types of transac­
+tions occur with a fair amount of frequency. 
+Some very interesting situations can be created with long-term options. One of 
+the most interesting occurred in 1999, when a company that owned 5 million shares 
+of Cisco (CSCO) decided it would like to hedge them by creating a no-cost collar 
+over the next three years. At the time, CSCO was trading at about 130, and its volatil­
+ity was about 50%. It turns out that a three-year put struck at 130 sells for about the 
+===== PDF page index 309 =====
+278 Part Ill: Put Option Strategies 
+large losses. The covered writer who buys puts may often find it easier to operate in 
+a more rational manner when he has the protective put in place. 
+This strategy is equivalent to one that has been described before, the bull 
+spread. Notice that the profit graph in Figure 17-2 has the same shape as the bull 
+spread profit graph (Figure 7-1). This means that the two strategies are equivalent. 
+In fact, in Chapter 7 it was pointed out that the bull spread could sometimes be con­
+sidered a "substitute" for covered writing. Actually, the bull spread is more akin to 
+this strategy - the covered write protected by a put purchase. There are, of course, 
+differences between the strategies. They are equivalent in profit and loss potential, 
+but the covered writer could never lose all his investment in a short period of time, 
+although the spreader could. In order to actually use bull spreads as substitutes for 
+covered ,vrites, one would invest only a small portion of his available funds in the 
+spread and would place the remainder of his funds in fixed-income securities. That 
+strategy was discussed in more depth in Chapter 7. 
+NO-COST COLLARS 
+The "collar" strategy is often arrived at in another manner: a stockholder begins 
+to worry about the downside potential of the stock market and decides to buy puts 
+on his stock as protection. However, he is dismayed by the cost of the puts and so he 
+also considers the sale of calls. If he buys an out-of-the-money put, it is quite possi­
+ble that he might be able to sell an out-of-the-money call whose proceeds complete­
+ly cover the cost of the put. Thus, he has established a protective collar at no cost -
+at least no debit. His "cost" is the fact that he has forsaken the upside profit poten­
+tial on his stock, above the striking price of the written call. 
+In fact, certain large institutional traders are able to transact collars through 
+large over-the-counter option brokers, such as Goldman Sachs or Morgan Stanley. 
+They might even give the broker instructions such as this: "I own XYZ and I want to 
+buy a put 10 percent out of the money that expires in a year. What would the strik­
+ing p1ice of a one-year call have to be in order to create a no-cost collar?" The bro­
+ker might then tell him that such a call would have to be struck 30 percent out of the 
+money. The actual strike price of the call would depend on the volatility estimate for 
+the underlying stock, as well as interest rates and dividends. These types of transac­
+tions occur with a fair amount of frequency. 
+Some very interesting situations can be created with long-term options. One of 
+the most interesting occurred in 1999, when a company that owned 5 million shares 
+of Cisco ( CSCO) decided it would like to hedge them by creating a no-cost collar 
+over the next three years. At the time, CSCO was trading at about 130, and its volatil­
+ity was about 50%. It turns out that a three-year put struck at 130 sells for about the 

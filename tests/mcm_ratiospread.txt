@@ -1,0 +1,438 @@
+
+===== PDF page index 228 =====
+Chapter 10: The Butterfly Spread 203 
+Note that all of these answers agree with the results that were previously obtained by 
+analyzing the example spread in detail. 
+In this example, the maximum profit potential is $700, the maximum risk is 
+$300, and the investment required is also $300, commissions excluded. In percent­
+age terms, this means that the butterfly spread has a loss limited to about 100% of 
+capital invested and could make profits of nearly 133% in this case. These represent 
+an attractive risk/reward relationship. This is, however, just an example, and two fac­
+tors that exist in the actual marketplace may greatly affect these numbers. First, com­
+missions are large; it is possible that eight commissions might have to be paid to 
+establish and liquidate the spread. Second, depending on the level of premiums to 
+be found in the market at any point in time, it may not be possible to establish a 
+spread for a debit as low as 3 points when the strikes are 10 points apart. 
+SELECTING THE SPREAD 
+Ideally, one would want to establish a butterfly spread at as small of a debit as pos­
+sible in order to limit his risk to a small amount, although that risk is still equal to 
+100% of the dollars invested in the spread. One would also like to have the stock be 
+near the middle striking price to begin with, because he will then be in his maximum 
+profit area if the stock remains relatively unchanged. Unfortunately, it is difficult to 
+satisfy both conditions simultaneously. 
+The smallest-debit butterfly spreads are those in which the stock is some dis­
+tance away from the middle striking price. To see this, note that if the stock were 
+well above the middle strike and all the options were at parity, the net debit would 
+be zero. Although no one would attempt to establish a butterfly spread with parity 
+options because of the risk of early assignment, it may be somewhat useful to try to 
+obtain a small debit by taking an opinion on the underlying stock. For example, if 
+the stock is close to the higher striking price, the debit would be small normally, but 
+the investor would have to be somewhat bearish on the underlying stock in order to 
+maximize his profit; that is, the stock would have to decline in price from the upper 
+striking price to the middle striking price for the maximum profit to be realized. An 
+analogous situation exists when the underlying stock is originally close to the lower 
+striking price. The investor could establish the spread for a small debit in this case 
+also, but he would now have to be somewhat bullish on the underlying stock in order 
+to attempt to realize his maximum profit. 
+Example: XYZ is at 70. One may be able to establish a low-debit butterfly spread 
+with the 50's, 60's, and 70's if the following prices exist: 
+===== PDF page index 229 =====
+204 
+XYZ common, 70; 
+XYZ July 50, 20; 
+XYZ July 60, 12; and 
+XYZ July 70, 5. 
+Part II: Call Option Strategies 
+The butterfly spread would require a debit of only $100 plus commissions to estab­
+lish, because the cost of the calls at the higher and lower strike is 25 points, and a 24-
+point credit would be obtained by selling two calls at the middle strike. This is indeed 
+a low-cost butterfly spread, but the stock will have to move down in price for much 
+of a profit to be realized. The maximum profit of $900 less commissions would be 
+realized at 60 at expiration. The strategist would have to be bearish on XYZ to want 
+to establish such a spread. 
+Without the aid of an example, the reader should be able to determine that if 
+XYZ were originally at 50, a low-cost butterfly spread could be established by buying 
+the 50, selling two 60's, and buying a 70. In this case, however, the investor would 
+have to be bullish on the stock, because he would want it to move up to 60 by expi­
+ration in order for the maximum profit to be realized. 
+In general, then, if the butterfly spread is to be established at an extremely low 
+debit, the spreader will have to make a decision as to whether he wants to be bullish 
+or bearish on the underlying stock. Many strategists prefer to remain as neutral as 
+possible on the underlying stock at all times in any strategy. This philosophy would 
+lead to slightly higher debits, such as the $300 debit in the example at the beginning 
+of this chapter, but would theoretically have a better chance of making money 
+because there would be a profit if the stock remained relatively unchanged, the most 
+probable occurrence. 
+In either philosophy, there are other considerations for the butterfly spread. 
+The best butterfly spreads are generally found on the more expensive and/or more 
+volatile stocks that have striking prices spaced 10 or 20 points apart. In these situa­
+tions, the maximum profit is large enough to overcome the weight of the commission 
+costs involved in the butterfly spread. When one establishes butterfly spreads on 
+lower-priced stocks whose striking prices are only 5 points apart, he is normally put­
+ting himself at a disadvantage unless the debit is extremely small. One exception to 
+this rule is that attractive situations are often found on higher-priced stocks with 
+striking prices 5 points apart (50, 55, and 60, for example). They do exist from time 
+to time. 
+In analyzing butterfly spreads, one commonly works with closing prices. It was 
+mentioned earlier that using closing prices for analysis can prove somewhat mislead­
+ing, since the actual execution will have to be done at bid and asked prices, and these 
+===== PDF page index 230 =====
+Chapter 10: The Butterfly Spread 205 
+may differ somewhat from closing prices. Normally, this difference is small, but since 
+there are three different calls involved in a butterfly spread, the difference could be 
+substantial. Therefore, it is usually necessary to check the appropriate bid and asked 
+price for each call before entering the spread, in order to be able to place a reason­
+able debit on the order. As with other types of spreads, the butterfly spread order can 
+be placed as one order. 
+Before moving on to discuss follow-up action, it may be worthwhile to describe 
+a tactic for stocks with 5 points between striking prices. For example, the butterfly 
+spreader might work with strikes of 45, 50, and 60. If he sets up the usual type of but­
+terfly spread, he would end up with a position that has too much risk near 60 and very 
+little or none at all near 45. If this is what he wants, fine; but if he wants to remain 
+neutral, the standard type of butterfly spread will have to be modified slightly. 
+Example: The following prices exist: 
+XYZ common, 50; 
+July 45 call, 7; 
+July 50 call, 5; and 
+July 60 call, 2. 
+The normal type of butterfly spread- buying one 45, selling two 50's, and buying one 
+60 - can actually be done for a credit of 1 point. However, the profitability is no 
+longer symmetric about the middle striking price. In this example, the investor can­
+not lose to the downside because, even if the stock collapses and all the calls expire 
+worthless, he will still make his I-point credit. However, to the upside, there is risk: 
+If XYZ is anywhere above 60 at expiration, the risk is 4 points. This is no longer a neu­
+tral position. The fact that the lower strike is only 5 points from the middle strike 
+while the higher strike is 10 points away has made this a somewhat bearish position. 
+If the spreader wants to be neutral and still use these striking prices, he will have to 
+put on two bull spreads and only one bear spread. That is, he should: 
+Buy 2 July 45's: 
+Sell 3 July 50's: 
+Buy 1 July 60: 
+$1,400 debit 
+$1,500 credit 
+$200 debit 
+This position now has a net debit of $100 but has a better balance of risk at either 
+end. If XYZ drops and is below 45 at expiration, the spreader will lose his $100 ini­
+tial debit. But now, if XYZ is at or above 60 at expiration, he will lose $100 in that 
+range also. Thus, by establishing two bull spreads with a 5-point difference between 
+===== PDF page index 231 =====
+206 Part II: Call Option Strategies 
+strikes versus one bear spread with a IO-point difference between strikes, the risk has 
+been balanced at both ends. When one uses strike prices that are not evenly spaced 
+apart, his margin requirement increases substantially. In such a case, one has to mar­
+gin the individual component spreads separately. Therefore, in this example, he 
+would have to pay for the two bull spreads ( $200 each, for a total of $400) and then 
+margin the additional call bear spread ($700: the $1,000 difference in the strikes, less 
+the $300 credit taken in for that portion of the spread). Hence, in this example, the 
+margin requirement would be $1,100, even though the risk is only $100. Technically, 
+of that $1,100 requirement, the spread trader pays out only $100 in cash (the actual 
+debit of the spread), and the rest of the requirement can be satisfied with excess 
+equity in his account. 
+The same analysis obviously applies whenever 5-point striking price intervals 
+exist. There are numerous combinations that could be worked out for lower-priced 
+stocks by merely skipping over a striking price ( using the 25's, 30's, and 40's, for exam­
+ple). Although there are not normally many stocks trading over $100 per share, the 
+same analysis is applicable using 130's, 140's, and 160's, for example. 
+FOLLOW-UP ACTION 
+Since the butterfly spread has limited risk by its construction, there is usually little 
+that the spreader has to do in the way of follow-up action other than avoiding early 
+exercise or possibly dosing out the position early to take profits or limit losses even 
+further. The only part of the spread that is subject to assignment is the call at the mid­
+dle strike. If this call trades at or near parity, in-the-money, the spread should be 
+closed. This may happen before expiration if the underlying stock is about to go ex­
+dividend. It should be noted that accepting assignment will not increase the risk of 
+the spread (because any short calls assigned would still be protected by the remain­
+ing long calls). However, the margin requirement would change substantially, since 
+one would now have a synthetic put (long calls, short stock) in place. Plus, there may 
+be more onerous commissions for trading stock. Therefore, it is usually wise to avoid 
+assignment in a butterfly spread, or in any spread, for that matter. 
+If the stock is near the middle strike after a reasonable amount of time has 
+passed, an unrealized profit will begin to accrue to the spreader. If one feels that the 
+underlying stock is about to move away from the middle striking price and thereby 
+jeopardize these profits, it may be advantageous to close the spread to take the avail­
+able profit. Be certain to include commission costs when determining if an unreal­
+ized profit exists. As a general rule of thumb, if one is doing 10 spreads at a time, he 
+===== PDF page index 232 =====
+Chapter 10: Tire Butterfly Spread 207 
+can estimate that the commission cost for each option is about 1/s point. That is, if one 
+has 10 butterfly spreads and the spread is currently at 6 points, he could figure that 
+he would net about 5½ points after commissions to close the spread. This 1/s estimate 
+is only valid if the spreader has at least 10 options at each strike involved in a spread. 
+Normally, one would not close the spread early to limit losses, since these loss­
+es are limited to the original net debit in any case. However, if the original debit was 
+large and the stock is beginning to break out above the higher strike or to break down 
+below the lower strike, the spreader may want to close the spread to limit losses even 
+further. 
+It has been repeatedly stated that one should not attempt to ''leg" out of a 
+spread because of the risk that is incurred if one is wrong. However, there is a 
+method of legging out of a butterfly spread that is acceptable and may even be pru­
+dent. Since the spread consists of both a bull spread and a bear spread, it may often 
+be the case that the stock experiences a relatively substantial move in one direction 
+or the other during the life of the butterfly spread, and that the bull spread portion 
+or the bear spread portion could be closed out near their maximum profit potentials. 
+If this situation arises, the spreader may want to take advantage of it in order to be 
+able to profit more if the underlying stock reverses direction and comes back into the 
+profit range. 
+Exampk: This strategy can be explained by using the initial example from this chap­
+ter and then assuming that the stock falls from 60 to 45. Recall that this spread was 
+initially established with a 3-point debit and a maximum profit potential of 7 points. 
+The profit range was 53 to 67 at July expiration. However, a rather unpleasant situa­
+tion has occurred: The stock has fallen quickly and is below the profit range. If the 
+spreader does nothing and keeps the spread on, he will lose 3 points at most if the 
+stock remains below 50 until July expiration. However, by increasing his risk slightly, 
+he may be able to improve his position. Notice in Table 10-3 that the bear spread por­
+tion of the overall spread - short July 60, long July 70 - has very nearly reached its 
+maximum potential. The bear spread could be bought back for ½ point total (pay 1 
+point to buy back the July 60 and receive½ point from selling out the July 70). Thus, 
+the spreader could convert the butterfly spread to a bull spread by spending ½ point. 
+What would such an action do to his overall position? First, his risk would be 
+increased by the ½ point spent to close the bear spread. That is, if XYZ continues to 
+remain below 50 until July expiration, he would now lose 3½ rather than 3 points, 
+plus commissions in either case. He has, however, potentially helped his chances of 
+realizing something close to the maximum profit available from the original butterfly 
+spread. 
+===== PDF page index 233 =====
+208 Part II: Call Option Strategies 
+TABLE 10-3. 
+Initial spread and current prices. 
+Initial Spread Current Prices 
+XYZ common: 60 XYZ common: 45 
+July 50 call: 12 July 50 call: 2 
+July 60 call: 6 July 60 call: 1 
+July 70 call: 3 July 70 call: 1/2 
+After buying back the bear spread, he is left with the following bull spread: 
+Long July 50 call _ N t d b·t 3u, . t 
+h l all e e 1 ,2 pom s S ort Ju y 60 c 
+He has a bull spread at the total cost paid to date - 3½ points. From the earlier dis­
+cussion of bull spreads, the reader should know that the break-even point for this 
+position is 53½ at expiration, and it could make a 6½ point profit if XYZ is anywhere 
+over 60 at July expiration. Hence, the break-even point for the position was raised 
+from 53 to 53½ by the expense of the ½ point to buy back the bear spread. However, 
+if the stock should rally back above 60, the strategist will be making a profit nearly 
+equal to the original maximum profit that he was aiming for (7 points). Moreover, this 
+profit is now available anywhere over 60, not just exactly at 60 as it was in the origi­
+nal position. Although the chances of such a rally cannot be considered great, it does 
+not cost the spreader much to restructure himself into a position with a much broad­
+er maximum profit area. 
+A similar situation is available if the underlying stock moves up in price. In that 
+case, the bull spread may be able to be removed at nearly its maximum profit poten­
+tial, thereby leaving a bear spread. Again, suppose that the same initial spread was 
+established but that XYZ has risen to 75. When the underlying stock advances sub­
+stantially, the bull spread portion of the butterfly spread may expand to near its max­
+imum potential. Since the strikes are 10 points apart in this bull spread, the widest it 
+can grow to is 10 points. At the prices shown in Table 10-4, the bull spread - long 
+July 50 and short July 60 - has grown to 9½ points. Thus, the bull spread position 
+could be removed within ½ point of its maximum profit potential and the original 
+butterfly spread would become a bear spread. Note that the closing of the bull spread 
+portion generates a 9½ point credit: The July 50 is sold at 25½ and the July 60 is 
+bought back at 16. The original butterfly spread was established at a 3-point debit, so 
+the net position is the remaining position: 
+===== PDF page index 234 =====
+Chapter 10: The BatterRy Spread 209 
+Long July 70 call . 
+Short July 60 call - Net credit 6½ points 
+This bear spread has a maximum profit potential of 6½ points anywhere below 60 at 
+July expiration. The maximum risk is 3½ points anywhere above 70 at expiration. 
+Thus, the original butterfly spread was again converted into a position such that a 
+stock price reversal to any price below 60 could produce something close to the max­
+imum profit. Moreover, the risk was only increased by an additional ½ point. 
+TABLE 10-4. 
+Initial spread and new current prices. 
+I nitiol Spread 
+XYZ common: 60 
+XYZ July 50 call: 12 
+July 60 call: 6 
+July 70 call: 3 
+SUMMARY 
+Current Prices 
+XYZ common: 
+July 50 call: 
+July 60 call: 
+July 70 call: 
+75 
+25 1/2 
+16 
+7 
+The butterfly spread is a viable, low-cost strategy with both limited profit potential 
+and limited risk. It is actually a combination of a bull spread and a bear spread, and 
+involves using three striking prices. The risk is limited should the underlying stock 
+fall below the lowest strike or rise above the highest strike. The maximum profit is 
+obtained at the middle strike. One can keep his initial debits to a minimum by ini­
+tially assuming a bullish or bearish posture on the underlying stock. If he would 
+rather remain neutral, he will normally have to pay a slightly larger debit to establish 
+the spread, but may have a better chance of making money. If the underlying stock 
+experiences a large move in one direction or the other prior to expiration, the spread­
+er may want to close the profitable side of his butterfly spread near its maximum 
+profit potential in order to be able to capitalize on a stock price reversal, should one 
+occur. 
+===== PDF page index 235 =====
+Ratio Call Spreads 
+A ratio call spread is a neutral strategy in which one buys a number of calls at a lower 
+strike and sells more calls at a higher strike. It is somewhat similar to a ratio write in 
+concept, although the spread has less downside risk and normally requires a smaller 
+investment than does a ratio write. The ratio spread and ratio write are similar in that 
+both involve uncovered calls, and both have profit ranges within which a profit can 
+be made at expiration. Other comparisons are demonstrated throughout the chapter. 
+Example: The following prices exist: 
+XYZ common, 44; 
+XYZ April 40 call, 5; and 
+XYZ April 45 call, 3. 
+A 2:1 ratio call spread could be established by buying one April 40 call and simulta­
+neously selling two April 45's. This spread would be done for a credit of 1 point - the 
+sale of the two April 45's bringing in 6 points and the purchase of the April 40 cost­
+ing 5 points. This spread can be entered as one spread order, specifying the net cred­
+it or debit for the position. In this case, the spread would be entered at a net credit 
+of 1 point. 
+Ratio spreads, unlike ratio writes, have a relatively small, limited downside risk. 
+In fact, if the spread is established at an initial credit, there is no downside risk at all. 
+In a ratio spread, the profit or loss at expiration is constant below the lower striking 
+price, because both options would be worthless in that area. In the example above, if 
+XYZ is below 40 at April expiration, all the options would expire worthless and the 
+spreader would have made a profit of his initial I-point credit, less commissions. This 
+I-point gain would occur anywhere below 40 at expiration; it is a constant. 
+210 
+===== PDF page index 236 =====
+Chapter 11: Ratio Call Spreads 211 
+The maximum profit at expiration for a ratio spread occurs if the stock is exact­
+ly at the striking price of the written options. This is true for nearly all types of strate­
+gies involving written options. In the example, if XYZ were at 45 at April expiration, 
+the April 45 calls would expire worthless for a gain of $600 on the two of them, and 
+the April 40 call would be worth 5 points, resulting in no gain or loss on that call. 
+Thus, the total profit would be $600 less commissions. 
+The greatest risk in a ratio call spread lies to the upside, where the loss may the­
+oretically be unlimited. The upside break-even point in this example is 51, as shown 
+in Table 11-1. The table and Figure 11-1 illustrate the statements made in the pre­
+ceding paragraphs. 
+In a 2:1 ratio spread, two calls are sold for each one purchased. The maximum 
+profit amount and the upside break-even point can easily be computed by using the 
+following formulae: 
+Points of maximum profit = Initial credit + Difference between strikes or 
+= Difference between strikes - Initial debit 
+Upside break-even point= Higher strike price+ Points of maximum profit 
+In the preceding example, the initial credit was 1 point, so the points of maxi­
+mum profit = 1 + 5 = 6, or $600. The upside break-even point is then 45 + 6, or 51. 
+This agrees with the results determined earlier. Note that if the spread is established 
+at a debit rather than a credit, the debit is subtracted from the striking price differ­
+ential to determine the points of maximum profit. 
+Many neutral investors prefer ratio spreads over ratio writes for two reasons: 
+TABLE 11-1. 
+Ratio call spread. 
+XYZ Price of April 40 Coll April 45 Coll Total 
+Expiration Profits Profits Profits 
+35 -$ 500 +$ 600 +$100 
+40 - 500 + 600 + 100 
+42 - 300 + 600 + 300 
+45 0 + 600 + 600 
+48 + 300 0 + 300 
+51 + 600 - 600 0 
+55 +1,000 -1,400 - 400 
+60 + 1,500 -2,400 - 900 
+===== PDF page index 237 =====
+212 Part II: Call Option Strategies 
+FIGURE 11 • 1. 
+Ratio call spread (2: 1 ). 
+Stock Price at Expiration 
+1. The downside risk or gain is predetermined in the ratio spread at expiration, and 
+therefore the position does not require much monitoring on the downside. 
+2. The margin investment required for a ratio spread is normally smaller than that 
+required for a ratio write, since on the long side one is buying a call rather than 
+buying the common stock itself. 
+For margin purposes, a ratio spread is really the combination of a bull spread 
+and a naked call write. There is no margin requirement for a bull spread other than 
+the net debit to establish the bull spread. The net investment for the ratio spread is 
+thus equal to the collateral required for the naked calls in the spread plus or minus 
+the net debit or credit of the spread. In the example above, there is one naked call. 
+The requirement for the naked call is 20% of the stock price plus the call premium, 
+less the out-of-the-money amount. So the requirement in the example would be 20% 
+of 44, or $880, plus the call premium of $300, less the one point that the stock is 
+below the striking price - a $1,080 requirement for the naked call. Since the spread 
+was established at a credit of one point, this credit can also be applied against the ini­
+tial requirement, thereby reducing that requirement to $980. Since there is a naked 
+call in this spread, there will be a mark to market if the stock moves up. Just as was 
+recommended for the ratio write, it is recommended that the ratio spreader allow at 
+least enough collateral to reach the upside break-even point. Since the upside break­
+even point is 51 in this example, the spreader should allow 20% of 51, or $1,020, plus 
+===== PDF page index 238 =====
+Chapter 11: Ratio Call Spreads 213 
+the 6 points that the call would be worth less the 1-point initial net credit - a total of 
+$1,520 for this spread ($1,020 + $600 - $100). 
+DIFFERING PHILOSOPHIES 
+For many strategies, there is more than one philosophy of how to implement the 
+strategy. Ratio spreads are no exception, with three philosophies being predominant. 
+One philosophy holds that ratio spreading is quite similar to ratio writing - that one 
+should be looking for opportunities to purchase an in-the-money call with little or no 
+time premium in it so that the ratio spread simulates the profit opportunities from 
+the ratio write as closely as possible with a smaller investment. The ratio spreads 
+established under this philosophy may have rather large debits if the purchased call 
+is substantially in-the-money. Another philosophy of ratio spreading is that spreads 
+should be established for credits so that there is no chance of losing money on the 
+downside. Both philosophies have merit and both are described. A third philosophy, 
+called the "delta spread," is more concerned with neutrality, regardless of the initial 
+debit or credit. It is also described. 
+RATIO SPREAD AS RATIO WRITE 
+There are several spread strategies similar to strategies that involve common stock. In 
+this case, the ratio spread is similar to the ratio write. Whenever such a similarity 
+exists, it may be possible for the strategist to buy an in-the-money call with little or no 
+time premium as a substitute for buying the common stock. This was seen earlier in 
+the covered call writing strategy, where it was shown that the purchase of in-the­
+money calls or warrants might be a viable substitute for the purchase of stock. If one 
+is able to buy an in-the-rrwney call as a substitute for the stock, he will not affect his 
+profit potential substantially. When comparing a ratio spread to a ratio write, the max­
+imum profit potential and the profit range are reduced by the time value premium 
+paid for the long call. If this call is at parity (the time value premium is thus zero), the 
+ratio spread and the ratio write have exactly the same profit potential. Moreover, the 
+net investment is reduced and there is less downside risk should the stock fall in price 
+below the striking price of the purchased call. The spread also involves smaller com­
+mission costs than does the ratio write, which involves a stock purchase. The ratio 
+writer does receive stock dividends, if any are paid, whereas the spreader does not. 
+Example: XYZ is at 50, and an XYZ July 40 call is selling for 11 while an XYZ July 50 
+call is selling for 5. Table 11-2 compares the important points between the ratio write 
+and the ratio spread. 
+===== PDF page index 239 =====
+214 
+TABLE 11-2. 
+Ratio write and ratio spread compared. 
+Profit range 
+Maximum profit 
+Downside risk 
+Upside risk 
+Initial investment 
+Ratio Write: 
+Buy XYZ of 50 and 
+Sell 2 July SO's at 5 
+40 to 60 
+10 points 
+40 points 
+40 points 
+$3,000 
+Part II: Call Option Strategies 
+Ratio Spread: 
+Buy 1 July 40 of 11 and 
+Sell 2 July SO's at 5 
+41 to 59 
+9 points 
+1 point 
+Unlimited 
+$1,600 
+In Chapter 6, it was pointed out that ratio writing was one of the better strate­
+gies from a probability of profit viewpoint. That is, the profit potential conforms well 
+to the expected movement of the underlying stock. The same statement holds true 
+for ratio spreads as substitutes for ratio writes. In fact, the ratio spread may often be 
+a better position than the ratio write itself, when the long call can be purchased with 
+little or no time value premium in it. 
+RATIO SPREAD FOR CREDITS 
+The second philosophy of ratio spreads is to establish them only for credits. 
+Strategists who follow this philosophy generally want a second criterion fulfilled also: 
+that the underlying stock be below the striking price of the written calls when the 
+spread is established. In fact, the farther the stock is below the strike, the more 
+attractive the spread would be. This type of ratio spread has no downside risk 
+because, even if the stock collapses, the spreader will still make a profit equal to the 
+initial credit received. This application of the ratio spread strategy is actually a sub­
+case of the application discussed above. That is, it may be possible both to buy a long 
+call for little or no time premium, thereby simulating a ratio write, and also to be able 
+to set up the position for a credit. 
+Since the underlying stock is generally below the maximum profit point when 
+one establishes a ratio spread for a credit, this is actually a mildly bullish position. 
+The investor would want the stock to move up slightly in order for his maximum prof­
+it potential to be realized. Of course, the position does have unlimited upside risk, so 
+it is not an overly bullish strategy. 

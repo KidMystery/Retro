@@ -1,0 +1,769 @@
+
+===== PDF page index 903 =====
+844 Part VI: Measuring and Trading VolatiRty 
+tage of the volatility skew. The put backspread is best established when the overall 
+level of implied volatility is in a low percentile. Finally, the call ratio spread has a 
+great deal of risk to the upside ( and futures prices can fly to the upside quickly, espe­
+cially if bad fundamental conditions develop, such as weather in the grain markets). 
+The call ratio spread would best be used when implied volatilities are already in a 
+high percentile. 
+As a general comment, it should be noted that if the volatility skew disappears 
+while the trader has the position in place, a profit will generally result. It would nor­
+mally behoove the strategist to take the profit at that time. Otherwise, follow-up 
+action should adhere to the general kinds of action recommended for the strategies 
+in question: protective action to prevent large losses in the case of the ratio spreads, 
+or the taking of partial profits and possibly rolling the long options to a more at-the­
+money strike in the case of the backspread strategies. 
+SUMMARY OF VOLATILITY SKEWING 
+Whenever volatility skewing exists - no matter what market - opportunities arise for 
+the neutral strategist to establish a position that has advantages. These advantages 
+arise out of the fact that normal market movements are different from what the 
+options are implying. Moreover, the options are wrong when there is skewing at all 
+strikes, from the lowest to the highest. The strategist should be careful to project his 
+profits prior to expiration using the same skewing, for it may persist for some time to 
+come. However, at expiration, it must of course disappear. Therefore, the strategist 
+who is planning to hold the position to expiration will find that volatility skewing has 
+presented him with an opportunity for a positive expected return. 
+SUMMARY OF VOLATILITY TRADING 
+The theoretical trading of options, mostly in a neutral manner, has evolved into one 
+large branch - volatility trading. This part of the book has attempted to lay out the 
+foundations, structures, and practices prevalent in this branch of trading. As the read­
+er can see, there are some sophisticated techniques being applied - not so much in 
+terms of strategy, but in terms of the ways that one looks at volatility and in the ways 
+that stocks can move. 
+Statistical methods are used liberally in trying to determine the ways that either 
+volatility can move or stocks can move. The probability calculators, stock price dis­
+tributions, and related topics are all statistical in nature. The volatility trader is intent 
+on finding situations in which current market implied volatility is incorrect, either in 
+its absolute value or in the skew that is prevalent in the options on a particular under-
+===== PDF page index 904 =====
+Chapter 39: VolatiDty Trading Techniques 845 
+lying instrument. Upon finding such discrepancies, the trader attempts to take 
+advantage by constructing a more or less neutral position, preferring not to predict 
+price so much, but rather attempting to predict volatility. 
+Most volatility traders attempt to buy volatility rather than sell it, for the rea­
+sons that the strategies inherent in doing so have limited risk and large potential 
+rewards, and don't require one to monitor them continuously. If one owns a straddle, 
+any major market movements resulting in gaps in prices are a benefit. Hence, mon­
+itoring of positions as little as just once a day is sufficient, a fact that means that the 
+volatility buyer can have a life apart from watching a trading screen all day long. In 
+addition, volatility buyers of stock options can avail themselves of the chaotic move­
+ments that stocks can make, taking advantage of the occasional fat tail movements. 
+However, since volatility and prices are so unstable, one cannot predict their 
+movements with any certainty. The vagaries of historical volatility as compared to 
+implied volatility, the differences between the implied volatility of short- and long­
+term options, and the difficulty in predicting stock price distributions all compli­
+cate the process of predicting volatility. Hence, volatility trading is not a "lock," but 
+its practitioners normally believe that it is by far the best approach to theoretical 
+option trading available today. Moreover, most option professionals primarily trade 
+volatility rather than directional positions. 
+===== PDF page index 905 =====
+, CHAPTER 40 
+Advanced Concepts 
+As the option markets have matured, strategists have been forced to rely more on 
+mathematics in order to select new positions as well as to discern how their positions 
+will behave in fluctuating markets. These techniques can be used on simple strategies, 
+such as bull spreads or ratio spreads, or on far more complex portfolios of options. 
+First, the concept of implied volatility will be examined in more detail, prima­
+rily as an aid in choosing new positions that have a positive expected return. Then, 
+the concept of risk management will be explored. In effect, one can reduce his option 
+position into several components of risk measurement that can be readily under­
+stood. This chapter describes the techniques used to evaluate one's position, and 
+shows how to use this information to reduce the risk in the position. The actual math­
+ematical calculations required to perform these analyses are included at the end of 
+the chapter. 
+NEUTRALITY 
+In many of the examples in previous chapters, it was generally assumed that one 
+would take a "neutral" position in order to capture the pricing or volatility differen­
+tial. Why this concentration on neutrality? Neutrality, as it applies to option positions, 
+means that one is noncommittal with respect to at least one of the factors that influ­
+ence an option's price. Simply put, this means that one can design an option position 
+in which he can profit, no matter which way the underlying security moves. 
+846 
+===== PDF page index 906 =====
+Chapter 40: Advanced Concepts 847 
+Most option strategies fall into one of two categories: as a hedge to a stock or 
+futures strategy (for example, buying puts to protect a portfolio of stocks), or as a 
+profit venture unto itself. The latter category is where most traders find themselves, 
+and they often approach it in a fairly speculative manner - either by buying options 
+or by being a premium seller (covered or uncovered). In such strategies, the trader 
+is taking a view of the market; he needs certain price action from the underlying 
+security in order to profit. Even covered call writing, which is considered to be a con­
+servative strategy, is subject to large losses if the underlying stock drops drastically. 
+It doesn't have to be that way. Strategies can be devised that will have a chance 
+to profit regardless of price changes in the underlying stock, as well as because of 
+them. Such strategies are neutral strategies and they always require at least two 
+options in the position - a spread, straddle, or some other combination. Often, when 
+one constructs a neutral strategy, he is neutral with respect to price changes in the 
+underlying security. It is also possible, and often wise, to be neutral with respect to 
+the rate of price change of the underlying security, with respect to the volatility of 
+the security, or with respect to time decay. This is not to imply that any option spread 
+that is neutral will automatically be a money-maker; rather, one looks for an 
+opportunity - perhaps an overpriced series of options - and attempts to capture that 
+overpricing by constructing a neutral strategy around it. Then, regardless of the 
+movement of the underlying stock, the strategist has a chance of making money if the 
+overpricing disappears. 
+Note that the neutral approach is distinctly different from the speculator's, who, 
+upon determining that he has discovered an underpriced call, would merely buy the 
+call, hoping for the stock to increase in price. He would not make money if XYZ fell 
+in price unless there was a huge expansion in implied volatility - not something to 
+count on. The next section of this chapter deals with how one determines his neu­
+trality. In effect, if he is not neutral, then he has risk of some sort. The following sec­
+tions outline various measures of risk that the strategist can use to establish a new 
+position or manage an existing one. 
+The most important of these risk measurements is how much market exposure 
+the position currently has. This has previously been described as the "delta." Of near­
+ly equal importance to the strategist is how much the option strategy will change with 
+respect to the rate of change in the price of the underlying security. Also of interest 
+are how changes in volatility, in time remaining until expiration, or even in the risk­
+free interest rate will affect the position. Once the components of the option position 
+are defined, the strategist can then take action to reduce the risk associated with any 
+of the factors, should he so desire. 
+===== PDF page index 907 =====
+848 Part VI: Measuring and Trading Volatmty 
+THE "GREEKS" 
+Risk measurements have generally been given the names of actual or contrived 
+Greek letters. For example, "delta" was discussed in previous chapters. It has become 
+common practice to refer to the exposure of an option position merely by describing 
+it in terms of this "Greek" nomenclature. For example, "delta long 200 shares" means 
+that the entire option position behaves as if the strategist were merely long 200 shares 
+of the underlying stock. In all, there are six components, but only four are heavily 
+used. 
+DELTA 
+The first risk measurement that concerns the option strategist is how much current 
+exposure his option position has as the underlying security moves. This is called the 
+"delta." In fact, the term delta is commonly used in at least two different contexts: to 
+express the amount by which an option changes for a I-point move in the underlying 
+security, or to describe the equivalent stock position of an entire option portfolio. 
+Reviewing the definition of the delta of an individual option (first described in 
+Chapter 3), recall that the delta is a number that ranges between 0.0 and 1.0 for calls, 
+and between -1.0 and 0.0 for puts. It is the amount by which the option will move if 
+the underlying stock moves 1 point; stated another way, it is the percentage of any 
+stock price change that will be reflected in the change of price of the option. 
+Example: Assume an XYZ January 50 call has a delta of 0.50 with XYZ at a price of 
+49. This means that the call will move 50% as fast as the stock will move. So, if XYZ 
+jumps to 51, a gain of 2 points, then the January 50 call can be expected to increase 
+in price by 1 point (50% of the stock increase). 
+In another context, the delta of a call is often thought of as the probability of the 
+call being in-the-money at expiration. That is, ifXYZ is 50 and the January 55 call has 
+a delta of 0.40, then there is a 40% probability that XYZ will be over 55 at January 
+expiration. 
+Put deltas are expressed as negative numbers to indicate that put prices move 
+in the opposite direction from the underlying security. Recall that deltas of out-of­
+the-money options are smaller numbers, tending toward 0 as the option becomes 
+very far out-of-the-money. Conversely, deeply in-the-money calls have deltas 
+approaching 1.0, while deeply in-the-money puts have deltas approaching -1.0. 
+Note: Mathematically, the delta of an option is the partial derivative of the 
+Black-Scholes equation ( or whatever formula one is using) with respect to stock 
+price. Graphically, it is the slope of a line that is tangent to the option pricing curve. 
+===== PDF page index 908 =====
+Chapter 40: Advanced Concepts 849 
+Let us now take a look at how both volatility and time affect the delta of a call 
+option. Much of the data to be presented in this chapter will be in both tabular and 
+graphical form, since some readers prefer one style or the other. 
+The volatility of the underlying stock has an effect on delta. If the stock is not 
+volatile, then in-the-money options have a higher delta, and out-of-the-money 
+options have a lower delta. Figure 40-1 and Table 40-1 depict the deltas of various 
+calls on two stocks with differing volatilities. The deltas are shown for various strike 
+prices, with the time remaining to expiration equal to 3 months and the underlying 
+stock at a price of 50 in all cases. Note that the graph confirms the fact that a low­
+volatility stock's in-the-money options have the higher delta. The opposite holds true 
+for out-of-the-money options: The high-volatility stock's options have the higher delta 
+in that case. Another way to view this data is that a higher-volatility stock's options will 
+always have more time value premium than the low-volatility stock's. In-the-money, 
+these options with more time value will not track the underlying stock price move­
+ment as closely as ones with little or no time value. Thus, in-the-money, the low­
+volatility stock's options have the higher delta, since they track the underlying stock 
+price movements more closely. Out-of-the-money, the entire price of the option is 
+composed of time value premium. The ones with higher time value (the ones on the 
+high-volatility stock) will move more since they have a higher price. Thus, out-of-the­
+money, the higher-volatility stock's options have the greater delta. 
+Time also affects delta. Figures 40-2 (see Table 40-2) and 40-4 show the rela­
+tionships between time and delta. Figure 40-2's scales are similar to those in Figure 
+40-2, delta vs. volatility: The deltas are shown for various striking prices, with XYZ 
+assumed to be equal to 50 in all cases. Notice that in-the-money, the shorter-term 
+options have the higher delta. Again, this is because they have the least time value 
+premium. Out-of-the-money, the opposite is true: The longer-term options have the 
+higher deltas, since these options have the most time value premium. 
+Figure 40-3 (see Table 40-3) depicts the delta for an XYZ January 50 call with 
+XYZ equal to 50. The horizontal axis in this graph is "weeks until expiration." Note 
+that the delta of a longer-term at-the-money option is larger than that of a shorter­
+term option. In fact, the delta shrinks more rapidly as expiration draws nearer. Thus, 
+even if a stock remains unchanged and its volatility is constant, the delta of its options 
+will be altered as time passes. This is an important point to note for the strategist, 
+since he is constantly monitoring the risk characteristics of his position. He cannot 
+assume that his position is the same just because the stock has remained at the same 
+price for a period of time. 
+Position Delta. Another usage of the term delta is what has previously been 
+referred to as the equivalent stock position (ESP); for futures options, it would be 
+===== PDF page index 909 =====
+850 
+FIGURE 40-1. 
+Delta comparison, with XYZ = 50. 
+100 
+75 
+$ 
+<ii 50 
+0 ',, .. .......... 
+Low-Volatility Stock , 
+Part VI: Measuring and Trading Volatility 
+25 ', ', High-Volatility Stock 
+', ',, .............. 
+---.............. 
+0 L..L _______ .....L _______ __:::::i~~ ..... -..:L-_ 
+40 45 50 
+TABLE 40-1. 
+55 
+Strike Price 
+60 65 
+Delta comparison for different volatilities with XYZ = 50 and 
+time = 3 months. 
+Delta 
+Strike Price Low-Volatility Stock High-Volatility Stock 
+40 100 94 
+45 93 78 
+50 51 53 
+55 11 29 
+60 1 13 
+65 0 5 
+referred to as EFP (equivalent futures position). To differentiate between the two 
+terms, the delta of the option is generally referred to as "option delta," while the ESP 
+or EFP is called "position delta." Recall that the position delta is computed accord­
+ing to the following simple equation: 
+Position delta = Option's delta x Shares per option x Option quantity 
+===== PDF page index 910 =====
+Chapter 40: Advanced Concepts 
+FIGURE 40-2. 
+Delta comparison, with XYZ = 50. 
+100 
+75 
+~ ai 50 
+0 
+25 
+40 
+TABLE 40-2. 
+45 50 55 
+Strike Price 
+60 65 
+Delta comparison - varying time remaining with XYZ = 50. 
+Delta 
+Strike Price t = 1 year t = 6 months 
+40 92 97 
+45 79 83 
+50 61 57 
+55 41 30 
+60 25 12 
+65 14 4 
+851 
+t = 3 months 
+99 
+90 
+55 
+18 
+3 
+0 
+For futures options, the term "shares per option" would be replaced by "shares 
+per contract," which is always 1. This is the risk measurement of how much market 
+exposure the option position has. Whether called position delta, ESP, or EFP, one 
+uses the deltas of the individual options in his portfolio to calculate the overall expo­
+sure. By summing the calculations for each item in a position, or even in an entire 
+option portfolio, one can approximate how much market exposure the entire option 
+===== PDF page index 911 =====
+852 
+FIGURE 40-3. 
+Delta as a function of time. 
+57 
+56 
+55 
+.s 
+8 54 
+53 
+52 
+TABLE 40-3. 
+2 4 6 
+Delta as a function of time. 
+8 10 12 
+Weeks Remaining 
+Weeks Remaining 
+20 
+18 
+15 
+13 
+10 
+8 
+6 
+4 
+2 
+Part VI: Measuring and Trading Volatility 
+14 16 18 20 
+Delta 
+.566 
+.562 
+.557 
+.553 
+.547 
+.543 
+.538 
+.531 
+.521 
+.515 
+position has. The next example, reprinted from the chapter on mathematical appli­
+cations, shows how one computes the net exposure of a complicated position. 
+Example: The following position exists when XYZ is at 31. 75. It resembles a long 
+straddle (or backspread), in that there is increased profit potential in either direction 
+===== PDF page index 912 =====
+Chapter 40: Advanced Concepts 853 
+if the stock moves far enough by expiration. Many market-makers and professional 
+traders attempt to structure these types of positions, if possible, in order to take 
+advantage of the sudden volatility that is inherent in today's markets. 
+Position 
+Position Delta Delta 
+Short 4,500 XYZ 1.00 - 4,500 
+Short 1 00 XYZ April 25 calls 0.89 - 8,900 
+Long 50 XYZ April 30 calls 0.76 + 3,800 
+Long 139 XYZ July 30 calls 0.74 + 10,286 
+Total ESP: + 686 
+This position, though complicated to the naked eye, reduces to being long only 
+approximately 700 shares of XYZ. This is commonly referred to as being "delta long 
+700 shares." Thus, the terms "delta," when referring to the sum of the deltas of a 
+whole position, and "equivalent stock position" are synonymous. 
+This position has some exposure to the market since it is delta long. If the posi­
+tion delta were zero, it would be referred to as being delta neutral and would, theo­
+retically, have no exposure to the market at that time. 
+Note that one can derive some general characteristics of his delta by just exam­
+ining his portfolio by eye: Short calls or long puts will introduce negative delta into 
+the position; long calls or short puts will introduce positive delta. Furthermore, it is 
+obvious that being long the underlying security adds to the long delta of the position, 
+while being short the underlying security places more negative delta in the position. 
+The use of this information to adjust the delta of one's position will be discussed in a 
+later section of this chapter. 
+Obviously, the delta of this entire position will change as the stock price moves 
+up or down as time passes. The figure given is merely an instantaneous look at how 
+the position is structured. It is the need to know how the position will change when 
+other factors change that has led strategists to employ the following concepts. 
+GAMMA 
+Simply stated, the gamma is how fast the delta changes with respect to changes in the 
+underlying stock price. It is known that the delta of a call increases as the call moves 
+from out-of-the-money to in-the-money. The gamma is merely a precise measure­
+ment of how fast the delta is increasing. 
+===== PDF page index 913 =====
+854 Part VI: Measuring and Trading Volatility 
+Example: With XYZ at 49, assume the January 50 call has a delta of 0.50 and a 
+gamma of 0.05. If XYZ moves up one point to 50, the delta of the call will increase 
+by the amount of the gamma: It will increase from 0.50 to 0.55. 
+As with the delta, the gamma can also be expressed as a percentage. But in this 
+case, the increase or decrease applies to the delta. 
+Example: Again, with XYZ at 49, assume the January 50 call has a delta of 0.50 and a 
+gamma of 0.05. If XYZ moves up 2 points to 51, the delta of the call will increase by 
+5% of the stock rrwve, because the gamma is 0.05, or 5 percent. Five percent of the 
+stock move is 0.05 x 2, or 0.10. Thus, the delta will increase by 0.10, from 0.50 to 0.60. 
+Obviously, the delta cannot keep increasing by 0.05 each time XYZ gains anoth­
+er point in price, for it will eventually exceed 1.00 by that calculation, and it is known 
+that the delta has a maximum of 1.00. Thus, it is obvious that the gamma changes. In 
+general, the gamma is at its maximum point when the stock is near the strike of the 
+option. As the stock moves away from the strike in either direction, the gamma 
+decreases, approaching its minimum value of zero. 
+Conceptually, this means that a deeply in-the-money or deeply out-of-the­
+money option has a gamma of nearly zero. This makes sense - it implies that the delta 
+of a deep in- or deep out-of-the-money option does not change very much at all, even 
+if the stock moves by one point. 
+Example: Assume XYZ is 25, and the January 50 call has a delta of virtually zero. If 
+XYZ moves up one point to 26, the call is still so far out-of-the-money that the delta 
+will still be zero. Thus, the gamma of this call is zero, since the delta does not change 
+when the stock increases in price by a point. 
+In a similar manner, the January 45 put on XYZ would have a delta of -1.0 with 
+XYZ at 25. If XYZ moved up one point to 26, the put' s delta would not change; it is 
+still so far in-the-money that it would still be - 1.0. Thus, the gamma of this deeply 
+in-the-money option is also zero, since the delta remains unchanged in the face of a 
+I-point rise in the underlying security. 
+Note that the gamma of any option is expressed as a positive number, whether 
+the option is a put or a call. 
+Other properties of gamma are useful to know as well. As expiration nears, the 
+gamma of at-the-money options increases dramatically. Consider an option with a day 
+or two of life remaining. If it is at-the-money, the delta is approximately 0.50. 
+However, if the stock were to move 2 points higher, the delta of the option would jump 
+===== PDF page index 914 =====
+Chapter 40: Advanced Concepts 855 
+to nearly 1.00 because of the short time remaining until expiration. Thus, the gamma 
+would be roughly 0.25 (the delta increased by 0.50 when the stock moved 2 points), 
+as compared to much smaller values of gamma for at-the-money options with several 
+weeks or months of life remaining. The same 2-point rise in the underlying stock 
+would not result in much of an increase in the delta of longer-term options at all. 
+Out-of-the-money options display a different relationship between gamma and 
+time remaining. An out-of-the-money option that is about to expire has a very small 
+delta, and hence a very small gamma. However, if the out-of-the-money option has a 
+significant amount of time remaining, then it will have a larger gamma than the 
+option that is close to expiration. 
+Figure 40-4 (see Table 40-4) depicts the gammas of three options with varying 
+amounts of time remaining until expiration. The properties regarding the relation­
+ship of gamma and time can be observed here. Notice that the short-term options 
+have very low gammas deeply in- or out-of the-money, but have the highest gamma 
+at-the-money (at 50). Conversely, the longest-term, one-year option has the highest 
+gamma of the three time periods for deeply in- or out-of-the-money options. The 
+data is presented in Table 40-4. This table contains a slight amount of additional data: 
+the gamma for the at-the-money option at even shorter periods of time remaining 
+until expiration. Notice how the gamma explodes as time decreases, for the at-the­
+money option. With only one week remaining, the gamma is over 0.28, meaning that 
+the delta of such a call would, for example, jump from 0.50 to 0.78 if the stock mere­
+ly moved up from 50 to 51. 
+Gamma is dependent on the volatility of the underlying security as well. At-the­
+money options on less volatile securities will have higher gammas than similar options 
+on more volatile securities. The following example demonstrates this fact. 
+Example: Assume XYZ is at 49, as is ABC. Moreover, XYZ is a more volatile stock 
+(30% implied) as compared to ABC (20% ). Then, similar options on the two stocks 
+would have significantly different gammas. 
+XYZ Gammas ABC Gammas 
+Option (Volatility = 30%) (Volatility= 20%) 
+January 50 .066 .097 
+January 55 .045 .039 
+January 60 .019 .0053 
+February 50 .055 .081 
+February 60 .024 .011 
+===== PDF page index 915 =====
+856 Part VI: Measuring and Trading VolatHity 
+FIGURE 40-4. 
+Gamma comparison, with XYZ = 50. 
+8 
+7 
+0 6 0 ..-
+X 5 
+Cl! 
+E 4 E 
+Cl! 3 (!) 
+2 t= 1 year 
+t= 6 months 
+t= 3 months 0 '-'----~---__._ ___ _._ ___ _._ ___ ....___ 
+40 45 50 55 60 65 
+Strike Price 
+TABLE 40-4. 
+Gamma comparison - various amounts of time remaining 
+(with XYZ = 50). 
+Time Remaining Strike Price 
+40 45 50 55 60 
+1 year .015 .029 .039 .04 .033 
+6 months .011 .037 .058 .051 .030 
+3 months .003 .039 .086 .057 .015 
+2 months .108 
+1 month .166 
+1 week .288 
+65 
+.023 
+.013 
+.002 
+Note that the at-the-money options (January 50's and February 50's) on ABC, 
+the less volatile stock, have larger gammas than do their XYZ counterparts. However, 
+look one strike higher (January 55's), and notice that the more volatile options have a 
+slightly higher gamma. Look two strikes higher and the more volatile options have a 
+vastly higher gamma, both for the January 60's and the February 60's. 
+This concept makes sense if one thinks about the relationship between volatili­
+ty and delta. On nonvolatile stocks, one finds that the delta of even a slightly in­
+the-money option increases rapidly. This is because, since the stock is not volatile, 
+buyers are not willing to pay much time premium for the option. As a result, the 
+gamma is high as well, because as the stock moves into-the-money, the increase in 
+===== PDF page index 916 =====
+Chapter 40: Advanced Concepts 857 
+delta will be more dramatic than it would be for a volatile stock. Out-of-the-money 
+options are an entirely different story. Since the nonvolatile stock will have difficulty 
+moving fast enough to reach an out-of-the-money striking price, the delta of the out­
+of-the-money option is small and it will not change quickly (that is, the gamma is 
+small also). 
+These concepts are summarized in Figure 40-5 (see Table 40-5), which depicts 
+the gammas for similar options on stocks with differing volatilities. For the purposes 
+of these graphs, XYZ is equal to 50 and there are three months remaining until expi­
+ration. 
+Notice that for a very volatile stock, the gamma is quite stable over nearly all 
+striking prices when there are 3 months remaining until expiration. This means that 
+the deltas of all options on such a volatile stock will be changing quite a bit for even 
+a 1-point move in the underlying stock. This is an important point for neutral strate­
+gists to note, because a position that starts out as delta neutral may quickly change if 
+the underlying stock is very volatile. As this table implies, the deltas of the options in 
+that "neutral" spread may be altered quickly, thereby rendering the spread quite un­
+neutral. This concept will be discussed in greater detail later in this chapter. 
+As delta was used to construct the equivalent stock position of an entire option 
+position or portfolio, gamma can be used in a similar manner. An example of this fol­
+lows, using the same securities from the preceding example on the delta of a posi­
+tion. An important point to note is that the gamma of the underlying security itself is 
+zero. This is true because the delta of the underlying security (which is always 1.0) 
+never changes - hence the gamma is zero. The gamma is measuring the amount of 
+change of the delta; if the delta of the underlying security never changes, the gamma 
+of the underlying security must be zero. 
+Example: The following position exists when XYZ is at 31.75. Recall that it resem­
+bles a long straddle ( or backspread) in that there is increased profit potential in either 
+direction if the stock moves far enough by expiration. In addition to the delta previ­
+ously listed, the gamma is now shown as well. Note that since gamma is a small 
+absolute number, it is sometimes calculated out to three or four decimal places. 
+Option Position Option Position 
+Position Delta Delta Gamma Gamma 
+Short 4,500 XYZ 1.00 - 4,500 0.0000 0 
+Short l 00 XYZ April 25 calls 0.89 - 8,900 0.0100 -100 
+Long 50 XYZ April 30 calls 0.76 + 3,800 0.0300 +150 
+Long 139 XYZ July 30 calls 0.74 +10,286 0.0200 +278 
+Totals: + 686 +328 
+===== PDF page index 917 =====
+858 Part VI: Measuring and Trading Volatility 
+FIGURE 40-5. 
+Gamma comparison, with XYZ = 50, t = three months. 
+8 
+7 
+0 6 
+0 
+~ 5 
+<ti 
+E 4 E 
+~ 3 
+2 
+TABLE 40-5. 
+40 45 
+Low Volatility 
+Very High Volatility 
+50 55 60 
+Strike Price 
+65 
+Gamma comparison for varying volatilities (XYZ = 50, t = 3 
+months). 
+Gamma Very 
+Strike Low Volatility High Volatility High Volatility 
+40 .003 .013 .017 
+45 .039 .039 .022 
+50 .086 .057 .024 
+55 .057 .049 .025 
+60 .015 .028 .023 
+65 .002 .012 .020 
+As before, the position still has a delta long of almost 700 shares. In addition, 
+one can now see that it has a positive gamma of over 300 shares. This means that the 
+delta can be expected to change by 328 shares for each point that XYZ moves: If it 
+moves up 1 point, the delta will increase to +1,014 (the current delta, 686, plus the 
+gamma of 328). However, ifXYZ moves down by 1 point, then the delta will decrease 
+to +358 (the current delta, 686, less the gamma of 328). 
+Note that, in the above example, if XYZ continues higher, the gamma will 
+remain positive (although it will eventually shrink some), and the delta will continue 
+to increase. This means the position is getting longer and longer - a fact that makes 
+===== PDF page index 918 =====
+Chapter 40: Atlvanced Concepts 859 
+sense when one notes that there are extra long calls and they would be getting deep­
+er in-the-money as the stock moves up. Conversely, if XYZ continues to move lower, 
+the delta will continue to decrease and will quickly become negative, meaning that 
+the position would become short overall. Hence, the position does indeed resemble 
+a long straddle: It gets longer as the market moves up and it gets shorter as the mar­
+ket moves down. 
+Long options, whether puts or calls, have positive gamma, while short options 
+have negative gamma. Thus, a strategist with a position that has positive gamma has 
+a net long option position and is generally hoping for large market movements. 
+Conversely, if one has a position with negative gamma, it means he has shorted 
+options and wants the market to remain fairly stable. 
+Note that it is possible to be delta neutral, but to have a significant gamma. (For 
+example, if one owns puts and calls with offsetting deltas, he would be delta neutral, 
+but would have positive gamma since both options are long.) If one is delta neutral, 
+he knows he has no market exposure at this time, but his gamma will show him what 
+exposure his position will acquire as the market moves. These concepts will be dis­
+cussed in greater detail later in this chapter. 
+VEGA OR TAU 
+There is no letter in the Greek alphabet called "vega." Thus, some strategists, being 
+purists, prefer to use a real Greek letter, "tau," to refer to this risk measurement. The 
+term "vega" will be used in this book, but the reader should note that "tau" means 
+the same thing. Vega is the arrwunt by which the option price changes when the 
+volatility changes. Vega is always expressed as a positive number, whether it refers to 
+a put or a call. 
+It is known that more volatile stocks have more expensive options. Thus, as 
+volatility increases, the price of an option will rise. If volatility falls, the price of the 
+option will fall as well. The vega is merely an attempt to quantify how much the 
+option price will increase or decrease as the volatility moves, all other factors being 
+equal. 
+Before considering an example, a review of the term volatility is in order. 
+Volatility is a measure of how quickly the underlying security moves around. 
+Statistically, it is usually calculated as the standard deviation of stock prices over some 
+period of time, generally annualized. This statistical measure is expressed as a per­
+cent, although relating that percent to actual stock movements can be complicated. 
+Suffice it to say that a stock that has a 50% volatility is more volatile than a stock with 
+30% volatility. The stock market generally has a volatility of about 15% overall, 
+although that may change from time to time (crashes, for example). 
+===== PDF page index 919 =====
+860 Part VI: Measuring and Trading Vo/atiHty 
+Example: Again, assume XYZ is at 49, and the January 50 call is selling for 3.50. The 
+vega of the option is 0.25, and the current volatility of XYZ is 30%. 
+If the volatility increases by one percentage point or 1 % to 31 %, then the vega 
+indicates that the option will increase in value by 0.25, to 3. 75. 
+If the volatility had instead decreased by 1 percent to 29%, then the January 50 
+call would have decreased to 3.25 (a loss of 0.25, the amount of the vega). 
+If the implied volatility of an option increases, the option price will increase as 
+well. Consequently, even though XYZ stock may be exhibiting the same historic 
+movement that it always has, and therefore its (historical) volatility would be 
+unchanged, if option buyers appear in sufficient quantity, they may drive the implied 
+volatility ofXYZ's options higher. Likewise, an excess of option sellers could drive the 
+implied volatility lower, even though the historical volatility does not change. So, it 
+must be concluded that vega measures how much the option price changes as implied 
+volatility changes. 
+Vega is related to time. Figure 40-6 (see Table 40-6) shows the vegas for options 
+with differing times remaining until expiration. The underlying stock is assumed to 
+be 50 in all cases. Notice that the more time that remains, the higher the vega is. It 
+is interesting to note that, for very long-term options, the vega of the slightly out-of­
+the-money calls (strike = 55) is actually higher than that of the at-the-money. 
+However, this discrepancy disappears as time passes. Not shown, but equally true, is 
+that the vega of a slightly out-of-the-money option on a very volatile stock may be 
+higher than that of the at-the-money. 
+As with the measurements of risk discussed already, vega can refer to the option 
+itself ("option vega") or to the position as a whole ("position vega"). Since vega is 
+expressed as a positive number, if one is long options, then his position vega will be 
+positive. This means he has exposure if volatilities decrease, or can make money if 
+volatilities increase. 
+Example: Again, assume that we have the same backspread position as before, with 
+XYZ at 31.75. 
+Option Position 
+Position Vega Vega 
+Short 4,500 XYZ 0.00 0 
+Short 100 XYZ April 25 calls 0.02 - 200 
+Long 50 XYZ April 30 calls 0.05 + 250 
+Long 139 XYZ July 30 calls 0.07 + 973 
+Total Vega: + 1,023 
+===== PDF page index 920 =====
+Chapter 40: Advanced Concepts 
+FIGURE 40-6. 
+Vega comparison, XYZ = 50. 
+20 
+18 
+16 
+14 
+0 
+0 12 ,--
+.2S 10 C1l 
+Cl 
+~ 8 
+6 t= 3 months 
+4 
+2 
+0 
+40 45 50 
+Strike Price 
+TABLE 40-6. 
+861 
+55 60 65 
+Vega comparison for different time periods (with XYZ = 50). 
+Vega 
+Strike Price t = 1 Year t = 6 Months t = 3 Months 
+40 0.12 0.06 0.02 
+45 0.16 0.11 0.06 
+50 0.19 0.13 0.09 
+55 0.20 0.13 0.08 
+60 0.18 0.11 0.05 
+65 0.16 0.07 0.02 
+The vega is a positive 10.23 points ($1,023 since each point for these equity 
+options is worth $100). The fact that the position has a positive vega means that it is 
+exposed to variations in volatility. If volatility decreases, the position will lose money: 
+$1,023 for each one percentage point decrease in volatility. However, if volatility 
+increases, the position will benefit. 
+Vega is greatest for at-the-money options and approaches zero as the option is 
+deeply in- or out-of-the-money. Again, this is common sense, since a deep in- or out-
+===== PDF page index 921 =====
+860 Part VI: Measuring and Trading Volatility 
+Example: Again, assume XYZ is at 49, and the January 50 call is selling for 3.50. The 
+vega of the option is 0.25, and the current volatility of XYZ is 30%. 
+If the volatility increases by one percentage point or 1 % to 31 %, then the vega 
+indicates that the option will increase in value by 0.25, to 3. 75. 
+If the volatility had instead decreased by 1 percent to 29%, then the January 50 
+call would have decreased to 3.25 (a loss of 0.25, the amount of the vega). 
+If the implied volatility of an option increases, the option price will increase as 
+well. Consequently, even though XYZ stock may be exhibiting the same historic 
+movement that it always has, and therefore its (historical) volatility would be 
+unchanged, if option buyers appear in sufficient quantity, they may drive the implied 
+volatility of XYZ's options higher. Likewise, an excess of option sellers could drive the 
+implied volatility lower, even though the historical volatility does not change. So, it 
+must be concluded that vega measures how much the option price changes as implied 
+volatility changes. 
+Vega is related to time. Figure 40-6 (see Table 40-6) shows the vegas for options 
+with differing times remaining until expiration. The underlying stock is assumed to 
+be 50 in all cases. Notice that the more time that remains, the higher the vega is. It 
+is interesting to note that, for very long-term options, the vega of the slightly out-of­
+the-money calls (strike = 55) is actually higher than that of the at-the-money. 
+However, this discrepancy disappears as time passes. Not shown, but equally true, is 
+that the vega of a slightly out-of-the-money option on a very volatile stock may be 
+higher than that of the at-the-money. 
+As with the measurements of risk discussed already, vega can refer to the option 
+itself ("option vega") or to the position as a whole ("position vega"). Since vega is 
+expressed as a positive number, if one is long options, then his position vega will be 
+positive. This means he has exposure if volatilities decrease, or can make money if 
+volatilities increase. 
+Example: Again, assume that we have the same backspread position as before, with 
+XYZ at 31.75. 
+Option Position 
+Position Vega Vego 
+Short 4,500 XYZ 0.00 0 
+Short 100 XYZ April 25 calls 0.02 - 200 
+Long 50 XYZ April 30 calls 0.05 + 250 
+Long 139 XYZ July 30 calls 0.07 + 973 
+Total Vega: + 1,023 
+===== PDF page index 922 =====
+Chapter 40: Advanced Concepts 
+FIGURE 40-6. 
+Vega comparison, XYZ = 50. 
+20 
+18 
+16 
+14 
+0 
+0 12 ... 
+6 10 (13 
+0) 
+;g? 8 
+6 
+4 
+2 
+0 
+40 45 
+TABLE 40-6. 
+861 
+50 55 60 65 
+Strike Price 
+Vega comparison for different time periods (with XYZ = 50). 
+Vega 
+Strike Price t = 1 Year t = 6 Months t = 3 Months 
+40 0.12 0.06 0.02 
+45 0.16 0.11 0.06 
+50 0.19 0.13 0.09 
+55 0.20 0.13 0.08 
+60 0.18 0.11 0.05 
+65 0.16 0.07 0.02 
+The vega is a positive 10.23 points ($1,023 since each point for these equity 
+options is worth $100). The fact that the position has a positive vega means that it is 
+exposed to variations in volatility. If volatility decreases, the position will lose money: 
+$1,023 for each one percentage point decrease in volatility. However, if volatility 
+increases, the position will benefit. 
+Vega is greatest for at-the-money options and approaches zero as the option is 
+deeply in- or out-of-the-money. Again, this is common sense, since a deep in- or out-
+===== PDF page index 923 =====
+862 Part VI: Measuring and Trading Volatility 
+of-the-money option will not be affected much by a change in volatility. In addition, 
+for at-the-money options, longer-term options have a higher vega than short-term 
+options. To verify this, think of it in the extreme: An at-the-money option with one 
+day to expiration will not be overly affected by any change in volatility, due to its 
+pending expiration. However, a three-month at-the-money option will certainly be 
+sensitive to changes in volatility. 
+Vega does not directly correlate with either delta or gamma. One could have a 
+position with no delta and no gamma (delta neutral and gamma neutral) and still have 
+exposure to volatility. This does not mean that such a position would be undesirable; 
+it merely means that if one had such a position, he would have removed most of the 
+market risk from his position and would be concerned only with volatility risk. 
+In later sections, the use of volatility to establish positions and the use of vega 
+to monitor them will be discussed. 
+THETA 
+Theta measures the time decay of a position. All option traders know that time is the 
+enemy of the option holder, and it is the friend of the option writer. Theta is the name 
+given to the risk measurement of time in one's position. Theta is generally expressed 
+as a negative number, and it is expressed as the amount by which the option value 
+will change. Thus, if an option has a theta of -0.12, that means the option will lose 
+12 cents, or about an eighth of a point, per day. This is true for both puts and calls, 
+although the theta of a put and a call with the same strike and expiration date are not 
+equal to each other. 
+Very long-term options are not subject to much time decay in one day's time. 
+Thus, the theta of a long-term option is nearly zero. On the other hand, short-term 
+options, especially at-the-money ones, have the largest absolute theta, since they are 
+subject to the ravages of time on a daily basis. The theta of options on a highly volatile 
+stock will be higher than the theta of options on a low-volatility stock. Obviously, the 
+former options are more expensive (have more time value) and therefore have more 
+time value to lose on a daily basis, thereby implying that they have a higher theta. 
+Finally, the decay is not linear - an option will lose a greater percent of its daily value 
+near the end of its life. 
+Figure 40-7 (see Table 40-7) depicts the relationships of thetas for various strik­
+ing prices and for differing volatilities on options with three months of life remain­
+ing. Again, notice that for very volatile stocks, the out-of-the-money options have 
+thetas as large as the at-the-moneys. This is saying that as each day passes, the prob­
+ability of the stock reaching that out-of-the-money strike drops and causes the option 

@@ -1,0 +1,336 @@
+
+===== PDF page index 830 =====
+Chapter 37: How Volatility Affects Popular Strategies 775 
+Overall, the bullish spread position is an attractive alternative to an outright call 
+purchase, especially when the call is overpriced. The spread does risk a greater 
+amount of money if the underlying stock should collapse heavily. Still, if one is truly 
+bullish, and if one employs a reasonably tight downside stop on his entire position, 
+this spread can perform better than the outright purchase of an overpriced call. 
+VERTICAL PUT SPREADS 
+Also of interest is the effect that implied volatility has on put spreads. One of the 
+more popular strategies involving puts is the sale of a credit spread - a bull spread 
+with puts. Assume that a stock is selling at 100, and one is going to sell a put with a 
+110 strike and buy a put with a 90 strike. That is a put credit (bull) spread. Also 
+assume that the options have four months of life remaining. (See Table 37-8.) 
+One would not rationally sell this credit spread if implied volatility were as low 
+as 20%, because at that low level of volatility, the in-the-money December llO put is 
+trading for 10 dollars - parity - and thus would immediately be at risk of early 
+assignment. But one can see that an increase in implied volatility increases the value 
+of the spread. Now, if one had sold this spread to begin with, he would thus be los­
+ing money when implied volatility increased. This was proven with call bull spreads, 
+too: They lose money when implied volatility increases. Conversely, of course, the 
+put credit spread makes money when implied volatility decreases. 
+What happens after thirty days have passed? Figure 37-8 shows just two cases 
+- implied volatility at 30% and implied volatility at 80%. One can surmise that other 
+levels of implied volatility between 30% and 80% would have profit graphs that lie 
+between the two shown in Figure 37-8. 
+TABLE 37-8 
+Implied 
+Volatility 
+20% 
+30% 
+40% 
+50% 
+60% 
+70% 
+80% 
+*Short option trading at parity 
+90-110 
+Put Bull Spread 
+(Theoretical Value) 
+9.15 er* 
+9.70 er 
+10. 12 er 
+10.46 er 
+10.78 er 
+11.05 er 
+11.33 er 
+===== PDF page index 831 =====
+776 
+FIGURE 37-8. 
+Put credit (bull) spread profit in 30 days. 
+1000 
+500 
+- 1000 _ _,±8± 
+Assignment Risk Area 
+IV=30% 
+Stock 
+Part VI: Measuring and Trading Volatility 
+-~ 
+IV= 30% 
+130 140 
+First, one can observe that a bull put spread does not widen out to anywhere 
+near its maximum potential if implied volatility increases. The same thing was seen 
+with the call bull spread in the previous section. But a put bull spreader is caught in 
+another trap: If implied volatility falls and the stock falls too, the risk of early assign­
+ment materializes quicky. Note the shaded area at the lower left of the graph, extend­
+ing from a price of about 94 on down. After thirty days (so there would be three 
+months life remaining at that point in time), if implied volatility is 30%, the 110 put 
+(the short put) would be trading at parity for stock prices of 94 and below. Thus, it 
+would be at risk of early assignment. If implied volatility were even lower, the puts 
+would be at parity for much higher stock prices. 
+Now, in and of itself, early assignment on an equity or futures put spread is not 
+necessarily a terrible thing. There will be a request for additional margin (because 
+the stock has to be paid for or the futures contract margined), but the risk is still the 
+same in dollar terms. Of course, the request for extra margin could be backbreaking 
+for a stock trader if he can't afford to fully pay for the stock, and the early assignment 
+would probably incur additional commission costs, too. However, with cash-based 
+index options there is a more serious increase in risk after an early assignment, 
+because one is left with only the long side of the spread. If that option happens to 
+have substantial value, then there is considerable risk if the underlying should quick­
+ly move higher. In fact, by the time one unwinds the spread, he might actually end 
+up losing more than his original limited risk amount - all due to the early assignment. 
+(This could happen if the underlying first plunges in price, placing both options 
+===== PDF page index 832 =====
+Chapter 37: How Volatility Affects Popular Strategies 777 
+deeply in-the-money, after which one gets assigned on the short put option, followed 
+by the underlying then dramatically rising in price.) 
+The lesson to be learned is this: If one is considering using bull spreads in which 
+at least one of the options is at- or in-the-rrwney, then a call bull spread is a superior 
+choice over a put bull spread. Early assignment is not really a consideration for most 
+call spreads. 
+In both cases, however, a more serious problem exists, and that is that the 
+spread does not widen out much even when the stock makes a nice bullish move. 
+Thus, once again it is actually better to buy a call option in most cases than to use the 
+bull spread, because profits are larger and an increase in implied volatility is a favor­
+able thing for an outright call buyer. 
+Note that these effects are similar, but much less pronounced, for out-of-the­
+money put credit spreads. Still, it should be noted that an increase in implied volatil­
+ity will harm an out-of-the-money put credit spread, too. Hence, if the underlying 
+goes into a rapid fall (crash, plunge), then implied volatility usually increases quickly 
+and dramatically. So an out-of-the-money credit spreader is hit with the double 
+whammy of expanding implied volatility and the fact that the underlying is fast 
+approaching the strike price of his options, . thereby expanding the price of the 
+spread. 
+PUT BEAR SPREADS 
+What about the put spread in a bearish situation? In a vertical put spread one buys 
+the put with the higher strike and sells the put with the lower strike to construct a 
+simple put bear spread. Actually, a sudden increase in implied volatility is of help to 
+the bear put spread. That is, the spread will widen out slightly. To verify this, look at 
+Table 37-8 again, only now imagine that one is buying the spread for a debit. Note 
+that the smallest debit is at the lower implied volatility- 9.15 debit with IV at 30%. 
+If implied volatility were to instantaneously jump to 80%, the spread would widen 
+out to 11.33 debit. A very quick profit could be had. So there's a difference right away 
+between a debit call bull spread (which loses money when implied volatility sudden­
+ly increases) and a debit put bear spread. 
+Unfortunately, the other major drawback - that the spread doesn't widen out 
+much if the underlying makes a favorable move - is still true. Figure 37-9 shows a 
+bear put spread, 30 days hence, for two different implied volatilities. Once again, the 
+lower-volatility spread widens out more quickly, because both options tend to go to 
+parity in that case. In fact, one can see on the graph that there is early assignment 
+risk in the low-volatility case, below a price of about 77 on the stock. That is not a 
+===== PDF page index 833 =====
+778 Part VI: Measuring and Trading Volatility 
+FIGURE 37-9. 
+Bear put spread profit in 30 days. 
+1000 IV= 30% 
+Assignment 
+Risk 
+Area 
+(/) 
+(/) 
+0 
+...J 
+~ 0 
+e 70 80 110 120 130 140 
+a. 
+ff7 
+IV= 80% 
+-1000 
+'~ 
+Stock 
+problem, though, since the spread would have widened to its maximum potential in 
+that case and could just be removed when the risk of early assignment materialized. 
+When implied volatility remains high, though, the spread doesn't widen out 
+much, even when the stock drops a lot after 30 days. Since it is common for implied 
+volatility to rise (even skyrocket) when the underlying drops quickly, the put bear 
+spread probably won't widen out much. That may not be a psychologically pleasing 
+strategy, because one won't make the level of profits that he had hoped to when the 
+underlying fell quickly. 
+Once again, it seems that the outright purchase of an option is probably superi­
+or to a spread. In these cases, it is true with respect to puts, much as it was with call 
+options. Spreading often unnecessarily complicates a trader's outlook. 
+CALENDAR SPREADS 
+In the earlier chapter on calendar spreads, it was mentioned that an increase in 
+implied volatility will cause a calendar spread to widen out. Both options will become 
+more expensive, of course, since the increase in implied volatility affects both of 
+them, but the absolute price change will be greatest in the long-term option. 
+Therefore, the calendar spread will widen. This may seem somewhat counterintu­
+itive, especially where highly volatile stocks are concerned, so some examples may 
+prove useful. 
+===== PDF page index 834 =====
+Chapter 37: How Volatility Affects Popular Strategies 779 
+Example: Suppose that XYZ is trading at 100, and one is interested in a calendar 
+spread in which an August (5-month) call is bought and a May (2-month) call is sold. 
+For the purpose of this example, it will be assumed that these are both at-the-money 
+options. First, the vegas of the two options will be examined, assuming that implied 
+volatility is 40%: 
+Stock: 100 
+Implied Volatility: 
+40% Option 
+Sell May 100 call 
+Buy August 1 00 call 
+Theoretical Price 
+6.91 
+11.22 
+Vega 
+0.162 
+0.251 
+In theory, this spread should be worth 4.31 - the difference in the theoretical 
+values. Perhaps more important, it has volatility exposure of 0.089 - the difference 
+between the vega of the long call and that of the short call. Since vega is positive, this 
+means that an increase in implied volatility will be beneficial to the spread. In other 
+words, one can expect the spread to widen if implied volatility rises, and can expect 
+the spread to shrink if implied volatility declines. 
+The following table can also be constructed, showing the theoretical value of 
+the spread at various levels of implied volatility. This table makes the assumption that 
+very little time has passed ( only one week) before the implied volatility changes take 
+place. It also assumes that the stock is still at 100. 
+Stock Price: 100 
+One week ofter the spread hos been established: 
+Implied Volatility Theoretical Spread Value 
+20% 2.58 
+30% 3.52 
+40% 4.46 
+50% 5.40 
+60% 6.33 
+80% 8.16 
+100% 12.92 
+From the above data, it is quite obvious that implied volatility levels have a huge 
+effect on the value of a calendar spread. The actual initial contribution of time decay 
+is rather small in comparison. For example, note that if volatility remains unchanged 
+at 40%, then the spread will have widened only slightly - to 4.46 from 4.31 - after 
+the passage of one week's time. That is small in comparison to the changes dictated 
+by volatility expansion or contraction. 
+===== PDF page index 835 =====
+780 Part VI: Measuring and Trading Volatility 
+A common mistake that calendar spreaders make is to think that such a spread 
+looks overly attractive on a very volatile stock. Consider the same stock as above, still 
+trading at 100, but for some reason implied volatility has skyrocketed to 80% (per­
+haps a takeover rumor is present). 
+Stock: JOO 
+Implied Volatility: 80% 
+Coll 
+May 100 call 
+June 100 call 
+Theoretical Value 
+12.55 
+16.81 
+On the surface, this seems like a very attractive spread. There are two months 
+of life remaining in the May options (and three months in the Junes) and the spread 
+is trading at 4.36. However, both options are completely composed of time value 
+premium, and most certainly the June 100 call would be worth far more than 4.36 
+when the May expires, if the stock is still near 100. The fact that many traders miss 
+when they think of the calendar spread this way is that the June call will only be 
+worth "far more than 4.36" if implied volatility holds up. If implied volatility for this 
+stock is normally something on the order of 40%, say, then it is probably not reason­
+able to expect that the 80% level will hold up. Just for comparison, note that if the 
+stock is at 100 at May expiration - the maximum profit potential for such a calendar 
+spread - the June 100 call, with implied volatility now at 40%, and with one month 
+of life remaining, would be worth only 4. 77. Thus the spread would only have made 
+a profit of a few cents (4.36 to 4.77), and if the underlying stock were farther from 
+the strike price at expiration, there would probably be a loss rather than a profit. 
+The point to be remembered is that a calendar spread is a "long volatility" play 
+(and a reverse calendar spread is just the opposite). Evaluate the position's risk with 
+an eye to what might happen to implied volatility, and not just to where the stock 
+price might go or how much time decay there might be in the position. 
+RATIO SPREADS AND BACKSPREADS 
+The previous descriptions in this chapter describe fairly fully and accurately what 
+the effect of volatility changes are. More complicated strategies are usually nothing 
+more than combinations of the strategies presented earlier, so it is easy to discern 
+the effect that changes in implied volatility would have; just combine the effects on 
+the simpler strategies. For example, a ratio call write is really just the equivalent of 
+a straddle sale - a strategy whose volatility ramifications are fairly simple to under­
+stand. 
+Ratio spreads, on the other hand, might not be as intuitive to interpret, but they 
+are fairly simple nonetheless. A call ratio spread is really just the combination of some 
+===== PDF page index 836 =====
+Chapter 37: How Volatility Affects Popular Strategies 781 
+call bull spreads and some naked call options. For example, a call ratio spread might 
+consist of buying an XYZ July 100 call and selling two XYZ July 120 calls. If one were 
+to break it down into its components, this spread is really long one XYZ July 100-120 
+call bull spread, plus an additional naked July 120 call. 
+We already know that an increase in implied volatility is very detrimental to a 
+naked call option. In addition, it was shown earlier than an increase in implied volatil­
+ity actually harms the value of an at-the-money call bull spread. So, for a ratio call 
+spread, both components are harmed by an increase in implied volatility. Conversely, 
+a decrease in implied volatility would be beneficial to a ratio spread, but where naked 
+options are concerned, one should be more mindful of his risk than of this reward. 
+It was also shown previously that a call bull spread does not widen out much if 
+the underlying stock makes a quick upward move. The spread won't widen out to its 
+maximum profit potential until expiration draws nigh or the stock is well above the 
+upper strike in the spread. This scenario also does not bode well for the ratio call 
+spread. Suppose that the underlying stock suddenly jumps upward and implied 
+volatility increases at the same time. That combination is seen quite frequently, espe­
+cially if the stock were previously "dull" or if there is some sort of active corporate 
+(takeover) rumor. The call ratio spread will fare miserably under these conditions, 
+because the increase in stock price certainly harms the naked call position and the 
+bull spread is not widening out much to compensate for it. In addition, the increase 
+in implied volatility is working against both components. 
+The same sort of thing happens with put ratio spreads. They are really the com­
+bination of a put bear spread plus some additional naked put options. If the under­
+lying falls in price, while implied volatility increases - a very common occurrence in 
+all markets then the put ratio spread will fare poorly. In fact, implied volatility 
+sometimes explodes if the underlying falls very rapidly (crashes), so the ratio put 
+spreader should clearly assess his risk in this light. 
+In summary, a trader utilizing ratio spread strategies should clearly understand 
+and attempt to analyze the risks of an increase in implied volatility. This includes not 
+only assessing the vega risk of the spread, but also using a probability calculator with 
+some inflated volatility estimates to see just what the chances are of the spread get­
+ting into real trouble. 
+BACKSPREADS 
+A call backspread is merely the opposite of a call ratio spread. Thus, any of the earli­
+er commentary about how an increase in implied volatility is detrimental to a ratio 
+spread can be reversed when discussing the backspread. An increase in implied 
+volatility will be beneficial to a backspread strategy, while a decrease in implied 
+===== PDF page index 837 =====
+782 Part VI: Measuring and Trading Volatility 
+volatility will be slightly harmful to the spread. However, since risk is limited in a 
+backspread, such a decrease in implied volatility would not have catastrophic conse­
+quences unless one had overcommitted his funds to one position. 
+SUMMARY 
+In general, one can always determine the exposure of his position to volatility by com­
+puting the vega of this position. However, it is also useful for a strategist to have some 
+general feeling for how implied volatility will affect his positions and strategies. Thus, 
+this chapter was designed to point out the most common effects that changes .in 
+implied volatility will have on the basic types of option strategies. Once one has a 
+feeling for his exposure to volatility, he can then assess whether an adverse volatility 
+movement is likely. For example, if an increase in implied volatility would be harm­
+ful, and the strategist sees that current levels of implied volatility are quite low in 
+comparison to historical norms, then perhaps he should remove or adjust the posi­
+tion. 
+Volatility and the price of the underlying are the two major components 
+affecting profitability for most option positions. Time decay is only most pertinent 
+as expiration approaches. Yet, many traders concentrate greatly on potential price 
+movements of the underlying, often while ignoring what changes in implied volatil­
+ity could do. That is a mistake, for the most knowledgeable option traders plan for 
+volatility risk at all times. Understanding and handling that risk can have a positive 
+effect on an option trader's profits. 
+===== PDF page index 838 =====
+The Distribution of 
+Stock Prices 
+Much of the work that has been done in statistics and related areas regarding the 
+stock market has made the assumption that stock prices are distributed normally, or 
+more specifically, lognonnally. In actual practice, this is usually an incorrect assump­
+tion. For the option strategist, this means that some of the things one might believe 
+about certain option strategies having an advantage over certain other option strate­
+gies might be incorrect. In this chapter, a number of facts concerning stock price dis­
+tribution will be brought to light, including how it might affect the option strategist. 
+MISCONCEPTIONS ABOUT VOLATILITY 
+Statistics are used to estimate stock price movement (and futures and indices as well) 
+in many areas of financial analysis. Many authors have written extensively about the 
+use of probabilities to aid in choosing viable option strategies. Stock mutual fund 
+managers often use volatility estimates to help them determine how risky their port­
+folios are. The uses are myriad. Unfortunately, almost all of these applications are 
+wrong! Perhaps wrong is too strong a word, but almost all estimates of stock price 
+movement are overly conservative. This can be very dangerous if one is using such 
+estimates for the purposes of, say, writing naked options or engaging in some other 
+such strategy in which volatile stock price movement is undesirable. 
+As a review for those not familiar with mathematical distributions, the lognor­
+mal distribution is what's commonly used to describe stock prices because its shape 
+is intuitively similar to the way stocks behave - they can't go below zero, they can rise 
+to infinity, and most of the time they don't go much of anywhere. On top of that, the 
+distribution's shape is based on the historical volatility of the underlying instrument. 
+In a lognormal distribution (and normal distribution, too), stocks remain within 3 
+standard deviations of their current price 99. 7 4% of the time. A standard deviation 
+783 

@@ -1,0 +1,326 @@
+
+===== PDF page index 88 =====
+Chapter 2: Covered Call Writing 67 
+The writer wishing to establish a covered write against XYZ common stock may like 
+the protection afforded by the April 40 call, but may not find the return particularly 
+attractive. He may be able to improve his return by writing April 45's against part of 
+his position. Assume the writer is considering buying 1,000 shares of XYZ. Table 2-18 
+compares the attributes of writing the out-of-the-money (April 45) only, or of writing 
+only the in-the-money (April 40), or of writing 5 of each. The table is based on a cash 
+covered write, but returns and protection would be similar for a margin write. 
+Commissions are included in the figures. 
+It is easily seen that the "combined" write - half of the position against the April 
+40's and the other half against the April 45's - offers the best balance of return and 
+protection. The in-the-money call, by itself, provides over 10% downside protection, 
+but the 5% return if exercised is less than 1 % per month. Thus, one might not want 
+to write April 40's against his entire position, because the potential return is small. At 
+the same time, the April 45's, if written against the entire stock position, would pro­
+vide for an attractive return if exercised (over 2% per month) but offer only 5% down­
+side protection. The combined write, which has the better features of both options, 
+offers over 8% return if exercised (11h% per month) and affords over 8% downside 
+protection. By writing both calls, the writer has potentially solved the problems inher­
+ent in writing entirely out-of-the-moneys or entirely in-the-moneys. The "combined" 
+write frees the covered writer from having to initially take a bearish (in-the-money 
+write) or bullish (out-of-the-money write) posture on the stock ifhe does not want to. 
+This is often necessary on a low-volatility stock trading between striking prices. 
+TABLE 2-18. 
+Attributes of various writes. 
+Buy 1,000 XYZ and sell 
+Return if exercised 
+Re~rn if unchanged 
+Percent protection 
+In-the-Money 
+Write 
+10 April 40's 
+5.1% 
+5.1% 
+10.5% 
+Out-of-the-Money 
+Write 
+l O April 45's 
+12.2% 
+6.0% 
+5.7% 
+Write 
+Both Calls 
+5 April 40's and 
+5 April 45's 
+8.4% 
+5.4% 
+8.1% 
+For those who prefer a graphic representation, the profit graph shown in Figure 
+2-2 compares the combined write of both calls with either the in-the-money write or 
+the out-of-the-money write (dashed lines). It can be observed that all three choices 
+are equal if XYZ is near 42 at expiration; all three lines intersect there. 
+===== PDF page index 89 =====
+68 Part II: Call Option Strategies 
+FIGURE 2-2. 
+Comparison: combined write vs. in-the-money write and out-of-the­
+money write. 
+Out-of-the-Money Write 
+, 
+.-------► ,,, Combined Write , 
+/ In-the-Money Write 
+-----------➔ 
+Stock Price at Expiration 
+Since this technique can be useful in providing diversification between protec­
+tion and return, not only for an individual position but for a large part of a portfolio, 
+it may be useful to see exactly how to compute the potential returns and break-even 
+points. Tables 2-19 and 2-20 calculate the return if exercised and the return if 
+unchanged using the prices from the previous example. Assume XYZ will pay $1 per 
+share in dividends before April expiration. 
+Note that the profit calculations are similar to those described in earlier sec­
+tions, except that now there are two prices for stock sales since there are two options 
+involved. In the "return if exercised" section, half of the stock is sold at 45 and half is 
+sold at 40. The "return if unchanged" calculation is somewhat more complicated now, 
+TABLE 2-19. 
+Net investment-cash account. 
+Buy 1,000 XYZ at 42 
+Plus stock commissions 
+Less options premiums: 
+Sell 5 April 40's at 4 
+Sell 5 April 45's at 2 
+Plus total option commissions 
+Net investment 
++ 
+$42,000 
+460 
+- 2,000 
+1,000 
++ 140 
+$39,600 
+===== PDF page index 90 =====
+Chapter 2: Covered Call Writing 
+TABLE 2-20. 
+Net return-cash account. 
+Return If Exercised 
+Sell 500 XYZ at 45 $22,500 
+Sell 500 XYZ at 40 20,000 
+Less total stock sale 
+commissions 560 
+Plus dividends ($1 /share) + 1,000 
+Less net investment - 39,600 
+Net profit if exercised $ 3,340 
+Return if exercised = 3,340 = 8_4% 
+(cash) 39,600 
+69 
+Return If Unchanged 
+Unchanged stock value (500 
+shares at 42) $21,000 
+Sell 500 at 40 + 20,000 
+Commissions on sale at 40 280 
+Plus dividends ($1 /share) . + 1,000 
+Less net investment - 39,600 
+Net profit if unchanged $ 2, 120 
+Return if unchanged = 2, 120 = 5 _4% 
+(cash) 39,600 
+because half of the stock will be called away if it remains unchanged (the in-the­
+money portion) whereas the other half will not. This is consistent with the method of 
+calculating the return if unchanged that was introduced previously. 
+The break-even point is calculated as before. The "total stock cost to expiration" 
+would be the net investment of $39,600 less the $1,000 received in dividends. This is 
+a total of $38,600. On a per-share basis, then, the break-even point of 38.6 is 8.1 % 
+below the current stock price of 42. Thus, the amount of percentage downside pro­
+tection is 8.1 %. 
+The foregoing calculations clearly demonstrate that the returns on the "com­
+bined" write are not exactly the averages of the in-the-money and out-of-the-money 
+returns, because of the different commission calculations at various stock prices. 
+However, if one is working with a computer-generated list and does not want to both­
+er to calculate exactly the return on the combined write, he can arrive at a relatively 
+close approximation by averaging the returns for the in-the-money write and the out­
+of-the-money write. 
+OTHER DIVERSIFICATION TECHNIQUES 
+Holders of large positions in a particular stock may want even more diversification 
+than can be provided by writing against two different striking prices. Institutions, 
+pension funds, and large individual stockholders may fall into this category. It is often 
+advisable for such large stockholders to diversify their writing over time as well as 
+over at least two striking prices. By diversifying over time - for example, writing one-
+===== PDF page index 91 =====
+70 Part II: Call Option Strategies 
+third of the position against near-term calls, one-third against middle-term calls, and 
+the remaining third against long-term calls - one can gain several benefits. First, all 
+of one's positions need not be adjusted at the same time. This includes either having 
+the stock called away or buying back one written call and selling another. Moreover, 
+one is not subject only to the level of option premiums that exist at the time one 
+series of calls expires. For example, if one writes only 9-month calls and then rolls 
+them over when they expire, he may unnecessarily be subjecting himself to the 
+potential of lower returns. If option premium levels happen to be low when it is time 
+for this 9-month call writer to sell more calls, he will be establishing a less-than-opti­
+mum write for up to 9 months. By spreading his writing out over time, he would, at 
+worst, be subjecting only one-third of his holding to the low-premium write. 
+Hopefully, premiums would expand before the next eXpiration 3 months later, and he 
+would then be getting a relatively better premium on the next third of his portfolio. 
+There is an important aside here: The individual or relatively small investor who 
+owns only enough stock to write one series of options should generally not write the 
+longest-term calls for this very reason. He may not be obtaining a particularly attrac­
+tive level of premiums, but may feel he is forced to retain the position until expira­
+tion. Thus, he could be in a relatively poor write for as long as 9 months. Finally, this 
+type of diversification may also lead to having calls at various striking prices as· the 
+market fluctuates cyclically. All of one's stock is not necessarily committed at one 
+price if this diversification technique is employed. 
+This concludes the discussion of how to establish a covered writing position 
+against stock. Covered writes against other types of securities are described later. 
+FOLLOW-UP ACTION 
+Establishing a covered write, or any option position for that matter, is only part of the 
+strategist's job. Once the position has been taken, it must be monitored closely so that 
+adjustments may be made should the stock drop too far in price. Moreover, even if 
+the stock remains relatively unchanged, adjustments will need to be made as the writ­
+ten call approaches expiration. 
+Some writers take no follow-up action at all, preferring to let a stock be called 
+away if it rises above the striking price at the expiration of the option, or preferring 
+to let the original expire worthless if the stock is below the strike. These are not 
+always optimum actions; there may be much more decision making involved. 
+Follow-up action can be divided into three general categories: 
+===== PDF page index 92 =====
+Chapter 2: Covered Call Writing 71 
+1. protective action to take if the stock drops, 
+2. aggressive action to take when the stock rises, or 
+3. action to avoid assignment if the time premium disappears from an in-the-money 
+call. 
+There may be times when one decides to close the entire position before expiration 
+or to let the stock be called away. These cases are discussed as well. 
+PROTECTIVE ACTION IF THE UNDERLYING STOCK DECLINES IN PRICE 
+The covered writer who does not take protective action in the face of a relatively sub­
+stantial drop in price by the underlying stock may be risking the possibility of large 
+losses. Since covered writing is a strategy with limited profit potential, one should 
+also take care to limit losses. Otherwise, one losing position can negate several win­
+ning positions. The simplest form of follow-up action in a decline is to merely close 
+out the position. This might be done if the stock declines by a certain percentage, or 
+if the stock falls below a technical support level. Unfortunately, this method of defen­
+sive action may prove to be an inferior one. The investor will often do better to con­
+tinue to sell more time value in the form of additional option premiums. 
+Follow-up action is generally taken by buying back the call that was originally 
+written and then writing another call, with a different striking price and/or expiration 
+date, in its place. Any adjustment of this sort is referred to as a rolling action. When 
+the underlying stock drops in price, one generally buys back the original call - pre­
+sumably at a profit since the underlying stock has declined - and then sells a call with 
+a lower striking price. This is known as rolling down, since the new option has a lower 
+striking price. 
+Example: The covered writing position described as "buy XYZ at 51, sell the XYZ 
+January 50 call at 6" would have a maximum profit potential at expiration of 5 points. 
+Downside protection is 6 points down to a stock price of 45 at expiration. These fig­
+ures do not include commissions, but for the purposes of an elementary example, the 
+commissions will be ignored. 
+If the stock begins to decline in price, taking perhaps two months to fall to 45, 
+the following option prices might exist: 
+XYZ common, 45; 
+XYZ January 50 call, l; and 
+XYZ January 45 call, 4. 
+===== PDF page index 93 =====
+72 Part II: Call Option Strategies 
+• 
+The covered writer of the January 50 would, at this time, have a small unrealized loss 
+of one point in his overall position: His loss on the common stock is 6 points, but he 
+has a 5-point gain in the January 50 call. (This demonstrates that prior to expiration, 
+a loss occurs at the "break-even" point.) If the stock should continue to fall from 
+these levels, he could have a larger loss at expiration. The call, selling for one point, 
+only affords one more point of downside protection. If a further stock price drop is 
+anticipated, additional downside protection can be obtained by rolling down. In this 
+example, if one were to buy back the January 50 call at 1 and sell the January 45 at 
+4, he would be rolling down. This would increase his protection by another three 
+points - the credit generated by buying the 50 call at 1 and selling the 45 call at 4. 
+Hence, his downside break-even point would be 42 after rolling down. 
+Moreover, if the stock were to remain unchanged - that is, if XYZ were exactly 
+45 at January expiration - the writer would make an additional $300. If he had not 
+rolled down, the most additional income that he could make, if XYZ remained 
+unchanged, would be the remaining $100 from the January 50 call. So rolling down 
+gives more downside protection against a further drop in stock price and may also 
+produce additional income if the stock price stabilizes. 
+In order to more exactly evaluate the overall effect that was obtained by rolling 
+down in this example, one can either compute a profit table (Table 2-21) or draw a 
+net profit graph (Figure 2-3) that compares the original covered write with the 
+rolled-down position. 
+Note that the rolled-down position has a smaller maximum profit potential than 
+the original position did. This is because, by rolling down to a January 45 call, the 
+writer limits his profits anywhere above 45 at expiration. He has committed himself 
+to sell stock 5 points lower than the original position, which utilized a January 50 call 
+and thus had limited profits above 50. Rolling down generally reduces the maximum 
+TABLE 2·21. 
+Profit table. 
+XYZ Price at Profit from Profit from 
+Expiration January 50 Write Rolled Position 
+40 -$500 -200 
+42 - 300 0 
+45 0 +300 
+48 + 300 +300 
+50 + 500 +300 
+60 + 500 +300 
+===== PDF page index 94 =====
+Chapter 2: Covered Call Writing 
+FIGURE 2-3. 
+Comparison: original covered write vs. rolled-down write. 
++$500 
+c: +$300 
+0 
+~ 
+]-
+iii 
+en en 
+0 ...J 
+5 
+-e a. 
+$0 
+Original Write 
+Rolled-Down Write 
+50 
+Stock Price at Expiration 
+73 
+profit potential of the covered write. Limiting the maximum profit may be a second­
+ary consideration, however, when a stock is breaking downward. Additional downside 
+protection is often a more pressing criterion in that case. 
+Anywhere below 45 at expiration, the rolled-down position does $300 better 
+than the original position, because of the $300 credit generated from rolling down. 
+In fact, the rolled-down position will outperform the original position even if the 
+stock rallies back to, but not above, a price of 48. At 48 at expiration, the two posi­
+tions are equal, both producing a $300 profit. If the stock should reverse direction 
+and rally back above 48 by expiration, the writer would have been better off not to 
+have rolled down. All these facts are clear from Table 2-21 and Figure 2-3. 
+Consequently, the only case in which it does not pay to roll down is the one in 
+which the stock experiences a reversal - a rise in price after the initial drop. The 
+selection of where to roll down is important, because rolling down too early or at an 
+inappropriate price could limit the returns. Technical support levels of the stock are 
+often useful in selecting prices at which to roll down. If one rolls down after techni­
+cal support has been broken, the chances of being caught in a stock-price-reversal 
+situation would normally be reduced. 
+The above example is rather simplistic; in actual practice, more complicated sit­
+uations may arise, such as a sudden and fairly steep decline in price by the underly­
+ing stock. This may present the writer with what is called a locked-in loss. This means, 
+simply, that there is no option to which the writer can roll down that will provide him 
+===== PDF page index 95 =====
+74 Part II: Call Option Strategies 
+with enough premium to realize any profit if the stock were then called away at expi­
+ration. These situations arise more commonly on lower-priced stocks, where the 
+striking prices are relatively far apart in percentage terms. Out-of-the-money writes 
+are more susceptible to this problem than are in-the-money writes. Although it is not 
+emotionally satisfying to be in an investment position that cannot produce a profit -
+at least for a limited period of time - it may still be beneficial to roll down to protect 
+as much of the stock price decline as possible. 
+Example: For the covered write described as "buy XYZ at 20, sell the January 20 call 
+at 2," the stock unexpectedly drops very quickly to 16, and the following prices exist: 
+XYZ common, 16; 
+XYZ January 20 call,½; and 
+XYZ January 15 call, 2½. 
+The covered writer is faced with a difficult choice. He currently has an unrealized 
+loss of 2½ points - a 4-point losson the stock which is partially offset by a 1 ½-point 
+gain on the January 20 call. This represents a fairly substantial percentage loss on his 
+investment in a short period of time. He could do nothing, hoping for the stock to 
+recover its loss. Unfortunately, this may prove to be wishful thinking. 
+If he considers rolling down, he will not be excited by what he sees. Suppose 
+that the writer wants to roll down from the January 20 to the January 15. He would 
+thus buy the January 20 at ½ and sell the January 15 at 2½, for a net credit of 2 
+points. By rolling down, he is obligating himself to sell his stock at 15, the striking 
+price of the January 15 call. Suppose XYZ were above 15 in January and were called 
+away. How would the writer do? He would lose 5 points on his stock, since he origi­
+nally bought it at 20 and is selling it at 15. This 5-point loss is substantially offset by 
+his option profits, which amount to 4 points: 1 ½ points of profit on the January 20, 
+sold at 2 and bought back at ½, plus the 2½ points received from the sale of the 
+January 15. However, his net result is a 1-point loss, since he lost 5 points on the stock 
+and made only 4 points on the options. Moreover, this 1-point loss is the best that he 
+can hope for! This is true because, as has been demonstrated several times, a covered 
+writing position makes its maximum profit anywhere above the striking price. Thus, 
+by rolling down to the 15 strike, he has limited the position severely, to the extent of 
+"locking in a loss." 
+Even considering what has been shown about this loss, it is still correct for this 
+writer to roll down to the January 15. Once the stock has fallen to 16, there is noth­
+ing anybody can do about the unrealized losses. However, if the writer rolls down, he 
+can prevent the losses from accumulating at a faster rate. In fact, he will do better by 

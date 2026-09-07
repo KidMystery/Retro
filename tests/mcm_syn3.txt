@@ -1,0 +1,308 @@
+
+===== PDF page index 356 =====
+Synthetic Stock Positions 
+Created by Puts and Calls 
+It is possible for a strategist to establish a position that is essentially the same as a 
+stock position, and he can do this using only options. The option position generally 
+requires a smaller margin investment and may have other residual benefits over sim­
+ply buying stock or selling stock short. In brief, the strategies are summarized by: 
+1. Buy call and sell put instead of buying stock. 
+2. Buy put and sell call instead of selling stock short. 
+SYNTHETIC LONG STOCK 
+When one buys a call and sells a put at the same strike, he sets up a position that is 
+equivalent to owning the stock. His position is sometimes called "synthetic" long 
+stock. 
+Example: To verify that this option position acts much like a long stock position 
+would, suppose that the following prices exist: 
+XYZ common, 50; 
+XYZ January 50 call, 5; and 
+XYZ January 50 put, 4. 
+If one were bullish on XYZ and wanted to buy stock at 50, he might consider the 
+alternative strategy of buying the January 50 call and selling (uncovered) the January 
+321 
+===== PDF page index 357 =====
+322 Part Ill: Put Option Strategies 
+50 put. By using the option strategy, the investor has nearly the same profit and loss 
+potential as the stock buyer, as shown in Table 21-1. The two right-hand columns of 
+the table compare the results of the option strategy with the results that would be 
+obtained by merely owning the stock at .50. 
+The table shows that the result of the option strategy is exactly $100 less than 
+the stock results for any price at expiration. Thus, the "synthetic" long stock and the 
+actual long stock have nearly the same profit and loss potentials. The reason there is 
+a difference in the results of the two equivalent positions lies in the fact that the 
+option strategist had to pay 1 point of time premium in order to set up his position. 
+This time premium represents the $100 by which the "synthetic" position underper­
+forms the actual stock position at expiration. Note that, with XYZ at 50, both the put 
+and the call are completely composed of time value premium initially. The synthetic 
+position consists of paying out 5 points of time premium for the call and receiving in 
+4 points of time premium for the put. The net time premium is thus a 1-point pay­
+out. 
+The reason one would consider using the synthetic long stock position rather 
+than the stock position itself is that the synthetic position may require a much small­
+er investment than buying the stock would require. The purchase of the stock 
+requires $5,000 in a cash account or $2,500 in a margin account (if the margin rate is 
+50%). However, the synthetic position requires only a $100 debit plus a collateral 
+requirement - 20% of the stock price, plus the put premium, minus the difference 
+between the striking price and the stock price. The balance, invested in short-term 
+funds, would earn enough money, theoretically, to offset the $100 paid for the syn­
+thetic position. In this example, the collateral requirement would be 20% of $5,000, 
+or $1,000, plus the $400 put premium, plus the $100 debit incurred by paying 5 for 
+the call and only receiving 4 for the put. This is a total of $1,500 initially. There is no 
+TABLE 21·1. 
+Synthetic long stock position. 
+XYZ Price at January 50 January 50 Total Option Long Stock 
+Expiration Call Result Put Result Result Result 
+40 -$500 -$600 -$1, 100 -$1,000 
+45 - 500 - 100 600 500 
+50 - 500 + 400 100 0 
+55 0 + 400 + 400 + 500 
+60 + 500 + 400 + 900 + 1,000 
+===== PDF page index 358 =====
+Chapter 21: Synthetic Stock Positions Created by Puts and Calls 323 
+initial difference between the stock price and the striking price. Of course, this col­
+lateral requirement would increase if the stock fell in price, and would decrease if the 
+stock rose in price, since there is a naked put. Also notice that buying stock creates a 
+$5,000 debit in the account, whereas the option strategy's debit is $100; the rest is a 
+collateral requirement, not a cash requirement. 
+The effect of this reduction in margin required is that some leverage is obtained 
+in the position. If XYZ rose to 60, the stock position profit would be $1,000 for a 
+return of 40% on margin ($1,000/$2,500). With the option strategy, the percentage 
+return would be higher. The profit would be $900 and the return thus 60% 
+($900/$1,500). Of course, leverage works to the downside as well, so that the percent 
+risk is also greater in the option strategy. 
+The synthetic stock strategy is generally not applied merely as an alternative to 
+buying stock. Besides possibly having a smaller profit potential, the option strategist 
+does not collect dividends, whereas the stock owner does. However, the strategist is 
+able to earn interest on the funds that he did not spend for stock ownership. It is 
+important for the strategist to understand that a long call plus a short put is equiva­
+lent to long stock. It thus may be possible for the strategist to substitute the synthet­
+ic option position in certain option strategies that normally call for the purchase of 
+stock 
+SYNTHETIC SHORT SALE 
+A position that is equivalent to the short sale of the underlying stock can be estab­
+lished by selling a call and simultaneously buying a put. This alternative option strat­
+egy, in general, offers significant benefits when compared with selling the stock short. 
+Using the prices above - XYZ at 50, January 50 call at 5, and January 50 put at 4 -
+Table 21-2 depicts the potential profits and losses at January expiration. 
+Both the option position and the short stock position have similar results: large 
+potential profits if the stock declines and unlimited losses if the underlying stock rises 
+in price. However, the option strategy does better than the stock position, because 
+the option strategist is getting the benefit of the time value premium. Again, this is 
+because the call has more time value premium than the put, which works to the 
+option strategist's advantage in this case, when he is selling the call and buying the 
+put. 
+Two important factors make the option strategy preferable to the short sale of 
+stock: (1) There is no need to borrow stock, and (2) there is no need for an uptick. 
+When one sells stock short, he must first borrow the stock from someone who owns 
+it. This procedure is handled by one's brokerage firm's stock loan department. If, for 
+===== PDF page index 359 =====
+324 Part Ill: Put Option Strategies 
+TABLE 21-2. 
+Synthetic short sale position. 
+XYZ Price at January 50 January 50 Total Option Short Stock 
+Expiration Coll Result Put Result Result Result 
+40 +$500 +$600 +$1, 100 +$1,000 
+45 + 500 + 100 + 600 + 500 
+50 + 500 - 400 + 100 0 
+55 0 - 400 400 500 
+60 - 500 - 400 900 - 1,000 
+some reason, no one who owns the stock wants to loan it out, then a short sale can­
+not be executed. In addition, both the NYSE and NASDAQ require that a stock 
+being sold short must be sold on an uptick. That is, the price of the short sale must 
+be higher than the previous sale. This rule was introduced (for the NYSE) years ago 
+in order to prevent traders from slamming the market down in a "bear raid." 
+With the option "synthetic short sale" strategy, however, one does not have to 
+worry about either of these factors. First, calls can be sold short at will; there is no 
+need to borrow anything. Also, calls can be sold short (and puts bought) even though 
+the underlying stock might be trading on a minus tick (a downtick). Many profes­
+sional traders use the "synthetic short sale" strategy because it allows them to get 
+equivalently short the stock in a very timely manner. If one wants to short stock, and 
+if he has not previously arranged to borrow it, then some time is wasted while one's 
+broker checks with the stock loan department in order to make sure that the stock 
+can indeed be borrowed. 
+There is a caveat, however. If one sells calls on a stock that cannot be borrowed, 
+then he must be sure to avoid assignment. For if one is assigned a call, then he too 
+will be short the stock. If the stock cannot be borrowed, the broker will buy him in. 
+Thus, in situations in which the stock might be difficult to borrow, one should use a 
+striking price such that the call is out-of-the-money when sold initially. This will 
+decrease, but not eliminate, the possibility of early assignment. 
+Leverage is a factor in this strategy also. The short seller would need $2,500 to 
+collateralize this position, assuming that the margin rate is 50%. The option strategist 
+initially only needs 20% of the stock price, plus the call price, less the credit received, 
+for a $1,400 requirement. Moreover, one of the major disadvantages that was men­
+tioned with the synthetic long stock position is not a disadvantage in the synthetic 
+short sale strategy: The option trader does not have to pay out dividends on the 
+options, but the short seller of stock must. 
+===== PDF page index 360 =====
+Chapter 21: Synthetic Stock Positions Created by Puts and Calls 325 
+Because of the advantages of the option position in not having to pay out the 
+dividend and also having a slightly larger profit potential from the excess time value 
+premium, it may often be feasible for the trader who is looking to sell stock short to 
+instead sell a call and buy a put. It is also important for the strategist to understand 
+the equivalence between the short stock position and the option position. He might 
+be able to substitute the option position in certain cases when the short sale of stock 
+is normally called for. 
+SPLITTING THE STRIKES 
+The strategist may be able to use a slight variation of the synthetic strategy to set up 
+an aggressive, but attractive, position. Rather than using the same striking price for 
+the put and call, he can use a lower striking price for the put and a higher striking 
+price for the call. This action of splitting apart the striking prices gives him some 
+room for error, while still retaining the potential for large profits. 
+BULLISHLY ORIENTED 
+If an out-of-the-money put is sold naked, and an out-of-the-money call is simultane­
+ously purchased, an aggressive bullish position is established - often for a credit. If 
+the underlying stock rises far enough, profits can be generated on both the long call 
+and the short put. If the stock remains relatively unchanged, the call purchase will be 
+a loss, but the put sale will be a profit. The risk occurs if the underlying stock drops 
+in price, producing losses on both the short put and the long call. 
+Example: The following prices exist: XYZ is at 53, a January 50 put is selling for 2, 
+and a January 60 call is selling for 1. An investor who is bullish on XYZ sells the 
+January 50 put naked and simultaneously buys the January 60 call. This position 
+brings in a credit of 1 point, less commissions. There is a collateral requirement 
+necessary for the naked put. If XYZ is anywhere between 50 and 60 at January 
+expiration, both options would expire worthless, and the investor would make a small 
+profit equal to the amount of the initial credit received. If XYZ rallies above 60 by 
+expiration, however, his potential profits are unlimited, since he owns the call at 60. 
+His losses could be very large if XYZ should decline well below 50 before expiration, 
+since he has written the naked put at 50. Table 21-3 and Figure 21-1 depict the 
+results at expiration of this strategy. 
+Essentially, the investor who uses this strategy is bullish on the underlying stock 
+and is attempting to buy an out-of-the-money call for free. If he is moderately wrong 
+===== PDF page index 361 =====
+326 
+TABLE 21-3. 
+Bullishly split strikes. 
+XYZ Price al January 50 
+Expirafion 
+40 
+45 
+50 
+55 
+60 
+65 
+70 
+FIGURE 21-1. 
+Bullishly split strikes. 
+Pu! Profil 
+-$800 
+- 300 
++ 200 
++ 200 
++ 200 
++ 200 
++ 200 
+Part Ill: Put Option Strategies 
+January 60 Tolal 
+Call Profil Profif 
+-$100 -$ 900 
+- 100 400 
+- 100 + 100 
+- 100 + 100 
+- 100 + 100 
++ 400 + 600 
++ 900 + 1,100 
+Stock Price at Expiration 
+and the underlying stock rallies only slightly or even declines slightly, he can still 
+make a small profit. If he is correct, of course, large profits could be generated in a 
+rally. He may lose heavily if he is very wrong and the stock falls by a large amount 
+instead of rising. 
+This strategy is often useful when options are overpriced. Suppose that one has 
+a bullish opinion on the underlying stock, yet is dismayed to find that the calls are 
+quite expensive. If he buys one of these expensive calls, he can mitigate the expen­
+siveness somewhat by also selling an out-of-the-money put, which is presumably 
+===== PDF page index 362 =====
+Chapter 21: Synthetic Stock Positions Created by Puts and Calls 327 
+somewhat expensive also. Thus, if he is right about the bullish attitude on the stock, 
+he owns a call that is more "fairly priced" because its cost was reduced by the amount 
+of the put sale. 
+BEARISHLY ORIENTED 
+There is a companion strategy for the investor who is bearish on a stock. He could 
+attempt to buy an out-of-the-money put, giving himself the opportunity for substan­
+tial profits in a stock price decline, and could "finance" the purchase of the put by 
+writing an out-of-the-money call naked. The sale of the call would provide profits if 
+the stock stayed below the striking price of the call, but could cost him heavily if the 
+underlying stock rallies too far. 
+Example: With XYZ at 65, the bearish investor buys a February 60 put for 2 points, 
+and simultaneously sells a February 70 call for 3 points. These trades bring in a cred­
+it of 1 point, less commissions. The investor must collateralize the sale of the call. If 
+XYZ should decline substantially by February expiration, large profits are possible 
+because the February 60 put is owned. Even if XYZ does not perform as expected, 
+but still ends up anywhere between 60 and 70 at expiration, the profit will be equal 
+to the initial credit because both options will expire worthless. However, if the stock 
+rallies above 70, unlimited losses are possible because there is a naked call at 70. 
+Table 21-4 and Figure 21-2 show the results of this strategy at expiration. 
+This is clearly an aggressively bearish strategy. The investor would like to own 
+an out-of-the-money put for downside potential. In addition, he sells an out-of-the­
+money call, normally for a price greater than that of the purchased put. The call sale 
+TABLE 21-4. 
+Bearishly split strikes. 
+XYZ Price at February 60 February 70 Total 
+Expiration Put Profit Call Profit Profit 
+50 +$800 +$300 +$1, 100 
+55 + 300 + 300 + 600 
+60 - 200 + 300 + 100 
+65 - 200 + 300 + 100 
+70 - 200 + 300 + 100 
+75 - 200 - 200 400 
+80 - 200 - 700 900 
+===== PDF page index 363 =====
+328 
+FIGURE 21-2. 
+Bearishly split strikes. 
+C 
+0 
+e ·15. 
+X 
+w 
+Part Ill: Put Option Strategies 
+1u +$100 
+w $0 I-----------'------ ................. -----
+~ 60 
+....J 
+0 
+~ a. 
+Stock Price at Expiration 
+essentially lets him own the put for free. In fact, he can still make profits even if the 
+underlying stock rises slightly or only falls slightly. His risk is realized if the stock rises 
+above the striking price of the written call. 
+This strategy of splitting the strikes in a bearish manner is used very frequently 
+in conjunction with the ownership of common stock. That is, a stock owner who is 
+looking to protect his stock will buy an out-of-the-money put and sell an out-of-the­
+money call to finance the put purchase. This strategy is called a "protective collar" 
+and was discussed in more detail in the chapter on Put Buying in Conjunction with 
+Common Stock Ownership. A strategy that is similar to these, but modifies the risk, 
+is presented in Chapter 23, Spreads Combining Calls and Puts. 
+SUMMARY 
+In either of these aggressive strategies, the investor must have a definite opinion 
+about the future price movement of the underlying stock. He buys an out-of-the­
+money option to provide profit potential for that stock movement. However, an 
+investor can lose the entire purchase proceeds of an out-of-the-money option if the 
+stock does not perform as expected. An aggressive investor, who has sufficient collat­
+eral, might attempt to counteract this effect by also writing an out-of-the-money 
+option to cover the cost of the option that he bought. Then, he will not only make 
+money if the stock performs as expected, but he will also make money if the stock 
+remains relatively unchanged. He will lose quite heavily, however, if the underlying 
+stock goes in the opposite direction from his original anticipation. That is why he 
+must have a definite opinion on the stock and also be fairly certain of his timing. 
+===== PDF page index 364 =====
+Basic Put Spreads 
+Put spreading strategies do not differ substantially in theory from their accompany-
+;,,..,,. ,...,,1] v-n..-a<>rl vl-..-al-arriac Rol-h h11llich nnrl hP<>rich nocitionc r>!'.ln hP r>onctn1r>tPrl with .l.J..1.5 V(A,,1.1. .;Jt'.l.'\,.,U'L.L J\...l 1.Vf,A.VoJ• .Jl.,l''\Jl,....t..1. J.J\..1..1..1..1.V.a...._ f.4.1..1..._... ,._,...,_,'-4Ji.A.V..._.,._ ,t'"-"._,..._ ... ...__..._..._...,, .._,.__...,,._ -....,..., _.._,,.._.,....,,...,._ .....,._,_....,,_ , , ,,..._.,._""-
+put spreads, as was also the case with call spreads. However, because puts are more 
+oriented toward downward stock movement than calls are, some bearish put spread 
+strategies are superior to their equivalent bearish call spread strategies. 
+The three simplest forms of option spreads· are: 
+1. the bull spread, 
+2. the bear spread, and 
+3. the calendar spread. 
+The same types of spreads that were constructed with calls can be established with 
+puts, but there are some differences. 
+BEAR SPREAD 
+In a call bear spread, a call with a lower striking price was sold while a call at a high­
+er striking price was bought. Similarly, a put bear spread is established by selling a 
+put at a lower strike while buying a put at a higher strike. The put bear spread is a 
+debit spread. This is true because a put with a higher striking price will sell for more 
+than a put with a lower striking price. Thus, on a stock with both puts and calls trad­
+ing, one could set up a bear spread for a credit ( using calls) or alternatively set one 
+up for a debit (using puts): 
+329 

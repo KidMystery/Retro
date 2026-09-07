@@ -1,0 +1,949 @@
+
+===== PDF page index 775 =====
+726 Part VI: Measuring and Trading Volatility 
+So, is there a better alternative? Or should one just pack it in, buy some index 
+funds, and forget it? As an option strategist, one should most certainly believe that 
+there's something better than buying the index fund. The alternative of volatility trad­
+ing offers significant advantages in terms of the factors that make directional trading 
+difficult. 
+If one finds that he is able to handle the rigors of directional trading, then stick 
+with that approach. You might want to add some volatility trading to your arsenal, 
+though, just to be safe. However, if one finds that directional trading is just too time­
+consuming, or you have trouble utilizing stops properly, or are constantly getting 
+whipsawed, then it's time to concentrate more heavily on volatility trading, preferably 
+in the form of straddle buying. 
+===== PDF page index 776 =====
+CHAPTER 36 
+The Basics of 
+Volatility Trading 
+Volatility trading first attracted mathematically oriented traders who noticed that the 
+market's prediction of forthcoming volatility - for example, implied volatility - was 
+substantially out of line with what one might reasonably expect should happen. 
+Moreover, many of these traders (market-makers, arbitrageurs, and others) had 
+found great difficulties with keeping a "delta neutral" position neutral. Seeking a bet­
+ter way to trade without having a market opinion on the underlying security, they 
+turned to volatility trading. This is not to suggest that volatility trading eliminates all 
+market risk, turning it all into volatility risk, for example. But it does suggest that a 
+certain segment of the option trading population can handle the risk of volatility with 
+more deference and aplomb than they can handle price risk 
+Simply stated, it seems like a much easier task to predict volatility than to pre­
+dict prices. That is said notwithstanding the great bull market of the 1990s, in which 
+every investor who strongly participated certainly feels that he understands how to 
+predict prices. Remember not to confuse brains with a bull market. Consider the chart 
+in Figure 36-1. This seems as if it might be a good stock to trade: Buy it near the lows 
+and sell it near the highs, perhaps even selling it short near the highs and covering 
+when it later declines. It appears to have been in a trading range for a long time, so 
+that after each purchase or sale, it returns at least to the midpoint of its trading range 
+and sometimes even continues on to the other side of the range. There is no scale on 
+the chart, but that doesn't change the fact that it appears to be a tradable entity. In 
+fact, this is a chart of implied volatility of the options on a major U.S. corporation. It 
+really doesn't matter which one (it's IBM), because the implied volatility chart of near­
+ly every stock, index, or futures contract has a similar pattern - a trading range. The 
+only time that implied volatility will totally break out of its "normal" range is if some­
+thing material happens to change the fundamentals of the way the stock moves - a 
+takeover bid, for example, or perhaps a major acquisition or other dilution of the stock 
+727 
+===== PDF page index 777 =====
+728 Part VI: Measuring and Trading Volatility 
+FIGURE 36-1. 
+A sample chart. 
+Buy at these points. 
+So, many traders observed this pattern and have become adherents of trying to 
+predict volatility. Notice that if one is able to isolate volatility, he doesn't care where 
+the stock price goes he is just concerned with buying volatility near the bottom of 
+the range and selling it when it gets back to the middle or high end of the range, or 
+vice versa. In real life, it is nearly impossible for a public customer to be able to iso­
+late volatility so specifically. He will have to pay some attention to the stock price, but 
+he still is able to establish positions in which the direction of the stock price is irrel­
+evant to the outcome of the position. This quality is appealing to many investors, who 
+have repeatedly found it difficult to predict stock prices. Moreover, an approach such 
+as this should work in both bull and bear markets. Thus, volatility trading appeals to 
+a great number of individuals. Just remember that, for you personally to operate a 
+strategy properly, you must find that it appeals to your own philosophy of trading. 
+Trying to use a strategy that you find uncomfortable will only lead to losses and frus­
+tration. So, if this somewhat neutral approach to option trading sounds interesting to 
+you, then read on. 
+DEFINITIONS OF VOLATILITY 
+Volatility is merely the term that is used to describe how fast a stock, future, or index 
+changes in price. When one speaks of volatility in connection with options, there are 
+two types of volatility that are important. The first is historical volatility, which is a 
+measure of how fast the underlying instrument has been changing in price. The other 
+is implied volatility, which is the option market's prediction of the volatility of the 
+===== PDF page index 778 =====
+Chapter 36: The Basics of Volatility Trading 729 
+underlying over the life of the option. The computation and comparison of these two 
+measures can aid immensely in predicting the forthcoming volatility of the underly­
+ing instrument - a crucial matter in determining today's option prices. 
+Historical volatility can be measured with a specific formula, as shown in the · 
+chapter on mathematical applications. It is merely the formula for standard deviation 
+as contained in most elementary books on statistics. The important point to under­
+stand is that it is an exact calculation, and there is little debate over how to compute 
+historical volatility. It is not important to know what the actual measurement means. 
+That is, if one says that a certain stock has a historical volatility of 20%, that by itself 
+is a relatively meaningless number to anyone but an ardent statistician. However, it 
+can be used for comparative purposes. 
+The standard deviation is expressed as a percent. One can determine that the 
+historical volatility of the broad stock market has usually been in the range of 15% to 
+20%. A very volatile stock might have an historical volatility in excess of 100%. These 
+numbers can be compared to each other, so that one might say that a stock with the 
+latter historical volatility is five times more volatile that the "stock market." So, the 
+historical volatility of one instrument can be compared with that of another instru­
+ment in order to determine which one is more volatile. That in itself is a useful func­
+tion of historical volatility, but its uses go much farther than that. 
+Historical volatility can be measured over different time periods to give one a 
+sense of how volatile the underlying has been over varying lengths of time. For exam­
+ple, it is common to compute a 10-day historical volatility, as well as a 20-day, 50-day, 
+and even 100-day. In each case, the results are annualized so that one can compare 
+the figures directly. 
+Consider the chart in Figure 36-2. It shows a stock (although it could be a 
+futures contract or index, too) that was meandering in a rather tight range for quite 
+some time. At the point marked "A" on the chart, it was probably at its least volatile. 
+At that time, the 10-dayvolatility might have been something quite low, say 20%. The 
+price movements directly preceding point A had been very small. However, prior to 
+that time the stock had been more volatile, so longer-term measures of the historical 
+volatility would shown higher numbers. The possible measures of historical volatility, 
+then at point A, might have been something like: 
+10-day historical volatility: 20% 
+20-day historical volatility: 23% 
+50-day historical volatility: 35% 
+100-day historical volatility: 45% 
+A pattern of historical volatilities of this sort describes a stock that has been 
+slowing down lately. 
+===== PDF page index 779 =====
+730 
+FIGURE 36-2. 
+Sample stock chart. 
+:::::::::r;~.w· r 
+I 
+, .. ~ 
+n 
+I 
+ll•• ~N 
+IT 
+Part VI: Measuring and Trading Volatllity 
+: 
+I 
+I 
+j 
+j 
+~ 
+JI 
+• I' 
+'Vn ~- A 
+Its price movements have been less extreme in the near term. 
+Again referring to Figure 36-2, note that shortly after point A, the stock jumped 
+much higher over a short period of time. Price action like this increases the implied 
+volatility dramatically. And, at the far right edge of the chart, the stock had stopped 
+rising but was swinging back and forth in far more rapid fashion than it had been at 
+most other points on the chart. Violent action in a back-and-forth manner can often 
+produce a higher historical volatility reading that straight-line move can; it's just the 
+way the numbers work out. So, by the far right edge of the chart, the 10-day histori­
+cal volatility would have increased rather dramatically, while the longer-term meas­
+ures wouldn't be so high because they would still contain the price action that 
+occurred prior to point A. 
+At the far right edge of Figure 36-2, these figures might apply: 
+l 0-day historical volatility: 80% 
+20-day historical volatility: 75% 
+50-day historical volatility: 60% 
+l 00-day historical volatility: 55% 
+With this alignment of historical volatilities, one can see that the stock has been 
+more volatile recently than in the more distant past. In Chapter 38 on the distribu­
+tion of stock prices, we will discuss in some detail just which one, if any, of these his­
+torical volatilities one should use as "the" historical volatility input into option and 
+===== PDF page index 780 =====
+Chapter 36: The Basics of Volatility Trading 731 
+probability models. We need to be able to make volatility estimates in order to deter­
+mine whether or not a strategy might be successful, and to determine whether the 
+current option price is a relatively cheap one or a relatively expensive one. For exam­
+ple, one can't just say, "I think XYZ is going to rise at least 18 points by February expi­
+ration." There needs to be some basis in fact for such a statement and, lacking inside 
+information about what the company might announce between now and February, 
+that basis should be statistics in the form of volatility projections. 
+Historical volatility is, of course, useful as an input to the (Black-Scholes) option 
+model. In fact, the volatility input to any model is crucial because the volatility com­
+ponent is such a major factor in determining the price of an option. Furthermore, 
+historical volatility is useful for more than just estimating option prices. It is neces­
+sary for making stock price projections and calculating distributions, too, as will be 
+shown when those topics are discussed later. Any time one asks the question, "What 
+is the probability of the stock moving from here to there, or of exceeding a particu­
+lar target price?" the answer is heavily dependent on the volatility of the underlying 
+stock (or index or futures). 
+It is obvious from the above example that historical volatility can change dra­
+matically for any particular instrument. Even if one were to stick with just one 
+measure of historical volatility ( the 20-day historical is commonly the most popular 
+measure), it changes with great frequency. Thus, one can never be certain that bas­
+ing option price predictions or stock price distributions on the current historical 
+volatility will yield the "correct" results. Statistical volatility may change as time 
+goes forward, in which case your projections would be incorrect. Thus, it is impor­
+tant to make projections that are on the conservative side. 
+ANOTHER APPROACH: GARCH 
+GARCH stands for Generalized Autoregressive Conditional Heteroskedasticity, 
+which is why it's shortened to GARCH. It is a technique for forecasting volatility that 
+some analysts say produces better projections than using historical volatility alone or 
+implied volatility alone. GARCH was created in the 1980s by specialists in the field of 
+econometrics. It incorporates both historical and implied volatility, plus one can throw 
+in a constant ("fudge factor"). In essence, though, the user of GARCH volatility mod­
+els has to make some predictions or decisions about the weighting of the factors used 
+for the estimate. By its very nature, then, it can be just as vague as the situations 
+described in the previous section. 
+The model can "learn," though, if applied correctly. That is, if one makes a 
+volatility prediction for today (using GARCH, let's say), but it turns out that the actu-
+===== PDF page index 781 =====
+732 Part VI: Measuring and Trading Volatility 
+al volatility was lower, then when you make the volatility prediction for tomorrow, 
+you'll probably want to adjust it downward, using the experience of the real world, 
+where you see volatility declining. This also incorporates the common-sense notion 
+that volatility tends to remain the same; that is, tomorrow's volatility is likely to be 
+much like today's. Of course, that's a little bit like saying tomorrow's weather is likely 
+to be the same as today's (which it is, two-thirds of the time, according to statistics). 
+It's just that when a tornado hits, you have to realize that your forecast could be wrong. 
+The same thing applies to GAR CH volatility projections. They can be wrong, too. 
+So, GARCH does not do a perfect job of estimating and forecasting volatility. In 
+fact, it might not even be superior, from a strategist's viewpoint, to using the simple 
+minimum/maximum techniques outlined in the previous section. It is really best 
+geared to predicting short-term volatility and is favored most heavily by dealers in 
+currency options who must adjust their markets constantly. For longer-term volatility 
+projections, which is what a position trader of volatility is interested in, GARCH may 
+not be all that useful. However, it is considered state-of-the-art as far as volatility pre­
+dicting goes, so it has a following among theoretically oriented traders and analysts. 
+MOVING AVERAGES 
+Some traders try to use moving averages of daily composite implied volatility read­
+ings, or use a smoothing of recent past historical volatility readings to make volatility 
+estimates. As mentioned in the chapter on mathematical applications, once the com­
+posite daily implied volatility has been computed, it was recommended that a 
+smoothing effect be obtained by taking a moving average of the 20 or 30 days' 
+implied volatilities. In fact, an exponential moving average was recommended, 
+because it does not require one to keep accessing the last 20 or 30 days' worth of data 
+in order to compute the moving average. Rather, the most recent exponential mov­
+ing average is all that's needed in order to compute the next one. 
+IMPLIED VOLATILITY 
+Implied volatility has been mentioned many times already, but we want to expand on 
+its concept before getting deeper into its measure and uses later in this section. 
+Implied volatility pertains only to options, although one can aggregate the implied 
+volatilities of the various options trading on a particular underlying instrument to 
+produce a single number, which is often referred to as the implied volatility of the 
+underlying. 
+===== PDF page index 782 =====
+732 Part VI: Measuring and Trading Volatility 
+al volatility was lower, then when you make the volatility prediction for tomorrow, 
+you'll probably want to adjust it downward, using the experience of the real world, 
+where you see volatility declining. This also incorporates the common-sense notion 
+that volatility tends to remain the same; that is, tomorrow's volatility is likely to be 
+much like today's. Of course, that's a little bit like saying tomorrow's weather is likely 
+to be the same as today's (which it is, two-thirds of the time, according to statistics). 
+It's just that when a tornado hits, you have to realize that your forecast could be wrong. 
+The same thing applies to GARCH volatility projections. They can be wrong, too. 
+So, GARCH does not do a perfect job of estimating and forecasting volatility. In 
+fact, it might not even be superior, from a strategist's viewpoint, to using the simple 
+minimum/maximum techniques outlined in the previous section. It is really best 
+geared to predicting short-term volatility and is favored most heavily by dealers in 
+currency options who must adjust their markets constantly. For longer-term volatility 
+projections, which is what a position trader of volatility is interested in, GAR CH may 
+not be all that useful. However, it is considered state-of-the-art as far as volatility pre­
+dicting goes, so it has a following among theoretically oriented traders and analysts. 
+MOVING AVERAGES 
+Some traders try to use moving averages of daily composite implied volatility read­
+ings, or use a smoothing of recent past historical volatility readings to make volatility 
+estimates. As mentioned in the chapter on mathematical applications, once the com­
+posite daily implied volatility has been computed, it was recommended that a 
+smoothing effect be obtained by taking a moving average of the 20 or 30 days' 
+implied volatilities. In fact, an exponential moving average was recommended, 
+because it does not require one to keep accessing the last 20 or 30 days' worth of data 
+in order to compute the moving average. Rather, the most recent exponential mov­
+ing average is all that's needed in order to compute the next one. 
+IMPLIED VOLATILITY 
+Implied volatility has been mentioned many times already, but we want to expand on 
+its concept before getting deeper into its measure and uses later in this section. 
+Implied volatility pertains only to options, although one can aggregate the implied 
+volatilities of the various options trading on a particular underlying instrument to 
+produce a single number, which is often referred to as the implied volatility of the 
+underlying. 
+===== PDF page index 783 =====
+732 Part VI: Measuring and Trading Volatility 
+al volatility was lower, then when you make the volatility prediction for tomorrow, 
+you'll probably want to adjust it downward, using the experience of the real world, 
+where you see volatility declining. This also incorporates the common-sense notion 
+that volatility tends to remain the same; that is, tomorrow's volatility is likely to be 
+much like today's. Of course, that's a little bit like saying tomorrow's weather is likely 
+to be the same as today's (which it is, two-thirds of the time, according to statistics). 
+It's just that when a tornado hits, you have to realize that your forecast could be wrong. 
+The same thing applies to GARCH volatility projections. They can be wrong, too. 
+So, GAR CH does not do a perfect job of estimating and forecasting volatility. In 
+fact, it might not even be superior, from a strategist's viewpoint, to using the simple 
+minimum/maximum techniques outlined in the previous section. It is really best 
+geared to predicting short-term volatility and is favored most heavily by dealers in 
+currency options who must adjust their markets constantly. For longer-term volatility 
+projections, which is what a position trader of volatility is interested in, GARCH may 
+not be all that useful. However, it is considered state-of-the-art as far as volatility pre­
+dicting goes, so it has a following among theoretically oriented traders and analysts. 
+MOVING AVERAGES 
+Some traders try to use moving averages of daily composite implied volatility read­
+ings, or use a smoothing of recent past historical volatility readings to make volatility 
+estimates. As mentioned in the chapter on mathematical applications, once the com­
+posite daily implied volatility has been computed, it was recommended that a 
+smoothing effect be obtained by taking a moving average of the 20 or 30 days' 
+implied volatilities. In fact, an exponential moving average was recommended, 
+because it does not require one to keep accessing the last 20 or 30 days' worth of data 
+in order to compute the moving average. Rather, the most recent exponential mov­
+ing average is all that's needed in order to compute the next one. 
+IMPLIED VOLATILITY 
+Implied volatility has been mentioned many times already, but we want to expand on 
+its concept before getting deeper into its measure and uses later in this section. 
+Implied volatility pertains only to options, although one can aggregate the implied 
+volatilities of the various options trading on a particular underlying instrument to 
+produce a single number, which is often referred to as the implied volatility of the 
+underlying. 
+===== PDF page index 784 =====
+Chapter 36: The Basics of Volatility Trading 733 
+At any one point in time, a trader knows for certain the following items that 
+affect an option's price: stock price, strike price, time to expiration, interest rate, and 
+dividends. The only remaining factor is volatility - in fact, implied volatility. It is the 
+big "fudge factor" in option trading. If implied volatility is too high, options will be 
+overpriced. That is, they will be relatively expensive. On the other hand, if implied 
+volatility is too low, options will be cheap or underpriced. The terms "overpriced" and 
+"underpriced" are not really used by theoretical option traders much anymore, 
+because their usage implies that one knows what the option should be worth. In the 
+modem vernacular, one would say that the options are trading with a "high implied 
+volatility" or a "low implied volatility," meaning that one has some sense of where 
+implied volatility has been in the past, and the current measure is thus high or low in 
+comparison. 
+Essentially, implied volatility is the option market's guess at the forthcoming sta­
+tistical volatility of the underlying over the life of the option in question. If traders 
+believe that the underlying will be volatile over the life of the option, then they will 
+bid up the option, making it more highly priced. Conversely, if traders envision a non­
+volatile period for the stock, they will not pay up for the option, preferring to bid 
+lower; hence the option will be relatively low-priced. The important thing to note is 
+that traders normally do not know the future. They have no way of knowing, for sure, 
+how volatile the underlying is going to be during the life of the option. 
+Having said that, it would be unrealistic to assume that inside information does 
+not leak into the marketplace. That is, if certain people possess nonpublic knowledge 
+about a company's earnings, new product announcement, takeover bid, and so on, 
+they will aggressively buy or bid for the options and that will increase implied volatil­
+ity. So, in certain cases, when one sees that implied volatility has shot up quickly, it is 
+perhaps a signal that some traders do indeed know the future - at least with respect 
+to a specific corporate announcement that is about to be made. 
+However, most of the time there is not anyone trading with inside information. 
+Yet, every option trader - market-maker and public alike - is forced to make a 
+"guess" about volatility when he buys or sells an option. That is true because the price 
+he pays is heavily influenced by his volatility estimate ( whether or not he realizes that 
+he is, in fact, making such a volatility estimate). As you might imagine, most traders 
+have no idea what volatility is going to be during the life of the option. They just pay 
+prices that seem to make sense, perhaps based on historic volatility. Consequently, 
+today's implied volatility may bear no resemblance to the actual statistical volatility 
+that later unfolds during the life of the option. 
+For those who desire a more mathematical definition of implied volatility, con­
+sider this. 
+===== PDF page index 785 =====
+734 Part VI: Measuring and Trading Volatillty 
+Opt price = f(Stock price, Strike price, Time, Risk-free rate, Volatility, Dividends) 
+Furthermore, suppose that one knows the following information: 
+XYZ price: 52 
+April 50 call price: 6 
+Time remaining to April expiration: 36 days 
+Dividends: $0.00 
+Risk-free interest rate: 5% 
+This information, which is available for every option at any time, simply from an 
+option quote, gives us everything except the implied volatility. So what volatility 
+would one have to plug in the Black-Scholes model ( or whatever model one is using) 
+to make the model give the answer 6 (the current price of the option)? That is, what 
+volatility is necessary to solve the equation? 
+6 = f(52, 50, 36 days, 5%, Volatility, $0.00) 
+Whatever volatility is necessary to make the model yield the current market price (6) 
+as its value, is the implied volatility for the XYZ April 50 call. In this case, if you're 
+interested, the implied volatility is 75.4%. The actual process of determining implied 
+volatility is an iterative one. There is no formula, per se. Rather, one keeps trying var­
+ious volatility estimates in the model until the answer is close enough to the market 
+value. 
+THE VOLATILITY OF VOLATILITY 
+In order to discuss the implied volatility of a particular entity - stock, index, or 
+futures contract one generally refers to the implied volatility of individual options 
+or perhaps the composite implied volatility of the entire option series. This is gener­
+ally good enough for strategic comparisons. However, it turns out that there might be 
+other ways to consider looking at implied volatility. In paiticular, one might want to 
+consider how wide the range of implied volatility is - that is, how volatile the indi­
+vidual implied volatility numbers are. 
+It is often conventional to talk about the percentile of implied volatility. That is 
+a way to rank the current implied volatility reading with past readings for the same 
+underlying instrument. 
+However, a fairly important ingredient is missing when percentiles are involved. 
+One can't really tell if "cheap" options are cheap as a practical matter. That's because 
+one doesn't know how tightly packed together the past implied volatility readings are. 
+For example, if one were to discover that the entire past range of implied volatility 
+for XYZ stretched only from 39% to 45%, then a current reading of 40%, while low, 
+===== PDF page index 786 =====
+Chapter 36: The Basics of Volatility Trading 135 
+might not seem all that attractive. That is, if the first percentile of XYZ options were 
+at an implied volatility reading of 39% and the 100th percentile were at 45%, then a 
+reading of 40% is really quite mundane. There just wouldn't be much room for 
+implied volatility to increase on an absolute basis. Even if it rose to the 100th per­
+centile, an individual XYZ option wouldn't gain much value, because its implied 
+volatility would only be increasing from about 40% to 45%. 
+However, if the distribution of past implied volatility is wide, then one can truly 
+say the options are cheap if they are currently in a low percentile. Suppose, rather 
+than the tight range described above, that the range of past implied volatilities for 
+XYZ instead stretched from 35% to 90% - that the first percentile for XYZ implied 
+volatility was at 35% and the 100th percentile was at 90%. Now, if the current read­
+ing is 40%, there is a large range above the current reading into which the options 
+could trade, thereby potentially increasing the value of the options if implied volatil­
+ity moved up to the higher percentiles. 
+What this means, as a practical matter, is that one not only needs to know the 
+current percentile of implied volatility, but he also needs to know the range of num­
+bers over which that percentile was derived. If the range is wide, then an extreme 
+percentile truly represents a cheap or expensive option. But if the range is tight, then 
+one should probably not be overly concerned with the current percentile of implied 
+volatility. 
+Another facet of implied volatility that is often overlooked is how it ranges with 
+respect to the time left in the option. This is particularly important for traders of 
+LEAPS (long-term) options, for the range of implied volatility of a LEAPS option will 
+not be as great as that of a short-term option. In order to demonstrate this, the 
+implied volatilities of $OEX options, both regular and LEAPS, were charted over 
+several years. The resulting scatter diagram is shown in Figure 36-3. 
+Two curved lines are drawn on Figure 36-3. They contain most of the data 
+points. One can see from these lines that the range of implied volatility for near-term 
+options is greater than it is for longer-term options. For example, the implied volatil­
+ity readings on the far left of the scatter diagram range from about 14% to nearly 40% 
+(ignore the one outlying point). However, for longer-term options of 24 months or 
+more, the range is about 17% to 32%. While $0EX options have their own idiosyn­
+cracies, this scatter diagram is fairly typical of what we would see for any stock or 
+index option. 
+One conclusion that we can draw from this is that LEAPS option implied 
+volatilities just don't change nearly as much as those of short-term options. That can 
+be an important piece of information for a LEAPS option trader especially if he is 
+comparing the LEAPS implied volatility with a composite implied volatility or with 
+the historical volatility of the underlying. 
+===== PDF page index 787 =====
+736 Part VI: Measuring and Trading Volatility 
+Once again, consider Figure 36-3. While it is difficult to discern from the graph 
+alone, the 10th percentile of $OEX composite implied volatility, using all of the data 
+points given, is 17%. The line that marks this level (the tenth percentile) is noted on 
+the right side of the scatter diagram. It is quite easy to see that the LEAPS options 
+rarely trade at that low volatility level. 
+In Figure 36-3, the distance between the curved lines is much greater on the 
+left side (i.e., for shorter-term options) than it is on the right side (for longer-term 
+options). Thus, it's difficult for the longer-term options to register either an extreme­
+ly high or extremely low implied volatility reading, when all of the options are con­
+sidered. Consequently, LEAPS options will rarely appear "cheap" when one looks at 
+their percentile of implied volatility, including all the short-term options, too: 
+One might say that, if he were going to buy long-term options, he should look 
+only at the size of the volatility range on the right side of the scatter diagram. Then, 
+he could make his decision about whether the options are cheap or not by only com­
+paring the current reading to past readings of long-term options. This line of think­
+ing, though, is somewhat fallacious reasoning, for a couple of reasons: First, if one 
+holds the option for any long period of time, the volatility range will widen out and 
+there is a chance that implied volatility could drop substantially. Second, the long­
+term volatility range might be so small that, even though the options are initially 
+cheap, quick increase in implied volatility over several deciles might not translate into 
+much of a gain in price in the short term. 
+FIGURE 36-3. Implied volatilities of $OEX options over several 
+years. 
+50 
+45 
+40 
+~ 35 
+~ 30 
+g 25 "O 
+.91 20 C. 
+E 15 -0th 
+10 
+5 
+0 
+0 10 20 30 40 
+Time to Expiration (months) 
+===== PDF page index 788 =====
+Chapter 36: The Basics ol Volatility Trading 737 
+It's important for anyone using implied volatility in his trading decisions to 
+understand that the range of past implied volatilities is important, and to realize that 
+the volatility range expands as time shrinks. 
+IS IMPLIED VOLATILITY A GOOD PREDICTOR OF ACTUAL VOLATILITY? 
+The fact that one can calculate implied volatility does not mean that the calculation 
+is a good estimate of forthcoming volatility. As stated above, the marketplace does not 
+really know how volatile an instrument is going to be, any more than it knows the 
+forthcoming price of the stock. There are clues, of course, and some general ways of 
+estimating forthcoming volatility, but the fact remains that sometimes options trade 
+with an implied volatility that is quite a bit out of line with past levels. Therefore, 
+implied volatility may be considered to be an inaccurate estimate of what is really 
+going to happen to the stock during the life of the option. Just remember that implied 
+volatility is a forward-looking estimate, and since it is based on traders' suppositions, 
+it can be wrong - just as any estimate of future events can be in error. 
+The question posed above is one that should probably be asked more often than 
+it is: "Is implied volatility a good predictor of actual volatility?" Somehow, it seems 
+logical to assume that implied and historical (actual) volatility will converge. That's 
+not really true, at least not in the short term. Moreover, even if they do converge, 
+which one was right to begin with - implied or historical? That is, did implied volatil­
+ity move to get more in line with actual movements of the underlying, or did the 
+stock's movement speed up or slow down to get in line with implied volatility? 
+To illustrate this concept, a few charts will be used that show the comparison 
+between implied and historical volatility. Figure 36-4 shows information for the 
+$0EX Index. In general, $0EX options are overpriced. See the discussion in 
+Chapter 29. That is, implied volatility of $0EX options is almost always higher than 
+what actual volatility turns out to be. Consider Figure 36-4. There are three lines in 
+the figure: (a) implied volatility, (b) actual volatility, and (c) the difference between 
+the two. There is an important distinction here, though, as to what comprises these 
+curves: 
+(a) The implied volatility curve depicts the 20-day moving average of daily compos­
+ite implied volatility readings for $0EX. That is, each day one number is com­
+puted as a composite implied volatility for $0EX for that day. These implied 
+volatility figures are computed using the averaging formula shown in the chapter 
+on mathematical applications, whereby each option's implied volatility is weight­
+ed by trading volume and by distance in- or out-of-the-money, to arrive at a sin­
+gle composite implied volatility reading for the trading day. To smooth out those 
+daily readings, a 20-day simple moving average is used. This daily implied volatil-
+===== PDF page index 789 =====
+738 Part VI: Measuring and Trading Volatility 
+FIGURE 36-4. 
+$OEX implied versus historical volatility. 
+10 
+Implied minus Actual 1999 Date 
+ity of $OEX options encompasses all the $OEX options, so it is different from the 
+Volatility Index ($VIX), which uses only the options closest to the money. By 
+using all of the options, a slightly different volatility figure is arrived at, as com­
+pared to $VIX, but a chart of the two would show similar patterns. That is, peaks 
+in implied volatility computed using all of the $OEX options occur at the same 
+points in time as peaks in $VIX. 
+(b) The actual volatility on the graph is a little different from what one normally 
+thinks of as historical volatility. It is the 20-day historical volatility, computed 20 
+days later than the date of the implied volatility calculation. Hence, points on the 
+implied volatility curve are matched with a 20-day historical volatility calculation 
+that was made 20 days later. Thus, the two curves more or less show the predic­
+tion of volatility and what actually happened over the 20-day period. These actu­
+al volatility readings are smoothed as well, with a 20-day moving average. 
+(c) The difference between the two is quite simple, and is shown as the bottom 
+curve on the graph. A "zero" line is drawn through the difference. 
+When this "difference line" passes through the zero line, the projection of 
+volatility and what actually occurred 20 days later were equal. If the difference line 
+is above the zero line, then implied volatility was too high; the options were over­
+priced. Conversely, if the difference line is below the zero line, then actual volatility 
+turned out to be greater than implied volatility had anticipated. The options were 
+underpriced in that case. Those latter areas are shaded in Figure 36-4. Simplistically, 
+you would want to own options during the shaded periods on the chart, and would 
+want to be a seller of options during the non-shaded areas. 
+===== PDF page index 790 =====
+Chapter 36: The Basics of Volatility Trading 739 
+Note that Figure 36-4 indeed confirms the fact that $OEX options are consis­
+tently overpriced. Very few charts are as one-dimensional as the $OEX chart, where 
+the options were so consistently overpriced. Most stocks find the difference line 
+oscillating back and forth about the zero mark. Consider Figures 36-5 and 36-6. 
+Figure 36-5 shows a chart similar to Figure 36-4, comparing actual and implied 
+volatility, and their difference, for a particular stock. Figure 36-6 shows the price 
+graph of that same stock, overlaid on implied volatility, during the period up to and 
+including the heavy shading. 
+The volatility comparison chart (Figure 36-5) shows several shaded areas, dur­
+ing which the stock was more volatile than the options had predicted. Owners of 
+options profited during these times, provided they had a more or less neutral outlook 
+on the stock. Figure 36-6 shows the stock's performance up to and including the 
+March-April 1999 period - the largest shaded area on the chart. Note that implied 
+volatility was quite low before the stock made the strong move from 10 to 30 in little 
+more than a month. These graphs are taken from actual data and demonstrate just 
+how badly out of line implied volatility can be. In February and early March 1999, 
+implied volatility was at or near the lowest levels on these charts. Yet, by the end of 
+March, a major price explosion had begun in the stock, one that tripled its value in 
+just over a month. Clearly, implied volatility was a poor predictor of forthcoming 
+actual volatility in this case. 
+What about later in the year? In Figure 36-5, one can observe that implied and 
+actual volatility oscillated back and forth quite a few times during the rest of 1999. It 
+might appear that these oscillations are small and that implied volatility was actually 
+doing a pretty good job of predicting actual volatility, at least until the final spike in 
+December 1999. However, looking at the scale on the left-hand side of Figure 36-5, 
+one can see that implied volatility was trying to remain in the 50% to 60% range, but 
+actual volatility kept bolting higher rather frequently. 
+One more example will be presented. Figures 36-7 and 36-8 depict another 
+stock and its volatilities. On the left half of each graph, implied volatility was quite 
+high. It was higher than actual volatility turned out to be, so the difference line in 
+Figure 36-7 remains above the zero line for several months. Then, for some reason, 
+the option market decided to make an adjustment, and implied volatility began to 
+drop. Its lowest daily point is marked with a circle in Figure 36-8, and the same point 
+in time is marked with a similar circle in Figure 36-7. At that time, options traders 
+were "saying" that they expected the stock to be very tame over the ensuing weeks. 
+Instead, the stock made two quick moves, one from 15 down to 11, and then anoth­
+er back up to 17. That movement jerked actual volatility higher, but implied volatili­
+ty remained rather low. After a period of trading between 13 and 15, during which 
+time implied volatility remained low, the stock finally exploded to the upside, as evi­
+denced by the spikes on the right-hand side of both Figures 36-7 and 36-8. Thus, 
+===== PDF page index 791 =====
+740 Part VI: Measuring and Trading Volatility 
+FIGURE 36-5. 
+Implied versus historical volatility of a stock. 
+150 
+140 
+130 
+120 
+110 
+100 
+90 
+80 
+70 
+60 
+50 
+40 
+30 
+20 
+10 
+oi--""""'""""',,,.....""' -10 
+-20 
+-30 "O 
+-40 ct! 
+-50 ~ 
+-80 0. 
+-701'-'-=CIJ+---+---+--+; 
+-80 
+1999 
+FIGURE 36-6. 
+Implied minus Actual 
+The price graph of the stock. 
+. . . 
+•• , •••••••• ,. •••••••• .,. ••• + ••••••••••• ••••• -~······ •••••• ,. ••••••••••• ·t . ······ . . . ... [" 
+·· · ·· ·· ··· ·· · · · Stock Price · ·· · : ·· ·· I 
+~ !'"Y"d"'il~tilirrs::•of'T! 
+' ' .· ............ ; ·--·•·····! ............ · ................ : ............... : ...........•.. :. 
+············•·:••············•:•···········•;••·············(·········•: Implied Volatility 
+98 0 N D J F M A M 99 
+29.000 
+27.000 
+25.000 
+23.000 
+21.000 
+19.000 
+17.000 
+15.000 
+13.000 
+11.000 
+9.000 
+7.000 
+5.000 
+Date 
+===== PDF page index 792 =====
+Chapter 36: The Basics of Volatility Trading 
+FIGURE 36-7. 
+Implied versus historical volatility of a stock. 
+120 
+110 
+100 
+90 
+80 
+70 
+60 
+50 
+40 
+30 
+20 
+10 
+01-----------~~r:cr:1---
+-10 "O 
+-20 ~ 
+-30"5" F M A M J J A S O N D-
+Implied minus Actual 1999 
+FIGURE 36-8. 
+The price graph of the stock • 
+... : ....... --: ......... : ·······.··········, ····-·-:· ....... : ........ ..; ... . 
+······: ---:·······•: J. ...... 1 ....... ) ....... --) .... ----1 .).. ! .). 
+······-·········-··· -.. ;..... : ...... ;.. . : ......... : .... . 
+...... .: ......... : .......... : .......... : ....... , ......... •. 
+..... ; ...... ) ....... .L.. ... .L .. Stock· Pri~e ..... ) ...... ) .. . 
+·······'• ...... _.: ____ .... •. ·······:----
+.•.•••• j ' . 
+J F M A M J J A S 0 N D J 
+1999 
+Date 
+27.000 
+25.000 
+23.000 
+21.000 
+19.000 
+17.000 
+15.000 
+13.000 
+11.000 
+9.000 
+7.000 
+5.000 
+741 
+===== PDF page index 793 =====
+742 Part VI: Measuring and Trading Volatility 
+implied volatility was a poor predictor of actual volatility for most of the time on these 
+graphs. Moreover, implied volatility remained low at the right-hand side of the charts 
+(January 2000) even though the stock doubled in the course of a month. 
+The important thing to note from these figures is that they clearly show that 
+implied volatility is really not a very good predictor of the actual volatility that is to 
+follow. If it were, the difference line would hover near zero most of the time. Instead, 
+it swings back and forth wildly, with implied volatility over- or underestimating actu­
+al volatility by quite wide levels. Thus, the current estimates of volatility by traders 
+(i.e., implied volatility) can actually be quite wrong. 
+Conversely, one could also say that historical volatility is not a great predictor of 
+volatility that is to follow, either, especially in the short term. No one really makes any 
+claims that it is a good predictor, for historical volatility is merely a reflection of what 
+has happened in the past. All we can say for sure is that implied and historical volatil­
+ity tend to trade within a range. 
+One thing that does stand out on these charts is that implied volatility seems to 
+fluctuate less than actual volatility. That seems to be a natural function of the volatil­
+ity predictive process. For example, when the market collapses, implied volatilities of 
+options rise only modestly. This can be observed by again referring to Figure 36-4, 
+the $0EX option example. The only shaded area on the graph occurred when the 
+market had a rather sharp sell-off during October 1999. In previous years, when 
+there had been even more severe market declines (October 1997 or August-October 
+1998) $0EX actual volatility had briefly moved above implied volatility (this data for 
+1997 and 1998 is shown in Figure 36-9). In other words, option traders and market­
+makers are predicting volatility when they price options, and one tends to make a 
+FIGURE 36-9. 
+$OEX implied versus historical volatility, 1997-1998. 
+Actual 
+40 
+30 
+10 
+0 
+D J F M A 
+-20 1997 1998 
+===== PDF page index 794 =====
+Chapter 36: The Basics of Volatility Trading 743 
+prediction that is somewhat "middle of the road," since an extreme prediction is 
+more likely to be wrong. Of course, it turns out to be wrong anyway, since actual 
+volatility jumps around quite rapidly. 
+The few charts that have been presented here don't constitute a rigorous study 
+upon which to draw the conclusion that implied volatility is a poor predictor of actu­
+al volatility, but it is this author's firm opinion that that statement is true. A graduate 
+student looking for a master's thesis topic could take it from here. 
+VOLATILITY TRADING 
+As a result of the fact that implied volatility can sometimes be at irrational extremes, 
+options may sometimes trade with implied volatilities that are significantly out of line 
+with what one would normally expect. For example, suppose a stock is in a relatively 
+nonvolatile period, like the price of the stock in Figure 36-2, just before point A on 
+the graph. During that time, option sellers would probably become more aggressive 
+while option buyers, who probably have been seeing their previous purchases decay­
+ing with time, become more timid. As a result, option prices drop. Alternatively stat­
+ed, implied volatility drops. When implied volatilities are decreasing, option sellers 
+are generally happy (and may often become more aggressive), while option buyers 
+are losing money (and may often tend to become more timid). This is just a function 
+of looking at the profit and loss statements in one's option account. But anyone who 
+took a longer backward look at the volatility of the stock in Figure 36-2 would see that 
+it had been much more volatile in the past. Consequently, he might decide that the 
+implied volatility of the options had gotten too low and he would be a buyer of 
+options. 
+It is the volatility trader's objective to spot situations when implied volatility is 
+possibly or probably erroneous and to take a position that would profit when the 
+error is brought to light. Thus, the volatility trader's main objective is spotting situa­
+tions when implied volatility is overvalued or undervalued, irrespective of his outlook 
+for the underlying stock itself. In some ways, this is not so different from the funda­
+mental stock analyst who is attempting to spot overvalued or undervalued stocks, 
+based on earnings and other fundamentals. 
+From another viewpoint, volatility trading is also a contrarian theory of invest­
+ing. That is, when everyone else thinks the underlying is going to be nonvolatile, the 
+volatility trader buys volatility. When everyone else is selling options and option buy­
+ers are hard to find, the volatility trader steps up to buy options. Of course, some rig­
+orous analysis must be done before the volatility trader can establish new positions, 
+but when those situations come to light, it is most likely that he is taking positions 
+opposite to what "the masses" are doing. He will be buying volatility when the major-
+===== PDF page index 795 =====
+744 Part VI: Measuring and Trading Volatility 
+ity has been selling it (or at least, when the majority is refusing to buy it), and he will 
+be selling volatility when everyone else is panicking to buy options, making them 
+quite expensive. 
+WHY DOES VOLATILITY REACH EXTREMES? 
+One can't just buy every option that he considers to be cheap. There must be some 
+consideration given to what the probabilities of stock movement are. Even more 
+important, one can't just sell every option that he values as expensive. There may be 
+valid reasons why options become expensive, not the least of which is that someone 
+may have inside information about some forthcoming corporate news (a takeover or 
+an earnings surprise, for example). 
+Since options off er a good deal of leverage, they are an attractive vehicle to any­
+one who wants to make a quick trade, especially if that person believes he knows 
+something that the general public doesn't know. Thus, if there is a leak of a takeover 
+rumor - whether it be from corporate officers, investment bankers, printers, or 
+accountants - whoever possesses that information may quite likely buy options 
+aggressively, or at least bid for them. Whenever demand for an option outstrips sup­
+ply - in this case, the major supplier is probably the market-maker - the options 
+quickly get more expensive. That is, implied volatility increases. 
+In fact, there are financial analysts and reporters who look for large increases in 
+trading volume as a clue to which stocks might be ready to make a big move. 
+Invariably, if the trading volume has increased and if implied volatility has increased 
+as well, it is a good warning sign that someone with inside information is buying the 
+options. In such a case, it might not be a good idea to sell volatility, even though the 
+options are mathematically expensive. 
+Sometimes, even more minor news items are known in advance by a small seg­
+ment of the investing community. If those items will be enough to move the stock 
+even a couple of points, those who possess the information may try to buy options in 
+advance of the news. Such minor news items might include the resignation or firing 
+of a high-ranking corporate officer, or perhaps some strategic alliance with another 
+company, or even a new product announcement. 
+The seller of volatility can watch for two things as warning signs that perhaps 
+the options are "predicting" a corporate event (and hence should be avoided as a 
+"volatility sale"). Those two things are a dramatic increase in option volume or a sud­
+den jump in implied volatility of the options. One or both can be caused by traders 
+with inside information trying to obtain a leveraged instrument in advance of the 
+actual corporate news item being made public. 
+===== PDF page index 796 =====
+Chapter 36: The Basics of Volatility Trading 745 
+A SUDDEN INCREASE IN OPTION VOLUME OR IMPLIED VOLATILITY 
+The symptoms of insider trading, as evidenced by a large increase in option trading 
+activity, can be recognized. Typically, the majority of the increased volume occurs in 
+the near-term option series, particularly the at-the-money strike and perhaps the next 
+strike out-of-the-money. The activity doesn't cease there, however. It propagates out 
+to other option series as market-makers (who by the nature of their job function are 
+short the near-term options that those with insider knowledge are buying) snap up 
+everything on the books that they can find. In addition, the market-makers may try 
+to entice others, perhaps institutions, to sell some expensive calls against a portion of 
+their institutional stock holdings. Activity of this sort should be a warning sign to the 
+volatility seller to stand aside in this situation. 
+Of course, on any given day there are many stocks whose options are extraordi­
+narily active, but the increase in activity doesn't have anything to do with insider trad­
+ing. This might include a large covered call write or maybe a large put purchase 
+established by an institution as a hedge against an existing stock position, or a rela­
+tively large conversion or reversal arbitrage established by an arbitrageur, or even a 
+large spread transaction initiated by a hedge fund. In any of these cases, option vol­
+ume would jump dramatically, but it wouldn't mean that anyone had inside knowl­
+edge about a forthcoming corporate event. Rather, the increases in option trading 
+volume as described in this paragraph are merely functions of the normal workings 
+of the marketplace. 
+What distinguishes these arbitrage and hedging activities from the machina­
+tions of insider trading is: (1) There is little propagation of option volume into other 
+series in the "benign" case, and (2) the stock price itself may languish. However, 
+when true insider activity is present, the market-makers react to the aggressive 
+nature of the call buying. These market-makers know they need to hedge themselves, 
+because they do not want to be short naked call options in case a takeover bid or 
+some other news spurs the stock dramatically higher. As mentioned earlier, they try 
+to buy up any other options offered in "the book," but there may not be many of 
+those. So, as a last result, the way they reduce their negative position delta is to buy 
+stock. Thus, if the options are active and expensive, and if the stock is rising too, you 
+probably have a reasonably good indication that "someone knows something." 
+However, if the options are expensive but none of the other factors are present, espe­
+cially if the stock is declining in price - then one might feel more comfortable with a 
+strategy of selling volatility in this case. 
+However, there is a case in which options might be the object of pursuit by 
+someone with insider knowledge, yet not be accompanied by heavy trading volume. 
+This situation could occur with illiquid options. In this case, a floor broker holding 
+===== PDF page index 797 =====
+746 Part VI: Measuring and Trading Volatility 
+the order of those with insider information might come into the pit to buy options, 
+but the market-makers may not sell them many, preferring to raise their offering 
+price rather than sell a large quantity. If this happens a few times in a row, the options 
+will have gotten very expensive as the floor broker raises his bid price repeatedly, but 
+only buys a few contracts each time. Meanwhile, the market-maker keeps raising his 
+offering price. 
+Eventually, the floor broker concludes that the options are too expensive to 
+bother with and walks away. Perhaps his client then buys stock. In any case, what has 
+happened is that the options have gotten very expensive as the bids and offers were 
+repeatedly raised, but not much option volume was actually traded because of the 
+illiquidity of the contracts. Hence the normal warning light associated with a sudden 
+increase in option volume would not be present. In this case, though, a volatility sell­
+er should still be careful, because he does not want to step in to sell calls right before 
+some major corporate news item is released. The clue here is that implied volatility 
+literally exploded in a short period of time (one day, or actually less time), and that 
+alone should be enough warning to a volatility seller. 
+The point that should be taken here is that when options suddenly become very 
+expensive, especially if accompanied by strong stock price movement and strong 
+stock volume, there may very well be a good reason why that is happening. That rea­
+son will probably become public knowledge shortly in the form of a news event. In 
+fact, a major market-maker once said he believed that rrwst increases in implied 
+volatility were eventually justified - that is, some corporate news item was released 
+that made the stock jump. Hence, a volatility seller should avoid situations such as 
+these. Any sudden increase in implied volatility should probably be viewed as a 
+potential news story in the making. These situations are not what a neutral volatility 
+seller wants to get into. 
+On the other hand, if options have become expensive as a result of corporate 
+news, then the volatility seller can feel more comfortable making a trade. Perhaps the 
+company has announced poor earnings and the stock has taken a beating while 
+implied volatility rose. In this situation, one can assess the information and analyze it 
+clearly; he is not dealing with some hidden facts known to only a few insider traders. 
+With clear analysis, one might be able to develop a volatility selling strategy that is 
+prudent and potentially profitable. 
+Another situation in which options become expensive in the wake of market 
+action is during a bear market in the underlying. This can be true for indices, stocks, 
+and futures contracts. The Crash of '87 is an extreme example, but implied volatility 
+shot through the roof during the crash. Other similar sharp market collapses - such 
+as October 1989, October 1997, and August-September 1998 - caused implied 
+volatility to jump dramatically. In these situations, the volatility seller knows why 
+===== PDF page index 798 =====
+Chapter 31,: 1be Basics of Volatility Trading 747 
+implied volatility is high. Given that fact, he can then construct positions around a 
+neutral strategy or around his view of the future. The time when the volatility seller 
+must be careful is when the options are expensive and no one seems to know why. 
+That's when insider trading may be present, and that's when the volatility seller 
+should defer from selling options. 
+CHEAP OPTIONS 
+When options are cheap, there are usually far less discernible reasons why they have 
+become cheap. An obvious one may be that the corporate structure of the company 
+has changed; perhaps it is being taken over, or perhaps the company· has acquired 
+another company nearly its size. In either case, it is possible that the combined enti­
+ty's stock will be less volatile than the original company's stock was. As the takeover 
+is in the process of being consummated, the implied volatility of the company's 
+options will drop, giving the false impression that they are cheap. 
+In a similar vein, a company may mature, perhaps issuing more shares of stock, 
+or perhaps building such a.., good earnings stream that the stock is considered less 
+volatile than it formerly was. Some of the Internet companies will be classic cases: In 
+the beginning they were high-flying stocks with plenty of price movement, so the 
+options traded with a relatively high degree of implied volatility. However, as the com­
+pany matures, it buys other Internet companies and then perhaps even merges with a 
+large, established company (America Online and Time-Warner Communications, for 
+example). In these cases, actual (statistical) volatility will diminish as the company 
+matures, and implied volatility will do the same. On the surface, a buyer of volatility 
+may see the reduced volatility as an attractive buying situation, but upon further 
+inspection he may find that it is justified. If the decrease in implied volatility seems 
+justified, a buyer of volatility should ignore it and look for other opportunities. 
+All volatility traders should be suspicious when volatility seems to be extreme -
+either too expensive or too cheap. The trader should investigate the possibilities as to 
+why volatility is trading at such extreme levels. In some cases, the supply and demand 
+of the public just pushes the options to extreme levels; there is nothing more involved 
+than that. Those are the best volatility trading situations. However, if there is a hint 
+that the volatility has gotten to an extreme reading because of some logical (but per­
+haps nonpublic) reason, then the volatility trader should be suspicious and should 
+probably avoid the trade. Typically this happens with expensive options. 
+Buyers of volatility really have little to fear if they miscalculate and thus buy an 
+option that appears inexpensive but turns out not to be, in reality. The volatility buyer 
+might lose money if he does this, and overpaying for options constantly will lead to 
+ruin, but an occasional mistake will probably not be fatal. 
+===== PDF page index 799 =====
+748 Part VI: Measuring and Trading Volatility 
+Sellers of volatility, however, have to be a lot more careful. One mistake could 
+be the last one. Selling naked calls that seem terrifically expensive by historic stan­
+dards could be ruinous if a takeover bid subsequently emerges at a large premium to 
+the stock's current price. Even put sellers must be careful, although a lot of traders 
+think that selling naked puts is safe because it's the same as buying stock. But who 
+ever said buying stock wasn't risky? If the stock literally collapses - falling from 80, 
+say, to 15 or 20, as Oxford Health did, or from 30 to 2 as Sunrise Technology did -
+then a put seller will be buried. Since the risk of loss from naked option selling is 
+large, one could be wiped out by a huge gap opening. That's why it's imperative to 
+study why the options are expensive before one sells them. If it's known, for exam­
+ple, that a small biotech company is awaiting FDA trial results in two weeks,~and all 
+the options suddenly become expensive, the volatility seller should not attempt to be 
+a hero. It's obvious that at least some traders believe that there is a chance for the 
+stock to gap in price dramatically. It would be better to find some other situation in 
+which to sell options. 
+The seller of futures options or index options should be cautious too, although 
+there can't be takeovers in those markets, nor can there be a huge earnings surprise 
+or other corporate event that causes a big gap. The futures markets, though do have 
+things like crop reports and government economic data to deal with, and those can 
+create volatile situations, too. The bottom line is that volatility selling - even hedged 
+volatility selling - can be taxing and aggravating if one has sold volatility in front of 
+what turns out to be a news item that justifies the expensive volatility. 
+SUMMARY 
+Volatility trading is a predictable way to approach the market, because volatility 
+almost invariably trades in a range and therefore its value can be estimated with a 
+great deal more precision than can the actual prices of the underlyings. Even so, one 
+must be careful in his approach to volatility trading, because diligent research is 
+needed to determine if, in fact, volatility is "cheap" or "expensive." As with any sys­
+tematic approach to the market, if one is sloppy about his research, he cannot expect 
+to achieve superior results. In the next few chapters, a good deal of time will be spent 
+to give the reader a good understanding of how volatility affects positions and how it 
+can be used to construct trades with positive expected rates of return. 
+===== PDF page index 800 =====
+· GHAR:f ER :8'7 . . -
+How Volatility Affects 
+Popular Strategies 
+The previous chapter addressed the calculation or interpretation of implied volatili­
+ty, and how to relate it to historic volatility. Another, related topic that is important is 
+how implied volatility affects a specific option strategy. Simplistically, one might think 
+that the effect of a change in implied volatility on an option position would be a sim­
+ple matter to discern; but in reality, most traders don't have a complete grasp of the 
+ways that volatility affects option positions. In some cases, especially option spreads 
+or more complex positions, one may not have an intuitive "picture" of how his posi­
+tion is going to be affected by a change in implied volatility. In this chapter, we'll 
+attempt a relatively thorough review of how implied volatility changes affect most of 
+the popular option strategies. 
+There are ways to use computer analysis to "draw" a picture of this volatiiity 
+effect, of course, and that will be discussed momentarily. But an option strategist 
+should have some idea of the general changes that a position will undergo if implied 
+volatility changes. Before getting into the individual strategies, it is important that 
+one understands some of the basics of the effect of volatility on an option's price. 
+VEGA 
+Technically speaking, the term that one uses to quantify the impact of volatility 
+changes on the price of an option is called the vega of the option. In this chapter, the 
+references will be to vega, but the emphasis here is on practicality, so the descriptions 
+749 

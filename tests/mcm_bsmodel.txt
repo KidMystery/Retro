@@ -1,0 +1,417 @@
+
+===== PDF page index 495 =====
+CHAPTER 28 
+Mathetnatical Applications 
+In previous chapters, many references have been made to the possibility of applying 
+mathematical techniques to option strategies. Those techniques are developed in this 
+chapter. Although the average investor - public, institutional, or floor trader - nor­
+mally has a limited grasp of advanced mathematics, the information in this chapter 
+should still prove useful. It will allow the investor to see what sorts of strategy deci­
+sions could be aided by the use of mathematics. It will allow the investor to evaluate 
+techniques of an information service. Additionally, if the investor is contemplating 
+hiring someone knowledgeable in mathematics to do work for him, the information 
+to be presented may be useful as a focal point for the work. The investor who does 
+have a knowledge of mathematics and also has access to a computer will be able to 
+directly use the techniques in this chapter. 
+THE BLACK-SCHOLES MODEL 
+Since an option's price is the function of stock price, striking price, volatility, time to 
+expiration, and short-term interest rates, it is logical that a formula could be drawn 
+up to calculate option prices from these variables. Many models have been conceived 
+since listed options began trading in 1973. Many of these have been attempts to 
+improve on one of the first models introduced, the Black-Scholes model. This model 
+was introduced in early 1973, very near the time when listed options began trading. 
+It was made public at that time and, as a result, gained a rather large number of 
+adherents. The formula is rather easy to use in that the equations are short and the 
+number of variables is small. 
+The actual formula is: 
+456 
+===== PDF page index 496 =====
+Chapter 28: Mathematical Applications 
+Theoretical option price= pN(d 1) se-rtN(d2) 
+p v2 
+ln(8 )+ (r +2 )t 
+where d1 = _ r. 
+V-4 t 
+d2 = d1 - v--ft 
+The variables are: 
+p = stock price 
+s = striking price 
+t = time remaining until expiration, expressed as a percent of a year 
+r = current risk-free interest rate 
+v = volatility measured by annual standard deviation 
+ln = natural logarithm 
+N(x) = cumulative normal density function 
+457 
+An important by-product of the model is the exact calculation of the delta - that 
+is, the amount by which the option price can be expected to change for a small 
+change in the stock price. The delta was described in Chapter 3 on call buying, and 
+is more formally known as the hedge ratio. 
+Delta= N(d1) 
+The formula is so simple to use that it can fit quite easily on most programmable cal­
+culators. In fact, some of these calculators can be observed on the exchange floors as 
+the more theoretical floor traders attempt to monitor the present value of option pre­
+miums. Of course, a computer can handle the calculations easily and with great 
+speed. A large number of Black-Scholes computations can be performed in a very 
+short period of time. 
+The cumulative normal distribution function can be found in tabular form in 
+most statistical books. However, for computation purposes, it would be wasteful to 
+repeatedly look up values in a table. Since the normal curve is a smooth curve (it is 
+the "bell-shaped" curve used most commonly to describe population distributions), 
+the cumulative distribution can be approximated by a formula: 
+x = l-z(l.330274y 5 - l.821256y 4 + l.781478y 3 - .356538y 2 + .3193815y) 
+where y 1 and z = .3989423e-<r212 
+= 1 + .2316419lcrl 
+Then N(cr) = x if cr > 0 or N(cr) = 1- x if cr < 0 
+===== PDF page index 497 =====
+458 Part IV: Additional Considerations 
+This approximation is quite accurate for option pricing purposes, since one is not 
+really interested in thousandths of a point where option prices are concerned. 
+Example: Suppose that XYZ is trading at 45 and we are interested in evaluating the 
+July 50 call, which has 60 days remaining until expiration. Furthermore, assume that 
+the volatility of XYZ is 30% and that the risk-free interest rate is currently 10%. The 
+theoretical value calculation is shown in detail, in order that those readers who wish 
+to program the model will have something to compare their calculations against. 
+page: 
+Initially, determine t, d1, and d2, by referring to the formulae on the previous 
+t = 60/365 = .16438 years 
+d _ In (45/50) + (.1 + .3 x .3/2) x .16438 
+1-
+.3 X ✓ .16438 
+= -.10536 + (.145 X .16438) = __ 67025 .3 X .40544 
+d2 = -.67025 - .3 ✓ .16438 = -.67025 - (.3 x .40544) = -.79189 
+Now calculate the cumulative normal distribution function for d1 and d2 by 
+referring to the above formulae: 
+dl = -.67025 
+l 1 
+y = l + (.2316419 I -.67025 I) = 1.15526 = ·86561 
+z = .3989423e--(-.67025 X -.67025)/2 
+= .3989423e-0·22462 = .31868 
+There are too many calculations involved in the computation of the fifth-order 
+polynomial to display them here. Only the result is given: 
+X = .74865 
+Since we are determining the cumulative normal distribution of a negative 
+number, the distribution is determined by subtracting x from l. 
+N(d1) = N(-.67O25) = l -x = l - .74865 = .25134 
+In a similar manner, which requires computing new values for x, y, and z, 
+N(d2) = N(-.79179) = 1- .78579 = .21421 
+===== PDF page index 498 =====
+Chapter 28: Mathematical Applications 459 
+Now, returning to the formula for theoretical option price, we can complete the 
+calculation of the July 50 call's theoretical value, called value here for short: 
+value = 45 x N(d1) - 50 x e-·1 x ·16438 x N(d2) 
+= 45 X .25134 - 50 X .9837 X .21421 
+= .7746 
+Thus, the theoretical value of the July 50 call is just slightly over¼ of a point. 
+Note that the delta of the call was calculated along the way as N(d1) and is equal to 
+just over .25. That is, the July 50 call will change price about¼ as fast as the stock 
+for a small price change by the stock. 
+This example should answer many of the questions that readers of the first edi­
+tion have posed. The reader interested in a more in-depth description of the model, 
+possibly including the actual derivation, should refer to the article "Fact and Fantasy 
+in the Use of Options." 1 One of the less obvious relationships in the model is that call 
+option prices will increase (and put option prices will decrease) as the risk-free inter­
+est rate increases. It may also be observed that the model correctly preserves rela­
+tionships such as increased volatility, higher stock prices, or more time to expiration, 
+which all imply higher option prices. 
+CHARACTERISTICS Of THE MODEL 
+Several aspects of this model are worth further discussion. First, the reader will 
+notice that the model does not include dividends paid by the common stock. As has 
+been demonstrated, dividends act as a negative effect on call prices. Thus, direct 
+application of the model will tend to give inflated call prices, especially on stocks that 
+pay relatively large dividends. There are ways of handling this. Fisher Black, one of 
+the coauthors of the model, suggested the following method: Adjust the stock price 
+to be used in the formula by subtracting, from the current stock price, the present 
+worth of the dividends likely to be paid before maturity. Then calculate the option. 
+price. Second, assume that the option expires just prior to the last ex-dividend date 
+preceding actual option expiration. Again adjust the stock price and calculate the 
+option price. Use the higher of the two option prices calculated as the theoretical 
+price. 
+Another, less exact, method is to apply a weighting factor to call prices. The 
+weighting factor would be based on the dividend payment, with a heavier weight 
+being applied to call options on high-yielding stock. It should be pointed out that, in 
+1Fisher Black, Financial Analysts Journal, July-August 1975, pp. 36-70. 
+===== PDF page index 499 =====
+460 Part IV: Additional Considerations 
+many of the applications that are going to be prescribed, it is not necessary to know 
+the exact theoretical price of the call. Therefore, the dividend "correction" might not 
+have to be applied for certain strategy decisions. 
+The model is based on a lognormal distribution of stock prices. Even though the 
+normal distribution is part of the model, the inclusion of the exponential functions 
+makes the distribution lognormal. For those less familiar with statistics, a normal dis­
+tribution has a bell-shaped curve. This is the most familiar mathematical distribution. 
+The problem with using a normal distribution is that it allows for negative stock 
+prices, an impossible occurrence. Therefore, the lognormal distribution is generally 
+used for stock prices, because it implies that the stock price can have a range only 
+between zero and infinity. Furthermore, the upward (bullish) bias of the lognormal 
+distribution appears to be logically correct, since a stock can drop only 100% but can 
+rise in price by more than 100%. Many option pricing models that antedate the 
+Black-Scholes model have attempted to use empirical distributions. An empirical 
+distribution has a different shape than either the normal or the lognormal distribu­
+tion. Reasonable empirical distributions for stock prices do not differ tremendously 
+from the lognormal distribution, although they often assume that a stock has a 
+greater probability of remaining stable than does the lognormal distribution. Critics 
+of the Black-Scholes model claim that, largely because it uses the lognormal distri­
+bution, the model tends to overprice in-the-money calls and underprice out-of-the­
+money calls. This criticism is true in some cases, but does not materially subtract 
+from many applications of the model in strategy decisions. True, if one is going to buy 
+or sell calls solely on the basis of their computed value, this would create a large prob­
+lem. However, if strategy decisions are to be made based on other factors that out­
+weigh the overpriced/underpriced criteria, small differentials will not matter. 
+The computation of volatility is always a difficult problem for mathematical 
+application. In the Black-Scholes model, volatility is defined as the annual standard 
+deviation of the stock price. This is the regular statistical definition of standard devi­
+ation: 
+where 
+P = average stock price of all P/s 
+Pi = daily stock price 
+n 
+~ (Pi -P)2 
+cr2 = _1=_1 __ _ 
+n-1 
+v = a!P 
+===== PDF page index 500 =====
+Chapter 28: Mathematical Applications 461 
+n = number of days observed 
+v = volatility 
+When volatility is computed using past stock prices, it is called a historical 
+volatility. The volatilities of stocks tend to change over time. Certain predictable fac­
+tors, such as a large stock split increasing the float of the stock, can reduce the volatil­
+ity. The entry of a company into a more speculative area of business may increase the 
+volatility. Other, less well-defined factors can alter the volatility as well. Since the 
+volatility is a very crucial element of the pricing model, it is important that the mod­
+eler use a reasonable estimate of the current volatility. It has become apparent that 
+an annual standard deviation is not accurate, because it encompasses too long a peri­
+od of time. Recent efforts by many modelers have suggested that one should perhaps 
+weight the recent stock price action more heavily than older price action in arriving 
+at a current volatility. This is a possible approach, but the computation of such fac­
+tors may introduce as much error as using the annual standard deviation does. The 
+problem of accurately computing the volatility is critical, because the model is so sen­
+sitive to it. 
+Computing Lognormal Historical Volatility. The above calculation does 
+not give the proper input for the Black-Scholes model because the model assumes 
+that the logarithms of changes in price are normally distributed, not the prices them­
+selves. That is, the term Pi in the above formula should be changed. 
+Example: XYZ closed at 51 today and at 50 yesterday. Thus, its percentage change 
+for the day is 51/50 = 1.02. The natural logarithm of 1.02 is then based on the volatil­
+ity formula: 
+ln(51/50) = ln(l.02) = 0.0198 
+This is similar to saying that arithmetically the stock was up 2% today, but on a 
+lognormal basis, it was only up 1.98% 
+If the stock is down, this method will yield a negative number. Suppose that on 
+the following day, XYZ declined from 51 back to 50. The number to use in the volatil­
+ity formula would then be: 
+ln(50/51) = ln(0.9804) = -0.0198 
+===== PDF page index 501 =====
+462 Part IV: Additional Considerations 
+A new equation can now be formulated using this concept. It will yield volatili­
+ties that are consistent with the Black-Scholes model: 
+V= 
+n I 
+where Xi = ln(P /Pi _1); Pi = closing price on day i and X = the average of the X/s over 
+the desired number of days. 
+So to compute a IO-day historical volatility, one would need 11 observations. In 
+the following example, do not be concerned with the complete details if you do not 
+plan to compute the volatilities yourself; they are provided for the mathematician or 
+programmer who needs to check his work: 
+Day XYZ Stock P./P. 1 I I- X-=ln(P./P. 1) I I I- (X.-X)2 
+I 
+1 153.875 
+2 153.625 .9984 -.0016 .000020 
+3 151 .9829 -.0172 .000405 
+4 146 .9669 -.0337 .001336 
+5 144.125 .9872 -.0129 .000250 
+6 147.25 1.0217 .0215 .000345 
+7 146.25 .9932 -.0068 .000094 
+8 149.5 1.0222 .0220 .000365 
+9 152.5 1.0201 .0199 .000289 
+10 158.625 1.0402 .0394 .001332 
+1 1 158.375 0.9984 -.0016 .000020 
+AVG: 0.0028825 :l;: 0.004455 
+The average of the Ins (4th column) over the 10 days is 0.00288. 
+The difference of each In from the mean, squared, is then summed (5th col­
+umn). For example, for day 1 the term is (- .0016- .00288)2 = .00002. This is the top 
+number in the far right-hand column. This process can be computed for each num­
+ber in the "In" column. The sum of all these terms is 0.004455. 
+Nowv = ✓ (.004455/9) = 0.022249 
+This is a IO-day volatility. To convert it into an annual volatility, we need to mul­
+tiply by the square root of the number of trading days in a year. Since there are 
+approximately 260 trading days in a year, the final volatility would be: 
+V = 0.022249 X ✓ (260) = 0.3587 
+Thus, one could say that the volatility of XYZ is 36% on an annualized basis. 
+===== PDF page index 502 =====
+Chapter 28: Mathematical Applications 463 
+This is then the proper way to calculate historical volatility. Obviously, the 
+strategist can calculate 10-, 20-, and 50-day and annual volatilities if he wishes - or 
+any other number for that matter. In certain cases, one can discern valuable infor­
+mation about a stock or future and its options by seeing how the various volatilities 
+compare with one another. 
+There is, in fact, a way in which the strategist can let the market compute the 
+volatility for him. This is called using the implied volatility; that is, the volatility that 
+the market itself is implying. This concept makes the assumption that, for options 
+with striking prices close to the current stock price and for options with relatively 
+large trading volume, the market is fairly priced. This is something like an efficient 
+market hypothesis. If there is enough trading interest in an option that is close to the 
+money, that option will generally be fairly priced. Once this assumption has been 
+made, a corollary arises: If the actual price of an option is the fair price, it can be fixed 
+in the Black-Scholes equation while letting volatility be the unknown variable. The 
+volatility can be determined by iteration. In fact, this process of iterating to compute 
+the volatility can be done for each option on a particular underlying stock This might 
+result in several different volatilities for the stock If one weights these various results 
+by volume of trading and by distance in- or out-of-the-money, a single volatility can 
+be derived for the underlying stock This volatility is based on the closing price of all 
+the options on the underlying stock for that given day. 
+Example: XYZ is at 33 and the closing prices are given in Table 28-1. Each option 
+has a different implied volatility, as computed by determining what volatility in the 
+Black-Scholes model would result in the closing price for each option: That is, if .34 
+were used as the volatility, the model would give 4¼ as the price of the January 30 
+call. In order to rationally combine these volatilities, weighting factors must be 
+applied before a volatility for XYZ stock itself can be arrived at. 
+The weighting factors for volume are easy to compute. The factor for each 
+option is merely that option's daily volume divided by the total option volume on all 
+XYZ options (Table 28-2). The weighting functions for distance from the striking 
+price should probably not be linear. For example, if one option is 2 points out-of-the­
+money and another is 4 points out-of-the-money, the former option should not nec­
+essarily get twice as much weight as the latter. Once an option is too far in- or out-of­
+the-money, it should not be given much or any weight at all, regardless of its trading 
+volume. Any parabolic function of the following form should suffice: 
+{ 
+(x - a)2 if xis less than a 
+Weighting factor = -;;,r-
+= 0 if x is greater than a 
+===== PDF page index 503 =====
+464 Part IV: Additional Considerations 
+TABLE 28-1. 
+Implied volatilities, closing price, and volume. 
+Option 
+Option Price Volume 
+January 30 41/2 
+January 35 11/2 
+April 35 21/2 
+April 40 11/2 
+TABLE 28-2. 
+Volume weighting factors. 
+Option 
+January 30 
+January 35 
+April 35 
+April 40 
+Volume 
+50 
+90 
+55 
+5 
+50 
+90 
+55 
+~ 
+200 
+Implied 
+Volatility 
+.34 
+.28 
+.30 
+.38 
+Volume Weighting Factor 
+.25 (50/200) 
+.45 (90/200) 
+.275 (55/200) 
+.025 ( 5/200) 
+where x is the percentage distance between stock price and strike price and a is the 
+maximum percentage distance at which the modeler wants to give any weight at all 
+to the option's implied volatility. 
+Example: An investor decides that he wants to discard options from the weighting 
+criterion that have striking prices more than 25% from the current stock price. The 
+variable, a, would then be equal to .25. The weighting factors, with XYZ at 33, could 
+thus be computed as shown in Table 28-3. To combine the weighting factors for both 
+volume and distance from strike, the two factors are multiplied by the implied volatil­
+ity for that option. These products are summed up for all the options in question. 
+This sum is then divided by the products of the weighting factors, summed over all 
+the options in question. As a formula, this would read: 
+Implied _ I,(Volume factor x Distance factor x Implied volatility) 
+volatility - I,(Volume factor x Distance factor) 
+In our example, this would give an implied volatility for XYZ stock of 29.8% 
+(Table 28-4). Note that the implied volatility, .298, is not equal to any of the individ-
+===== PDF page index 504 =====
+Chapter 28: Mathematical Applications 
+TABLE 28-3. 
+Distance weighting factors. 
+465 
+Option 
+Distonce 
+from 
+Stock Price 
+Distance 
+Weighting Factor 
+January 30 
+January 35 
+April 35 
+April 40 
+TABLE 28-4. 
+Option's implied volatility. 
+.091 (3/33) 
+.061 (2/33) 
+.061 (2/33) 
+.212 (7 /33) 
+.41 
+.57 
+.57 
+.02 
+Volume Distance Option's Implied 
+Option Factor Factor Volotility 
+January 30 .25 .41 .34 
+January 35 .45 .57 .28 
+April 35 .275 .57 .30 
+April40 .025 .02 .38 
+Implied = .25 x .41 x .34 + .45 x .57 x .28 + .275 x .57 x .30 + .025 x .02 x .38 
+volatility. .25 x .41 + .45 x .57 + .275 x .57 + .025 x .02 
+= .298 
+ual option's implied volatilities. Rather, it is a composite figure that gives the most 
+weight to the heavily traded, near-the-money options, and very little weight to the 
+lightly-traded (5 contracts), deeply out-of-the-money April 40 call. This implied 
+volatility is still a form of standard deviation, and can thus be used whenever a stan­
+dard deviation volatility is called for. 
+This method of computing volatility is quite accurate and proves to be sensitive 
+to changes in the volatility of a stock. For example, as markets become bullish or 
+bearish (generating large rallies or declines), most stocks will react in a volatile man­
+ner as well. Option premiums expand rather quickly, and this method of implied 
+volatility is able to pick up the change quickly. One last bit of fine-tuning needs to be 
+done before the final volatility of the stock is arrived at. On a day-to-day basis, the 
+implied volatility for a stock - especially one whose options are not too active may 
+fluctuate more than the strategist would like. A smoothing effect can be obtained by 
+===== PDF page index 505 =====
+466 Part IV: Additional Considerations 
+taking a moving average of the last 20 or 30 days' implied volatilities. An alternative 
+that does not require the saving of many previous days' worth of data is to use a 
+momentum calculation on the implied volatility. For example, today's final volatility 
+might be computed by adding 5% of today's implied volatility to 95% of yesterday's 
+final volatility. This method requires saving only one previous piece of data - yester­
+day's final volatility - and still preserves a "smoothing" effect. 
+Once this implied volatility has been computed, it can then be used in the 
+Black-Scholes model ( or any other model) as the volatility variable. Thus one could 
+compute the theoretical value of each option according to the Black-Scholes formu­
+la, utilizing the implied volatility for the stock. Since the implied volatility for the 
+stock will most likely be somewhat different from the implied volatility of this par­
+ticular option, there will be a discrepancy between the option's actual closing price 
+and the theoretical price as computed by the model. This differential represents the 
+amount by which the option is theoretically overpriced or underpriced, compared to 
+other options on that same stock. 
+EXPECTED RETURN 
+Certain investors will enter positions only when the historical percentages are on 
+their side. When one enters into a transaction, he normally has a belief as to the pos­
+sibility of making a profit. For example, when he buys stock he may think that there 
+is a "good chance" that there will be a rally or that earnings will increase. The investor 
+may consciously or unconsciously evaluate the probabilities, but invariably, an invest­
+ment is made based on a positive expectation of profit. Since options have fixed 
+terms, they lend themselves to a more rigorous computation of expected profit than 
+the aforementioned intuitive appraisal. This more rigorous approach consists of com­
+puting the expected return. The expected retum is nothing more than the retum that 
+the position should yield over a large number of cases. 
+A simple example may help to explain the concept. The crucial variable in com­
+puting expected return is to outline what the chances are of the stock being at a cer­
+tain price at some future time. 
+Example: XYZ is selling at 33, and an investor is interested in determining where 
+XYZ will be in 6 months. Assume that there is a 20% chance of XYZ being below 30 
+in 6 months, and that there is a 40% chance that XYZ will be above 35 in 6 months. 
+Finally, assume that XYZ has an equal 10% chance of being at 31, 32, 33, or 34 in 6 
+months. All other prices are ignored for simplification. Table 28-5 summarizes these 
+assumptions. 

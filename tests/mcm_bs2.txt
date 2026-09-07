@@ -1,0 +1,131 @@
+
+===== PDF page index 254 =====
+Chapter 12: Combining Calendar and Ratio Spreads 
+FOLLOW-UP ACTION 
+229 
+If one decides to preserve a neutral strategy with follow-up action in either type of 
+ratio call calendar, he would merely need to look at the deltas of the calls and keep 
+the ratio neutral. Doing so might mean that one would switch from one type of cal­
+endar spread to the other, from the out-of-the-money with naked calls to the in-the­
+money with extra long calls, or vice versa. For example, if XYZ started at 45, as in the 
+first example, one would have sold more calls than he bought. If XYZ then rallied 
+above 50, he would have to move his position into the in-the-money ratio and get 
+long more calls than he is short. 
+While such follow-up action is strategically correct maintaining the neutral 
+ratio - it might not make sense practically, especially if the size of the original spread 
+were small. If one had originally sold 5 and bought 3, he would be better to adhere 
+to the follow-up strategy outlined earlier in this chapter. The spread is not large 
+enough to dictate adjusting via the delta-neutral ratios. If, however, a large trader had 
+originally sold 500 calls and bought 300, then he has enough profitability in the 
+spread to make several adjustments along the way. 
+In a similar manner, the spreader who had established a small in-the-money cal­
+endar might decide not to bother rationing the spread if the stock dropped below the 
+strike. He knows his risk is limited to his initial debit, and that would be small for a 
+small spread. He might not want to introduce naked options into the position if XYZ 
+declines. However, if the same spread were established by a large trader, it should be 
+adjusted because of the greater tolerance of the spread to being adjusted, merely 
+because of its size. 
+===== PDF page index 255 =====
+Reverse Spreads 
+In general, when a strategy has the term "reverse" in its name, the strategy is the 
+opposite of a more commonly used strategy. The reader should be familiar with this 
+nomenclature from the earlier discussions comparing ratio writing (buying stock and 
+selling calls) with reverse hedging (shorting stock and buying calls). If the reverse 
+strategy is sufficiently well-known, it usually acquires a name of its own. For exam­
+ple, the bear spread is really the reverse of the bull spread, but the bear spread is a 
+popular enough strategy in its own right to have acquired a shorter, unique name. 
+REVERSE CALENDAR SPREAD 
+The reverse calendar spread is an infrequently used strategy, at least for public cus­
+tomers trading stock or index options, because of the margin requirements. However, 
+even then, it does have a place in the arsenal of the option strategist. Meanwhile, pro­
+fessionals and futures option traders use the strategy with more frequency because 
+the margin treatment is more favorable for them. 
+As its name implies, the reverse calendar spread is a position that is just the 
+opposite of a "normal" calendar spread. In the reverse calendar spread, one sells a 
+long-term call option and simultaneously buys a shorter-term call option. The spread 
+can be constructed with puts as well, as will be shown in a later chapter. Both calls 
+have the same striking price. 
+This strategy will make money if one of two things happens: Either (1) the stock 
+price moves away from the striking price by a great deal, or (2) the inplied volatility 
+of the options involved in the spread shrinks. For readers familiar with the "normal" 
+calendar spread strategy, the first way to profit should be obvious, because a "normal" 
+230 
+===== PDF page index 256 =====
+Chapter 13: Reverse Spreads 231 
+calendar spread makes the most money if the stock is right at the strike price at expi­
+ration, and it loses money if the stock rises or falls too far. 
+As with any spread involving options expiring in differing months, it is common 
+practice to look at the profitability of the position at or before the near-term expira­
+tion. An example will show how this strategy can profit. 
+Example: Suppose the current month is April and that XYZ is trading at 80. 
+Furthermore, suppose that XYZ's options are quite expensive, and one believes the 
+underlying stock will be volatile. A reverse calendar spread would be a way to profit 
+from these assumptions. The following prices exist: 
+XYZ December 80 call: 12 
+XYZ July 80 call: 7 
+A reverse calendar spread is established by selling the December 80 call for 12 
+points, and buying the July 80 call for 7, a net credit of 5 points for the spread. 
+If, later, XYZ falls dramatically, both call options will be nearly worthless and the 
+spread could be bought back for a price well below 5. For example, if XYZ were to 
+fall to 50 in a month or so, the July 80 call would be nearly worthless and the 
+December 80 call could be bought back for about a point. Thus, the spread would 
+have shrunk from its initial price of 5 to a price of about 1, a profit of 4 points. 
+The other way to make money would be for implied volatility to decrease. 
+Suppose implied volatility dropped after a month had passed. Then the spread might 
+be worth something like 4 points - an unrealized profit of about 1 point, since it was 
+sold for a price of 5 initially. 
+The profit graph in Figure 13-1 shows the profitability of the reverse calendar. 
+There are two lines on the graph, both of which depict the results at the expiration 
+of the near-term option (the July 80 call in the above example). The lower line shows 
+where profits and losses would occur if implied volatility remained unchanged. You 
+can see that the position could profit if XYZ were to rise above 98 or fall below 70. 
+In addition, the higher curve on the graph shows where profits would lie if implied 
+volatility fell prior to expiration of the near-term options. In that case, additional prof­
+its would accrue, as depicted on the graph. 
+So there are two ways to make money with this strategy, and it is therefore best 
+to establish it when implied volatility is high and the underlying has a tendency to be 
+volatile. 
+The problem with this spread, for stock and index option traders, is that the call 
+that is sold is considered to be naked. This is preposterous, of course, since the short­
+term call is a perfectly valid hedge until it expires. Yet the margin requirements 
+remain onerous. When they were overhauled recently, this glaring inefficiency was 
+===== PDF page index 257 =====
+232 Part II: Call Option Strategies 
+Figure 13-1 • 
+Calendar spread sale at near-term expiration. 
+$400 
+$300 
+Implied Volatility 
+Lower 
+$200 \ 
+f/) 
+$100 f/) 
+0 
+~ 
+$0 50 60 110 120 
+a. -$100 
+-$200 
+-$300 
+Implied Volatility 
+-$400 Remains High 
+-$500 
+Underlying Price 
+allowed to stand because none of the member firms cared about changing it. Still, if 
+one has excess collateral - perhaps from a large stock portfolio - and is interested in 
+generating excess income in a hedged manner, then the strategy might be applicable 
+for him as well. Futures option traders receive more favorable margin requirements, 
+and it thus might be a more economical strategy for them. 
+REVERSE RATIO SPREAD (BACKSPREAD) 
+A more popular reverse strategy is the reverse ratio call spread, which is comrrwnly 
+known as a backspread. In this type of spread, one would sell a call at one striking 
+price and then would buy several calls at a higher striking price. This is exactly the 
+opposite of the ratio spread described in Chapter 11. Some traders refer to any 
+spread with unlimited profit potential on at least one side as a backspread. Thus, in 
+most backspreading strategies, the spreader wants the stock to rrwve dramatically. He 
+does not generally care whether it moves up or down. Recall that in the reverse 
+hedge strategy (similar to a straddle buy) described in Chapter 4, the strategist had 
+the potential for large profits if the stock moved either up or down by a great deal. 
+In the backspread strategy discussed here, large potential profits exist if the stock 
+moves up dramatically, but there is limited profit potential to the downside. 
+Example: XYZ is selling for 43 and the July 40 call is at 4, with the July 45 call at l. 
+A reverse ratio spread would be established as follows: · 

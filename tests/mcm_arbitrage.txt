@@ -1,0 +1,394 @@
+
+===== PDF page index 440 =====
+Chapter 25: LEAPS 401 
+LEAPS calls may help to alleviate this problem. Since they are such long-term 
+calls, they are likely to have some time value premium in them. In-the-money calls that 
+have time value premium are not normally assigned. As an alternative to shorting a 
+stock that is not borrowable, one might try to sell an in-the-money LEAPS call, but 
+only if it has time value premium remaining. Just because the call has a long time 
+remaining until expiration does not mean that it must have time value premium, as will 
+be seen in the following discussion. Finally, if one does sell the LEAPS call, he must 
+realize that if the stock drops, the LEAPS call will not follow it completely. As the stock 
+nears the strike, the amount of time value premium will build up to an even greater 
+level in the LEAPS. Still, the naked call seller would make some profit in that case, and 
+it presents a better alternative than not being able to sell the stock short at all. 
+Early Assignment. An American-style option is one that can be exercised at any 
+time during its life. All listed equity options, LEAPS included, are of this variety. 
+Thus, any in-the-money option that has been sold may become subject to early 
+assignment. The clue to whether early assignment is imminent is whether there is 
+time value premium in the option. If the option has no time value premium - in other 
+words, it is trading at parity or at a discount then assignment may be close at hand. 
+The option writer who does not want to be assigned would want to cover the option 
+when it no longer carries time premium. 
+LEAPS may be subject to early assignment as well. It is possible, albeit far less 
+likely, that a long-term option would lose all of its time value premium and therefore 
+be subject to early assignment. This would certainly happen if the underlying stock 
+were being taken over and a tender off er were coming to fruition. However, it may 
+also occur because of an impending dividend payment, or more specifically, because 
+the stock is about to go ex-dividend. Recall that the call owner, LEAPS calls includ­
+ed, is not entitled to any dividends paid by the underlying stock. So if the call owner 
+wants the dividend, he exercises his call on the day before the stock goes ex-dividend. 
+This makes him an owner of the common stock just in the nick of time to get the div­
+idend. 
+What economic factors motivate him to exercise the call? If there is any time 
+value premium at all in the call, the call holder would be better off selling the call in 
+the open market and then purchasing the stock in the open market as well. In this 
+manner, he would still get the dividend, but he would get a better price for his call 
+when he sold it. If, however, there is no time value premium in the call, he does not 
+have to bother with two transactions in the open market; he merely exercises his call 
+in order to buy stock. 
+All well and good, but what makes the call sell at parity before expiration? It has 
+to do with the arbitrage that is available for any call option. In this case, the arbitrage 
+===== PDF page index 441 =====
+402 Part Ill: Put Option Strategies 
+is not the simple discount arbitrage that was discussed in Chapter l when this topic 
+was covered. Rather, it is a more complicated form that is discussed in greater detail 
+in Chapter 28. Suffice it to say that if the dividend is larger than the interest that can 
+be earned from a credit balance equal to the striking price, then the time value pre­
+mium will disappear from the call. 
+Example: XYZ is a $30 stock and about to go ex-dividend 50 cents. The prevailing 
+short-term interest rate is 5% and there are LEAPS with a striking price of 20. 
+A 50-cent quarterly dividend on a striking price of 20 is an annual dividend rate 
+(on the strike) of 10%. Since short-term rates are much lower than that, arbitrageurs 
+economically cannot pay out 10% for dividends and earn 5% for their credit balances. 
+In this situation, the LEAPS call would lose its time value premium and would 
+be a candidate for early exercise when the stock goes ex-dividend. 
+In actual practice, the situation is more complicated than this, because the price 
+of the puts comes into play; but this example shows the general reasoning that the 
+arbitrageur must go through. 
+Certain arbitrageurs construct positions that allow them to earn interest on a 
+credit balance equal to the striking price of the call. This position involves being short 
+the underlying stock and being long the call. Thus, when the stock goes ex-dividend, 
+the arbitrageur will owe the dividend. If, however, the amount of the dividend is 
+more than he vvill earn in interest from his credit balance, he will merely exercise his 
+call to cover his short stock. This action will prevent him from having to pay out the 
+dividend. 
+The arbitrageur's exercise of the call means that someone is going to be 
+assigned. If you are a writer of the call, it could be you. It is not important to under­
+stand the arbitrage completely; its effect will be reflected in the marketplace in the 
+form of a call trading at parity or a discount. Thus, even a LEAPS call with a sub­
+stantial anwunt of time rernaining may be assigned if it is trading at parity. 
+STRADDLE SELLING 
+Straddle selling is equivalent to ratio writing and is a strategy whereby one attempts 
+to sell ( overpriced) options in order to produce a range of stock prices within which 
+the option seller can profit. The strategy often involves follow-up action as the stock 
+moves around, and the strategist feels that he must adjust his position in order to pre­
+vent large losses. LEAPS puts and calls might be used for this strategy. However, 
+their long-term nature is often not conducive to the aims of straddle selling. 
+First, consider the effect of time decay. One might normally sell a three-month 
+straddle. If the stock "behaves" and is relatively unchanged after two months have 
+===== PDF page index 442 =====
+Chapter 25: LEAPS 403 
+passed, the straddle seller could reasonably expect to have a profit of about 40% of 
+the original straddle price. However, if one had sold a 2-year LEAPS straddle, and 
+the stock were relatively unchanged after two months, he would only have a profit of 
+about 7% of the original sale price. This should not be surprising in light of what has 
+been demonstrated about the decaying of long-term options. It should make the 
+straddle seller somewhat leery of using LEAPS, however, unless he truly thinks the 
+options are overpriced. 
+Second, consider follow-up action. Recall that in Chapter 20, it was shown that 
+the bane of the straddle seller was the whipsaw. A whipsaw occurs when one makes 
+a follow-up protective action on one side (for instance, he does something bullish 
+because the underlying stock is rising and the short calls are losing money), only to 
+have the stock reverse and come crashing back down. Obviously, the more time left 
+until expiration, the more likely it is that a whipsaw will occur after any follow-up 
+action, and the more expensive it will be, since there will be a lot of time value pre­
+mium left in the options that are being repurchased. This makes LEAPS straddle 
+selling less than attractive. 
+LEAPS straddles may look expensive because of their large absolute price, and 
+therefore may appear to be attractive straddle sale candidates. However, the price is 
+often justified, and the seller of LEAPS straddles will be fighting sudden stock move­
+ments without getting much benefit from the passage of time. The best time to sell 
+LEAPS straddles is when short-term rates are high and volatilities are high as well 
+(i.e., the options are overpriced). At least, in those cases, the seller will derive some 
+real benefit if rates or volatilities should drop. 
+SPREADS USING LEAPS 
+Any of the spread strategies previously discussed can be implemented with LEAPS 
+as well, if one desires. The margin requirements are the same for LEAPS spreads as 
+they are for ordinary equity option spreads. One general category of spread lends 
+itself well to using LEAPS: that of buying a longer-term option and selling a short­
+term one. Calendar spreads, as well as diagonal spreads, fall into that category. 
+The combinations are myriad, but the reasoning is the same. One wants to own 
+the option that is not so subject to time decay, while simultaneously selling the 
+option that is quite subject to time decay. Of course, since LEAPS are long-term and 
+therefore expensive, one is generally taking on a large debit in such a spread and 
+may have substantial risk if the stock performs adversely. Other risks may be pres­
+ent as well. As a means of demonstrating these facts, let us consider a simple bull 
+spread using calls. 
+===== PDF page index 443 =====
+404 Part Ill: Put Option Strategies 
+Example: The following prices exist in the month of January: 
+XYZ: 105 
+April 100 call: 10 1/2 
+April 110 call: 5 1/2 
+January (2-year) 100 call: 26 
+January (2-year) 110 call: 21 1/2 
+An investor is considering a bull spread in XYZ and is unsure about whether to use 
+the short-term calls, the LEAPS calls, or a mixture. These are his choices: 
+Short-term bull spread: 
+Diagonal bull spread: 
+LEAPS bull spread: 
+Buy April 100@ 101/2 
+Sell April 110@ 51/2 
+Net Debit: $500 
+Buy January LEAPS 100 @ 26 
+Sell April 110@ 51/2 
+Net Debit: $2,050 
+Buy January LEAPS 1 00 @ 26 
+Sell January LEAPS 110@ 21 1/2 
+Net Debit: $450 
+Notice that the debit paid for the LEAPS spread is slightly less than that of the short­
+term bull spread. This means that they have approximately the same profit potential 
+at their respective expiration dates. However, the strategist is more concerned with 
+how these compare directly with each other. The obvious point in time to make this 
+comparison is when the short-term options expire. 
+Figure 25-7 shows the profitability of these three positions at April expiration. 
+It was assumed that all of the following were the same in April as they had been in 
+January: volatility, short-term rates, and dividend payout. 
+Note that the short-term bull spread has the familiar profit graph from Chapter 
+7, making its maximum profit over 110 and taking its maximum loss below 100. (See 
+Table 25-4.) 
+The LEAPS spread doesn't generate much of either a profit or a loss in only 
+three months' time. Even if XYZ rises to 120, the LEAPS bull spread will have only 
+a $150 profit. Conversely, if XYZ falls to 80, the spread loses only about $200. This 
+price action is very typical for long-term bull spreads when both options have a sig­
+nificant amount of time premium remaining in them. 
+===== PDF page index 444 =====
+Chapter 25: LEAPS 
+FIGURE 25-7. 
+Bull spread comparison at April expiration. 
+Stock Price 
+405 
+The diagonal spread is different, however. Typically, the maximum profit poten­
+tial of a bull spread is the difference in the strikes less the initial debit paid. For this 
+diagonal spread, that would be $1,000 minus $2,050, a loss! Obviously, this simple 
+formula is not applicable to diagonal spreads, because the purchased option still has 
+time value premium when the written option expires. The profit graph shows that 
+indeed the diagonal spread is the most bullish of the three. It makes its best profit at 
+the strike of the written option - a standard procedure for any spread - and that prof­
+it is greater than either of the other two spreads at April expiration ( under the sig-
+TABLE 25-4. 
+Bull spread comparison at April expiration. 
+Stock Price Short-Term Diagonal LEAPS 
+80 -500 -1, 100 -200 
+90 -500 - 600 -150 
+100 -500 50 - 25 
+110 500 750 50 
+120 500 550 150 
+140 500 150 250 
+160 500 50 350 
+180 500 - 350 450 
+===== PDF page index 445 =====
+406 Part Ill: Put Option Strategies 
+nificant assumption that volatility and interest rates are unchanged). If XYZ trades 
+higher than llO, the diagonal spread will lose some of its profit; in fact, if XYZ were 
+to trade at a very high price, the diagonal spread would actually have a loss (see Table 
+25-4). Whenever the purchased LEAPS call loses its time value premium, the diag­
+onal spread will not perform as well. 
+If the common stock drops in price, the diagonal spread has the greatest risk in 
+dollar terms but not in percentage terms, because it has the largest initial debit. If 
+XYZ falls to 80 in three months, the spread will lose about $1,100, just over half the 
+initial $2,050 debit. Obviously, the short-term spread would have lost 100% of its ini­
+tial debit, which is only $500, at that same point in time. 
+The diagonal spread presents an opportunity to earn more money if the under­
+lying common is near the strike of the written option when the written option expires. 
+However, if the common moves a great deal in either direction, the diagonal spread 
+is the worst of the three. This means that the diagonal spread strategy is a neutral 
+strategy: One wants the underlying common to remain near the written strike until 
+the near-term option expires. This is a true statement even if the diagonal spread is 
+under the guise of a bullish spread, as in the previous example. 
+Many traders are fond of buying LEAPS and selling an out-of-the-money near­
+term call as a hedge. Be careful about doing this. If the underlying common rises too 
+fast and/or interest rates fall and/or volatility decreases, this could be a poor strategy. 
+There is really nothing quite as psychologically damaging as being right about the 
+stock, but being in the wrong option strategy and therefore losing money. Consider 
+the above examples. Ostensibly, the spreader was bullish on XYZ; that's why he chose 
+bull spreads. If XYZ became a wildly bullish stock and rose from 100 to 180 in three 
+months, the diagonal spreader would have lost money. He couldn't have been happy 
+- no one would be. This is something to keep in mind when diagonalizing a LEAPS 
+spread. 
+The deltas of the options involved in the spread will give one a good clue as to 
+how it is going to perform. Recall that a short-term, in-the-money option acquires a 
+rather high delta, especially as expiration draws nigh. However, an in-the-money 
+LEAPS call will not have an extremely high delta, because of the vast amount of time 
+remaining. Thus, one is short an option with a high delta and long an option with a 
+smaller delta. These deltas indicate that one is going to lose money if the underlying 
+stock rises in price. Consider the following situation: 
+XYZ Stock, 120: 
+Call 
+Long 1 January LEAPS 100 call: 
+Short 1 April 110 call: 
+Position Delta 
+0.70 
+-0.90 
+===== PDF page index 446 =====
+Chapter 25: LEAPS 401 
+At this point, if XYZ rises in price by 1 point, the spread can be expected to lose 20 
+cents, since the delta of the short option is 0.20 greater than the delta of the long 
+option. 
+This phenomenon has ramifications for the diagonal spreader of LEAPS. If the 
+two strike prices of the spread are too close together, it may actually be possible to 
+construct a bull spread that loses money on the upside. That would be very difficult 
+for most traders to accept. In the above example, as depicted in Table 25-4, that's 
+what happens. One way around this is to widen the strike prices out so that there is 
+at least some profit potential, even if the stock rises dramatically. That may be diffi­
+cult to do and still be able to sell the short-term option for any meaningful amount 
+of premium. 
+Note that a diagonal spread could even be considered as a substitute for a cov­
+ered write in some special cases. It was shown that a LEAPS call can sometimes be 
+used as a substitute for the common stock, with the investor placing the difference 
+between the cost of the LEAPS call and the cost of the stock in the bank (or in T­
+bills). Suppose that an investor is a covered writer, buying stock and selling relative­
+ly short-term calls against it. If that investor were to make a LEAPS call substitution 
+for his stock, he would then have a diagonal bull spread. Such a diagonal spread 
+would probably have less risk than the one described above, since the investor pre­
+sumably chose the LEAPS substitution because it was "cheap." Still, the potential 
+pitfalls of the diagonal bull spread would apply to this situation as well. Thus, if one 
+is a covered writer, this does not necessarily mean that he can substitute LEAPS calls 
+for the long stock without taking care. The resulting position may not resemble a cov­
+ered write as much as he thought it would. 
+The "bottom line" is that if one pays a debit greater than the difference in the 
+strike prices, he may eventually lose money if the stock rises far enough to virtually 
+eliminate the time value premium of both options. This comes into play also if one 
+rolls his options down if the underlying stock declines. Eventually, by doing so, he 
+may invert the strikes - i.e., the striking price of the written option is lower than the 
+striking price of the option that is owned. In that case, he will have locked in a loss if 
+the overall credit he has received is less than the difference in the strikes - a quite 
+likely event. So, for those who think this strategy is akin to a guaranteed profit, think 
+again. It most certainly is not. 
+Backspreads. LEAPS may be applied to other popular forms of diagonal spreads, 
+such as the one in which in-the-money, near-term options are sold, and a greater quan­
+tity of longer-term (LEAPS) at- or out-of-the money calls are bought. (This was 
+referred to as a diagonal backspread in Chapter 14.) This is an excellent strategy, and 
+===== PDF page index 447 =====
+408 Part Ill: Put Option Strategies 
+a LEAPS may be used as the long option in the spread. Recall that the object of the 
+spread is for the stock to be volatile, particularly to the upside if calls are used. If that 
+doesn't happen, and the stock declines instead, at least the premium captured from 
+the in-the-money sale will be a gain to offset against the loss suffered on the longer­
+term calls that were purchased. The strategy can be established with puts as well, in 
+which case the spreader would want the underlying stock to fall dramatically while the 
+spread was in place. 
+Without going into as much detail as in the examples above, the diagonal back­
+spreader should realize that he is going to have a significant debit in the spread and 
+could lose a significant portion of it should the underlying stock fall a great deal in 
+price. To the upside, his LEAPS calls will retain some time value premium and will 
+move quite closely with the underlying common stock. Thus, he does not have to buy 
+as many LEAPS as he might think in order to have a neutral spread. 
+Example: XYZ is at 105 and a spreader wants to establish a backspread. Recall that 
+the quantity of options to use in a neutral strategy is determined by dividing the 
+deltas of the two options. Assume the following prices and deltas exist: 
+Option 
+April 100 call 
+July 110 call 
+January (2-year) LEAPS 100 call 
+XYZ: 105 in January 
+Price 
+8 
+5 
+15 
+Delta 
+0.75 
+0.50 
+0.60 
+Two backspreads are available with these options. In the first, one would sell the 
+April 100 calls and buy the July llO calls. He would be selling 3-month calls and buy­
+ing 6-month calls. The neutral ratio is 0.75/0.50 or 3 to 2; that is, 3 calls are to be 
+bought for every 2 sold. Thus, a neutral spread would be: 
+Buy 6 July 110 calls 
+Sell 4 April l 00 calls 
+As a second alternative, he might use the LEAPS as the long side of the spread; he 
+would still sell the April 100 calls as the short side of the spread. In this case, his neu­
+tral ratio would be 0.75/0.60, or 5 to 4. The resulting neutral spread would be: 
+Buy 5 January LEAPS 110 calls 
+Sell 4 April 100 calls 
+===== PDF page index 448 =====
+Chapter 25: LEAPS 409 
+Thus, a neutral backspread involving LEAPS requires buyingfewer calls than a neu­
+tral backspread involving a 6-rnonth option on the long side. This is because the delta 
+of the LEAPS call is larger. The significant point here is that, because of the time 
+value retention of the LEAPS call, even when the stock moves higher, it is not nec­
+essary to buy as many. If one does not use the deltas, but merely figures that 3 to 2 
+is a good ratio for any diagonal backspread, then he will be overly bullish if he uses 
+LEAPS. That could cost him if the underlying stock declines. 
+Calendar Spreads. LEAPS may also be used in calendar spreads - spreads in 
+which the striking price of the longer-term option purchased and the shorter-term 
+option sold are the same. The calendar spread is a neutral strategy, wherein the 
+spreader wants the underlying stock to be as close as possible to the striking price 
+when the near-term option expires. A calendar spread has risk if the stock moves too 
+far away from the striking price (see Chapters 9 and 22). Purchasing a LEAPS call 
+increases that risk in terms of dollars, not percentage, because of the larger debit that 
+one must spend for the spread. 
+Simplistically, calendar spreads are established with equal quantities of options 
+bought and sold. This is often not a neutral strategy in the true sense. As was shown 
+in Chapter 9 on call calendar spreads, one may want to use the deltas of the two 
+options to establish a truly neutral calendar spread, particularly if the stock is not ini­
+tially right at the striking price. Out-of-the-money, one would sell more calls than he 
+is buying. Conversely, in-the-money, one would buy more calls than he is selling. 
+Both strategies statistically have merit and are attractive. When using LEAPS deltas 
+to construct the neutral spread, one need generally buy fewer calls than he might 
+think, because of the higher delta of a LEAPS call. This is the same phenomenon 
+described in the previous example of a diagonal backspread. 
+SUMMARY 
+LEAPS are nothing more than long-term options. They are usable in a wide variety 
+of strategies in the same way that any option would be. Their margin and investment 
+requirements are similar to those of the more familiar equity options. Both LEAPS 
+puts and calls are traded, and there is a secondary market for them as well. 
+There are certain differences between the prices of LEAPS and those of short­
+er-term options, but the greatest is the relatively large effect that interest rates and 
+dividends have on the price of LEAPS, because LEAPS are long-term options. 
+Increases in interest rates will cause LEAPS to increase in price, while increases in 
+dividend payout will cause LEAPS calls to decrease in price and LEAPS puts to 
+===== PDF page index 449 =====
+410 Part Ill: Put Option Strategies 
+increase in price. As usual, volatility has a major effect on the price of an option, and 
+LEAPS are no exception. Even small changes in the volatility of the underlying com­
+mon stock can cause large price differences in a two-year option. The rate of decay 
+due to time is much smaller for LEAPS, since they are long-term options. Finally, the 
+deltas of LEAPS calls are larger than those of short-term calls; conversely, the deltas 
+of LEAPS puts are smaller. 
+Several common strategies lend themselves well to the usage of LEAPS. A 
+LEAPS may be used as a stock substitute if the cash not invested in the stock is 
+instead deposited in a CD or T-bill. LEAPS puts can be bought as protection for 
+common stock. Speculative option buyers will appreciate the low rate of time decay 
+of LEAPS. LEAPS calls can be written against common stock, thereby creating a 
+covered write, although the sale of naked LEAPS puts is probably a better strategy 
+in most cases. Spread strategies with LEAPS may be viable as well, but the spreader 
+should carefully consider the ramifications of buying a long-term option and selling 
+a shorter-term one against it. If the underlying stock moves a great distance quickly, 
+the spread strategy may not perform as expected. 
+Overall, LEAPS are not very different from the shorter-term options to which 
+traders and investors have become accustomed. Once these investors become famil­
+iar with the way these long-term options are affected by the various factors that 
+determine the price of an option, they will consider the use of LEAPS as an integral 
+part of a strategic arsenal. 
+===== PDF page index 450 =====
+Additional 
+Considerations 
+===== PDF page index 451 =====
+
+===== PDF page index 452 =====
+Buying Options 
+and Treasury Bills 
+Numerous strategies have been described, ranging from the simple to the complex. 
+Each one has advantages, but there are disadvantages as well. In fact, some of them 
+may be too complex for the average investor to seriously consider implementing. The 
+reader may feel that there should be an easier answer. Isn't there a strategy that 
+might not require such a large investment or so much time spent in monitoring the 
+position, but would still have a chance of returning a reasonable profit? In fact, there 
+is a strategy that has not yet been described, a strategy considered by some experts 
+in the field of mathematical analysis to be the best of them all. Simply stated, the 
+strategy consists of putting 90% of one's money in risk-free investments (such as 
+short-term Treasury bills) and buying options with the remaining 10% of one's funds. 
+It has previously been pointed out that some of the more attractive strategies 
+are those that involve small levels of risk with the potential for large profits. Usually, 
+these types of strategies inherently have a rather large frequency of small losses, and 
+a small probability of realizing large gains. Their advantage lies in the fact that one or 
+two large profits can conceivably more than make up for numerous small losses. This 
+Treasury bill/option strategy is another strategy of this type. 
+HOW THE TREASURY BILL/OPTION STRATEGY OPERATES 
+Although there are certain details involved in operating this strategy, it is basically a 
+simple one to approach. First, the most that one can lose is 10%, less the interest 
+earned on the fixed-income portion of his portfolio (the remaining 90% of his assets), 
+during the life of the purchased options. It is a simple matter to space out one's com-
+413 

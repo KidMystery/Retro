@@ -1,0 +1,460 @@
+
+===== PDF page index 745 =====
+Futures Option Strategies for 
+Futures Spreads 
+A spread with futures is not the same as a spread with options, except that one item 
+is bought while another is simultaneously sold. In this manner, one side of the spread 
+hedges the risk of the other. This chapter describes futures spreading and offers ways 
+to use options as an adjunct to those spreads. 
+The concept of calendar spreading with futures options is covered in this chap­
+ter as well. This is the one strategy that is very different when using futures options, 
+as opposed to using stock or index options. 
+FUTURES SPREADS 
+Before getting into option strategies, it is necessary to define futures spreads and to 
+examine some common futures spreading strategies. 
+FUTURES PRICING DIFFERENTIALS 
+It has already been shown that, for any paiticular physical commodity, there are, at 
+any one time, several futures that expire in different months. Oil futures have month­
+ly expirations; sugar futures expire in only five months of any one calendar year. The 
+frequency of expiration months depends on which futures contract one is discussing. 
+Futures on the same underlying commodity will trade at different prices. The 
+differential is due to several factors, not just time, as is the case with stock options. A 
+major factor is carrying costs - how much one would spend to buy and hold the phys-
+696 
+===== PDF page index 746 =====
+Chapter 35: Futures Option Strategies for Futures Spreads 697 
+ical commodity until futures expiration. However, other factors may enter in as well, 
+including supply and demand considerations. In a normal carrying cost market, 
+futures that expire later in time are more expensive than those that are nearer-term. 
+Example: Gold is a commodity whose futures exhibit forward or normal carry. 
+Suppose it is March 1st and spot gold is trading at 351. Then, the futures contracts 
+on gold and their respective prices might be as follows: 
+Expiration Month Price 
+April 352.50 
+June 354.70 
+August 356.90 
+December 361.00 
+June 366.90 
+Notice that each successive contract is more expensive than the previous one. 
+There is a 2.20 differential between each of the first three expirations, equal to 1.10 
+per month of additional expiration time. However, the differential is not quite that 
+great for the December, which expires in 9 months, or for the June contract, which 
+expires in 15 months. The reason for this might be that longer-term interest rates are 
+slightly lower than the short-term rates, and so the cost of carry is slightly less. 
+However, prices in all futures don't line up this nicely. In some cases, different 
+months may actually represent different products, even though both are on the same 
+underlying physical commodity. For example, wheat is not always wheat. There is a 
+summer crop and a winter crop. While the two may be related in general, there could 
+be a substantial difference between the July wheat futures contract and the 
+December contract, for example, that has very little to do with what interest rates are. 
+Sometimes short-term demand can dominate the interest rate effect, and a 
+series of futures contracts can be aligned such that the short-term futures are more 
+expensive. This is known as a reverse carrying charge market, or contango. 
+INTRAMARKET FUTURES SPREADS 
+Some futures traders attempt to predict the relationships between various expiration 
+months on the same underlying physical commodity. That is, one might buy July 
+soybean futures and sell September soybean futures. When one both buys and sells 
+differing futures contracts, he has a spread. When both contracts are on the same 
+underlying physical commodity, he has an intramarket spread. 
+~ 
+===== PDF page index 747 =====
+698 Part V: Index Options and Futures 
+The spreader is not attempting to predict the overall direction of prices. Rather, 
+he is trying to predict the differential in prices between the July and September con­
+tracts. He doesn't care if beans go up or down, as long as the spread between July and 
+September goes his way. 
+Example: A spread trader notices that historic price charts show that if September 
+soybeans get too expensive with respect to July soybeans, the differential usually dis­
+appears in a month or two. The opportunity for establishing this trade usually occurs 
+early in the year - February or March. 
+Assume it is February 1st, and the following prices exist: 
+July soybean futures: 600 ($6.00/bushel) 
+September soybean futures: 606 
+The price differential is 6 cents. It rarely gets worse than 12 cents, and often revers­
+es to the point that July futures are more expensive than soybean futures - some 
+years as much as 100 cents more expensive. 
+If one were to trade this spread from a historical perspective, he would thus be 
+risking approximately 6 cents, with possibilities of making over 100 cents. That is 
+certainly a good risk/reward ratio, if historic price patterns hold up in the current 
+environment. 
+Suppose that one establishes the spread: 
+Buy one July future @ 600 
+Sell one September future @ 606 
+At some later date, the following prices and, hence, profits and losses, exist. 
+Futures Price 
+July: 650 
+September: 630 
+Total Profit: 
+Profit/Loss 
++50 cents 
+-24 cents 
+26 cents ($1,300) 
+The spread has inverted, going from an initial state in which September was 6 
+cents more expensive than July, to a situation in which July is 20 cents more expen­
+sive. The spreader would thus make 26 cents, or $1,300, since 1 cent in beans is 
+worth $50. 
+===== PDF page index 748 =====
+Chapter 35: Futures Option Strategies for Futures Spreads 699 
+Notice that the same profit would have been made at any of the following pairs 
+of prices, because the price differential between July and September is 20 cents in 
+all cases (with July being the more expensive of the two). 
+July Futures September Futures July Profit September Profit 
+420 400 -180 +206 
+470 450 -130 +156 
+550 530 -50 +76 
+600 580 0 +26 
+650 630 +50 -24 
+700 680 +100 -74 
+800 780 +200 -174 
+Therefore, the same 26-cent profit can be made whether soybeans are in a 
+severe bear market, in a rousing bull market, or even somewhat unchanged. The 
+spreader is only concerned with whether the spread widens from a 6-cent differen­
+tial or not. 
+Charts, some going back years, are kept of the various relationships between 
+one expiration month and another. Spread traders often use these historical charts to 
+determine when to enter and exit intramarket spreads. These charts display the sea­
+sonal tendencies that make the relationships between various contracts widen or 
+shrink. Analysis of the fundamentals that cause the seasonal tendencies could also be 
+motivation for establishing intramarket spreads. 
+The margin required for intramarket spread trading (and some other types of 
+futures spreads) is smaller than that required for speculative trading in the futures 
+themselves. The reason for this is that spreads are considered less risky than outright 
+positions in the futures. However, one can still make or lose a good deal of money in 
+a spread - percentage-wise as well as in dollars - so it cannot be considered conser­
+vative; it's just less risky than outright futures speculation. 
+Example: Using the soybean spread from the example above, assume the speculative 
+initial margin requirement is $1,700. Then, the spread margin requirement might be 
+$500. That is considerably less than one would have to put up as initial margin if each 
+side of the spread had to be margined separately, a situation that would require 
+$3,400. 
+In the previous example, it was shown that the soybean spread had the poten­
+tial to widen as much as 100 points ($1.00), a move that would be worth $5,000 if it 
+===== PDF page index 749 =====
+700 Part V: Index Options and Futures 
+occurred. While it is unlikely that the spread would actually widen to historic highs, 
+it is certainly possible that it could widen 25 or 30 cents, a profit of $1,250 to $1,500. 
+That is certainly high leverage on a $500 investment over a short time period, 
+so one must classify spreading as a risk strategy. 
+INTERMARKET FUTURES SPREADS 
+Another type of futures spread is one in which one buys futures contracts in one mar­
+ket and sells futures contracts in another, probably related, market. When the futures 
+spread is transacted in two different markets, it is known as an intermarket spread. 
+Intermarket spreads are just as popular as intramarket spreads. 
+One type of intermarket spread involves directly related markets. Examples 
+include spreads between currency futures on two different international currencies; 
+between financial futures on two different bond, note, or bill contracts; or between a 
+commodity and its products - oil, unleaded gasoline, and heating oil, for example. 
+Example: Interest rates have been low in both the United States and Japan. As a 
+result, both currencies are depressed with respect to the European currencies, where 
+interest rates remain high. A trader believes that interest rates will become more uni­
+form worldwide, causing the Japanese yen to appreciate with respect to the German 
+mark. 
+However, since he is not sure whether Japanese rates will move up or German 
+rates will move down, he is reluctant to take an outright position in either currency. 
+Rather, he decides to utilize an intermarket spread to implement his trading idea. 
+Assume he establishes the spread at the following prices: 
+Buy I June yen future: 77.00 
+Sell I June mark future: 60.00 
+This is an initial differential of 17.00 between the two currency futures. He is 
+hoping for the differential to get larger. The dollar trading terms are the same for 
+both futures: One point of movement (from 60.00 to 61.00, for example) is worth 
+$1,250. His profit and loss potential would therefore be: 
+Spread Differential 
+al a Later Date Profit/Loss 
+14.00 $3,750 
+16.00 - $1,250 
+18.00 + 1,250 
+20.00 + 3,750 
+===== PDF page index 750 =====
+Chapter 35: Futures Option Strategies for Futures Spreads 701 
+In some cases, the exchanges recognize frequently traded intermarket spreads 
+as being eligible for reduced margin requirements. That is, the exchange recognizes 
+that the two futures are hedges against one another if one is sold and the other is 
+bought. 
+These spreads between currencies, called cross-currency spreads, are so heavi­
+ly traded that there are other specific vehicles - both futures and warrants - that 
+allow the speculator to trade them as a single entity. Regardless, they serve as a prime 
+example of an intermarket spread when the two futures are used. 
+In the example above, assume the outright speculative margin for a position in 
+either currency future is $1,700 per contract. Then, the margin for this spread would 
+probably be nearly $1,700 as well, equal to the speculative margin for one side of the 
+spread. This position is thus recognized as a spread position for margin purposes. The 
+margin treatment isn't as favorable as for the intramarket spread (see the earlier soy­
+bean example), but the spread margin is still only one-half of what one would have to 
+advance as initial margin if both sides of the spread had to be margined separately. 
+Other intermarket spreads are also eligible for reduced margin requirements, 
+although at first glance they might not seem to be as direct a hedge as the two cur­
+rencies above were. 
+Example: A common intermarket spread is the TED spread, which consists of 
+Treasury bill futures on one side and Eurodollar futures on the other. Treasury bills 
+represent the safest investment there is; they are guaranteed. Eurodollars, however, 
+are not insured, and therefore represent a less safe investment. Consequently, 
+Eurodollars yield more than Treasury bills. How much more is the key, because as 
+the yield differential expands or shrinks, the spread between the prices of T-bill 
+futures and Eurodollar futures expands or shrinks as well. In essence, the yield dif­
+ferential is small when there is stability and confidence in the financial markets, 
+because uninsured deposits and insured deposits are not that much different in times 
+of financial certainty. However, in times of financial uncertainty and instability, the 
+spread widens because the uninsured depositors require a comparatively higher yield 
+for the higher risk they are taking. 
+Assume the outright initial margin for either the T-bill future or the Eurodollar 
+future is $800 per contract. The margin for the TED spread, however, is only $400. 
+Thus, one is able to trade this spread for only one-fourth of the amount of margin 
+that would be required to margin both sides separately. 
+The reason that the margin is more favorable is that there is not a lot of volatil­
+ity in this spread. Historically, it has ranged between about 0.30 and 1.70. In both 
+futures contracts, one cent (0.01) of movement is worth $25. Thus, the entire 140-
+cent historic range of the spread only represents $3,500 (140 x $25). 
+( 
+===== PDF page index 751 =====
+702 Part V: Index Options and Futures 
+More will be said later about the TED spread when the application of futures 
+options to intermarket spreads is discussed. Since there is a liquid option market on 
+both futures, it is sometimes more logical to establish the spread using options 
+instead of futures. 
+One other comment should be made regarding the TED spread: It has carry­
+ing cost. That is, if one buys the spread and holds it, the spread will shrink as time 
+passes, causing a small loss to the holder. When interest rates are low, the carrying 
+cost is small (about 0.05 for 3 months). It would be larger if short-term rates rose. 
+The prices in Table 35-1 show that the spread is more costly for longer-term con­
+tracts. 
+TABLE 35-1. 
+Carrying costs of the TED spread. 
+Month T-Bill Future 
+March 96.27 
+June 96.15 
+September 95.90 
+Eurodollar Future 
+95.86 
+95.69 
+95.39 
+TED Spread 
+0.41 
+0.46 
+0.51 
+Many intermarket spreads have some sort of carrying cost built into them; the 
+spreader should be aware of that fact, for it may figure into his profitability. 
+One final, and more complex, example of an intermarket spread is the crack 
+spread. There are two major areas in which a basic commodity is traded, as well as 
+two of its products: crude oil, unleaded gasoline, and heating oil; or soybeans, soy­
+bean oil, and soybean meal. A crack spread involves trading all three - the base com­
+modity and both byproducts. 
+Example: The crack spread in oil consists of buying two futures contracts for crude 
+oil and selling one contract each for heating oil and unleaded gasoline. 
+The units of trading are not the same for all three. The crude oil future is a con­
+tract for 1,000 barrels of oil; it is traded in units of dollars per barrel, so a $1 increase 
+in oil prices from $18.00 to $19.00, say - is worth $1,000 to the futures contract. 
+Heating oil and unleaded gasoline futures contracts have similar terms, but they are 
+different from crude oil. Each of these futures is for 42,000 gallons of the product, 
+and they are traded in cents. So, a one-cent move - gasoline going from 60 cents a 
+gallon to 61 cents a gallon - is worth $420. This information is summarized in Table 
+35-2 by showing how much a unit change in price is worth. 
+===== PDF page index 752 =====
+Chapter 35: Futures Option Strategies for Futures Spreads 
+TABLE 35-2. 
+Terms of oil production contract. 
+Contract 
+Crude Oil 
+Unleaded Gasoline 
+Heating Oil 
+Initial 
+Price 
+18.00 
+.6000 
+.5500 
+Subsequent 
+Price 
+19.00 
+.6100 
+.5600 
+The following formula is generally used for the oil crack spread: 
+Crack= (Unleaded gasoline + Heating oil) x 42 - 2 x Crude 
+2 
+(.6000 + .5500) X 42 - 2 X 18.00 = 
+2 
+= (48.3 - 36)/2 
+= 6.15 
+703 
+Gain in 
+Dollars 
+$1,000 
+$ 420 
+$ 420 
+Some traders don't use the divisor of 2 and, therefore, would arrive at a value 
+of 12.30 with the above data. 
+In either case, the spreader can track the history of this spread and will attempt 
+to buy oil and sell the other two, or vice versa, in order to attempt to make an over­
+all profit as the three products move. Suppose a spreader felt that the products were 
+too expensive with respect to crude oil prices. He would then implement the spread 
+in the following manner: 
+Buy 2 March crude oil futures @ 18.00 
+Sell 1 March heating oil future @ 0.5500 
+Sell l March unleaded gasoline future @ 0.6000 
+Thus, the crack spread was at 6.15 when he entered the position. Suppose that 
+he was right, and the futures prices subsequently changed to the following: 
+March crude oil futures: 18.50 
+March unleaded gas futures: .6075 
+March heating oil futures: .5575 
+The profit is shown in Table 35-3. 
+===== PDF page index 753 =====
+704 
+TABLE 35-3. 
+Profit and loss of crack spread. 
+Contract 
+2 March Crude 
+1 March Unleaded 
+1 March Heating Oil 
+Net Profit (before commissions) 
+Initial 
+Price 
+18.00 
+.6000 
+.5500 
+Part V: Index Options and Futures 
+Subsequent 
+Price 
+18.50 
+.6075 
+.5575 
+Gain in 
+Dollars 
++ $1,000 
+- $ 315 
+- $ 315 
++ $ 370 
+One can calculate that the crack spread at the new prices has shrunk to 5.965. 
+Thus, the spreader was correct in predicting that the spread would narrow, and he 
+profited. 
+Margin requirements are also favorable for this type of spread, generally being 
+slightly less than the speculative requirement for two contracts of crude oil. 
+The above examples demonstrate some of the various intermarket spreads that 
+are heavily watched and traded by futures spreaders. They often provide some of the 
+most reliable profit situations without requiring one to predict the actual direction of 
+the market itself. Only the differential of the spread is important. 
+One should not assume that all intermarket spreads receive favorable margin 
+treatment. Only those that have traditional relationships do. 
+USING FUTURES OPTIONS IN FUTURES SPREADS 
+After viewing the above examples, one can see that futures spreads are not the same 
+as what we typically know as option spreads. However, option contracts may be use­
+ful in futures spreading strategies. They can often provide an additional measure of 
+profit potential for very little additional risk. This is true for both intramarket and 
+intermarket spreads. 
+The futures option calendar spread is discussed first. The calendar spread with 
+futures options is not the same as the calendar spread with stock or index options. In 
+fact, it may best be viewed as an alternative to the intramarket futures spread rather 
+than as an option spread strategy. 
+CALENDAR SPREADS 
+A calendar spread with futures options would still be constructed in the familiar 
+manner - buy the May call, sell the March call with the same striking price. However, 
+===== PDF page index 754 =====
+Chapter 35: Futures Option Strategies for Futures Spreads 705 
+there is a major difference between the futures option calendar spread and the stock 
+option calendar spread. That difference is that a calendar spread using futures 
+options involves two separate underlying instruments, while a calendar spread using 
+stock options does not. When one buys the May soybean 600 call and sells the March 
+soybean 600 call, he is buying a call on the May soybean futures contract and selling 
+a call on the March soybean futures contract. Thus, the futures option calendar 
+spread involves two separate, but related, underlying futures contracts. However, if 
+one buys the IBM May 100 call and sells the IBM March 100 call, both calls are on 
+the same underlying instrument, IBM. This is a major difference between the two 
+strategies, although both are called "calendar spreads." 
+To the stock option trader who is used to visualizing calendar spreads, the 
+futures option variety may confound him at first. For example, a stock option trader 
+may conclude that if he can buy a four-month call for 5 points and sell a two-month 
+call for 2 points, he has a good calendar spread possibility. Such an analysis is mean­
+ingless with futures options. If one can buy the May soybean 600 call for 5 and sell 
+the March soybean 600 call for 3, is that a good spread or not? It's impossible to tell, 
+unless you know the relationship between May and March soybean futures contracts. 
+Thus, in order to analyze the futures option calendar spread, one must not only ana­
+lyze the options' relationship, but the two futures contracts' relationship as well. 
+Simply stated, when one establishes a futures option calendar spread, he is not only 
+spreading time, as he does with stock options, he is also spreading the relationship 
+between the underlying futures. 
+Example: A trader notices that near-term options in soybeans are relatively more 
+expensive than longer-term options. He thinks a calendar spread might make sense, 
+as he can sell the overpriced near-term calls and buy the relatively cheaper longer­
+term calls. This is a good situation, considering the theoretical value of the options 
+involved. He establishes the spread at the following prices: 
+Soybean Trading 
+Contract Initial Price Position 
+March 600 call 14 Sell 1 
+May 600 call 21 Buy 1 
+March future 594 none 
+May future 598 none 
+The May/March 600 call calendar spread is established for 7 points debit. 
+March expiration is two months away. At the current time, the May futures are trad­
+ing at a 4-point premium to March futures. The spreader figures that if March 
+===== PDF page index 755 =====
+706 Part V: Index Options and Futures 
+futures are approximately unchanged at expiration of the March options, he should 
+profit handsomely, because the March calls are slightly overpriced at the current 
+time, plus they will decay at a faster rate than the May calls over the next two months. 
+Suppose that he is correct and March futures are unchanged at expiration of the 
+March options. This is still no guarantee of profit, because one must also determine 
+where May futures are trading. If the spread between May and March futures 
+behaves poorly (May declines with respect to March), then he might still lose money. 
+Look at the following table to see how the futures spread between March and May 
+futures affects the profitability of the calendar spread. The calendar spread cost 7 
+debit when the futures spread was +4 initially. 
+Futures Calendar 
+Futures Prices Spread May 600 Call Spread 
+March/May Price Price Profit/Loss 
+594/570 -24 4 -3 cents 
+594/580 -14 61/2 _1/2 
+594/590 -4 10 +3 
+594/600 +6 141/2 +71/2 
+Thus, the calendar spread could lose money even with March futures 
+unchanged, as in the top two lines of the table. It also could do better than expected 
+if the futures spread widens, as in the bottom line of the table. 
+The profitability of the calendar spread is heavily linked to the futures spread 
+price. In the above example, it was possible to lose money even though the March 
+futures contract was unchanged in price from the time the calendar spread was 
+initially established. This would never happen with stock options. If one placed a 
+calendar spread on IBM and the stock were unchanged at the expiration of the near­
+term option, the spread would make money virtually all of the time ( unless implied 
+volatility had shrunk dramatically). 
+The futures option calendar spreader is therefore trading two spreads at once. 
+The first one has to do with the relative pricing differentials (implied volatilities, for 
+example) of the two options in question, as well as the passage of time. The second 
+one is the relationship between the two underlying futures contracts. As a result, it is 
+difficult to draw the ordinary profit picture. Rather, one must approach the problem 
+in this manner: 
+1. Use the horizontal axis to represent the futures spread price at the expiration of 
+the near-term option. 
+===== PDF page index 756 =====
+Chapter 35: Futures Option Strategies for Futures Spreads 707 
+2. Draw several profit curves, one for each price of the near-term future at near­
+term expiration. 
+Example: Expanding on the above example, this method is demonstrated here. 
+Figure 35-1 shows how to approach the problem. The horizontal axis depicts 
+the spread between March and May soybean futures at the expiration of the March 
+futures options. The vertical axis represents the profit and loss to be expected from 
+the calendar spread, as it always does. 
+The major difference between this profit graph and standard ones is that there 
+are now several sets of profit curves. A separate one is drawn for each price of the 
+March futures that one wants to consider in his analysis. The previous example 
+showed the profitability for only one price of the March futures - unchanged at 594. 
+However, one cannot rely on the March futures to remain unchanged, so he must 
+view the profitability of the calendar spread at various March futures prices. 
+The data that is plotted in the figure is summarized in Table 35-4. Several things 
+are readily apparent. First, if the futures spread improves in price, the calendar 
+spread will generally make money. These are the points on the far right of the figure 
+and on the bottom line of Table 35-4. Second, if the futures spread behaves miser-
+FIGURE 35-1. 
+Soybean futures calendar spreads, at March expiration. 
+gj 
+20 
+16 
+12 
+.3 8 
+::.: 
+0 
+ct 4 
+0 
+-8 
+March/May Spread 
+March =604 
+March =594 
+March= 614 
+March =584 
+March= 574 

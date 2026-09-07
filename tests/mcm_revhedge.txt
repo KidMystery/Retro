@@ -1,0 +1,383 @@
+
+===== PDF page index 138 =====
+O.,ter 3: Call Buying 
+TABLE 3-5. 
+Original and spread positions compared. 
+Stock Price Long Call 
+at Expiration Result 
+25 -$300 
+30 - 300 
+33 - 300 
+35 - 300 
+38 0 
+40 + 200 
+45 + 700 
+FIGURE 3-2. 
+Companion: original call purchase vs. spread. 
+§ 
+~ +$200 
+·5.. 
+~ 
+al 
+tJ) 
+.3 
+0 
+:1: 
+e 
+c.. -$300 
+Stock Price at Expiration 
+Spread 
+Result 
+-$300 
+- 300 
+0 
++ 200 
++ 200 
++ 200 
++ 200 
+115 
+With these prices, a 1-point debit would be required to roll down. That is, selling 2 
+October 35 calls would bring in $300 ($150 each), but the cost of buying the October 
+30 call is $400. Thus, the transaction would have to be done at a cost of $100, plus 
+commissions. With these prices, the break-even point after rolling down would be 34, 
+still well below the original break-even price of 38. The risk has now been increased 
+by the additional 1 point spent to roll down. If XYZ should drop below 30 at October 
+expiration, the investor would have a total loss of 4 points plus commissions. The 
+maximum loss with the original long October 35 call was limited to 3 points plus a 
+smaller amount of commissions. Finally, the maximum amount of money that the 
+===== PDF page index 139 =====
+116 Part II: Call Option Strategies 
+spread could make is now $100, less commissions. The alternative in this example is 
+not nearly as attractive as the previous one, but it might still be worthwhile for the 
+call buyer to invoke such a spread if he feels that XYZ has limited rally potential up 
+to October expiration. 
+One should not automatically discard the use of this strategy merely because a 
+debit is required to convert the long call to a spread. Note that to "average down" by 
+buying an additional October 35 call at 1 ½ would require an additional investment 
+of $150. This is more than the $100 required to convert into the spread position in 
+the immediately preceding example. The break-even point on the position that was 
+"averaged down" would be over 37 at expiration, whereas the break-even point on the 
+spread is 34. Admittedly, the averaged-down position has much more profit potential 
+than the spread does, but the conversion to the spread is less expensive than "aver­
+aging down" and also provides a lower break-even price. 
+In summary, then, if the call buyer finds himself with an unrealized loss because 
+the stock has declined, and yet is unwilling to sell, he may be able to improve his 
+chances of breaking even by "rolling down" into a spread. That is, he would sell 2 of 
+the calls that he is currently long - the one that he owns plus another one - and 
+simultaneously buy one call at the next lower striking price. If this transaction of sell­
+ing 2 calls and buying 1 call can be done for approximately even money, it could def­
+initely be to the buyer's benefit to implement this strategy, because the break-even 
+point would be lowered considerably and the buyer would have a much better 
+chance of getting out even or making a small profit should the underlying stock have 
+a small rebound. 
+Creating a Calendar Spread. A different type of defensive spread strategy 
+is sometimes used by the call buyer who finds that the underlying stock has declined. 
+In this strategy, the holder of an intermediate- or long-term call sells a near-term call, 
+with the same striking price as the call he already owns. This creates what is known 
+as a calendar spread. The idea behind doing this is that if the short-term call expires 
+worthless, the overall cost of the long call will be reduced to the buyer. Then, if the 
+stock should rally, the call buyer has a better chance of making a profit. 
+Example: Suppose that an investor bought an XYZ October 35 call for 3 points some­
+time in April. By June the stock has fallen to 32, and it appears that the stock might 
+remain depressed for a while longer. The holder of the October 35 call might con­
+sider selling a July 35 call, perhaps for a price of 1 point. Should XYZ remain below 
+35 until July expiration, the short call would expire worthless, earning a small, 1-point 
+profit. The investor would still own the October 35 call and would then hope for a 
+rally by XYZ before October in order to make profits on that call. Even if XYZ does 
+===== PDF page index 140 =====
+Chpter 3: Call Buying 117 
+not rally by October, he has decreased his overall loss by the amount received for the 
+sale of the July 35 call. 
+This strategy is not as attractive to use as the previous one. If XYZ should rally 
+before July expiration, the investor might find himself with two losing positions. For 
+example, suppose that XYZ rallied back to 36 in the next week. His short call that he 
+sold for 1 point would be selling for something more than that, so he would have an 
+unrealized loss on the short July 35. In addition, the October 35 would probably not 
+have appreciated back to its original price of 3, and he would therefore have an unre­
+alized loss on that side of the spread as well. 
+Consequently, this strategy should be used with great caution, for if the under­
+lying stock rallies quickly before the near-term expiration, the spread could be at a 
+loss on both sides. Note that in the former spread strategy, this could not happen. 
+Even if XYZ rallied quickly, some profit would be made on the rebound. 
+A FURTHER COMMENT ON SPREADS 
+Anyone not familiar with the margin requirements for spreads, under both the 
+exchange margin rules and the rules of the brokerage firm he is dealing with, should 
+not attempt to utilize a spread transaction. Later chapters on spreads outline the 
+more common requirements for spread transactions. In general, one must have a 
+margin account to establish a spread and must have a minimum amount of equity in 
+the account. Thus, the call buyer who operates in a cash account cannot necessarily 
+use these spread strategies. To do so might incur a margin call and possible restric­
+tion of one's trading account. Therefore, check on specific requirements before uti­
+lizing a spread strategy. Do not assume that a long call can automatically be "rolled" 
+into any sort of spread. 
+===== PDF page index 141 =====
+Other Call Buying Strategies 
+In this chapter, two additional strategies that utilize the purchase of call options are 
+described. Both of these strategies involve buying calls against the short sale of the 
+underlying stock. When listed puts are traded on the underlying stock, these strate­
+gies are often less effective than when they are implemented with the use of put 
+options. However, the concept is important, and sometimes these strategies are more 
+viable in markets where calls are ve:iy liquid but puts are not. These strategies are 
+generally known as "synthetic" strategies. 
+THE PROTECTED SHORT SALE (OR SYNTHETIC PUT) 
+Purchasing a call at the same time that one is short the underlying stock is a means 
+of limiting the risk of the short sale to a fixed amount. Since the risk is theoretically 
+unlimited in a short sale, many investors are reluctant to use the strategy. Even for 
+those investors who do sell stock short, it can be rather upsetting if the stock rises in 
+price. One may be forced into an emotional - and perhaps incorrect - decision to 
+cover the short sale in order to relieve the psychological pressure. By owning a call 
+at the same time he is short, the investor limits the risk to a fixed and generally small 
+amount. 
+Example: An investor sells XYZ short at 40 and simultaneously purchases an XYZ 
+July 40 call for 3 points. If XYZ falls in price, the short seller will make his profit on 
+the short sale, less the 3 points paid for the call, which will expire worthless. Thus, by 
+buying the call for protection, a small amount of profit potential is sacrificed. 
+However, the advantage of owning the call is demonstrated when the results are 
+examined for a stock rise. IfXYZ should rise to any price above 40 by July expiration, 
+118 
+===== PDF page index 142 =====
+Cl,apter 4: Other Call Buying Strategies 119 
+the short seller can cover his short by exercising the long call and buying stock at 40. 
+Thus, the maximum risk that the short seller can incur in this example is the 3 points 
+paid for the call. Table 4-1 and Figure 4-1 depict the results at expiration from uti­
+lizing this strategy. Commissions are not included. Note that the break-even point is 
+37 in this example. That is, if the stock drops 3 points, the protected short sale posi­
+tion will break even because of the 3-point loss on the call. The short seller who did 
+not spend the extra money for the long call would, of course, have a 3-point profit at 
+37. To the upside, however, the protected short sale outperforms a regular short sale 
+if the stock climbs anywhere above 43. At 43, both types of short sales have $300 loss­
+es. But above that level, the loss would continue to grow for a regular short sale, while 
+it is fixed for the short seller who also bought a call. In either case, the short seller's 
+risk is increased slightly by the fact that he is obligated to pay out the dividends on 
+the underlying stock, if any are declared. 
+A simple formula is available for determining the maximum amount of risk 
+when one protects a short sale by buying a call option: 
+Risk = Striking price of purchased call + Call price - Stock price 
+Depending on how much risk the short seller is willing to absorb, he might want to 
+buy an out-of-the-money call as protection rather than an at-the-money call, as was 
+shown in the example above. A smaller dollar amount is spent for the protection 
+when one buys an out-of-the-money call, so that the short seller does not give away 
+as much of his profit potential. However, his risk is larger because the call does not 
+start its protective qualities until the stock goes above the striking price. 
+Example: With XYZ at 40, the short seller of XYZ buys the July 45 call at ½ for pro­
+tection. His maximum possible loss, if XYZ is above 45 at July expiration, would be 
+TABLE 4-1. 
+Results at expiration-protected short sale. 
+XYZ Price at Profit Call Price at Profit Total 
+Expiration on XYZ Expiration on Call Profit 
+20 +$2,000 0 -$ 300 +$1,700 
+30 + 1,000 0 - 300 + 700 
+37 + 300 0 - 300 0 
+40 0 0 - 300 300 
+50 - 1,000 10 + 700 300 
+60 - 2,000 20 + 1,700 300 
+===== PDF page index 143 =====
+120 
+FIGURE 4-1. 
+Protected short sale. 
+C: 
+0 .:; 
+~ 
+'a.. X 
+UJ 
+1o +$0 en en 
+0 
+...J 
+0 
+-e 
+0.-$300 
+40' 
+', 
+Stock Price at Expiration 
+' 
+Part II: Call Option Strategies 
+43 
+', ', ' ', ' ', 
+Short ', 
+' Sale 'll 
+5½ points - the five points between the current stock price of 40 and the striking 
+price of 45, plus the amount paid for the call. On the other hand, if XYZ declines, the 
+protected short seller will make nearly as much as the short seller who did not pro­
+tect, since he only spent ½ point for the long call. 
+If one buys an in-the-nwney call as protection for the short sale, his risk will be 
+quite minimal. However, his profit potential will be severely limited. As an example, 
+with XYZ at 40, if one had purchased a July 35 call at 5½, his risk would be limited 
+to½ point anywhere above 35 at July expiration. Unfortunately, he would not realize 
+any profit on the position until the stock went below 34½, a drop of 5½ points. This 
+is too much protection, for it limits the profit so severely that there is only a small 
+hope of making a profit. 
+Generally, it is best to buy a call that is at-the-nwney or only slightly out-of the­
+money as the protection for the short sale. It is not of much use to buy a deeply out­
+of-the-money call as protection, since it does very little to moderate risk unless the 
+stock climbs quite dramatically. Normally, one would cover a short sale before it went 
+heavily against him. Thus, the money spent for such a deeply out-of-the-money call 
+is wasted. However, if one wants to give a short sale plenty of room to "work" and 
+===== PDF page index 144 =====
+Cl,opter 4: Other Call Buying Strategies 121 
+feels ve:ry certain that his bearish view of the stock is the correct view, he might then 
+buy a fairly deep out-of-the-money call just as disaster protection, in case the stock 
+suddenly bolted upward in price (if it received a takeover bid, for example). 
+MARGIN REQUIREMENTS 
+The newest margin rules now allow one to receive favorable margin treatment when 
+a short sale of stock is protected by a long call option. The margin required is the 
+lower of (1) 10% of the call's striking price plus any out-of-the-money amount, or (2) 
+30% of the current short stock's market value. The position will be marked to market 
+daily, and most brokers will require that the short sale be margined at "normal" rates 
+if the stock is below the strike price. 
+Example: Suppose the following prices exist: 
+XYZ Common stock: 47 
+Oct 40 call: 8 
+Oct 50 call: 3 
+Oct 60 call: 1 
+Suppose that one is considering a short sale of 100 shares of XYZ at 47 and the 
+purchase of one of the calls as protection. Here are the margin requirements for the 
+various strike prices. (Note that the option price, per se, is not part of the margin 
+requirement, but all options must be paid for in full, initially). 
+Position 
+Short XYZ, long Oct 40 call 
+Short XYZ, long Oct 50 call 
+Short XYZ, long Oct 60 call 
+l 0% strike + out-of-the-money 
+400 + 0 = 400* 
+500 + 300 = 800* 
+600 + 1,300 = 1,900 
+30% stock price 
+1,410 
+1,410 
+1,41 0* 
+*Since the margin requirement is the lower of the two figures, the items marked with an asterisk in 
+this table are the margin requirements. 
+Again, remember that the long call would have to be paid for in full, and that most 
+brokers impose a maintenance requirement of at least the value of the short sale itself 
+as long as the stock is below the strike price of the long call, in addition to the above 
+requirements. 
+===== PDF page index 145 =====
+122 Part II: Call Option Strategies 
+FOLLOW-UP ACTION 
+There is little that the protected short seller needs to perform in the way of follow­
+up action in this strategy, other than closing out the position. If the underlying stock 
+moves down quickly and it appears that it might rebound, the short sale could be cov­
+ered without selling the long call. In this manner, one could potentially profit on the 
+call side as well if the stock came back above the original striking price. If the under­
+lying stock rises in price, a similar strategy of taking off only the profitable call side 
+of the transaction is not recommended. That is, if XYZ climbed from 40 to 50 and the 
+July 40 call also rose from 3 to 10, it is not advisable to take the 7-point profit in the 
+call, hoping for a drop in the stock price. The reason for this is that one is entering 
+into a highly risk-oriented situation by removing his protection when the call is in­
+the-money. Thus, when the stock drops, it is all right - perhaps even desirable - to 
+take the profit, because there is little or no additional risk if the stock continues to 
+drop. However, when the stock rises, it is not an equivalent situation. In that case, if 
+the short seller sells his call for a profit and the stock subsequently rises even further, 
+large losses could result. 
+It may often be advisable to close the position if the call is at or near parity, 
+in-the-money, by exercising the call. In most strategies, the option holder has no 
+advantage in exercising the call because of the large dollar difference between 
+stock commissions and option commissions. However, in the protected short sale 
+strategy, the short seller is eventually going to have to cover the short stock in any 
+case and incur the stock commission by so doing. It may be to his advantage to 
+exercise the call and buy his stock at the striking price, thereby buying stock at a 
+lower price and perhaps paying a slightly lower commission amount. 
+Example: XYZ rises to 50 from the original short sale price of 40, and the XYZ July 
+40 call is selling at 10 somewhere close to expiration. The position could be liquidat­
+ed by either (1) buying the stock back at 50 and selling the call at 10, or (2) exercis­
+ing the call to buy stock at 40. In the first case, one would pay a stock commission at 
+a price of $50 per share plus an option commission on a $10 option. In the second 
+case, the only commission would be a stock commission at the price of $40 per share. 
+Since both actions accomplish the same end result - closing the position entirely for 
+40 points plus commissions - clearly the second choice is less costly and therefore 
+more desirable. Of course, if the call has time value premium in it of an amount 
+greater than the commission savings, the first alternative should be used. 
+===== PDF page index 146 =====
+Orapter 4: Other Call Buying Strategies 123 
+THE REVERSE HEDGE (SIMULATED STRADDLE) 
+There is another strategy involving the purchase of long calls against the short sale of 
+stock. In this strategy, one purchases calls on more shares than he has sold short. The 
+strategist can profit if the underlying stock rises far enough or falls far enough dur­
+ing the life of the calls. This strategy is generally referred to as a reverse hedge or sim­
+ulated straddle. On stocks for which listed puts are traded, this strategy is outmoded; 
+the same results can be better achieved by buying a straddle (a call and a put). 
+Hence, the name "simulated straddle" is applied to the reverse hedge strategy. 
+This strategy has limited loss potential, usually amounting to a moderate per­
+centage of the initial investment, and theoretically unlimited profit potential. When 
+properly selected (selection criteria are described in great detail in Chapter 36, 
+which deals with volatility trading), the percentage of success can be quite high in 
+straddle or synthetic straddle buying. These features make this an attractive strategy, 
+especially when call premiums are low in comparison to the volatility of underlying 
+stock. 
+Example: XYZ is at 40 and an investor believes that the stock has the potential to 
+move by a relatively large distance, but he is not sure of the direction the stock will 
+take. This investor could short XYZ at 40 and buy 2 XYZ July 40 calls at 3 each to set 
+up a reverse hedge. If XYZ moves up by a large distance, he will incur a loss on his 
+short stock, but the fact that he owns two calls means that the call profits will outdis­
+tance the stock loss. If, on the other hand, XYZ drops far enough, the short sale prof­
+it will be larger than the loss on the calls, which is limited to 6 points. Table 4-2 and 
+Figure 4-2 show the possible outcomes for various stock prices at July expiration. If 
+XYZ falls, the stock profits on the short sale will accumulate, but the loss on the two 
+calls is limited to $600 (3 points each) so that, below 34, the reverse hedge can make 
+ever-increasing profits. To the upside, even though the short sale is incurring losses, 
+the call profits grow faster because there are two long calls. For example, at 60 at 
+expiration, there will be a 20-point ($2,000) loss on the short stock, but each XYZ July 
+40 call will be worth 20 points with the stock at 60. Thus, the two calls are worth 
+$4,000, representing a profit of $3,400 over the initial cost of $600 for the calls. 
+Table 4-2 and Figure 4-2 illustrate another important point: The maximum loss 
+would occur if the stock were exactly at the striking price at expiration of the calls. This 
+maximum loss would occur if XYZ were at 40 at expiration and would amount to $600. 
+In actual practice, since the short seller must pay out any dividends paid by the under­
+lying stock, the risk in this strategy is increased by the amount of such dividends. 
+===== PDF page index 147 =====
+124 
+TABLE 4-2. 
+Reverse hedge at July expiration. 
+XYZ Price at Stock 
+Expiration Profit 
+20 +$2,000 
+25 + 1,500 
+30 + 1,000 
+34 + 600 
+40 0 
+46 600 
+50 - 1,000 
+55 - 1,500 
+60 - 2,000 
+FIGURE 4-2. 
+Reverse hedge {simulated straddle). 
+C: 
+0 
+~ 
+! 
+co 
+(/) 
+(/) 
+.3 
+~-$600 
+e a. 
+Profit on 
+2 Calls 
+-$ 600 
+600 
+600 
+600 
+600 
++ 600 
++ 1,400 
++ 2,400 
++ 3,400 
+Stock Price at Expiration 
+Part II: Call Option Strategies 
+Total 
+Profit 
++$ l ,400 
++ 900 
++ 400 
+0 
+600 
+0 
++ 400 
++ 900 
++ 1,400 
+The net margin required for this strategy is 50% of the underlying stock plus 
+the full purchase price of the calls. In the example above, this would be an initial 
+investment of $2,000 (50% of the stock price) plus $600 for the calls, or $2,600 total 
+plus commissions. The short sale is marked to market, so the collateral requirement 
+would grow if the stock rose. Since the maximum risk, before commissions, is $600, 
+this means that the net percentage risk in this transaction is $600/$2,600, about 23%. 

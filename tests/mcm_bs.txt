@@ -1,0 +1,670 @@
+
+===== PDF page index 474 =====
+Chapter 27: Arbitrage 435 
+account. For example, suppose that an arbitrageur has $5 million in 3-month rever­
+sals at an effective rate of 10%. If he can buy $5 million worth of 3-month Certificates 
+of Deposit with a rate of 11 ½%, then he would lock in a profit of 1 ½% on his $5 mil­
+lion. This method of using paper to hedge rate fluctuations is not practiced by all 
+arbitrageurs; some think it is not worth it. They believe that by leaving the credit bal­
+ances to fluctuate at prevailing rates, they can make more if rates go up, and that will 
+cushion the effect when rates decline. 
+The third risk of reversal arbitrage is reception of an early assignment on the 
+short puts. This forces the arbitrageur to buy stock and incur a debit. Thus, the posi­
+tion does not earn as much interest as was originally assumed. If the assignment is 
+received early enough in the life of the reversal (recall that in-the-money puts can 
+be assigned very far in advance of expiration), the reversal could actually incur an 
+overall loss. Such early assignments normally occur during bearish markets. The only 
+advantage of this early assignment is that one is left with unhedged long calls; these 
+calls are well out-of-the-money and normally quite low-priced (¼ or less). If the 
+market should reverse and turn bullish before the expiration of the calls, the arbi­
+trageur may make money on them. There is no way to hedge completely against a 
+market decline, but it does help if the arbitrageur tries to establish reversals with the 
+call in-the-money and the put out-of-the-money. That, plus demanding a better 
+overall return for reversals near the strike, should help cushion the effects of the 
+bear market. 
+The final risk is the most common one, that of the stock closing exactly at the 
+strike at expiration. This presents the arbitrageur with a decision to make regarding 
+exercise of his long calls. Since the stock is exactly at the strike, he is not sure whether 
+he will be assigned on his short puts at expiration. The outcome is that he may end 
+up with an unhedged stock position on Monday morning after expiration. If the stock 
+should open on a gap, he could have a substantial loss that wipes out the profits of 
+many reversals. This risk of stock closing at the strike may seem minute, but it is not. 
+In the absence of any real buying or selling in the stock on expiration day, the process 
+of discounting will force a stock that is near the strike virtually right onto the strike. 
+Once it is near the strike, this risk materializes. 
+There are two basic scenarios that could occur to produce this unhedged stock 
+position. First, suppose one decides that he will not get put and he exercises his calls. 
+However, he was wrong and he does get put. He has bought double the amount of 
+stock - once via call exercise and again via put assignment. Thus, he will be long on 
+Monday morning. The other scenario produces the opposite effect. Suppose one 
+decides that he will get put and he decides not to exercise his calls. If he is wrong in 
+this case, he does not buy any stock - he didn't exercise nor did he get put. 
+Consequently, he will be short stock on Monday morning. 
+===== PDF page index 475 =====
+436 Part IV: Additional Considerations 
+If one is truly undecided about whether he will be assigned on his short puts, 
+he might look at several clues. First, has any late news come out on Friday evening 
+that might affect the market's opening or the stock's opening on Monday morning? If 
+so, that should be factored into the decision regarding exercising the calls. Another 
+clue arises from the price at which the stock was trading during the Friday expiration 
+day, prior to the close. If the stock was below the strike for most of the day before 
+closing at the strike, then there is a greater chance that the puts will be assigned. This 
+is so because other arbitrageurs (discounters) have probably bought puts and bought 
+stock during the day and will exercise to clean out their positions. 
+If there is still doubt, it may be wisest to exercise only half of the calls, hoping 
+for a partial assignment on the puts (always a possibility). This halfway measure will 
+normally result in some sort of unhedged stock position on Monday morning, but it 
+will be smaller than the maximum exposure by at least half. 
+Another approach that the arbitrageur can take if the stock is near the strike of 
+the reversal during the late trading of the options' life - during the last few days - is 
+to roll the reversal to a later expiration or, failing that, to roll to another strike in the 
+same expiration. First, let us consider rolling to another expiration. The arbitrageur 
+knows the dollar price that equals his effective rate for a 3-month reversal. If the cur­
+rent options can be closed out and new options opened at the next expiration for at 
+least the effective rate, then the reversal should be rolled. This is not a likely event, 
+mostly due to the fact that the spread between the bid and asked prices on four sep­
+arate options makes it difficult to attain the desired price. Note: This entire four-way 
+order can be entered as a spread order; it is not necessary to attempt to "leg" the 
+spread. 
+The second action - rolling to another strike in the same expiration month -
+may be more available. Suppose that one has the July 45 reversal in place (long July 
+45 call and short July 45 put). If the underlying stock is near 45, he might place an 
+order to the exchange floor as a three-way spread: Sell the July 45 call (closing), buy 
+the July 45 put (closing), and sell the July 40 call ( opening) for a net credit of 5 points. 
+This action costs the arbitrageur nothing except a small transaction charge, since he 
+is receiving a 5-point credit for moving the strike by 5 points. Once this is accom­
+plished, he will have moved the strike approximately 5 points away and will thus have 
+avoided the problem of the stock closing at the strike. 
+Overall, these four risks are significant, and reversal arbitrageurs should take 
+care that they do not fall prey to them. The careless arbitrageur uses effective rates 
+too close to current market rates, establishes reversals with puts in-the-money, and 
+routinely accepts the risk of acquiring an unhedged stock position on the morning 
+after expiration. He will probably sustain a large loss at some time. Since many rever­
+sal arbitrageurs work with small capital and/or have convinced their backers that it is 
+===== PDF page index 476 =====
+Chapter 27: Arbitrage 437 
+a riskless strategy, such a loss may have the effect of putting them out of business. 
+That is an unnecessary risk to take. There are countermeasures, as described above, 
+that can reduce the effects of the four risks. 
+Let us consider the risks for conversion traders more briefly. The risk of stock 
+closing near the strike is just as bad for the conversion as it is for the reversal. The 
+same techniques for handling those risks apply equally well to conversions as to 
+reversals. The other risks are similar to reversal risks, but there are slight nuances. 
+The conversion arbitrage suffers if there is a dividend cut. There is little the 
+arbitrageur can do to predict this except to be aware of the fundamentals of the com­
+pany before entering into the conversion. Alternatively, he might avoid conversions 
+in which the dividend makes up a major part of the profit of the arbitrage. 
+Another risk occurs if there is an early assignment on the calls before the ex-div­
+idend date and the dividend is not received. Moreover, an early assignment leaves the 
+arbitrageur with long puts, albeit fractional ones since they are surely deeply out-of­
+the-money. Again, the policy of establishing conversions in which the dividend is not 
+a major factor would help to ease the consequences of early assignment. 
+The final risk is that interest rates increase during the time the conversion is in 
+place. This makes the carrying costs larger than anticipated and might cause a loss. 
+The best way to hedge this initially is to allow a margin for error. Thus, if the pre­
+vailing interest rate is 12%, one might only establish reversals that would break even 
+if rates rose to 14%. If rates do not rise that far on average, a profit will result. The 
+arbitrageur can attempt to hedge this risk by shorting interest-bearing paper that 
+matures at approximately the same time as the conversions. For example, if one has 
+$5 million worth of 3-month conversions established at an effective rate of 14% and 
+he shorts 3-month paper at 12½%, he locks in a profit of 1 ½%. This is not common 
+practice for conversion arbitrageurs, but it does hedge the effect of rising interest 
+rates. 
+SUMMARY OF CONVERSION ARBITRAGE 
+The practice of conversion and reversal arbitrage in the listed option markets helps 
+to keep put and call prices in line. If arbitrageurs are active in a particular option, the 
+prices of the put and call will relate to the stock price in line with the formulae given 
+earlier. Note that this is also a valid reason why puts tend to sell at a lower price than 
+calls do. The cost of money is the determining factor in the difference between put 
+and call prices. In essence, the "cost" (although it may sometimes be a credit) is sub­
+tracted from the theoretical put price. Refer again to the formula given above for the 
+profit potential of a conversion. Assume that things are in perfect alignment. Then 
+the formula would read: 
+===== PDF page index 477 =====
+438 Part IV: Additional Considerations 
+Put price = Striking price + Call price - Stock price - Fixed cost 
+Furthermore, if the stock is at the striking price, the formula reduces to: 
+Put price = Call price - Fixed cost 
+So, whenever the fixed cost, which is equal to the carrying charge less the dividends, 
+is greater than zero (and it usually is), the put will sell for less than the call if a stock 
+is at the striking price. Only in the case of a large-dividend-paying stock, when the 
+fixed cost becomes negative (that is, it is not a cost, but a credit), does the reverse 
+hold true. This is supportive evidence for statements made earlier that at-the-money 
+calls sell for more than at-the-money puts, all other things being equal. The reader 
+can see quite clearly that it has nothing to do with supply and demand for the puts 
+and calls, a fallacy that is sometimes proffered. This same sort of analysis can be used 
+to prove the broader statement that calls have a greater time value premium than 
+puts do, except in the case of a large-dividend-paying stock. 
+One final word of advice should be offered to the public customer. He may 
+sometimes be able to find conversions or reversals, by using the simplistic formula, 
+that appear to have profit potentials that exceed commission costs. Such positions do 
+exist from time to time, but the rate of return to the public customer will almost 
+assuredly be less than the short-term cost of money. If it were not, arbitrageurs would 
+be onto the position very quickly. The public option trader may not actually be think­
+ing in terms of comparing the profit potential of a position with what he could get by 
+placing the money into a bank, but he must do so to convince himself that he cannot 
+feasibly attempt conversion or reversal arbitrages. 
+THE "INTEREST PLAY" 
+In the preceding discussion of reversal arbitrage, it is apparent that a substantial por­
+tion of the arbitrageur's profits may be due to the interest earned on the credit of the 
+position. Another type of position is used by many arbitrageurs to take advantage of 
+this interest earned. The arbitrageur sells the underlying stock short and simultane­
+ously buys an in-the-money call that is trading slightly over parity. The actual amount 
+over parity that the arbitrageur can afford to pay for the call is determined by the 
+interest that he will earn from his short sale and the dividend payout before expira­
+tion. He does not use a put in this type of position. In fact, this "interest play" strat­
+egy is merely a reversal arbitrage without the short put. This slight variation has a 
+residual benefit for the arbitrageur: If the underlying stock should drop dramatically 
+in price, he could make large profits because he is short the underlying stock. In any 
+case, he will make his interest credit less the amount of time value premium paid for 
+the call less any dividends lost. 
+===== PDF page index 478 =====
+Chapter 27: Arbitrage 439 
+Example 1: XYZ is sold short at 60, and a January 50 call is bought for 10¼ points. 
+Assume that the prevailing interest rate is 1 % per month and that the position is 
+established one month prior to expiration. XYZ pays no dividend. The total credit 
+brought in from the trades is $4,975, so the arbitrageur will earn $49.75 in interest 
+over the course of 1 month. If the stock is above 50 at expiration, he will exercise his 
+call to buy stock at 50 and close the position. His loss on the security trades will be 
+$25 the amount of time value premium paid for the call option. (He makes 10 
+points by selling stock at 60 and buying at 50, but loses 10¼ points on the exercised 
+call.) His overall profit is thus $24.75. 
+Example 2: A real-life example may point out the effect of interest rates even more 
+dramatically. In early 1979, IBM April 240 calls with about six weeks of life remain­
+ing were over 60 points in-the-money. IBM was not going to be ex-dividend in that 
+time. Normally, such a deeply in-the-money option would be trading at parity or even 
+a discount when the time remaining to expiration is so short. However, these calls 
+were trading 3½ points over parity because of the prevailing high interest rates at the 
+time. IBM was at 300, the April 240 calls were trading at 63½, and the prevailing 
+interest rate was approximately 1 % per month. The credit from selling the stock and 
+buying the call was $23,700, so the arbitrageur earned $365.50 in interest for 1 ½ 
+months, and lost $350 - the 3½ points of time value premium that he paid for the 
+call. This still left enough room for a profit. 
+In Chapter 1, it was stated that interest rates affect option prices. The above 
+examples of the "interest play" strategy quite clearly show why. As interest rates rise, 
+the arbitrageur can afford to pay more for the long call in this strategy, thus causing 
+the call price to increase in times of high interest rates. If call prices are higher, so 
+will put prices be, as the relationships necessary for conversion and reversal arbitrage 
+are preserved. Similarly, if interest rates decline, the arbitrageur will make lower 
+bids, and call and put prices will be lower. They are active enough to give truth to the 
+theory that option prices are directly related to interest rates. 
+THE BOX SPREAD 
+An arbitrage consists of simultaneously buying and selling the same security or equiv­
+alent securities at different prices. For example, the reversal consists of selling a put 
+and simultaneously shorting stock and buying a call. The reader will recall that the 
+short stock/long call position was called a synthetic put. That is, shorting the stock 
+and buying a call is equivalent to buying a put. The reversal arbitrage therefore con­
+sists of selling a (listed) put and simultaneously buying a (synthetic) put. In a similar 
+===== PDF page index 479 =====
+440 Part IV: Additional Considerations 
+manner, the conversion is merely the purchase of a (listed) put and the simultaneous 
+sale of a (synthetic) put. Many equivalent strategies can be combined for arbitrage 
+purposes. One of the more common ones is the box spread. 
+Recall that it was shown that a bull spread or a bear spread could be construct­
+ed with either puts or calls. Thus, if one were to simultaneously buy a (call) bull 
+spread and buy a (put) bear spread, he could have an arbitrage. In essence, he is 
+merely buying and selling equivalent spreads. If the price differentials work out cor­
+rectly, a risk-free arbitrage may be possible. 
+Example: The following prices exist: 
+XYZ common, 55 
+XYZ January 50 call, 7 
+XYZ January 50 put, 1 
+XYZ January 60 call, 2 
+XYZ January 60 put, 5½ 
+The arbitrageur could establish the box spread in this example by executing the 
+following transactions: 
+Buy a call bull spread: 
+Buy XYZ January 50 call 
+Sell XYZ January 60 call 
+Net call cost 
+Buy a put bear spread: 
+Buy XYZ January 60 put 
+Sell XYZ January 50 put 
+Net put cost 
+Total cost of position 
+7 debit 
+2 credit 
+51/2 debit 
+1 credit 
+5 debit 
+No matter where XYZ is at January expiration, this position will be worth 10 points. 
+The arbitrageur has locked in a risk-free profit of½ point, since he "bought" the box 
+spread for 9½ points and will be able to "sell" it for 10 points at expiration. To verify 
+this, evaluate the position at expiration, first with XYZ above 60, then with XYZ 
+between 50 and 60, and finally with XYZ below 50. If XYZ is above 60 at expiration, 
+the puts will expire worthless and the call bull spread will be at its maximum poten­
+tial of 10 points, the difference between the striking prices. Thus, the position can be 
+liquidated for 10 points if XYZ is above 60 at expiration. Now assume that XYZ is 
+===== PDF page index 480 =====
+Chapter 27: Arbitrage 441 
+between 50 and 60 at expiration. In that case, the out-of-the-money, written options 
+would expire worthless-the January 60 call and the January 50 put. This would leave 
+a long, in-the-money combination consisting of a January 50 call and a January 60 
+put. These two options must have a total value of 10 points at expiration with XYZ 
+between 50 and 60. (For example, the arbitrageur could exercise his call to buy stock 
+at 50 and exercise his put to sell stock at 60.) Finally, assume that XYZ is below 50 at 
+expiration. The calls would expire worthless if that were true, but the remaining put 
+spread- actually a bear spread in the puts -would be at its maximum potential of 10 
+points. Again, the box spread could be liquidated for 10 points. 
+The arbitrageur must pay a cost to carry the position, however. In the prior 
+example, if interest rates were 6% and he had to hold the box for 3 months, it would 
+cost him an additional 14 cents (.06 x 9½ x 3112). This still leaves room for a profit. 
+In essence, a bull spread ( using calls) was purchased while a bear spread ( using 
+puts) was bought. The box spread was described in these terms only to illustrate the 
+fact that the arbitrageur is buying and selling equivalent positions. The arbitrageur 
+who is utilizing the box spread should not think in terms of bull or bear spread, how­
+ever. Rather, he should be concerned with "buying" the entire box spread at a cost of 
+less than the differential between the two striking prices. By "buying" the box spread, 
+it is meant that both the call spread portion and the put spread portion are debit 
+spreads. Whenever the arbitrageur observes that a call spread and a put spread using 
+the same strikes and that are both debit spreads can be bought for less than the dif­
+ference in the strikes plus carrying costs, he should execute the arbitrage. 
+Obviously, there is a companion strategy to the one just described. It might 
+sometimes be possible for the arbitrageur to "sell" both spreads. That is, he would 
+establish a credit call spread and a credit put spread, using the same strikes. If this 
+credit were greater than the difference in the striking prices, a risk-free profit would 
+be locked in. 
+Example: Assume that a different set of prices exists: 
+XYZ common, 75 
+XYZ April 70 call, 8½ 
+XYZ April 70 put, 1 
+XYZ April 80 call, 3 
+XYZ April 80 put, 6 
+By executing the following transactions, the box spread could be "sold": 
+===== PDF page index 481 =====
+442 
+Sell a call (bear) spread: 
+Buy April 80 call 
+Sell April 70 call 
+Net credit on calls 
+Sell a put (bull) spread: 
+Buy April 70 put 
+Sell April 80 put 
+Net credit on puts 
+Total credit of position 
+3 debit 
+81/2 credit 
+1 debit 
+6 credit 
+Part IV: Additional Considerations 
+5 credit 
+101/2 credit 
+In this case, no matter where XYZ is at expiration, the position can be bought back 
+for 10 points. This means that the arbitrageur has locked in risk-free profit of¼ 
+point. To verify this statement, first assume that XYZ is above 80 at April expiration. 
+The puts will expire worthless, and the call spread will have widened to 10 points -
+the cost to buy it back. Alternatively, if XYZ were between 70 and 80 at April expira­
+tion, the long, out-of-the-money options would expire worthless and the in-the­
+money combination would cost 10 points to buy back. (For example, the arbitrageur 
+could let himself be put at 80, buying stock there, and called at 70, selling the stock 
+there - a net "cost" to liquidate of 10 points.) Finally, if XYZ were below 70 at expi­
+ration, the calls would expire worthless and the put spread would have widened to 10 
+points. It could then be closed out at a cost of 10 points. In each case, the arbitrageur 
+is able to liquidate the box spread by buying it back at 10. 
+In this sale of a box spread, he would earn interest on the credit received while 
+he holds the position. 
+There is an additional factor in the profitability of the box spread. Since the sale 
+of a box generates a credit, the arbitrageur who sells a box will earn a small amount 
+of money from that sale. Conversely, the purchaser of a box spread will have a charge 
+for carrying cost. Since profit margins may be small in a box arbitrage, these carrying 
+costs can have a definite effect. As a result, boxes may actually be sold for 5 points, 
+even though the striking prices are 5 points apart, and the arbitrageur can still make 
+money because of the interest earned. 
+These box spreads are not easy to find. If one does appear, the act of doing the 
+arbitrage will soon make the arbitrage impossible. In fact, this is true of any type of 
+arbitrage; it cannot be executed indefinitely because the mere act of arbitraging will 
+force the prices back into line. Occasionally, the arbitrageur will be able to find the 
+option quotes to his liking, especially in volatile markets, and can establish a risk-free 
+===== PDF page index 482 =====
+Chapter 27: Arbitrage 443 
+arbitrage with the box spread. It can be evaluated at a glance. Only two questions 
+need to be answered: 
+1. If one were to establish a debit call spread and a debit put spread, using the same 
+strikes, would the total cost be less than the difference in the striking prices plus 
+carrying costs? If the answer is yes, an arbitrage exists. 
+2. Alternatively, if one were to sell both spreads - establishing a credit call spread 
+and a credit put spread - would the total credit received plus interest earned be 
+greater than the difference in the striking prices? If the answer is yes, an arbi­
+trage exists. 
+There are some risks to box arbitrage. Many of them are the same as those risks 
+faced by the arbitrageur doing conversions or reversals. First, there is risk that the 
+stock might close at either of the two strikes. This presents the arbitrageur with the 
+same dilemma regarding whether or not to exercise his long options, since he is not 
+sure whether he will be assigned. Additionally, early assignment may change the prof­
+itability: Assignment of a short put will incur large carrying costs on the resulting long 
+stock; assignment of a short call will inevitably come just before an ex-dividend date, 
+costing the arbitrageur the amount of the dividend. 
+There are not many opportunities to actually transact box arbitrage, but the fact 
+that such arbitrage exists can help to keep markets in line. For example, if an under­
+lying stock begins to move quickly and order flow increases dramatically, the special­
+ist or market-markers in that stock's options may be so inundated with orders that 
+they cannot be sure that their markets are correct. They can use the principles of box 
+arbitrage to keep prices in line. The most active options would be the ones at strikes 
+nearest to the current stock price. The specialist can quickly add up the markets of 
+the call and put at the nearest strike above the stock price and add to that the mar­
+kets of the options at the strike just below. The sum of the four should add up to a 
+price that surrounds the difference in the strikes. If the strikes are 5 points apart, 
+then the sum of the four markets should be something like 4½ bid, 5½ asked. If, 
+instead, the four markets add up to a price that allows box arbitrage to be established, 
+then the specialist will adjust his markets. 
+VARIATIONS ON EQUIVALENCE ARBITRAGE 
+Other variations of arbitrage on equivalent positions are possible, although they are 
+relatively complicated and probably not worth the arbitrageur's time to analyze. For 
+example, one could buy a butterfly spread with calls and simultaneously sell a but­
+terfly spread using puts. A listed straddle could be sold and a synthetic straddle 
+===== PDF page index 483 =====
+444 Part IV: Additional Considerations 
+could be bought - short stock and long 2 calls. Inversely, a listed straddle could be 
+bought against a ratio write - long stock and short 2 calls. The only time the arbi­
+trageur should even consider anything like this is when there are more sizable mar­
+kets in certain of the puts and calls than there are in others. If this were the case, he 
+might be able to take an ordinary box spread, conversion, or reversal and add to it, 
+keeping the arbitrage intact by ensuring that he is, in fact, buying and selling equiv­
+alent positions. 
+THE EFFECTS OF ARBITRAGE 
+The arbitrage process serves a useful purpose in the listed options market, because it 
+may provide a secondary market where one might not otherwise exist. Normally, 
+public interest in an in-the-money option dwindles as the option becomes deeply in­
+the-money or when the time remaining until expiration is very short. There would be 
+few public buyers of these options. In fact, public selling pressure might increase, 
+because the public would rather liquidate in-the-money options held long than exer­
+cise them. The few public buyers of such options might be writers who are closing 
+out. However, if the writer is covered, especially where call options are concerned, 
+he might decide to be assigned rather than close out his option. This means that the 
+public seller is creating a rather larger supply that is not offset by a public demand. 
+The market created by the arbitrageur, especially in the basic put or call arbitrage, 
+essentially creates the demand. Without these arbitrageurs, there could conceivably 
+be no buyers at all for those options that are short-lived and in-the-money, after pub­
+lic writers have finished closing out their positions. 
+Equivalence arbitrage - conversion, reversals, and box spreads - helps to keep 
+the relative prices of puts and calls in line with each other and with the underlying 
+stock price. This creates a more efficient and rational market for the public to oper­
+ate in. The arbitrageur would help eliminate, for example, the case in which a public 
+customer buys a call, sees the stock go up, but cannot find anyone to sell his call to 
+at higher prices. If the call were too cheap, arbitrageurs would do reversals, which 
+involve call purchases, and would therefore provide a market to sell into. 
+Questions have been raised as to whether option trading affects stock prices, 
+especially at or just before an expiration. If the amount of arbitrage in a certain issue 
+becomes very large, it could appear to temporarily affect the price of the stock itself. 
+For example, take the call arbitrage. This involves the sale of stock in the market. The 
+corresponding stock purchase, via the call exercise, is not executed on the exchange. 
+Thus, as far as the stock market is concerned, there may appear to be an inordinate 
+amount of selling in the stock. If large numbers of basic call arbitrages are taking 
+place, they might thus hold the price of the stock down until the calls expire. 
+===== PDF page index 484 =====
+Chapter 27: Arbitrage 445 
+The put arbitrage has an opposite effect. This arbitrage involves buying stock in 
+the market. The offsetting stock sale via the put exercise takes place off the exchange. 
+If a large amount of put arbitrage is being done, there may appear to be an inordi­
+nate amount of buying in the stock. Such action might temporarily hold the stock 
+price up. 
+In a vast majority of cases, however, the arbitrage has no visible effect on the 
+underlying stock price, because the amount of arbitrage being done is very small in 
+comparison to the total number of trades in a given stock. Even if the open interest 
+in a particular option is large, allowing for plenty of option volume by the arbi­
+trageurs, the actual act of doing the arbitrage will force the prices of the stock and 
+option back into line, thus destroying the arbitrage. 
+Rather elaborate studies, including doctoral theses, have been written that try 
+to prove or disprove the theory that option trading affects stock prices. Nothing has 
+been proven conclusively, and it may never be, because of the complexity of the task. 
+Logic would seem to dictate that arbitrage could temporarily affect a stock's move­
+ment if it has discount, in-the-money options shortly before expiration. However, one 
+would have to reasonably conclude that the size of these arbitrages could almost 
+never be large enough to overcome a directional trend in the underlying stock itself. 
+Thus, in the absence of a definite direction in the stock, arbitrage might help to per­
+petuate the inertia; but if there were truly a preponderance of investors wanting to 
+buy or sell the stock, these investors would totally dominate any arbitrage that might 
+be in progress. 
+RISK ARBITRAGE USING OPTIONS 
+Risk arbitrage is a strategy that is well described by its name. It is basically an arbi­
+trage - the same or equivalent securities are bought and sold. However, there is gen­
+erally risk because the arbitrage usually depends on a future event occurring in 
+order for the arbitrage to be successful. One form of risk arbitrage was described 
+earlier concerning the speculation on the size of a special dividend that an underly­
+ing stock might pay. That arbitrage consisted of buying the stock and buying the put, 
+when the put' s time value premium is less than the amount of the projected special 
+dividend. The risk lies in the arbitrageur's speculation on the size of the anticipated 
+special dividend. 
+MERGERS 
+Risk arbitrage is an age-old type of arbitrage in the stock market. Generally, it con­
+cerns speculation on whether a proposed merger or acquisition will actually go 
+through as proposed. 
+===== PDF page index 485 =====
+446 Part IV: Additional Considerations 
+Example: XYZ, which is selling for $50 per share, offers to buy out LMN and is offer­
+ing to swap one share of its (XYZ's) stock for every two shares of LMN. This would 
+mean that LMN should be worth $25 per share if the acquisition goes through as pro­
+posed. On the day the takeover is proposed, LMN stock would probably rise to about 
+$22 per share. It would not trade all the way up to 25 until the takeover was approved 
+by the shareholders of LMN stock. The arbitrageur who feels that this takeover will 
+be approved can take action. He would sell short XYZ and, for every share that he is 
+short, he would buy 2 shares of LMN stock. If the merger goes through, he will prof­
+it. The reason that he shorts XYZ as well as buying LMN is to protect himself in case 
+the market price of XYZ drops before the acquisition is approved. In essence, he has 
+sold XYZ and also bought the equivalent of XYZ (two shares of LMN will be equal to 
+one share of XYZ if the takeover goes through). This, then, is clearly an arbitrage. 
+However, it is a risk arbitrage because, if the stockholders of LMN reject the offer, 
+he will surely lose money. His profit potential is equal to the remaining differential 
+between the current market price of LMN (22) and the takeover price (25). If the 
+proposed acquisition goes through, the differential disappears, and the arbitrageur 
+has his profit. 
+The greatest risk in a merger is that it is canceled. If that happens, stock being 
+acquired (LMN) will fall in price, returning to its pre-takeover levels. In addition, the 
+acquiring stock (XYZ) will probably rise. Thus, the risk arbitrageur can lose money 
+on both sides of his trade. If either or both of the stocks involved in the proposed 
+takeover have options, the arbitrageur may be able to work options into his strategy. 
+In merger situations, since large moves can occur in both stocks ( they move in 
+concert), option purchases are the preferable option strategy. If the acquiring com­
+pany (XYZ) has in-the-money puts, then the purchase of those puts may be used 
+instead of selling XYZ short. The advantage is that if XYZ rallies dramatically during 
+the time it takes for the merger to take effect, then the arbitrageur's profits will be 
+increased. 
+Example: As above, assume that XYZ is at 50 and is acquiring LMN in a 2-for-l stock 
+deal. LMN is at 22. Suppose that XYZ rallies to 60 by the time the deal closes. This 
+would pull LMN up to a price of 30. If one had been short 100 XYZ at 50 and long 
+200 LMN at 22, then his profit would be $600 - a $1,600 gain on the 200 long LMN 
+minus a $1,000 loss on the XYZ short sale. 
+Compare that result to a similar strategy substituting a long put for the short 
+XYZ stock. Assume that he buys 200 LMN as before, but now buys an XYZ put. If 
+one could buy an XYZ July 55 put with little time premium, say at 5½ points, then 
+he would have nearly the same dollars of profit if the merger should go through with 
+XYZ below 55. 
+===== PDF page index 486 =====
+Chapter 27: Arbitrage 447 
+However, when XYZ rallies to 60, his profit increases. He would still make the 
+$1,600 on LMN as it rose from 22 to 30, but now would only lose $550 on the XYZ 
+put - a total profit of $1,050 as compared to $600 with an all-stock position. 
+The disadvantage to substituting long puts for short stock is that the arbitrageur 
+does not receive credit for the short sale and, therefore, does not earn money at the 
+carrying rate. This might not be as large a disadvantage as it initially seems, however, 
+since it is often the case that it is very expensive - even impossible - to borrow the 
+acquiring stock in order to short it. If the stock borrow costs are very large or if no 
+stock can be located for borrowing, the purchase of an in-the-money put is a viable 
+alternative. The purchase of an in-the-money put is preferable to an at- or out-of-the­
+money put, because the amount of time value premium paid for the latter would take 
+too much of the profitability away from the arbitrage if XYZ stayed unchanged or 
+declined. This strategy may also save money if the merger falls apart and XYZ rises. 
+The loss on the long put may well be less than the loss would be on short XYZ stock. 
+Note also that one could sell the XYZ July 55 call short as well as buy the put. 
+This would, of course, be synthetic short stock and is a pure substitute for shorting 
+the stock. The use of this synthetic short is recommended only when the arbitrageur 
+cannot borrow the acquiring stock. If this is his purpose, he should use the in-the­
+money put and out-of-the-money call, since if he were assigned on the call, he could 
+not borrow the stock to deliver it as a short sale. The use of an out-of-the-money call 
+lessens the chance of eventual assignment. 
+The companion strategy is to buy an in-the-money call instead of buying the 
+company being acquired (LMN). This has advantages if the stock falls too far, either 
+because the merger falls apart or because the stocks in the merger decline too far. 
+Additionally, the cost of carrying the long LMN stock is eliminated, although that is 
+generally built into the cost of the long calls. The larger amount of time value pre­
+mium in calls as compared to puts makes this strategy often less attractive than that 
+of buying the puts as a substitute for the short sale. 
+One might also consider selling options instead of buying them. Generally this 
+is an inferior strategy, but in certain instances it makes sense. The reason that option 
+sales are inferior is that they do not limit one's risk in the risk arbitrage, but they cut 
+off the profit. For example, if one sells puts on the company being acquired (LMN), 
+he has a bullish situation. However, if the company being acquired (XYZ) rallies too 
+far, there will be a loss, because the short puts will stop making money as soon as 
+LMN rises through the strike. This is especially disconcerting if a takeover bidding 
+war should develop for LMN. The arbitrageur who is long LMN will participate nice­
+ly as LMN rises heavily in price during the bidding war. However, the put seller will 
+not participate to nearly the same extent. 
+===== PDF page index 487 =====
+448 Part IV: Additional Considerations 
+The sale of in-the-money calls as a substitute for shorting the acquiring compa­
+ny (XYZ) can be beneficial at certain times. It is necessary to have a plus tick in order 
+to sell stock short. When many arbitrageurs are trying to sell a stock short at the same 
+time, it may be difficult to sell such stock short. Morever, natural owners of XYZ may 
+see the arbitrageurs holding the price down and decide to sell their long stock rather 
+than suffer through a possible decline in the stock's price while the merger is in 
+progress. Additionally, buyers of XYZ will become very timid, lowering their bids for 
+the same reasons. All of this may add up to a situation in which it is very difficult to 
+sell the stock short, even if it can be borrowed. The sale of an in-the-money call can 
+overcome this difficulty. The call should be deeply in-the-money and not be too long­
+term, for the arbitrageur does not want to see XYZ decline below the strike of the 
+call. If that happened, he would no longer be hedged; the other side of the arbitrage 
+- the long LMN stock - would continue to decline, but he would not have any 
+remaining short against the long LMN. 
+LIMITS ON THE MERGER 
+There is another type of merger for stock that is more difficult to arbitrage, but 
+options may prove useful. In some merger situations, the acquiring company (XYZ) 
+promises to give the shareholders of the company being acquired (LMN) an amount 
+of stock equal to a set dollar price. This amount of stock would be paid even if the 
+acquiring company rose or fell moderately in price. If XYZ falls too far, however, it 
+cannot pay out an extraordinarily increased number of shares to LMN shareholders, 
+so XYZ puts a limit on the maximum number of shares that it will pay for each share 
+of LMN stock. Thus, the shareholders ofXYZ are guaranteed that there will be some 
+downside buffer in terms of dilution of their company in case XYZ declines, as is 
+often the case for an acquiring company. However, ifXYZ declines too far, then LMN 
+shareholders will receive less. In return for getting this downside guarantee, XYZ will 
+usually also stipulate that there is a minimum amount of shares that they will pay to 
+LMN shareholders, even if XYZ stock rises tremendously. Thus, if XYZ should rise 
+tremendously in price, then LMN shareholders will do even better than they had 
+anticipated. An example will demonstrate this type of merger accord. 
+Example: Assume that XYZ is at 50 and it intends to acquire LMN for a stated price 
+of $25 per share, as in the previous example. However, instead of merely saying that 
+it will exchange two shares of LMN for one share of XYZ, the company says that it 
+wants the offer to be worth $25 per share to LMN shareholders as long as XYZ is 
+between 45 and 55. Given this information, we can determine the maximum and 
+minimum number of shares that LMN shareholders will receive: The maximum is 
+===== PDF page index 488 =====
+Chapter 27: Arbitrage 449 
+the stated price, 25, divided by the lower limit, 45, or 0.556 shares; the minimum is 
+25 divided by the higher limit, 55, or 0.455. 
+This type of merger is usually stated in terms of how many shares of XYZ will 
+be issued, rather than in terms of the price range that XYZ will be able to move in. 
+In either case, one can be derived from the other, so that the manner in which the 
+merger deal is stated is merely a convention. In this case, for example, the merger 
+might be stated as being worth $25 per share, with each share of LMN being worth 
+at least 0.455 shares of XYZ and at most 0.556 shares of XYZ. Note that these ratios 
+make the deal worth 25 as long as XYZ is between 45 and 55: 45 times 0.556 equals 
+25, as does 0.455 times 55. 
+If the acquiring stock, XYZ, is between 45 and 55 at the time the merger is com­
+pleted, then the number of shares of XYZ that each LMN shareholder will receive is 
+determined in a preset manner. Usually, at the time the merger is announced, XYZ 
+will say that its price on the closing date of the merger will be used to establish the 
+proper ratio. As a slight alternative, sometimes the acquiring company will state that 
+the price to be used in determining the final ratio is to be an average of the closing 
+prices of the stock over a stated period of time. This stated period of time might be 
+something like the 10 days prior to the closing of the merger. 
+Example: Suppose that the closing price of XYZ on the day that the merger closes is 
+to be the price used in the ratio. Furthermore, suppose that XYZ closes at 51 on that 
+day. It is within the prestated range, so a calculation must be done in order to deter­
+mine how many shares of XYZ each LMN shareholder will get. This ratio is deter­
+mined by dividing the stated price, 25, by the price in question, 51. This would give 
+a final ratio of 0.490196. The final ratio is usually computed to a rather large number 
+of decimal points in order to assure that LMN shareholders get as close to $25 per 
+share as possible. 
+The above two examples explain how this type of merger works. A merger of 
+this type is said to have "hooks" - the prices at which the ratio steadies. This makes 
+it difficult to arbitrage. As long as XYZ roams around in the 45 to 55 range, the arbi­
+trageur does not want to short XYZ as part of his arbitrage, because the price of XYZ 
+does not affect the price he will eventually receive for LMN 25. Rather, he would 
+buy LMN and wait until the deal is near closing before actually shorting XYZ. By 
+waiting, he will know approximately how many shares of XYZ to short for each share 
+of LMN that he owns. The reason that he must short XYZ at the end of the merger 
+is that there is usually a period of time before the physical stock is reorganized from 
+LMN into XYZ. During that time, if he were long LMN, he would be at risk if he did 
+not short XYZ against it. 
+===== PDF page index 489 =====
+450 Part IV: Additional Considerations 
+Problems arise if XYZ begins to fall below 45 well before the closing of the 
+merger, the lower "hook" in the merger. If it should remain below 45, then one 
+should set up the arbitrage as being short 0.556 shares ofXYZ for each share of LMN 
+that is held long. As long as XYZ remains below 45 until the merger closes, this is the 
+proper ratio. However, if, after establishing that ratio, XYZ rallies back above 45, the 
+arbitrageur can suffer damaging losses. XYZ may continue to rise in price, creating a 
+loss on the short side. However, LMN will not follow it, because the merger is struc­
+tured so that LMN is worth 25 unless XYZ rises too far. Thus, the long side stops fol­
+lowing as the short side moves higher. 
+On the other hand, no such problem exists if XYZ rises too far from its original 
+price of 50, going above the upper "hook" of 55. In that case, the arbitrageur would 
+already be long the LMN and would not yet have shorted XYZ, since the merger was 
+not yet closing. LMN would merely follow XYZ higher after the latter had crossed 55. 
+This is not an uncommon dilemma. Recall that it was shown that the acquiring 
+stock will often fall in price immediately after a merger is announced. Thus, XYZ may 
+fall close to, or below, the lower "hook." Some arbitrageurs attempt to hedge them­
+selves by shorting a little XYZ as it begins to fall near 45 and then completing the 
+short if it drops well below 45. The problem with handling the situation in this way 
+is that one ends up with an inexact ratio. Essentially, he is forcing himself to predict 
+the movements of XYZ. 
+If the acquiring stock drops below the lower "hook," there may be an opportu­
+nity to establish a hedge without these risks if that stock has listed options. The idea 
+is to buy puts on the acquiring company, and for those puts to have a striking price 
+nearly equal to the price of the lower "hook." The proper amount of the company 
+being acquired (LMN) is then purchased to complete the arbitrage. If the acquiring 
+company subsequently rallies back into the stated price range, the puts will not lose 
+money past the striking price and the problems described in the preceding paragraph 
+will have been overcome. 
+Example: A merger is announced as described in the preceding example: XYZ is to 
+acquire LMN at a stated value of $25 per share, with the stipulation that each share 
+of LMN will be worth at least 0.455 shares of XYZ and at most 0.556 shares. These 
+share ratios equate to prices of 45 and 55 on XYZ. 
+Suppose that XYZ drops immediately in price after the merger is announced, 
+and it falls to 40. Furthermore, suppose that the merger is expected to close some­
+time during July and that there are XYZ August 45 puts trading at 5½. This repre­
+sents only ½ point time value premium. The arbitrageur could then set up the arbi­
+trage by buying 10,000 LMN and buying 56 of those puts. Smaller investors might 
+buy 1,000 LMN and buy 6 puts. Either of these is in approximately the proper ratio 
+of 1 LMN to 0.556 XYZ. 
+===== PDF page index 490 =====
+Chapter 27: Arbitrage 
+TENDER OFFERS 
+451 
+Another type of corporate takeover that falls under the broad category of risk arbi­
+trage is the tender offer. In a tender offer, the acquiring company normally offers to 
+exchange cash for shares of the company to be acquired. Sometimes the off er is for 
+all of the shares of the company being acquired; sometimes it is for a fractional por­
+tion of shares. In the latter case, it is important to know what is intended to be done 
+with the remaining shares. These might be exchanged for shares of the acquiring 
+company, or they might be exchanged for other securities (bonds, most likely), or 
+perhaps there is no plan for exchanging them at all. In some cases, a company ten­
+ders for part of its own stock, so that it is in effect both the acquirer and the acquiree. 
+Thus, tender offers can be complicated to arbitrage properly. The use of options can 
+lessen the risks. 
+In the case in which the acquiring company is making a cash tender for all the 
+shares (called an "any and all" offer), the main use of options is the purchase of puts 
+as protection. One would buy puts on the company being acquired at the same time 
+that he bought shares of that company. If the deal fell apart for some reason, the puts 
+could prevent a disastrous loss as the acquiring stock dropped. The arbitrageur must 
+be judicious in buying these puts. If they are too expensive or too far out-of-the­
+money, or if the acquiring company might not really drop very far if the deal falls 
+apart, then the purchase of puts is a waste. However, if there is substantial downside 
+risk, the put purchase may be useful. 
+Selling options in an "any and all" deal often seems like easy money, but there 
+may be risks. If the deal is completed, the company being acquired will disappear and 
+its options would be delisted. Therefore, it may often seem reasonable to sell out-of­
+the-money puts on the acquiring company. If the deal is completed, these expire 
+worthless at the closing of the merger. However, if the deal falls through, these puts 
+will soar in price and cause a large loss. On the other hand, it may also seem like easy 
+money to sell naked calls with a striking price higher than the price being offered for 
+the stock. Again, if the deal goes through, these will be delisted and expire worthless. 
+The risk in this situation is that another company bids a higher price for the compa­
+ny on which the calls were written. If this happens, there might suddenly be a large 
+upward jump in price, and the written calls could suffer a large loss. 
+Options can play a more meaningful role in the tender off er that is for only part 
+of the stock, especially when it is expected that the remaining stock might fall sub­
+stantially in price after the partial tender offer is completed. An example of a partial 
+tender offer might help to establish the scenario. 
+Example: XYZ proposes to buy back part of its own stock It has offered to pay $70 
+per share for half the company. There are no plans to do anything further. Based on 

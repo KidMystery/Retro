@@ -1,0 +1,148 @@
+
+===== PDF page index 257 =====
+232 Part II: Call Option Strategies 
+Figure 13-1 • 
+Calendar spread sale at near-term expiration. 
+$400 
+$300 
+Implied Volatility 
+Lower 
+$200 \ 
+f/) 
+$100 f/) 
+0 
+~ 
+$0 50 60 110 120 
+a. -$100 
+-$200 
+-$300 
+Implied Volatility 
+-$400 Remains High 
+-$500 
+Underlying Price 
+allowed to stand because none of the member firms cared about changing it. Still, if 
+one has excess collateral - perhaps from a large stock portfolio - and is interested in 
+generating excess income in a hedged manner, then the strategy might be applicable 
+for him as well. Futures option traders receive more favorable margin requirements, 
+and it thus might be a more economical strategy for them. 
+REVERSE RATIO SPREAD (BACKSPREAD) 
+A more popular reverse strategy is the reverse ratio call spread, which is comrrwnly 
+known as a backspread. In this type of spread, one would sell a call at one striking 
+price and then would buy several calls at a higher striking price. This is exactly the 
+opposite of the ratio spread described in Chapter 11. Some traders refer to any 
+spread with unlimited profit potential on at least one side as a backspread. Thus, in 
+most backspreading strategies, the spreader wants the stock to rrwve dramatically. He 
+does not generally care whether it moves up or down. Recall that in the reverse 
+hedge strategy (similar to a straddle buy) described in Chapter 4, the strategist had 
+the potential for large profits if the stock moved either up or down by a great deal. 
+In the backspread strategy discussed here, large potential profits exist if the stock 
+moves up dramatically, but there is limited profit potential to the downside. 
+Example: XYZ is selling for 43 and the July 40 call is at 4, with the July 45 call at l. 
+A reverse ratio spread would be established as follows: · 
+===== PDF page index 258 =====
+Chapter 13: Reverse Spreads 
+Buy 2 July 45 calls at 1 each 
+Sell 1 July 40 call at 4 
+Net 
+2 debit 
+4 credit 
+2 credit 
+233 
+These spreads are generally established for credits. In fact, if the spread cannot 
+be initiated at a credit, it is usually not attractive. If the underlying stock drops in 
+price and is below 40 at July expiration, all the calls will expire worthless and the 
+strategist will make a profit equal to his initial credit. The maximum downside poten­
+tial of the reverse ratio spread is equal to the initial credit received. On the other 
+hand, if the stock rallies substantially, the potential upside profits are unlimited, since 
+the spreader owns more calls than he is short. Simplistically, the investor is bullish 
+and is buying out-of the-money calls but is simultaneously hedging himself by selling 
+another call. He can profit if the stock rises in price, as he thought it would, but he 
+also profits if the stock collapses and all the calls expire worthless. 
+This strategy has limited risk. With most spreads, the maximum loss is attained 
+at expiration at the striking price of the purchased call. This is a true statement for 
+backspreads. 
+Example: IfXYZ is at exactly 45 at July expiration, the July 45 calls will expire worth­
+less for a loss of $200 and the July 40 call will have to be bought back for 5 points, a 
+$100 loss on that call. The total loss would thus be $300, and this is the most that can 
+be lost in this example. If the underlying stock should rally dramatically, this strategy 
+has unlimited profit potential, since there are two long calls for each short one. In 
+fact, one can always compute the upside break-even point at expiration. That break­
+even point happens to be 48 in this example. At 48 at July expiration, each July 45 
+call would be worth 3 points, for a net gain of $400 on the two of them. The July 40 
+call would be worth 8 with the stock at 48 at expiration, representing a $400 loss on 
+that call. Thus, the gain and the loss are offsetting and the spread breaks even, except 
+for commissions, at 48 at expiration. If the stock is higher than 48 at July expiration, 
+profits will result. 
+Table 13-1 and Figure 13-2 depict the potential profits and losses from this 
+example of a reverse ratio spread. Note that the profit graph is exactly like the prof­
+it graph of a ratio spread that has been rotated around the stock price axis. Refer to 
+Figure 11-1 for a graph of the ratio spread. There is actually a range outside of which 
+profits can be made - below 42 or above 48 in this example. The maximum loss 
+occurs at the striking price of the purchased calls, or 45, at expiration. 
+There are no naked calls in this strategy, so the investment is relatively small. 
+The strategy is actually a long call added to a bear spread. In this example, the bear 
+===== PDF page index 259 =====
+234 Part II: Call Option Strategies 
+TABLE 13·1. 
+Profits and losses for reverse ratio spread. 
+XYZ Price at Profit on Profit on Total 
+July Expiration 1 July 40 2 July 45's Profit 
+35 +$ 400 -$ 200 +$ 200 
+40 + 400 200 + 200 
+42 + 200 200 0 
+45 100 200 300 
+48 400 + 400 0 
+55 - 1,100 + 1,800 + 700 
+70 - 2,600 + 4,800 + 2,200 
+spread portion is long the July 45 and short the July 40. This requires a $500 collat­
+eral requirement, because there are 5 points difference in the striking prices. The 
+credit of $200 received for the entire spread can be applied against the initial 
+requirement, so that the total requirement would be $300 plus commissions. There 
+is no increase or decrease in this requirement, since there are no naked calls. 
+Notice that the concept of a delta-neutral spread can be utilized in this strate­
+gy, in much the same way that it was used for the ratio call spread. The number of 
+calls to buy and sell can be computed mathematically by using the deltas of the 
+options involved. 
+Example: The neutral ratio is determined by dividing the delta of the July 45 into the 
+delta of the July 40. 
+Prices 
+XYZ common: = 43 
+XYZ July 40 call: 4 
+XYZ July 45 call: 
+Delta 
+.80 
+.35 
+In this case, that would be a ratio of 2.29:1 (.80/.35). That is, if one sold 5 July 40's, 
+he would buy 11 July 45's (or if he sold 10, he would then buy 23). By beginning with 
+a neutral ratio, the spreader should be able to make money on a quick move by the 
+stock in either direction. 
+The neutral ratio can also help the spreader to avoid being too bearish or too 
+bullish to begin with. For example, a spreader would not be bullish enough if he 
+===== PDF page index 260 =====
+Chapter 13: Reverse Spreads 
+FIGURE 13-2. 
+Reverse ratio spread (backspread). 
+C: 
+~ +$200 
+;% 
+:!:: 
+e 
+a. -$300 
+Stock Price at Expiration 
+235 
+merely used a 2:1 ratio for convenience, instead of using the 2.3:l ratio. If anything, 
+one might normally establish the spread with an extra bullish emphasis, since the 
+largest profits are to the upside. There is little reason for the spreader to have too lit­
+tle bullishness in this strategy. Thus, if the deltas are correct, the neutral ratio can aid 
+the spreader in the determination of a more accurate initial ratio. 
+The strategist must be alert to the possibility of early exercise in this type of 
+spread, since he has sold a call that is in-the-money. Aside from watching for this pos­
+sibility, there is little in the way of defensive follow-up action that needs to be imple­
+mented, since the risk is limited by the nature of the position. He might take profits 
+by closing the spread if the stock rallies before expiration. 
+This strategy presents a reasonable method of attempting to capitalize on a 
+large stock movement with little tie-up of collateral. Generally, the strategist would 
+seek out volatile stocks for implementation of this strategy, because he would want as 
+much potential movement as possible by the time the calls expire. In Chapter 14, it 
+will be shown that this strategy can become more attractive by buying calls with a 
+longer maturity than the calls sold. 

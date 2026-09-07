@@ -1,0 +1,396 @@
+
+===== PDF page index 453 =====
+414 Part IV: Additional Considerations 
+mitments to option purchases so that his overall risk in a one-year period can be kept 
+down to nearly 10%. 
+Example: An investor might decide to put 2½% of his money into three-month 
+option purchases. Thus, in any one year, he would be 1isking 10%. At the same time 
+he would be earning perhaps 6% from the overall interest generated on the fixed­
+income securities that make up the remaining 90% of his assets. This would keep his 
+overall risk down to approximately 4.6% per year. 
+There are better ways to monitor this risk, and they are described shortly. The 
+potential profits from this strategy are limited only by time. Since one is owning 
+options - say call options - he could profit handsomely from a large upward move in 
+the stock market. As with any strategy in which one has limited risk and the poten­
+tial of large profits, a small number of large profits could offset a large number of 
+small losses. In actual practice, of course, his profits will never be overwhelming, 
+since only approximately 10% of the money is committed to option purchases. 
+In total, this strategy has greatly reduced 1isk with the potential of making 
+above-average profits. Since the 10% of the money that is invested in options gives 
+great leverage, it might be possible for that portion to double or triple in a short time 
+under favorable market conditions. This strategy is something like owning a convert­
+ible bond. A convertible bond, since it is convertible into the common stock, moves 
+up and down in price with the price of the underlying stock. However, if the stock 
+should fall a great deal, the bond will not follow it all the way down, because eventu­
+ally its yield will provide a "floor" for the price. 
+A strategy that is not used very often is called the "synthetic convertible bond." 
+One buys a debenture and a call option on the same stock. If the stock rises in price, 
+the call does too, and so the combination of the debenture and the call acts much like 
+a convertible bond would to the upside. If, on the other hand, the stock falls, the call 
+will expire worthless; but the investor will retain most of his investment, because he 
+will still have the debenture plus any interest that the bond has paid. 
+The strategy of placing 90% of one's money into risk-free, interest-bearing cer­
+tificates and buying options with the remainder is superior to the convertible bond 
+or the "synthetic convertible bond," since there is no risk of price fluctuation in the 
+largest portion of the investment. 
+The Treasury bill/option strategy is fairly easy to operate, although one does 
+have to do some work every time new options are purchased. Also, periodic adjust­
+ments need to be made to keep the level of risk approximately the same at all times. 
+As for which options to buy, the reader may recall that specifications were outlined 
+in Chapters 3 and 16 on how to select the best option purchases. These criteria can 
+be summarized briefly as follows: 
+===== PDF page index 454 =====
+Chapter 26: Buying Options and Treasury Bills 415 
+1. Assume that each underlying stock can advance or decline in accordance with its 
+volatility over a fixed time period (30, 60, or 90 days). 
+2. Estimate the call prices after the advance, or put prices after the decline. 
+3. Rank all potential purchases by the highest reward opportunity. 
+The user of this strategy need only be interested in those option purchases that 
+provide the highest reward opportunity under this ranking method. In the previous 
+chapters on option buying, it was mentioned that one might want to look at the 
+risk/reward ratios of his potential option purchases in order to have a more conser­
+vative list. However, that is not necessary in the Treasury bill/option strategy, since 
+the overall risk has already been limited. A ranking of option purchases via the fore­
+going criteria will generally give a list of at- or slightly out-of-the-money options. 
+These are not necessarily "underpriced" options; although if an option is truly under­
+priced, it will have a better chance of ranking higher on the selection list than one 
+that is "overpriced." 
+A list of potential option purchases that is constructed with criteria similar to 
+those outlined above is available from many data services and brokerage firms. The 
+strategist who is willing to select his option purchases in this manner will find that he 
+does not have to spend a great deal of time on the selection process. The reader 
+should note that this type of option purchase ranking completely ignores the outlook 
+for the underlying stock. If one would rather make his purchases based on an outlook 
+for the underlying stock - preferably a technical outlook - he will be forced to spend 
+more time on his selection process. Although this may be appealing to some 
+investors, it will probably yield worse results in the long run than the previously 
+described unbiased approach to option purchases, unless the strategist is extremely 
+adept at stock selection. 
+KEEPING THE RISK LEVEL EQUAL 
+The second function that the strategist has to perform in this Treasury bill/option 
+strategy is to keep his risk level approximately equal at all times. 
+Example: An investor starts the strategy with $90,000 in Treasury bills (T-bills) and 
+$10,000 in option purchases. After some time has passed, the option purchases may 
+have worked out well and perhaps he now has $90,000 in T-bills plus $30,000 worth 
+of options, plus interest from the T-bills. Obviously, he no longer has 90% of his 
+money in fixed-income securities and 10% in option purchases. The ratio is now 75% 
+in T-bills and 25% in option purchases. This is too risky a ratio, and the strategist 
+must consequently sell some of his options and buy T-bills with the proceeds. Since 
+his total assets are $120,000 currently, he must sell out $18,000 of options to bring his 
+===== PDF page index 455 =====
+416 Part IV: Additional Considerations 
+option investment down from the current $30,000 figure to $12,000, or 10% of his 
+total assets. If one fails to adhere to this readjustment of his funds after profits are 
+made, he may eventually lose those profits. Since options can lose a great percentage 
+of their worth in a short time pe1iod, the investor is always running the risk that the 
+option portion of his investment may be nearly wiped out. If he has kept all his prof­
+its in the option portion of his strategy, he is constantly risking nearly all of his accu­
+mulated profits, and that is not wise. 
+One must also adjust his ratio of T-bills to options after losses occur. 
+Example: In the first year, the strategist loses all of the $10,000 he originally placed 
+in options. This would leave him with total assets of $90,000 plus interest (possibly 
+$6,000 of interest might be earned). He could readjust to a 90:10 ratio by selling out 
+some of the T-bills and using the proceeds to buy options. If one follows this strate­
+gy, he will be risking 10% of his funds each year. Thus, a series of loss years could 
+depreciate the initial assets, although the net losses in one year would be smaller than 
+10% because of the interest earned on the T-bills. It is recommended that the strate­
+gist pursue this method of readjusting his ratios in both up and down markets in 
+order to constantly provide himself with essentially similar risk/reward opportunities 
+at all times. 
+The individual can blend the option selection process and the adjustment of the 
+T-bill/option ratio to fit his individual portfolio. The larger portfolio can be diversi­
+fied into options \vith differing holding periods, and the ratio adjustments can be 
+made quite frequently, perhaps once a month. The smaller investor should concen­
+trate on somewhat longer holding periods for his options, and would adjust the ratio 
+less often. Some examples might help to illustrate the way in which both the large 
+and small strategist might operate. It should be noted that this T-bill/option strategy 
+is quite adaptable to fairly small sums of money, as long as the 10% that is going to 
+be put into option purchases allows one to be able to participate in a reasonable man­
+ner. A tactic for the extremely small investor is also described below. 
+ANNUALIZED RISK 
+Before getting into portfolio size, let us describe the concept of annualized risk. 
+One might want to purchase options with the intent of holding some of them for 30 
+days, some for 90 days, and some for 180 days. Recall that he does not want his 
+option purchases to represent more than 10% annual risk at any time. In actual 
+practice, if one purchases an option that has 90 days of life, but he is planning to 
+hold the option only 30 days, he will most likely not lose 100% of his investment in 
+===== PDF page index 456 =====
+Chapter 26: Buying Options and Treasury Bills 417 
+the 30-day period. However, for purposes of computing annualized risk easily, the 
+assumption that will be made is that the risk during any holding period is 100%, 
+regardless of the length of time remaining in the life of the option. Thus, a 30-day 
+option purchase represents an annualized risk of 1,200% (100% risk every 30 days 
+times twelve 30-day periods in one year). Ninety-day purchases have 400% annual­
+ized risk, and 180-day purchases have 200% annualized risk. There is a multitude 
+of ways to combine purchases in these three holding periods so that the overall risk 
+is 10% annualized. 
+Example: An investor could put 2½% of his total money into 90-day purchases four 
+times a year. That is, 2½% of his total assets are being subjected to a 400% annual­
+ized risk; 400% times 2½% equals 10% annualized risk on the total assets. Of course, 
+the remainder of the assets would be placed in risk-free, income-bearing securities. 
+Another of the many combinations might be to place 1 % of the total assets in 90-day 
+purchases and also place 3% of the total assets in 180-day purchases. Thus, 1 % of 
+one's total money would be subjected to a 400% annual risk and 3% would be sub­
+jected to a 200% annual risk (.01 times 400 plus .03 times 200 equals 10% annualized 
+risk on the entire assets). If one prefers a formula, annualized risk can be computed 
+as: 
+A al. d • k • r 1. Percent of total 360 nnu 1ze ns on entire portro 10 = d x assets investe Holding period 
+If one is able to diversify into several holding periods, the annualized risk is merely 
+the sum of the risks for each holding period. 
+With this information in mind, the strategist can utilize option purchases of 1 
+month, 3 months, and 6 months, preferably each generated by a separate computer 
+analysis similar to the one described earlier. He will know how much of his total 
+assets he can place into purchases of each holding period, because he will know his 
+annualized risk. 
+Example: Suppose that a very large investor, or pool of investors, has $1 million com­
+mitted to this T-bill/option strategy. Further, suppose ½ of 1 % of the money is to be 
+committed to 30-day option purchases with the idea of reinvesting every 30 days. 
+Similarly, ½ of 1 % is to be placed in 90-day purchases and 1 % in 180-day purchases. 
+The annualized risk is 10%: 
+Total annualized risk = ½% x 360 + ½% x 360 + 1 % x 360 
+30 90 180 
+= .06 + .02 + .02 = 10% 
+===== PDF page index 457 =====
+418 Part IV: Additional Considerations 
+With asset.s of $1 million, this means that $.5,000 would be committed to 30-day pur­
+chases; $.5,000 to 90-day purchases; and $10,000 to 180-day purchases. This money 
+would be reinvested in similar quantities at the end of each holding period. 
+RISK ADJUSTMENT 
+The subject of adjusting the ratio to constantly reflect 10% risk must be addressed at 
+the end of each holding period. Although it is correct for the investor to keep his per­
+centage commitments constant, he must not be deluded into automatically reinvest­
+ing the same amount of dollars each time. 
+Example: At the end of 30 days, the value of the entire portfolio, including potential 
+option profits and losses, and interest earned, was down to $990,000. Then only ½ of 
+1 % of that amount should be invested in the next 30-day purchase ($4,9.50). 
+By operating in this manner - first computing the annualized risk and balanc­
+ing it through predetermined percentage commitments to holding periods of various 
+lengths; and second, readjusting the actual dollar commitment at the end of each 
+holding period - the overall risk/reward ratios v,ill be kept close to the levels 
+described in the earlier, simple desciiption of this strategy. This may require a rela­
+tively large amount of work on the part of the strategist, but large portfolios usually 
+do require work. 
+The smaller investor does not have the luxury of such complete diversification, 
+but he also does not have to adjust his total position as often. 
+Example: An investor decided to commit $.50,000 to this strategy. Since there is a 
+1,200% annualized risk in 30-day purchases, it does not make much sense to even 
+consider purchases that are so short-term for assets of this size. Rather, he might 
+decide to commit 1 % of his assets to a 90-day purchase and 3% to a 180-day pur­
+chase. In dollar amounts, this would be $.500 in a 90-day option and $1,.500 in 180-
+day options. Admittedly, this does not leave much room for diversification, but to risk 
+more in the short-term purchases would expose the investor to too much risk. In 
+actual practice, this investor would probably just invest .5% of his assets in 180-day 
+purchases, also a 10% annualized risk. This would mean that he could operate with 
+only one option buyer's analysis (the 180-day one) and could place $2,.500 into selec­
+tions from that list. 
+His adjustments of the assets committed to option purchases could not be done 
+as frequently as the large investor, because of the commissions involved. He certain­
+ly would have to adjust every 180 days, but might prefer to do so more frequently -
+perhaps every 90 days - to be able to space his 180-day commitments over different 
+===== PDF page index 458 =====
+Chapter 26: Buying Options and Treasury Bills 419 
+option expiration cycles. It should also be pointed out that T-bills can be bought and 
+sold only in amounts of at least $10,000 and in increments of $5,000 thereafter. That 
+is, one could buy or sell $10,000 or $15,000 or $20,000 or $25,000, and so on, but 
+could not buy or sell $5,000 or $8,000 or $23,000 in T-bills. This is of little concern 
+to the investor with $1 million, since it takes only a fraction of a percentage of his 
+assets to be able to round up to the next $5,000 increment for a T-bill sale or pur­
+chase. However, the medium-sized investor with a $50,000 portfolio might run into 
+problems. While short-term T-bills do represent the best risk-free investment, the 
+medium-sized investor might want to utilize one of the no-load, money market funds 
+for at least part of his income-bearing assets. Such funds have only slightly more risk 
+than T-bills and offer the ability to deposit and withdraw in any amount. 
+The truly small investor might be feeling somewhat left out. Could it be possi­
+ble to operate this strategy with a very small amount of money, such as $5,000? Yes 
+it could, but there are several disadvantages. 
+Example: It would be extremely difficult to keep the risk level down to 10% annual­
+ly with only $5,000. For example, 5% of the money invested every 180 days is only 
+$250 in each investment period. Since the option selection process that is described 
+will tend to select at- or slightly out-of-the-money calls, many of these will cost more 
+than 2½ points for one option. The small investor might decide to raise his risk level 
+slightly, although the risk level should never exceed 20% annually, no matter how 
+small the actual dollar investment. To exceed this risk level would be to completely 
+defeat the purpose of the fixed-income/option purchase strategy. Obviously, this 
+small investor cannot buy T-bills, for his total investable assets are below the mini­
+mum $10,000 purchase level. He might consider utilizing one of the money market 
+funds. Clearly, an investor of this small magnitude is operating at a double disadvan­
+tage: His small dollar commitment to option purchases may preclude him from buy­
+ing some of the more attractive items; and his fixed-income portion will be earning a 
+smaller percentage interest rate than that of the larger investor who is in T-bills or 
+some other form of relatively risk-free, income-bearing security. Consequently, the 
+small investor should carefully consider his financial capability and willingness to 
+adhere strictly to the criteria of this strategy before actually committing his dollars. 
+It may appear to the reader that the actual dollars being placed at risk in each 
+option purchase are quite small in these examples. In fact, they are rather small, but 
+they have been shown to represent 10% annualized risk. An assumption was made in 
+these examples that the risk in each option purchase was 100% for the holding peri­
+od. This is a fairly restrictive assumption and, if it were lessened, would allow for a 
+larger dollar commitment in each holding period. It is difficult and dangerous, how-
+===== PDF page index 459 =====
+420 Part IV: Additional Considerations 
+ever, to assume that the risk in holding a call option is less than 100% in a holding 
+period as short as 30 days. The strategist may feel that he is disciplined enough to sell 
+out when losses occur and thereby hold the risk to less than 100%. Alternatively, 
+mathematical analysis will generally show that the expected loss in a fixed time peri­
+od is less than 100%. One can also mitigate the probability oflosing all of his money 
+in an option purchase by buying in-the-money options. While they are more expen­
+sive, of course, they do have a larger probability of having some residual worth even 
+if the underlying stock doesn't rise to the trader's expectations. Adhering to any of 
+these criteria can lead one to become too aggressive and therefore be too heavily 
+committed to option purchases. It is far safer to stick to the simpler, more restrictive 
+assumption that one is risking all his money, even over a fairly short holding period, 
+when he buys an option. 
+AVOIDING EXCESSIVE RISK 
+One final word of caution must be inserted. The investor should not attempt to 
+become 'Janey" with the income-bearing portion of his assets. T-bills may appear to 
+be too "tame" to some investors, and they consider using GNMA's (Government 
+National Mortgage Association certificates), corporate bonds, convertible bonds, or 
+municipal bonds for the fixed-income portion. Although the latter securities may 
+yield a slightly higher return than do T-bills, they may also prove to be less liquid and 
+they quite clearly involve more risk than a short-term T-bill does. Moreover, some 
+investors might even consider placing the balance of their funds in other places, such 
+as high-yield stock or covered call writing. While high-yield stock purchases and cov­
+ered call writing are conservative investments, as most investments go, they would 
+have to be considered very speculative in comparison to the purchase of a 90-day T­
+hill. In this strategy, the profit potential is represented by the option purchases. The 
+yield on short-term T-bills will quite adequately offset the risks. One should take 
+great care not to attempt to generate much higher yields on the fixed-income portion 
+of his investment, for he may find that he has assumed risk with the portion of his 
+money that was not intended to have any risk at all. 
+A fair amount of rigorous mathematical work has been done on the evaluation 
+of this strategy. The theoretical papers are quite favorable. Scholars have generally 
+considered only the purchase of call options as the risk portion of the strategy. 
+Obviously, the strategist is quite free to purchase put options without harming the 
+overall intent of the strategy. When only call options are purchased, both static and 
+down markets harm the performance. If some puts are included in the option pur­
+chases, only static markets could produce the worst results. 
+===== PDF page index 460 =====
+Chapter 26: Buying Options and Treasury Bills 421 
+There are trade-offs involved as well. If, after purchasing the options, the mar­
+ket experiences a substantial rally, that portion of the option purchase money that is 
+devoted to put option purchases will be lost. Thus, the combination of both put and 
+call purchases would do better in a down market than a strategy of buying only calls, 
+but would do worse in an up market. In a broad sense, it makes sense to include some 
+put purchases if one has the funds to diversify, since the frequency of market rallies 
+is smaller than the combined frequency of market rallies and declines. The investor 
+who owns both puts and calls will be able to profit from substantial moves in either 
+direction, because the profitable options will be able to overcome the limited losses 
+on the unprofitable ones. 
+SUMMARY 
+In summary, the T-bill/option strategy is attractive from several viewpoints. Its true 
+advantage lies in the fact that it has predefined risk and does not have a limit on 
+potential profits. Some theorists claim it is the best strategy available, if the options 
+are "underpriced" when they are purchased. The strategy is also relatively simple to 
+operate. It is not necessary to have a margin account or to compute collateral require­
+ments for uncovered options; the strategy can be operated completely from a cash 
+account. There are no spreads involved, nor is it necessary to worry about details such 
+as early assignment (because there are no short options in this strategy). 
+The investor who is going to employ this strategy, however, must not be delud­
+ed into thinking that it is so simple that it does not take any work at all. The concepts 
+and application of annualized risk management are very important to the strategy. So 
+are the mechanics of option buying - particularly a disciplined, rational approach to 
+the selection of which calls and/or puts to buy. Consequently, this strategy is suitable 
+only for the investor who has both the time and the discipline to operate it correctly. 
+===== PDF page index 461 =====
+Arbitrage 
+Arbitrage in the securities market often connotes that one is buying something in 
+one marketplace and selling it in another marketplace, for a small profit with little 
+or no risk. For example, one might buy XYZ at 55 in New York and sell it at 55¼ in 
+Chicago. Arbitrage, especially option arbitrage, involves a far wider range of tactics 
+than this simple example. Many of the option arbitrage tactics involve buying one 
+side of an equivalent position and simultaneously selling the other side. Since there 
+is a large number of equivalent strategies, many of which have been pointed out in 
+earlier chapters, a full-time option arbitrageur is able to construct a rather large 
+number of positions, most of which have little or no risk. The public customer can­
+not generally operate arbitrage-like strategies because of the commission costs 
+involved. Arbitrageurs are firm traders or floor traders who are trading through a 
+seat on the appropriate securities exchange, and therefore have only minimal trans­
+action costs. 
+The public customer can benefit from understanding arbitrage techniques, even 
+ifhe does not personally employ them. The arbitrageurs perform a useful function in 
+the option marketplace, often making markets where a market might not otherwise 
+exist (deeply in-the-money options, for example). This chapter is directed at the 
+strategist who is actually going to be participating in arbitrage. This should not be 
+confusing to the public customer, for he will better understand the arbitrage strate­
+gies if he temporarily places himself in the arbitrageur's shoes. 
+It is virtually impossible to perform pure arbitrage on dually listed options; that 
+is, to buy an option on the CBOE and sell it on the American exchange in New York 
+for a profit. Such discrepancies occur so infrequently and in such small size that an 
+option arbitrageur could never hope to be fully employed in this type of simple arbi­
+trage. Rather, the more complex forms of arbitrage described here are the ones on 
+which he would normally concentrate. 
+422 
+===== PDF page index 462 =====
+Chapter 27: Arbitrage 423 
+BASIC PUT AND CALL ARBITRAGE ("DISCOUNTING") 
+The basic call and the basic put arbitrages are two of the simpler forms of option arbi­
+trage. In these situations, the arbitrageur attempts to buy the option at a discount 
+while simultaneously taking an opposite position in the underlying stock. He can then 
+exercise his option immediately and make a profit equal to the amount of the discount. 
+The basic call arbitrage is described first. This was also outlined in Chapter 1, 
+under the section on anticipating exercise. 
+Example: XYZ is trading at 58 and the XYZ July 50 call is trading at 7¾. The call is 
+actually at a discount from parity of ¼ point. Discount options generally either are 
+quite deeply in-the-money or have only a short time remaining until expiration, or 
+both. The call arbitrage would be constructed by: 
+1. buying the call at 7¾; 
+2. selling the stock at 58; 
+3. exercising the call to buy the stock at 50. 
+The arbitrageur would make 8 points of profit from the stock, having sold it at 58 and 
+bought it back at 50 via the option exercise. He loses the 7¾ points that he paid for 
+the call option, but this still leaves him with an overall profit of¼ point. Since he is 
+a member of the exchange, or is trading the seat of an exchange member, the arbi­
+trageur pays only a small charge to transact the trades. 
+In reality, the stock is not sold short per se, even though it is sold before it is 
+bought. Rather, the position is designated, at the time of its inception, as an "irrevo­
+cable exercise." The arbitrageur is promising to exercise the call. As a result, no 
+uptick is required to sell the stock. 
+The main goal in the call arbitrage is to be able to buy the call at a discount from 
+the price at which the stock is sold. The differential is the profit potential of the arbi­
+trage. The basic put arbitrage is quite similar to the call arbitrage. Again, the arbi­
+trageur is looking to buy the put option at a discount from parity. The put arbitrage 
+is completed with a stock purchase and option exercise. 
+Example: XYZ is at 58 and the XYZ July 70 put is at 11 ¾. With the put at ¼ discount 
+from parity, the arbitrageur might take the following action: 
+1. Buy put at 11 ¾. 
+2. Buy stock at 58. 
+3. Exercise put to sell stock at 70. 
+===== PDF page index 463 =====
+424 Part IV: Additional Considerations 
+The stock transaction is a 12-point profit, since the stock was bought at 58 and is sold 
+at 70 via the put exercise. The cost of the put - 11 ¾ points - is lost, but the arbi­
+trageur still makes ¼-point profit. Again, this profit is equal to the arrwunt of the dis­
+count in the option when the position was established. Generally, the arbitrageur 
+would exercise his put option immediately, because he would not want to tie up his 
+capital to carry the long stock. An exception to this would be if the stock were about 
+to go ex-dividend. Dividend arbitrage is discussed in the next section. 
+The basic call and put arbitrages may exist at any time, although they will be 
+more frequent when there is an abundance of deeply in-the-money options or when 
+there is a very short time remaining until expiration. After market rallies, the call 
+arbitrage may be easier to establish; after market declines, the put arbitrage will be 
+easier to find. As an expiration date draws near, an option that is even slightly in-the­
+money on the last day or two of trading could be a candidate for discount arbitrage. 
+The reason that this is true is that public buying interest in the option will normally 
+wane. The only public buyers would be those who are short and want to cover. Many 
+covered writers will elect to let the stock be called away, so that will reduce even fur­
+ther the buying potential of the public. This leaves it to the arbitrageurs to supply the 
+buying interest. 
+The arbitrageur obviously wants to establish these positions in as large a size as 
+possible, since there is no risk in the position if it is established at a discount. Usually, 
+there will be a larger market for the stock than there will be for the options, so the 
+arbitrageur spends more of his time on the option position. However, there may be 
+occasions when the option markets are larger than the corresponding stock quotes. 
+When this happens, the arbitrageur has an alternative available to him: He might sell 
+an in-the-money option at parity rather than take a stock position. 
+Example: XYZ is at 58 and the XYZ July 50 call is at 7¾. These are the same figures 
+as in the previous example. Furthermore, suppose that the trader is able to buy more 
+options at 7¾ than he is able to sell stock at 58. If there were another in-the-money 
+call that could be sold at parity, it could be used in place of the stock sale. For exam­
+ple, if the XYZ July 40 call could be sold at 18 (parity), the arbitrage could still be 
+established. Ifhe is assigned on the July 40 that he is short, he will then be short stock 
+at a net price of 58 - the striking price of 40, plus the 18 points that were brought in 
+from the sale of the July 40 call. Thus, the sale of the in-the-money call at parity is 
+equivalent to shorting the stock for the arbitrage purpose. 
+In a similar manner, an in-the-money put can be used in the basic put arbitrage. 
+Example: With XYZ at 58 and the July 70 put at 11¾, the arbitrage could be estab­
+lished. However, if the trader is having trouble buying enough stock at 58, he might 

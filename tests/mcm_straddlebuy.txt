@@ -1,0 +1,332 @@
+
+===== PDF page index 308 =====
+278 Part Ill: Put Option Strategies 
+large losses. The covered writer who buys puts may often find it easier to operate in 
+a more rational manner when he has the protective put in place. 
+This strategy is equivalent to one that has been described before, the bull 
+spread. Notice that the profit graph in Figure 17-2 has the same shape as the bull 
+spread profit graph (Figure 7-1). This means that the two strategies are equivalent. 
+In fact, in Chapter 7 it was pointed out that the bull spread could sometimes be con­
+sidered a "substitute" for covered writing. Actually, the bull spread is more akin to 
+this strategy- the covered write protected by a put purchase. There are, of course, 
+differences between the strategies. They are equivalent in profit and loss potential, 
+but the covered writer could never lose all his investment in a short period of time, 
+although the spreader could. In order to actually use bull spreads as substitutes for 
+covered writes, one would invest only a small portion of his available funds in the 
+spread and would place the remainder of his funds in fixed-income securities. That 
+strategy was discussed in more depth in Chapter 7. 
+NO-COST COLLARS 
+The "collar" strategy is often arrived at in another manner: a stockholder begins 
+to worry about the downside potential of the stock market and decides to buy puts 
+on his stock as protection. However, he is dismayed by the cost of the puts and so he 
+also considers the sale of calls. If he buys an out-of-the-money put, it is quite possi­
+ble that he might be able to sell an out-of-the-money call whose proceeds complete­
+ly cover the cost of the put. Thus, he has established a protective collar at no cost -
+at least no debit. His "cost" is the fact that he has forsaken the upside profit poten­
+tial on his stock, above the striking price of the written call. 
+In fact, certain large institutional traders are able to transact collars through 
+large over-the-counter option brokers, such as Goldman Sachs or Morgan Stanley. 
+They might even give the broker instructions such as this: "I own XYZ and I want to 
+buy a put 10 percent out of the money that e.:\.J)ires in a year. What would the strik­
+ing price of a one-year call have to be in order to create a no-cost collar?" The bro­
+ker might then tell him that such a call would have to be struck 30 percent out of the 
+money. The actual strike price of the call would depend on the volatility estimate for 
+the underlying stock, as well as interest rates and dividends. These types of transac­
+tions occur with a fair amount of frequency. 
+Some very interesting situations can be created with long-term options. One of 
+the most interesting occurred in 1999, when a company that owned 5 million shares 
+of Cisco (CSCO) decided it would like to hedge them by creating a no-cost collar 
+over the next three years. At the time, CSCO was trading at about 130, and its volatil­
+ity was about 50%. It turns out that a three-year put struck at 130 sells for about the 
+===== PDF page index 309 =====
+278 Part Ill: Put Option Strategies 
+large losses. The covered writer who buys puts may often find it easier to operate in 
+a more rational manner when he has the protective put in place. 
+This strategy is equivalent to one that has been described before, the bull 
+spread. Notice that the profit graph in Figure 17-2 has the same shape as the bull 
+spread profit graph (Figure 7-1). This means that the two strategies are equivalent. 
+In fact, in Chapter 7 it was pointed out that the bull spread could sometimes be con­
+sidered a "substitute" for covered writing. Actually, the bull spread is more akin to 
+this strategy - the covered write protected by a put purchase. There are, of course, 
+differences between the strategies. They are equivalent in profit and loss potential, 
+but the covered writer could never lose all his investment in a short period of time, 
+although the spreader could. In order to actually use bull spreads as substitutes for 
+covered ,vrites, one would invest only a small portion of his available funds in the 
+spread and would place the remainder of his funds in fixed-income securities. That 
+strategy was discussed in more depth in Chapter 7. 
+NO-COST COLLARS 
+The "collar" strategy is often arrived at in another manner: a stockholder begins 
+to worry about the downside potential of the stock market and decides to buy puts 
+on his stock as protection. However, he is dismayed by the cost of the puts and so he 
+also considers the sale of calls. If he buys an out-of-the-money put, it is quite possi­
+ble that he might be able to sell an out-of-the-money call whose proceeds complete­
+ly cover the cost of the put. Thus, he has established a protective collar at no cost -
+at least no debit. His "cost" is the fact that he has forsaken the upside profit poten­
+tial on his stock, above the striking price of the written call. 
+In fact, certain large institutional traders are able to transact collars through 
+large over-the-counter option brokers, such as Goldman Sachs or Morgan Stanley. 
+They might even give the broker instructions such as this: "I own XYZ and I want to 
+buy a put 10 percent out of the money that expires in a year. What would the strik­
+ing p1ice of a one-year call have to be in order to create a no-cost collar?" The bro­
+ker might then tell him that such a call would have to be struck 30 percent out of the 
+money. The actual strike price of the call would depend on the volatility estimate for 
+the underlying stock, as well as interest rates and dividends. These types of transac­
+tions occur with a fair amount of frequency. 
+Some very interesting situations can be created with long-term options. One of 
+the most interesting occurred in 1999, when a company that owned 5 million shares 
+of Cisco ( CSCO) decided it would like to hedge them by creating a no-cost collar 
+over the next three years. At the time, CSCO was trading at about 130, and its volatil­
+ity was about 50%. It turns out that a three-year put struck at 130 sells for about the 
+===== PDF page index 310 =====
+Cltapter 17: Put Buying in Conjunction with Common Stock Ownership 
+TABLE 17-3. 
+Highest Call Strike That Pays for an At-the-Money Put 
+(Assuming 2.5 years to expiration) 
+Volatility Coll Strike 
+30% 
+40% 
+50% 
+70% 
+100% 
+of Underlying 
+30% out of money 
+35% out of money 
+40% out of money 
+50% out of money 
+70% out of money 
+279 
+same price as a three-year call struck at 200! That may seem illogical, but the figures 
+can be checked out with the aid of an option-pricing model. Thus, this company was 
+able to hedge all of its CSCO stock, with no downside risk ( the striking price of the 
+puts was the same as the current stock price) and still had profit potential of over 50% 
+to the upside over the next three years. 
+Thus, one should consider using LEAPS options when he establishes a collar -
+even ifhe is not an institutional trader - because the striking price of the calls can be 
+quite high in comparison to that of the put' s strike or in comparison to the price of 
+the underlying stock. Table 17-3 shows how far out-of-the-money a written call could 
+be that still covers the cost of buying an at-the-money put. The time to expiration in 
+this table is 2.5 years - the longest term listed option that currently exists as a LEAPS 
+option. 
+USING LOWER STRIKES AS A PARTIAL COVERED WRITE 
+It should also be pointed out that one does not necessarily have to forsake all of 
+the profit potential from his stock. He might buy the puts, as usual, and then sell calls 
+with a somewhat lower strike than needed for a low-cost collar, but the quantity of 
+calls sold would be less than that of stock owned. In that way, there would be unlim­
+ited profit potential on some of the shares of the underlying stock. 
+Example: Suppose that the following prices exist: 
+XYZ:61 
+Apr 55 put: 1 
+Apr 65 call: 2 
+Furthermore, suppose that one owns 1000 shares of XYZ. Thus, the purchase 
+of 10 Apr 55 puts at 1 point apiece would protect the downside. In order to cover the 
+cost of those puts ($1000), one need only sell five of the Apr 65 calls at 2 points 
+===== PDF page index 311 =====
+280 Part Ill: Put Option Strategies 
+apiece. Thus, the protection would have cost nothing and there would still be unlim­
+ited profit potential on 500 of the shares of XYZ, since only five calls were sold against 
+the 1000 shares that are owned. 
+In this manner, one could get quite creative in constructing collars - deciding 
+what call strike to use in order to strike a balance between paying for the puts and 
+allowing upside profit potential. The lower the strike he uses for the written calls, the 
+fewer calls he will have to write; the higher the strike of the written calls, the more 
+calls will be necessary to cover the cost of the purchased puts. The tradeoff is that a 
+lower call strike allows for more eventual upside profit potential, but it limits what 
+has been written against to a lower price. 
+Using the above example once again, these facts can be demonstrated: 
+Example (continued): As before, the same prices exist, but now one more call will 
+be brought into the picture: 
+XYZ: 61 
+Apr55 put: l 
+Apr 65 call: 2 
+Apr 70 call: l 
+As before one could sell five of the Apr 65 calls to cover the cost of ten puts, or 
+as an alternative he could sell ten of the Apr 70 calls. If he sells the five, he has unlim­
+ited profit potential on 500 shares, but the other 500 shares will be called away at 65. 
+In the alternative strategy, he has limited upside profit potential, but nothing will be 
+called away until the stock reaches 70. Which is "better?" It's not easy to say. In the 
+former strategy, if the stock climbs all the way to 75, it results in the same profit as if 
+the stock is called away at 70 in the latter strategy. This is true because 500 shares 
+would be worth 75, but the other 500 would have been called away at 65 - making 
+for an average of 70. Hence, the former strategy only outperforms the latter if the 
+stock actually climbs above 75 - a rather unlikely event, one would have to surmise. 
+Still, many investors prefer the former strategy because it gives them protection with­
+out asking them to surrender all of their upside profit potential. 
+In summary, one can often be quite creative with the "collar" strategy. One thing 
+to keep in mind: if one sells options against stock that he has no intention of selling, he 
+is actually writing naked calls in his ovm mind. That is, if one owns stock that "can't" 
+be sold - perhaps the capital gains would be devastating or the stock has been "in the 
+family" for a long time - then he should not sell covered calls against it, because he will 
+be forced into treating the calls as naked (if he refuses to sell the stock). This can cause 
+quite a bit of consternation if the underlying stock rises significantly in price, that could 
+have easily been avoided by not writing calls against the stock in the first place. 
+===== PDF page index 312 =====
+CHAPCIJER 18 
+Buying Puts in Conjunction 
+with Call Purchases 
+There are several ways in which the purchases of both puts and calls can be used to 
+the speculator's advantage. One simple method is actually a follow-up strategy for the 
+call buyer. If the stock has advanced and the call buyer has a profit, he might con­
+sider buying a put as a means of locking in his call profits while still allowing for more 
+potential upside appreciation. In Chapter 3, four basic alternatives were listed for the 
+call buyer who had a profit: He could liquidate the call and take his profit; he could 
+do nothing; he could "roll up" by selling the call for a profit and using part of the pro­
+ceeds to purchase more out-of-the-money calls; or he could create a bull spread by 
+selling the out-of-the-money call against the profitable call that he holds. If the 
+underlying stock has listed puts, he has another alternative: He could buy a put. This 
+put purchase would serve to lock in some of the profits on the call and would still 
+allow room for further appreciation if the stock should continue to rise in price. 
+Example: An investor initially purchased an XYZ October 50 call for 3 points when 
+the stock was at 48. Sometime later, after the stock had risen to 58, the call would be 
+worth about 9 points. If there was an October 60 put, it might be selling for 4 points, 
+and the call holder could buy this put to lock in some of his profits. His position, after 
+purchasing the put, would be: 
+Long l October 50 call at 3 points N t t 7 • t - e cos: pom s Long l October 60 put at 4 points 
+He would own a "strangle" - any position consisting of both a put and a call with dif­
+fering terms - that is always worth at least 10 points. The combination will be worth 
+exactly 10 points at expiration if XYZ is anywhere between 50 and 60. For example, 
+281 
+===== PDF page index 313 =====
+282 Part Ill: Put Option Strategies 
+if xyz is at 52 at expiration, the call will be worth 2 points and the put will be wort Ii 
+8 points. Alternatively, if the stock is at 58 at expiration, the put will be worth 2 points 
+and the call worth 8 points. Should xyz be above 60 at expiration, the combination's 
+value will be equal to the call's value, since the put will expire worthless with XYZ 
+above 60. The call would have to be worth more than 10 points in that case, since it 
+has a striking price of 50. Similarly, if xyz were below 50 at expiration, the combi­
+nation would be worth more than 10 points, since the put would be more than 10 
+points in-the-money and the call would be worthless. 
+The speculator has thus created a position in which he cannot lose money, 
+because he paid only 7 points for the combination (3 points for the call and 4 points 
+for the put). No matter what happens, the combination will be worth at least 10 
+points at e:x-piration, and a 3-point profit is thus locked in. If xyz should continue to 
+climb in price, the speculator could make more than 3 points of profit whenever xyz 
+is above 60 at expiration. Moreover, if xyz should suddenly collapse in price, the 
+speculator could make more than 3 points of profit if the stock was below 50 by expi­
+ration. The reader must realize that such a position can never be created as an initial 
+position. This desirable situation arose only because the call had built up a substan­
+tial profit before the put was purchased. The similar strategy for the put buyer who 
+might buy a call to protect his unrealized put profits was described in Chapter 16. 
+STRADDLE BUYING 
+A straddle purchase consists of buying both a put and a call with the same terms -
+sarne underlying stock, striking price, and expiration date. The straddle purchase 
+allows the buyer to make large potential profits if the stock moves far enough in 
+either direction. The buyer has a predetermined maximum loss, equal to the amount 
+of his initial investment. 
+Example: The following prices exist: 
+xyz common, 50; 
+XYZ July 50 call, 3; and 
+XYZ July 50 put, 2. 
+If one purchased both the July 50 call and the July 50 put, he would be buying a 
+straddle. This would cost 5 points plus commissions. The investment required to 
+purchase a straddle is the net debit. If the underlying stock is exactly at 50 at expi­
+ration, the buyer would lose all his investment, since both the put and the call would 
+expire worthless. If the stock were above .55 at expiration, the call portion of the 
+===== PDF page index 314 =====
+18: Buying Puts in Conjundion with Call Purchases 283 
+dle would be worth more than 5 points and the straddle buyer would make 
+y, even though his put expired worthless. To the downside, a similar situation 
+Mists. If XYZ were below 45 at expiration, the put would be worth more than 5 
+points and he would have a profit despite the fact that the call expired worthless. 
+Table 18-1 and Figure 18-1 depict the results of this example straddle purchase at 
+expiration. The straddle buyer can immediately determine his break-even points at 
+expiration - 45 and 55 in this example. He will lose money if the underlying stock is 
+between those break-even points at expiration. He has potentially large profits if 
+XYZ should move a great distance away from 50 by expiration. 
+One would normally purchase a straddle on a relatively volatile stock that has 
+the potential to move far enough to make the straddle profitable in the allotted time. 
+This strategy is particularly attractive when option premiums are low, since low pre­
+miums will mean a cheaper straddle cost. Although losses may occur in a relatively 
+large percentage of cases that are held all the way until their expiration date, there is 
+actually only a minute probability of losing one's entire investment. Even if XYZ 
+should be at 50 at expiration, there would still be the opportunity to sell the straddle 
+for a small amount on the final day of trading. 
+TABLE 18-1. 
+Results of straddle purchase at expiration. 
+XYZ Price at Total Straddle 
+Expiration Coll Profit Put Profit Profit 
+30 -$ 300 +$1,800 + $1,500 
+40 300 + 800 + 500 
+45 300 + 300 0 
+50 300 200 500 
+55 + 200 200 0 
+60 + 700 200 + 500 
+70 + 1,700 200 + 1,500 
+EQUIVALENCES 
+Straddle buying is equivalent to the reverse hedge, a strategy described in Chapter 4 
+in which one sells the underlying stock short and purchases two calls on the under­
+lying stock. Both strategies have similar profit characteristics: a limited loss that 
+would occur at the striking price of the options involved, and potentially large prof­
+its if the underlying stock should rise or fall far enough in price. The straddle pur-
+===== PDF page index 315 =====
+284 
+FIGURE 18-1. 
+Straddle purchase. 
+C: 
+.Q 
+I!! ·a. 
+X 
+w 
+ro $0 en en 0 
+..J 
+0 
+-e a.. 
+-$500 
+Part Ill: Put Option Strategies 
+Stock Price at Expiration 
+chase is superior to the reverse hedge, however, and where listed puts exist on a stock, 
+the reverse hedge strategy becomes obsolete. The reasons that the straddle purchase 
+is superior are that dividends are not paid by the holder and that commission costs 
+are much smaller in the straddle situation. 
+REVERSE HEDGE WITH PUTS 
+A third strategy is equivalent to both the straddle purchase and the reverse hedge. 
+It consists of buying the underlying stock and buying two put options. If the stock 
+rises substantially in price, large profits will accrue, for the stock profit will more 
+than offset the fixed loss on the purchase of two put options. If the stock declines in 
+price by a large amount, profits will also be generated. In a decline, the profits gen­
+erated by 2 long puts will more than offset the loss on 100 shares of long stock. This 
+form of the straddle purchase has limited risk as well. The worst case would occur 
+if the stock were exactly at the striking price of the puts at their expiration date - the 
+puts would both expire worthless. The risk is limited, percentagevvise and dollar­
+wise, since the cost of two put options would normally be a relatively small per­
+centage of the total cost of buying the stock. Furthermore, the investor may receive 
+some dividends if the underlying stock is a dividend-paying stock. Buying stock and 
+buying two puts is superior to the reverse hedge strategy, but is still inferior to the 
+straddle purchase. 
+===== PDF page index 316 =====
+ter 18: Buying Puts in Conjunction with Call Purchases 
+IILECTING A STRADDLE BUY 
+285 
+In theory, one could find the best straddle purchases by applying the analyses for best 
+call purchases and best put purchases simultaneously. Then, if both the puts and calls 
+on a particular stock showed attractive opportunity, the straddle could be bought. 
+The straddle should be viewed as an entire position. A similar sort of analysis to that 
+proposed for either put or call purchases could be used for straddles as well. First, 
+one would assume the stock would move up or down in accordance with its volatili­
+ty within a fixed time period, such as 60 or 90 days. Then, the prices of both the put 
+and the call could be predicted for this stock movement. The straddles that off er the 
+best reward opportunity under this analysis would be the most attractive ones to buy. 
+To demonstrate this sort of analysis, the previous example can be utilized again. 
+Example: XYZ is at 50 and the July 50 call is selling for 3 while the July 50 put is sell­
+ing for 2 points. If the strategist is able to determine that XYZ has a 25% chance of 
+being above 54 in 90 days and also has a 25% chance of being below 46 in 90 days, 
+he can then predict the option prices. A rigorous method for determining what per­
+centage chance a stock has of making a predetermined price movement is presented 
+in Chapter 28 on mathematical applications. For now, a general procedure of analy­
+sis is more important than its actual implementation. If XYZ were at 54 in 90 days, it 
+might be reasonable to assume that the call would be worth 5½ and the put would 
+be worth 1 point. The straddle would therefore be worth 6½ points. Similarly, if the 
+stock were at 46 in 90 days, the put might be worth 4½ points, and the call worth 1 
+point, making the entire straddle worth 5½ points. It is fairly common for the strad­
+dle to be higher-priced when it is a fixed distance in-the-money on the call side (such 
+as 4 points) than when it is in-the-money on the put side by that same distance. In 
+this example, the strategist has now determined that there is a 25% chance that the 
+straddle will be worth 6½ points in 90 days on an upside movement, and there is a 
+25% chance that the straddle will be worth 5½ points on a downside movement. The 
+average price of these two expectations is 6 points. Since the straddle is currently sell­
+ing for 5 points, this would represent a 20% profit. If all potential straddles are 
+ranked in the same manner - allowing for a 25% chance of upside and downside 
+movement by each underlying stock - the straddle buyer will have a common basis 
+for comparing various straddle opportunities. 
+FOLLOW-UP ACTION 
+It has been mentioned frequently that there is a good chance that a stock will remain 
+relatively unchanged over a short time period. This does not mean that the stock will 

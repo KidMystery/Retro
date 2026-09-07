@@ -1,0 +1,238 @@
+
+===== PDF page index 248 =====
+Chapter 12: Combining Calendar and Ratio Spreads 223 
+term calls while buyingfewer of the intermediate-term or long-term calls. Since more 
+calls are being sold than are being bought, naked options are involved. It is often pos­
+sible to set up a ratio calendar spread for a credit, meaning that if the underlying 
+stock never rallies above the strike, the strategist will still make money. However, 
+since naked calls are involved, the collateral requirements for participating in this 
+strategy may be large. 
+Example: As in the bullish calendar spreads described in Chapter 9, the prices are: 
+XYZ common, 45; 
+XYZ April 50 call, l; and 
+XYZ July 50 call, l½. 
+In the bullish calendar spread strategy, one July 50 is bought for each April 50 sold. 
+This means that the spread is established for a debit of½ point and that the invest­
+ment is $50 per spread, plus commissions. The strategist using the ratio calendar 
+/ spread has essentially the same philosophy as the bullish calendar spreader: The 
+stock will remain below 50 until April expiration and may then rally. The ratio calen­
+dar spread might be set up as follows: 
+Buy 1 XYZ July 50 call at l½ 
+Sell 2 XYZ April 50 calls at 1 each 
+Net 
+l½ debit 
+2 credit 
+½ credit 
+Although there is no cash involved in setting up the ratio spread since it is done for 
+a credit, there is a collateral requirement for the naked April 50 call. 
+If the stock remains below 50 until April expiration, the long call - the July 50 
+- will be owned free. After that, no matter what happens to the underlying stock, the 
+spread cannot lose money. In fact, if the underlying stock advances dramatically after 
+near-term expiration, large profits will accrue as the July 50 call increases in value. Of 
+course, this is entirely dependent on the near-term call expiring worthless. If the 
+underlying stock should rally above 50 before the April calls expire, the ratio calen­
+dar spread is in danger of losing a large amount of money because of the naked calls, 
+and defensive action must be taken. Follow-up actions are described later. 
+The collateral required for the ratio calendar spread is equal to the amount of 
+collateral required for the naked calls less the credit taken in for the spread. Since 
+naked calls will be marked to market as the stock moves up, it is always best to allow 
+enough collateral to get to a defensive action point. In the example above, suppose 
+that one felt he would definitely be taking defensive action if the stock rallied to 53 
+===== PDF page index 249 =====
+224 Part II: Call Option Strategies 
+before April expiration. He should then figure his collateral requirement as if the 
+stock were at 53, regardless of what the collateral requirement is at the current time. 
+This is a prudent tactic whenever naked options are involved, since the strategist will 
+never be forced into an unwanted close-out before his defensive action point is 
+reached. The collateral required for this example would then be as follows, assuming 
+the call is trading at 3½: 
+20% of 53 
+Call premium 
+Less initial credit 
+Total collateral to set aside 
+$1,060 
++ 350 
+-___fill 
+$1,360 
+The strategist is not really "investing" anything in this strategy, because his require­
+ment is in the form of collateral, not cash. That is, his current portfolio assets need 
+not be disturbed to set up this spread, although losses would, of course, create deb­
+its in the account. Many naked option strategies are similar in this respect, and the 
+strategist may earn additional money from the collateral value of his portfolio with­
+out disturbing the portfolio itself. However, he should take care to operate such 
+strategies in a conservative manner, since any income earned is "free," but losses may 
+force him to disturb his portfolio. In light of this fact, it is always difficult to compute 
+returns on investment in a strategy that requires only collateral to operate. One can, 
+of course, compute the return on the maximum collateral required during the life of 
+the position. The large investor participating in such a strategy should be satisfied 
+with any sort of positive return. 
+Returning to the example above, the strategist would make his $50 credit, less 
+commissions, if the underlying stock remained below 50 until July expiration. It is not 
+possible to determine the results to the upside so definitively. If the April 50 calls 
+expire worthless and then the stock rallies, the potential profits are limited only by 
+time. The case in which the stock rallies before April expiration is of the most con­
+cern. If the stock rallies immediately, the spread will undoubtedly show a loss. If the 
+stock rallies to 50 more slowly, but still before April expiration, it is possible that the 
+spread will not have changed much. Using the same example, suppose that XYZ ral­
+lies to 50 with only a few weeks of life remaining in the April 50 calls. Then the April 
+50 calls might be selling at l ½ while the July 50 call might be selling at 3. The ratio 
+spread could be closed for even money at that point; the cost of buying back the 2 
+April 50's would equal the credit received from selling the one July 50. He would thus 
+make½ point, less commissions, on the entire spread transaction. Finally, at the expi­
+ration date of the April 50 calls, one can estimate where he would break even. 
+Suppose one estimated that the July 50 call would be selling for 5½ points if XYZ 
+were at 53 at April expiration. Since the April 50 calls would be selling for 3 at that 
+===== PDF page index 250 =====
+Chapter 12: Combining Calendar and Ratio Spreads 225 
+time (they would be at parity), there would be a debit of½ point to close the ratio 
+spread. The two April 50 calls would be bought for 6 points and the July 50 call sold 
+for 5½ - a ½ debit. The entire spread transaction would thus have broken even, less 
+commissions, at 53 at April expiration, since the spread was put on for a ½ credit and 
+was taken off for a ½ debit. The risk to the upside depends clearly, then, on how 
+quickly the stock rallies above 50 before April expiration. 
+CHOOSING THE SPREAD 
+Some of the same criteria used in setting up a bullish calendar spread apply here as 
+well. Select a stock that is volatile enough to move above the striking price in the 
+allotted time - after the near-term expires, but before the long call expires. Do not 
+use calls that are so far out-of-the-money that it would be virtually impossible for the 
+stock to reach the striking price. Always set up the spread for a credit, commissions 
+included. This will assure that a profit will be made even if the stock goes nowhere. 
+However, if the credit has to be generated by using an extremely large ratio - greater 
+than 3 short calls to every long one - one should probably reject that choice, since 
+the potential losses in an immediate rally would be large. 
+The upside break-even point prior to April expiration should be determined 
+using a pricing model. Such a model, or the output from one, can generally be 
+obtained from a data service or from some brokerage firms. It is useful to the strate­
+gist to know exactly how much room he has to the upside if the stock begins to rally. 
+This will allow him to take defensive action in the form of closing out the spread 
+before his break-even point is reached. Since a pricing model can estimate a call 
+price for any length of time, the strategist can compute his break-even points at 
+April expiration, 1 month before April expiration, 6 weeks before, and so on. When 
+the long option in a spread expires at a different time from the short option, the 
+break-even point is dynamic. That is, it changes with time. Table 12-1 shows how 
+this information might be accumulated for the example spread used above. Since 
+this example spread was established for a ½-point credit with the stock at 45, the 
+break-even points would be at stock prices where the spread could be removed for 
+a ½-point debit. Suppose the spread was initiated with 95 days remaining until April 
+expiration. In each line of the table, the cost for buying 2 April 50's is ½ point more 
+than the price of the July 50. That is, there would be a ½-point debit involved in 
+closing the spread at those prices. Notice that the break-even price increases as time 
+passes. Initially, the spread would show a loss if the stock moved up at all. This is to 
+be expected, since an immediate move would not allow for any erosion in the time 
+value premium of the near-term calls. As more and more time passes, time weighs 
+===== PDF page index 251 =====
+226 Part II: Call Option Strategies 
+more heavily on the near-term April calls than on the longer-term July call. Once the 
+strategist has this information, he might then look at a chart of the underlying stock. 
+If there is resistance for XYZ below 53, his eventual break-even point at April expi­
+ration, he could then feel more confident about this spread. 
+FOLLOW-UP ACTION 
+The main purpose of defensive action in this strategy is to limit losses if the stock 
+should rally before April e:xJ)iration. The strategist should be quick to close out the 
+spread before any serious losses accrue. The long call quite adequately compen­
+sates for the losses on the short calls up to a certain point, a fact demonstrated in 
+Table 12-1. However, the stock cannot be allowed to run. A rule of thumb that is 
+often useful is to close the spread if the stock breaks out above technical resistance 
+or if it breaks above the eventual break-even point at expiration. In the example 
+above, the strategist would close the spread if, at any time, XYZ rose above 53 
+(before April expiration, of course). 
+If a significant amount of time has passed, the strategist might act even more 
+quickly in closing the spread. As was shown earlier, if the stock rallies to 50 with only 
+a few weeks of time remaining, the spread may actually be at a slight profit at that 
+time. It is often the best course of action to take the small profit, if the stock rises 
+above the striking price. 
+TABLE 12-1. 
+Break-even points changing over time. 
+Estimated Estimated 
+Days Remaining until Break-Even Point April 50 July 50 
+April Expiration (Stock Price) Price Price 
+90 45 11/2 
+60 48 Jl/2 21/2 
+30 51 21/2 4 1/2 
+0 53 3 51/2 
+THE PROBABILITIES ARE GOOD 
+This is a strategy with a rather large probability of profit, provided that the defensive 
+action described above is adhered to. The spread will make money if the stock never 
+rallies above the striking price, since the spread is established for a credit. This in 
+===== PDF page index 252 =====
+Chapter 12: Combining Calendar and Ratio Spreads 227 
+itself is a rather high-probability event, because the stock is initially below the strik­
+ing price. In addition, the spread can make large potential profits if the stock rallies 
+after the near-term calls expire. Although this is a much less probable event, the prof­
+its that can accrue add to the expected return of the spread. The only time the spread 
+loses is when the stock rallies quickly, and the strategist should close out the spread 
+in that case to limit losses. 
+Although Table 12-2 is not mathematically definitive, it can be seen that this 
+strategy has a positive expected return. Small profits occur more frequently than 
+small losses do, and sometimes large profits can occur. These expected outcomes, 
+when coupled with the fact that the strategist may utilize collateral such as stocks, 
+bonds, or government securities to set up these spreads, demonstrate that this is a 
+viable strategy for the advanced investor. 
+TABLE 12-2. 
+Profitability of ratio calendar spreading. 
+Event 
+Stock never rallies above 
+strike 
+Stock rallies above strike in a 
+short time 
+Stock rallies above strike after 
+near-term call expires 
+Outcome 
+Small profit. 
+Small loss if defensive 
+action employed 
+Large potential profit 
+DELTA-NEUTRAL CALENDAR SPREADS 
+Probability 
+Large probability 
+Small probability 
+Small probability 
+The preceding discussion dealt with a specific kind of ratio calendar spread, the out­
+of-the-money call spread. A more accurate ratio can be constructed using the deltas 
+of the calls involved, similar to the ratio spreads in Chapter 11. The spread can be 
+created with either out-of-the-money calls or in-the-money calls. The former has 
+naked calls, while the latter has extra long calls. Both types of ratio calendars are 
+described. 
+In either case, the number of calls to sell for each one purchased is determined 
+by dividing the delta of the long call by the delta of the short call. This is the same 
+for any ratio spread, not just calendars. 
+Example: Suppose XYZ is trading at 45 and one is considering using the July 50 call 
+and the April 50 call to establish a ratio calendar spread. This is the same situation 
+===== PDF page index 253 =====
+228 Part II: Call Option Strategies 
+that was described earlier in this chapter. Furthermore, assume that the deltas of the 
+calls in question are .25 for the July and .15 for the April. Given that information, one 
+can compute the neutral ratio to be 1.667 to 1 (.25/.15). That is, one would sell 1.667 
+calls for each one he bought; restated, he would sell 5 for each 3 bought. 
+This out-of-the-money neutral calendar is typical. One normally sells more calls 
+than he buys to establish a neutral calendar when the calls are out-of-the-money. The 
+ramifications of this strategy have already been described in this chapter. Follow-up 
+strategy is slightly different, though, and is described later. 
+THE IN-THE-MONEY CALENDAR SPREAD 
+When the calls are in-the-money, the neutral spread has a distinctly different look. 
+An example will help in describing the situation. 
+Example: XYZ is trading at 49, and one wants to establish a neutral calendar spread 
+using the July 45 and April 45 calls. The deltas of these in-the-money calls are .8 for 
+the April and .7 for the July. Note that for in-the-rrwney calls, a shorter-term call has 
+a higher delta than a longer-term call. 
+The neutral ratio for this in-the-money spread would be .875 to 1 (.7/.8). This 
+means that .875 calls would be sold for each one bought; restated, 7 calls would be 
+sold and 8 bought. Thus, the spreader is buying more calls than he is selling when 
+establishing an in-the-money neutral calendar. In some sense, one is establishing 
+some "regular'' calendar spreads (seven of them, in this example) and simultaneous­
+ly buying a few extra long calls to go along with them ( one extra long call, in this 
+example). 
+This type of position can be quite attractive. First of all, there is no risk to the 
+upside as there is with the out-of-the-money calendar; the in-the-money calendar 
+would make money, because there are extra long calls in the position. Thus, if there 
+were to be a large gap to the upside in XYZ perhaps caused by a takeover attempt 
+- the in-the-money calendar would make money. If, on the other hand, XYZ stays in 
+the same area, then the regular calendar spread portion of the strategy will make 
+money. Even though the extra call would probably lose some time value premium in 
+that event, the other seven spreads would make a large enough profit to easily com­
+pensate for the loss on the one long call. The least desirable result would be for XYZ 
+to drop precipitously. However, in that case, the loss is limited to the amount of the 
+initial debit of the spread. Even in the case of XYZ dropping, though, follow-up 
+action can be taken. There are no naked calls to margin with this strategy, making it 
+attractive to many smaller investors. In the above example, one would need to pay for 
+the entire debit of the position, but there would be no further requirements. 

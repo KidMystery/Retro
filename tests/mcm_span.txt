@@ -1,0 +1,478 @@
+
+===== PDF page index 516 =====
+Chapter 28: Mathematical Applications 477 
+upward potential was 65/s points, while the downward potential is about 5¾ points. 
+This difference is due to the use of the lognormal distribution. 
+Step 8: Using the Black-Scholes model, one could estimate that the XYZ 
+January 40 call would be worth about 11/s if XYZ were at 35¼ in 90 days. 
+Step 9: The risk potential in the January 40 call would be: 
+. 4- l1/s 27/s Percent nsk = --- = - 72% 4 4 
+Step 10: The reward/risk ratio is merely the percentage reward divided by the per­
+centage risk: 
+Reward/risk ratio = l03% = 1.43 72% 
+Step 11: This analysis would be repeated for all XYZ options, and then for all other 
+optionable stocks. The less aggressive call purchases would be ranked by their 
+reward/risk ratios, with higher ratios representing more attractive purchases. More 
+aggressive purchases would be ranked by the potential rewards only (step 5). 
+This completes the call buying example. Before leaving this section, it should be 
+noted that the assumption of ranking the purchases after one full standard deviation 
+movement by the underlying stock is probably excessive. A more moderate assump­
+tion would be that the stock might be able to move . 7 standard deviation. There is 
+about a 25% expected chance that a stock could move up at least . 7 standard devia­
+tion at the end of a fixed time period. 
+PRICING A PUT OPTION 
+Theoretical models for pricing put options have been derived; that is, ones that are 
+separate from call pricing models. Black and Scholes presented such a model in their 
+original paper. However, as has been demonstrated, there is a relationship between 
+put and call prices in the listed option market due to the conversion and reversal 
+strategies. 
+One could use the ba,sic call pricing rrwdel for the purpose of predicting put 
+prices if he a,ssumes that arbitrageurs will efficiently influence the market via con­
+versions. Theoreticians will argue that such a method of pricing puts assumes that the 
+arbitrage process is always present and works efficiently, and that this is not true. The 
+"conversion efficiency" assumption could be a serious fault if one were trying to 
+determine the exact overpriced or underpriced nature of the put option. However, if 
+one is merely comparing various put strategies under constant assumptions, the arbi­
+trage model for pricing puts works quite well. 
+===== PDF page index 517 =====
+478 Part IV: Additional Considerations 
+The listed put' s price can be estimated by using the call pricing model and the 
+arbitrage formula. Recall that the arbitrageur must include the cost of carrying the 
+position as well as the dividends to be received. 
+Theoretical Theoretical Strike Stock Carrying n· 'd d = + - - + IVI en s put call price price price cost 
+The "theoretical call price" is obtained from the Black-Scholes model. The carrying 
+cost is the cost of money (interest rate) times the striking price, multiplied by the 
+time to expiration. Recall that this is the approximation formula for carrying cost (see 
+Chapter 27 for comments on present value and compounding). Consequently, ifXYZ 
+were at 41 and a 6-month January 40 call option were valued at 4 points by the 
+Black-Scholes model, the theoretical put price could be estimated. Assume that the 
+cost of money interest rate is 10% annually, and that the stock will pay $.50 in divi­
+dends in 6 months (t = ½ year). 
+Theoretical put price = 4 + 40 - 41- (.10 x 40 x ½) + .50 
+=3-2+½ 
+=l½ 
+This means that if the call could be sold for 4 points, the arbitrageur would be will­
+ing to pay up to 1 ½ points for the put to establish a conversion. The arbitrageur's 
+price is used as the theoretical listed put price estimate. 
+PUT BUYING 
+Put option purchases can be ranked in a manner very similar to that described for call 
+option buying. Reward opportunities occur when the stock falls in accordance with 
+its volatility. An upward stock movement represents risk for the put buyer. All of the 
+11 steps in the previous section on call buying are applicable to put buying. The pric­
+ing of the put necessary for steps 4 and 8 is done in accordance with the arbitrage 
+model just presented. 
+If an underlying stock does not have listed puts trading, the synthetic put can 
+be considered. While all U.S.-listed stocks have both puts and calls at every strike, 
+there are still situations with warrants, especially in foreign countries, that are appli­
+cable to the following discussion. Recall that synthetic puts are created for customers 
+by some brokerage houses. The brokerage sells the stock short and buys a call. The 
+customer can purchase the synthetic put for the amount of the risk involved, plus any 
+dividends to be paid by the underlying stock. The synthetic put pricing formula that 
+would be used in steps 4 and 8 of the option buying analysis is exactly the same as the 
+arbitrage model for listed puts, except that the carrying costs are omitted: 
+===== PDF page index 518 =====
+Chapter 28: Mathematical Applications 479 
+Theoretical synthetic Theoretical Strike Stock D" .d d = + - + 1vi en s put price call price price price 
+When the ranking analysis is performed, very few synthetic puts will appear as 
+attractive put buys. This is because, when the customer buys a synthetic put, he must 
+advance the full cost of the dividend, but receives no offsetting cost reduction for the 
+credit being earned by the short stock position. Consequently, synthetic puts are 
+always more expensive, on a relative basis, than are listed puts. However, if one is par­
+ticularly bearish on a stock that has no listed puts, a synthetic put may still prove to 
+be a worthwhile investment. The recommended analysis can give him a feeling for 
+the reward and risk potential of the investment. 
+CALENDAR SPREADS 
+The pricing nwdel can help in determining which neutral calendar spreads are nwst 
+attractive. Recall that in a neutral calendar spread, one is selling a near-term call and 
+buying a longer-term call, when the stock is relatively close to the striking price of the 
+calls. The object of the spread is to capture the time decay differential between the 
+two options. The neutral calendar spread is normally closed when the near-term 
+option expires. The pricing model can aid the spreader by estimating what the prof­
+it potential of the spread is, as well as helping in the determination of the break-even 
+points of the position at near-term expiration. 
+To determine the maximum profit potential of the spread, assume that the near­
+term call expires worthless and use the pricing model to estimate the value of the 
+longer-term call with the stock exactly at the striking price. Since commission costs 
+are relatively large in spread transactions, it would be best to have the computations 
+include commissions. Calculating a second profit potential is sometimes useful as 
+well the profit if unchanged. To determine how much profit would be made if the 
+stock were unchanged at near-term expiration, assume that the spread is closed with 
+the near-term call equal to its intrinsic value (zero if the stock is currently below the 
+strike, or the difference between the stock price and the strike if the stock is initial­
+ly above the strike). Then use the pricing model to estimate the value of the longer­
+term call, which will then have three or six months of life remaining, with the stock 
+unchanged. The resulting differential between the near-term call's intrinsic value and 
+the estimated value of the longer-term call is an estimate of the price at which the 
+spread could be liquidated. The profit, of course, is that differential minus the cur­
+rent (initial) differential, less commissions. 
+In the earlier discussion of calendar spreads, it was pointed out that there is 
+both an upside break-even point and a downside break-even point at near-term expi­
+ration. These break-even points can be estimated with the use of the pricing model. 
+===== PDF page index 519 =====
+480 Part IV: Additional Considerations 
+One method of determination involves estimating the liquidating value of the spread 
+at successive stock prices. When the liquidating value is found to be equal to the ini­
+tial value, plus commissions, a break-even point has been located. 
+Example: If the spread in question is using options with a striking price of 30, one 
+would begin his break-even point calculations at a price of 30. Estimate the liquidat­
+ing value of the spread at 30, 297/s, 29¾, 29-5/s, and so forth until the break-even point 
+is found. Once the downside break-even point has been determined in this manner, 
+the iterations to locate the upside break-even point should begin again at the striking 
+price. Thus, one would evaluate the liquidating value at 30, 301/s, 30¼, and so on. This 
+is somewhat of a brute-force method, but with a computer it is fairly fast. The num­
+ber of calculations can be reduced by adopting a more complicated iteration process. 
+A final useful piece of information can be obtained with the aid of the pricing 
+model - the theoretical value of the spread. Recompute the estimated value of both 
+the near-term and longer-term calls at the current time and stock price, using the 
+implied volatility for the underlying stock. The resultant differential between the two 
+estimated call prices may differ substantially from the actual differential, perhaps 
+highlighting an attractive calendar spread situation. One would want to establish 
+spreads in which the theoretical differential is greater than the actual differential 
+(that is, he would want to buy a "cheap" calendar spread). 
+Once these pieces of information have been computed, the strategist can rank 
+the spread possibilities by whatever criterion he finds most workable. The logical 
+method of ranking the spreads is by their return if unchanged. The spreads with the 
+highest return if unchanged at near-term expiration are those in which the stock price 
+and striking price were close together initially, a basic requirement of the neutral cal­
+endar spread. More complicated ranking systems should tty to include the theoreti­
+cal value of the spread and possibly even the maximum potential of the spread. A 
+similar analysis can, of course, be worked out for put calendar spreads, using the 
+arbitrage pricing model for puts. 
+RATIO STRATEGIES 
+Ratio strategies involve selling naked options. Therefore, the strategist has potential­
+ly large risk, either to the upside or to the downside or both. He should attempt to 
+get a feeling for how probable this risk is. The formulae for determining the proba­
+bility of a stock being above or below a certain price at some time in the future can 
+give him these probabilities. For example, in a straddle writing situation, the strate­
+gist would want to compute such arithmetic quantities as maximum profit potential, 
+return if unchanged, collateral required at upside break-even point or at upside 
+===== PDF page index 520 =====
+Chapter 28: Mathematical Applications 481 
+action point (recall that the collateral requirement increases for naked options on an 
+adverse stock movement), and the break-even points themselves. The probabilities of 
+being above the upper break-even point at expiration or below the lower break-even 
+point should be computed as well. Moreover, an expected return analysis could be 
+performed on the position to determine the general level of profitability of the posi­
+tion with respect to all other positions of the same type on other stocks. Such an 
+expected return analysis need not assume that the position is held to expiration. Firm 
+traders, paying little or no commissions, might be interested in seeing the expected 
+reswts for a holding period as short as 30 days or less. Public customers might use a 
+longer holding period, on the assumption that they would not trade the position as 
+readily because of commission costs. Ratio positions should be ranked either by 
+return if unchanged or by expected return. 
+The analyses described for calendar spreads and ratio positions should not be 
+relied upon as gospel. In the proposed forms of analysis, one is projecting future 
+option prices and stock prices under the assumption that the volatility of the under­
+lying stock will remain the same. Although this may be true in some cases, there will 
+also be many times when the volatility of the underlying stock will change during the 
+life of the position. If the volatility decreases, the projected break-even points for a 
+calendar spread will be too far away from the striking price. Thus, a loss would result 
+at some prices where the spreader expected to make money. If the volatility increas­
+es, the expected return of a ratio position will drop, because the probabilities of the 
+stock moving outside the profit range will increase, thereby increasing the probabil­
+ity ofloss. 
+The effect of a changing volatility can be counteracted, in theory, by continuing 
+to monitor the position daily after it has been established. In a straddle write, for 
+example, if the stock begins to move dramatically, the expected return may become 
+very low. If this happens, adjustments could be made to the position to improve it. 
+Such monitoring is difficult to apply in practice for the public customer, because the 
+commission costs involved in constant position adjustments would mount rapidly. 
+There is no exact method that would allow for infrequent, periodic adjustments, but 
+by using a follow-up analysis the public customer may be able to get a better feeling 
+for the timing of adjusting a position. For example, suppose that one initially wrote a 
+5-point straddle when the stock was at 30. Sometime later, the stock is at 34. The 
+expected return of writing a 5-point straddle with a strike of 30 when the stock is at 
+34 could be computed for the shorter time period remaining until expiration. If the 
+expected return is negative, an adjustment needs to be made. Adopting this form of 
+adjusting would keep the number of trades to a minimum, but would still allow the 
+strategist to determine when his position has become improperly balanced. Of 
+course, the current volatility would be used in making these determinations. Another 
+===== PDF page index 521 =====
+482 Part IV: Additional Considerations 
+follow-up monitoring technique, using the deltas of the options involved, is present­
+ed later in this chapter, and has been described several times previously. 
+FACILITATION OR INSTITUTIONAL BLOCK POSITIONING 
+In this and the following section, the advantages of using the hedge ratio are outlined. 
+These strategies are primarily member firm, not public customer, strategies, since 
+they are best applied in the absence of commission costs. An institutional block trad­
+er may be able to use options to help him in his positioning, particularly when he is 
+trying to help a client in a stock transaction. 
+Suppose that a block trader wants to make a bid for stock to facilitate a cus­
+tomer's sell order. If he wants some sort of a hedge until he can sell the stock that he 
+buys, and the stock has listed options, he can sell some options to hedge his stock 
+position. To determine the quantity of options to sell, he can use the hedge ratio. The 
+exact formula for the hedge ratio was given earlier in this chapter, in the section on 
+the Black-Scholes pricing model. It is one of the components of the formula. Simply 
+stated, the hedge ratio is merely the delta of the option - that is, the amount by which 
+the option will change in price for small changes in the stock price. By selling the cor­
+rect number of calls against his stock purchase, the block trader will have a neutral 
+position. This position would, in theory, neither gain nor lose for small changes in the 
+stock price. He is therefore buying himself time until he can unwind the position in 
+the open market. 
+Example: A trader buys 10,000 shares of XYZ, and a January 30 call is trading with 
+a hedge ratio of .50. To have a neutral position, the trader should sell options against 
+20,000 shares of stock (10,000 divided by .50 equals 20,000). Thus, he should sell 200 
+of the January 30's. If the hedge ratio is correct - largely a function of the volatility 
+estimate of the underlying stock - the trader will have greatly eliminated risk or 
+reward on the position for small stock movements. Of course, if the block trader 
+wants to assume some risk, that is a different matter. However, for the purposes of 
+this discussion, the assumption is made that the block trader merely wants to facili­
+tate the trade in the most risk-free manner possible. In this sample position, if the 
+stock moves up by 1 point, the option should move up by ½ point. The trader would 
+make $10,000 on his stock position and would lose $10,000 on his 200 short options 
+- he has no gain or loss. Once the trader has the neutral position established, he can 
+then begin to concentrate on unwinding the position. 
+In actual practice, this hedge ratio may not work exactly, because it tends to 
+change constantly as the stock price changes. If the trader finds the stock moving 
+===== PDF page index 522 =====
+Chapter 28: Mathematical Applications 483 
+more than fractionally, he may have to add more calls or buy some in, to maintain a 
+neutral hedge ratio. This would expose him to some risk, but the risk is substantially 
+smaller than if he had not hedged at all. Of course, there would also be certain cases 
+in which he would profit by the stock price change. For example, implied volatility 
+could decrease, making the calls cheaper. 
+A similar hedge can be established by the block trader who sells stock to accom­
+modate a customer buy order. He could buy calls in accordance with the hedge ratio, 
+to set up a neutral position. 
+This process off acilitation is quite widely practiced, especially by brokerage 
+houses that are trying to attract the business of the large institutional customer. Since 
+the introduction of listed call options and their applications for facilitating orders, 
+many quotes for large blocks of stock have improved considerably. The block trader 
+(who works for the brokerage house) is willing to make a higher bid or a lower offer 
+if he can use options to hedge his position. This facilitation with options results in a 
+better market (higher bid or lower off er) from the point of view of the institutional 
+customer. Without the availability of such listed options, the block trader would prob­
+ably make a bid or an offer that was substantially away from the prevailing market 
+price in order to work out of his stock-only position with a lessened degree of risk 
+This would obviously present a poorer market for the institutional customer. 
+THE NEUTRAL SPREAD 
+The hedge ratios of two or more options may be used to determine a neutral spread. 
+This strategy is especially useful to market-makers on the options exchanges who may 
+want to reduce the risk of options bought or sold in the process of providing a pub­
+lic market. If the hedge ratios of two options are known, the neutral ratio is deter­
+mined by dividing the two hedge ratios. 
+Example: An XYZ January 35 has a hedge ratio of .25, and an XYZ January 30 has a 
+hedge ratio of .50, so a neutral ratio would be 2:1 (.50 divided by .25). That is, one 
+would sell 2 January 35's against one long January 30, or, conversely, would buy 2 
+January 35's against one short January 30. Thus, a market-maker who has just bought 
+50 January 30's in an effort to provide a market for a public seller of that call could 
+hedge his position by selling 100 January 35's. This should keep his risk small, for 
+small stock price changes, until he can unwind the position. The ratio for the neutral 
+spread is not as sensitive to the volatility estimate of the underlying stock as is the 
+ratio concerning stock and options. This is because the same volatility estimate is 
+applied to both options, and the resultant ratio for the spread would not tend to 
+change greatly. 
+===== PDF page index 523 =====
+484 Part IV: Additional Considerations 
+The risk trader can also use the neutral spread ratio to his advantage. This con­
+cept was illustrated several times in previous chapters describing ratio writing, ratio 
+spreads, and straddle writes. Ratio spreads are quite popular with member firm 
+traders and floor traders. Recall that a ratio spread consists of buying options at acer­
+tain strike, and selling more options further out-of-the-money. The hedge ratios can, 
+of course, be used by the trader, or by a public customer, to initially establish a neu­
+tral position. Perhaps more important, the hedge ratio can also be used as a follow­
+up action to keep the position neutral after the stock changes in price. This strategy 
+is the "delta spread" described in Chapter 11. 
+The risk trader is not attempting to establish the spread with the idea of mini­
+mizing risk for small stock movements. Rather, he is looking to make a profit, but 
+would prefer to remain as neutral as possible on the underlying stock. He is imple­
+menting a risk strategy that has a neutral outlook on the underlying stock. He is sell­
+ing much more time value premium than he is buying. 
+Example: The purchase of 15 January 30 calls and the sale of 30 January 35 calls - a 
+ratio call spread - may be a position taken for profit potential. It would be a neutral 
+position if the deltas were .60 and .30, for example. This spread would do best if the 
+stock were at exactly 35 at expiration. However, if the stock rose quickly before expi­
+ration, the spread ratio would decrease from 2:1 to perhaps 3:2. That is, the neutral 
+ratio between the January 30 call and the January 35 call should be 3 short January 
+35's to 2 long January 30's. If the trader wants to balance his position, he could buy 5 
+more January 30's, giving him a total of 20 long versus the 30 short January 35's that 
+he originally sold. Conversely, if the stock dropped in price, the neutral spread ratio 
+might increase, indicating that more calls should be sold. For example, if this stock 
+declines, the neutral ratio might be 3:1. In that case, 15 more January 35's could be 
+sold, making the position short 45 calls versus 15 long calls, which would produce the 
+neutral 3:1 ratio. 
+It would not be proper to adjust the ratio constantly, because the frequent 
+whipsaw losses on trading movements would wipe out the profit potential of the posi­
+tion. However, the trader may want to pick out points, in advance, at which he wants 
+to reevaluate his position before something drastic goes wrong. For example, if the 
+foregoing spread were established with the stock at a price of 30, the spreader might 
+want to readjust at 33 or 27, whichever comes first. 
+By monitoring the spread using the hedge ratio, the trader may also be able to 
+discern whether he has established too bullish or too bearish a position. 
+Example: The trader starts with the example described above - long 15 January 30 
+calls and short 30 January 35 calls - when the hedge ratios were .60 and .30, respec-
+===== PDF page index 524 =====
+Chapter 28: Mathematical Applications 485 
+tively. Some later time, the stock falls to 27 and the trader needs to reevaluate his 
+position. The hedge ratios may have become .42 for the January 30 and .14 for the 
+January 35, indicating that a 3:1 ratio would be neutral (.42/.14 = 3). He now has a 
+bullish position, because his 2:1 ratio is less than the neutral 3:1 ratio. It is not manda­
+tory that the trader act on this information. He may actually be bullish on the stock 
+at this point and decide to remain with his position. The usefulness of the hedge ratio 
+is that it allows him to see that his position is bullish, so he can make a correct judg­
+ment. Without this knowledge, he might still think his position to be neutral, a criti­
+cal mistake if he indeed wants to be neutral. If the trader's ratio is greater than the 
+neutral ratio (2:1 vs. 3:2, for example), he is bearishly positioned. 
+As a final point, it should be noted that the ratio can be adjusted by buying or 
+selling either option. 
+Example: If the stock falls and it is desired that the ratio be increased to 3:1, one 
+might sell more January 35's or might decide to sell out some of his January 30's. A 
+bullish adjustment could be made by buying on either side of the spread in a similar 
+manner. In general, one should adjust by selling time premium or buying intrinsic 
+value. That is, out-of-the-moneys are usually sold and in-the-moneys are usually 
+bought, when adjusting. 
+AIDING IN FOLLOW-UP ACTION 
+The computer can also be an invaluable aid to the strategist in that it can help him 
+monitor his positions. It is generally necessary for the strategist to have some way of 
+inputting his positions into an inventory database and also to have some way of iden­
+tifying different securities that are grouped within the same trading position. Once 
+this has been done, the computer can simultaneously read pricing data ( either real­
+time or closing prices) and the inventory database to generate information concern­
+ing the current status of any position. 
+A current mark to market (profit and loss) statement is of obvious use in that 
+the trader can see how he is doing each day. The computer can also easily generate 
+a set of warning flags that may be of interest to the trader, and could produce a list 
+summarizing possible positions that need action. In most of the strategies that were 
+described, it was shown that the strategist should avoid early assignment if at all pos­
+sible. It is a simple matter for the computer to calculate the remaining time value 
+premium of any short options, and to warn the trader if there is only a small amount 
+of time value premium remaining, perhaps ½ point or less. For similar reasons, the 
+trader may want to have a daily list of positions that are nearing maturity, perhaps 
+===== PDF page index 525 =====
+486 Part IV: Additional Considerations 
+with less than I month oflife remaining in the options. A flag indicating an approach­
+ing ex-dividend date might also be useful for this purpose. 
+If the trader inputs another piece of information into the database, the com­
+puter can help him in another follow-up action. In most strategies that were 
+described, especially those involving uncovered options, the trader wants to take 
+some sort of follow-up action based on the price movement of the underlying stock. 
+If the stock rallies too far, he may want to cover short calls or buy other calls as pro­
+tection. If the stock declines too far, similar maneuvers would apply to put options or 
+to rolling down short calls. If the trader inputs the stock prices at which he would like 
+to take action, the computer can monitor each day's closing price of the stock and 
+generate a list of positions that have exceeded their upside or downside action points. 
+The computer can also do more sophisticated types of position monitoring. 
+Recall that it was pointed out that the deltas of the options involved in a position can 
+be compared to each other to tell whether the position is bullish or bearish. The 
+Black-Scholes model can be used to calculate the deltas of the options in one's posi­
+tions. Then the net position can be determined by the computer, thereby telling the 
+trader whether his position has become "delta long" (bullish), "delta short" (bearish), 
+or neutral. If he sees that a position is bearish and he does not want to be structured 
+in that way, he can make bullish adjustments. The delta spread and neutral spread 
+strategies very conveniently lend themselves to such types of follow-up action, 
+although any of the more complicated straddle writing and protected straddle writ­
+ing positions can be monitored usefully in this way as well. 
+The computation for determining whether a position is net short or net long 
+generally involves calculating the "equivalent stock position" (ESP). If one owns 10 
+calls that have a delta of .45, his equivalent stock position from those calls is IO X 100 
+shares per call x .45 = 450. That is, owning those IO calls is equivalent to owning 450 
+shares of the underlying stock, according to the delta. All puts and calls can be 
+reduced to an ESP and can then, of course, be combined with any actual long or 
+short stock in the position to produce an ESP for the entire strategy. The resultant 
+ESP for each of the trader's positions can be printed from the computer along with 
+the items described above. 
+Further sophisticated measures can be taken. The computer can generate a 
+table of results at expiration. If so desired, this could be presented as a graph, but that 
+is not really necessary. A table suffices quite well, as shown by most of the examples 
+in this book. Such a picture has meaning only if all options in the position expire at 
+the same time. If they don't, one may instead want the computer to mmpose a table 
+of results or a graph at near-term expiration. Thus, in a calendar spread, for example, 
+one could see what sorts of profitability he would be looking at when it was time to 
+remove the spread. 
+===== PDF page index 526 =====
+Chapter 28: Mathematical Applications 487 
+Finally, the computer can compute the expected return of a position already in 
+place. This would give a more dynamic picture of the position, and this expected 
+return is usually for a relatively short time period. That time period might be 30 days, 
+or the time remaining until expiration, whichever is less. The expected return is cal­
+culated in much the same manner as the expected return computation described ear­
+lier in this chapter. First, one uses the stock's volatility to construct a range of prices 
+over which to examine the position. Second, one uses the Black-Scholes model to 
+calculate the values of the various options in the position at that future time and at 
+the various stock prices. Some of the results should be displayed in table form by the 
+computer program. The expected profit is computed, as described earlier, by sum­
+ming the multiples of the probabilities of the stock being at each price by the result 
+of the position at that price. The expected return is then computed by dividing the 
+expected profit by the expected investment. Since margin computations can require 
+involved computer programs, it is sufficient to omit this last step and merely observe 
+the expected profit. The following example shows how a sample position might look 
+as the computer displays the position itself, the ESP, the profit at expiration, and the 
+expected profit in 30 days. A complex position is assumed, in order that the value of 
+these analyses can be demonstrated. 
+Example: The following position exists when XYZ is at 31 ¾. It is essentially a back­
+spread combined with a reverse ratio write. It resembles a long straddle in that there 
+is increased profit potential in either direction if the stock moves far enough by expi­
+ration. Initially, the computer should display the position and the ESP. 
+Position Delta ESP 
+Short 4,500 XYZ 1.00 Short 4,500 shares 
+Short 100 XYZ April 25 calls 0.89 Short 8, 900 shares 
+Long 50 XYZ April 30 calls 0.76 Long 3,800 shares 
+Long 139 XYZ July 30 calls 0.74 Long 10,286 shares 
+Total ESP Long 686 shares 
+Total money in position: $163,500 credit 
+The advantage of using the ESP is that this fairly complex position is reduced to a sin­
+gle number. The entire position is equivalent to being long 686 shares of the com­
+mon stock. Essentially, this is close to delta-neutral for such a large position. The next 
+item that the computer should display is the total credit or debit in the position to 
+date. With this information, an expiration picture can be drawn if it is applicable. In 
+this position, since there is a mixture of April and July options, a strict expiration pie-
+===== PDF page index 527 =====
+488 Part IV: Additional Considerations 
+ture does not apply. Rather, the computer should draw a picture based on the posi­
+tion at April expiration or on a shorter time horizon. 
+Assume that April expiration is still some time away, so that the computer will 
+instead draw the picture 30 days hence. In order to do so, the computer uses the 
+stock's volatility to project stock prices 30 days in the future. Seven stock prices are 
+shown in the next table; they represent points along the distribution curve of the 
+stock, ranging from minus one and one-half standard deviations to plus one and one­
+half standard deviations of movement from the current stock price. While these 
+seven points certainly do not comprise the entire spectrum of possible stock moves, 
+they are a representative sample. 
+Stock Price Standard Expected 
+in 30 Days Deviations Results 
+353/a + 1.5 +$15,847 
+34 1/a +1.0 + 12,355 
+327/a +0.5 + 10,097 
+31 3/4 0.0 + 9,443 
+305/a -0.5 + 10,743 
+291/2 -1.0 + 14,172 
+281/2 -1.5 + 19,605 
+Expected profit +$11,426 
+Obviously, this position has had some profitable adjustments made to it in the past. 
+That is not important at this point, because the trader is interested only in the future. 
+If the current mark to market of this position were in excess of $11,426, then he 
+should consider removing the position, since it would be more profitable than the 
+expected profit. 
+IMPLEMENTATION 
+Many of the analyses described in this chapter can be obtained from a reliable data 
+service or brokerage firm. The strategist who plans to prepare his own analysis, either 
+by himself or by contracting the programming work out, should be aware that com­
+puter programs cannot be written in the COBOL language, because the mathemat­
+ics are far too complicated for a business language. Languages such as Pascal, C, 
+C++, Visual Basic, or any high-level structured programming language would suffice, 
+although Java could be considered as well, keeping in mind that Java's main usage is 
+not for computational purposes. Reliable option pricing data that include dividend 
+===== PDF page index 528 =====
+Chapter 28: Mathematical Applications 489 
+information on the underlying stock are also necessary. The larger programmable cal­
+culators can handle calculations such as the Black-Scholes model, computing the 
+hedge ratio, and determining the probability of a stock being above or below a cer­
+tain price at some future time. However, more involved calculations, such as com­
+puting the implied volatility or determining the expected return of a position, require 
+the use of a computer. 
+SUMMARY 
+Two basic mathematical aids have been presented: the pricing model and the ability 
+to predict the probability of a stock's movement. The hedge ratio and the expected 
+return analysis are extensions of the basic aids. Any strategy can be evaluated with 
+these tools. Such an analysis should be able to give the trader or strategist some idea 
+of the relative attractiveness of establishing the position, and may also aid in making 
+follow-up adjustments to the position. All the analyses rely heavily on one's estimate 
+of the volatility of the underlying stock Using the implied volatility seems to be one 
+of the best ways to obtain an accurate, current volatility estimate, since it is derived 
+from the prices in the market itself. The applications presented here are not all-inclu­
+sive. The strategist who is, or becomes, familiar with the advantages of rigorous math­
+ematical analysis will be able to construct many other aids for his trading that utilize 
+the basic mathematics described in this chapter. 
+===== PDF page index 529 =====
+
+===== PDF page index 530 =====

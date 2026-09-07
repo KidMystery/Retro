@@ -1,0 +1,369 @@
+
+===== PDF page index 289 =====
+262 Part Ill: Put Option Strategies 
+As was stated earlier, it is necessary to have a computer to make an accurate analysis 
+of all listed options. The average customer is forced to obtain such data from a bro­
+kerage firm or data service. He should be sure that the list he is using conforms to 
+the above-mentioned criteria. If the data service is ranking option purchases by how 
+well the puts would do if each underlying stock fell by a fixed percentage (such as 5% 
+or 10%), the list should be rejected because it is not incorporating the volatility of the 
+underlying stock into its analysis. Also, if the list is based on holding the put purchase 
+until expiration, the list should be rejected as well, because this is not a realistic 
+assumption. There are enough reliable and sophisticated data services that one 
+should not have to work with inferior analyses in today's option market. 
+For those readers who are more mathematically advanced and have the com­
+puter capability to construct their own analyses, the details of implementing an analy­
+sis similar to the one described above are presented in Chapter 28, Mathematical 
+Applications. An application of put purchases, combined with fixed-income securi­
+ties, is described in Chapter 26, Buying Options and Treasury Bills. 
+FOLLOW-UP ACTION 
+The put buyer can take advantage of strategies that are very similar to those the call 
+buyer uses for follow-up action, either to lock in profits or to attempt to improve a 
+losing situation. Before discussing these specific strategies, it should be stated again 
+that it is rarely to the option buyer's benefit to exercise the option in order to liqui­
+date. This precludes, of course, those situations in which the call buyer actually wants 
+to own the stock or the put buyer actually wants to sell the stock. If, however, the 
+option holder is merely looking to liquidate his position, the cost of stock commis­
+sions makes exercising a prohibitive move. This is true even ifhe has to accept a price 
+that is a slight discount from parity when he sells his option. 
+LOCKING IN PROFITS 
+The reader may recall that there were four strategies (perhaps "tactics" is a better 
+word) for the call buyer with an unrealized profit. These same four tactics can be 
+used with only slight variations by the put option buyer. Additionally, a fifth strategy 
+can be employed when a stock has both listed puts and calls. 
+After an underlying stock has moved down and the put buyer has a relatively 
+substantial unrealized gain, he might consider taking one of the following actions: 
+1. Sell the put and liquidate the position for a profit. 
+2. Do nothing and continue to hold the put. 
+===== PDF page index 290 =====
+O.,,er 16: Put Option Buying 263 
+3, Sell the in-the-money long put and use part of the proceeds to purchase out-of­
+the-money puts. 
+4. Create a spread by selling an out-of-the-money put against the one he currently 
+holds. 
+These are the same four tactics that were discussed earlier with respect to call buy­
+ing. In the fifth tactic, the holder of a listed put who has an unrealized profit might 
+consider buying a listed call to protect his position. 
+Example: A speculator originally purchased an XYZ October 50 put for 2 points when 
+the stock was 52. If the stock has now fallen to 45, the put might be worth 6 points, 
+representing an unrealized gain of 4 points and placing the put buyer in a position to 
+implement one of these five tactics. After some time has passed, with the stock at 45, 
+an at-the-money October 45 put might be selling for 2 points. Table 16-3 summarizes 
+the situation. If the trader merely liquidates his position by selling out the October 50 
+put, he would realize a profit of 4 points. Since he is terminating the position, he can 
+make neither more nor less than 4 points. This is the most conservative of the tactics, 
+allowing no additional room for appreciation, but also eliminating any chance of los­
+ing the accumulated profits. 
+TABLE 16-3. 
+Background table for profit alternatives. 
+Original Trade Current Prices 
+XYZ common: 52 XYZ common: 45 
+Bought XYZ October 50 put at 2 XYZ October 50 put: 6 
+XYZ October 45 put: 2 
+If the trader does nothing, merely continuing to hold the October 50 put, he is 
+taking an aggressive action. If the stock should reverse and rise back above 50 by 
+expiration, he would lose everything. However, if the stock continues to fall, he could 
+build up substantially larger profits. This is the only tactic that could eventually result 
+in a loss at expiration. 
+These two simple strategies - liquidating or doing nothing are the easiest 
+alternatives. The remaining strategies allow one to attempt to achieve a balance 
+between retaining built-up profits and generating even more profits. The third tactic 
+that the speculator could use would be to sell the put that he is currently holding and 
+===== PDF page index 291 =====
+264 Part Ill: Put Option Strategies 
+use some of the proceeds to purchase the October 45 put. The general idea in this 
+tactic is to pull one's initial investment out of the market and then to increase the 
+number of option contracts held by buying the out-of-the-money option. 
+Example: The trader would receive 6 points from the sale of the October 50 put. He 
+should take 2 points of this amount and put it back into his pocket, thus covering his 
+initial investment. Then he could buy 2 October 45 puts at 2 points each with the 
+remaining portion of the proceeds from the sale. He has no risk at expiration with this 
+strategy, since he has recovered his initial investment. Moreover, if the underlying 
+stock should continue to fall rapidly, he could profit handsomely because he has 
+increased the number of put contracts that he holds. 
+The fourth choice that the put holder has is to create a spread by selling the 
+October 45 put against the October 50 that he currently holds. This would create a 
+bear spread, technically. This type of spread is described in more detail later. For the 
+time being, it is sufficient to understand what happens to the trader's risks and 
+rewards by creating this spread. The sale of the October 45 put brings in 2 points, 
+which covers the initial 2-point purchase cost of the October 50 put. Thus, his "cost" 
+for this spread is nothing; he has no risk, except for commissions. If the underlying 
+stock should rise above 50 by expiration, all the puts would expire worthless. (A put 
+expires worthless when the underlying stock is above the striking price at expiration.) 
+This would represent the worst case; he would recover nothing from the spread. If 
+the stock should be below 45 at expiration, he would realize the maximum potential 
+of the spread, which is 5 points. That is, no matter how far XYZ is below 45 at expi­
+ration, the October 50 put will be worth 5 points more than the October 45 put, and 
+the spread could thus be liquidated for 5 points. His maximum profit potential in the 
+spread situation is 5 points. This tactic would be the best one if the underlying stock 
+stabilized near 45 until expiration. 
+To analyze the fifth strategy that the put holder could use, it is necessary to 
+introduce a call option into the picture. 
+Example: With XYZ at 45, there is an October 45 call selling for 3 points. The put 
+holder could buy this call in order to limit his risk and still retain the potential for 
+large future profits. If the trader buys the call, he will have the following position: 
+Long l October 50 put C b' d t 5 . t 
+l O b 5 all - om me cos : porn s Long cto er 4 c 
+The total combined cost of this put and call combination is 5 points - 2 points were 
+originally paid for the put, and now 3 points have been paid for the call. No matter 
+where the underlying stock is at expiration, this combination will be worth at least 5 
+===== PDF page index 292 =====
+Gapter 16: Put Option Buying 265 
+points. For example, if XYZ is at 46 at expiration, the put will be worth 4 and the call 
+worth l; or if XYZ is at 48, the put will be worth 2 and the call worth 3. If the stock 
+is above 50 or below 45 at expiration, the combination will be worth more than 5 
+points. Thus, the trader has no risk in this combination, since he has paid 5 points for 
+it and will be able to sell it for at least 5 points at expiration. In fact, if the underly­
+ing stock continues to drop, the put will become more valuable and he could build 
+up substantial profits. Moreover, if the underlying stock should reverse direction and 
+climb substantially, he could still profit, because the call will then become valuable. 
+This tactic is the best one to use if the underlying stock does not stabilize near 45, 
+but instead makes a relatively dramatic move either up or down by expiration. The 
+strategy of simultaneously owning both a put and a call is discussed in much greater 
+detail in Chapter 23. It is introduced here merely for the purposes of the put buyer 
+wanting to obtain protection of his unrealized profits. 
+Each of these five strategies may work out to be the best one under a different 
+set of circumstances. The ultimate result of each tactic is dependent on the direction 
+that XYZ moves in the future. As was the case with call options, the spread tactic 
+never turns out to be the worst tactic, although it is the best one only if the underly­
+ing stock stabilizes. Tables 16-4 and 16-5 summarize the results the speculator could 
+expect from invoking each of these five tactics. The tactics are: 
+1. Liquidate - sell the long put for a profit and do not reinvest. 
+2. Do nothing - continue to hold the long put. 
+3. "Roll down" - sell the long put, pocket the initial investment, and invest the 
+remaining proceeds in out-of-the-money puts at a lower strike. 
+4. "Spread" - create a spread by selling the out-of-the-money put against the put 
+already held. 
+5. "Combine" create a combination by buying a call at a lower strike while con­
+tinuing to hold the put. 
+TABLE 16-4. 
+Comparison of the five tactics. 
+By expiration, if XYZ ... 
+Continues to fall dramatically 
+Falls moderately further 
+Remains relatively unchanged 
+Rises moderately 
+Rises substantially 
+the best strategy was ... 
+"Roll down" 
+Do nothing 
+Spread 
+Liquidate 
+Combine 
+and the worst 
+strategy was ... 
+Liquidate 
+Combine 
+Combine or "roll down" 
+"Roll down" or do nothing 
+Do nothing 
+===== PDF page index 293 =====
+266 Part Ill: Put Option Strategies 
+TABLE 16-5. 
+Results of adopting each of the five tactics. 
+XYZ Price at "Roll Down" Do-Nothing Spread Liquidate Combine 
+Expiration Profit Profit Profit Profit Profit 
+30 + $3,000 (8) +$1,800 +$500 +$400 (W) +$1,500 
+35 + 2,000 (8) + 1,300 + 500 + 400 (W) + 1,000 
+41 + 800 (8) + 700 + 500 + 400 (W) + 400 
+42 + 600 (8) + 600 (8) + 500 + 400 + 300 (W) 
+43 + 400 + 500 (8) + 500 (8) + 400 + 200 (W) 
+45 0(W) + 300 + 500 (8) + 400 0(W) 
+46 0(W) + 200 + 400 (8) + 400 (8) O(W) 
+48 0(W) 0(W) + 200 + 400 (8) 0(W) 
+50 0 200 (W) 0 + 400 (8) 0 
+54 0 200 (W) 0 + 400 (8) + 400 (8) 
+60 0 200 (W) 0 + 400 + 1,000 (8) 
+Note that each tactic is the best one under one of the scenarios, but that the spread 
+tactic is never the worst of the five. The actual results of each tactic, using the figures 
+from the example above, are depicted in Table 16-5, where B denotes best tactic and 
+W denotes worst one. 
+All the strategies are profitable if the underlying stock continues to fall dramat­
+ically, although the "roll down," "do nothing," and combinations work out best, 
+because they continue to accrue profits if the stock continues to fall. If the underly­
+ing stock rises instead, only the combination outdistances the simplest tactic of all, 
+liquidation. 
+If the underlying stock stabilizes, the "do-nothing" and "spread" tactics work out 
+best. It would generally appear that the combination tactic or the "roll-down" tactic 
+would be the most attractive, since neither one has any risk and both could generate 
+large profits if the stock moved substantially. The advantage for the spread was sub­
+stantial in call options, but in the case of puts, the premium received for the out-of­
+the-money put is not as large, and therefore the spread strategy loses some of its 
+attractiveness. Finally, any of these tactics could be applied partially; for example, one 
+could sell out half of a profitable long position in order to take some profits, and con­
+tinue to hold the remainder. 
+===== PDF page index 294 =====
+Cl,opter 16:PutOptionBuying 
+LOSS-LIMITING ACTIONS 
+267 
+The foregoing discussion concentrated on how the put holder could retain or 
+increase his profit. However, it is often the case in option buying that the holder of 
+the option is faced with an unrealized loss. The put holder may also have several 
+choices of action to take in this case. His first, and simplest, course of action would 
+be to sell the put and take his loss. Although this is advisable in certain cases, espe­
+cially when the underlying stock seems to have assumed a distinctly bullish stance, it 
+is not always the wisest thing to do. The put holder who has a loss may also consider 
+either "rolling up" to create a bearish spread or entering into a calendar spread. 
+Either of these actions could help him recover part or all of his loss. 
+THE "ROLLING-UP" STRATEGY 
+The reader may recall that a similar action to "rolling up," termed "rolling down," was 
+available for call options held at a loss and was described in Chapter 3. The put buyer 
+who owns a put at a loss may be able to create a spread that allows him to break even 
+at a more favorable price at expiration. Such action will inevitably limit his profit 
+potential, but is generally useful in recovering something from a put that might oth­
+erwise expire totally worthless. 
+Example: An investor initially purchases an XYZ October 45 put for 3 points when 
+the underlying stock is at 45. However, the stock rises to 48 at a later date and the 
+put that was originally bought for 3 points is now selling for 1 ¼ points. It is not 
+unusual, by the way, for a put to retain this much of its value even though the stock 
+has moved up and some amount of time has passed, since out-of-the-money puts 
+tend to hold time value premium rather well. With XYZ at 48, an October 50 put 
+might be selling for 3 points. The put holder could create a position designed to per­
+mit recovery of some of his losses by selling two of the puts that he is long - October 
+45's - and simultaneously buying one October 50 put. The net cost for this transac­
+tion would be only commissions, since he receives $300 from selling two puts at 1 ¼ 
+each, which completely covers the $300 cost of buying the October 50 put. The 
+transactions are summarized in Table 16-6. 
+By selling 2 of the October 45 puts, the investor is now short an October 45 put. 
+Since he also purchased an October 50 put, he has a spread ( technically, a bear 
+spread). He has spent no additional money, except commissions, to set up this spread, 
+since the sale of the October 45's covered the purchase of the October 50 put. This 
+strategy is most attractive when the debit involved to create the spread is small. In 
+this example, the debit is zero. 
+===== PDF page index 295 =====
+268 
+TABLE 16-6. 
+Summary of rolling-up transactions. 
+Original trade: 
+Later: 
+Net position: 
+Buy 1 October 45 put for 3 
+with XYZ at 45 
+With XYZ at 48, sell 2 
+October 45's for 11/2 each 
+and buy l October 50 put for 3 
+Long 1 October 50 put 
+Short 1 October 45 put 
+Part Ill: Put Option Strategies 
+$300 debit 
+$300 credit 
+$300 debit 
+$300 debit 
+The effect of creating this spread is that the investor has not increased his risk 
+at all, but has raised the break-even point for his position. That is, if XYZ merely falls 
+a small distance, he will be able to get out even. Without the effect of creating the 
+spread, the put holder would need XYZ to fall back to 42 at expiration in order for 
+him to break even, since he originally paid 3 points for the October 45 put. His orig­
+inal risk was $300. IfXYZ continues to rise in price and the puts in the spread expire 
+worthless, the net loss will still be only $300 plus additional commissions. Admittedly, 
+the commissions for the spread will increase the loss slightly, but they are small in 
+comparison to the debit of the position ($300). On the other hand, if the stock should 
+fall back only slightly, to 47 by expiration, the spread will break even. At expiration, 
+with XYZ at 47, the in-the-money October 50 put will be worth 3 points and the out­
+of-the-money October 45 put will expire worthless. Thus, the investor will recover his 
+$300 cost, except for commissions, with XYZ at 47 at expiration. His break-even point 
+is raised from 42 to 47, a substantial improvement of his chances for recovery. 
+The implementation of this spread strategy reduces the profit potential of the 
+position, however. The maximum potential of the spread is 2 points. If XYZ is any­
+where below 45 at expiration, the spread will be worth 5 points, since the October 50 
+put will sell for 5 points more than the October 45 put. The investor has limited his 
+potential profit to 2 points - the 5-point maximum width of the spread, less the 3 
+points that he paid to get into the position. He can no longer gain substantially on a 
+large drop in price by the underlying stock. This is normally of little concern to the 
+put holder faced with an unrealized loss and the potential for a total loss. He gener­
+ally would be appreciative of getting out even or of making a small profit. The cre­
+ation of the spread accomplishes this objective for him. 
+It should also be pointed out that he does not incur the maximum loss of his 
+entire debit plus commissions, unless XYZ closes above 50 at expiration. If XYZ is 
+===== PDF page index 296 =====
+O,apter 16: Put Option Buying 269 
+anywhere below 50, the October 50 will have some value and the investor will be able 
+to recover something from the position. This is distinctly different from the original 
+put holding of the October 45, whereby the maximum loss would be incurred unless 
+the stock were below 45 at expiration. Thus, the introduction of the spread also 
+reduces the chances of having to realize the maximum loss. 
+In summary, the put holder faced with an unrealized loss may be able to create 
+a spread by selling twice the number of puts that he is currently long and simultane­
+ously buying the put at the next higher strike. This action should be used only if the 
+spread can be transacted at a small debit or, preferably, at even money (zero debit). 
+The spread position offers a much better chance of breaking even and also reduces 
+the possibility of having to realize the maximum loss in the position. However, the 
+introduction of these loss-limiting measures reduces the maximum potential of the 
+position if the underlying stock should subsequently decline in price by a significant 
+amount. Using this spread strategy for puts would require a margin account, just as 
+calls do. 
+THE CALENDAR SPREAD STRATEGY 
+Another strategy is sometimes available to the put holder who has an unrealized loss. 
+If the put that he is holding has an intermediate-term or long-term expiration date, 
+he might be able to create a calendar spread by selling the near-term put against the 
+put that he currently holds. 
+Example: An investor bought an XYZ October 45 put for 3 points when the stock was 
+at 45. The stock rises to 48, moving in the wrong direction for the put buyer, and his 
+put falls in value to 1 ½. He might, at that time, consider selling the near-term July 
+45 put for 1 point. The ideal situation would be for the July 45 put to expire worth­
+less, reducing the cost of his long put by 1 point. Then, if the underlying stock 
+declined below 45, he could profit after July expiration. 
+The major drawback to this strategy is that little or no profit will be made - in 
+fact, a loss is quite possible - if the underlying stock falls back to 45 or below before 
+the near-term July option expires. Puts display different qualities in their time value 
+premiums than calls do, as has been noted before. With the stock at 45, the differ­
+ential between the July 45 put and the October 45 put might not widen much at all. 
+This would mean that the spread has not gained anything, and the spreader has a loss 
+equal to his commissions plus the initial unrealized loss. In the example above, ifXYZ 
+dropped quickly back to 45, the July 45 might be worth 1 ½ and the October worth 
+2½. At this point, the spreader would have a loss on both sides of his spread: He sold 
+the July 45 put for 1 and it is now 1 ½; he bought the October 45 for 3 and it is now 
+===== PDF page index 297 =====
+270 Part Ill: Put Option Strategies 
+2½; plus he has spent two commissions to date and would have to spend two more 
+to liquidate the position. 
+At this point, the strategist may decide to do nothing and take his chances that 
+the stock will subsequently rally so that the July 45 put will expire worthless. 
+However, if the stock continues to decline below 45, the spread will most certainly 
+become more of a loss as both puts come closer to parity. 
+This type of spread strategy is not as attractive as the "rolling-up" strategy. In 
+the "rolling-up" strategy, one is not subjected to a loss if the stock declines after the 
+spread is established, although he does limit his profits. The fact that the calendar 
+spread strategy can lead to a loss even if the stock declines makes it a less desirable 
+alternative. 
+EQUIVALENT POSITIONS 
+Before considering other put-oriented strategies, the reader should understand the 
+definition of an equivalent position. Two strategies, or positions, are equivalent when 
+they have the same profit potential. They may have different collateral or investment 
+requirements, but they have similar profit potentials. Many of the call-oriented 
+strategies that were discussed in Part II of the book have an equivalent put strategy. 
+One such case has already been described: The "protected short sale," or shorting the 
+common stock and buying a call, is equivalent to the purchase of a put. That is, both 
+have a limited risk above the striking price of the option and relatively large profit 
+potential to the downside. An easy way to tell if two strategies are equivalent is to see 
+if their profit graphs have the same shape. The put purchase and the "protected short 
+sale" have profit graphs with exactly the same shape (Figures 16-1 and 4-1, respec­
+tively). As more put strategies are discussed, it will always be mentioned if the put 
+strategy is equivalent to a previously described call strategy. This may help to clarify 
+the put strategies, which understandably may seem complex to the reader who is not 
+familiar with put options. 
+===== PDF page index 298 =====
+Put Buying in Conjunction 
+with Com.m.on Stock 
+Ownership 
+Another useful feature of put options, in addition to their speculative leverage in a 
+downward move by the underlying stock, is that the put purchase can be used to limit 
+downside loss in a stock that is owned. When one simultaneously owns both the com­
+mon stock and a put on that same stock, he has a position with limited downside risk 
+during the life of the put. This position is also called a synthetic long call, because the 
+profit graph is the same shape as a long call's. 
+Example: An investor owns XYZ stock, which is at 52, and purchases an XYZ October 
+50 put for 2. The put gives him the right to sell XYZ at 50, so the most that the stock­
+holder can lose on his stock is 2 points. Since he pays 2 points for the put protection, his 
+maximum potential loss until October expiration is 4 points, no matter how far XYZ 
+might decline up until that time. If, on the other hand, the price of the stock should 
+move up by October, the investor would realize any gain in the stock, less the 2 points 
+that he paid for the put protection. The put functions much like an insurance policy with 
+a finite life. Table 17-1 and Figure 17-1 depict the results at October expiration for this 
+position: buying the October 50 put for 2 points to protect a holding in XYZ common 
+stock, which is selling at 52. The dashed line on the graph represents the profit poten­
+tial of the common stock ownership by itself. Notice that if the stock were below 48 in 
+October, the common stock owner would have been better off buying the put. However, 
+with XYZ above 48 at expiration, the put purchase was a burden that cost a small por­
+tion of potential profits. This strategy, however, is not necessarily geared to maximizing 
+211 

@@ -1,0 +1,467 @@
+
+===== PDF page index 864 =====
+Chapter 38: The Distribution of Stock Prices 807 
+THE MONTE CARLO PROBABILITY CALCULATOR 
+Up to this point, the calculators we have discussed are subject to the limitations 
+described earlier - mainly, that they rely heavily on one's volatility estimate, that they 
+assume the volatility will remain constant over time, and that they assume a lognor­
+mal distribution. The early part of this chapter was spent explaining that the lognor­
+mal distribution is not the real distribution that stock prices adhere to. So, what we'd 
+like to see in a probability calculator is one that could adjust for various volatility sce­
+narios as time passed and one in which the assumed distribution of stock prices was 
+not lognormal. 
+When one starts to make these sorts of assumptions, I do not believe there is a 
+single formula that can be derived for the probability calculations. Rather, what is 
+known as a Monte Carlo simulation must be undertaken. Essentially, one "tells" the 
+computer what he is trying to simulate. It could be any number of things in real life, 
+perhaps the rocket engine components in a NASA space shuttle, or the operation of 
+an internal combustion engine, or the movement of a stock. As long as the process 
+can be described, it can be simulated by a computer. Then, the computer can run a 
+large number of those simulations to determine the answers to such things as "What 
+is the failure rate of the NASA engine components," or "How long can the internal 
+combustion engine go without an oil change," or "What is the probability of the stock 
+trading at a certain target price?" The Monte Carlo simulation technique can be 
+thought of as letting the computer run through the simulation a lot of times and 
+counting how many times a certain outcome occurs. If the number of trials (simula­
+tions) is large enough and the model is good enough, then the resulting count divid­
+ed by the number of trials undertaken is a good probability estimate of the said event 
+occurring. The reason one runs a lot of trials is that over a large number of trials, the 
+frequency with which an event occurs will approximate the actual probability of its 
+occurrence for a single trial - the single trial being your trade, for example. 
+The next three paragraphs describe the general process necessary for con­
+structing a stock probability calculator using a Monte Carlo simulation. Again, this is 
+fairly technical, so if the reader is not interested in the background behind the math­
+ematics, then skip ahead three paragraphs. In the case of a stock probability calcula­
+tor, the Monte Carlo simulation can be undertaken as follows. 
+We know what the distribution of stock prices looks like. The fat tails can be 
+built into the distribution if one wants to simulate real life. See Figure 38-1 for both 
+the lognormal distribution and the actual distribution. It's a simple matter to tell the 
+computer this information. For example, recall that 2.5 million points went into mak­
+ing up Figure 38-1. In the actual distribution in Figure 38-1, about 92,000 (or 3.68%) 
+===== PDF page index 865 =====
+808 Part VI: Measuring and Trading Volatility 
+of them resulted in the stock being unchanged. Also, only about 2,500 or them, or 
+1110th of one percent, resulted in a move of-4.0 standard deviations or more. Those 
+percentages, along with all of the others, would be built into the computer, so that 
+the total distribution accounts for 100% of all possible stock movements. 
+Then, we tell the computer to allow a stock to move randomly in accordance 
+with whatever volatility the user has input. So, there would be a fairly large proba­
+bility that it wouldn't move very far on a given day, and a very small probability that 
+it would move three or more standard deviations. Of course, with the fat tail distri­
+bution, there would be a larger probability of a movement of three or more standard 
+deviations than there would be with the regular lognormal distribution. The Monte 
+Carlo simulation progresses through the given number of trading days, moving the 
+stock cumulatively as time passes. If the stock hits the break-even price, that partic­
+ular simulation can be terminated and the next one begun. At the end of all the tri­
+als (100,000 perhaps), the number in which the upside target was touched is divided 
+by the total number of trials to give the probability estimate. 
+Is it really worth all this extra trouble to evaluate these more complicated prob­
+ability distributions? It seems so. Consider the following example: 
+Example: Suppose that a trader is considering selling naked puts on XYZ stock, 
+which is currently trading at a price of 80. He wants to sell the November 60 puts, 
+which expire in two months. Although XYZ is a fairly volatile stock, he feels that he 
+wouldn't mind owning it if it were put to him. However, he would like to see the puts 
+expire worthless. Suppose the following information is available to him via the vari­
+ous probability calculators: 
+Simple "end point" probability of XYZ < 60 at expiration: 10% 
+Probability that XYZ ever trades < 60 (using the lognormal distribution) 20% 
+Probability that XYZ ever trades < 60 (using the fat tail distribution): 22% 
+If the chances of the put never needing attention were truly only 10%, this trader 
+would probably sell the puts naked and feel quite comfortable that he had a trade 
+that he wouldn't have to worry too much about later on. However, if the true proba­
+bility that the put will need attention is 22%, then he might not take the trade. Many 
+naked option sellers try to sell options that have only probabilities of 15% or less of 
+potentially becoming troublesome. 
+Hence, the choice of which probability calculation he uses can make a differ­
+ence in whether or not a trade is established. 
+Other strategies lend themselves quite well to probability analysis as well. 
+Credit spreaders - sellers of out-of-the-money put spreads - usually attempt to quan­
+tify the probability of having to take defensive action. Any action to adjust or remove 
+===== PDF page index 866 =====
+Chapter 38: The Distribution of Stock Prices 809 
+a deeply out-of-the-money put credit spread usually destroys most or all of its prof­
+itability, so an accurate initial assessment of the probabilities of having to make such 
+an adjustment is important. 
+Option buyers, too, would benefit from the use of a more accurate probability 
+estimate. This is especially true for neutral strategies, such as straddle or strangle 
+buying, when the trader is interested in the chances of the stock being able to move 
+far enough to hit one or the other of the straddle's break-even points at some time 
+during the life of the straddle. 
+The Monte Carlo probability calculation can be expanded to include other sorts 
+of distributions. In the world of statistics, there are many distributions that define ran­
+dom patterns. The lognormal distribution is but one of them (although it is the one 
+that most closely follows stock prices movements in general). Also, there is a school of 
+thought that says that each stock's individual price distribution patterns should be ana­
+lyzed when looking at strategies on that stock, as opposed to using a general stock 
+price distribution accumulated over the entire market. There is much debate about 
+that, because an individual stock's trading pattern can change abruptly just consider 
+any of the Internet stocks in the late 1990s and early 2000s. Thus, a probability esti­
+mate based on a single stock's behavior, even if that behavior extends back several 
+years, might be too unreliable a statistic upon which to base a probability estimate. 
+In summary, then, one should use a probability calculator before taking an 
+option position, even an outright option buy. Perhaps straight stock traders should 
+use a probability calcutor as well. In doing so, though, one should be aware of the 
+limitations of the estimate: It is heavily biased by the volatility estimate that is input 
+and by the assumption of what distribution the underlying instrument will adhere to 
+during the life of the position. While neither of those limitations can be overcome 
+completely, one can mitigate the problems by using a conservative volatility estimate. 
+Also, he can look at the results of the probability calculation under several distribu­
+tions (perhaps lognormal, fat tail, and the distribution using only the past price 
+behavior of the underlying instrument in question) and see how they differ. In that 
+case, he would at least have a feeling for what could happen during the life of the 
+option position. 
+EXPECTED RETURN 
+The concept of expected return was described in the chapter on mathematical appli­
+cations. In short, expected return is a position's expected profit divided by its invest­
+ment ( or expected investment if the investment varies with stock price, as in a naked 
+option position or a futures position). The crucial component, though, is expected 
+profit. 
+===== PDF page index 867 =====
+810 Part VI: Measuring and Trading Volatility 
+Expected profit is computed by calculating the profitability of a position at a 
+certain stock price times the probability of the stock being at that price, and summing 
+that multiple over all possible stock prices. When the concept was first introduced, 
+the "probability of the stock being at that price" was given as what we now know is 
+the "endpoint" probability. In reality, a much better measure of the expected profit 
+of a position can be obtained by using one of the more advanced probability estima­
+tion models presented above. 
+In generalized expected return studies done using the fat tails Monte Carlo sim­
+ulation, certain general conclusions can be drawn about some strategies. 
+• A bull spread is an inferior strategy when the options are fairly priced, no matter 
+which distribution is assumed. This more or less agrees with observations that 
+have been made previously regarding the disappointments that traders often 
+encounter when using vertical spreads. 
+• While covered writing might seem superior to stock ownership under the log­
+normal distribution, the two are about equal under a fat tail distribution. 
+• Most startling, though, is the fact that option buying strategies fare much, much 
+better under a fat tail distribution than a lognormal one. This most clearly 
+demonstrates the "power" of the fat tail distribution: A limited-risk investment 
+with unlimited profit potential can be expected to perform very well if the fat tails 
+are allowed for. 
+Using the lognormal distribution more or less represents the conventional wisdom 
+regarding option strategies - the one that many brokers promote: "Don't buy options, 
+don't mess with spreads, either buy stocks or do covered call writes." The fat tail dis­
+tribution column stands much of that advice on its head. In real life (as demonstrat­
+ed by the fat tail distribution), strategies with limited profit potential and unlimited 
+or large risk potential are inferior strategies. 
+One should be aware that the phrase "expected return" is used in many quasi­
+sophisticated option analyses (and even in analyses not using options). Many 
+investors accept these "returns" on blind faith, figuring that if they're generated by a 
+computer, they must be correct. In reality, they may be not be representative, even 
+for comparisons. 
+SUMMARY 
+This chapter has demonstrated that probability analysis is an inexact science, because 
+markets behave in ways that are very difficult to describe mathematically. However, 
+probability analysis is also necessary for the option strategist; without it he would be 
+===== PDF page index 868 =====
+Chapter 38: The Distribution of Stock Prices 811 
+in the dark as to the likelihood of profitable outcomes for his strategy. Overall, in a 
+diversified set of positions, the option strategist should use the fat tail distribution in 
+a Monte Carlo simulation to estimate probabilities. However, if that is not available, 
+he can use the normal or lognormal distribution with the proviso that he understands 
+it is not "gospel." He should require ve:ry stringent criteria on any strategies that are 
+antivolatility strategies, such as naked option writing of stock options, for there is a 
+greater than normal chance of a large move by the underlying, especially if the 
+underlying is stock. 
+The sophisticated trader may want to view his probabilities in the light of more 
+than one proposed distribution of prices. Of course, this type of analysis ( using sev­
+eral distributions) puts the onus on the investor to choose the distribution that he 
+wants to use in order to analyze his investment. However, such an approach should 
+be extremely illustrative in that he can compare returns from different strategies and 
+have a reasonable expectation as to which ones might perform the best under differ­
+ent market conditions. 
+===== PDF page index 869 =====
+CHAPTER 39 
+Volatility Trading Techniques 
+The previous three chapters laid the foundation for volatility trading. In this chapter, 
+the actual application of the technique will be described. It should be understood 
+that volatility trading is both an art and a science. It's a science to the extent that one 
+must be rigorous about determining historical volatility or implied volatility, calculat­
+ing probabilities, and so forth. However, given the vagaries of those measurements 
+that were described in some detail in the previous chapters, volatility trading is also 
+something of an art. Just as two fundamental analysts with the same information 
+regarding earnings, sales projection, and so on might have two different opinions 
+about a stock's fortunes, so also can two volatility traders disagree about the potential 
+for movement in a stock. 
+However, volatility traders do agree on the approach. It is based on comparing 
+today's implied volatility with what one expects volatility to do in the future. As noted 
+previously, one's expectations for volatility might be based on volatility charts, pat­
+terns of historical volatility and implied volatility, or something as complicated as a 
+GAR CH forecasting model. None of them guarantees success. However, we do know 
+that volatility tends to trade in a range in the long run. Therefore, the approach that 
+traders agree upon is this: If implied volatility is "low," buy it. If it's "high," sell it with 
+caution. So simple: Buy low, sell high (not necessarily in that order). The theory 
+behind volatility trading is that it's easier to buy low and sell high (or at least to deter­
+mine what's "low" and "high") when one is speaking about volatility, than it is to do 
+the same thing when one is talking about stock prices. 
+Most of the time, implied volatility will not be significantly high or low on any 
+particular stock, futures contract, or index. Therefore, the volatility trader will have 
+little interest in most stocks on any given day. This is especially true of the big-cap 
+stocks, the ones whose options are most heavily traded. There are so many traders 
+812 
+===== PDF page index 870 =====
+Chapter 39: Volatility Trading Techniques 813 
+watching the situation for those stocks that they will rarely let volatility get to the 
+extremes that one would consider "too high" or "too low." Yet, with the large num­
+ber of optionable stocks, futures, and indices that exist, there are always some that 
+are out of line, and that's where the independent volatility trader will concentrate 
+his efforts. 
+Once a volatility extreme has been uncovered, there are different methods of 
+trading it. Some traders - market-makers and short-term traders - are just looking 
+for very fleeting trades, and expect volatility to fall back into line quickly after an 
+aberrant move. Others prefer more of a position traders' approach: attempting to 
+determine volatility extremes that are so far out of line with accepted norms that it 
+will probably take some time to move back into line. Obviously, the trader's own sit­
+uation will dictate, to a certain extent, which strategy he pursues. Things such as 
+commission rates, capital requirements, and risk tolerance will determine whether 
+one is more of a short-term trader or a position trader. The techniques to be 
+described in this chapter apply to both methods, although the emphasis will be on 
+position trading. 
+TWO WAYS VOLATILITY PREDICTIONS CAN BE WRONG 
+When traders determine the implied volatility of the options on any particular under­
+lying instrument, they may generally be correct in their predictions; that is, implied 
+volatility will actually be a fairly good estimate of forthcoming volatility. However, 
+when they're wrong, they can actually be wrong in two ways: either in the outright 
+prediction of volatility or in the path of their volatility predictions. Let's discuss both. 
+When they're wrong about the absolute level of volatility, that merely means that 
+implied volatility is either "too low" or "too high." In retrospect, one could only make 
+that assessment, of course, after having seen what actual volatility turned out to be 
+over the life of the option. The second way they could be wrong is by making the 
+implied volatility on some of the options on a particular underlying instrument much 
+cheaper or more expensive than other options on that same underlying instrument. 
+This is called a volatility skew and it is usually an incorrect prediction about the way 
+the underlying will perform during the life of the options. 
+The rest of this chapter will be divided into two main parts, then. The first part 
+will deal with volatility from the viewpoint of the absolute level of implied volatility 
+being "wrong" (which we'll call "trading the volatility prediction"), and the second 
+part will deal with trading the volatility skew. 
+===== PDF page index 871 =====
+814 Part VI: Measuring and Trading Volatility 
+TRADING THE VOLATILITY PREDICTION 
+The volatility trader must have some way of determining when implied volatility is 
+sufficiently out of line that it warrants a trade. Then he must decide what trade to 
+establish. Furthermore, as with any strategy- especially option strategies - follow-up 
+action is important too. We will not be introducing any new strategies, per se, in this 
+chapter. Those strategies have already been laid out in the previous chapters of this 
+book. However, we will briefly review important points about those strategies and 
+their follow-up actions where it is appropriate. 
+First, one must try to find situations in which implied volatility is out of line. 
+That is not the end of the analysis, though. After that, one needs to do some proba­
+bility work and needs to see how the underlying has behaved in the past. Other fine­
+tuning measures are often useful, too. These will all be described in this chapter. 
+DETERMINING WHEN VOLATILITY IS OUT OF LINE 
+There is much disagreement among volatility traders regarding the best method to use 
+for determining if implied volatility is "out ofline." Most favor comparing implied with 
+historical volatility. However, it was shown two chapters ago that implied volatility is 
+not necessarily a good predictor of historical volatility. Yet this approach cannot be dis­
+carded; however it must be used judiciously. Another approach is to compare today's 
+implied volatility with where it has been in the past. This concept relies heavily on the 
+concept of the percentile of implied volatility. Finally, there is the approach of trying 
+to "read" the charts of implied and historical volatility. This is actually something akin 
+to what GARCH tries to do, but on a short-term horizon. So the approaches are: 
+1. Compare implied volatility to its own past levels (percentile approach). 
+2. Compare implied volatility to historical volatility. 
+3. Interpret the chart of volatility. 
+In addition, we will examine two lesser-used methods: comparing current levels of 
+historical volatility to past measures of historical volatility, and finally, using only a 
+probability calculator and trading the situation that has the best probabilities of 
+success. 
+THE PERCENTILE APPROACH 
+In this author's opinion, there is much merit in the percentile approach. When one says 
+that volatility tends to trade in a range, which is the basic premise behind volatility trad-
+===== PDF page index 872 =====
+Chapter 39: Volatility Trading Techniques 815 
+ing, he is generally talking about implied volatility. Thus, it makes sense to know where 
+implied volatility is within the range of the past readings of implied volatility. If volatil­
+ity is low with respect to where it usually trades, then we can say the options are cheap. 
+Conversely, if it's high with respect to those past values, then we can say the options are 
+expensive. These conclusions do not draw on historical volatility. 
+The percentile of implied volatility is generally used to describe just where the 
+current implied volatility reading lies with respect to its past values. The "implied 
+volatility" reading that is being used in this case is the composite reading - the one 
+that takes into account all the options on an underlying instrument, weighting them 
+by their distance in- or out-of-the-money (at-the-money gets more weight) and also 
+weighting them by their trading volume. This technique has been referred to many 
+times and was first described in Chapter 28 on mathematical applications. That com­
+posite implied volatility reading can be stored in a database for each underlying 
+instrument every day. Such databases are available for purchase from firms that spe­
+cialize in option data. Also, snapshots of such data are available to members of 
+www.optionstrategist.com. 
+In general, most underlying instruments would have a composite implied 
+volatility reading somewhere near the 50th percentile on any given day. However, it 
+is not uncommon to see some underlyings with percentile readings near zero or 100% 
+on a given day. These are the ones that would interest a volatility trader. Those with 
+readings in the 10th percentile or less, say, would be considered "cheap"; those in the 
+90th percentile or higher would be considered expensive. 
+In reality, the percentile of implied volatility is going to be affected by what the 
+broad market is doing. For example, during a severe market slide, implied volatilities 
+will increase across the board. Then, one may find a large number of stocks whose 
+options are in the 90th percentile or higher. Conversely, there have been other times 
+when overall implied volatility has declined substantially: 1993, for example, and the 
+summer of 2001, for another. At those times, we often find a great number of stocks 
+whose options reside in the 10th percentile of implied volatility or lower. The point 
+is that the distribution of percentile readings is a dynamic thing, not something stat­
+ic like a lognormal distribution. Yes, perhaps over a long period of time and taking 
+into account a great number of cases, we might find that the percentiles of implied 
+volatility are normally distributed, but not on any given day. 
+The trader has some discretion over this percentile calculation. Foremost, he 
+must decide how many days of past history he wants to use in determining the per­
+centiles. There are about 255 trading days in a year. So, if he wanted a two-year his­
+tory, he would record the percentile of today's composite implied volatility with 
+respect to the 510 daily readings over the past two years. This author typically uses 
+===== PDF page index 873 =====
+816 Part VI: Measuring and Trading Volatility 
+600 days of implied volatility history for the purpose of determining percentiles, but 
+a case could be made for other lengths of time. The purpose is to use enough implied 
+volatility history to give one a good perspective. Then, a reading of the 10th per­
+centile or the 90th percentile will truly be significant and would therefore be a good 
+starting point in determining whether the options are cheap or expensive. 
+In addition to the actual percentile, the trader should also be aware of the width 
+of the implied volatility distribution. This was discussed in an earlier chapter, but 
+essentially the concept is this: If the first percentile is an implied volatility of 40% and 
+the 100th percentile is an implied volatility of 45%, then that entire range is so nar­
+row as to be meaningless in terms of whether one could classify the options as cheap 
+or expensive. 
+The advantage of buying options in a low percentile of implied volatility is to 
+give oneself two ways to make money: one, via movement in the underlying (if a 
+straddle were owned, for example), and two, by an increase in implied volatility. That 
+is, if the options were to return to the 50th percentile of implied volatility, the volatil­
+ity trader who has bought "cheap" options should expect to make money from that 
+movement as well. That can only happen if the 50th percentile and the 10th per­
+centile are sufficiently far apart to allow for an increase in the price of the option to 
+be meaningful. Perhaps a good rule of thumb is this: If the option rises from the cur­
+rent (low) percentile reading to the 50th percentile in a month, will the increase in 
+implied volatility be equal to or greater than the time decay over that period? 
+Alternatively stated, with all other things being equal, will the option be trading at 
+the same or a greater price in a month, if implied volatility rises to the 50th percentile 
+at the end of that time? If so, then the width of the range of implied volatilities is 
+great enough to produce the desired results. 
+The attractiveness to this method for determining if implied volatility is out of 
+line is that the trader is "forced" to buy options that are cheap ( or to sell options that 
+are expensive), on a relative basis. Even though historical volatility has not been taken 
+into consideration, it will be later on when the probability calculators are brought to 
+bear. There is no guarantee, of course, that implied volatility will move toward the 
+50th percentile while the position is in place, but if it does, that will certainly be an 
+aid to the position. 
+In effect this method is measuring what the option trading public is "thinking" 
+about volatility and comparing it with what they've thought in the past. Since the pub­
+lic is wrong (about prices as well as volatility) at major turning points, it is valid to want 
+to be long volatility when "everyone else" has pushed it down to depressed levels. The 
+converse may not necessarily be true: that we would want to be short volatility when 
+everyone else has pushed it up to extremely high levels. The caveat in that case is that 
+===== PDF page index 874 =====
+Chapter 39: Volatility Trading Techniques 817 
+someone may have inside information that justifies expensive options. This is another 
+reason why selling volatility can be difficult: You may be dealing with far less infor­
+mation than those who are actually making the implied volatility high. 
+COMPARING IMPLIED AND HISTORICAL VOLATILITY 
+The most common way that traders determine which options are cheap or expensive 
+is by comparing the current composite implied volatility with various historical 
+volatility measures. However, just because this is the conventional wisdom does not 
+necessarily mean that this method is the preferred one for determining which options 
+are best for volatility trades. In this author's opinion, it is inferior to the percentile 
+method (comparing implied to past measures of implied), but it does have its merits. 
+The theory behind using this method is that it is a virtual certainty that implied and 
+historical volatility will eventually converge with each other. So, if one establishes 
+volatility trading positions when they are far apart, there is supposedly an advantage 
+there. 
+However, this argument has plenty of holes in it. First of all, there is no guar­
+antee that the two will converge in a timely manner, for example, before the options 
+in the trader's position can become profitable. Historical and implied volatility often 
+remain fairly far apart for weeks at a time. 
+Second, even if the convergence does occur, it doesn't necessarily mean one will 
+make money. As an example, consider the case in which implied volatility is 40% and 
+historical volatility is 60%. That's quite a difference, so you'd want to buy volatility. 
+Furthermore, suppose the two do converge. Does that mean you'll make money? No, 
+it does not. What if they converge and meet at 40%? Or, worse yet, at 30%? You'd 
+most certainly lose in those cases as the stock slowed down while your options lost 
+time value. 
+Another problem with this method is that implied volatility is not necessarily 
+low when it is bought, nor high when it is sold. Consider the example just cited. We 
+merely knew that implied volatility was 40% and that historical volatility was 60%. We 
+had no perspective on whether 40% was high, medium, or low. Thus, it is also nec­
+essary to see what the percentile of implied volatility is. If it turns out that 40% is a 
+relatively high reading for implied volatility, as determined by looking at where 
+implied volatility has been over the past couple of years, then we would probably not 
+want to buy volatility in this situation, even though implied and historical volatility 
+have a large discrepancy between them. 
+Many market-makers and floor traders use this approach. However, they are 
+often looking for an option that is briefly mispriced, figuring that volatilities will 
+===== PDF page index 875 =====
+818 Part VI: Measuring and Trading Volatility 
+quickly revert back to where they were. But for a position trader, the problems cited 
+above can be troublesome. 
+Having said that, if one looks to implement this method of trying to determine 
+when options are out of line, something along the following lines should be imple­
+mented. One should ensure that implied volatility is significantly different from all of 
+the pertinent historical volatilities. For example, one might require that implied 
+volatility is less than 80% of each of the 10-, 20-, 50-, and 100-day historical volatili­
+ty calculations. In addition, the current percentile of implied volatility should be 
+noted so that one has some relative basis for determining if all of the volatilities, his­
+torical and implied, are very high or very low. One would not want to buy options if 
+they were all in a very high percentile, nor sell them if they were all in a very low per­
+centile. 
+Often, a volatility chart showing both the implied and certain historical volatili­
+ties will be a useful aid in making these decisions. One can not only quickly tell if the 
+options are in a high or low percentile, but he may also be able to see what happened 
+at similar times in the past when implied and historical volatility deviated substan­
+tially. 
+Finally, one needs some measure to ensure that, if convergence between 
+implied and historical volatility does occur, he will be able to make money. So, for 
+example, if one is buying a straddle, he might require that if implied rises to meet his­
+torical (say, the lowest of the historicals) in a month, he will actually make money. 
+One could use a different time frame, but be careful not to make it something unrea­
+sonable. For example, if implied volatility is currently 40% and historical is 60%, it is 
+highly unlikely that implied would rise to 60% in a day or two. Using this criterion 
+also ensures that the absolute difference between implied and historical volatility is 
+wide enough to allow for profits to be made. That is, if implied is 10% and historical 
+is 13%, that's a difference of 30% in the two - ostensibly a "wide" divergence 
+between implied and historical. However, if implied rises to meet historical, it will 
+mean only an absolute increase of 3 percentage points in implied volatility - proba­
+bly not enough to produce a profit, after costs, if any length of time passes. 
+If all of these criteria are satisfied, then one has successfully found "mispriced" 
+options using the implied versus historical method, and he can proceed to the next 
+step in the volatility analysis: using the probability calculator. 
+READING THE VOLATILITY CHART 
+Another technique that traders use in order to determine if options are mispriced is 
+to actually try to analyze the chart of volatility - typically implied volatility, but it 
+could be historical. This might seem to be a subjective approach, except that it is real-
+===== PDF page index 876 =====
+818 Part VI: Measuring and Trading Volatility 
+quickly revert back to where they were. But for a position trader, the problems cited 
+above can be troublesome. 
+Having said that, if one looks to implement this method of trying to determine 
+when options are out of line, something along the following lines should be imple­
+mented. One should ensure that implied volatility is significantly different from all of 
+the pertinent historical volatilities. For example, one might require that implied 
+volatility is less than 80% of each of the 10-, 20-, 50-, and 100-day historical volatili­
+ty calculations. In addition, the current percentile of implied volatility should be 
+noted so that one has some relative basis for determining if all of the volatilities, his­
+torical and implied, are very high or very low. One would not want to buy options if 
+they were all in a very high percentile, nor sell them if they were all in a very low per­
+centile. 
+Often, a volatility chart showing both the implied and certain historical volatili­
+ties will be a useful aid in making these decisions. One can not only quickly tell if the 
+options are in a high or low percentile, but he may also be able to see what happened 
+at similar times in the past when implied and historical volatility deviated substan­
+tially. 
+Finally, one needs some measure to ensure that, if convergence between 
+implied and historical volatility does occur, he will be able to make money. So, for 
+example, if one is buying a straddle, he might require that if implied rises to meet his­
+torical (say, the lowest of the historicals) in a month, he will actually make money. 
+One could use a different time frame, but be careful not to make it something unrea­
+sonable. For example, if implied volatility is currently 40% and historical is 60%, it is 
+highly unlikely that implied would rise to 60% in a day or two. Using this criterion 
+also ensures that the absolute difference between implied and historical volatility is 
+wide enough to allow for profits to be made. That is, if implied is 10% and historical 
+is 13%, that's a difference of 30% in the two - ostensibly a "wide" divergence 
+between implied and historical. However, if implied rises to meet historical, it will 
+mean only an absolute increase of 3 percentage points in implied volatility - proba­
+bly not enough to produce a profit, after costs, if any length of time passes. 
+If all of these criteria are satisfied, then one has successfully found "mispriced" 
+options using the implied versus historical method, and he can proceed to the next 
+step in the volatility analysis: using the probability calculator. 
+READING THE VOLATILITY CHART 
+Another technique that traders use in order to determine if options are mispriced is 
+to actually try to analyze the chart of volatility - typically implied volatility, but it 
+could be historical. This might seem to be a subjective approach, except that it is real-

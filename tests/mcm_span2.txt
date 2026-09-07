@@ -1,0 +1,583 @@
+
+===== PDF page index 684 =====
+Cl,opter 32: Structured Products 637 
+:don. The PERCS is equivalent to a covered write of a long-term call option, which is 
+imbedded in the PERCS value. Although there are not many PERCS trading at the 
+current time, that number may grow substantially in the future. 
+Any strategies that pertain to covered call writing will pertain to PER CS as well. 
+Conventional listed options can be used to protect the PERCS from downside risk, 
+to remove the limited upside profit potential, or to effectively change the price at 
+which the PERCS is redeemable. Ratio writes can be constructed by selling a listed 
+call. Shorting PERCS creates a security that is similar to a long put, which might be 
+quite expensive if there is a significant amount of time remaining until maturity of 
+the PERCS. 
+Neutral traders and hedgers should be aware that a PERCS has a delta of its 
+own, which is equal to one minus the delta of the imbedded call option. Thus, hedg­
+ing PERCS with common stock requires one to calculate the PERCS delta. 
+Finally, the implied value of the call option that is imbedded with the PERCS 
+can be calculated quite easily. That information is used to determine whether the 
+PERCS is fairly priced or not. The serious outright buyer as well as the option strate­
+gist should make this calculation, since a PERCS is a security that is option-related. 
+Either of these investors needs to know if he is making an attractive investment, and 
+calculating the valuation of the imbedded call is the only way to do so. 
+OTHER STRUCTURED PRODUCTS 
+EXCHANGE-TRADED FUNDS 
+Other listed products exist that are simpler in nature than those already discussed, 
+but that the exchanges sometimes refer to as structured products. They often take 
+the form of unit trusts and mutual funds. The general term for these products is 
+Exchange-Traded Funds (ETFs). In a unit trust, an underwriter (Merrill Lynch, for 
+example) packages together 10 to 12 stocks that have similar characteristics; perhaps 
+they are in the same industry group or sector. The underwriter forms a unit trust with 
+these stocks. That is, the shares are held in trust and the resulting entity - the unit 
+trust - can actually be traded as shares of its own. The units are listed on an exchange 
+and trade just like stocks. 
+Example: One of the better-known and popular unit trusts is called the Standard & 
+Poor's Depository Receipt{SPDR). It is a unit trust that exactly matches the S&P 500 
+index, divided by 10. Th&-SPDR unit trust is affectionately called Spiders (or 
+Spyders). It trades on the AMEX under the symbol SPY. If the S&P 500 index itself 
+is at 1,400, for example, then SPY will be trading near 140. Unit trusts are very active, 
+mostly because they allow any investor to buy an index fund, and to move in and out 
+of it at will. The bid-asked spread differential is very tight, due to the liquidity of the 
+===== PDF page index 685 =====
+638 Part V: Index Options and Futures 
+product. When a customer trades the SPY, he pays a commission, just as he would 
+with any listed stock. 
+Exchange-traded funds are attractive to all investors who like to trade or invest in 
+index funds, preferring the diversity provided by an index (passive management of 
+stocks) to an active role in managing individual stocks. Exchange-traded funds can be 
+sold short as long as the shares can be borrowed. Some of them don't even require 
+an uptick when executing the short sale. 
+Two other large and well-known unit trusts are similar to SPY. One is the NAS­
+DAQ-100 tracking stock, whose symbol is QQQ. QQQ is 1140th of the value of the 
+NASDAQ-100 index ($NDX), although it should be noted that $NDX has split two­
+for-one in the past, as has QQQ, so the relationship could change by a factor of two. 
+The other large, popular unit trust is linked to the Dow-Jones 30 Industrials; it is 
+called Diamonds and trades under the symbol DIA. Both QQQ and DIA trade on 
+the AMEX. Since this concept has proved to be popular, sector SPDRs were created 
+on a large number of S&P index sectors - technology, oil, semiconductors, etc. These 
+have proven to be less popular. There are even ETFs that are equal to one-tenth of 
+the $OEX index, although they have not proven to be liquid. 
+ETFs are "created" by institutions in blocks of shares known as Creation Units. 
+A creation requires a deposit with the trustee of a specified number of shares of a 
+portfolio of stocks closely approximating the composition of a specific index, and cash 
+equal to accumulated dividends in return for specific index shares. Similarly, block­
+sized units of ETFs can be redeemed in return for a portfolio of stocks approximat­
+ing the index and a specified amount of cash. Very large blocks of shares - 50,000 or 
+more - are required to create SPY, QQQ, DIA, and so forth. Slightly smaller blocks 
+of shares are required to create the sector funds. 
+If one is interested in knowing exactly what funds are listed at any time, he 
+should consult the Web site of the exchange where the ETF is listed. The AMEX 
+generally has extensive information about the nature of these products on its site at 
+www.amex.com. 
+A very large segment of ETFs, called iShares, was created by Barclays Global 
+Investors to track all kinds of index funds. Many of these are not well known to the 
+public, such as the Russell 2000 Value Fund and the Russell 2000 Growth Fund, but 
+most of them are understandable upon inspection. There are iShares on funds that 
+track foreign industries, plus a broad spectrum of funds that track small-cap stocks, 
+value stocks, growth stocks, or individual sectors such as health care, the Internet, or 
+real estate. A Web site, www.ishares.com, shows all of the currently available iShares. 
+The iShares are all traded on major stock exchanges. 
+===== PDF page index 686 =====
+Chapter 32: Structured Products 639 
+Another major segment of ETFs are called Holding Company Depository 
+Receipts (HOLDRS). They were created by Merrill Lynch and are listed on the 
+AMEX. 
+Options on ETFs. Options are listed on many ETFs. QQQ options, for example, 
+are listed on all of the option exchanges and are some of the most liquid contracts in 
+existence. Things can always change, of course: Witness OEX, which at one time 
+traded a million contracts a day and now barely trades one-thirtieth of that on most 
+days. 
+The options on ETFs can be used as substitutes for many expensive indices. 
+This brings index option trading more into the realm of reasonable cost for the small 
+individual investor. 
+Example: The PHLX Semiconductor index ($SOX) has been a popular index since 
+its inception, especially during the time that tech stocks were roaring. The index, 
+whose options are expensive because of its high statistical volatility, traded at prices 
+between 500 and 1,300 for several years. During that time, both implied and histor­
+ical volatility was near 70%. So, for example, if $SOX were at 1,000 and one wanted 
+to buy a three-month at-the-money call, it would cost approximately 135 points. 
+That's $13,500 for one call option. For many investors, that's out of the realm of fea­
+sibility. 
+However, there are HOLDRS known as Semiconductor HOLDRS (symbol: 
+SMH). The Semiconductor HOLD RS are composed of 20 stocks (in differing quan­
+tities, since it is a capitalization-weighted unit trust) that behave in aggregate in much 
+the same manner as the Semiconductor index ($SOX) does. However, SMH has trad­
+ed at prices between 40 and 100 over the same period of time that $SOX was trad­
+ing between 500 and 1,300. The implied volatility of SMH options is 70% - just like 
+$SOX options - because the same stocks are involved in both indices. However, a 
+three-month at-the-money call on the $100 SMH, say, would cost only 13.50 points 
+($1,350) - a much more feasible option cost for most investors and traders. 
+Thus, a strategy that most option traders should keep in mind is one in which ETFs 
+are substituted when one has a trading signal or opinion on a high-priced index. 
+Similarities exist among many of them. For example, the Morgan Stanley High-Tech 
+index ($MSH) is well known for the7eliability of its put-call ratio sentiment signals. 
+However, the index is high-priced and volatile, much like $SOX. Upon examination, 
+though, one can discover that QQQ trades almost exactly like $MSH. So QQQ 
+options and "stock" can be used as a substitute when one wants to trade $MSH. 
+===== PDF page index 687 =====
+640 Part V: Index Options and Futures 
+STRUCTURED PRODUCT SUMMARY 
+Structured products whether of the simple style of the Exchange-Traded Fund or 
+the more complicated nature of the PERCS, bull spreads, or protected index funds 
+- can and should be utilized by investors looking for unique ways to protect long­
+term holdings in indices or individual stocks. 
+The number of these products is constantly evolving and changing. Thus, 
+anyone interested in trading these items should check the Web sites of the exchanges 
+where the shares are listed. Analytical tools are available on the Web as well. 
+For example, the site www.derivativesmodels.com has over 40 different models 
+especially designed for evaluating options and structured products. They range from 
+the simple Black-Scholes model to models that are designed to evaluate extremely 
+complicated exotic options. 
+All of these products have a place, but the most conservative seem to be the 
+structured products that provide upside market potential while limiting downside 
+risk- the products discussed at the beginning of the chapter. As long as the credit­
+worthiness of the underwriter is not suspect, such products can be useful longer­
+term investments for nearly everyone who bothers to learn about and understand 
+them. 
+===== PDF page index 688 =====
+CHAPTER 33 
+Mathetnatical Considerations 
+for Index Products 
+In this chapter, we look at some riskless arbitrage techniques as they apply to index 
+options. Then a summary of mathematical techniques, especially modeling, is pre­
+sented. 
+ARBITRAGE 
+Most of the normal arbitrage strategies have been described previously. We will 
+review them here, concentrating on specific techniques not described in previous 
+chapters on hedging (market baskets) and index spreading. 
+DISCOUNTING 
+We saw that discounting in cash-based options is done with in-the-money options as 
+it is with stock options. However, since the discounter cannot exactly hedge the cash­
+based options, he will normally do his discounting near the close of the day so that 
+there is as little time as possible between the time the option is bought and the close 
+of the market. This reduces the risk that the underlying index can move too far before 
+the close of trading. 
+Example: OEX is trading at 673.53 7nd an arbitrageur can buy the June 690 puts for 
+16. That is a discount of 0.47 since,parity is 16.47. Is this enough of a discount? That 
+is, can the discounter buy this put, hold it unhedged until the close of trading, and 
+641 
+===== PDF page index 689 =====
+642 Part V: Index Options and Futures 
+exercise it; or is there too great a chance that OEX will rally and wipe out his dis­
+count? 
+If he buys this put when there is very little time left in the trading day, it might 
+be enough of a discount. Recall that a one-point move in OEX is roughly equivalent 
+to 15 points on the Dow (while a one-point move in SPX is about 7.5 Dow points). 
+Thus, this O EX discount of 0.4 7 is about equal to 7 Dow points. Obviously, this is not 
+a lot of cushion, because the Dow can easily move that far in a short period of time, 
+so it would be sufficient only if there are just a few minutes of trading left and there 
+were not previous indications oflarge orders to buy "market on close." 
+However, if this situation were presented to the discounter at an earlier time in 
+the trading day, he might defer because he would have to hedge his position and that 
+might not be worth the trouble. If there were several hours left in the trading day, 
+even a discount of a full point would not be enough to allow him to remain unhedged 
+(one full OEX point is about 15 Dow points). Rather, he would, for example, buy 
+futures, buy OEX calls, or sell puts on another index. At the end of the day, he could 
+exercise the puts he bought at a discount and reverse the hedge in the open market. 
+CONVERSIONS AND REVERSALS 
+Conversions and reversals in cash-based options are really the market basket hedges 
+(index arbitrage) described in Chapter 30. That is, the underlying security is actually 
+all the stocks in the index. However, the more standard conversions and reversals can 
+be executed with futures and futures options. 
+Since there is no credit to one's account for selling a future and no debit for buy­
+ing one, most futures conversions and reversals trade very nearly at a net price equal 
+to the strike. That is, the value of the out-of-the-money futures option is equal to the 
+time premium of the in-the-money option that is its counterpart in the conversion or 
+reversal. 
+Example: An index future is trading at 179.00. If the December 180 call is trading 
+for 5.00, then the December 180 put should be priced near 6.00. The time value pre­
+mium of the in-the-money put is 5.00 (6.00 + 179.00 - 180.00), which is equal to the 
+price of the out-of-the-money call at the same strike. 
+If one were to attempt to do a conversion or reversal with these options, he 
+would have a position with no risk of loss but no possibility of gain: A reversal would 
+be established, for example, at a "net price" of 180. Sell the future at 179, add the 
+premium of the put, 6.00, and subtract the cost of the call, 5.00: 179 + 6.00 - 5.00 = 
+180.00. As we know from Chapter 27 on arbitrage, one unwinds a conversion or 
+reversal for a "net price" equal to the strike. Hence, there would be no gain or loss 
+from this futures reversal. 
+===== PDF page index 690 =====
+Chapter 33: Mathematical Considerations for Index Products 643 
+For index futures options, there is no risk when the underlying closes near the 
+strike, since they settle for cash. One is not forced to make a choice as to whether to 
+exercise his calls. (See Chapter 27 on arbitrage for a description of risks at expiration 
+when trading reversals or conversions.) 
+In actual practice, floor traders may attempt to establish conversions in futures 
+options for small increments - perhaps 5 or 10 cents in S&P futures, for example. 
+The arbitrageur should note that futures options do actually create a credit or debit 
+in the account. That is, they are like stock options in that respect, even though the 
+underlying instrument is not. This means that if one is using a deep in-the-money 
+option in the conversion, there will actually be some carrying cost involved. 
+Example: An index future is trading at 179.00 and one is going to price the 
+December 190 conversion, assuming that December expiration is 50 days away. 
+Assume that the current carrying cost of money is 10% annually. Finally, assume that 
+the December 190 call is selling for 1.00, and the December 190 put is selling for 
+11.85. Note that the put has a time value premium of only 85 cents, less than the pre­
+mium of the call. The reason for this is that one would have to pay a carrying cost to 
+do the December 190 conversion. 
+If one established the 190 conversion, he would buy the futures (no credit or 
+debit to the account), buy the put (a debit of 11.85), and sell the call (a credit of 1.00). 
+Thus, the account actually incurs a debit of 10.85 from the options. The carrying cost 
+for 10.85 at 10% for 50 days is 10.85 x 10% x 50/365 = 0.15. This indicates that the 
+converter is willing to pay 15 cents less time premium for the put (or conversely that 
+the reversal trader is willing to sell the put for 15 cents less time premium). Instead 
+of the put trading with a time value premium equal to the call price, the put will trade 
+with a premium of 15 cents less. Thus, the time premium of the put is 85 cents, 
+rather than being equal to the price of the call, 1.00. 
+BOX SPREADS 
+Recall that a "box" consists of a bullish vertical spread involving two striking prices, 
+and a bearish vertical spread using the same two strikes. One spread is constructed 
+with puts and the other with calls. The profitability of the box is the same regardless 
+of the price of the underlying security at expiration. 
+Box arbitrage with equity options involves trying to buy the box for less than the 
+difference in the striking prices, for ~ple, trying to buy a box in which the strikes 
+are 5 points apart for 4. 75. Selling the box for more than 5 points would represent 
+arbitrage as well. In fact, even selling the box at exactly 5 points would produce a 
+profit for the arbitrageur, since he earns interest on the credit from the sale. 
+===== PDF page index 691 =====
+644 Part V: Index Options and Futures 
+These same strategies apply to options on futures. However, boxes on cash­
+based options involve another consideration. It is often the case with cash-based 
+options that the box sells for more than the difference in the strikes. For example, a 
+box in which the strikes are 10 points apart might sell for 10.50, a substantial premi­
+um over the striking price differential. The reason that this happens is because of the 
+possibility of early assignment. The seller of the box assumes that risk and, as a result, 
+demands a higher price for the box. 
+If he sells the box for half a point more than the striking price differential, then 
+he has a built-in cushion of .50 point of index movement if he were to be assigned 
+early. In general, box strategies are not particularly attractive. However, if the pre­
+mium being paid for the box is excessively high, then one should consider selling the 
+box. Since there are four commissions involved, this is not normally a retail strategy. 
+MATHEMATICAL APPLICATIONS 
+The following material is intended to be a companion to Chapter 28 on mathemati­
+cal applications. Index options have a few unique properties that must be taken into 
+account when trying to predict their value via a model. 
+The Black-Scholes model is still the model of choice for options, even for index 
+options. Other models have been designed, but the Black-Scholes model seems to 
+give accurate results without the extreme complications of most of the other models. 
+FUTURES 
+Modeling the fair value of most futures contracts is a difficult task. The 
+Black-Scholes model is not usable for that task. Recall that we saw earlier that the 
+fair value of a future contract on an index could be calculated by computing the pres­
+ent value of the dividend and also knowing the savings in carrying cost of the futures 
+contract versus buying the actual stocks in the index. 
+CASH-BASED INDEX OPTIONS 
+The futures fair value model for a capitalization-weighted index requires knowing the 
+exact dividend, dividend payment date, and capitalization of each stock in the index 
+(for price-weighted indices, the capitalization is unnecessary). This is the only way of 
+getting the accurate dividend for use in the model. The same dividend calculation 
+must be done for any other index before the Black-Scholes formula can be applied. 
+In the actual model, the dividend for cash-based index options is used in much 
+the same way that dividends are used for stock options: The present value of the div-
+===== PDF page index 692 =====
+Chapter 33: Mathematical Considerations for Index Products 64S 
+idend is subtracted from the index price and the model is evaluated using that adjust­
+ed stock price. With stock options, there was a second alternative - shortening the 
+time to expiration to be equal to the ex-date - but that is not viable with index options 
+since there are numerous ex-dates. 
+Let's look at an example using the same fictional dividend information and index 
+that were used in Chapter 30 on stock index hedging strategies. 
+Example: Assume that we have a capitalization-weighted index composed of three 
+stocks: AAA, BBB, and CCC. The following table gives the pertinent information 
+regarding the dividends and floats of these three stocks: 
+Dividend Days until 
+Stock Amount Dividend Float 
+AAA 1.00 35 50,000,000 
+BBB 0.25 60 35,000,000 
+CCC 0.60 8 120,000,000 
+Divisor: 150,000,000 
+One first computes the present worth of each stock's dividend, multiplies that 
+amount by the float, and then divides by the index divisor. The sum of these compu­
+tations for each stock gives the total dividend for the index. The present worth of the 
+dividend for this index is $0.8667. 
+Assume that the index is currently trading at 175.63 and that we want to evalu­
+ate the theoretical value of the July 175 call. Then, using the Black-Scholes model, 
+we would perform the following calculations: 
+1. Subtract the present worth of the dividend, 0.8667, from the current index price 
+of 175.63, giving an adjusted index price of 174.7633. 
+2. Evaluate the call's fair value using 17 4. 7633 as the stock price. All other variables 
+are as they are for stocks, including the risk-free interest rate at its actual value 
+(10%, for example). 
+The theoretical value for puts is computed in the same way as for equity 
+options, by using the arbitrage model. This is sufficient for cash-based index options 
+because it is possible - albeit difficult to hedge these options by buying or selling 
+the entire index. Thus, the options should reflect the potential for such arbitrage. 
+The put value should, of course, reflect the potential for dividend arbitrage with the 
+index. The arbitrage valuation model p"resented in Chapter 28 on modeling called for 
+the dividend to be used. For these index puts, one would use the present worth of 
+===== PDF page index 693 =====
+646 Part V: Index Options and Futures 
+the dividend on the index - the same one that was used for the call valuation, as in 
+the last example. 
+THE IMPLIED DIVIDEND 
+If one does not have access to all of the dividend information necessary to make the 
+"present worth of the dividends" calculation (i.e., if he is a private individual or pub­
+lic customer who does not subscribe to a computer-based dividend "service"), there 
+is still a way to estimate the present worth of the dividend. All one need do is make 
+the assumption that the market- makers know what the present worth of the dividend 
+is, and are thus pricing the options accordingly. The individual public customer can 
+use this information to deduce what the dividend is. 
+Example: OEX is trading at 700, the June options have 30 days of life remaining, the 
+short-term interest rate is 10%, and the following prices exist: 
+June 700 call: 18.00 
+June 700 put: 14.50 
+One can use iterations of the Black-Scholes model to determine what the OEX 
+"dividend" is. In this case, it turns out to be something on the order of $2.10. 
+Briefly, these are the steps that one would need to follow in order to determine 
+this dividend: 
+1. Assume the dividend is $0.00. 
+2. Using the assumed dividend, use the Black-Scholes model to determine the 
+implied volatility of the call option, whose price is known (18.00 in the above 
+example). 
+3. Using the implied volatility determined from step 2 and the assumed dividend, 
+is the arbitrage put value as derived from the Black-Scholes calculations at the 
+end of step 2 roughly equal to the market value of the put (14.50 in the above 
+example)? If yes, you are done. If not, increase the assumed dividend by some 
+nominal amount, say $0.10, and return to step 2. 
+Thus, without having access to complete dividend information, one can use the 
+information provided to him by the marketplace in order to imply the dividend of an 
+index option. The only assumption one makes is that the market-makers know what 
+the dividend is (they most assuredly do). Note that the implied volatility of the 
+options is determined concurrently with the implied dividend (step 2 above). A veiy 
+useful tool, this simple "implied dividend calculator" can be added to any software 
+that employs the Black-Scholes model. 
+===== PDF page index 694 =====
+O,apter 33: Mathematical Considerations for Index Products 
+EUROPEAN EXERCISE 
+647 
+To account for European exercise, one basically ignores the fact that an in-the-money 
+put option's minimum value is its intrinsic value. European exercise puts can trade at 
+a discount to intrinsic value. Consider the situation from the viewpoint of a conver­
+sion arbitrage. If one buys stock, buys puts, and sells calls, he has a conversion arbi­
+trage. In the case of a European exercise option, he is forced to carry the position to 
+expiration in order to remove it: He cannot exercise early, nor can he be called early. 
+Therefore, his carrying costs will always be the maximum value to expiration. These 
+carrying costs are the amount of the discount of the put value. 
+For a deeply in-the-money put, the discount will be equal to the carrying 
+charges required to carry the striking price to expiration: 
+Carry = s Ji - 1 ] L (1+ r)t 
+Less deeply in-the-money puts, that is, those with deltas less than - 1.00, would 
+not require the full discounting factor. Rather, one could multiply the discounting 
+factor by the absolute value of the put' s delta to arrive at the appropriate discounting 
+factor. 
+FUTURES OPTIONS 
+A modified Black-Scholes model, called the Black Model, can be used to evaluate 
+futures options. See Chapter 29 on futures for a futures discussion. Essentially, the 
+adjustment is as follows: Use 0% as the risk-free rate in the Black-Scholes model and 
+obtain a theoretical call value; then discount that result. 
+Black model: 
+Call value= e-rt x Black-Scholes call value [using r = 0%] 
+where 
+r is the risk-free interest rate 
+and t is the time to expiration in years. 
+The relationship between a futures call theoretical value and that of a put can 
+also be discussed from the model: 
+Call = Put + e-rf(J - s) 
+where 
+f is the futures price 
+ands is the striking price. 
+===== PDF page index 695 =====
+648 Part V: Index Options and Futures 
+Example: The following prices exist: 
+ZYX Cash Index: 17 4.49 
+ZYX December future: 177.00 
+There are 80 days remaining until expiration, the volatility of ZYX is 15%, and 
+the risk-free interest rate is 6%. 
+In order to evaluate the theoretical value of a ZYX December 185 call, the fol­
+lowing steps would be taken: 
+l. Evaluate the regular Black-Scholes model using 185 as the strike, 177.00 as the 
+stock price, 15% as the volatility, 0.22 as the time remaining (80/365), and 0% as 
+the interest rate. Note that the futures price, not the index price, is input to the 
+model as stock price. 
+Suppose that this yields a result of 2.05. 
+2. Discount the result from step l: 
+Black Model call value = e-(.0 6 x 0-22) x 2.05 
+= 2.02 
+In this case, the difference between the Black model and the Black-Scholes 
+model is small (3 cents). However, the discounting factor can be large for longer-term 
+or deeply in-the-money options. 
+The other items of a mathematical nature that were discussed in Chapter 28 on 
+mathematical applications are applicable, without change, to index options. Expected 
+return and implied volatility have the same meaning. Implied volatility can be calcu­
+lated by using the Black-Scholes formulas as specified above. 
+Neutral positioning retains its meaning as well. Recall that any of the above the­
+oretical value computations gives the delta of the option as a by-product. These deltas 
+can be used for cash-based and futures options just as they are used for stock options 
+to maintain a neutral position. This is done, of course, by calculating the equivalent 
+stock position (or equivalent "index" or "futures" position, in these cases). 
+FOLLOW-UP ACTION 
+The various types of follow-up action that were applicable to stock options are avail­
+able for index options as well. In fact, when one has spread options on the same 
+underlying index, these actions are virtually the same. However, when one is doing 
+inter-index spreads, there is another type of follow-up picture that is useful. The rea-
+===== PDF page index 696 =====
+Chapter 33: Mathematical Considerations for Index Products 649 
+son for this is that the spread will have different outcomes not only based on the price 
+of one index, but also based on that index's relationship to the other index. 
+It is possible, for example, that a mildly bullish strategy implemented as an 
+inter-index spread might actually lose money even if one index rose. This could hap­
+pen if the other index performed in a manner that was not desirable. If one could 
+have his computer "draw" a picture of several different outcomes, he would have a 
+better idea of the profit potential of his strategy. 
+Example: Assume a put spread between the ZYX and the ABX indices was estab­
+lished. An ABX June 180 put was bought at 3.00 and a ZYX June 175 put was sold at 
+3.00, when the ZYX was at 175.00 and the ABX Index was at 178.00. This spread will 
+obviously have different outcomes if the prices of the ZYX and the ABX move in dra­
+matically different patterns. 
+On the surface, this would appear to be a bearish position - long a put at a high­
+er strike and short a put at a lower strike. However, the position could make money 
+even in a rising market if the indices move appropriately: If, at expiration, the ZYX 
+and ABX are both at 179.00, for example, then the short option expires worthless and 
+the long option is still worth 1.00. This would mean that a 1-point profit, or $500, was 
+made in the spread ($1,500 profit on the short ZYX puts less a $1,000 loss on the one 
+ABX put). 
+Conversely, a downward movement doesn't guarantee profits either. If the ZYX 
+falls to 170.00 while the ABX declines to 175.00, then both puts would be worth 5 at 
+expiration and there would be no gain or loss in the spread. 
+What the strategist needs in order to better understand his position is a "sliding scale" 
+picture. That is, most follow-up pictures give the outcome (say, at expiration) of the 
+position at various stock or index prices. That is still needed: One would want to see 
+the outcome for ZYX prices of, say, 165 up to 185 in the example. However, in this 
+spread something else is needed: The outcome should also take into account how the 
+ZYX matches up with the ABX. Thus, one might need three (or more) tables of out­
+comes, each of which depicts the results as ZYX ranges from 165 up to 185 at expi­
+ration. One might first show how the results would look if ZYX were, say, 5 points 
+below ABX; then another table would show ZYX and ABX unchanged from their 
+original relationship (a 3-point differential); finally, another table would show the 
+results if ZYX and ABX were equal at expiration. 
+If the relationship between the two indices were at 3 points at expiration, such 
+a table might look like this: 
+===== PDF page index 697 =====
+6S0 Part V: Index Options and Futures 
+Price at Expiration 
+ZYX 165 170 175 180 185 
+ABX 168 173 178 183 188 
+ZYX June 175P 10 5 0 0 0 
+ABX June 1 80P 12 7 2 0 0 
+Profit +$1,000 +$1,000 +$1,000 0 0 
+This picture indicates that the position is neutral to bearish, since it makes 
+money even if the indices are unchanged. However, contrast this with the situation 
+in which the ZYX falls to a level 5 points below the ABX by expiration. 
+Price at Expiration 
+ZYX 165 170 175 180 185 
+ABX 170 175 180 185 190 
+ZYX June 175P 10 5 0 0 0 
+ABX June l 80P 10 5 0 0 0 
+Profit 0 0 0 0 0 
+In this case, the spread has no potential for profit at all, even if the market col­
+lapses. Thus, even a bearish spread like this might not prove profitable if there is an 
+adverse movement in the relationship of the indices. 
+Finally, observe what happens if the ZYX rallies so strongly that it catches up to 
+the ABX. 
+Price at Expiration 
+ZYX 165 170 175 180 185 
+ABX 165 170 175 180 185 
+ZYX June 175P 10 5 0 0 0 
+ABX June 180P 15 10 5 0 0 
+Profit +$2,500 +$2,500 +$2,500 +$2,500 +$2,500 
+These tables can be called "sliding scale" tables, because what one is actually 
+doing is showing a different set of results by sliding the ABX scale over slightly each 
+time while keeping the ZYX scale fixed. Note that in the above two tables, the ZYX 
+results are unchanged, but the ABX has been slid over slightly to show a different 
+result. Tables like this are necessary for the strategist who is doing spreads in options 
+with different underlying indices or is trading inter-index spreads. 
+===== PDF page index 698 =====
+650 Part V: Index Options and Futures 
+Price at Expiration 
+ZYX 165 170 175 180 185 
+ABX 168 173 178 183 188 
+ZYX June 175P 10 5 0 0 0 
+ABX June 180P 12 7 2 0 0 
+Profit +$1,000 +$1,000 +$1,000 0 0 
+This picture indicates that the position is neutral to bearish, since it makes 
+money even if the indices are unchanged. However, contrast this with the situation 
+in which the Z¥X falls to a level 5 points below the ABX by expiration. 
+Price at Expiration 
+ZYX 165 170 175 180 185 
+ABX 170 175 180 185 190 
+ZYX June 175P 10 5 0 0 0 
+ABX June 1 80P 10 5 0 0 0 
+Profit 0 0 0 0 0 
+In this case, the spread has no potential for profit at all, even if the market col­
+lapses. Thus, even a bearish spread like this might not prove profitable if there is an 
+adverse movement in the relationship of the indices. 
+Finally, observe what happens if the ZYX rallies so strongly that it catches up to 
+the ABX. 
+Price at Expiration 
+ZYX 165 170 175 180 185 
+ABX 165 170 175 180 185 
+ZYX June 175P 10 5 0 0 0 
+ABX June 1 80P 15 10 5 0 0 
+Profit +$2,500 +$2,500 +$2,500 +$2,500 +$2,500 
+These tables can be called "sliding scale" tables, because what one is actually 
+doing is showing a different set of results by sliding the ABX scale over slightly each 
+time while keeping the Z¥X scale fixed. Note that in the above two tables, the Z¥X 
+results are unchanged, but the ABX has been slid over slightly to show a different 
+result. Tables like this are necessary for the strategist who is doing spreads in options 
+with different underlying indices or is trading inter-index spreads. 
+===== PDF page index 699 =====
+650 
+ZYX 
+ABX 
+ZYX June 175P 
+ABX June 1 80P 
+Profit 
+165 
+168 
+10 
+12 
++$1,000 
+170 
+173 
+5 
+7 
++$1,000 
+Part V: Index Options and Futures 
+Price at Expiration 
+175 180 185 
+178 183 188 
+0 0 0 
+2 0 0 
++$1,000 0 0 
+This picture indicates that the position is neutral to bearish, since it makes 
+money even if the indices are unchanged. However, contrast this with the situation 
+in which the ZYX falls to a level 5 points below the ABX by expiration. 
+Price at Expiration 
+ZYX 165 170 175 180 185 
+ABX 170 175 180 185 190 
+ZYX June 175P 10 5 0 0 0 
+ABX June 1 80P 10 5 0 0 0 
+Profit 0 0 0 0 0 
+In this case, the spread has no potential for profit at all, even if the market col­
+lapses. Thus, even a bearish spread like this might not prove profitable if there is an 
+adverse movement in the relationship of the indices. 
+Finally, observe what happens if the ZYX rallies so strongly that it catches up to 
+the ABX. 
+Price at Expiration 
+ZYX 165 170 175 180 185 
+ABX 165 170 175 180 185 
+ZYX June 175P 10 5 0 0 0 
+ABX June 1 80P 15 10 5 0 0 
+Profit +$2,500 +$2,500 +$2,500 +$2,500 +$2,500 
+These tables can be called "sliding scale" tables, because what one is actually 
+doing is showing a different set of results by sliding the ABX scale over slightly each 
+time while keeping the ZYX scale fixed. Note that in the above two tables, the ZYX 
+results are unchanged, but the ABX has been slid over slightly to show a different 
+result. Tables like this are necessary for the strategist who is doing spreads in options 
+with different underlying indices or is trading inter-index spreads. 
+===== PDF page index 700 =====
+Cl,apter 33: Mathematical Considerations for Index Products 651 
+The astute reader will notice that the above example can be generalized by 
+drawing a three-dimensional graph. The X axis would be the price of ZYX; the Y axis 
+would be the dollars of profit in the spread; and instead of "sliding scales," the Z axis 
+would be the price of ABX. There is software that can draw 3-dimensional profit 
+graphs, although they are somewhat difficult to read. The previous tables would then 
+be horizontal planes of the three-dimensional graph. 
+This concludes the chapter on riskless arbitrage and mathematical modeling. 
+Recall that arbitrage in stock options can affect stock prices. The arbitrage 
+techniques outlined here do not affect the indices themselves. That is done by the 
+market basket hedges. It was also known that no new models are necessary for 
+evaluation. For index options, one merely has to properly evaluate the dividend for 
+usage in the standard Black-Scholes model. Future options can be evaluated by set­
+ting the risk-free interest rate to 0% in the Black-Scholes model and discounting the 
+result, which is the Black model. 
+) 

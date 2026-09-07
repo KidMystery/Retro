@@ -1,0 +1,319 @@
+
+===== PDF page index 339 =====
+308 Part Ill: Put Option Strategies 
+form of an expected return analysis, will be presented in Chapter 28 on mathemati­
+cal applications. 
+More screens can be added to produce a more conservative list of straddl<' 
+writes. For example, one might want to ignore any straddles that are not worth at 
+least a fixed percentage, say 10%, of the underlying stock price. Also, straddles that 
+are too short-term, such as ones with less than 30 days of life remaining, might b<' 
+thrown out as well. The remaining list of straddle writing candidates should be ones 
+that will provide reasonable returns under favorable conditions, and also should be 
+readily adaptable to some of the follow-up strategies discussed later. Finally, one 
+would generally like to have some amount of technical support at or above the lower 
+break-even price and some technical resistance at or below the upper break-even 
+point. Thus, once the computer has generated a list of straddles ranked by an index 
+such as the one listed above, the straddle writer can further pare down the list by 
+looking at the technical pictures of the underlying stocks. 
+FOLLOW-UP ACTION 
+The risks involved in straddle writing can be quite large. When market conditions are 
+favorable, one can make considerable profits, even with restrictive selection require­
+ments, and even by allowing considerable extra collateral for adverse stock move­
+ments. However, in an extremely volatile market, especially a bullish one, losses can 
+occur rapidly and follow-up action must be taken. Since the time premium of a put 
+tends to shrink when it goes into-the-money, there is actually slightly less risk to the 
+downside than there is to the upside. In an extremely bullish market, the time value 
+premiums of call options will not shrink much at all and might even expand. This may 
+force the straddle writer to pay excessive amounts of time value premium to buy back 
+the written straddle, especially if the movement occurs well in advance of expiration. 
+The simplest form of follow-up action is to buy the straddle back when and if the 
+underlying stock reaches a break-even point. The idea behind doing so is to limit the 
+losses to a small amount, because the straddle should be selling for only slightly more 
+than its original value when the stock has reached a break-even point. In practice, 
+there are several flaws in this theory. If the underlying stock arrives at a break-even 
+point well in advance of expiration, the amount of time value premium remaining in 
+the straddle may be extremely large and the writer will be losing a fairly large amount 
+by repurchasing the straddle. Thus, a break-even point at expiration is probably a loss 
+point prior to expiration. 
+Example: After the straddle is established with the stock at 45, there is a sudden rally 
+in the stock and it climbs quickly to 52. The call might be selling for 9 points, even 
+===== PDF page index 340 =====
+20: The Sale of a Straddle 309 
+gh it is 7 points in-the-money. This is not unusual in a bullish situation. 
+ver, the put might be worth 1 ½points.This is also not unusual, as out-of-the­
+y puts with a large amount of time remaining tend to hold time value premium 
+well. Thus, the straddle writer would have to pay 10½ points to buy back this 
+dle, even though it is at the break-even point, 7 points in-the-money on the call 
+This example is included merely to demonstrate that it is a misconception to 
+ieve that one can always buy the straddle back at the break-even point and hold 
+losses to mere fractions of a point by doing so. This type of buy-back strategy 
+ks best when there is little time remaining in the straddle. In that case, the 
+options will indeed be close to parity and the straddle will be able to be bought back 
+for close to its initial value when the stock reaches the break-even point. 
+Another follow-up strategy that can be employed, similar to the previous one 
+but with certain improvements, is to buy back only the in-the-money option when it 
+reaches a price equal to that of the initial straddle price. 
+~mple: Again using the same situation, suppose that when XYZ began to climb 
+heavily, the call was worth 7 points when the stock reached 50. The in-the-money 
+option the call - is now worth an amount equal to the initial straddle value. It could 
+then be bought back, leaving the out-of-the-money put naked. As long as the stock 
+then remained above 45, the put would expire worthless. In practice, the put could 
+be bought back for a small fraction after enough time had passed or if the underly­
+Ing stock continued to climb in price. 
+This type of follow-up action does not depend on taking action at a fixed stock 
+price, but rather is triggered by the option price itself. It is therefore a dynamic sort 
+of follow-up action, one in which the same action could be applied at various stock 
+prices, depending on the amount of time remaining until expiration. One of the prob­
+lems with closing the straddle at the break-even points is that the break-even point is 
+C)nly a valid break-even point at expiration. A long time before expiration, this stock 
+price will not represent much of a break-even point, as was pointed out in the last 
+example. Thus, buying back only the in-the-money option at a fixed price may often 
+be a superior strategy. The drawback is that one does not release much collateral by 
+buying back the in-the-money option, and he is therefore stuck in a position with 
+little potential profit for what could amount to a considerable length of time. The 
+collateral released amounts to the in-the-money amount; the writer still needs to 
+C.'Ollateralize 20% of the stock price. 
+One could adjust this follow-up method to attempt to retain some profit. For 
+example, he might decide to buy the in-the-money option when it has reached a 
+===== PDF page index 341 =====
+310 Part Ill: Put Option Strategies 
+value that is 1 point less than the total straddle value initially taken in. This would 
+then allow him the chance to make a I-point profit overall, if the other option expired 
+worthless. In any case, there is always the risk that the stock would suddenly revers(' 
+direction and cause a loss on the remaining option as well. This method of follow-up 
+action is akin to the ratio writing follow-up strategy of using buy and sell stops on th<' 
+underlying stock. 
+Before describing other types of follow-up action that are designed to combat 
+the problems described above, it might be worthwhile to address the method used in 
+ratio writing - rolling up or rolling down. In straddle writing, there is often little to 
+be gained from rolling up or rolling down. This is a much more viable strategy in ratio 
+writing; one does not want to be constantly moving in and out of stock positions, 
+because of the commissions involved. Howeve1~ with straddle writing, once one posi­
+tion is closed, there is no need to pursue a similar straddle in that same stock. It may 
+be more desirable to look elsewhere for a new straddle position. 
+There are two other very simple forms of follow-up action that one might con­
+sider using, although neither one is for most strategists. First, one might consider 
+doing nothing at all, even if the underlying stock moves by a great deal, figuring that 
+the advantage lies in the probability that the stock will be back near the striking price 
+by the time the options expire. This action should be used only by the most diversi­
+fied and well-heeled investors, for in extreme market periods, almost all stocks may 
+move in unison, generating tremendous losses for anyone who does not take some 
+sort of action. A more aggressive type off allow-up action would be to attempt to "leg 
+out" of the straddle, by buying in the profitable side and then hoping for a stock price 
+reversal in order to buy back the remaining side. In the example above, when XYZ 
+ran up to 52, an aggressive trader would buy in the put at 1 ½, taking his profit, and 
+then hope for the stock to fall back in order to buy the call in cheaper. This is a very 
+aggressive type of follow-up action, because the stock could easily continue to rise in 
+price, thereby generating larger losses. This is a trader's sort of action, not that of a 
+disciplined strategist, and it should be avoided. 
+In essence, follow-up action should be designed to do two things: First, to limit 
+the risk in the position, and second, to still allow room for a potential profit to be 
+made. None of the above types of follow-up action accomplish both of these purpos­
+es. There is, however, a follow-up strategy that does allow the straddle writer to limit 
+his losses while still allowing for a potential profit. 
+Example: After the straddle was originally sold for 7 points when the stock was at 45, 
+the stock experiences a rally and the following prices exist: 
+XYZ common, 50; 
+XYZ January 45 call, 7; 
+===== PDF page index 342 =====
+Cl,opter 20: The Sale of a Straddle 
+XYZ January 45 put, l; and 
+XYZ January 50 call, 3. 
+311 
+The January 50 call price is included because it will be part of the follow-up strategy. 
+Notice that this straddle has a considerable amount of time value premium remain­
+Ing in it, and thus would be rather expensive to buy back at the current time. 
+Suppose, however, that the straddle writer does not touch the January 45 straddle 
+tliat he is short, but instead buys the January 50 call for protection to the upside. 
+Since this call costs 3 points, he will now have a position with a total credit of 4 points. 
+(The straddle was originally sold for 7 points credit and he is now spending 3 points 
+for the call at 50.) This action of buying a call at a higher strike than the striking price 
+of the straddle has limited the potential loss to the upside, no matter how far the 
+stock might run up. If XYZ is anywhere above 50 at expiration, the put will expire 
+worthless and the writer will have to pay 5 points to close the call spread short 
+January 45, long January 50. This means that his maximum potential loss is 1 point 
+plus commissions if XYZ is anywhere above 50 at expiration. 
+In addition to being able to limit the upside loss, this type of follow-up action 
+still allows room for potential profits. If XYZ is anywhere between 41 and 49 at expi­
+ration - that is, less than 4 points away from the striking price of 45 - the writer will 
+he able to buy the straddle back for less than 4 points, thereby making a profit. 
+Thus, the straddle writer has both limited his potential losses to the upside and 
+also allowed room for profit potential should the underlying stock fall back in price 
+toward the original striking price of 45. Only severe price reversal, with the stock 
+falling back below 40, would cause a large loss to be taken. In fact, by the time the 
+stock could reverse its current strong upward momentum and fall all the way back to 
+40, a significant amount of time should have passed, thereby allowing the writer to 
+purchase the straddle back with only a relatively small amount of time premium left 
+in it. 
+This follow-up strategy has an effect on the margin requirement of the position. 
+When the calls are bought as protection to the upside, the writer has, for margin 
+purposes, a bearish spread in the calls and an uncovered put. The margin for this 
+position would normally be less than that required for the straddle that is 5 points 
+in-the-money. 
+A secondary move is available in this strategy. 
+Example: The stock continues to climb over the short term and the out-of-the­
+money put drops to a price of less than ½ point. The straddle writer might now 
+consider buying back the put, thereby leaving himself with a bear spread in the 
+calls. His net credit left in the position, after buying back the put at ½, would be 
+===== PDF page index 343 =====
+312 Part Ill: Put Optian Strategies 
+3½ points. Thus, if XYZ should reverse direction and be within 3½ points of the 
+striking price - that is, anywhere below 48½ - at expiration, the position will pro­
+duce a profit. In fact, if XYZ should be below 45 at expiration, the entire bear 
+spread will expire worthless and the strategist will have made a 3½-point profit. 
+Finally, this repurchase of the put releases the margin requirement for the naked 
+put, and will generally free up excess funds so that a new straddle position can be 
+established in another stock while the low-requirement bear spread remains in 
+place. 
+In summary, this type of follow-up action is broader in purpose than any of the 
+simpler buy-back strategies described earlier. It will limit the writer's loss, but not 
+prevent him from making a profit. Moreover, he may be able to release enough mar­
+gin to be able to establish a new position in another stock by buying in the uncov­
+ered puts at a fractional price. This would prevent him from tying up his money 
+completely while waiting for the original straddle to reach its expiration date. The 
+same type of strategy also works in a downward market. If the stock falls after the 
+straddle is written, one can buy the put at the next lower strike to limit the down­
+side risk, while still allowing for profit potential if the stock rises back to the striking 
+price. 
+EQUIVALENT STOCK POSITION FOLLOW-UP 
+Since there are so many follow-up strategies that can be used with the short straddle, 
+the one method that summarizes the situation best is again the equivalent stock posi­
+tion (ESP). Recall that the ESP of an option position is the multiple of the quantity 
+times the delta times the shares per option. The quantity is a negative number if it is 
+referring to a short position. Using the above scenario, an example of the ESP 
+method follows: 
+Example: As before, assume that the straddle was originally sold for 7 points, but the 
+stock rallied. The following prices and deltas exist: 
+XYZ common, 50; 
+XYZ Jan 45 call, 7; delta, .90; 
+XYZ Jan 45 put, l; delta, - .10; and 
+XYZ Jan 50 call, 3; delta, .60. 
+Assume that 8 straddles were sold initially and that each option is for 100 shares of 
+XYZ. The ESP of these 8 short straddles can then be computed: 
+===== PDF page index 344 =====
+Chapter 20: The Sale of a Straddle 
+Option 
+Jan 45 call 
+Jan 45 put 
+Total ESP 
+Position 
+short 8 
+short 8 
+Delta 
+0.90 
+-0.10 
+313 
+ESP 
+short 720 (-8 x . 9 x 1 00) 
+long 80 (-8 x -. 1 x 100) 
+short 640 shares 
+Obviously, the position is quite short. Unless the trader were extremely bearish 
+on XYZ, he should make an adjustment. The simplest adjustment would be to buy 
+600 shares of XYZ. Another possibility would be to buy back 7 of the short January 
+45 calls. Such a purchase would add a delta long of 630 shares to the position (7 x .9 
+x 100). This would leave the position essentially neutral. As pointed out in the previ­
+ous example, however, the strategist may not want to buy that option. If, instead, he 
+decided to try to buy the January 50 call to hedge the short straddle, he would have 
+to buy 10 of those to make the position neutral. He would buy that many because the 
+delta of that January 50 is 0.60; a purchase of 10 would add a delta long of 600 shares 
+to the position. 
+Even though the purchase of 10 is theoretically correct, since one is only short 
+8 straddles, he would probably buy only 8 January 50 calls as a practical matter. 
+STARTING OUT WITH THE PROTECTION IN PLACE 
+In certain cases, the straddle writer may be able to initially establish a position that 
+has no risk in one direction: He can buy an out-of-the-money put or call at the same 
+time the straddle is written. This accomplishes the same purposes as the follow-up 
+action described in the last few paragraphs, but the protective option will cost less 
+since it is out-of-the-money when it is purchased. There are, of course, both positive 
+and negative aspects involved in adding an out-of-the-money long option to the strad­
+dle write at the outset. 
+Example: Given the following prices: 
+XYZ, 45; 
+XYZ January 45 straddle, 7; and 
+XYZ January 50 call, 1 ½, 
+the upside risk will be limited. If one writes the January 45 straddle for 7 points and 
+buys the January 50 call for 1 ½ points, his overall credit will be 5½ points. He has no 
+upside risk in this position, for if XYZ should rise and be over 50 at expiration, he will 
+be able to close the position by buying back the call spread for 5 points. The put will 
+expire worthless. The out-of-the-money call has eliminated any risk above 50 on the 
+===== PDF page index 345 =====
+312 Part Ill: Put Option Strategies 
+3½ points. Thus, if XYZ should reverse direction and be within 3½ points of the 
+striking price - that is, anywhere below 48½ - at expiration, the position will pro­
+duce a profit. In fact, if XYZ should be below 45 at expiration, the entire bear 
+spread will expire worthless and the strategist will have made a 3½-point profit. 
+Finally, this repurchase of the put releases the margin requirement for the naked 
+put, and will generally free up excess funds so that a new straddle position can be 
+established in another stock while the low-requirement bear spread remains in 
+place. 
+In summary, this type of follow-up action is broader in purpose than any of the 
+simpler buy-back strategies described earlier. It will limit the writer's loss, but not 
+prevent him from making a profit. Moreover, he may be able to release enough mar­
+gin to be able to establish a new position in another stock by buying in the uncov­
+ered puts at a fractional price. This would prevent him from tying up his money 
+completely while waiting for the original straddle to reach its expiration date. The 
+same type of strategy also works in a downward market. If the stock falls after the 
+straddle is written, one can buy the put at the next lower strike to limit the down­
+side risk, while still allowing for profit potential if the stock rises back to the striking 
+price. 
+EQUIVALENT STOCK POSITION FOLLOW-UP 
+Since there are so many follow-up strategies that can be used with the short straddle, 
+the one method that summarizes the situation best is again the equivalent stock posi­
+tion (ESP). Recall that the ESP of an option position is the multiple of the quantity 
+times the delta times the shares per option. The quantity is a negative number if it is 
+referring to a short position. Using the above scenario, an example of the ESP 
+method follows: 
+Example: As before, assume that the straddle was originally sold for 7 points, but the 
+stock rallied. The following prices and deltas exist: 
+XYZ common, 50; 
+XYZ Jan 45 call, 7; delta, .90; 
+XYZ Jan 45 put, l; delta, - .10; and 
+XYZ Jan 50 call, 3; delta, .60. 
+Assume that 8 straddles were sold initially and that each option is for 100 shares of 
+XYZ. The ESP of these 8 short straddles can then be computed: 
+===== PDF page index 346 =====
+Chapter 20: The Sale of a Straddle 
+Option 
+Jan 45 call 
+Jan 45 put 
+Total ESP 
+Position 
+short 8 
+short 8 
+Delta 
+0.90 
+-0.10 
+313 
+ESP 
+short 720 (-8 x .9 x 100) 
+long 80 (-8 x -. 1 x 1 00) 
+short 640 shares 
+Obviously, the position is quite short. Unless the trader were extremely bearish 
+on XYZ, he should make an adjustment. The simplest adjustment would be to buy 
+600 shares of XYZ. Another possibility would be to buy back 7 of the short January 
+45 calls. Such a purchase would add a delta long of 630 shares to the position (7 x .9 
+x 100). This would leave the position essentially neutral. As pointed out in the previ­
+ous example, however, the strategist may not want to buy that option. If, instead, he 
+decided to try to buy the January 50 call to hedge the short straddle, he would have 
+to buy 10 of those to make the position neutral. He would buy that many because the 
+delta of that January 50 is 0.60; a purchase of 10 would add a delta long of 600 shares 
+to the position. 
+Even though the purchase of 10 is theoretically correct, since one is only short 
+8 straddles, he would probably buy only 8 January 50 calls as a practical matter. 
+STARTING OUT WITH THE PROTECTION IN PLACE 
+In certain cases, the straddle writer may be able to initially establish a position that 
+has no risk in one direction: He can buy an out-of-the-money put or call at the same 
+time the straddle is written. This accomplishes the same purposes as the follow-up 
+action described in the last few paragraphs, but the protective option will cost less 
+since it is out-of-the-money when it is purchased. There are, of course, both positive 
+and negative aspects involved in adding an out-of-the-money long option to the strad­
+dle write at the outset. 
+Example: Given the following prices: 
+XYZ, 45; 
+XYZ January 45 straddle, 7; and 
+XYZ January 50 call, 1 ½, 
+the upside risk will be limited. If one writes the January 45 straddle for 7 points and 
+buys the January 50 call for 1 ½ points, his overall credit will be 5½ points. He has no 
+upside risk in this position, for if XYZ should rise and be over 50 at expiration, he will 
+be able to close the position by buying back the call spread for 5 points. The put will 
+expire worthless. The out-of-the-money call has eliminated any risk above 50 on the 
