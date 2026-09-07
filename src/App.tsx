@@ -133,7 +133,12 @@ export default function App() {
     kellyFraction: 0.25,
     totalValueInvested: 0,
     totalPremiumCollected: 0,
-    flawlessTradesStreak: 0
+    flawlessTradesStreak: 0,
+    peakEquity: 0,
+    maxDrawdownPct: 0,
+    sanctuaryLessonsCompleted: 0,
+    heldThroughNoise: false,
+    survivedCrash: false
   });
 
   const [positions, setPositions] = useState<OptionContract[]>([]);
@@ -208,6 +213,20 @@ export default function App() {
       netVega: Number(netVega.toFixed(2))
     };
   }, [positions, player.florins, player.stockShares, assetQuote.spotPrice, assetQuote.iv]);
+
+  // Integration part 2: real max-drawdown tracking. Peak equity vs current
+  // equity; running max of (peak - current) / peak, persisted in player state.
+  useEffect(() => {
+    const equity = portfolioAnalysis.totalEquity;
+    if (!isFinite(equity) || equity <= 0) return;
+    setPlayer(prev => {
+      const peak = Math.max(prev.peakEquity || 0, equity);
+      const dd = ((peak - equity) / peak) * 100;
+      const maxDd = Math.max(prev.maxDrawdownPct || 0, dd);
+      if (peak === (prev.peakEquity || 0) && maxDd === (prev.maxDrawdownPct || 0)) return prev;
+      return { ...prev, peakEquity: peak, maxDrawdownPct: maxDd };
+    });
+  }, [portfolioAnalysis.totalEquity]);
 
   const riskInfo = useMemo(() => {
     return calculatePortfolioRisk(
@@ -458,15 +477,20 @@ export default function App() {
     const noise = pickNoiseEvents(newDay, marketPhase(newDay));
     if (noise.length > 0) setActiveNoise(noise[0]);
 
-    // Wiring 3: check the dopamine badge ladder against current equity.
-    const earned = checkBadges(marginEquity, 0, [], {});
+    // Wiring 3: check the dopamine badge ladder against current equity and REAL drawdown
+    // (drawdown computed live here so a same-day crash can't dodge the gate).
+    const peak = Math.max(player.peakEquity || 0, portfolioAnalysis.totalEquity);
+    const liveDrawdownPct = peak > 0
+      ? Math.max(player.maxDrawdownPct || 0, ((peak - portfolioAnalysis.totalEquity) / peak) * 100)
+      : 0;
+    const earned = checkBadges(portfolioAnalysis.totalEquity, liveDrawdownPct, [], {});
     const fresh = earned.filter(b => !earnedBadgeIds.includes(b.id));
     if (fresh.length > 0) {
       setEarnedBadgeIds(prev => [...prev, ...fresh.map(b => b.id)]);
       setFanfareBadge(fresh[0]);
       sound.playFanfare();
     }
-  }, [assetQuote.spotPrice, assetQuote.iv, positions, player.day, player.grahamProtections, portfolioAnalysis.netTheta, triggerSanctuary, marginEquity, earnedBadgeIds]);
+  }, [assetQuote.spotPrice, assetQuote.iv, positions, player.day, player.grahamProtections, portfolioAnalysis.netTheta, portfolioAnalysis.totalEquity, player.maxDrawdownPct, triggerSanctuary, earnedBadgeIds]);
 
   const handleExecuteTrade = (contract: OptionContract, netCost: number, marginReq: number) => {
     sound.playCoinSound();
@@ -1023,7 +1047,12 @@ export default function App() {
       kellyFraction: 0.25,
       totalValueInvested: 0,
       totalPremiumCollected: 0,
-      flawlessTradesStreak: 0
+      flawlessTradesStreak: 0,
+      peakEquity: 0,
+      maxDrawdownPct: 0,
+      sanctuaryLessonsCompleted: 0,
+      heldThroughNoise: false,
+      survivedCrash: false
     });
     setPositions([]);
     setAssetQuote({

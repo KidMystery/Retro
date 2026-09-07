@@ -214,6 +214,12 @@ export interface PlayerStats {
   totalValueInvested: number;
   totalPremiumCollected: number;
   flawlessTradesStreak: number;
+  // Discipline tracking (integration part 2)
+  peakEquity: number; // highest total equity ever seen
+  maxDrawdownPct: number; // worst (peak - current) / peak, in percent
+  sanctuaryLessonsCompleted: number;
+  heldThroughNoise: boolean; // held a down position through a noise event without selling
+  survivedCrash: boolean; // equity stayed positive through a crash-phase day advance
 }
 
 export interface EnemyStats {
