@@ -102,7 +102,16 @@ export type GrahamProtectionId =
   | 'recovery_math'
   | 'hedge_not_gamble'
   | 'yield_ponzi'
-  | 'chart_pattern_recognition';
+  | 'chart_pattern_recognition'
+  | 'cash_secured_puts'
+  | 'protective_put'
+  | 'collars'
+  | 'rolling_positions'
+  | 'defined_risk'
+  | 'early_assignment'
+  | 'event_risk'
+  | 'rug_pull_recognition'
+  | 'cold_storage_custody';
 
 export interface GrahamProtection {
   id: GrahamProtectionId;
