@@ -174,6 +174,7 @@ export default function App() {
   // ── Wiring 3: dopamine badge ladder ──
   const [earnedBadgeIds, setEarnedBadgeIds] = useState<string[]>([]);
   const [fanfareBadge, setFanfareBadge] = useState<Badge | null>(null);
+  const soldLossDuringNoiseRef = useRef(false); // iron-hands: did they panic-sell while noise was up?
   // ── Wiring 4: chart puzzle rooms ──
   const [activeChartPuzzle, setActiveChartPuzzle] = useState<ChartPuzzle | null>(null);
 
@@ -253,6 +254,13 @@ export default function App() {
     }));
   }, [portfolioAnalysis, riskInfo.riskScore]);
 
+  // Discipline badge: red-market-survivor — equity positive after a crash-phase day advance.
+  useEffect(() => {
+    if (player.day >= 2 && marketPhase(player.day) === 'crash' && portfolioAnalysis.totalEquity > 0) {
+      setPlayer(prev => (prev.survivedCrash ? prev : { ...prev, survivedCrash: true }));
+    }
+  }, [player.day, portfolioAnalysis.totalEquity]);
+
   useEffect(() => {
     if (player.hearts <= 0 && !showSanctuary && currentView !== 'INTRO') {
       sound.playAlarmSound();
@@ -329,6 +337,16 @@ export default function App() {
     if (!activeNoise) return;
     const correct = action === activeNoise.correctAction;
     sound.playCommandBeep();
+    // Discipline badge: iron-hands — held an underwater position through the noise
+    // event without panic-selling it.
+    const heldUnderwater = positions.some(p => {
+      const bs = calculateBlackScholes(assetQuote.spotPrice, p.strike, p.dte, assetQuote.iv, 0.05, p.type === 'CALL');
+      return bs.price * 100 * p.quantity < p.entryPrice * 100 * Math.abs(p.quantity);
+    });
+    if (heldUnderwater && !soldLossDuringNoiseRef.current) {
+      setPlayer(prev => (prev.heldThroughNoise ? prev : { ...prev, heldThroughNoise: true }));
+      setTerminalLog(prev => [...prev.slice(-10), `🦾 IRON HANDS: You held a losing position through "${activeNoise.headline}" without selling. The hands do not shake.`]);
+    }
     setPlayer(prev => ({
       ...prev,
       florins: Math.max(0, prev.florins + (correct ? 250 : -300)),
@@ -475,22 +493,34 @@ export default function App() {
     // Wiring 1: surface curriculum noise events for the new day/phase.
     const newDay = player.day + 1;
     const noise = pickNoiseEvents(newDay, marketPhase(newDay));
-    if (noise.length > 0) setActiveNoise(noise[0]);
+    if (noise.length > 0) {
+      soldLossDuringNoiseRef.current = false; // fresh iron-hands window for this event
+      setActiveNoise(noise[0]);
+    }
+  }, [assetQuote.spotPrice, assetQuote.iv, positions, player.day, player.grahamProtections, portfolioAnalysis.netTheta, triggerSanctuary]);
 
-    // Wiring 3: check the dopamine badge ladder against current equity and REAL drawdown
-    // (drawdown computed live here so a same-day crash can't dodge the gate).
+  // Wiring 3: badge ladder evaluated continuously against current equity, REAL
+  // drawdown (computed live so a same-day crash can't dodge the gate), and the
+  // discipline flags — so mid-day earns (noise choice, sanctuary lesson, trade
+  // streak) fanfare immediately, not only on day advance.
+  useEffect(() => {
     const peak = Math.max(player.peakEquity || 0, portfolioAnalysis.totalEquity);
     const liveDrawdownPct = peak > 0
       ? Math.max(player.maxDrawdownPct || 0, ((peak - portfolioAnalysis.totalEquity) / peak) * 100)
       : 0;
-    const earned = checkBadges(portfolioAnalysis.totalEquity, liveDrawdownPct, [], {});
+    const earned = checkBadges(portfolioAnalysis.totalEquity, liveDrawdownPct, [], {
+      flawlessTrades: player.flawlessTradesStreak,
+      sanctuaryLessons: player.sanctuaryLessonsCompleted,
+      heldThroughNoise: player.heldThroughNoise,
+      survivedCrash: player.survivedCrash
+    });
     const fresh = earned.filter(b => !earnedBadgeIds.includes(b.id));
     if (fresh.length > 0) {
       setEarnedBadgeIds(prev => [...prev, ...fresh.map(b => b.id)]);
       setFanfareBadge(fresh[0]);
       sound.playFanfare();
     }
-  }, [assetQuote.spotPrice, assetQuote.iv, positions, player.day, player.grahamProtections, portfolioAnalysis.netTheta, portfolioAnalysis.totalEquity, player.maxDrawdownPct, triggerSanctuary, earnedBadgeIds]);
+  }, [portfolioAnalysis.totalEquity, player.peakEquity, player.maxDrawdownPct, player.flawlessTradesStreak, player.sanctuaryLessonsCompleted, player.heldThroughNoise, player.survivedCrash, earnedBadgeIds]);
 
   const handleExecuteTrade = (contract: OptionContract, netCost: number, marginReq: number) => {
     sound.playCoinSound();
@@ -580,6 +610,9 @@ export default function App() {
 
     sound.playCoinSound();
     setPositions(prev => prev.filter(p => p.id !== positionId));
+
+    // iron-hands: panic-selling a loser while a noise event is on screen kills the flag.
+    if (isLoss && activeNoise) soldLossDuringNoiseRef.current = true;
 
     setPlayer(prev => {
       let maxH = prev.maxHearts;
@@ -990,6 +1023,7 @@ export default function App() {
         hp: Math.round(prev.maxHearts * 25),
         florins: Math.max(1500, prev.florins),
         intelligentInvestorRevivals: prev.intelligentInvestorRevivals + 1,
+        sanctuaryLessonsCompleted: prev.sanctuaryLessonsCompleted + 1,
         grahamProtections: newProtections,
         oracleBondLevel: Math.min(5, prev.oracleBondLevel + 0.3),
         positionSizeDiscipline: Math.min(100, prev.positionSizeDiscipline + 10)
