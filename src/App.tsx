@@ -4,7 +4,7 @@
  * Core mechanic: Fail options -> learn value investing (Graham loop) + Multiple paths
  */
 
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import {
   DOSTheme,
   GameView,
@@ -54,6 +54,8 @@ import { InventoryModal } from './components/InventoryModal';
 import { SaveSlotData, AvatarConfig } from './types';
 import { pickNoiseEvents, NoiseEvent } from './lib/curriculum/noiseEvents';
 import { NoiseTicker } from './components/NoiseTicker';
+import { MarginEvent, MarginState, describeMarginDanger, marginUtilization } from './lib/curriculum/marginDanger';
+import { MarginMeter } from './components/MarginMeter';
 import { Play, Award, Save, User, Sparkles, Crown, Shield, BookOpen, Coins } from 'lucide-react';
 
 export default function App() {
@@ -156,6 +158,10 @@ export default function App() {
   const [activeQuest, setActiveQuest] = useState<QuestNode | null>(null);
   // ── Wiring 1: market noise popups ──
   const [activeNoise, setActiveNoise] = useState<NoiseEvent | null>(null);
+  // ── Wiring 2: margin danger meter + warnings ──
+  const [marginWarning, setMarginWarning] = useState<MarginEvent | null>(null);
+  const lastMarginUtilRef = useRef(-1);
+  const marginEquity = player.florins + player.stockShares * assetQuote.spotPrice;
 
   const [terminalLog, setTerminalLog] = useState<string[]>([
     '◈ Daen Alterspire awakens... Obsidian altar with floating amber runes, pulsing emerald core.',
@@ -308,6 +314,30 @@ export default function App() {
     ]);
     setActiveNoise(null);
   };
+
+  // Wiring 2: track margin utilization ladder. A worse event than last shown
+  // flashes the warning banner; liquidation force-closes positions + hits hearts.
+  useEffect(() => {
+    if (player.marginUsed <= 0) { lastMarginUtilRef.current = -1; return; }
+    const s: MarginState = { equity: marginEquity, marginUsed: player.marginUsed, maintenanceReq: player.marginUsed * 0.25 };
+    const util = marginUtilization(s);
+    const evt = describeMarginDanger(util);
+    if (evt && util > lastMarginUtilRef.current) {
+      lastMarginUtilRef.current = util;
+      setMarginWarning(evt);
+      sound.playAlarmSound();
+      if (evt.severity === 'liquidation') {
+        setPositions([]);
+        setPlayer(prev => {
+          const newHearts = Math.max(0, prev.hearts - 1);
+          return { ...prev, marginUsed: 0, hearts: newHearts, hp: Math.round(newHearts * 25) };
+        });
+        setTerminalLog(prev => [...prev.slice(-10), `⚠ LIQUIDATION! Broker force-closed all positions. -1♥ • ${evt.consequence}`]);
+      } else {
+        setTerminalLog(prev => [...prev.slice(-10), `⚠ MARGIN ${evt.severity.toUpperCase()} @ ${Math.round(util * 100)}%: ${evt.message}`]);
+      }
+    }
+  }, [player.marginUsed, marginEquity]);
 
   const handleAdvanceDay = useCallback(() => {
     sound.playCommandBeep();
@@ -1005,6 +1035,18 @@ export default function App() {
               onOpenGrimoire={() => { setActiveModal('GRIMOIRE'); setCurrentView('GRIMOIRE'); }}
               onAdvanceDay={handleAdvanceDay}
             />
+            {/* Wiring 2: margin utilization meter + danger warning banner */}
+            {(player.marginUsed > 0 || player.relics.includes('Margin Boots')) && (
+              <div className="flex justify-end px-2 -mt-1">
+                <MarginMeter
+                  marginUsed={player.marginUsed}
+                  marginLimit={player.marginLimit}
+                  equity={marginEquity}
+                  warning={marginWarning}
+                  onDismissWarning={() => setMarginWarning(null)}
+                />
+              </div>
+            )}
           </div>
         )}
 
