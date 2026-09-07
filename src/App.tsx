@@ -18,7 +18,8 @@ import {
   GrahamProtectionId,
   TradeFailReason,
   FailedTradeRecord,
-  PlayerPath
+  PlayerPath,
+  EnemyStats
 } from './types';
 import { REALM_MAPS, BOSS_ENEMIES, STORY_QUESTS } from './lib/questData';
 import { ZELDA_MAPS, ZeldaEntity, DUNGEONS } from './lib/zeldaWorldData';
@@ -448,7 +449,9 @@ export default function App() {
     const randomDrift = (Math.random() - 0.48) * 0.035;
     const newSpot = Math.max(10, Number((spot * (1 + randomDrift)).toFixed(2)));
     const randomIvDrift = (Math.random() - 0.5) * 0.02;
-    const newIv = Math.max(0.12, Math.min(0.95, Number((assetQuote.iv + randomIvDrift).toFixed(3))));
+    // NG+ bear regime: IV floor DOUBLED — volatility spikes are the weather now.
+    const ivFloor = player.ngPlus ? 0.24 : 0.12;
+    const newIv = Math.max(ivFloor, Math.min(0.95, Number((assetQuote.iv + randomIvDrift).toFixed(3))));
     setAssetQuote(prev => ({
       ...prev,
       spotPrice: newSpot,
@@ -728,10 +731,61 @@ export default function App() {
     setCurrentView('COMBAT');
   };
 
+  // NEW GAME+ final boss: THE SECOND ORACLE — your own leverage-shadow. It
+  // copies every position you open at 2x size; the only way through is to
+  // HEDGE what you open (correct puzzle answers are hedges and hit for 2x,
+  // because the mirror's own doubled size is what turns against it).
+  const initiateSecondOracle = () => {
+    sound.startMusic('battle');
+    const mirrorEnemy: EnemyStats = {
+      id: 'second_oracle',
+      name: 'THE SECOND ORACLE',
+      title: 'Your Leverage-Shadow',
+      type: 'REAPER',
+      baseHp: 420,
+      maxHp: 420,
+      currentHp: 420,
+      attackPower: 28,
+      defense: 8,
+      riskSensitivity: 0,
+      marketAffinity: 'CHAOS',
+      specialMove: 'MIRROR POSITION — copies your last opening at 2x size',
+      lore: 'It wears your face and quotes your entries. Every position you opened, it opened twice as large. It cannot be out-traded — only out-hedged.',
+      dialogue: [
+        '"I am every trade you almost made at twice the size."',
+        '"Hedge what you open, or I will hold it for you."'
+      ],
+      weaknessStrategy: ['BEAR_PUT_SPREAD', 'LONG_PUT'],
+      resistanceStrategy: ['LONG_CALL']
+    };
+    setCombatState({
+      inCombat: true,
+      enemy: mirrorEnemy,
+      turn: 1,
+      combatLog: [
+        '◈ THE SECOND ORACLE fades into view — your face, your stance, your ledger.',
+        '◈ It mirrors every position you open at 2x size. Unhedged exposure feeds it.',
+        '◈ Beat it by HEDGING what you open: each correct hedge answer turns its doubled leverage against it (2x damage).',
+        `◈ Your shadows held: ${player.successfulTradesCount} trades opened • ${player.failedTradesCount} closed in pain`
+      ],
+      lastAction: null,
+      playerShieldActive: false,
+      enemyChargingSpecial: false,
+      marketEventThisTurn: null
+    });
+    setCurrentView('COMBAT');
+  };
+
   const handlePuzzleAttack = (bonusDamage: number, isCorrect: boolean, explanation: string) => {
     if (!combatState.enemy) return;
+    const isMirrorBoss = combatState.enemy.id === 'second_oracle';
+    // Second Oracle: a correct answer IS a hedge on an opened position — the
+    // mirror's 2x copied size turns against it (2x damage). A wrong answer
+    // opens an UNHEDGED position the mirror copies: it heals from your exposure.
     const baseDamage = isCorrect ? 42 + player.chapter * 16 : 6;
-    const totalPlayerDamage = Math.max(0, baseDamage + bonusDamage);
+    const totalPlayerDamage = isMirrorBoss && isCorrect
+      ? Math.max(0, (baseDamage + bonusDamage) * 2)
+      : Math.max(0, baseDamage + bonusDamage);
     const updatedEnemyHp = Math.max(0, combatState.enemy.currentHp - totalPlayerDamage);
     let heartDelta = 0;
     if (isCorrect) heartDelta = 0.5;
@@ -745,6 +799,14 @@ export default function App() {
     if (updatedEnemyHp <= 0) {
       sound.playFanfare();
       sound.startMusic('dungeon');
+      if (isMirrorBoss) {
+        // NG+ true ending: your leverage-shadow dissolves — the Second Oracle falls.
+        sound.playSecretChime();
+        setPlayer(prev => ({ ...prev, secondOracleDefeated: true, oracleBondLevel: 5, maxHearts: Math.min(10, prev.maxHearts + 1), hearts: Math.min(10, prev.maxHearts + 1) }));
+        setTerminalLog(prev => [...prev.slice(-10), `🔮 THE SECOND ORACLE DISSOLVES — its doubled leverage, once hedged, consumed itself. The shadow steps aside. You walk forward with the crown you already earned — and kept.`]);
+        setCurrentView('VICTORY');
+        return;
+      }
       const lootGold = 1200 * player.chapter + player.chapter * 200;
       setPlayer(prev => {
         const newMax = Math.min(10, prev.maxHearts + 1);
@@ -770,6 +832,14 @@ export default function App() {
           return;
         }
         gauntletRoundRef.current = 0;
+        // NG+: Vex was beaten once already — the Second Cycle's true final boss
+        // is your own leverage-shadow. The Vault stays sealed; hedge instead.
+        if (player.ngPlus) {
+          sound.playSecretChime();
+          setTerminalLog(prev => [...prev.slice(-10), `🪞 VEX FALLS AGAIN — and the room fills with your own reflection. The Second Oracle steps out of the mirror. Hedge what you open.`]);
+          initiateSecondOracle();
+          return;
+        }
         // Seal of Discipline endgame: boss #5 down → the Proving Vault exam,
         // then the seal-judged ending. VICTORY is only reached through it.
         sound.playSecretChime();
@@ -789,10 +859,16 @@ export default function App() {
       turn: prev.turn + 1,
       combatLog: [
         ...prev.combatLog.slice(-8),
-        isCorrect ? `⚔️ CRITICAL STRIKE ᛚ ${totalPlayerDamage} dmg! +0.5♥ • Path ${player.currentPath} bonus!` : `❌ FLAWED THESIS! Only ${totalPlayerDamage} dmg. ${prev.enemy?.name} retaliates -1.0♥!`,
+        isMirrorBoss
+          ? (isCorrect
+              ? `🪞 HEDGE EXECUTED ᛚ The mirror copies you at 2x — and its own doubled size breaks it. ${totalPlayerDamage} dmg! +0.5♥`
+              : `🪞 UNHEDGED! The Second Oracle opens your position at 2x size and feeds on it — +${Math.min(60, 20 + player.chapter * 6)} HP to the shadow. -1.0♥!`)
+          : (isCorrect ? `⚔️ CRITICAL STRIKE ᛚ ${totalPlayerDamage} dmg! +0.5♥ • Path ${player.currentPath} bonus!` : `❌ FLAWED THESIS! Only ${totalPlayerDamage} dmg. ${prev.enemy?.name} retaliates -1.0♥!`),
         `> ${explanation}`
       ],
-      enemy: { ...prev.enemy!, currentHp: updatedEnemyHp }
+      enemy: isMirrorBoss && !isCorrect
+        ? { ...prev.enemy!, currentHp: Math.min(prev.enemy!.maxHp, prev.enemy!.currentHp + Math.min(60, 20 + player.chapter * 6)) }
+        : { ...prev.enemy!, currentHp: updatedEnemyHp }
     }));
   };
 
@@ -893,6 +969,13 @@ export default function App() {
       x: 9.5, y: 9.5,
       prompt: gauntletProgress >= 4 ? 'Confront Marduk Vex [Final Boss — the gauntlet is complete]' : `Sealed • Survive all ${GAUNTLET_BOSSES.length} rematches first`,
     }]) : [];
+    // NG+ (Second Cycle): your leverage-shadow waits at the spiral's heart.
+    const secondOracle = player.ngPlus && player.chapter === 5 ? [{
+      id: 'second_oracle',
+      name: player.secondOracleDefeated ? 'The Second Oracle (dissolved)' : 'THE SECOND ORACLE — Your Leverage-Shadow',
+      x: 13.5, y: 9.5,
+      prompt: player.secondOracleDefeated ? 'The shadow is gone. Only the crown remains.' : 'Face THE SECOND ORACLE [NG+ Final Boss • it mirrors your positions at 2x — hedge what you open]',
+    }] : [];
     // Chart puzzle rooms stay in the Act I teaching dungeon.
     const chartRoomCoords: Array<[number, number]> = [[5, 5], [13, 9], [7, 15], [16, 15]];
     const chartRooms = player.chapter === 1 ? chartRoomCoords.map((c, i) => ({
@@ -902,8 +985,8 @@ export default function App() {
       y: c[1] + 0.5,
       prompt: `Read the tape • ${chartPuzzles[i % chartPuzzles.length].pattern}`,
     })) : [];
-    return base.concat(gateLegs).concat(gauntlet).concat(chartRooms);
-  }, [player.chapter, spreadLegsPlaced, gauntletProgress]);
+    return base.concat(gateLegs).concat(gauntlet).concat(secondOracle).concat(chartRooms);
+  }, [player.chapter, player.ngPlus, player.secondOracleDefeated, spreadLegsPlaced, gauntletProgress]);
 
   // Wiring 4: resolve a chart puzzle answer. Correct = rune + florin bonus;
   // wrong = sanctuary loop with the explanation as the lesson.
@@ -1108,13 +1191,18 @@ export default function App() {
     setTerminalLog(prev => [...prev.slice(-10), `◈ BLESSED BY GRAHAM! All ${player.maxHearts}♥ restored + Margin of Safety! Permanent protection ${granted} unlocked! Cannot be held hostage by that mistake again! Oracle Bond +0.3!`]);
   };
 
-  const handleRestart = () => {
+  // NEW GAME+ (The Second Oracle regime): unlocked only after the Seal of
+  // Discipline. Bear regime: IV floor doubled, spreads widened ~15%, hearts
+  // start at 2, florins reset to 5,000 — runes/lessons/protections PERSIST.
+  const handleRestart = (startNGPlus: boolean = false) => {
     sound.playCommandBeep();
+    const sealsOk = player.chapter >= 5 && player.grahamProtections.length >= TOTAL_CURRICULUM_LESSONS && vaultResult?.win === true;
+    if (startNGPlus && !sealsOk) return; // seal-gated
     setPlayer({
       name: 'Valen',
-      title: 'Orphan of Whispering Grove',
-      avatar: { tunicColor: 'green', hairColor: 'blonde', shieldStyle: 'hylian', avatarTitle: 'Hero of Valuaria - Oracle Bonded' },
-      hearts: 4.0,
+      title: startNGPlus ? 'Oracle of the Second Cycle' : 'Orphan of Whispering Grove',
+      avatar: { tunicColor: startNGPlus ? 'black' : 'green', hairColor: 'blonde', shieldStyle: startNGPlus ? 'mirror' : 'hylian', avatarTitle: startNGPlus ? 'Shadow-Walker of Valuaria' : 'Hero of Valuaria - Oracle Bonded' },
+      hearts: startNGPlus ? 2.0 : 4.0,
       maxHearts: 4,
       successfulTradesCount: 0,
       failedTradesCount: 0,
@@ -1123,7 +1211,7 @@ export default function App() {
       maxHp: 100,
       mana: 50,
       maxMana: 50,
-      florins: 10000,
+      florins: startNGPlus ? 5000 : 10000,
       stockShares: 50,
       portfolioValue: 10000,
       marginUsed: 0,
@@ -1139,17 +1227,18 @@ export default function App() {
       mapY: 4,
       facing: 'DOWN',
       potions: { healthElixir: 2, ivStabilizer: 1, timeHourglass: 1 },
-      relics: ['Black-Scholes Slate', 'Wooden Value Shield'],
-      relicDetails: [],
+      relics: startNGPlus ? player.relics : ['Black-Scholes Slate', 'Wooden Value Shield'],
+      relicDetails: player.relicDetails || [],
       undervaluedAssetsDiscovered: [],
       scamsFallen: [],
       scamsAvoided: [],
       intelligentInvestorRevivals: 0,
-      grahamProtections: [],
+      // Runes/lessons/protections PERSIST through the Second Cycle.
+      grahamProtections: startNGPlus ? player.grahamProtections : [],
       failedTrades: [],
       pathScores: { trader: 0, investor: 0 },
       currentPath: 'UNDECIDED',
-      oracleBondLevel: 1,
+      oracleBondLevel: startNGPlus ? player.oracleBondLevel : 1,
       positionSizeDiscipline: 50,
       kellyFraction: 0.25,
       totalValueInvested: 0,
@@ -1159,23 +1248,54 @@ export default function App() {
       maxDrawdownPct: 0,
       sanctuaryLessonsCompleted: 0,
       heldThroughNoise: false,
-      survivedCrash: false
+      survivedCrash: false,
+      ngPlus: startNGPlus,
+      secondOracleDefeated: false
     });
     setPositions([]);
+    setGauntletProgress(0);
+    gauntletRoundRef.current = 0;
+    setVaultResult(null);
+    setSpreadLegsPlaced([]);
     setAssetQuote({
       symbol: '$AETH',
       name: 'Crown Index of Aethelgard',
       spotPrice: 100.0,
       previousClose: 99.5,
-      iv: 0.28,
-      trend: 'BULLISH',
+      iv: startNGPlus ? 0.42 : 0.28,
+      trend: startNGPlus ? 'VOLATILE' : 'BULLISH',
       lore: 'Sovereign underlying powering economic currents of Valuaria. Oracle Stone reveals true worth.'
     });
-    setCurrentView('INTRO');
+    if (startNGPlus) {
+      sound.startMusic('overworld');
+      setCurrentView('MAP');
+      setTerminalLog(prev => [...prev.slice(-10),
+        `🕯 SECOND CYCLE BEGINS — the market remembers. IV floor DOUBLED (0.24) • spreads price ~15% wider • you wake with 2♥ and 5,000ƒ.`,
+        `🕯 Runes/lessons/protections persist (${player.grahamProtections.length} shields). A shadow wears your face: THE SECOND ORACLE waits at the spiral's heart.`]);
+    } else {
+      setCurrentView('INTRO');
+    }
     setActiveModal(null);
     setShowSanctuary(false);
     setSanctuaryReason(null);
   };
+
+  // Opt-in debug hooks for automated playtests (/?debug): expose state
+  // snapshot + setters so the playwright harness can traverse acts quickly.
+  useEffect(() => {
+    if (!new URLSearchParams(window.location.search).has('debug')) return;
+    (window as any).__valhalla = {
+      player: () => player,
+      positions: () => positions,
+      view: () => currentView,
+      patch: (p: Partial<PlayerStats>) => setPlayer(prev => ({ ...prev, ...p })),
+      heal: () => setPlayer(prev => ({ ...prev, hearts: prev.maxHearts, hp: prev.maxHearts * 25, florins: prev.florins + 3000 })),
+      startCombat: (ch: number) => { setPlayer(prev => ({ ...prev, chapter: ch })); initiateCombat(ch); },
+      startSecondOracle: () => { setPlayer(prev => ({ ...prev, chapter: 5, ngPlus: true })); initiateSecondOracle(); },
+      winCombat: () => handlePuzzleAttack(99999, true, 'debug: forced hedge strike'),
+      setView: (v: GameView) => setCurrentView(v)
+    };
+  });
 
   const themeClassMap: { [key in DOSTheme]: string } = {
     green: 'text-[#f3e9c9] bg-[#0a0e1d]',
@@ -1258,6 +1378,7 @@ export default function App() {
                 act={player.chapter}
                 player={player}
                 asset={assetQuote}
+                corrupted={!!player.ngPlus}
                 onMove={handleOverworldMove}
                 onInteractEntity={handleInteractEntity}
                 onSwordSlash={() => sound.playSwordSlash()}
@@ -1336,6 +1457,16 @@ export default function App() {
                       initiateCombat(5);
                       return;
                     }
+                    if (id === 'second_oracle' && player.ngPlus) {
+                      if (player.secondOracleDefeated) {
+                        setTerminalLog(prev => [...prev.slice(-10), `🕯 The shadow is dissolved. The Second Cycle's crown is already yours.`]);
+                        return;
+                      }
+                      sound.startMusic('battle');
+                      setTerminalLog(prev => [...prev.slice(-10), `🪞 The shadow wears YOUR face. It opens what you open — at twice the size. Hedge, or be mirrored into ruin.`]);
+                      initiateSecondOracle();
+                      return;
+                    }
                     const mapData = ZELDA_MAPS[player.chapter] || ZELDA_MAPS[1];
                     const found = mapData.entities.find(e => e.id === id);
                     if (found) handleInteractEntity(found);
@@ -1377,6 +1508,7 @@ export default function App() {
             <TradeDeskModal
               player={player}
               asset={assetQuote}
+              spreadWiden={player.ngPlus ? 1.15 : 1}
               onExecuteTrade={handleExecuteTrade}
               onClose={() => { setActiveModal(null); setCurrentView('MAP'); }}
             />
@@ -1461,7 +1593,11 @@ export default function App() {
               </div>
 
               <div className="max-w-2xl my-2 space-y-3 text-left bg-slate-900/80 p-4 rounded-xl border border-amber-500/30">
-                {allSeals ? (
+                {player.ngPlus && player.secondOracleDefeated ? (
+                  <p className="text-sm leading-relaxed text-slate-200">
+                    <strong className="text-purple-300">THE SECOND ORACLE DISSOLVES.</strong> It wore your face and quoted your entries — every position you opened, it opened at twice the size. You did not out-trade it. You <strong className="text-amber-300">hedged what you opened</strong>, and its own doubled leverage consumed it. The Second Cycle ends not with a bigger account, but with the same account in a crueler market — the IV floor doubled, the spreads wider, the hearts scarcer — and you still standing. <em>The first crown proves you can win. The second proves you can keep it.</em> The Shadow-Walker of Valuaria walks on: there is always another Oracle wearing your face, waiting for the first unhedged trade.
+                  </p>
+                ) : allSeals ? (
                   <p className="text-sm leading-relaxed text-slate-200">
                     The Oracle places the <strong className="text-amber-300">Crown of the Richest Investor</strong> upon your head. Path <strong className="text-sky-300">{player.currentPath}</strong>, {player.maxHearts} Heart Containers, {player.grahamProtections.length} Graham Protections, Oracle Bond Lv {player.oracleBondLevel.toFixed(1)}/5, worst drawdown {player.maxDrawdownPct.toFixed(1)}%. You survived the guardians, learned every rune, and passed the Vault's 60-day trial — profitable, never past 25% drawdown, never liquidated. Marduk Vex kneels: he once valued margin of safety; one ruinous year broke him. You out-disciplined him, and the Vault proves it was not luck. <em>Rich is survival first, growth after safety.</em>
                   </p>
@@ -1484,10 +1620,16 @@ export default function App() {
                   Multiple paths same ending: trader-heavy vs value-heavy vs hybrid converging on same true end — the crown reached only through the three seals. Design pillar: discipline, not luck.
                 </div>
               </div>
-              <div className="flex gap-3">
-                <button onClick={handleRestart} className="snes-btn-primary px-6 py-3 flex items-center gap-2 rounded-xl">
+              <div className="flex gap-3 flex-wrap justify-center">
+                {!player.ngPlus && allSeals && (
+                  <button onClick={() => handleRestart(true)} className="snes-btn-primary px-6 py-3 flex items-center gap-2 rounded-xl">
+                    <Play className="w-4 h-4" />
+                    <span>NEW GAME+ • THE SECOND ORACLE • bear regime</span>
+                  </button>
+                )}
+                <button onClick={() => handleRestart(false)} className="snes-btn px-6 py-3 flex items-center gap-2 rounded-xl">
                   <Play className="w-4 h-4" />
-                  <span>NEW GAME+ • NEW SEED • NEW PATH?</span>
+                  <span>NEW GAME • NEW SEED • NEW PATH?</span>
                 </button>
                 <button onClick={() => setCurrentView('MAP')} className="snes-btn px-6 py-3 rounded-xl">EXPLORE MORE</button>
               </div>
@@ -1603,6 +1745,7 @@ export default function App() {
           <TradeDeskModal
             player={player}
             asset={assetQuote}
+            spreadWiden={player.ngPlus ? 1.15 : 1}
             onExecuteTrade={handleExecuteTrade}
             onClose={() => setActiveModal(null)}
           />

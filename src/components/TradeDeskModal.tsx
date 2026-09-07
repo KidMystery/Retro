@@ -9,6 +9,8 @@ interface TradeDeskModalProps {
   asset: AssetQuote;
   onExecuteTrade: (contract: OptionContract, netCost: number, marginReq: number) => void;
   onClose: () => void;
+  /** NG+ bear regime: market makers widen fills — spread credits/debits scale by this (~1.15). */
+  spreadWiden?: number;
 }
 
 // Strategy metadata with Olmstead chapter progression + fantasy lore
@@ -118,7 +120,8 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
   player,
   asset,
   onExecuteTrade,
-  onClose
+  onClose,
+  spreadWiden = 1
 }) => {
   const [strategy, setStrategy] = useState<StrategyType>('LONG_CALL');
   const [strikeOffset, setStrikeOffset] = useState<number>(0);
@@ -172,7 +175,7 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
         break;
       case 'BULL_CALL_SPREAD': {
         const bsShortCall = calculateBlackScholes(spot, selectedStrike + 6, dte, iv, 0.05, true);
-        const netPremium = Math.max(0.5, bsCall.price - bsShortCall.price);
+        const netPremium = Math.max(0.5, (bsCall.price - bsShortCall.price) * spreadWiden);
         premium = Number(netPremium.toFixed(2));
         delta = Number((bsCall.delta - bsShortCall.delta).toFixed(3));
         theta = Number((bsCall.theta - bsShortCall.theta).toFixed(3));
@@ -186,7 +189,7 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
       }
       case 'BEAR_PUT_SPREAD': {
         const bsShortPut = calculateBlackScholes(spot, selectedStrike - 6, dte, iv, 0.05, false);
-        const netPremium = Math.max(0.5, bsPut.price - bsShortPut.price);
+        const netPremium = Math.max(0.5, (bsPut.price - bsShortPut.price) * spreadWiden);
         premium = Number(netPremium.toFixed(2));
         delta = Number((bsPut.delta - bsShortPut.delta).toFixed(3));
         theta = Number((bsPut.theta - bsShortPut.theta).toFixed(3));
@@ -200,7 +203,7 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
       }
       case 'CASH_SECURED_PUT':
         type = 'PUT';
-        premium = bsPut.price;
+        premium = bsPut.price * spreadWiden; // wider credit on the short put
         delta = -bsPut.delta;
         theta = -bsPut.theta;
         vega = -bsPut.vega;
@@ -215,8 +218,8 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
         // Own 100 shares per contract, sell OTM call
         const shortCall = calculateBlackScholes(spot, selectedStrike + 4, dte, iv, 0.05, true);
         const stockCost = spot * 100 * contractsCount;
-        const credit = shortCall.price * 100 * contractsCount;
-        premium = Number((shortCall.price).toFixed(2));
+        const credit = shortCall.price * spreadWiden * 100 * contractsCount;
+        premium = Number((shortCall.price * spreadWiden).toFixed(2));
         delta = Number((1 - shortCall.delta).toFixed(3)); // long stock delta 1 minus short call
         theta = Number((-shortCall.theta).toFixed(3));
         netCost = stockCost - credit;
@@ -232,7 +235,7 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
         // Sell near-term, buy long-term same strike
         const longDte = dte + 30;
         const bsLongCall = calculateBlackScholes(spot, selectedStrike, longDte, iv, 0.05, true);
-        const netDebit = Math.max(0.6, bsLongCall.price - bsCall.price);
+        const netDebit = Math.max(0.6, (bsLongCall.price - bsCall.price) * spreadWiden);
         premium = Number(netDebit.toFixed(2));
         delta = Number((bsLongCall.delta - bsCall.delta).toFixed(3));
         theta = Number((bsLongCall.theta - bsCall.theta).toFixed(3)); // should be positive initially
@@ -249,8 +252,8 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
         const longPut = calculateBlackScholes(spot, spot - 10, dte, iv, 0.05, false);
         const shortCall = calculateBlackScholes(spot, spot + 5, dte, iv, 0.05, true);
         const longCall = calculateBlackScholes(spot, spot + 10, dte, iv, 0.05, true);
-        const creditPut = shortPut.price - longPut.price;
-        const creditCall = shortCall.price - longCall.price;
+        const creditPut = (shortPut.price - longPut.price) * spreadWiden;
+        const creditCall = (shortCall.price - longCall.price) * spreadWiden;
         const totalCredit = Math.max(0.8, Number((creditPut + creditCall).toFixed(2)));
         premium = totalCredit;
         delta = 0.02;
@@ -295,7 +298,7 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
       breakEven,
       pathHint
     };
-  }, [strategy, selectedStrike, dte, spot, iv, contractsCount, bsCall, bsPut]);
+  }, [strategy, selectedStrike, dte, spot, iv, contractsCount, bsCall, bsPut, spreadWiden]);
 
   const asciiChart = useMemo(() => {
     const legs: Array<{ type: 'CALL' | 'PUT'; strike: number; premium: number; quantity: number }> = [];

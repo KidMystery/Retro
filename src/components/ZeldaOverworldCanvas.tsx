@@ -30,6 +30,8 @@ interface ZeldaOverworldCanvasProps {
   onSwordSlash: () => void;
   onOpenSave?: () => void;
   onOpenSaveModal?: () => void;
+  /** NG+ Second Cycle: darkened corrupted palette variant. */
+  corrupted?: boolean;
 }
 
 const TUNIC_COLORS: Record<
@@ -58,6 +60,7 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
   onSwordSlash,
   onOpenSave,
   onOpenSaveModal,
+  corrupted = false,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const mapData: ZeldaMap = ZELDA_MAPS[act] || ZELDA_MAPS[1];
@@ -473,6 +476,23 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
     ctx.textAlign = "center";
     ctx.fillText(player.name, px + TILE_SIZE / 2, py - 4);
     ctx.textAlign = "start";
+
+    // NG+ Second Cycle: corrupted overworld — darkened palette, violet-black
+    // wash, pulsing red vignette, and broken scanlines over the whole map.
+    if (corrupted) {
+      ctx.fillStyle = "rgba(8, 2, 20, 0.45)";
+      ctx.fillRect(0, 0, width, height);
+      const pulse = 0.10 + 0.06 * Math.sin(animTick * 0.35);
+      const vign = ctx.createRadialGradient(width / 2, height / 2, Math.min(width, height) * 0.25, width / 2, height / 2, Math.max(width, height) * 0.7);
+      vign.addColorStop(0, "rgba(0,0,0,0)");
+      vign.addColorStop(1, `rgba(120, 0, 40, ${pulse.toFixed(3)})`);
+      ctx.fillStyle = vign;
+      ctx.fillRect(0, 0, width, height);
+      ctx.fillStyle = "rgba(0,0,0,0.28)";
+      for (let sy = (animTick * 2) % 8; sy < height; sy += 8) {
+        ctx.fillRect(0, sy, width, 2);
+      }
+    }
   }, [
     act,
     mapData,
@@ -486,6 +506,7 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
     animTick,
     width,
     height,
+    corrupted,
   ]);
 
   return (
@@ -495,7 +516,7 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
           <div className="flex items-center gap-2">
             <Compass className="w-4 h-4 text-amber-400" />
             <span className="font-cinzel text-amber-300 text-xs">
-              ACT {mapData.act}: {mapData.name} • {asset.symbol}{" "}
+              ACT {mapData.act}: {mapData.name} {corrupted ? "• ⛧ CORRUPTED ⛧" : ""} • {asset.symbol}{" "}
               {asset.spotPrice.toFixed(2)}ƒ IV {(asset.iv * 100).toFixed(0)}%{" "}
               {asset.trend}
             </span>
