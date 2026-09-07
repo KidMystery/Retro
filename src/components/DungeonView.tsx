@@ -194,6 +194,16 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters
     };
 
     const MOVE = 0.05, ROT = 0.05;
+    // Opt-in test hook: /?debug exposes player pose so automated playtests can
+    // verify real movement and reach every encounter deterministically.
+    if (new URLSearchParams(window.location.search).has('debug')) {
+      (window as any).__dungeon = {
+        get pos() { return { ...posRef.current }; },
+        get dir() { return dirRef.current; },
+        set pos(v: { x: number; y: number }) { posRef.current = { ...v }; },
+        set dir(v: number) { dirRef.current = v; },
+      };
+    }
     const findNear = () => {
       const p = posRef.current;
       let best: { e: typeof encRef.current[number]; d: number } | null = null;

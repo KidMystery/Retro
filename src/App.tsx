@@ -657,13 +657,25 @@ export default function App() {
   // Encounter nodes placed on open floor tiles of the 3D dungeon map (DungeonView coords).
   // Each carries the chapter's real entity id so interacting fires the full trade/scam/sage flow.
   const dungeonEncounters = useMemo(() => {
-    const coords = [[2.5, 4.5], [9.5, 5.5], [10.5, 9.5], [4.5, 11.5]];
+    // All 9 act entities placed on BFS-validated reachable floor tiles of the
+    // 19x17 DungeonView maze (same tiles valid for every act's entity list).
+    const coords: Array<[number, number]> = [
+      [2, 4],   // sage
+      [9, 5],   // broker
+      [10, 9],  // scammer 1
+      [4, 11],  // scammer 2
+      [16, 5],  // scammer 3 / extra
+      [2, 9],   // undervalued asset
+      [12, 9],  // shrine
+      [9, 15],  // chest
+      [17, 15], // boss
+    ];
     const mapData = ZELDA_MAPS[player.chapter] || ZELDA_MAPS[1];
     return mapData.entities.slice(0, coords.length).map((e, i) => ({
       id: e.id,
       name: e.name,
-      x: coords[i][0],
-      y: coords[i][1],
+      x: coords[i][0] + 0.5,
+      y: coords[i][1] + 0.5,
       prompt: e.interactPrompt,
     }));
   }, [player.chapter]);
@@ -1270,7 +1282,7 @@ export default function App() {
                   <div className="oracle-glyph w-6 h-6"><div className="oracle-emerald-core w-2 h-2" /></div>
                   {npcDialogue.name}
                 </span>
-                <button onClick={() => setNpcDialogue(null)} className="snes-btn px-2 py-1 text-xs rounded-md">[ESC] CLOSE</button>
+                <button onClick={() => { setNpcDialogue(null); setPlayer(prev => ({ ...prev, oracleBondLevel: Math.min(5, prev.oracleBondLevel + 0.1) })); }} className="snes-btn px-2 py-1 text-xs rounded-md">[ESC] CLOSE</button>
               </div>
               <div className="space-y-2 text-sm leading-relaxed text-slate-200 font-snes">
                 {npcDialogue.lines.map((line, idx) => (
@@ -1278,7 +1290,7 @@ export default function App() {
                 ))}
                 {npcDialogue.lore && <p className="text-[11px] text-amber-200/50 italic border-l-2 border-amber-500/30 pl-2">{npcDialogue.lore}</p>}
               </div>
-              <button onClick={() => setNpcDialogue(null)} className="snes-btn-primary w-full py-2.5 text-sm rounded-xl">CONTINUE [SPACE] • Oracle Bond +0.1</button>
+              <button onClick={() => { setNpcDialogue(null); setPlayer(prev => ({ ...prev, oracleBondLevel: Math.min(5, prev.oracleBondLevel + 0.1) })); }} className="snes-btn-primary w-full py-2.5 text-sm rounded-xl">CONTINUE [SPACE] • Oracle Bond +0.1</button>
             </div>
           </div>
         )}
