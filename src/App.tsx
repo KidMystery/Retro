@@ -21,7 +21,7 @@ import {
   PlayerPath
 } from './types';
 import { REALM_MAPS, BOSS_ENEMIES, STORY_QUESTS } from './lib/questData';
-import { ZELDA_MAPS, ZeldaEntity } from './lib/zeldaWorldData';
+import { ZELDA_MAPS, ZeldaEntity, DUNGEONS } from './lib/zeldaWorldData';
 import { UNDERVALUED_ASSETS } from './lib/undervaluedAssetsData';
 import { SCAM_ENCOUNTERS } from './lib/scamsData';
 import { INTELLIGENT_INVESTOR_LESSONS, getTradeMechanicGate } from './lib/intelligentInvestorData';
@@ -47,11 +47,10 @@ import { PortfolioLedgerModal } from './components/PortfolioLedgerModal';
 import { GrimoireModal } from './components/GrimoireModal';
 import { StoryDialogModal } from './components/StoryDialogModal';
 import { TerminalCommandLine } from './components/TerminalCommandLine';
-import { AvatarCustomizerModal } from './components/AvatarCustomizerModal';
 import { SaveGameModal } from './components/SaveGameModal';
 import { TouchDPad } from './components/TouchDPad';
 import { InventoryModal } from './components/InventoryModal';
-import { SaveSlotData, AvatarConfig } from './types';
+import { SaveSlotData } from './types';
 import { pickNoiseEvents, NoiseEvent } from './lib/curriculum/noiseEvents';
 import { NoiseTicker } from './components/NoiseTicker';
 import { MarginEvent, MarginState, describeMarginDanger, marginUtilization } from './lib/curriculum/marginDanger';
@@ -62,7 +61,7 @@ import { chartPuzzles, ChartPuzzle } from './lib/curriculum/chartPuzzles';
 import { ChartPuzzleModal } from './components/ChartPuzzleModal';
 import { ProvingVaultModal } from './components/ProvingVaultModal';
 import { ProvingVaultResult, TOTAL_CURRICULUM_LESSONS } from './lib/curriculum/provingVault';
-import { Play, Award, Save, User, Sparkles, Crown, Shield, BookOpen, Coins } from 'lucide-react';
+import { Play, Award, Save, Sparkles, Crown, Shield, BookOpen, Coins } from 'lucide-react';
 import titleBgUrl from './assets/textures/title_background.jpg';
 import sageSpriteUrl from './assets/sprites/sage.png';
 
@@ -77,7 +76,6 @@ export default function App() {
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [saveModalMode, setSaveModalMode] = useState<'SAVE' | 'LOAD'>('SAVE');
   const [isAtSaveShrine, setIsAtSaveShrine] = useState(false);
-  const [showCustomizeModal, setShowCustomizeModal] = useState(false);
 
   const [activeUndervaluedAsset, setActiveUndervaluedAsset] = useState<UndervaluedAsset | null>(null);
   const [activeScamEncounter, setActiveScamEncounter] = useState<ScamEncounter | null>(null);
@@ -171,6 +169,13 @@ export default function App() {
   const [activeQuest, setActiveQuest] = useState<QuestNode | null>(null);
   // ── Wiring 1: market noise popups ──
   const [activeNoise, setActiveNoise] = useState<NoiseEvent | null>(null);
+  // ACT VERB: Act II spread-gates — both legs of a vertical spread must be
+  // placed (one per leg shrine) before the 'G' gate tiles open.
+  const [spreadLegsPlaced, setSpreadLegsPlaced] = useState<string[]>([]);
+  // ACT VERB: Act V gauntlet — bosses 1-4 rematch in sequence before Vex.
+  const [gauntletProgress, setGauntletProgress] = useState(0);
+  const gauntletRoundRef = useRef(0);
+  const GAUNTLET_BOSSES = ['Grizzly Bear of Drawdowns', 'The Chrono-Sphinx', 'Crab Golem of Sideways Range', 'Hydra of Implied Vega'];
   // ── Wiring 2: margin danger meter + warnings ──
   const [marginWarning, setMarginWarning] = useState<MarginEvent | null>(null);
   const lastMarginUtilRef = useRef(-1);
@@ -919,11 +924,6 @@ export default function App() {
     setTerminalLog(prev => [...prev.slice(-10), `◈ RESTORED: ${data.saveName} • Path ${data.player.currentPath} • Protections ${data.player.grahamProtections.length}`]);
   };
 
-  const handleSaveProfile = (name: string, title: string, avatar: AvatarConfig) => {
-    setPlayer(prev => ({ ...prev, name, title, avatar }));
-    setTerminalLog(prev => [...prev.slice(-10), `◈ HERO PROFILE: ${name}, ${title}! Oracle Bond Lv ${player.oracleBondLevel}`]);
-  };
-
   const handleSelectUndervaluedChoice = (choiceIdx: number) => {
     if (!activeUndervaluedAsset) return;
     const choice = activeUndervaluedAsset.choices[choiceIdx];
@@ -1146,7 +1146,6 @@ export default function App() {
             setIsAtSaveShrine(false);
             setShowSaveModal(true);
           }}
-          onOpenCustomizeModal={() => setShowCustomizeModal(true)}
         />
 
         {currentView !== 'INTRO' && (
@@ -1233,10 +1232,6 @@ export default function App() {
                     <div className="text-[11px] text-slate-400 font-snes">{player.avatar?.avatarTitle || player.title} • Path {player.currentPath}</div>
                   </div>
                 </div>
-                <button onClick={() => setShowCustomizeModal(true)} className="snes-btn px-3 py-1.5 text-xs flex items-center gap-1.5 rounded-md">
-                  <User className="w-3.5 h-3.5" />
-                  <span>CUSTOMIZE</span>
-                </button>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 max-w-3xl w-full my-3 text-left text-snes-small">
@@ -1658,16 +1653,6 @@ export default function App() {
             isAtShrine={isAtSaveShrine}
             onLoadGame={handleLoadGame}
             onClose={() => setShowSaveModal(false)}
-          />
-        )}
-
-        {showCustomizeModal && (
-          <AvatarCustomizerModal
-            currentName={player.name}
-            currentTitle={player.avatar?.avatarTitle || player.title}
-            currentAvatar={player.avatar}
-            onSave={handleSaveProfile}
-            onClose={() => setShowCustomizeModal(false)}
           />
         )}
       </div>

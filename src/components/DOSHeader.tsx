@@ -31,7 +31,6 @@ interface DOSHeaderProps {
   toggleBgm: () => void;
   onAdvanceDay: () => void;
   onOpenSaveModal?: () => void;
-  onOpenCustomizeModal?: () => void;
 }
 
 const TUNIC_PREVIEWS: Record<TunicColor, string> = {
@@ -54,7 +53,6 @@ export const DOSHeader: React.FC<DOSHeaderProps> = ({
   toggleBgm,
   onAdvanceDay,
   onOpenSaveModal,
-  onOpenCustomizeModal
 }) => {
   const [activeTrack, setActiveTrack] = useState<MythicalTrack>('overworld');
   const [showMusicMenu, setShowMusicMenu] = useState(false);
@@ -95,10 +93,7 @@ export const DOSHeader: React.FC<DOSHeaderProps> = ({
       <div className="flex flex-wrap items-center justify-between gap-2 border-b-2 border-amber-500/20 pb-2.5 mb-2.5">
         {/* Hero */}
         <div className="flex items-center gap-2">
-          <button
-            onClick={onOpenCustomizeModal}
-            className="flex items-center gap-2 p-1.5 px-2.5 bg-slate-900/90 hover:bg-slate-800 border-2 border-amber-500/60 rounded-lg cursor-pointer group transition-all shadow-md"
-          >
+          <div>
             <div className="w-8 h-8 rounded-md border-2 border-amber-400 relative overflow-hidden bg-slate-900 flex items-center justify-center shrink-0">
               <div className="w-5 h-5 rounded-sm" style={{ backgroundColor: tunicColorHex }} />
               <div className="absolute top-0.5 w-3.5 h-1.5 bg-amber-200/90 rounded-xs" />
@@ -114,7 +109,7 @@ export const DOSHeader: React.FC<DOSHeaderProps> = ({
                 {player.avatar?.avatarTitle || player.title} • Lv {player.oracleBondLevel || 1}
               </div>
             </div>
-          </button>
+          </div>
 
           <div className={`hidden sm:flex items-center gap-1.5 px-2.5 py-1 border rounded text-[11px] font-bold ${pathColor}`}>
             <Crown className="w-3.5 h-3.5" />

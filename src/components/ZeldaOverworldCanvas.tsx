@@ -29,9 +29,7 @@ interface ZeldaOverworldCanvasProps {
   onInteractEntity: (entity: ZeldaEntity) => void;
   onSwordSlash: () => void;
   onOpenSave?: () => void;
-  onOpenCustomize?: () => void;
   onOpenSaveModal?: () => void;
-  onOpenCustomizeModal?: () => void;
 }
 
 const TUNIC_COLORS: Record<
@@ -59,9 +57,7 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
   onInteractEntity,
   onSwordSlash,
   onOpenSave,
-  onOpenCustomize,
   onOpenSaveModal,
-  onOpenCustomizeModal,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const mapData: ZeldaMap = ZELDA_MAPS[act] || ZELDA_MAPS[1];
@@ -74,7 +70,6 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
   const height = mapData.height * TILE_SIZE;
 
   const openSave = onOpenSave || onOpenSaveModal;
-  const openCustom = onOpenCustomize || onOpenCustomizeModal;
 
   useEffect(() => {
     let id: number;
@@ -325,6 +320,21 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
         ctx.fillStyle = "#f59e0b";
         ctx.fillRect(ex + 8, ey + 18, 22, 4);
         ctx.fillRect(ex + 17, ey + 20, 4, 5);
+      } else if (entity.type === "PORTAL") {
+        const swirl = 0.6 + 0.4 * Math.sin(animTick * 0.08);
+        ctx.fillStyle = `rgba(124,58,237,${0.25 + 0.2 * swirl})`;
+        ctx.beginPath();
+        ctx.arc(ex + 19, ey + 22, 22, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = "#2e1065";
+        ctx.fillRect(ex + 9, ey + 10, 20, 26);
+        ctx.fillStyle = "#7c3aed";
+        for (let s = 0; s < 4; s++) {
+          ctx.fillRect(ex + 11, ey + 13 + s * 6, 16 - s * 3, 3);
+        }
+        ctx.fillStyle = "#fef08a";
+        ctx.font = "bold 9px monospace";
+        ctx.fillText("↓ DUNGEON", ex + 4, ey + 8);
       } else if (entity.type === "BOSS") {
         ctx.fillStyle = "#991b1b";
         ctx.fillRect(ex + 4, ey + 6, 30, 28);
@@ -597,15 +607,6 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
             >
               <Save className="w-3.5 h-3.5 text-amber-400" />
               Save
-            </button>
-          )}
-          {openCustom && (
-            <button
-              onClick={openCustom}
-              className="snes-btn py-1.5 px-2 text-xs rounded-lg flex items-center justify-center gap-1"
-            >
-              <User className="w-3.5 h-3.5 text-amber-400" />
-              Hero
             </button>
           )}
         </div>
