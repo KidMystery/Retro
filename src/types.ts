@@ -312,6 +312,15 @@ export interface ScamEncounter {
   pitch: string;
   promiseText: string;
   costFlorins: number;
+  /** Loud marketing claims that make the WRONG choice look legitimate and attractive. */
+  legitimacyClaims?: string[];
+  /** Fine-print tells — visible but unstyled, never color-coded. */
+  subtleTells?: string[];
+  /** If present: the scam pays out first, THEN rugs. Early win is displayed but never withdrawable. */
+  earlyWin?: {
+    florinsGained: number;
+    storyText: string;
+  };
   temptationOutcome: {
     rugPullHeadline: string;
     storyExplanation: string;
