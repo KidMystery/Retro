@@ -67,14 +67,42 @@ export interface AssetQuote {
 }
 
 // New: Graham protections - permanent unlocks after failing then learning
-export type GrahamProtectionId = 
+export type GrahamProtectionId =
   | 'margin_of_safety'
   | 'mr_market'
   | 'investment_vs_speculation'
   | 'theta_protection'
   | 'vega_protection'
   | 'leverage_protection'
-  | 'fomo_protection';
+  | 'fomo_protection'
+  | 'diversification'
+  | 'intrinsic_value'
+  | 'enterprising_vs_defensive'
+  | 'earnings_quality'
+  | 'dollar_cost_avg'
+  | 'bond_buffer'
+  | 'vertical_spreads'
+  | 'calendar_spreads'
+  | 'covered_calls'
+  | 'straddles_strangles'
+  | 'leaps'
+  | 'assignment_risk'
+  | 'risk_graphs'
+  | 'option_selection'
+  | 'greeks_beyond_delta'
+  | 'hedging_basics'
+  | 'volatility_trading'
+  | 'synthetic_positions'
+  | 'delta_neutral'
+  | 'position_sizing'
+  | 'stop_loss_discipline'
+  | 'crypto_boom_bust'
+  | 'leverage_liquidation'
+  | 'this_time_different'
+  | 'recovery_math'
+  | 'hedge_not_gamble'
+  | 'yield_ponzi'
+  | 'chart_pattern_recognition';
 
 export interface GrahamProtection {
   id: GrahamProtectionId;
