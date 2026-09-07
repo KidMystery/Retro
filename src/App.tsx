@@ -48,6 +48,7 @@ import { GrimoireModal } from './components/GrimoireModal';
 import { StoryDialogModal } from './components/StoryDialogModal';
 import { TerminalCommandLine } from './components/TerminalCommandLine';
 import { SaveGameModal } from './components/SaveGameModal';
+import { TitleScreen } from './components/TitleScreen';
 import { TouchDPad } from './components/TouchDPad';
 import { InventoryModal } from './components/InventoryModal';
 import { SaveSlotData } from './types';
@@ -758,6 +759,17 @@ export default function App() {
         };
       });
       if (player.chapter >= 5) {
+        // ACT VERB (Act V): inside the gauntlet, rounds 1-4 rematches advance the
+        // gauntlet instead of ending the run. Round 5 (Vex) opens the Vault.
+        if (gauntletRoundRef.current >= 1 && gauntletRoundRef.current <= 4) {
+          const round = gauntletRoundRef.current;
+          gauntletRoundRef.current = 0;
+          setGauntletProgress(round);
+          setTerminalLog(prev => [...prev.slice(-10), `⚔ GAUNTLET: ${GAUNTLET_BOSSES[round - 1]} falls again! Round ${round}/5 survived. No sanctuary — the next challenger waits.`]);
+          setCurrentView('DUNGEON');
+          return;
+        }
+        gauntletRoundRef.current = 0;
         // Seal of Discipline endgame: boss #5 down → the Proving Vault exam,
         // then the seal-judged ending. VICTORY is only reached through it.
         sound.playSecretChime();
@@ -813,40 +825,85 @@ export default function App() {
     setPlayer(prev => ({ ...prev, mapX: x, mapY: y, facing }));
   };
 
-  // Encounter nodes placed on open floor tiles of the 3D dungeon map (DungeonView coords).
-  // Each carries the chapter's real entity id so interacting fires the full trade/scam/sage flow.
+  // Encounter nodes placed on open floor tiles of the act's raycaster dungeon
+  // (DUNGEONS coords, BFS-validated per act). Each carries the chapter's real
+  // entity id so interacting fires the full trade/scam/sage flow.
   const dungeonEncounters = useMemo(() => {
-    // All 9 act entities placed on BFS-validated reachable floor tiles of the
-    // 19x17 DungeonView maze (same tiles valid for every act's entity list).
-    const coords: Array<[number, number]> = [
-      [2, 4],   // sage
-      [9, 5],   // broker
-      [10, 9],  // scammer 1
-      [4, 11],  // scammer 2
-      [16, 5],  // scammer 3 / extra
-      [2, 9],   // undervalued asset
-      [12, 9],  // shrine
-      [9, 15],  // chest
-      [17, 15], // boss
-    ];
-    // Wiring 4: chart puzzle rooms — 4 extra encounter nodes on open floor tiles.
+    const mapData = ZELDA_MAPS[player.chapter] || ZELDA_MAPS[1];
+    // Per-act placements on that act's own maze (tile coords).
+    const actCoords: { [act: number]: Array<[number, number]> } = {
+      1: [
+        [2, 4], [9, 5], [10, 9], [4, 11], [16, 5], [2, 9], [12, 9], [9, 15], [17, 15],
+      ],
+      2: [
+        [4, 1],   // sage
+        [7, 2],   // broker
+        [1, 9],   // scam: leverage lord (left chamber)
+        [16, 9],  // scam: vol siren (right chamber — behind the gates)
+        [17, 3],  // undervalued asset
+        [2, 13],  // shrine
+        [17, 13], // chest (right chamber — better loot past the gates)
+        [17, 11], // boss sphinx
+      ],
+      3: [
+        [2, 13],  // sage
+        [9, 6],   // shrine (brazier court)
+        [16, 1],  // broker
+        [16, 13], // undervalued bridge
+        [2, 9],   // scam: range gambler (static)
+        [16, 9],  // chest
+        [9, 13],  // boss crab
+      ],
+      4: [
+        [1, 13],  // sage
+        [17, 13], // broker
+        [9, 11],  // scam: vol siren
+        [1, 1],   // undervalued obsidian shrine
+        [9, 3],   // shrine
+        [17, 1],  // chest (deep dark = better loot)
+        [9, 9],   // boss hydra (deepest chamber)
+      ],
+    };
+    const coords = actCoords[player.chapter] || actCoords[1];
+    const base = mapData.entities
+      .filter(e => e.type !== 'PORTAL')
+      .slice(0, coords.length)
+      .map((e, i) => ({
+        id: e.id,
+        name: e.name,
+        x: coords[i][0] + 0.5,
+        y: coords[i][1] + 0.5,
+        prompt: e.interactPrompt,
+      }));
+    // Act II spread-gate leg shrines — the "key" is a combined vertical spread.
+    const gateLegs = player.chapter === 2 ? [
+      { id: 'gate-leg-call', name: 'Long Call Leg Shrine', x: 1.5, y: 6.5, prompt: spreadLegsPlaced.includes('call') ? '✔ CALL leg placed' : 'Place SPREAD LEG 1 • Buy 1 Call (vertical spread leg)' },
+      { id: 'gate-leg-put', name: 'Short Put Leg Shrine', x: 7.5, y: 3.5, prompt: spreadLegsPlaced.includes('put') ? '✔ PUT leg placed' : 'Place SPREAD LEG 2 • Sell 1 Put (vertical spread leg)' },
+    ] : [];
+    // Act V gauntlet — bosses 1-4 rematch in sequence, then Vex.
+    const gauntlet = player.chapter === 5 ? GAUNTLET_BOSSES.map((name, i) => ({
+      id: `gauntlet-${i + 1}`,
+      name: `Gauntlet Round ${i + 1}: ${name}`,
+      x: [[9, 1], [17, 7], [9, 11], [1, 7]][i][0] + 0.5,
+      y: [[9, 1], [17, 7], [9, 11], [1, 7]][i][1] + 0.5,
+      prompt: i === gauntletProgress ? `Gauntlet Round ${i + 1} • Face the ${name} again — no sanctuary between` : `Sealed until Round ${gauntletProgress + 1} • The gauntlet demands order`,
+    })).concat([{
+      id: 'boss_vex',
+      name: 'Liquidation Lord Marduk Vex',
+      x: 9.5, y: 9.5,
+      prompt: gauntletProgress >= 4 ? 'Confront Marduk Vex [Final Boss — the gauntlet is complete]' : `Sealed • Survive all ${GAUNTLET_BOSSES.length} rematches first`,
+    }]) : [];
+    // Chart puzzle rooms stay in the Act I teaching dungeon.
     const chartRoomCoords: Array<[number, number]> = [[6, 4], [14, 12], [5, 8], [15, 3]];
-    const chartRooms = chartRoomCoords.map((c, i) => ({
+    const chartRooms = player.chapter === 1 ? chartRoomCoords.map((c, i) => ({
       id: `chart-room-${i}`,
       name: `Chart Shrine ${i + 1}`,
       x: c[0] + 0.5,
       y: c[1] + 0.5,
       prompt: `Read the tape • ${chartPuzzles[i % chartPuzzles.length].pattern}`,
-    }));
-    const mapData = ZELDA_MAPS[player.chapter] || ZELDA_MAPS[1];
-    return mapData.entities.slice(0, coords.length).map((e, i) => ({
-      id: e.id,
-      name: e.name,
-      x: coords[i][0] + 0.5,
-      y: coords[i][1] + 0.5,
-      prompt: e.interactPrompt,
-    })).concat(chartRooms);
-  }, [player.chapter]);
+    })) : [];
+    return base.concat(gateLegs).concat(gauntlet).concat(chartRooms);
+  }, [player.chapter, spreadLegsPlaced, gauntletProgress]);
 
   // Wiring 4: resolve a chart puzzle answer. Correct = rune + florin bonus;
   // wrong = sanctuary loop with the explanation as the lesson.
@@ -909,6 +966,11 @@ export default function App() {
       setSaveModalMode('SAVE');
       setShowSaveModal(true);
       setPlayer(prev => ({ ...prev, oracleBondLevel: Math.min(5, prev.oracleBondLevel + 0.2), hearts: Math.min(prev.maxHearts, prev.hearts + 0.5) }));
+    } else if (entity.type === 'PORTAL') {
+      sound.playSecretChime();
+      const dun = DUNGEONS[player.chapter] || DUNGEONS[1];
+      setTerminalLog(prev => [...prev.slice(-10), `🕳 You descend into ${entity.name}. ${dun.actLabel}`]);
+      setCurrentView('DUNGEON');
     } else if (entity.type === 'BOSS') {
       initiateCombat(player.chapter);
     }
@@ -1175,151 +1237,123 @@ export default function App() {
 
         <main className="flex-1 my-1">
           {currentView === 'INTRO' && (
-            <div className="zelda-panel p-4 sm:p-8 text-center flex flex-col items-center justify-center min-h-[75vh] rounded-xl shadow-2xl relative overflow-hidden">
-              <img src={titleBgUrl} alt="" className="absolute inset-0 w-full h-full object-cover opacity-45 pointer-events-none" style={{ imageRendering: 'pixelated' }} />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/65 pointer-events-none" />
-              <div className="absolute inset-0 bg-gradient-to-b from-amber-500/5 via-transparent to-sky-500/5 pointer-events-none" />
-              <div className="flex items-center justify-center gap-3 mb-3">
-                <div className="oracle-glyph w-14 h-14">
-                  <div className="oracle-emerald-core w-4 h-4" />
-                </div>
-                <div className="w-0 h-0 border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-b-[32px] border-b-amber-400 drop-shadow-[0_0_12px_rgba(245,158,11,0.9)]" />
-                <div className="oracle-glyph w-14 h-14">
-                  <div className="oracle-emerald-core w-4 h-4" />
-                </div>
-              </div>
-
-              <div className="font-cinzel text-amber-200 text-2xl sm:text-4xl tracking-[0.2em] uppercase mb-1 drop-shadow-md">
-                THE LEGEND OF VALUARIA
-              </div>
-              <div className="oracle-rune-glow text-sm sm:text-base tracking-[0.3em] uppercase mb-1">
-                MYTH & MARGIN • 16-BIT SNES RPG
-              </div>
-              <div className="text-amber-200/50 text-xs tracking-widest uppercase mb-4 font-snes">
-                Zelda found a Bloomberg terminal — as Enchanted Oracle Circle
-              </div>
-
-              <div className="max-w-2xl w-full bg-slate-900/90 border-2 border-amber-500/50 p-4 rounded-xl my-3 text-left space-y-2 shadow-inner">
-                <div className="font-cinzel text-amber-300 text-sm">LOGLINE: A village orphan finds Oracle's lost ledger</div>
-                <p className="text-snes-small text-slate-200 leading-relaxed">
-                  You are <strong className="text-amber-300">Valen</strong>, orphan of Grove. Village elder's life savings rug-pulled by charm monster same night you find <strong className="text-emerald-300">Oracle's Stone</strong> in forgotten sanctum — carved obsidian altar with floating amber runes and pulsing emerald core. Touching bonds <strong className="text-amber-300">Oracle's Ledger</strong> to soul: floating glyph-circle shows live prices, greeks, portfolio. THIS is wink at Bloomberg — as fantasy divination, not terminal. Quest: master ancient arts of options across five fractured realms before Liquidation Lord's kingdom of unhedged greed swallows world. Not saving princess. Learning to invest.
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs mt-2">
-                  <div className="p-2 bg-red-950/30 border border-red-500/30 rounded">
-                    <strong className="text-red-300">❤️ Fail→Graham Loop</strong>
-                    <p className="text-slate-300 mt-1">Bad losing trade cracks hearts → Sanctuary of Quiet Oracle → Graham reflection question (margin of safety, Mr Market, investment vs speculation). Cannot leave until correct. Correct = permanent protection vs that mistake.</p>
-                  </div>
-                  <div className="p-2 bg-amber-950/30 border border-amber-500/30 rounded">
-                    <strong className="text-amber-300">⚔️ Multiple Paths Same Crown</strong>
-                    <p className="text-slate-300 mt-1">Trader-path (aggressive defined-risk spreads, condors), Investor-path (slow value-first, covered calls), Hybrid. Different quests/bosses still defeated. TRUE end same: crown of richest investor — whichever discipline practiced.</p>
-                  </div>
-                  <div className="p-2 bg-sky-950/30 border border-sky-500/30 rounded">
-                    <strong className="text-sky-300">📚 Olmstead + Graham</strong>
-                    <p className="text-slate-300 mt-1">Strategies from Olmstead "Options For Beginner And Beyond" — each unlock = chapter. Failure philosophy from Graham "Intelligent Investor" — sanctuary lessons, scam verdicts, margin of safety.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="max-w-md w-full bg-slate-950/80 border-2 border-amber-500/60 p-3.5 rounded-xl my-3 flex items-center justify-between gap-3 shadow-inner">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-lg border-2 border-amber-400 bg-slate-900 flex flex-col items-center justify-center relative overflow-hidden shadow-sm">
-                    <div className="w-7 h-7 rounded-sm" style={{ backgroundColor: player.avatar?.tunicColor === 'red' ? '#b91c1c' : player.avatar?.tunicColor === 'blue' ? '#1d4ed8' : player.avatar?.tunicColor === 'purple' ? '#7e22ce' : player.avatar?.tunicColor === 'black' ? '#334155' : '#2e7d32' }} />
-                    <div className="absolute top-1 w-5 h-2 bg-amber-200/90 rounded-xs" />
-                  </div>
-                  <div className="text-left">
-                    <div className="text-[11px] text-amber-200/70 font-bold uppercase tracking-widest">Protagonist • Oracle Bonded</div>
-                    <div className="font-cinzel text-base text-amber-200 font-bold">{player.name}</div>
-                    <div className="text-[11px] text-slate-400 font-snes">{player.avatar?.avatarTitle || player.title} • Path {player.currentPath}</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 max-w-3xl w-full my-3 text-left text-snes-small">
-                <div className="p-3 bg-slate-900/90 border-2 border-amber-500/40 rounded-xl">
-                  <strong className="text-amber-300 flex items-center gap-1 font-cinzel text-sm"><span className="oracle-glyph w-6 h-6 text-[10px]">ᛟ</span> ORACLE LEDGER</strong>
-                  <p className="text-slate-300 mt-1 leading-relaxed text-sm">Enchanted Oracle Circle, not terminal, not CRT. Carved runes, gem facets, glowing sigils on dark stone. Amber/oil-light. Divination lens revealing market truth. Opens from glyph hovering beside hero.</p>
-                </div>
-                <div className="p-3 bg-slate-900/90 border-2 border-emerald-500/40 rounded-xl">
-                  <strong className="text-emerald-300 flex items-center gap-1 font-cinzel text-sm"><span>🧚</span> ART DIRECTION</strong>
-                  <p className="text-slate-300 mt-1 leading-relaxed text-sm">Genuine 16-bit SNES Zelda LttP. Crisp pixel tileset, warm saturated palette, dark-stone-and-amber oracle elements. Large chunky readable pixel font for mobile thumb. Warm fantasy OST, not techno.</p>
-                </div>
-                <div className="p-3 bg-slate-900/90 border-2 border-sky-500/40 rounded-xl">
-                  <strong className="text-sky-300 flex items-center gap-1 font-cinzel text-sm"><span>📱</span> MOBILE-FIRST</strong>
-                  <p className="text-slate-300 mt-1 leading-relaxed text-sm">Touch D-pad bottom-left, action bottom-right. Oracle Ledger bottom-sheet overlay, big tappable buttons. Landscape overworld, portrait for ledger sheets. One codebase scaling to desktop.</p>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-2 justify-center mt-4">
-                <button
-                  onClick={() => {
-                    sound.playFanfare();
-                    sound.startMusic('overworld');
-                    setIsBgmOn(true);
-                    setCurrentView('MAP');
-                    setTerminalLog(prev => [...prev.slice(-10), `◈ QUEST START: Valen enters Whispering Grove. Oracle Stone bonded. Path ${player.currentPath}. Graham protections ${player.grahamProtections.length}.`]);
-                  }}
-                  className="snes-btn-primary px-6 py-3.5 text-sm sm:text-base flex items-center gap-2 rounded-xl shadow-lg transform active:scale-95"
-                >
-                  <Play className="w-5 h-5 fill-current" />
-                  <span>START QUEST • ENTER OVERWORLD</span>
-                </button>
-                <button onClick={() => { sound.playKeyClick(); setSaveModalMode('LOAD'); setIsAtSaveShrine(false); setShowSaveModal(true); }} className="snes-btn px-5 py-3.5 text-sm flex items-center gap-2 rounded-xl">
-                  <Save className="w-4 h-4 text-amber-400" />
-                  <span>RESTORE CHRONICLES</span>
-                </button>
-                <button onClick={() => setActiveModal('GRIMOIRE')} className="snes-btn px-5 py-3.5 text-sm rounded-xl">
-                  CODEX
-                </button>
-              </div>
-
-              <div className="mt-4 text-[11px] text-slate-500 font-snes max-w-2xl">
-                Story Beats: Act1 Origin (Grove - Calls/Puts, Delta, SBF + DogeTulip) • Act2 Time (Theta Steppes - Chrono-Sphinx, 0-DTE cost patience+capital, calendar) • Act3 Range (Iron Sanctuary - Crab Golem, Iron Condors, nothing happens is profit) • Act4 Vol (Caldera - Hydra Vega, buy shield when others fire) • Act5 Citadel (Marduk Vex fallen sage, Kelly, NO trade, true ending out-discipline not kill)
-              </div>
-            </div>
+            <TitleScreen
+              onNewGame={() => {
+                sound.playFanfare();
+                sound.startMusic('overworld');
+                setIsBgmOn(true);
+                setCurrentView('MAP');
+                setTerminalLog(prev => [...prev.slice(-10), `◈ QUEST START: Valen enters Whispering Grove. Oracle Stone bonded. Path ${player.currentPath}. Graham protections ${player.grahamProtections.length}.`]);
+              }}
+              onContinue={() => { sound.playKeyClick(); setSaveModalMode('LOAD'); setIsAtSaveShrine(false); setShowSaveModal(true); }}
+              onAbout={() => setActiveModal('GRIMOIRE')}
+            />
           )}
 
           {currentView === 'MAP' && (
             <>
-              <DungeonView
-                onInteract={() => {
-                  const mapData = ZELDA_MAPS[player.chapter] || ZELDA_MAPS[1];
-                  const found = mapData.entities.find(e => Math.abs(e.x - player.mapX) + Math.abs(e.y - player.mapY) <= 1.2);
-                  if (found) handleInteractEntity(found);
-                }}
-                encounters={dungeonEncounters}
-                onEncounter={(id) => {
-                  // Wiring 4: chart puzzle rooms open the ChartPuzzle, not entity flow.
-                  if (id.startsWith('chart-room-')) {
-                    const idx = parseInt(id.split('-')[2], 10);
-                    sound.playSecretChime();
-                    setActiveChartPuzzle(chartPuzzles[idx % chartPuzzles.length]);
-                    return;
-                  }
-                  const mapData = ZELDA_MAPS[player.chapter] || ZELDA_MAPS[1];
-                  const found = mapData.entities.find(e => e.id === id);
-                  if (found) handleInteractEntity(found);
-                }}
-              />
-              <TouchDPad
-                onMove={(dir) => {
-                  const dirMap = { UP: [0,-1,'UP'], DOWN: [0,1,'DOWN'], LEFT: [-1,0,'LEFT'], RIGHT: [1,0,'RIGHT'] } as const;
-                  const [dx,dy,f] = dirMap[dir];
-                  handleOverworldMove(player.mapX + (dx as number), player.mapY + (dy as number), f as any);
-                }}
-                onAction={() => {
-                  // try interact nearby else sword
-                  const mapData = ZELDA_MAPS[player.chapter] || ZELDA_MAPS[1];
-                  const found = mapData.entities.find(e => Math.abs(e.x - player.mapX) + Math.abs(e.y - player.mapY) <= 1.2);
-                  if (found) handleInteractEntity(found);
-                }}
-                onSecondary={() => {
-                  const mapData = ZELDA_MAPS[player.chapter] || ZELDA_MAPS[1];
-                  const found = mapData.entities.find(e => Math.abs(e.x - player.mapX) + Math.abs(e.y - player.mapY) <= 1.2);
-                  if (found) handleInteractEntity(found);
-                }}
+              {/* OVERWORLD — the primary game space (principal directive): talk to NPCs,
+                  see story, prepare; dungeons are DESTINATIONS entered via PORTAL markers. */}
+              <ZeldaOverworldCanvas
+                act={player.chapter}
+                player={player}
+                asset={assetQuote}
+                onMove={handleOverworldMove}
+                onInteractEntity={handleInteractEntity}
+                onSwordSlash={() => sound.playSwordSlash()}
               />
             </>
           )}
+
+          {currentView === 'DUNGEON' && (() => {
+            const dun = DUNGEONS[player.chapter] || DUNGEONS[1];
+            return (
+              <>
+                <DungeonView
+                  map={dun.tiles}
+                  spawn={dun.playerSpawn}
+                  actLabel={dun.actLabel}
+                  lightRadius={dun.lightRadius}
+                  torchDrainPerSec={dun.torchDrainPerSec}
+                  patrols={dun.patrols}
+                  gatesOpen={spreadLegsPlaced.length >= 2}
+                  onPatrolCaught={(pid) => {
+                    // ACT VERB (Act III): getting SEEN by a patrolling scammer forces a bad trade.
+                    setPlayer(prev => ({
+                      ...prev,
+                      florins: Math.max(0, prev.florins - 350),
+                      hearts: Math.max(0.5, prev.hearts - 0.5),
+                      hp: Math.round(Math.max(0.5, prev.hearts - 0.5) * 25)
+                    }));
+                    setTerminalLog(prev => [...prev.slice(-10), `🚨 SEEN by a patrolling scammer! Forced into a bad trade: -350ƒ -0.5♥ • The lesson: approach unseen, or don't approach. (Avoidance is a skill.)`]);
+                  }}
+                  encounters={dungeonEncounters}
+                  onEncounter={(id) => {
+                    if (id.startsWith('chart-room-')) {
+                      const idx = parseInt(id.split('-')[2], 10);
+                      sound.playSecretChime();
+                      setActiveChartPuzzle(chartPuzzles[idx % chartPuzzles.length]);
+                      return;
+                    }
+                    // ACT VERB (Act II): spread-gate leg shrines — combine two legs to open the gates.
+                    if (id === 'gate-leg-call' || id === 'gate-leg-put') {
+                      const leg = id === 'gate-leg-call' ? 'call' : 'put';
+                      setSpreadLegsPlaced(prev => {
+                        if (prev.includes(leg)) return prev;
+                        const next = [...prev, leg];
+                        if (next.length >= 2) {
+                          sound.playFanfare();
+                          setTerminalLog(prev2 => [...prev2.slice(-10), `🔑 VERTICAL SPREAD COMBINED — long call + short put! The violet gates grind open. Defined-risk structure is the key.`]);
+                        } else {
+                          sound.playSecretChime();
+                          setTerminalLog(prev2 => [...prev2.slice(-10), `🔑 Leg 1/2 placed (${leg === 'call' ? 'long call' : 'short put'}). One leg alone opens nothing — a spread needs BOTH legs.`]);
+                        }
+                        return next;
+                      });
+                      return;
+                    }
+                    // ACT VERB (Act V): gauntlet order enforcement.
+                    if (id.startsWith('gauntlet-')) {
+                      const round = parseInt(id.split('-')[1], 10);
+                      if (round !== gauntletProgress + 1) {
+                        sound.playAlarmSound();
+                        setTerminalLog(prev => [...prev.slice(-10), `⛓ The gauntlet seals the door — Round ${gauntletProgress + 1} first. No sanctuary, no skipping: the exam is the order.`]);
+                        return;
+                      }
+                      gauntletRoundRef.current = round;
+                      sound.startMusic('battle');
+                      setTerminalLog(prev => [...prev.slice(-10), `⚔ GAUNTLET ROUND ${round}/5: ${GAUNTLET_BOSSES[round - 1]} returns, stronger. No sanctuary between rounds.`]);
+                      initiateCombat(5);
+                      return;
+                    }
+                    if (id === 'boss_vex' && player.chapter === 5) {
+                      if (gauntletProgress < 4) {
+                        sound.playAlarmSound();
+                        setTerminalLog(prev => [...prev.slice(-10), `⛓ Vex's door is sealed. The gauntlet must be completed: ${gauntletProgress}/4 rematches survived.`]);
+                        return;
+                      }
+                      gauntletRoundRef.current = 5;
+                      initiateCombat(5);
+                      return;
+                    }
+                    const mapData = ZELDA_MAPS[player.chapter] || ZELDA_MAPS[1];
+                    const found = mapData.entities.find(e => e.id === id);
+                    if (found) handleInteractEntity(found);
+                  }}
+                />
+                <TouchDPad
+                  onMove={() => { /* dungeon moves via WASD on keyboard; D-pad click = interact */ }}
+                  onAction={() => { /* interaction handled by DungeonView [E] */ }}
+                  onSecondary={() => { }}
+                />
+                <div className="mt-2 flex justify-center">
+                  <button onClick={() => { sound.playSecretChime(); setCurrentView('MAP'); setTerminalLog(prev => [...prev.slice(-10), `🕳 You climb the stairs back to the overworld.`]); }} className="snes-btn px-6 py-2 rounded-xl text-xs">
+                    ◀ LEAVE DUNGEON • Return to Overworld
+                  </button>
+                </div>
+              </>
+            );
+          })()}
 
           {currentView === 'COMBAT' && (
             <ZeldaCombatModal
