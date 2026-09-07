@@ -26,7 +26,7 @@ export const ChartPuzzleModal: React.FC<ChartPuzzleModalProps> = ({ puzzle, onAn
 
   return (
     <div className="fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-4">
-      <div className="w-full max-w-xl bg-[#0d1526] border-4 border-sky-400 rounded-lg shadow-2xl">
+      <div className="w-full max-w-xl max-h-[92vh] overflow-y-auto bg-[#0d1526] border-4 border-sky-400 rounded-lg shadow-2xl">
         <div className="px-4 py-2 border-b-2 border-sky-500/40 bg-gradient-to-r from-[#1a2744] to-[#0d1526] flex justify-between items-center">
           <span className="font-mono text-xs tracking-widest text-sky-300">🕯 CHART PUZZLE ROOM • {puzzle.pattern.toUpperCase()}</span>
           <span className="font-mono text-[10px] text-slate-400">DIFFICULTY {'★'.repeat(puzzle.difficulty)}</span>
@@ -35,7 +35,7 @@ export const ChartPuzzleModal: React.FC<ChartPuzzleModalProps> = ({ puzzle, onAn
           <h3 className="font-cinzel text-base text-amber-200">{puzzle.title}</h3>
           {/* Mini candlestick canvas (SVG rects: green/red bodies + wick lines) */}
           <div className="flex justify-center">
-            <svg width={W} height={H} className="border-2 border-sky-500/40 bg-[#060b14] rounded">
+            <svg viewBox={`0 0 ${W} ${H}`} className="w-full max-w-full h-auto border-2 border-sky-500/40 bg-[#060b14] rounded">
               {puzzle.candles.map((c, i) => {
                 const x = PAD + i * cw + cw / 2;
                 const y = (v: number) => H - PAD - ((v - min) / range) * (H - PAD * 2);

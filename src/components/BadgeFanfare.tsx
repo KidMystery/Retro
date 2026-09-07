@@ -21,7 +21,7 @@ export const BadgeFanfare: React.FC<{ badge: Badge; onDismiss: () => void }> = (
 
 /** Wiring 3: badge shelf for the pause/inventory modal — locked badges greyed out. */
 export const BadgeShelf: React.FC<{ earnedIds: string[] }> = ({ earnedIds }) => (
-  <div className="mt-4 border-t-2 border-amber-500/30 pt-3 px-4 pb-2">
+  <div className="mt-4 border-t-2 border-amber-500/30 pt-3 px-4 pb-2 max-h-[26vh] overflow-y-auto">
     <div className="font-mono text-xs text-amber-300 tracking-widest mb-2">🏅 BADGE SHELF — {earnedIds.length}/{BADGES.length} EARNED</div>
     <div className="grid grid-cols-4 sm:grid-cols-6 gap-2">
       {BADGES.map(b => {

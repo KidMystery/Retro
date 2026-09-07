@@ -48,7 +48,7 @@ export const StoryDialogModal: React.FC<StoryDialogModalProps> = ({ quest, playe
           <button onClick={onClose} className="snes-btn p-1.5 rounded-lg"><X className="w-4 h-4" /></button>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-[#121a2e] to-[#0a0e1d]">
+        <div className="flex-1 min-h-0 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-[#121a2e] to-[#0a0e1d]">
           <div className="p-3 border-2 border-amber-500/20 bg-slate-900/60 rounded-xl leading-relaxed text-sm text-slate-200 flex gap-3 items-start">
             {portrait && (
               <img src={portrait} alt={quest.speaker || quest.title} className="w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-lg border-2 border-amber-500/50 bg-black/60 object-contain" style={{ imageRendering: 'pixelated' }} />

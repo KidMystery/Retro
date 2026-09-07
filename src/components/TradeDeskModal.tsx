@@ -411,7 +411,7 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
         </div>
 
         {/* Scrollable Content */}
-        <div className="flex-1 overflow-y-auto p-3 md:p-4 space-y-4 bg-gradient-to-b from-[#121a2e] to-[#0a0e1d]">
+        <div className="flex-1 min-h-0 overflow-y-auto p-3 md:p-4 space-y-4 bg-gradient-to-b from-[#121a2e] to-[#0a0e1d]">
           {/* Market Sight - Oracle Divination */}
           <div className="divination-lens p-3 rounded-lg">
             <div className="flex flex-wrap justify-between items-center gap-2 text-snes-small">

@@ -56,7 +56,7 @@ export const PortfolioLedgerModal: React.FC<PortfolioLedgerModalProps> = ({
           <button onClick={onClose} className="snes-btn p-2 rounded-lg"><X className="w-4 h-4" /></button>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-3 md:p-4 space-y-4 bg-gradient-to-b from-[#121a2e] to-[#0a0e1d]">
+        <div className="flex-1 min-h-0 overflow-y-auto p-3 md:p-4 space-y-4 bg-gradient-to-b from-[#121a2e] to-[#0a0e1d]">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
             <div className="bg-slate-900/80 border border-amber-500/20 p-2.5 rounded-xl text-center"><div className="text-[10px] text-slate-400">LIQUID FLORINS</div><div className="font-bold text-amber-300 text-sm">{player.florins.toLocaleString()} ƒ</div><div className="text-[10px] text-slate-500">Buying Power</div></div>
             <div className="bg-slate-900/80 border border-sky-500/20 p-2.5 rounded-xl text-center"><div className="text-[10px] text-slate-400">TOTAL EQUITY</div><div className="font-bold text-sky-300 text-sm">{Math.round(player.portfolioValue).toLocaleString()} ƒ</div><div className="text-[10px] text-slate-500">Cash + Marks</div></div>

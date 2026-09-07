@@ -69,7 +69,7 @@ export const SaveGameModal: React.FC<Props> = (props: any) => {
 
         {saveSuccessNotice && <div className="m-3 p-3 bg-emerald-950/80 border-2 border-emerald-400 text-emerald-200 text-xs font-bold flex items-center gap-2 rounded-xl"><Check className="w-4 h-4" /><span>{saveSuccessNotice}</span></div>}
 
-        <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-gradient-to-b from-[#121a2e] to-[#0a0e1d]">
+        <div className="flex-1 min-h-0 overflow-y-auto p-4 space-y-3 bg-gradient-to-b from-[#121a2e] to-[#0a0e1d]">
           {[1,2,3].map(slotNum=>{
             const slotData = slots[slotNum-1];
             return (
