@@ -21,6 +21,8 @@ export const ZeldaHeartsHUD: React.FC<ZeldaHeartsHUDProps> = ({
 }) => {
   const totalContainers = player.maxHearts || 4;
   const currentHearts = Math.max(0, player.hearts);
+  // 🧭 Greeks Compass item: net delta/gamma/theta/vega visible in the HUD.
+  const showCompass = (player.items || []).includes('greeks_compass');
 
   const tierNames: { [key: number]: string } = {
     1: 'Apprentice of Grove',
@@ -95,6 +97,16 @@ export const ZeldaHeartsHUD: React.FC<ZeldaHeartsHUDProps> = ({
             <span className="font-cinzel text-sky-400 font-bold">#{player.day}</span>
             <button onClick={onAdvanceDay} className="snes-btn px-2 py-1 text-[11px] rounded-md ml-1">REST +1</button>
           </div>
+
+          {/* 🧭 Greeks Compass item: live net greeks at a glance */}
+          {showCompass && (
+            <div className="flex items-center gap-2 px-2.5 py-1 border-2 border-purple-500/50 bg-purple-950/30 rounded-lg text-xs" title="Greeks Compass — net portfolio exposure">
+              <span className="font-bold text-purple-300">🧭 Δ {player.netDelta?.toFixed(2) ?? '0'}</span>
+              <span className="text-purple-200/70">Γ {player.netGamma?.toFixed(3) ?? '0'}</span>
+              <span className="text-emerald-300/80">Θ {player.netTheta?.toFixed(2) ?? '0'}</span>
+              <span className="text-sky-300/80">ν {player.netVega?.toFixed(2) ?? '0'}</span>
+            </div>
+          )}
         </div>
       </div>
 

@@ -345,6 +345,14 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
   // 📏 Kelly Ledger: position-size cap meter vs the 25% Kelly ceiling.
   const positionPct = (tradeDetails.premium * 100 * contractsCount) / Math.max(1, player.portfolioValue);
   const kellyOver = positionPct > 0.25;
+  // 🧰 Stock Repair Kit: long 1 ITM call (spot-6) + short 2 OTM calls (spot+6).
+  const repairLongStrike = Math.max(1, Math.round(spot) - 6);
+  const repairShortStrike = Math.round(spot) + 6;
+  const bsRepairLong = useMemo(() => calculateBlackScholes(spot, repairLongStrike, dte, iv, 0.05, true), [spot, repairLongStrike, dte, iv]);
+  const bsRepairShort = useMemo(() => calculateBlackScholes(spot, repairShortStrike, dte, iv, 0.05, true), [spot, repairShortStrike, dte, iv]);
+  const repairNet = bsRepairLong.price - 2 * bsRepairShort.price; // <0 = net credit
+  const repairNetPremiumAbs = Number(Math.abs(repairNet).toFixed(2));
+  const canAffordRepair = player.florins >= Math.max(0, repairNet * 100);
 
   const handleExecute = () => {
     if (!canAfford) {
@@ -535,6 +543,45 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
               })}
             </div>
           </div>
+
+          {/* 🧰 STOCK REPAIR KIT item: repair strategy — long 1 ITM call + short 2 OTM calls */}
+          {items.includes('stock_repair_kit') && (
+            <div className="p-3 rounded-lg bg-slate-900/80 border-2 border-orange-500/30">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div>
+                  <div className="font-bold text-orange-300 text-sm">🧰 STOCK REPAIR KIT • Repair Strategy</div>
+                  <div className="text-[11px] text-slate-400">Long 1 ITM call (K−6) + short 2 OTM calls (K+6). Repair a fallen position to break even faster — no new capital, capped upside.</div>
+                </div>
+                <button
+                  onClick={() => {
+                    if (!canAffordRepair) { sound.playAlarmSound(); return; }
+                    sound.playCoinSound();
+                    onExecuteTrade({
+                      id: `opt_${Date.now()}`,
+                      symbol: asset.symbol,
+                      type: 'CALL',
+                      strike: repairLongStrike,
+                      dte,
+                      premium: repairNetPremiumAbs,
+                      entryPrice: repairNetPremiumAbs,
+                      entrySpot: spot,
+                      entryIv: iv,
+                      quantity: 1,
+                      strategy: 'BULL_CALL_SPREAD',
+                      delta: bsRepairLong.delta - 2 * bsRepairShort.delta,
+                      gamma: 0,
+                      theta: bsRepairLong.theta - 2 * bsRepairShort.theta,
+                      vega: bsRepairLong.vega - 2 * bsRepairShort.vega,
+                      isProtectedByGraham: hasProtection
+                    }, repairNet * 100, 0); // debit positive / credit negative
+                  }}
+                  className={`snes-btn-primary px-4 py-2 rounded-xl text-xs ${canAffordRepair ? '' : 'opacity-40 cursor-not-allowed'}`}
+                >
+                  EXECUTE REPAIR {repairNetPremiumAbs.toFixed(2)}ƒ {repairNet < 0 ? 'credit' : 'debit'}
+                </button>
+              </div>
+            </div>
+          )}
 
           {/* Rune Attunement - Sliders */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
