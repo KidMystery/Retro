@@ -1355,6 +1355,7 @@ export default function App() {
       startCombat: (ch: number) => { setPlayer(prev => ({ ...prev, chapter: ch })); initiateCombat(ch); },
       startSecondOracle: () => { setPlayer(prev => ({ ...prev, chapter: 5, ngPlus: true })); initiateSecondOracle(); },
       winCombat: () => handlePuzzleAttack(99999, true, 'debug: forced hedge strike'),
+      forceVaultWin: () => setVaultResult({ win: true, startEquity: portfolioAnalysis.totalEquity, endEquity: portfolioAnalysis.totalEquity * 1.1, maxDrawdownPct: 5, liquidated: false } as any),
       setView: (v: GameView) => setCurrentView(v)
     };
   });
