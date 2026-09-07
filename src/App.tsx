@@ -894,7 +894,7 @@ export default function App() {
       prompt: gauntletProgress >= 4 ? 'Confront Marduk Vex [Final Boss — the gauntlet is complete]' : `Sealed • Survive all ${GAUNTLET_BOSSES.length} rematches first`,
     }]) : [];
     // Chart puzzle rooms stay in the Act I teaching dungeon.
-    const chartRoomCoords: Array<[number, number]> = [[6, 4], [14, 12], [5, 8], [15, 3]];
+    const chartRoomCoords: Array<[number, number]> = [[5, 5], [13, 9], [7, 15], [16, 15]];
     const chartRooms = player.chapter === 1 ? chartRoomCoords.map((c, i) => ({
       id: `chart-room-${i}`,
       name: `Chart Shrine ${i + 1}`,
