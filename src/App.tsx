@@ -623,6 +623,20 @@ export default function App() {
     setPlayer(prev => ({ ...prev, mapX: x, mapY: y, facing }));
   };
 
+  // Encounter nodes placed on open floor tiles of the 3D dungeon map (DungeonView coords).
+  // Each carries the chapter's real entity id so interacting fires the full trade/scam/sage flow.
+  const dungeonEncounters = useMemo(() => {
+    const coords = [[2.5, 4.5], [9.5, 5.5], [10.5, 9.5], [4.5, 11.5]];
+    const mapData = ZELDA_MAPS[player.chapter] || ZELDA_MAPS[1];
+    return mapData.entities.slice(0, coords.length).map((e, i) => ({
+      id: e.id,
+      name: e.name,
+      x: coords[i][0],
+      y: coords[i][1],
+      prompt: e.interactPrompt,
+    }));
+  }, [player.chapter]);
+
   const handleInteractEntity = (entity: ZeldaEntity) => {
     if (entity.type === 'NPC_SAGE') {
       sound.playSecretChime();
@@ -1021,11 +1035,19 @@ export default function App() {
 
           {currentView === 'MAP' && (
             <>
-              <DungeonView onInteract={() => {
-                              const mapData = ZELDA_MAPS[player.chapter] || ZELDA_MAPS[1];
-                              const found = mapData.entities.find(e => Math.abs(e.x - player.mapX) + Math.abs(e.y - player.mapY) <= 1.2);
-                              if (found) handleInteractEntity(found);
-                            }} />
+              <DungeonView
+                onInteract={() => {
+                  const mapData = ZELDA_MAPS[player.chapter] || ZELDA_MAPS[1];
+                  const found = mapData.entities.find(e => Math.abs(e.x - player.mapX) + Math.abs(e.y - player.mapY) <= 1.2);
+                  if (found) handleInteractEntity(found);
+                }}
+                encounters={dungeonEncounters}
+                onEncounter={(id) => {
+                  const mapData = ZELDA_MAPS[player.chapter] || ZELDA_MAPS[1];
+                  const found = mapData.entities.find(e => e.id === id);
+                  if (found) handleInteractEntity(found);
+                }}
+              />
               <TouchDPad
                 onMove={(dir) => {
                   const dirMap = { UP: [0,-1,'UP'], DOWN: [0,1,'DOWN'], LEFT: [-1,0,'LEFT'], RIGHT: [1,0,'RIGHT'] } as const;

@@ -39,14 +39,26 @@ const COLORS = {
 
 interface DungeonViewProps {
   onInteract?: () => void;
+  /** Encounter nodes placed in the dungeon world (map coords). Player walks up + presses E. */
+  encounters?: Array<{ id: string; name: string; x: number; y: number; prompt: string }>;
+  /** Fired when the player interacts (E / click) with an encounter within range. */
+  onEncounter?: (encounterId: string) => void;
 }
 
-export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract }) => {
+const ENCOUNTER_RANGE = 0.75;
+
+export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters = [], onEncounter }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const posRef = useRef({ x: 2.5, y: 4.5 });
   const dirRef = useRef(0);
   const keysRef = useRef<Record<string, boolean>>({});
   const animRef = useRef(0);
+  const encRef = useRef(encounters);
+  const onEncRef = useRef(onEncounter);
+  encRef.current = encounters;
+  onEncRef.current = onEncounter;
+  const [nearEncounter, setNearEncounter] = React.useState<(typeof encounters)[number] | null>(null);
+  const nearEncRef = useRef<(typeof encounters)[number] | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -114,6 +126,38 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract }) => {
       glow.addColorStop(0, COLORS.torchGlow); glow.addColorStop(1, 'rgba(0,0,0,0)');
       ctx.fillStyle = glow; ctx.fillRect(0, 0, W, H);
 
+      // ENCOUNTER NODES — billboarded pulsing embers projected via player pos+dir
+      const encs = encRef.current;
+      const invDet = 1 / (plx * sy - sx * ply);
+      for (const enc of encs) {
+        const dx = enc.x - pos.x, dy = enc.y - pos.y;
+        const dist = Math.hypot(dx, dy);
+        if (dist > 12) continue;
+        const tx = invDet * (sy * dx - sx * dy);   // camera-space x
+        const ty = invDet * (-ply * dx + plx * dy); // depth
+        if (ty <= 0.15) continue; // behind player
+        const screenX = Math.round((W / 2) * (1 + tx / ty));
+        const size = Math.max(3, Math.round(Math.min(H * 3, H / ty) * 0.12));
+        const bob = Math.sin(anim * 0.12 + enc.x * 3 + enc.y) * size * 0.35;
+        const sy2 = H / 2 + bob;
+        const pulse = 0.65 + 0.35 * Math.sin(anim * 0.22 + dist);
+        // glow halo
+        const halo = ctx.createRadialGradient(screenX, sy2, 1, screenX, sy2, size * 3.2);
+        halo.addColorStop(0, `rgba(120,230,160,${0.5 * pulse})`);
+        halo.addColorStop(1, 'rgba(120,230,160,0)');
+        ctx.fillStyle = halo;
+        ctx.fillRect(screenX - size * 3.2, sy2 - size * 3.2, size * 6.4, size * 6.4);
+        // glyph diamond
+        ctx.fillStyle = pulse > 0.8 ? '#a8ffcf' : '#4ade80';
+        ctx.beginPath();
+        ctx.moveTo(screenX, sy2 - size);
+        ctx.lineTo(screenX + size * 0.7, sy2);
+        ctx.lineTo(screenX, sy2 + size);
+        ctx.lineTo(screenX - size * 0.7, sy2);
+        ctx.closePath(); ctx.fill();
+        ctx.strokeStyle = 'rgba(20,60,35,0.8)'; ctx.stroke();
+      }
+
       // foreground brazier (bottom-center) — the reference's presence cue
       ctx.fillStyle = 'rgba(0,0,0,0)';
       // black metal bowl
@@ -146,9 +190,22 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract }) => {
     };
 
     const MOVE = 0.05, ROT = 0.05;
+    const findNear = () => {
+      const p = posRef.current;
+      let best: { e: typeof encRef.current[number]; d: number } | null = null;
+      for (const enc of encRef.current) {
+        const d = Math.hypot(enc.x - p.x, enc.y - p.y);
+        if (d <= ENCOUNTER_RANGE && (!best || d < best.d)) best = { e: enc, d };
+      }
+      return best ? best.e : null;
+    };
     const kd = (e: KeyboardEvent) => {
       if (['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyW','KeyS','KeyA','KeyD'].includes(e.code)) e.preventDefault();
       keysRef.current[e.code] = true;
+      if (e.code === 'KeyE' && !e.repeat) {
+        const near = findNear();
+        if (near) onEncRef.current?.(near.id);
+      }
     };
     const ku = (e: KeyboardEvent) => { keysRef.current[e.code] = false; };
     window.addEventListener('keydown', kd);
@@ -164,6 +221,12 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract }) => {
       if (k['ArrowLeft'] || k['KeyA']) dirRef.current -= ROT;
       if (k['ArrowRight'] || k['KeyD']) dirRef.current += ROT;
       render();
+      // proximity prompt (only re-render React state on change)
+      const near = findNear();
+      if (near !== nearEncRef.current) {
+        nearEncRef.current = near;
+        setNearEncounter(near);
+      }
       raf = requestAnimationFrame(frame);
     };
     raf = requestAnimationFrame(frame);
@@ -177,9 +240,17 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract }) => {
 
   return (
     <div className="relative rounded-xl overflow-hidden border-2 border-amber-500/40 shadow-2xl" style={{ aspectRatio: '16/10' }}>
-      <canvas ref={canvasRef} className="w-full h-full block" onClick={onInteract} />
+      <canvas ref={canvasRef} className="w-full h-full block" onClick={() => {
+        if (nearEncRef.current) onEncRef.current?.(nearEncRef.current.id);
+        else onInteract?.();
+      }} />
+      {nearEncounter && (
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-8 bg-black/85 border-2 border-emerald-400/70 rounded px-3 py-1.5 text-xs text-emerald-300 font-mono animate-pulse shadow-lg whitespace-nowrap">
+          [E] {nearEncounter.prompt}
+        </div>
+      )}
       <div className="absolute bottom-2 left-2 bg-black/70 border border-amber-500/40 rounded px-2 py-0.5 text-[10px] text-amber-300 font-mono">
-        DUNGEON // WASD / ARROWS MOVE
+        DUNGEON // WASD / ARROWS MOVE {nearEncounter ? '• [E] INTERACT' : ''}
       </div>
     </div>
   );
