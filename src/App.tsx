@@ -60,6 +60,8 @@ import { checkBadges, Badge } from './lib/curriculum/dopamineBadges';
 import { BadgeFanfare, BadgeShelf } from './components/BadgeFanfare';
 import { chartPuzzles, ChartPuzzle } from './lib/curriculum/chartPuzzles';
 import { ChartPuzzleModal } from './components/ChartPuzzleModal';
+import { ProvingVaultModal } from './components/ProvingVaultModal';
+import { ProvingVaultResult, TOTAL_CURRICULUM_LESSONS } from './lib/curriculum/provingVault';
 import { Play, Award, Save, User, Sparkles, Crown, Shield, BookOpen, Coins } from 'lucide-react';
 
 export default function App() {
@@ -175,6 +177,8 @@ export default function App() {
   const [earnedBadgeIds, setEarnedBadgeIds] = useState<string[]>([]);
   const [fanfareBadge, setFanfareBadge] = useState<Badge | null>(null);
   const soldLossDuringNoiseRef = useRef(false); // iron-hands: did they panic-sell while noise was up?
+  // ── Seal of Discipline endgame ──
+  const [vaultResult, setVaultResult] = useState<ProvingVaultResult | null>(null);
   // ── Wiring 4: chart puzzle rooms ──
   const [activeChartPuzzle, setActiveChartPuzzle] = useState<ChartPuzzle | null>(null);
 
@@ -747,7 +751,12 @@ export default function App() {
         };
       });
       if (player.chapter >= 5) {
-        setCurrentView('VICTORY');
+        // Seal of Discipline endgame: boss #5 down → the Proving Vault exam,
+        // then the seal-judged ending. VICTORY is only reached through it.
+        sound.playSecretChime();
+        setTerminalLog(prev => [...prev.slice(-10), `⚖ MARDUK VEX FALLEN — but the crown is not yet yours. The Oracle opens THE PROVING VAULT: a 60-day scripted exam. Three seals judge you.`]);
+        setVaultResult(null);
+        setCurrentView('PROVING_VAULT');
         return;
       }
       setTerminalLog(prev => [...prev.slice(-10), `◈ GUARDIAN VANQUISHED! Act ${player.chapter} cleared! +${lootGold}ƒ +1 Heart Container! Oracle Bond +0.5! Path ${player.currentPath}`]);
@@ -1384,31 +1393,62 @@ export default function App() {
             />
           )}
 
-          {currentView === 'VICTORY' && (
-            <div className="zelda-panel p-8 text-center flex flex-col items-center justify-center min-h-[65vh] rounded-xl border-amber-400">
+          {currentView === 'VICTORY' && (() => {
+            // Seal of Discipline judgment (luna-pro memo):
+            const survivalSeal = player.chapter >= 5; // all five act bosses defeated (quest state)
+            const knowledgeSeal = player.grahamProtections.length >= TOTAL_CURRICULUM_LESSONS;
+            const competenceSeal = vaultResult?.win === true;
+            const allSeals = survivalSeal && knowledgeSeal && competenceSeal;
+            const seals = [
+              { name: 'SURVIVAL', earned: survivalSeal, desc: 'All five guardians defeated' },
+              { name: 'KNOWLEDGE', earned: knowledgeSeal, desc: `All ${TOTAL_CURRICULUM_LESSONS} curriculum runes earned (${player.grahamProtections.length}/${TOTAL_CURRICULUM_LESSONS})` },
+              { name: 'COMPETENCE', earned: competenceSeal, desc: vaultResult ? `Proving Vault: end ${Math.round(vaultResult.endEquity).toLocaleString()}ƒ vs start ${Math.round(vaultResult.startEquity).toLocaleString()}ƒ • max dd ${vaultResult.maxDrawdownPct.toFixed(1)}%${vaultResult.liquidated ? ' • LIQUIDATED' : ''}` : 'Proving Vault not attempted' },
+            ];
+            return (
+            <div className={`zelda-panel p-8 text-center flex flex-col items-center justify-center min-h-[65vh] rounded-xl ${allSeals ? 'border-amber-400' : 'border-slate-500'}`}>
               <div className="oracle-glyph w-20 h-20 mb-3">
-                <Crown className="w-8 h-8 text-amber-400" />
+                <Crown className={`w-8 h-8 ${allSeals ? 'text-amber-400' : 'text-slate-400'}`} />
               </div>
-              <Award className="w-16 h-16 text-amber-400 mb-2 animate-pulse" />
+              <Award className={`w-16 h-16 mb-2 ${allSeals ? 'text-amber-400 animate-pulse' : 'text-slate-400'}`} />
               <h2 className="font-cinzel text-2xl font-bold uppercase tracking-widest text-amber-200">
-                TRIUMPH OF THE SOVEREIGN VALUE MASTER!
+                {allSeals ? 'THE SEAL OF DISCIPLINE — CROWN OF THE RICHEST INVESTOR!' : 'THE JUDGMENT OF THE THREE SEALS'}
               </h2>
-              <div className="oracle-rune-glow text-sm mt-1">TRUE ENDING • Crown of Richest Investor</div>
-              <div className="max-w-2xl my-4 space-y-3 text-left bg-slate-900/80 p-4 rounded-xl border border-amber-500/30">
-                <p className="text-sm leading-relaxed text-slate-200">
-                  You have completed quest through Valuaria! Path <strong className={player.currentPath === 'TRADER' ? 'text-red-300' : player.currentPath === 'INVESTOR' ? 'text-green-300' : 'text-sky-300'}>{player.currentPath}</strong> with {player.maxHearts} Heart Containers, {player.grahamProtections.length} Graham Protections, Oracle Bond Lv {player.oracleBondLevel.toFixed(1)}/5!
-                </p>
-                <p className="text-xs leading-relaxed text-slate-300 italic">
-                  Final confrontation: Liquidation Lord Marduk Vex, fallen Oracle-Sage who rejected margin of safety for max leverage. You didn't kill him — you out-disciplined him. He confesses he once valued margin of safety, one ruinous year broke him. He sits back down as humble student. Richest investor is one who learned "rich is survival first, growth after safety."
-                </p>
+              <div className="oracle-rune-glow text-sm mt-1">
+                {allSeals ? 'TRUE ENDING • All three seals earned' : allSeals === false && competenceSeal && survivalSeal ? 'INCOMPLETE • The Knowledge seal is missing' : 'INCOMPLETE • The Competence seal is missing'}
+              </div>
+
+              <div className="grid grid-cols-3 gap-2 my-4 w-full max-w-xl">
+                {seals.map(s => (
+                  <div key={s.name} className={`p-3 rounded-xl border ${s.earned ? 'bg-amber-950/40 border-amber-400/60' : 'bg-slate-900/60 border-slate-600/40 opacity-70'}`}>
+                    <div className={`text-2xl ${s.earned ? '' : 'grayscale'}`}>{s.earned ? '🔮' : '🔒'}</div>
+                    <div className={`font-cinzel text-xs mt-1 ${s.earned ? 'text-amber-200' : 'text-slate-400'}`}>SEAL OF {s.name}</div>
+                    <div className="text-[10px] text-slate-400 mt-1">{s.desc}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="max-w-2xl my-2 space-y-3 text-left bg-slate-900/80 p-4 rounded-xl border border-amber-500/30">
+                {allSeals ? (
+                  <p className="text-sm leading-relaxed text-slate-200">
+                    The Oracle places the <strong className="text-amber-300">Crown of the Richest Investor</strong> upon your head. Path <strong className="text-sky-300">{player.currentPath}</strong>, {player.maxHearts} Heart Containers, {player.grahamProtections.length} Graham Protections, Oracle Bond Lv {player.oracleBondLevel.toFixed(1)}/5, worst drawdown {player.maxDrawdownPct.toFixed(1)}%. You survived the guardians, learned every rune, and passed the Vault's 60-day trial — profitable, never past 25% drawdown, never liquidated. Marduk Vex kneels: he once valued margin of safety; one ruinous year broke him. You out-disciplined him, and the Vault proves it was not luck. <em>Rich is survival first, growth after safety.</em>
+                  </p>
+                ) : !competenceSeal ? (
+                  <p className="text-sm leading-relaxed text-slate-200">
+                    Marduk Vex is defeated, but the Oracle does not crown you. The <strong className="text-red-300">Proving Vault</strong> spoke: {vaultResult?.liquidated ? 'you were liquidated — leverage ate the account.' : vaultResult && vaultResult.maxDrawdownPct >= 25 ? `your drawdown reached ${vaultResult.maxDrawdownPct.toFixed(1)}% — you gambled through the crash.` : vaultResult ? `you finished below your starting equity (${Math.round(vaultResult.endEquity).toLocaleString()}ƒ < ${Math.round(vaultResult.startEquity).toLocaleString()}ƒ) — the tape outran you.` : 'it was never attempted.'} Survival and study mean nothing if the hands cannot be trusted with real florins. Return, discipline your sizing, and face the Vault again.
+                  </p>
+                ) : (
+                  <p className="text-sm leading-relaxed text-slate-200">
+                    The Vault bowed to your discipline — end {Math.round(vaultResult!.endEquity).toLocaleString()}ƒ, drawdown held under 25%, never liquidated. But the <strong className="text-sky-300">Knowledge seal</strong> is unfinished: {player.grahamProtections.length} of {TOTAL_CURRICULUM_LESSONS} curriculum runes earned. A trader who wins without understanding why will one day meet a market that takes it all back. Walk the Sanctuary, learn the missing runes, and return for the crown.
+                  </p>
+                )}
                 <div className="grid grid-cols-2 gap-2 text-xs">
                   <div className="p-2 bg-black/40 border border-amber-500/20 rounded">Trader Score: {player.pathScores.trader} • Aggressive but defined-risk</div>
                   <div className="p-2 bg-black/40 border border-green-500/20 rounded">Investor Score: {player.pathScores.investor} • Slow value-first</div>
-                  <div className="p-2 bg-black/40 border border-sky-500/20 rounded">Graham Shields: {player.grahamProtections.join(', ') || 'None yet'}</div>
+                  <div className="p-2 bg-black/40 border border-sky-500/20 rounded">Graham Shields: {player.grahamProtections.length}/{TOTAL_CURRICULUM_LESSONS} • Max DD {player.maxDrawdownPct.toFixed(1)}%</div>
                   <div className="p-2 bg-black/40 border border-purple-500/20 rounded">Premium Collected: {player.totalPremiumCollected.toLocaleString()}ƒ • Discipline {player.positionSizeDiscipline}/100</div>
                 </div>
                 <div className="text-[11px] text-amber-200/60">
-                  Multiple paths same ending: trader-heavy vs value-heavy vs hybrid converging on same true end — crown reached by whichever discipline you actually practiced. Design pillar: choice matters, not linear quiz.
+                  Multiple paths same ending: trader-heavy vs value-heavy vs hybrid converging on same true end — the crown reached only through the three seals. Design pillar: discipline, not luck.
                 </div>
               </div>
               <div className="flex gap-3">
@@ -1419,6 +1459,18 @@ export default function App() {
                 <button onClick={() => setCurrentView('MAP')} className="snes-btn px-6 py-3 rounded-xl">EXPLORE MORE</button>
               </div>
             </div>
+            );
+          })()}
+
+          {currentView === 'PROVING_VAULT' && (
+            <ProvingVaultModal
+              startEquity={Math.max(1000, portfolioAnalysis.totalEquity)}
+              onComplete={(result) => {
+                setVaultResult(result);
+                sound.playFanfare();
+                setCurrentView('VICTORY');
+              }}
+            />
           )}
         </main>
 

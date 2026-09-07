@@ -398,6 +398,7 @@ export type GameView =
   | 'UNDERVALUED_ASSET'
   | 'SCAM_ENCOUNTER'
   | 'INTELLIGENT_INVESTOR'
+  | 'PROVING_VAULT'
   | 'VICTORY'
   | 'GAME_OVER';
 
