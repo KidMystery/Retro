@@ -141,7 +141,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
         id: 'chest_heart',
         name: 'Ancient Treasury Chest',
         type: 'CHEST',
-        x: 16,
+        x: 17,
         y: 2,
         sprite: 'CHEST',
         interactPrompt: 'Open Guild Treasury [400ƒ + Elixir + Heart]',
@@ -257,7 +257,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
         id: 'chest_act2',
         name: 'Hourglass Relic Chest',
         type: 'CHEST',
-        x: 16,
+        x: 17,
         y: 2,
         sprite: 'CHEST',
         interactPrompt: 'Open Hourglass Chest [Time Manipulation Relic]'
@@ -361,7 +361,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
         id: 'chest_act3',
         name: 'Gold Bullion + Covered Call Deed',
         type: 'CHEST',
-        x: 16,
+        x: 17,
         y: 2,
         sprite: 'CHEST',
         interactPrompt: 'Open Bullion Chest [Value Investing Relic]'
@@ -466,7 +466,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
         id: 'chest_act4',
         name: 'Fire Pearl of Delta + Straddle Rune',
         type: 'CHEST',
-        x: 16,
+        x: 17,
         y: 2,
         sprite: 'CHEST',
         interactPrompt: 'Open Fire Pearl Chest [Vol Mastery Relic]'
@@ -562,7 +562,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
         id: 'chest_act5',
         name: "Emperor's Treasury + Graham Crown",
         type: 'CHEST',
-        x: 16,
+        x: 17,
         y: 2,
         sprite: 'CHEST',
         interactPrompt: 'Open Emperor Treasury [Final Relic + Crown]'
