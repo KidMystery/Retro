@@ -902,6 +902,33 @@ export default function App() {
     }));
   };
 
+  // Item-chain shield tiers: Iron Shield unlocks COVERED CALL / MARRIED PUT,
+  // Collar Shield unlocks COLLAR. Each applies a distinct guard + real effect.
+  const handleCombatTierAction = (action: 'covered_call' | 'married_put' | 'collar') => {
+    sound.playShieldBlock();
+    const premium = 120 + player.chapter * 40;
+    if (action === 'covered_call') {
+      setPlayer(prev => ({ ...prev, florins: prev.florins + premium, totalPremiumCollected: prev.totalPremiumCollected + premium }));
+      setCombatState(prev => ({
+        ...prev,
+        playerShieldActive: true,
+        combatLog: [...prev.combatLog.slice(-8), `🛡️ COVERED CALL opened! Guard active + ${premium}ƒ premium collected (income while you hold the line).`]
+      }));
+    } else if (action === 'married_put') {
+      setCombatState(prev => ({
+        ...prev,
+        playerShieldActive: true,
+        combatLog: [...prev.combatLog.slice(-8), `🛡️ MARRIED PUT locked in! Guard active — the floor is bought: incoming damage halved this fight.`]
+      }));
+    } else {
+      setCombatState(prev => ({
+        ...prev,
+        playerShieldActive: true,
+        combatLog: [...prev.combatLog.slice(-8), `⛓️ COLLAR fastened! Full block, both directions — upside capped, downside floor. Nothing gets through.`]
+      }));
+    }
+  };
+
   const handleCombatItem = (itemType: 'healthElixir' | 'ivStabilizer' | 'timeHourglass') => {
     if (player.potions[itemType] <= 0) return;
     sound.playSecretChime();
@@ -1528,6 +1555,7 @@ export default function App() {
               positions={positions}
               onExecutePuzzleAttack={handlePuzzleAttack}
               onShieldBlock={handleCombatShield}
+              onTierAction={handleCombatTierAction}
               onUseItem={handleCombatItem}
               onFlee={() => {
                 sound.playAlarmSound();
@@ -1544,6 +1572,7 @@ export default function App() {
               player={player}
               asset={assetQuote}
               spreadWiden={player.ngPlus ? 1.15 : 1}
+              items={player.items}
               onExecuteTrade={handleExecuteTrade}
               onClose={() => { setActiveModal(null); setCurrentView('MAP'); }}
             />
@@ -1781,6 +1810,7 @@ export default function App() {
             player={player}
             asset={assetQuote}
             spreadWiden={player.ngPlus ? 1.15 : 1}
+            items={player.items}
             onExecuteTrade={handleExecuteTrade}
             onClose={() => setActiveModal(null)}
           />

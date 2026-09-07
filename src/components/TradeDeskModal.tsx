@@ -11,6 +11,8 @@ interface TradeDeskModalProps {
   onClose: () => void;
   /** NG+ bear regime: market makers widen fills — spread credits/debits scale by this (~1.15). */
   spreadWiden?: number;
+  /** Owned item-chain ids (itemsData.ts) — gate LEAPS/straddles, show lens + Kelly meter. */
+  items?: string[];
 }
 
 // Strategy metadata with Olmstead chapter progression + fantasy lore
@@ -121,7 +123,8 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
   asset,
   onExecuteTrade,
   onClose,
-  spreadWiden = 1
+  spreadWiden = 1,
+  items = []
 }) => {
   const [strategy, setStrategy] = useState<StrategyType>('LONG_CALL');
   const [strikeOffset, setStrikeOffset] = useState<number>(0);
@@ -332,6 +335,16 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
   const canAfford = player.florins >= tradeDetails.netCost + tradeDetails.marginRequired;
   const hasProtection = player.grahamProtections?.length > 0;
   const runeMeta = STRATEGY_RUNES[strategy];
+  // 🔍 Value Lens: intrinsic value band visible on the desk (spot ± 1 IV move).
+  const hasLens = items.includes('value_lens');
+  const hasKelly = items.includes('kelly_ledger');
+  const intrinsic = tradeDetails.type === 'CALL' ? Math.max(0, spot - selectedStrike) : Math.max(0, selectedStrike - spot);
+  const ivMove = spot * iv;
+  const bandLow = tradeDetails.type === 'CALL' ? Math.max(0, spot - ivMove - selectedStrike) : Math.max(0, selectedStrike - (spot + ivMove));
+  const bandHigh = tradeDetails.type === 'CALL' ? Math.max(0, spot + ivMove - selectedStrike) : Math.max(0, selectedStrike - (spot - ivMove));
+  // 📏 Kelly Ledger: position-size cap meter vs the 25% Kelly ceiling.
+  const positionPct = (tradeDetails.premium * 100 * contractsCount) / Math.max(1, player.portfolioValue);
+  const kellyOver = positionPct > 0.25;
 
   const handleExecute = () => {
     if (!canAfford) {
@@ -435,6 +448,28 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
             <div className="mt-1 text-[11px] text-slate-400 italic line-clamp-2">
               {asset.lore} • Oracle Bond reveals true worth beneath Mr. Market's mood swings.
             </div>
+            {/* 🔍 VALUE LENS item: intrinsic value band */}
+            {hasLens && (
+              <div className="mt-2 p-2 bg-black/40 border border-emerald-500/30 rounded-lg text-[11px] flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span className="text-emerald-300 font-bold">🔍 VALUE LENS</span>
+                <span className="text-slate-300">Intrinsic (in-the-money worth): <strong className="text-emerald-200">{intrinsic.toFixed(2)}ƒ</strong></span>
+                <span className="text-slate-400">Band @ spot ±1 IV move: <strong className="text-emerald-200">{bandLow.toFixed(2)}–{bandHigh.toFixed(2)}ƒ</strong></span>
+                <span className="text-slate-500 italic">premium above intrinsic = time value you can lose</span>
+              </div>
+            )}
+            {/* 📏 KELLY LEDGER item: position-size cap meter */}
+            {hasKelly && (
+              <div className="mt-2 p-2 bg-black/40 border border-amber-500/30 rounded-lg text-[11px]">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                  <span className="text-amber-300 font-bold">📏 KELLY LEDGER</span>
+                  <span className="text-slate-300">This opening = <strong className={kellyOver ? 'text-red-300' : 'text-green-300'}>{(positionPct * 100).toFixed(1)}%</strong> of equity</span>
+                  <span className="text-slate-400">Kelly ceiling 25% {kellyOver ? '• ⚠ OVERSIZING — cut the size' : '• ✓ compliant'}</span>
+                </div>
+                <div className="mt-1.5 h-2 bg-slate-800 rounded-full overflow-hidden">
+                  <div className={`h-full rounded-full transition-all ${kellyOver ? 'bg-red-500' : 'bg-green-500'}`} style={{ width: `${Math.min(100, positionPct * 400)}%` }} />
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Rune Selection - Olmstead Chapters */}
@@ -447,7 +482,9 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
               {(Object.keys(STRATEGY_RUNES) as StrategyType[]).map((key) => {
                 const meta = STRATEGY_RUNES[key];
                 const isSelected = strategy === key;
-                const isUnlocked = player.chapter >= meta.chapter || player.investorTier >= Math.ceil(meta.chapter / 2);
+                // Straddle Charm item gates the straddles/strangles rune.
+                const needsCharm = key === 'LONG_STRADDLE' && !items.includes('straddle_charm');
+                const isUnlocked = !needsCharm && (player.chapter >= meta.chapter || player.investorTier >= Math.ceil(meta.chapter / 2));
                 return (
                   <button
                     key={key}
@@ -487,7 +524,8 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
                         'bg-red-900/60 text-red-300'
                       }`}>{meta.risk} RISK</span>
                       <span className="text-[10px] text-slate-500">Ch {meta.chapter}</span>
-                      {!isUnlocked && <span className="text-[10px] text-amber-400">🔒 Requires Ch {meta.chapter}</span>}
+                      {needsCharm && <span className="text-[10px] text-purple-300">🔒 Straddle Charm</span>}
+                      {!isUnlocked && !needsCharm && <span className="text-[10px] text-amber-400">🔒 Requires Ch {meta.chapter}</span>}
                     </div>
                     {isSelected && (
                       <div className="absolute top-1 right-1 w-2 h-2 bg-amber-400 rounded-full animate-pulse" />
@@ -534,16 +572,16 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
               <input
                 type="range"
                 min="7"
-                max="90"
+                max={items.includes('leaps_telescope') ? 90 : 45}
                 step="1"
-                value={dte}
+                value={Math.min(dte, items.includes('leaps_telescope') ? 90 : 45)}
                 onChange={e => setDte(Number(e.target.value))}
                 className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-sky-500"
               />
               <div className="flex justify-between text-[10px] text-slate-500 mt-1">
                 <span>7D (Theta Burn)</span>
                 <span>45D Ideal</span>
-                <span>90D (Slow)</span>
+                <span>{items.includes('leaps_telescope') ? '🔭 90D LEAPS' : '🔒 90D (LEAPS Telescope)'}</span>
               </div>
               <div className="mt-2 text-[11px] text-slate-400">
                 {dte <= 14 ? '🔥 Theta decay accelerates! 0-DTE lottery costs patience + capital' :

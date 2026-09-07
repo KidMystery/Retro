@@ -12,6 +12,8 @@ interface ZeldaCombatModalProps {
   onShieldBlock: () => void;
   onUseItem: (itemType: 'healthElixir' | 'ivStabilizer' | 'timeHourglass') => void;
   onFlee: () => void;
+  /** Item-chain shield tiers: 🛡️ Iron unlocks COVERED CALL / MARRIED PUT, ⛓️ Collar unlocks COLLAR. */
+  onTierAction?: (action: 'covered_call' | 'married_put' | 'collar') => void;
 }
 
 export const ZeldaCombatModal: React.FC<ZeldaCombatModalProps> = ({
@@ -21,9 +23,13 @@ export const ZeldaCombatModal: React.FC<ZeldaCombatModalProps> = ({
   onExecutePuzzleAttack,
   onShieldBlock,
   onUseItem,
-  onFlee
+  onFlee,
+  onTierAction
 }) => {
   const enemy = combat.enemy;
+  const items = player.items || [];
+  const hasIron = items.includes('shield_iron');
+  const hasCollar = items.includes('shield_collar');
   const [activePuzzle, setActivePuzzle] = useState<CombatAttackPuzzle | null>(null);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [puzzleOutcome, setPuzzleOutcome] = useState<{ isCorrect: boolean; explanation: string; bonus: number } | null>(null);
@@ -194,6 +200,25 @@ export const ZeldaCombatModal: React.FC<ZeldaCombatModalProps> = ({
               <span className="font-bold text-xs">FLEE</span>
               <span className="text-[10px] opacity-60">NO trade = best trade sometimes</span>
             </button>
+            {/* Shield tiers (item chain): Iron → covered call / married put; Collar → full block */}
+            {hasIron && onTierAction && (
+              <>
+                <button onClick={() => onTierAction('covered_call')} className="snes-btn p-3 flex flex-col items-center gap-1 rounded-xl border-emerald-500/40">
+                  <span className="font-bold text-xs">🛡️ COVERED CALL</span>
+                  <span className="text-[10px] opacity-60">Guard + collect premium</span>
+                </button>
+                <button onClick={() => onTierAction('married_put')} className="snes-btn p-3 flex flex-col items-center gap-1 rounded-xl border-sky-500/40">
+                  <span className="font-bold text-xs">🛡️ MARRIED PUT</span>
+                  <span className="text-[10px] opacity-60">Halve incoming damage</span>
+                </button>
+              </>
+            )}
+            {hasCollar && onTierAction && (
+              <button onClick={() => onTierAction('collar')} className="snes-btn p-3 flex flex-col items-center gap-1 rounded-xl border-amber-500/40">
+                <span className="font-bold text-xs">⛓️ COLLAR</span>
+                <span className="text-[10px] opacity-60">Full block, both directions</span>
+              </button>
+            )}
           </div>
         )}
 
