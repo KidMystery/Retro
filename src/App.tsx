@@ -52,6 +52,8 @@ import { SaveGameModal } from './components/SaveGameModal';
 import { TouchDPad } from './components/TouchDPad';
 import { InventoryModal } from './components/InventoryModal';
 import { SaveSlotData, AvatarConfig } from './types';
+import { pickNoiseEvents, NoiseEvent } from './lib/curriculum/noiseEvents';
+import { NoiseTicker } from './components/NoiseTicker';
 import { Play, Award, Save, User, Sparkles, Crown, Shield, BookOpen, Coins } from 'lucide-react';
 
 export default function App() {
@@ -152,6 +154,8 @@ export default function App() {
   });
 
   const [activeQuest, setActiveQuest] = useState<QuestNode | null>(null);
+  // ── Wiring 1: market noise popups ──
+  const [activeNoise, setActiveNoise] = useState<NoiseEvent | null>(null);
 
   const [terminalLog, setTerminalLog] = useState<string[]>([
     '◈ Daen Alterspire awakens... Obsidian altar with floating amber runes, pulsing emerald core.',
@@ -276,6 +280,35 @@ export default function App() {
   };
 
 
+  // Market phase cycle mapped to the Valuaria market arc (matches curriculum noise phases).
+  const marketPhase = (day: number): string => {
+    if (day <= 10) return 'euphoria';
+    if (day <= 20) return 'sideways';
+    if (day <= 30) return 'decline';
+    if (day <= 40) return 'crash';
+    return 'recovery';
+  };
+
+  // Resolve a noise event choice. Correct action = small florin bonus / avoided loss;
+  // wrong = the event's lessonIfFollowed plays out as a small loss.
+  const handleNoiseChoice = (action: 'ignore' | 'investigate' | 'hedge') => {
+    if (!activeNoise) return;
+    const correct = action === activeNoise.correctAction;
+    sound.playCommandBeep();
+    setPlayer(prev => ({
+      ...prev,
+      florins: Math.max(0, prev.florins + (correct ? 250 : -300)),
+      hearts: Math.max(0.5, prev.hearts)
+    }));
+    setTerminalLog(prev => [
+      ...prev.slice(-10),
+      correct
+        ? `📰 NOISE (${activeNoise.id}): You chose ${action.toUpperCase()} — correct! +250ƒ (avoided loss / good read)`
+        : `📰 NOISE (${activeNoise.id}): You chose ${action.toUpperCase()} — the trap took hold. -300ƒ • ${activeNoise.lessonIfFollowed}`
+    ]);
+    setActiveNoise(null);
+  };
+
   const handleAdvanceDay = useCallback(() => {
     sound.playCommandBeep();
     const updatedPositions: OptionContract[] = [];
@@ -380,6 +413,11 @@ export default function App() {
       `Spot $AETH ${spot.toFixed(2)} → ${newSpot.toFixed(2)} ƒ (IV ${(newIv*100).toFixed(1)}%) • Theta flow: ${portfolioAnalysis.netTheta.toFixed(1)} ƒ/d`,
       ...logs
     ]);
+
+    // Wiring 1: surface curriculum noise events for the new day/phase.
+    const newDay = player.day + 1;
+    const noise = pickNoiseEvents(newDay, marketPhase(newDay));
+    if (noise.length > 0) setActiveNoise(noise[0]);
   }, [assetQuote.spotPrice, assetQuote.iv, positions, player.day, player.grahamProtections, portfolioAnalysis.netTheta, triggerSanctuary]);
 
   const handleExecuteTrade = (contract: OptionContract, netCost: number, marginReq: number) => {
@@ -1341,6 +1379,9 @@ export default function App() {
             onClose={() => setActiveModal(null)}
           />
         )}
+
+        {/* Wiring 1: market noise ticker popup */}
+        {activeNoise && <NoiseTicker event={activeNoise} onChoose={handleNoiseChoice} />}
 
         {activeModal === 'QUEST' && activeQuest && (
           <StoryDialogModal
