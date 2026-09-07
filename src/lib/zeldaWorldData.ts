@@ -24,6 +24,35 @@ export interface ZeldaMap {
   playerSpawn: { x: number; y: number };
 }
 
+export interface PatrolRoute {
+  id: string;
+  name: string;
+  /** Start position (tile coords, will be +0.5 centered). */
+  x: number;
+  y: number;
+  /** Waypoints in tile coords; patrols loop through them. */
+  waypoints: Array<{ x: number; y: number }>;
+  /** Tiles per second. */
+  speed: number;
+  prompt: string;
+}
+
+export interface DungeonConfig {
+  /** Raycaster maze rows. '#'/wall = solid, '.' = floor, 'o' = brazier (refuels torch), 'G' = spread gate (solid until opened). */
+  tiles: string[];
+  playerSpawn: { x: number; y: number };
+  /** HUD label, e.g. 'ACT II · THE TWO CHAMBERS'. */
+  actLabel: string;
+  /** Torch light radius in world units. Default ~9 (fully lit). */
+  lightRadius?: number;
+  /** Torch fuel drain per second; 0/undefined = no light mechanic. */
+  torchDrainPerSec?: number;
+  /** Moving scammer NPCs; seen = forced bad trade. */
+  patrols?: PatrolRoute[];
+  /** True when the act uses spread-gates ('G' tiles). */
+  hasSpreadGates?: boolean;
+}
+
 export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
   1: {
     act: 1,
@@ -148,6 +177,16 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
         lore: 'Contains Black-Scholes Slate relic'
       },
       {
+        id: 'dungeon_gate_act1',
+        name: 'Dungeon Entrance — The Sealed Vestibule',
+        type: 'PORTAL',
+        x: 17,
+        y: 9,
+        sprite: 'PORTAL',
+        interactPrompt: 'DESCEND into The Sealed Vestibule [Act 1 Dungeon]',
+        lore: 'Stone stair spiraling down beneath the grove. Torchlight dances below.'
+      },
+      {
         id: 'boss_bear',
         name: 'Grizzly Bear of Drawdowns',
         type: 'BOSS',
@@ -263,6 +302,16 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
         interactPrompt: 'Open Hourglass Chest [Time Manipulation Relic]'
       },
       {
+        id: 'dungeon_gate_act2',
+        name: 'Dungeon Entrance — The Two Chambers',
+        type: 'PORTAL',
+        x: 17,
+        y: 9,
+        sprite: 'PORTAL',
+        interactPrompt: 'DESCEND into The Two Chambers [Act 2 Dungeon — Spread Gates]',
+        lore: 'A vault sealed by twin sigil-doors: only a combined vertical spread opens them.'
+      },
+      {
         id: 'boss_sphinx',
         name: 'The Chrono-Sphinx',
         type: 'BOSS',
@@ -365,6 +414,16 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
         y: 2,
         sprite: 'CHEST',
         interactPrompt: 'Open Bullion Chest [Value Investing Relic]'
+      },
+      {
+        id: 'dungeon_gate_act3',
+        name: 'Dungeon Entrance — The Iron Halls',
+        type: 'PORTAL',
+        x: 17,
+        y: 9,
+        sprite: 'PORTAL',
+        interactPrompt: 'DESCEND into The Iron Halls [Act 3 Dungeon — Patrolling Scammers]',
+        lore: 'Open halls where breakout-chasers walk their rounds. Approach unseen, or be seen.'
       },
       {
         id: 'boss_crab',
@@ -472,6 +531,16 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
         interactPrompt: 'Open Fire Pearl Chest [Vol Mastery Relic]'
       },
       {
+        id: 'dungeon_gate_act4',
+        name: 'Dungeon Entrance — The Lightless Vaults',
+        type: 'PORTAL',
+        x: 17,
+        y: 9,
+        sprite: 'PORTAL',
+        interactPrompt: 'DESCEND into The Lightless Vaults [Act 4 Dungeon — Torch Light]',
+        lore: 'The Hydra\'s breath swallowed every flame. Your torch is your only light — and it burns down.'
+      },
+      {
         id: 'boss_hydra',
         name: 'Hydra of Implied Vega',
         type: 'BOSS',
@@ -568,6 +637,16 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
         interactPrompt: 'Open Emperor Treasury [Final Relic + Crown]'
       },
       {
+        id: 'dungeon_gate_act5',
+        name: 'Dungeon Entrance — The Gauntlet of Discipline',
+        type: 'PORTAL',
+        x: 17,
+        y: 9,
+        sprite: 'PORTAL',
+        interactPrompt: 'DESCEND into The Gauntlet of Discipline [Act 5 Dungeon — Boss Marathon]',
+        lore: 'Every lord you defeated waits again, in sequence, with no sanctuary between. Only then Vex.'
+      },
+      {
         id: 'boss_vex',
         name: 'Liquidation Lord Marduk Vex',
         type: 'BOSS',
@@ -578,4 +657,156 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
       }
     ]
   }
+};
+
+/**
+ * Per-act DUNGEON layer (raycaster mazes beneath the overworld).
+ * Act I: The Sealed Vestibule — the original 19x17 teaching dungeon.
+ * Act II: The Two Chambers — two halves joined by spread-gates ('G'): place
+ *         BOTH legs of a vertical spread at the leg shrines to key the doors.
+ * Act III: The Iron Halls — open halls patrolled by scammer NPCs; getting
+ *          SEEN forces a bad trade (approach from behind = safe).
+ * Act IV: The Lightless Vaults — torch burns down (lightRadius shrinks);
+ *          braziers ('o') refuel; deeper darkness guards better chests.
+ * Act V: The Gauntlet of Discipline — spiral corridor; act bosses rematch in
+ *        sequence before Vex, no sanctuary between.
+ * All mazes BFS-validated fully connected (Act II once gates open).
+ */
+export const DUNGEONS: { [act: number]: DungeonConfig } = {
+  1: {
+    tiles: [
+      '###################',
+      '#.......C.#.......#',
+      '#######.#.#.###.###',
+      '#.....#.#.#...#...#',
+      '#..####.#.#.#.#.#.#',
+      '#.......#...#.#...#',
+      '#.#.#.###.###.#.#.#',
+      '#...#...#...#.#.#.#',
+      '#..####.###.#.#.###',
+      '#.....#.......#...#',
+      '#####.####.######.#',
+      '#.......#.......#.#',
+      '#.#.###.#.#####.#.#',
+      '#.#...#...#.....#.#',
+      '#.###.#####.###.#.#',
+      '#...#.............#',
+      '###################',
+    ],
+    playerSpawn: { x: 2, y: 4 },
+    actLabel: 'ACT I · THE SEALED VESTIBULE',
+  },
+  2: {
+    tiles: [
+      '###################',
+      '#........#........#',
+      '#.o..##..#..##..o.#',
+      '#....#...G...#....#',
+      '#.##.#...G...#.##.#',
+      '#....#.#####.#....#',
+      '#.o..G.#.#.#.G..o.#',
+      '#....#.#.#.#.#....#',
+      '#.####.#.#.#.####.#',
+      '#......#.#.#......#',
+      '#.o##..#.#.#..##o.#',
+      '#....#...#...#....#',
+      '#.##.#.#####.#.##.#',
+      '#.o..#...#...#..o.#',
+      '###################',
+    ],
+    playerSpawn: { x: 2, y: 1 },
+    actLabel: 'ACT II · THE TWO CHAMBERS — SPREAD GATES',
+    hasSpreadGates: true,
+  },
+  3: {
+    tiles: [
+      '###################',
+      '#.................#',
+      '#..##..####..##...#',
+      '#.................#',
+      '#...####....####..#',
+      '#.................#',
+      '#..##...o....##...#',
+      '#.................#',
+      '#...####....####..#',
+      '#.................#',
+      '#..##...o....##...#',
+      '#.................#',
+      '#...####....####..#',
+      '#.................#',
+      '###################',
+    ],
+    playerSpawn: { x: 2, y: 1 },
+    actLabel: 'ACT III · THE IRON HALLS — AVOID THE PATROLS',
+    patrols: [
+      {
+        id: 'patrol_chaser_east',
+        name: 'Breakout Chaser (East Round)',
+        x: 2, y: 3,
+        waypoints: [{ x: 2, y: 3 }, { x: 16, y: 3 }],
+        speed: 1.6,
+        prompt: 'Avoid his gaze — if he SEES you, he forces a bad trade',
+      },
+      {
+        id: 'patrol_chaser_west',
+        name: 'Breakout Chaser (West Round)',
+        x: 16, y: 5,
+        waypoints: [{ x: 16, y: 5 }, { x: 2, y: 5 }],
+        speed: 1.9,
+        prompt: 'Approach from behind to stay safe',
+      },
+      {
+        id: 'patrol_chager_center',
+        name: 'Range Gambler (Center Round)',
+        x: 9, y: 7,
+        waypoints: [{ x: 9, y: 7 }, { x: 2, y: 7 }, { x: 9, y: 7 }, { x: 16, y: 7 }],
+        speed: 1.3,
+        prompt: 'He walks the Iron Halls seeking exit liquidity',
+      },
+    ],
+  },
+  4: {
+    tiles: [
+      '###################',
+      '#...#.........#...#',
+      '#.#.#.#######.#.#.#',
+      '#.#...#..o..#...#.#',
+      '#.#####.###.#####.#',
+      '#...o.....#.....o.#',
+      '###.#####.#####.###',
+      '#...#...#.#...#...#',
+      '#.#.#.#.#.#.#.#.#.#',
+      '#.#...#.....#...#.#',
+      '#.#####.###.#####.#',
+      '#...o.....#.....o.#',
+      '###.#####.#####.###',
+      '#.................#',
+      '###################',
+    ],
+    playerSpawn: { x: 2, y: 13 },
+    actLabel: 'ACT IV · THE LIGHTLESS VAULTS — MANAGE YOUR TORCH',
+    lightRadius: 2.6,
+    torchDrainPerSec: 0.014,
+  },
+  5: {
+    tiles: [
+      '###################',
+      '#.................#',
+      '#.###############.#',
+      '#.#.............#.#',
+      '#.#.###########.#.#',
+      '#.#.#.........#.#.#',
+      '#.#.#.#######.#.#.#',
+      '#.....#.....#.....#',
+      '#.###.#.###.#.###.#',
+      '#.#...#..o..#...#.#',
+      '#.#.#####.#####.#.#',
+      '#.#.............#.#',
+      '#.###############.#',
+      '#.................#',
+      '###################',
+    ],
+    playerSpawn: { x: 2, y: 1 },
+    actLabel: 'ACT V · THE GAUNTLET OF DISCIPLINE',
+  },
 };

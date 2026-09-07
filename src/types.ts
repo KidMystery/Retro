@@ -394,9 +394,10 @@ export interface QuestNode {
   choices: StoryChoice[];
 }
 
-export type GameView = 
+export type GameView =
   | 'INTRO'
   | 'MAP'
+  | 'DUNGEON'
   | 'QUEST'
   | 'COMBAT'
   | 'TRADE_DESK'
