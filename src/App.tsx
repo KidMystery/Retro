@@ -24,7 +24,7 @@ import { REALM_MAPS, BOSS_ENEMIES, STORY_QUESTS } from './lib/questData';
 import { ZELDA_MAPS, ZeldaEntity } from './lib/zeldaWorldData';
 import { UNDERVALUED_ASSETS } from './lib/undervaluedAssetsData';
 import { SCAM_ENCOUNTERS } from './lib/scamsData';
-import { INTELLIGENT_INVESTOR_LESSONS } from './lib/intelligentInvestorData';
+import { INTELLIGENT_INVESTOR_LESSONS, getTradeMechanicGate } from './lib/intelligentInvestorData';
 import { calculateBlackScholes } from './lib/blackScholes';
 import { sound } from './lib/audioEngine';
 import {
@@ -41,6 +41,7 @@ import { ZeldaCombatModal } from './components/ZeldaCombatModal';
 import { UndervaluedAssetModal } from './components/UndervaluedAssetModal';
 import { RugPullLessonModal } from './components/RugPullLessonModal';
 import { IntelligentInvestorSanctuaryModal } from './components/IntelligentInvestorSanctuaryModal';
+import { OptionsMechanicGate } from './components/OptionsMechanicGate';
 import { TradeDeskModal } from './components/TradeDeskModal';
 import { PortfolioLedgerModal } from './components/PortfolioLedgerModal';
 import { GrimoireModal } from './components/GrimoireModal';
@@ -71,6 +72,8 @@ export default function App() {
   const [showSanctuary, setShowSanctuary] = useState(false);
   const [sanctuaryReason, setSanctuaryReason] = useState<TradeFailReason | null>(null);
   const [sanctuaryLessonId, setSanctuaryLessonId] = useState<GrahamProtectionId>('margin_of_safety');
+  // McMillan mechanic gate: blocks a trade encounter until a real options-mechanics MCQ is answered.
+  const [mechanicGate, setMechanicGate] = useState<{ lessonId: GrahamProtectionId } | null>(null);
   const [npcDialogue, setNpcDialogue] = useState<{ name: string; lines: string[]; lore?: string } | null>(null);
 
   const [player, setPlayer] = useState<PlayerStats>({
@@ -244,6 +247,34 @@ export default function App() {
     sound.playAlarmSound();
     setTerminalLog(prev => [...prev.slice(-10), `◈ FAIL->GRAHAM LOOP: ${reason} triggered Sanctuary of Quiet Oracle. Lesson: ${lessonId}. Answer correctly for permanent protection!`]);
   }, [player.day]);
+
+  // McMillan mechanic gate: pass -> mechanic rune knowledge + proceed to Trade Desk.
+  const handleMechanicPass = (lessonId: GrahamProtectionId) => {
+    sound.playSecretChime();
+    setPlayer(prev => ({ ...prev, oracleBondLevel: Math.min(5, prev.oracleBondLevel + 0.1) }));
+    setTerminalLog(prev => [...prev.slice(-10), `◈ MECHANIC RUNE: ${lessonId} options mechanics absorbed • Oracle Bond +0.1`]);
+    setMechanicGate(null);
+    setActiveModal('TRADE');
+    setCurrentView('ORACLE_LEDGER');
+  };
+
+  // McMillan mechanic gate: wrong mechanics -> costs hearts+florins, fail->learn via Sanctuary.
+  const handleMechanicFail = (lessonId: GrahamProtectionId) => {
+    const failReasonByLesson: Partial<Record<GrahamProtectionId, TradeFailReason>> = {
+      margin_of_safety: 'OTM_LOTTERY_EXPIRED',
+      theta_protection: 'THETA_DECAY_CRUSH',
+      vega_protection: 'IV_CRUSH'
+    };
+    setPlayer(prev => ({
+      ...prev,
+      hearts: Math.max(0, prev.hearts - 1),
+      hp: Math.round(Math.max(0, prev.hearts - 1) * 25),
+      florins: Math.max(0, prev.florins - 150)
+    }));
+    setMechanicGate(null);
+    triggerSanctuary(failReasonByLesson[lessonId] || 'DIRECTIONAL_WRONG', lessonId, 150);
+  };
+
 
   const handleAdvanceDay = useCallback(() => {
     sound.playCommandBeep();
@@ -643,8 +674,9 @@ export default function App() {
       setNpcDialogue({ name: entity.name, lines: entity.dialogue || ['"Margin of Safety, apprentice."'], lore: entity.lore });
     } else if (entity.type === 'NPC_BROKER') {
       sound.playCommandBeep();
-      setActiveModal('TRADE');
-      setCurrentView('ORACLE_LEDGER');
+      // McMillan mechanic gate first: read the mechanic beat + answer a real options MCQ
+      // before the Trade Desk opens. Wrong pick costs hearts+florins and pulls the Sanctuary.
+      setMechanicGate({ lessonId: getTradeMechanicGate(player.day).challenge.tiedLessonId });
     } else if (entity.type === 'NPC_SCAMMER') {
       sound.playAlarmSound();
       const scam = SCAM_ENCOUNTERS[entity.targetId || 'ponzi_farm'] || SCAM_ENCOUNTERS['ponzi_farm'];
@@ -1250,6 +1282,19 @@ export default function App() {
             </div>
           </div>
         )}
+
+        {mechanicGate && (() => {
+          const { lesson, challenge } = getTradeMechanicGate(player.day);
+          return (
+            <OptionsMechanicGate
+              lesson={lesson}
+              challenge={challenge}
+              onPass={handleMechanicPass}
+              onFail={handleMechanicFail}
+              onClose={() => { setMechanicGate(null); setCurrentView('MAP'); }}
+            />
+          );
+        })()}
 
         {activeModal === 'TRADE' && currentView !== 'ORACLE_LEDGER' && (
           <TradeDeskModal

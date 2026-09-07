@@ -303,6 +303,18 @@ export interface IntelligentInvestorLesson {
   // Enhanced
   protectionBonus: string;
   oracleRune: string;
+  // McMillan-level real options-mechanic teaching beat surfaced on trade encounters
+  mechanicLesson?: string;
+}
+
+// A short MCQ about real options mechanics shown at the trade desk gate.
+export interface OptionsMechanicChallenge {
+  id: string;
+  tiedLessonId: GrahamProtectionId;
+  prompt: string;
+  choices: string[];
+  correctIndex: number;
+  explanation: string;
 }
 
 export interface StoryChoice {

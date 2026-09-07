@@ -1,4 +1,4 @@
-import { IntelligentInvestorLesson } from '../types';
+import { IntelligentInvestorLesson, OptionsMechanicChallenge } from '../types';
 
 export const INTELLIGENT_INVESTOR_LESSONS: IntelligentInvestorLesson[] = [
   {
@@ -20,7 +20,8 @@ export const INTELLIGENT_INVESTOR_LESSONS: IntelligentInvestorLesson[] = [
       explanation: 'Buying at steep discount to net asset value provides cushion against adverse events, while covered call premium further cushions downside. This is Graham\'s Margin of Safety.'
     },
     protectionBonus: 'Permanent: +10% collateral buffer, cannot be liquidated by <5% wicks, unlocks Covered Call rune',
-    oracleRune: 'ᚠ'
+    oracleRune: 'ᚠ',
+    mechanicLesson: 'Options mechanic (McMillan): a put\'s intrinsic value is max(strike − spot, 0). A $50 put with the stock at $44 holds $6 of real value — buying ITM premium is buying actual worth, never just cheap lottery tickets.'
   },
   {
     id: 'mr_market',
@@ -41,7 +42,8 @@ export const INTELLIGENT_INVESTOR_LESSONS: IntelligentInvestorLesson[] = [
       explanation: 'Mr. Market exists to serve you with opportunities, not guide opinions. Form your own independent valuation from the Oracle\'s Stone.'
     },
     protectionBonus: 'Permanent: Immune to FOMO scams, +15% resistance to panic selling, unlocks Calendar Spread',
-    oracleRune: 'ᛗ'
+    oracleRune: 'ᛗ',
+    mechanicLesson: 'Options mechanic (McMillan): crowd peaks inflate premiums. When implied volatility spikes on hype, option prices are fattest — selling premium into mania (or refusing the 0-DTE lottery) is the Mr. Market trade: act on his emotion, not with it.'
   },
   {
     id: 'investment_vs_speculation',
@@ -62,7 +64,8 @@ export const INTELLIGENT_INVESTOR_LESSONS: IntelligentInvestorLesson[] = [
       explanation: 'Graham defined investment as operation guaranteeing thorough analysis, protection of principal, and adequate return.'
     },
     protectionBonus: 'Permanent: Distinguishes investment vs speculation, blocks rug-pull tokens, unlocks Value Asset sight',
-    oracleRune: 'ᛝ'
+    oracleRune: 'ᛝ',
+    mechanicLesson: 'Options mechanic (McMillan): a covered call converts speculation into income — you already own the shares, so the short call has no unlimited-loss tail. A naked call, by contrast, carries unbounded risk: theory, not hope, defines the position.'
   },
   {
     id: 'theta_protection',
@@ -83,7 +86,8 @@ export const INTELLIGENT_INVESTOR_LESSONS: IntelligentInvestorLesson[] = [
       explanation: 'Theta curves steepen dramatically final 30 days as time premium collapses to zero. Calendar spreads exploit this.'
     },
     protectionBonus: 'Permanent: +20% Theta resistance, unlocks Calendar Spread rune, can earn while waiting',
-    oracleRune: 'ᛃ'
+    oracleRune: 'ᛃ',
+    mechanicLesson: 'Options mechanic (McMillan): an option\'s price is intrinsic + time value, and theta is the daily rent you pay. ATM options lose roughly a third of their remaining time value in the final 30 days — decay accelerates, so long options bleed fastest at the end while short options collect it.'
   },
   {
     id: 'vega_protection',
@@ -104,7 +108,8 @@ export const INTELLIGENT_INVESTOR_LESSONS: IntelligentInvestorLesson[] = [
       explanation: 'Pre-earnings IV inflated. Post-announcement collapse wiped extrinsic faster than spot rise compensated. Use spreads to hedge Vega.'
     },
     protectionBonus: 'Permanent: Vega hedged by spreads, -30% IV Crush damage, unlocks Long Straddle mastery',
-    oracleRune: 'ᛋ'
+    oracleRune: 'ᛋ',
+    mechanicLesson: 'Options mechanic (McMillan): vega is the sensitivity of an option\'s price to implied volatility. A long straddle profits from a big move in either direction but bleeds theta daily, and IV crush after an announcement can erase gains even when the direction was right.'
   },
   {
     id: 'leverage_protection',
@@ -125,7 +130,8 @@ export const INTELLIGENT_INVESTOR_LESSONS: IntelligentInvestorLesson[] = [
       explanation: 'Kelly: bet fraction proportional to edge, never risk ruin. Survival first. True richest investor is one who learned rich = survival first, growth after safety.'
     },
     protectionBonus: 'Permanent: Kelly sizing enforced (max 25% per trade), immune to 100x leverage scams, unlocks true ending',
-    oracleRune: 'ᛟ'
+    oracleRune: 'ᛟ',
+    mechanicLesson: 'Options mechanic (McMillan): defined-risk structures — spreads, covered calls, condors — cap your maximum loss at construction. Position size so no single trade risks more than 1–2% of the account: Kelly warns that over-sizing a real edge still leads to ruin.'
   },
   {
     id: 'fomo_protection',
@@ -146,7 +152,8 @@ export const INTELLIGENT_INVESTOR_LESSONS: IntelligentInvestorLesson[] = [
       explanation: 'Intelligent investor demands thorough analysis, safety of principal. If no audited cash flows or tangible assets, it fails Graham\'s test. Reject and earn wisdom.'
     },
     protectionBonus: 'Permanent: Scam radar +50%, auto-rejects unaudited APY, +250 florins bounty for discipline',
-    oracleRune: 'ᛉ'
+    oracleRune: 'ᛉ',
+    mechanicLesson: 'Options mechanic (McMillan): expensive premium is the crowd\'s fear priced in. When everyone is panic-buying puts or chasing hype calls, IV is pumped — the disciplined act is selling that fear (defined-risk credit spreads) or standing aside, never joining the chase.'
   }
 ];
 
@@ -158,4 +165,50 @@ export const GRAHAM_PROTECTIONS_META: Record<string, { title: string; bonus: str
   vega_protection: { title: 'Vega Mastery', bonus: '-30% IV Crush', rune: 'ᛋ' },
   leverage_protection: { title: 'Kelly Discipline', bonus: 'Max 25% size', rune: 'ᛟ' },
   fomo_protection: { title: 'FOMO Shield', bonus: '+50% scam radar', rune: 'ᛉ' }
+};
+
+// Real options-mechanic MCQs (McMillan, "Options as a Strategic Investment") gated
+// before each trade encounter. Wrong pick = fail->learn via the Sanctuary.
+export const OPTIONS_MECHANIC_CHALLENGES: OptionsMechanicChallenge[] = [
+  {
+    id: 'mech_put_intrinsic',
+    tiedLessonId: 'margin_of_safety',
+    prompt: 'Which is the intrinsic value of a $50 strike put when the stock is $44?',
+    choices: ['$6', '$50', '$44', 'Nothing'],
+    correctIndex: 0,
+    explanation: 'Intrinsic value = max(strike − spot, 0) = 50 − 44 = $6. Any price above that is time value — the margin you must justify.'
+  },
+  {
+    id: 'mech_theta_final30',
+    tiedLessonId: 'theta_protection',
+    prompt: 'An ATM call has 30 days left. What does theta do to its time value?',
+    choices: [
+      'Decay stops until the final week',
+      'Nothing — time value is constant',
+      'It loses roughly a third of remaining time value as decay accelerates',
+      'Time value rises as expiration nears'
+    ],
+    correctIndex: 2,
+    explanation: 'Theta accelerates in the final 30 days: an ATM option sheds about a third of its remaining time value. Long options bleed fastest at the end; short options collect it.'
+  },
+  {
+    id: 'mech_iv_crush',
+    tiedLessonId: 'vega_protection',
+    prompt: 'You buy an OTM call the day before earnings at 80% IV. The stock pops. Why might you still lose?',
+    choices: [
+      'Calls expire worthless immediately after earnings',
+      'Post-announcement IV crush collapses extrinsic value faster than the delta gain',
+      'Brokers freeze options on earnings days',
+      'Delta turns negative on good news'
+    ],
+    correctIndex: 1,
+    explanation: 'Vega: the premium was inflated by uncertainty. Once the event resolves, IV collapses and extrinsic value evaporates — correct direction, wrong volatility.'
+  }
+];
+
+// Deterministic per-day pick so the same trade day surfaces one coherent beat + challenge.
+export const getTradeMechanicGate = (day: number): { lesson: IntelligentInvestorLesson; challenge: OptionsMechanicChallenge } => {
+  const challenge = OPTIONS_MECHANIC_CHALLENGES[day % OPTIONS_MECHANIC_CHALLENGES.length];
+  const lesson = INTELLIGENT_INVESTOR_LESSONS.find(l => l.id === challenge.tiedLessonId) || INTELLIGENT_INVESTOR_LESSONS[0];
+  return { lesson, challenge };
 };
