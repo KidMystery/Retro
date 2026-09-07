@@ -1,15 +1,17 @@
 import React from 'react';
+import { BadgeShelf } from './BadgeFanfare';
 import { PlayerStats } from '../types';
 import { INTELLIGENT_INVESTOR_LESSONS } from '../lib/intelligentInvestorData';
 import { Heart, Sparkles, Crown, Shield, Coins, BookOpen, Zap, X } from 'lucide-react';
 
 interface InventoryModalProps {
   player: PlayerStats;
+  earnedBadgeIds?: string[];
   onUseItem: (itemType: 'healthElixir' | 'ivStabilizer' | 'timeHourglass') => void;
   onClose: () => void;
 }
 
-export const InventoryModal: React.FC<InventoryModalProps> = ({ player, onUseItem, onClose }) => {
+export const InventoryModal: React.FC<InventoryModalProps> = ({ player, earnedBadgeIds = [], onUseItem, onClose }) => {
   return (
     <div className="fixed inset-0 z-50 bg-black/85 flex items-end md:items-center justify-center p-0 md:p-4 backdrop-blur-sm">
       <div className="oracle-bottom-sheet w-full max-w-4xl max-h-[92vh] flex flex-col overflow-hidden">
@@ -98,6 +100,9 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({ player, onUseIte
             </div>
           </div>
         </div>
+
+        {/* Wiring 3: badge shelf — locked badges shown greyed */}
+        <BadgeShelf earnedIds={earnedBadgeIds} />
 
         <div className="p-3 border-t-2 border-amber-500/20 bg-slate-950 flex justify-between items-center">
           <span className="text-[11px] text-slate-500">Inventory = potions + relics + Graham shields • Oracle Bond Lv {player.oracleBondLevel?.toFixed(1)}/5 • True ending: richest investor = survival first</span>

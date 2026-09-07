@@ -56,6 +56,8 @@ import { pickNoiseEvents, NoiseEvent } from './lib/curriculum/noiseEvents';
 import { NoiseTicker } from './components/NoiseTicker';
 import { MarginEvent, MarginState, describeMarginDanger, marginUtilization } from './lib/curriculum/marginDanger';
 import { MarginMeter } from './components/MarginMeter';
+import { checkBadges, Badge } from './lib/curriculum/dopamineBadges';
+import { BadgeFanfare, BadgeShelf } from './components/BadgeFanfare';
 import { Play, Award, Save, User, Sparkles, Crown, Shield, BookOpen, Coins } from 'lucide-react';
 
 export default function App() {
@@ -162,6 +164,9 @@ export default function App() {
   const [marginWarning, setMarginWarning] = useState<MarginEvent | null>(null);
   const lastMarginUtilRef = useRef(-1);
   const marginEquity = player.florins + player.stockShares * assetQuote.spotPrice;
+  // ── Wiring 3: dopamine badge ladder ──
+  const [earnedBadgeIds, setEarnedBadgeIds] = useState<string[]>([]);
+  const [fanfareBadge, setFanfareBadge] = useState<Badge | null>(null);
 
   const [terminalLog, setTerminalLog] = useState<string[]>([
     '◈ Daen Alterspire awakens... Obsidian altar with floating amber runes, pulsing emerald core.',
@@ -448,7 +453,16 @@ export default function App() {
     const newDay = player.day + 1;
     const noise = pickNoiseEvents(newDay, marketPhase(newDay));
     if (noise.length > 0) setActiveNoise(noise[0]);
-  }, [assetQuote.spotPrice, assetQuote.iv, positions, player.day, player.grahamProtections, portfolioAnalysis.netTheta, triggerSanctuary]);
+
+    // Wiring 3: check the dopamine badge ladder against current equity.
+    const earned = checkBadges(marginEquity, 0, [], {});
+    const fresh = earned.filter(b => !earnedBadgeIds.includes(b.id));
+    if (fresh.length > 0) {
+      setEarnedBadgeIds(prev => [...prev, ...fresh.map(b => b.id)]);
+      setFanfareBadge(fresh[0]);
+      sound.playFanfare();
+    }
+  }, [assetQuote.spotPrice, assetQuote.iv, positions, player.day, player.grahamProtections, portfolioAnalysis.netTheta, triggerSanctuary, marginEquity, earnedBadgeIds]);
 
   const handleExecuteTrade = (contract: OptionContract, netCost: number, marginReq: number) => {
     sound.playCoinSound();
@@ -1248,6 +1262,7 @@ export default function App() {
           {currentView === 'INVENTORY' && (
             <InventoryModal
               player={player}
+              earnedBadgeIds={earnedBadgeIds}
               onUseItem={(itemType) => {
                 if (player.potions[itemType] <=0) return;
                 sound.playSecretChime();
@@ -1424,6 +1439,11 @@ export default function App() {
 
         {/* Wiring 1: market noise ticker popup */}
         {activeNoise && <NoiseTicker event={activeNoise} onChoose={handleNoiseChoice} />}
+
+        {/* Wiring 3: full-screen badge fanfare */}
+        {fanfareBadge && (
+          <BadgeFanfare badge={fanfareBadge} onDismiss={() => setFanfareBadge(null)} />
+        )}
 
         {activeModal === 'QUEST' && activeQuest && (
           <StoryDialogModal
