@@ -3,6 +3,32 @@ import { ZeldaMap, ZeldaEntity, ZELDA_MAPS } from '../lib/zeldaWorldData';
 import { PlayerStats, AssetQuote, TunicColor, HairColor } from '../types';
 import { sound } from '../lib/audioEngine';
 import { blitGrid, BASE_PALETTE, HERO_D, TILE_GRASS16, TILE_DIRT16, TILE_WATER16, OAK } from '../lib/pixelArt';
+import act2GroundUrl from '../assets/textures/act2_ground.png';
+import act3GroundUrl from '../assets/textures/act3_ground.png';
+import act4GroundUrl from '../assets/textures/act4_ground.png';
+import act5GroundUrl from '../assets/textures/act5_ground.png';
+
+// Design-review fix: Acts II–V each get a distinct act-themed ground tileset so
+// the overworld VISIBLY differs per act (II decayed market-hall, III open plazas,
+// IV dark vault stone, V obsidian gauntlet). Act I keeps its native grass.
+const ACT_GROUND_URLS: Record<number, string> = {
+  2: act2GroundUrl,
+  3: act3GroundUrl,
+  4: act4GroundUrl,
+  5: act5GroundUrl,
+};
+const loadedGroundImgs = new Map<string, HTMLImageElement>();
+const getGroundImg = (act: number): HTMLImageElement | null => {
+  const url = ACT_GROUND_URLS[act];
+  if (!url) return null;
+  let img = loadedGroundImgs.get(url);
+  if (!img) {
+    img = new Image();
+    img.src = url;
+    loadedGroundImgs.set(url, img);
+  }
+  return img.complete && img.naturalWidth > 0 ? img : null;
+};
 import {
   ArrowUp,
   ArrowDown,
@@ -173,6 +199,7 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
     ctx.fillStyle = "#060a12";
     ctx.fillRect(0, 0, width, height);
     const fairySparkOffset = (animTick * 0.8) % 30;
+    const groundImg = getGroundImg(act);
 
     for (let y = 0; y < mapData.height; y++) {
       for (let x = 0; x < mapData.width; x++) {
@@ -180,8 +207,16 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
         const px = x * TILE_SIZE;
         const py = y * TILE_SIZE;
         if (tile === ".") {
+          if (groundImg) {
+            // Act-themed ground: sample a shifted 32px quadrant of the 64px
+            // texture per tile so the floor doesn't read as one repeated stamp.
+            const qx = ((x * 13 + y * 7) % 2) * 32;
+            const qy = ((x * 7 + y * 11) % 2) * 32;
+            ctx.drawImage(groundImg, qx, qy, 32, 32, px, py, TILE_SIZE, TILE_SIZE);
+          } else {
           // B-spec: 16x16 native grass tile (3 shades + speck + tuft), crisp.
           blitGrid(ctx, TILE_GRASS16, BASE_PALETTE, px, py, 2);
+          }
         } else if (tile === "F") {
           ctx.fillStyle = "#2d6a2f";
           ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
@@ -196,8 +231,12 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
           // B-spec: native dirt path tile with distinct edges.
           blitGrid(ctx, TILE_DIRT16, BASE_PALETTE, px, py, 2);
         } else if (tile === "T") {
+          if (groundImg) {
+            ctx.drawImage(groundImg, ((x * 13 + y * 7) % 2) * 32, ((x * 7 + y * 11) % 2) * 32, 32, 32, px, py, TILE_SIZE, TILE_SIZE);
+          } else {
           ctx.fillStyle = "#1a2e1a";
           ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
+          }
           // B-spec: blocky oak (canopy + trunk + solid shadow plate beneath).
           blitGrid(ctx, OAK, BASE_PALETTE, px, py, 2);
         } else if (tile === "~") {
@@ -226,8 +265,12 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
           ctx.fillStyle = "#475569";
           ctx.fillRect(px + 6, py + 6, 12, 10);
         } else if (tile === "D") {
+          if (groundImg) {
+            ctx.drawImage(groundImg, ((x * 13 + y * 7) % 2) * 32, ((x * 7 + y * 11) % 2) * 32, 32, 32, px, py, TILE_SIZE, TILE_SIZE);
+          } else {
           ctx.fillStyle = "#2d6a2f";
           ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
+          }
           ctx.fillStyle = "#0f172a";
           ctx.beginPath();
           ctx.arc(px + 19, py + 24, 14, Math.PI, 0, false);
