@@ -31,7 +31,9 @@ import { sound } from './lib/audioEngine';
 import {
   calculatePortfolioRisk,
   getScaledEnemyStats,
-  resolveCombatAction
+  resolveCombatAction,
+  enforceBossSpecialMove,
+  bossSpecialMoveTelegraph
 } from './lib/combatEngine';
 
 import { DOSHeader } from './components/DOSHeader';
@@ -786,7 +788,8 @@ export default function App() {
         `◈ Lore: ${scaledEnemy.lore.slice(0,120)}...`,
         `◈ Scaled ${scaledEnemy.maxHp} HP • Your Portfolio ${Math.round(player.portfolioValue).toLocaleString()}ƒ • Path ${player.currentPath}`,
         `◈ Weakness: ${scaledEnemy.weaknessStrategy?.join(', ') || 'Solve puzzles'} • Resistance: ${scaledEnemy.resistanceStrategy?.join(', ') || 'None'}`,
-        `◈ Solve tactical options puzzles to unleash sword strikes! Graham protections active: ${player.grahamProtections.length}`
+        `◈ Solve tactical options puzzles to unleash sword strikes! Graham protections active: ${player.grahamProtections.length}`,
+        ...(bossSpecialMoveTelegraph(baseEnemy.id) ? [bossSpecialMoveTelegraph(baseEnemy.id)!] : [])
       ],
       lastAction: null,
       playerShieldActive: false,
@@ -857,10 +860,33 @@ export default function App() {
     if (isCorrect) heartDelta = 0.5;
     else { heartDelta = -1.0; sound.playAlarmSound(); }
 
+    // BOSS SPECIALMOVE ENFORCEMENT — each act boss's rule fires every turn the
+    // fight continues (telegraphed in the intro log). Not applied on the
+    // killing blow.
+    const specialMove = updatedEnemyHp > 0
+      ? enforceBossSpecialMove(combatState.enemy.id, player, positions, {
+          wrongPause: !isCorrect,
+          shieldActive: combatState.playerShieldActive
+        })
+      : null;
+    if (specialMove) heartDelta += specialMove.heartDelta;
+
     setPlayer(prev => {
       const newHearts = Math.max(0, Math.min(prev.maxHearts, prev.hearts + heartDelta));
-      return { ...prev, hearts: newHearts, hp: Math.round(newHearts * 25) };
+      return {
+        ...prev,
+        hearts: newHearts,
+        hp: Math.round(newHearts * 25),
+        florins: Math.max(0, prev.florins + (specialMove?.florinsDelta ?? 0)),
+        marginUsed: specialMove?.assignedLeg ? Math.max(0, prev.marginUsed - Math.round(specialMove.assignedLeg.lossFlorins * 0.5)) : prev.marginUsed,
+        failedTrades: specialMove?.assignedLeg
+          ? [...prev.failedTrades, { id: `assignment_${specialMove.assignedLeg.id}`, reason: 'FORCED_ASSIGNMENT', strategy: specialMove.assignedLeg.strategy, lossFlorins: specialMove.assignedLeg.lossFlorins, day: prev.day, lessonId: 'margin_of_safety' }]
+          : prev.failedTrades
+      };
     });
+    if (specialMove?.assignedLeg) {
+      setPositions(prev => prev.filter(p => p.id !== specialMove.assignedLeg!.id));
+    }
 
     if (updatedEnemyHp <= 0) {
       sound.playVictorySting();
@@ -940,7 +966,8 @@ export default function App() {
               ? `🪞 HEDGE EXECUTED ᛚ The mirror copies you at 2x — and its own doubled size breaks it. ${totalPlayerDamage} dmg! +0.5♥`
               : `🪞 UNHEDGED! The Second Oracle opens your position at 2x size and feeds on it — +${Math.min(60, 20 + player.chapter * 6)} HP to the shadow. -1.0♥!`)
           : (isCorrect ? `⚔️ CRITICAL STRIKE ᛚ ${totalPlayerDamage} dmg! +0.5♥ • Path ${player.currentPath} bonus!` : `❌ FLAWED THESIS! Only ${totalPlayerDamage} dmg. ${prev.enemy?.name} retaliates -1.0♥!`),
-        `> ${explanation}`
+        `> ${explanation}`,
+        ...(specialMove ? specialMove.logMessages : [])
       ],
       enemy: isMirrorBoss && !isCorrect
         ? { ...prev.enemy!, currentHp: Math.min(prev.enemy!.maxHp, prev.enemy!.currentHp + Math.min(60, 20 + player.chapter * 6)) }

@@ -164,6 +164,148 @@ export function getScaledEnemyStats(
 }
 
 /**
+ * BOSS SPECIALMOVE ENFORCEMENT — every act boss's specialMove is now a real
+ * mechanical rule applied each combat turn (not flavor). One rule per boss:
+ *  - boss_bear_phantom  : ASSIGNMENT AMBUSH — each turn, chance one long leg is
+ *    force-assigned (closed at a loss) unless the player holds defined-risk.
+ *  - boss_chrono_sphinx : TEMPORAL ACCELERATION — theta decays 2x: extrinsic
+ *    drains every turn, doubled on a wrong-pause (flawed thesis).
+ *  - boss_crab_golem    : MARGIN TAP — margin utilization directly feeds boss
+ *    damage: hearts lost scale with marginUsed/marginLimit.
+ *  - boss_hydra_vega    : IV CRUSH — long-option premium deflates each turn
+ *    unless the player bought defined-risk.
+ *  - boss_liquidation_lord : FORCED LIQUIDATION — damage scales with margin
+ *    utilization.
+ */
+export interface BossSpecialMoveResult {
+  /** Negative = hearts lost this turn. */
+  heartDelta: number;
+  /** Negative = florins bled (extrinsic/premium drain) this turn. */
+  florinsDelta: number;
+  /** Set when a leg was force-assigned and must be removed from the book. */
+  assignedLeg?: { id: string; strategy: string; strike: number; lossFlorins: number };
+  logMessages: string[];
+}
+
+const DEFINED_RISK_STRATEGIES = [
+  'BULL_CALL_SPREAD', 'BEAR_PUT_SPREAD', 'IRON_CONDOR', 'CALENDAR_SPREAD',
+  'COVERED_CALL', 'CASH_SECURED_PUT', 'COLLAR', 'MARRIED_PUT'
+];
+
+export function enforceBossSpecialMove(
+  enemyId: string,
+  player: PlayerStats,
+  positions: OptionContract[],
+  opts: { wrongPause: boolean; shieldActive: boolean }
+): BossSpecialMoveResult {
+  const res: BossSpecialMoveResult = { heartDelta: 0, florinsDelta: 0, logMessages: [] };
+  const marginUtil = player.marginLimit > 0 ? player.marginUsed / player.marginLimit : 0;
+  const hasThetaProtection = player.grahamProtections?.includes('theta_protection');
+  const hasVegaProtection = player.grahamProtections?.includes('vega_protection');
+  const hasLeverageProtection = player.grahamProtections?.includes('leverage_protection');
+  const definedRisk = positions.filter(p => DEFINED_RISK_STRATEGIES.includes(p.strategy));
+  const shielded = opts.shieldActive;
+
+  switch (enemyId) {
+    case 'boss_chrono_sphinx': {
+      // Temporal Acceleration: theta 2x on long options. Extrinsic bleeds every
+      // turn; a wrong-pause (flawed thesis) doubles the siphon.
+      const thetaBleed = Math.max(0, -player.netTheta);
+      let drain = Math.round(thetaBleed * (hasThetaProtection ? 1.0 : 2.0) * (opts.wrongPause ? 2 : 1));
+      res.florinsDelta = -drain;
+      let hearts = 0;
+      if (positions.some(p => p.quantity > 0 && ['LONG_CALL', 'LONG_PUT', 'LONG_STRADDLE'].includes(p.strategy))) {
+        hearts = opts.wrongPause ? 0.5 : 0.25;
+        if (hasThetaProtection) hearts *= 0.5;
+        res.heartDelta = -hearts;
+      }
+      res.logMessages.push(
+        `⏳ TEMPORAL ACCELERATION! The Sphinx ages your longs 2x — ${drain}ƒ extrinsic siphoned${hearts ? `, ${hearts.toFixed(2)}♥ of time-value lost` : ''}${hasThetaProtection ? ' (Graham theta wisdom halves it)' : ''}.`
+      );
+      break;
+    }
+    case 'boss_hydra_vega': {
+      // IV Crush: long premium deflates each turn UNLESS defined-risk present.
+      if (definedRisk.length > 0) {
+        res.logMessages.push(
+          `🌪 IV CRUSH incoming — but your ${definedRisk.map(p => p.strategy).join('+')} armor deflects it! Long premium holds.`
+        );
+      } else {
+        const longPremium = positions
+          .filter(p => p.quantity > 0)
+          .reduce((s, p) => s + p.premium * 100 * Math.abs(p.quantity), 0);
+        const deflate = Math.round(longPremium * (hasVegaProtection ? 0.1 : 0.2));
+        res.florinsDelta = -deflate;
+        res.heartDelta = -(hasVegaProtection ? 0.25 : 0.5);
+        res.logMessages.push(
+          `🌪 IV CRUSH! Implied vol collapses 80%→25% — naked long premium deflates: -${deflate}ƒ, ${Math.abs(res.heartDelta).toFixed(2)}♥${hasVegaProtection ? ' (Vega wisdom cushions)' : ''}. BUY DEFINED-RISK next turn!`
+        );
+      }
+      break;
+    }
+    case 'boss_crab_golem': {
+      // Margin Tap: your margin utilization directly feeds the Golem's damage.
+      const tap = Math.round((marginUtil * 2.5 + (opts.wrongPause ? 0.5 : 0)) * 10) / 10;
+      res.heartDelta = -(shielded ? tap * 0.5 : tap);
+      res.logMessages.push(
+        `🦀 IRON CLAMP — MARGIN TAP! The Golem drinks your leverage: ${(marginUtil * 100).toFixed(0)}% margin = ${tap.toFixed(1)}♥ drained${shielded ? ' (ward halves it)' : ''}. Deleverage or bleed!`
+      );
+      break;
+    }
+    case 'boss_bear_phantom': {
+      // Assignment Ambush: each turn one long leg may be force-assigned unless
+      // protected by defined-risk (or an active shield).
+      const ambushChance = 0.25;
+      const protectedLegs = definedRisk.length > 0 || shielded;
+      if (!protectedLegs && positions.filter(p => p.quantity > 0).length > 0 && Math.random() < ambushChance) {
+        const longs = positions.filter(p => p.quantity > 0);
+        const victim = longs[Math.floor(Math.random() * longs.length)];
+        const loss = Math.round(victim.premium * 100 * victim.quantity * 0.6);
+        res.assignedLeg = { id: victim.id, strategy: victim.strategy, strike: victim.strike, lossFlorins: loss };
+        res.florinsDelta = -loss;
+        res.heartDelta = -0.5;
+        res.logMessages.push(
+          `🐾 ASSIGNMENT AMBUSH! Your ${victim.strategy} ${victim.strike} leg is force-assigned: -${loss}ƒ, -0.5♥. Unprotected legs get swept!`
+        );
+      } else if (!protectedLegs) {
+        res.logMessages.push(`🐾 The Bear circles your naked legs... assignment ambush looms (25%/turn). Buy defined-risk!`);
+      }
+      break;
+    }
+    case 'boss_liquidation_lord': {
+      // Forced Liquidation scales with margin utilization.
+      const liquidation = Math.round((0.5 + marginUtil * 3.0) * 10) / 10;
+      res.heartDelta = -liquidation * (hasLeverageProtection ? 0.6 : 1.0) * (shielded ? 0.5 : 1.0);
+      res.logMessages.push(
+        `💀 FORCED LIQUIDATION! Vex's scythe scales with your leverage: ${(marginUtil * 100).toFixed(0)}% margin = ${Math.abs(res.heartDelta).toFixed(1)}♥ reaped${hasLeverageProtection ? ' (Graham leverage shield blunts 40%)' : ''}. KELLY SAYS: SIZE DOWN!`
+      );
+      break;
+    }
+    default:
+      break;
+  }
+  return res;
+}
+
+/** Telegraph line shown in the fight-intro combat log. */
+export function bossSpecialMoveTelegraph(enemyId: string): string | null {
+  switch (enemyId) {
+    case 'boss_chrono_sphinx':
+      return '⏳ RULE: TEMPORAL ACCELERATION — your long options decay 2x this fight. Every flawed thesis doubles the siphon.';
+    case 'boss_hydra_vega':
+      return '🌪 RULE: IV CRUSH — naked long premium deflates EVERY turn. Defined-risk positions are immune.';
+    case 'boss_crab_golem':
+      return '🦀 RULE: MARGIN TAP — the Golem\'s damage feeds on your margin utilization. Deleverage to survive.';
+    case 'boss_bear_phantom':
+      return '🐾 RULE: ASSIGNMENT AMBUSH — each turn, one naked long leg may be force-assigned. Defined-risk protects.';
+    case 'boss_liquidation_lord':
+      return '💀 RULE: FORCED LIQUIDATION — Vex\'s damage scales with your margin utilization. Survive = size down.';
+    default:
+      return null;
+  }
+}
+
+/**
  * Enhanced combat with strategy weaknesses, path bonuses, Graham protections
  */
 export function resolveCombatAction(
