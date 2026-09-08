@@ -1509,6 +1509,7 @@ export default function App() {
         <main className="flex-1 my-1">
           {currentView === 'INTRO' && (
             <TitleScreen
+              ngPlus={player.items.includes('seal_sigil') || player.secondOracleDefeated}
               onNewGame={() => {
                 sound.playFanfare();
                 sound.startMusic('overworld');

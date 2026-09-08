@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { CombatState, PlayerStats, CombatAttackPuzzle, OptionContract } from '../types';
 import { getAttackPuzzleForTier } from '../lib/combatPuzzles';
 import { sound } from '../lib/audioEngine';
+import bossSphinxUrl from '../assets/sprites/boss_chrono_sphinx.png';
+import bossHydraUrl from '../assets/sprites/boss_iv_hydra.png';
+import bossWraithUrl from '../assets/sprites/boss_margin_wraith.png';
+import bossReaperUrl from '../assets/sprites/boss_assignment_reaper.png';
 import { Swords, Shield, Sparkles, Heart, AlertTriangle, BookOpen, CheckCircle2, Crown, Zap } from 'lucide-react';
 
 interface ZeldaCombatModalProps {
@@ -119,8 +123,20 @@ export const ZeldaCombatModal: React.FC<ZeldaCombatModalProps> = ({
                 <Zap className="w-3.5 h-3.5" /> Oracle reveals weakness! {enemy.weaknessStrategy?.join(', ')} deals +50%!
               </div>
             )}
-            <div className="h-20 flex items-center justify-center border border-red-500/20 bg-black/40 rounded-lg mt-2 text-red-400 font-cinzel text-sm">
-              {enemy.type === 'BEAR' ? '🐻 GRIZZLY BEAR PHANTOM' : enemy.type === 'HYDRA' ? '🐉 HYDRA VEGA' : enemy.type === 'REAPER' ? '👑 MARDUK VEX' : '🦀 CRAB GOLEM'}
+            <div className="h-20 flex items-center justify-center border border-red-500/20 bg-black/40 rounded-lg mt-2 overflow-hidden">
+              {(() => {
+                const bossSprite: Record<string, string> = {
+                  boss_chrono_sphinx: bossSphinxUrl,
+                  boss_hydra_vega: bossHydraUrl,
+                  boss_crab_golem: bossWraithUrl,
+                  boss_bear_phantom: bossReaperUrl,
+                  boss_liquidation_lord: bossReaperUrl,
+                };
+                const url = bossSprite[enemy.id];
+                return url
+                  ? <img src={url} alt={enemy.name} className="h-full w-auto object-contain" style={{ imageRendering: 'pixelated' }} />
+                  : <span className="text-red-400 font-cinzel text-sm">{enemy.type === 'BEAR' ? '🐻 GRIZZLY BEAR PHANTOM' : enemy.type === 'HYDRA' ? '🐉 HYDRA VEGA' : enemy.type === 'REAPER' ? '👑 MARDUK VEX' : '🦀 CRAB GOLEM'}</span>;
+              })()}
             </div>
           </div>
 

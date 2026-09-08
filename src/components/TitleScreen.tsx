@@ -1,11 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
 import titleBgUrl from '../assets/textures/title_background.jpg';
+import titleNgPlusUrl from '../assets/textures/title_ngplus.jpg';
 import { SaveSystem } from '../lib/saveSystem';
 
 interface TitleScreenProps {
   onNewGame: () => void;
   onContinue: () => void;
   onAbout: () => void;
+  /** NG+ is available (Seal Sigil earned): the title realm shows its corrupted variant. */
+  ngPlus?: boolean;
 }
 
 type MenuOption = 'NEW GAME' | 'CONTINUE' | 'ABOUT';
@@ -14,7 +17,7 @@ type MenuOption = 'NEW GAME' | 'CONTINUE' | 'ABOUT';
  * SNES-style title screen. Calm, arcade-authentic: logo, three options,
  * blinking ▶ selector. Keyboard (arrows + Enter) and mouse both work.
  */
-export function TitleScreen({ onNewGame, onContinue, onAbout }: TitleScreenProps) {
+export function TitleScreen({ onNewGame, onContinue, onAbout, ngPlus }: TitleScreenProps) {
   const [hasSave, setHasSave] = useState(false);
   const [selected, setSelected] = useState<MenuOption>('NEW GAME');
 
@@ -54,7 +57,7 @@ export function TitleScreen({ onNewGame, onContinue, onAbout }: TitleScreenProps
   return (
     <div className="relative min-h-[75vh] w-full rounded-xl overflow-hidden shadow-2xl flex flex-col items-center justify-center select-none">
       <img
-        src={titleBgUrl}
+        src={ngPlus ? titleNgPlusUrl : titleBgUrl}
         alt=""
         className="absolute inset-0 w-full h-full object-cover pointer-events-none"
         style={{ imageRendering: 'pixelated' }}

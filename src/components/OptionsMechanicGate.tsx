@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { IntelligentInvestorLesson, OptionsMechanicChallenge } from '../types';
 import { sound } from '../lib/audioEngine';
 import { X } from 'lucide-react';
+import brokerGateUrl from '../assets/sprites/broker_gate.png';
 
 interface OptionsMechanicGateProps {
   lesson: IntelligentInvestorLesson;
@@ -37,9 +38,12 @@ export const OptionsMechanicGate: React.FC<OptionsMechanicGateProps> = ({ lesson
       <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-[#0b0f14] border-2 border-amber-500/60 shadow-[0_0_40px_rgba(245,158,11,0.25)] font-mono">
         <div className="flex items-center justify-between border-b border-amber-500/30 bg-black/50 px-4 py-2">
           <span className="text-[10px] tracking-[0.3em] text-amber-400">TRADE GATE — MECHANIC SCRIBE · MCMILLAN</span>
-          <button onClick={onClose} className="text-amber-500/70 hover:text-amber-300" aria-label="Close">
-            <X className="w-4 h-4" />
-          </button>
+          <span className="flex items-center gap-2">
+            <img src={brokerGateUrl} alt="Broker gatekeeper" className="w-10 h-6 rounded border border-amber-500/40 bg-black/60 object-cover" style={{ imageRendering: 'pixelated' }} />
+            <button onClick={onClose} className="text-amber-500/70 hover:text-amber-300" aria-label="Close">
+              <X className="w-4 h-4" />
+            </button>
+          </span>
         </div>
 
         <div className="p-4 space-y-3">

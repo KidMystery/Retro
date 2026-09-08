@@ -3,6 +3,7 @@ import { sound } from '../lib/audioEngine';
 import { PatrolRoute } from '../lib/zeldaWorldData';
 import wallTexUrl from '../assets/textures/dungeon_wall.png';
 import floorTexUrl from '../assets/textures/dungeon_floor.png';
+import ceilTexUrl from '../assets/textures/dungeon_ceiling.png';
 import sageSpriteUrl from '../assets/sprites/sage.png';
 import brokerSpriteUrl from '../assets/sprites/broker.png';
 import scammerSpriteUrl from '../assets/sprites/scammer.png';
@@ -140,6 +141,7 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters
     // ===== GENERATED TEXTURES (art batch 1) =====
     let wallTex: HTMLImageElement | null = null;
     let floorTexData: ImageData | null = null;
+    let ceilTexData: ImageData | null = null;
     const spriteImgs: Record<string, HTMLImageElement> = {};
     const loadTex = (src: string, cb: (img: HTMLImageElement) => void) => {
       const img = new Image();
@@ -147,6 +149,12 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters
       img.src = src;
     };
     loadTex(wallTexUrl, (img) => { wallTex = img; });
+    loadTex(ceilTexUrl, (img) => {
+      const c = document.createElement('canvas');
+      c.width = 256; c.height = 256;
+      const cc = c.getContext('2d');
+      if (cc) { cc.drawImage(img, 0, 0); ceilTexData = cc.getImageData(0, 0, 256, 256); }
+    });
     loadTex(floorTexUrl, (img) => {
       const c = document.createElement('canvas');
       c.width = 256; c.height = 256;
@@ -163,6 +171,11 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters
     floorCanvas.width = FW; floorCanvas.height = FH;
     const floorCtx = floorCanvas.getContext('2d');
     const floorBuf = floorCtx ? floorCtx.createImageData(FW, FH) : null;
+    // Ceiling-casting buffer (art batch 2): mirrors the floor buffer above the horizon
+    const ceilCanvas = document.createElement('canvas');
+    ceilCanvas.width = FW; ceilCanvas.height = FH;
+    const ceilCtx = ceilCanvas.getContext('2d');
+    const ceilBuf = ceilCtx ? ceilCtx.createImageData(FW, FH) : null;
 
     const getTile = (mx: number, my: number) => {
       const arr = mapRef.current;
@@ -181,6 +194,35 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters
       const cg = ctx.createLinearGradient(0, 0, 0, H / 2);
       cg.addColorStop(0, COLORS.ceiling1); cg.addColorStop(1, COLORS.ceiling2);
       ctx.fillStyle = cg; ctx.fillRect(0, 0, W, H / 2);
+      // CEILING — perspective-correct textured ceiling casting (art batch 2)
+      if (ceilCtx && ceilBuf && ceilTexData) {
+        const d = ceilBuf.data, td = ceilTexData.data;
+        const rdx0 = sx - plx, rdy0 = sy - ply;
+        const rdx1 = sx + plx, rdy1 = sy + ply;
+        for (let j = 0; j < FH; j++) {
+          const p = (j + 0.5) * 2;             // screen px above horizon (mirrored)
+          const rowDist = (H * 0.5) / p;       // camera height 0.5 world units
+          let fx = pos.x + rowDist * rdx0;
+          let fy = pos.y + rowDist * rdy0;
+          const stx = rowDist * (rdx1 - rdx0) / FW;
+          const sty = rowDist * (rdy1 - rdy0) / FW;
+          const shade = Math.max(0.02, 1 - rowDist / Math.max(1.1, lightRef.current * (0.35 + 0.65 * torchRef.current))) * 0.7;
+          const rowOff = j * FW * 4;
+          for (let i = 0; i < FW; i++) {
+            const tu = (((fx - Math.floor(fx)) * 256) | 0) & 255;
+            const tv = (((fy - Math.floor(fy)) * 256) | 0) & 255;
+            const toff = (tv * 256 + tu) * 4;
+            const o = rowOff + i * 4;
+            d[o] = td[toff] * shade;
+            d[o + 1] = td[toff + 1] * shade;
+            d[o + 2] = td[toff + 2] * shade;
+            d[o + 3] = 255;
+            fx += stx; fy += sty;
+          }
+        }
+        ceilCtx.putImageData(ceilBuf, 0, 0);
+        ctx.drawImage(ceilCanvas, 0, 0, FW, FH, 0, 0, W, H / 2);
+      }
       // FLOOR — perspective-correct textured floor casting at half res
       if (floorCtx && floorBuf && floorTexData) {
         const d = floorBuf.data, td = floorTexData.data;
