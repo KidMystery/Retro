@@ -100,11 +100,66 @@ function bfsPath(start, goal) {
   await page.goto('http://localhost:4174/?debug', { waitUntil: 'networkidle' });
   await page.waitForTimeout(1200);
   await shot('00-title');
-  await clickBtn(/NEW GAME/i);
+  // Quiet title: the single CTA is START (fresh profile) / CONTINUE (save exists).
+  await clickBtn(/START|NEW GAME|CONTINUE/i);
   await page.waitForTimeout(1200);
   let v = await V();
+  if (!v || v.view !== 'MAP') { console.log(`BOOT FAIL: expected MAP after title CTA, got ${v && v.view}`); process.exit(4); }
+  if (!Array.isArray(await page.evaluate(() => window.__valhalla.player().tradeHistory))) { console.log('BOOT FAIL: tradeHistory missing'); process.exit(4); }
   await log(`boot: view=${v.view} chapter=${v.chapter} hearts=${v.hearts} florins=${v.florins} items=${(v.items || []).length}`);
   await shot('01-overworld-act1');
+
+  // ── 1b. GAME-FEEL: one-shot chest + resolved scam encounter ──
+  // Chest at (17,2): first open pays once; second open is empty feedback.
+  await page.evaluate(() => window.__valhalla.patch({ mapX: 17, mapY: 1 }));
+  await page.waitForTimeout(400);
+  const f0 = (await V()).florins;
+  await dungeonInteract();
+  await page.waitForTimeout(400);
+  const vChest1 = await V();
+  const chestPaid = vChest1.florins > f0;
+  await dungeonInteract();
+  await page.waitForTimeout(400);
+  const vChest2 = await V();
+  const chestOnce = vChest2.florins === vChest1.florins;
+  const chestsOpened = await page.evaluate(() => (window.__valhalla.player().openedChests || []).length);
+  await log(`chest one-shot: paid=${chestPaid} (+${vChest1.florins - f0}ƒ) secondEmpty=${chestOnce} openedChests=${chestsOpened}`);
+  if (!chestPaid || !chestOnce || chestsOpened !== 1) { console.log('CHEST ONE-SHOT FAIL'); process.exit(4); }
+
+  // Scam resolution: INVEST → WITHDRAW PROFITS banks the win and closes the
+  // desk; re-approach is on cooldown; REST +1 reopens it.
+  await page.evaluate(() => window.__valhalla.patch({ mapX: 14, mapY: 5 }));
+  await page.waitForTimeout(400);
+  await dungeonInteract();
+  await page.waitForTimeout(500);
+  await clickBtn(/INVEST/i);
+  await page.waitForTimeout(400);
+  await clickBtn(/WITHDRAW PROFITS/i);
+  await page.waitForTimeout(400);
+  await clickBtn(/WALK AWAY RICH/i);
+  await page.waitForTimeout(400);
+  const scamState = await page.evaluate(() => {
+    const th = window.__valhalla.player().tradeHistory || [];
+    const re = window.__valhalla.player().resolvedEncounters || {};
+    return { cashouts: th.filter(t => t.result === 'CASH_OUT').length, resolved: Object.keys(re).length };
+  });
+  await log(`scam cash-out: cashOutRecords=${scamState.cashouts} resolvedEncounters=${scamState.resolved}`);
+  if (scamState.cashouts < 1 || scamState.resolved < 1) { console.log('ENCOUNTER RESOLUTION FAIL'); process.exit(4); }
+  await dungeonInteract();
+  await page.waitForTimeout(500);
+  const reopenedEarly = await page.evaluate(() => document.body.innerText.includes('INVEST'));
+  if (reopenedEarly) { console.log('COOLDOWN FAIL: scam reopened immediately'); process.exit(4); }
+  await clickBtn(/REST \+1 DAY|REST \+1/i);
+  await page.waitForTimeout(600);
+  await clickBtn(/IGNORE/i, 0); // dismiss a day-advance noise popup if one fired
+  await page.waitForTimeout(300);
+  await dungeonInteract();
+  await page.waitForTimeout(500);
+  const reopenedNextDay = await page.evaluate(() => document.body.innerText.includes('INVEST'));
+  if (!reopenedNextDay) { console.log('COOLDOWN RESET FAIL: desk did not reopen next day'); process.exit(4); }
+  await log('scam cooldown: closed same-day, reopened after REST +1 ✓');
+  await clickBtn(/CLOSE/i, 0);
+  await page.waitForTimeout(300);
 
   // ── 2. ENTER ACT I DUNGEON via portal (overworld walk, retried for render races) ──
   await page.evaluate(() => window.__valhalla.patch({ mapX: 16, mapY: 9 }));

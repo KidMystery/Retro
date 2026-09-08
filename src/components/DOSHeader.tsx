@@ -11,8 +11,7 @@ import {
   Compass, 
   Save, 
   User, 
-  Sparkles, 
-  Heart, 
+  Sparkles,
   ChevronDown,
   Sun,
   Backpack,
@@ -270,46 +269,13 @@ export const DOSHeader: React.FC<DOSHeaderProps> = ({
           </button>
         </nav>
 
-        {/* Vital HUD - Hearts + Florins + Day - chunky readable */}
-        <div className="flex flex-wrap items-center gap-2 bg-slate-950/80 p-1.5 px-2.5 border-2 border-amber-500/30 rounded-lg shadow-inner">
-          <div className="flex items-center gap-1" title="Life Force Hearts - sound trading restores">
-            <div className={`flex items-center gap-0.5 ${player.hearts <= 1 ? 'animate-heart-pulse' : ''}`}>
-              {Array.from({ length: player.maxHearts || 4 }).map((_, idx) => {
-                const rem = player.hearts - idx;
-                const isFull = rem >= 1;
-                const isHalf = rem >= 0.4 && rem < 1;
-                return (
-                  <Heart
-                    key={idx}
-                    className={`w-4 h-4 md:w-5 md:h-5 ${
-                      isFull ? 'fill-red-500 text-red-600 drop-shadow-[0_0_4px_rgba(239,68,68,0.7)]' :
-                      isHalf ? 'fill-red-400 text-red-500 opacity-90' :
-                      'fill-slate-800 text-slate-700 opacity-40'
-                    }`}
-                  />
-                );
-              })}
-            </div>
-            <span className="font-pixel text-[10px] md:text-xs text-red-400 font-bold ml-1">
-              {player.hearts.toFixed(1)}/{player.maxHearts}
-            </span>
-          </div>
-
-          <div className="flex items-center gap-1 text-amber-300 font-bold text-sm">
-            <div className="w-3 h-4 bg-emerald-500 border border-emerald-300 rotate-45 scale-75 shadow-xs" />
-            <span>{player.florins.toLocaleString()} ƒ</span>
-          </div>
-
-          <div className="hidden md:flex items-center gap-1 text-slate-300 text-xs">
-            <span className="text-amber-200/60">PORT:</span>
-            <span className="font-bold text-slate-200">{Math.round(player.portfolioValue).toLocaleString()} ƒ</span>
-          </div>
-
+        {/* HUD DISCIPLINE: hearts/florins live in the slim strip above the game
+            world. The header keeps only the day counter next to REST. */}
+        <div className="flex items-center gap-2 bg-slate-950/80 p-1.5 px-2.5 border-2 border-amber-500/30 rounded-lg shadow-inner">
           <div className="flex items-center gap-1 text-xs">
             <span className="text-amber-200/60">DAY</span>
             <span className="font-cinzel text-xs text-sky-400 font-bold">#{player.day}</span>
           </div>
-
           <div className="hidden lg:flex items-center gap-1 text-[11px] text-slate-400">
             <span>Δ{player.netDelta.toFixed(1)}</span>
             <span className={player.netTheta >=0 ? 'text-green-400' : 'text-red-400'}>Θ{player.netTheta.toFixed(0)}</span>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { PlayerStats, OptionContract, AssetQuote } from '../types';
+import { PlayerStats, OptionContract, AssetQuote, TradeRecord } from '../types';
 import { calculateBlackScholes } from '../lib/blackScholes';
 import { sound } from '../lib/audioEngine';
 import { ShieldAlert, X, AlertTriangle, Crown } from 'lucide-react';
@@ -14,6 +14,14 @@ interface PortfolioLedgerModalProps {
   riskCategory: 'SAFE' | 'MODERATE' | 'HIGH' | 'CRITICAL';
   riskScore: number;
 }
+
+const RESULT_STYLES: Record<TradeRecord['result'], string> = {
+  OPEN: 'bg-slate-800 border-slate-600 text-slate-300',
+  WIN: 'bg-emerald-950 border-emerald-500 text-emerald-300',
+  CASH_OUT: 'bg-emerald-950 border-emerald-400 text-emerald-200',
+  LOSS: 'bg-red-950 border-red-500 text-red-300',
+  AVOIDED: 'bg-sky-950 border-sky-500 text-sky-300'
+};
 
 export const PortfolioLedgerModal: React.FC<PortfolioLedgerModalProps> = ({
   player,
@@ -111,6 +119,37 @@ export const PortfolioLedgerModal: React.FC<PortfolioLedgerModalProps> = ({
                     <div className="flex gap-1.5">
                       {row.isItm && <button onClick={() => { sound.playCoinSound(); onExercisePosition(row.id); }} className="snes-btn px-3 py-1.5 text-xs rounded-lg border-amber-400">EXERCISE</button>}
                       <button onClick={() => { sound.playCoinSound(); onClosePosition(row.id, row.currentValue); }} className="snes-btn px-3 py-1.5 text-xs rounded-lg">CLOSE {row.pnl>=0?'WIN':'LOSS'}</button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div>
+            <div className="font-cinzel text-amber-200 text-sm border-b border-amber-500/20 pb-1 mb-2 flex justify-between items-center">
+              <span>TRADE HISTORY • Decision Journal</span>
+              <span className="text-[11px] text-slate-400">most recent first • every play recorded</span>
+            </div>
+            {(player.tradeHistory || []).length === 0 ? (
+              <div className="p-4 text-center border-2 border-dashed border-slate-700 rounded-xl text-slate-500 text-xs">
+                No trades recorded yet. Every trade, scam play, and cash-out lands here — decision review IS the learning loop.
+              </div>
+            ) : (
+              <div className="space-y-1.5 max-h-64 overflow-y-auto pr-1">
+                {[...(player.tradeHistory || [])].reverse().map((rec: TradeRecord) => (
+                  <div key={rec.id} className="bg-slate-900/80 border border-slate-700 rounded-lg p-2 flex items-center justify-between gap-2 text-xs">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span className="text-slate-500 shrink-0">Day {rec.day}</span>
+                      <span className="font-bold text-slate-200 truncate">{rec.asset}</span>
+                      <span className="text-[10px] px-1.5 py-0.5 border rounded bg-slate-800 text-slate-400 shrink-0">{rec.direction}</span>
+                      <span className="text-slate-400 shrink-0">{rec.size > 0 ? `${rec.size.toLocaleString()}ƒ` : '—'}</span>
+                    </div>
+                    <div className="flex items-center gap-2 shrink-0">
+                      <span className={`text-[10px] px-1.5 py-0.5 border rounded font-bold ${RESULT_STYLES[rec.result]}`}>{rec.result}</span>
+                      <span className={`font-bold ${rec.pnl > 0 ? 'text-emerald-400' : rec.pnl < 0 ? 'text-red-400' : 'text-slate-400'}`}>
+                        {rec.pnl > 0 ? '+' : ''}{Math.round(rec.pnl).toLocaleString()}ƒ
+                      </span>
                     </div>
                   </div>
                 ))}

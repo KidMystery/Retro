@@ -9,6 +9,8 @@ interface RugPullLessonModalProps {
   player: PlayerStats;
   onFallForScam: () => void;
   onRejectScam: () => void;
+  /** ENCOUNTER RESOLUTION: bank the early-win winnings and end the encounter. */
+  onCashOut: () => void;
   onClose: () => void;
 }
 
@@ -19,8 +21,8 @@ interface RugPullLessonModalProps {
  * print. Some scams even pay out early before rugging — that is how real
  * victims are made. Only AFTER the rug does the UI turn red.
  */
-export const RugPullLessonModal: React.FC<RugPullLessonModalProps> = ({ scam, player, onFallForScam, onRejectScam, onClose }) => {
-  const [phase, setPhase] = useState<'PITCH' | 'EARLY_WIN' | 'RUG_PULLED' | 'REJECTED'>('PITCH');
+export const RugPullLessonModal: React.FC<RugPullLessonModalProps> = ({ scam, player, onFallForScam, onRejectScam, onCashOut, onClose }) => {
+  const [phase, setPhase] = useState<'PITCH' | 'EARLY_WIN' | 'RUG_PULLED' | 'REJECTED' | 'CASHED_OUT'>('PITCH');
 
   const handleDeposit = () => {
     sound.playSecretChime();
@@ -37,6 +39,14 @@ export const RugPullLessonModal: React.FC<RugPullLessonModalProps> = ({ scam, pl
     onFallForScam();
   };
 
+  const handleCashOut = () => {
+    // ENCOUNTER RESOLUTION: winnings are banked (App records the trade and
+    // closes the desk). This modal shows the completion moment.
+    sound.playFanfare();
+    setPhase('CASHED_OUT');
+    onCashOut();
+  };
+
   const handleReject = () => {
     sound.playSecretChime();
     setPhase('REJECTED');
@@ -51,13 +61,13 @@ export const RugPullLessonModal: React.FC<RugPullLessonModalProps> = ({ scam, pl
   return (
     <div className="fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-3 backdrop-blur-sm">
       <div className={`zelda-panel w-full max-w-2xl p-4 max-h-[92vh] overflow-y-auto rounded-xl shadow-2xl border-2 ${
-        phase === 'RUG_PULLED' ? 'border-red-500 bg-[#1a0a0a]' : phase === 'REJECTED' ? 'border-emerald-500 bg-[#0a1a0a]' : 'border-purple-500 bg-[#100818]'
+        phase === 'RUG_PULLED' ? 'border-red-500 bg-[#1a0a0a]' : phase === 'REJECTED' || phase === 'CASHED_OUT' ? 'border-emerald-500 bg-[#0a1a0a]' : 'border-purple-500 bg-[#100818]'
       }`}>
         <div className="flex items-center justify-between border-b-2 border-current/30 pb-2 mb-3">
           <div className="flex items-center gap-2">
-            {phase === 'RUG_PULLED' ? <Flame className="w-5 h-5 text-red-500 animate-pulse" /> : phase === 'REJECTED' ? <Crown className="w-5 h-5 text-emerald-400" /> : <Coins className="w-5 h-5 text-amber-300" />}
+            {phase === 'RUG_PULLED' ? <Flame className="w-5 h-5 text-red-500 animate-pulse" /> : phase === 'REJECTED' || phase === 'CASHED_OUT' ? <Crown className="w-5 h-5 text-emerald-400" /> : <Coins className="w-5 h-5 text-amber-300" />}
             <div>
-              <h2 className="font-cinzel text-base font-bold">{phase === 'RUG_PULLED' ? 'CATASTROPHIC RUG PULL!' : phase === 'EARLY_WIN' ? 'POSITION UP BIG!' : scam.title}</h2>
+              <h2 className="font-cinzel text-base font-bold">{phase === 'RUG_PULLED' ? 'CATASTROPHIC RUG PULL!' : phase === 'EARLY_WIN' ? 'POSITION UP BIG!' : phase === 'CASHED_OUT' ? 'WINNINGS BANKED — ENCOUNTER RESOLVED' : scam.title}</h2>
               <p className="text-[11px] opacity-70">{scam.shillerName} • {scam.shillerTitle} • Path {player.currentPath} • Bond {player.oracleBondLevel?.toFixed(1)}/5</p>
             </div>
           </div>
@@ -118,18 +128,31 @@ export const RugPullLessonModal: React.FC<RugPullLessonModalProps> = ({ scam, pl
               <p className="leading-relaxed text-sm mb-2">{scam.earlyWin.storyText}</p>
               <div className="text-xs text-emerald-300/80">Balance shown on screen: {scam.costFlorins + scam.earlyWin.florinsGained}ƒ</div>
             </div>
-            {/* Both exits rug — but neither is colored as a trap. */}
+            {/* The trap: compounding rugs. WITHDRAW PROFITS actually banks the win and resolves the encounter. */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <button onClick={rugIt} className="p-3 border-2 border-amber-500 bg-gradient-to-b from-amber-900/60 to-amber-950/60 hover:from-amber-800/70 text-amber-100 font-bold rounded-xl flex flex-col gap-1 cursor-pointer">
                 <span className="flex items-center gap-1.5"><Flame className="w-4 h-4 text-amber-400" /> COMPOUND • Reinvest All</span>
                 <span className="text-[11px] opacity-80">"Whales are entering. Don't get left behind."</span>
               </button>
-              <button onClick={rugIt} className="p-3 border-2 border-emerald-500 bg-emerald-950/40 hover:bg-emerald-900/50 text-emerald-100 font-bold rounded-xl flex flex-col gap-1 cursor-pointer">
+              <button onClick={handleCashOut} className="p-3 border-2 border-emerald-500 bg-emerald-950/40 hover:bg-emerald-900/50 text-emerald-100 font-bold rounded-xl flex flex-col gap-1 cursor-pointer">
                 <span className="flex items-center gap-1.5"><Coins className="w-4 h-4" /> WITHDRAW PROFITS</span>
-                <span className="text-[11px] opacity-80">Take the win. Cash out {scam.costFlorins + scam.earlyWin.florinsGained}ƒ.</span>
+                <span className="text-[11px] opacity-80">Take the win. Bank {scam.earlyWin.florinsGained}ƒ and end the encounter.</span>
               </button>
             </div>
             <div className="text-[9.5px] text-slate-500/80 border-t border-slate-800 pt-1">Withdrawals process in the order received. Epoch queue position: 41,208.</div>
+          </div>
+        )}
+
+        {phase === 'CASHED_OUT' && scam.earlyWin && (
+          <div className="space-y-3">
+            {/* ENCOUNTER RESOLUTION — the clear completion moment. */}
+            <div className="bg-black/70 border-2 border-emerald-400 p-4 rounded-xl text-emerald-200 text-center space-y-2">
+              <Crown className="w-8 h-8 text-emerald-400 mx-auto" />
+              <div className="font-cinzel font-bold text-lg text-emerald-300">+{scam.earlyWin.florinsGained}ƒ BANKED</div>
+              <p className="text-sm leading-relaxed">The florins clear into your vault. You got out <span className="text-amber-300">before</span> the rug — most never do.</p>
+              <div className="text-xs text-slate-400 border-t border-emerald-500/20 pt-2">Encounter resolved • {scam.shillerName} packs up the desk until a later day • Logged in your Ledger</div>
+            </div>
+            <button onClick={onClose} className="snes-btn-primary w-full py-2.5 bg-emerald-600 text-black rounded-xl">WALK AWAY RICH • Resolved</button>
           </div>
         )}
 

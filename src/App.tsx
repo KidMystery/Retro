@@ -19,7 +19,8 @@ import {
   TradeFailReason,
   FailedTradeRecord,
   PlayerPath,
-  EnemyStats
+  EnemyStats,
+  TradeRecord
 } from './types';
 import { REALM_MAPS, BOSS_ENEMIES, STORY_QUESTS } from './lib/questData';
 import { ZELDA_MAPS, ZeldaEntity, DUNGEONS } from './lib/zeldaWorldData';
@@ -151,6 +152,9 @@ export default function App() {
     survivedCrash: false,
     items: [],
     chartInsightDays: 0,
+    openedChests: [],
+    resolvedEncounters: {},
+    tradeHistory: [],
   });
 
   const [positions, setPositions] = useState<OptionContract[]>([]);
@@ -603,9 +607,29 @@ export default function App() {
     }
   }, [portfolioAnalysis.totalEquity, player.peakEquity, player.maxDrawdownPct, player.flawlessTradesStreak, player.sanctuaryLessonsCompleted, player.heldThroughNoise, player.survivedCrash, earnedBadgeIds]);
 
+  // GAME-FEEL (trade history): every trade/play — opened, closed, scammed,
+  // cashed out, or declined — lands in this journal. Persisted with the save;
+  // reviewed most-recent-first in the Portfolio Ledger.
+  const pushTrade = (rec: Omit<TradeRecord, 'id' | 'day'>) => {
+    setPlayer(prev => ({
+      ...prev,
+      tradeHistory: [
+        ...(prev.tradeHistory || []),
+        { ...rec, id: `tr_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`, day: prev.day }
+      ].slice(-200)
+    }));
+  };
+
   const handleExecuteTrade = (contract: OptionContract, netCost: number, marginReq: number) => {
     sound.playCoinSound();
     setPositions(prev => [...prev, contract]);
+    pushTrade({
+      asset: contract.strategy,
+      direction: contract.quantity < 0 ? 'SHORT' : 'LONG',
+      size: Math.abs(Math.round(netCost)),
+      result: 'OPEN',
+      pnl: 0
+    });
     const tradePositionPct = (contract.premium * 100 * Math.abs(contract.quantity)) / Math.max(1, player.portfolioValue);
 
     setPlayer(prev => {
@@ -688,6 +712,13 @@ export default function App() {
     if (!pos) return;
     const entryCost = pos.entryPrice * 100 * Math.abs(pos.quantity);
     const pnl = currentMarketValue - entryCost;
+    pushTrade({
+      asset: pos.strategy,
+      direction: pos.quantity < 0 ? 'SHORT' : 'LONG',
+      size: Math.round(entryCost),
+      result: pnl >= 0 ? 'WIN' : 'LOSS',
+      pnl: Math.round(pnl)
+    });
     sayWren({ kind: 'tradeClosed', pnl: Math.round(pnl), strategy: pos.strategy });
     const isLoss = pnl < -entryCost * 0.2;
     const isBigWin = currentMarketValue >= entryCost * 1.5;
@@ -770,6 +801,13 @@ export default function App() {
     let netGain = 0;
     if (pos.type === 'CALL') netGain = Math.max(0, spot - pos.strike) * 100 * pos.quantity;
     else netGain = Math.max(0, pos.strike - spot) * 100 * pos.quantity;
+    pushTrade({
+      asset: pos.strategy,
+      direction: pos.quantity < 0 ? 'SHORT' : 'LONG',
+      size: Math.round(pos.entryPrice * 100 * Math.abs(pos.quantity)),
+      result: netGain > 0 ? 'CASH_OUT' : 'WIN',
+      pnl: Math.round(netGain - pos.entryPrice * 100 * pos.quantity)
+    });
 
     sound.playCoinSound();
     setPositions(prev => prev.filter(p => p.id !== positionId));
@@ -1166,14 +1204,32 @@ export default function App() {
       // before the Trade Desk opens. Wrong pick costs hearts+florins and pulls the Sanctuary.
       setMechanicGate({ lessonId: getTradeMechanicGate(player.day).challenge.tiedLessonId });
     } else if (entity.type === 'NPC_SCAMMER') {
+      // GAME-FEEL (encounter resolution): once a scam resolves — you fell, you
+      // refused, or you cashed out — the shiller's desk closes. Cooldown lasts
+      // until the next in-game day (day advances reset the encounter).
+      const scamId = entity.targetId || 'ponzi_farm';
+      const resolvedDay = (player.resolvedEncounters || {})[scamId];
+      if (resolvedDay !== undefined && player.day <= resolvedDay) {
+        sound.playKeyClick();
+        setTerminalLog(prev => [...prev.slice(-10), `📦 ${entity.name} has packed up the desk — that deal is done. They'll set up again on a later day.`]);
+        return;
+      }
       sound.playAlarmSound();
-      const scam = SCAM_ENCOUNTERS[entity.targetId || 'ponzi_farm'] || SCAM_ENCOUNTERS['ponzi_farm'];
+      const scam = SCAM_ENCOUNTERS[scamId] || SCAM_ENCOUNTERS['ponzi_farm'];
       setActiveScamEncounter(scam);
     } else if (entity.type === 'NPC_ASSET') {
       sound.playSecretChime();
       const asset = UNDERVALUED_ASSETS[entity.targetId || 'silver_mine'] || UNDERVALUED_ASSETS['silver_mine'];
       setActiveUndervaluedAsset(asset);
     } else if (entity.type === 'CHEST') {
+      // GAME-FEEL (one-shot chests): a chest pays ONCE per save. Keyed by
+      // act + entity id + tile coords so regen'd layouts can't collide.
+      const chestKey = `${player.chapter}:${entity.id}:${Math.round(entity.x)},${Math.round(entity.y)}`;
+      if ((player.openedChests || []).includes(chestKey)) {
+        sound.playKeyClick();
+        setTerminalLog(prev => [...prev.slice(-10), `📦 The chest is empty — already looted. Only dust and a faint scent of florins remain.`]);
+        return;
+      }
       sound.playCoinSound();
       const rewardFlorins = 400 + player.chapter * 180;
       const relicChance = Math.random() > 0.6 ? ['Silver Vein Compass'] : [];
@@ -1190,6 +1246,7 @@ export default function App() {
       }
       setPlayer(prev => ({
         ...prev,
+        openedChests: [...(prev.openedChests || []), chestKey],
         florins: prev.florins + rewardFlorins,
         hearts: Math.min(prev.maxHearts, prev.hearts + 1.0),
         hp: Math.round(Math.min(prev.maxHearts, prev.hearts + 1.0) * 25),
@@ -1288,10 +1345,16 @@ export default function App() {
         scamsFallen: [...prev.scamsFallen, scam.id],
         failedTrades: [...prev.failedTrades, failRec],
         failedTradesCount: prev.failedTradesCount + 1,
-        flawlessTradesStreak: 0
+        flawlessTradesStreak: 0,
+        // ENCOUNTER RESOLUTION: the rug pull ends the encounter — desk closes.
+        resolvedEncounters: { ...(prev.resolvedEncounters || {}), [scam.id]: prev.day },
+        tradeHistory: [
+          ...(prev.tradeHistory || []),
+          { id: `tr_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`, day: prev.day, asset: scam.title, direction: 'PLAY', size: lostFlorins, result: 'LOSS', pnl: -lostFlorins } as TradeRecord
+        ].slice(-200)
       };
     });
-    setTerminalLog(prev => [...prev.slice(-10), `🚨 RUG PULL: Fell for ${scam.title}! -${scam.temptationOutcome.heartsLost}♥ -${scam.costFlorins}ƒ • Fail->Graham loop: ${scam.temptationOutcome.lessonId}`]);
+    setTerminalLog(prev => [...prev.slice(-10), `🚨 RUG PULL: Fell for ${scam.title}! -${scam.temptationOutcome.heartsLost}♥ -${scam.costFlorins}ƒ • Encounter resolved — desk closed until a later day • Fail->Graham loop: ${scam.temptationOutcome.lessonId}`]);
     sayWren({ kind: 'scamFell', title: scam.title });
     if (!player.grahamProtections.includes(activeScamEncounter.temptationOutcome.lessonId)) {
       setSanctuaryReason(activeScamEncounter.temptationOutcome.failReason);
@@ -1321,10 +1384,40 @@ export default function App() {
         currentPath: path,
         grahamProtections: newProtections,
         oracleBondLevel: Math.min(5, prev.oracleBondLevel + 0.15),
-        positionSizeDiscipline: Math.min(100, prev.positionSizeDiscipline + 3)
+        positionSizeDiscipline: Math.min(100, prev.positionSizeDiscipline + 3),
+        // ENCOUNTER RESOLUTION: walking away ends the encounter — desk closes.
+        resolvedEncounters: { ...(prev.resolvedEncounters || {}), [scam.id]: prev.day },
+        tradeHistory: [
+          ...(prev.tradeHistory || []),
+          { id: `tr_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`, day: prev.day, asset: scam.title, direction: 'AVOID', size: 0, result: 'AVOIDED', pnl: scam.rejectionOutcome.rewardFlorins } as TradeRecord
+        ].slice(-200)
       };
     });
-    setTerminalLog(prev => [...prev.slice(-10), `✅ DISCIPLINED: Exposed ${scam.title}! +${scam.rejectionOutcome.rewardFlorins}ƒ • ${scam.rejectionOutcome.rewardWisdom} • Protection ${scam.rejectionOutcome.protectionGranted || 'none'}`]);
+    setTerminalLog(prev => [...prev.slice(-10), `✅ DISCIPLINED: Exposed ${scam.title}! +${scam.rejectionOutcome.rewardFlorins}ƒ • Encounter resolved — desk closed until a later day • ${scam.rejectionOutcome.rewardWisdom}`]);
+    sayWren({ kind: 'scamRejected', title: scam.title });
+  };
+
+  // GAME-FEEL (encounter resolution): cashing out during the early-win window
+  // BANKS the winnings — a real resolved win with a completion moment. The
+  // shiller's desk closes (cooldown) so the win can't be re-rolled.
+  const handleCashOutScam = () => {
+    if (!activeScamEncounter || !activeScamEncounter.earlyWin) return;
+    const scam = activeScamEncounter;
+    const banked = scam.earlyWin.florinsGained;
+    sound.playFanfare();
+    setPlayer(prev => ({
+      ...prev,
+      florins: prev.florins + banked,
+      successfulTradesCount: prev.successfulTradesCount + 1,
+      flawlessTradesStreak: prev.flawlessTradesStreak + 1,
+      oracleBondLevel: Math.min(5, prev.oracleBondLevel + 0.1),
+      resolvedEncounters: { ...(prev.resolvedEncounters || {}), [scam.id]: prev.day },
+      tradeHistory: [
+        ...(prev.tradeHistory || []),
+        { id: `tr_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`, day: prev.day, asset: scam.title, direction: 'PLAY', size: scam.costFlorins, result: 'CASH_OUT', pnl: banked } as TradeRecord
+      ].slice(-200)
+    }));
+    setTerminalLog(prev => [...prev.slice(-10), `💰 WINNINGS BANKED: +${banked}ƒ withdrawn from ${scam.title} and sent to your vault. Encounter resolved — you got out before the rug. The desk closes.`]);
     sayWren({ kind: 'scamRejected', title: scam.title });
   };
 
@@ -1412,6 +1505,11 @@ export default function App() {
       survivedCrash: false,
       ngPlus: startNGPlus,
       secondOracleDefeated: false,
+      // Game-feel state resets with the cycle: chests refill, desks reopen,
+      // the decision journal starts a fresh page.
+      openedChests: [],
+      resolvedEncounters: {},
+      tradeHistory: [],
       // Items persist through the Second Cycle (they were earned once).
       items: startNGPlus ? player.items : []
     });
@@ -1887,6 +1985,7 @@ export default function App() {
             player={player}
             onFallForScam={handleFallForScam}
             onRejectScam={handleRejectScam}
+            onCashOut={handleCashOutScam}
             onClose={() => setActiveScamEncounter(null)}
           />
         )}

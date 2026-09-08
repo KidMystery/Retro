@@ -227,7 +227,23 @@ export interface PlayerStats {
   // Soul pass: chart-shrine rewards feed the trade desk. Correct chart reads
   // grant `chartInsightDays` market days of ORACLE FORESIGHT (next-tape reveal).
   chartInsightDays?: number;
+  // GAME-FEEL REWORK: one-shot chests (key = act:entityId:x,y), resolved
+  // encounters (scamId → day resolved; NPC on cooldown until a later day),
+  // and the full decision journal surfaced in the Portfolio Ledger.
+  openedChests?: string[];
+  resolvedEncounters?: Record<string, number>;
+  tradeHistory?: TradeRecord[];
+}
 
+/** One recorded trade/play: opened or resolved, win or loss. Most recent last. */
+export interface TradeRecord {
+  id: string;
+  day: number;
+  asset: string;                                   // what was played (scam title, strategy name, event)
+  direction: 'LONG' | 'SHORT' | 'PLAY' | 'AVOID';  // market direction or meta-play
+  size: number;                                    // florins staked (0 for avoided)
+  result: 'OPEN' | 'WIN' | 'LOSS' | 'CASH_OUT' | 'AVOIDED';
+  pnl: number;                                     // realized P/L in florins at record time
 }
 
 export interface EnemyStats {
