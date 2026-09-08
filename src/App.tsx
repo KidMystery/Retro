@@ -150,6 +150,7 @@ export default function App() {
     heldThroughNoise: false,
     survivedCrash: false,
     items: [],
+    chartInsightDays: 0,
   });
 
   const [positions, setPositions] = useState<OptionContract[]>([]);
@@ -184,6 +185,8 @@ export default function App() {
   // ACT VERB: Act V gauntlet — bosses 1-4 rematch in sequence before Vex.
   const [gauntletProgress, setGauntletProgress] = useState(0);
   const gauntletRoundRef = useRef(0);
+  // Soul pass: pre-rolled next-day drift for ORACLE FORESIGHT (chart-shrine buff).
+  const pendingDriftRef = useRef<number | null>(null);
   const GAUNTLET_BOSSES = ['Grizzly Bear of Drawdowns', 'The Chrono-Sphinx', 'Crab Golem of Sideways Range', 'Hydra of Implied Vega'];
   // ── Wiring 2: margin danger meter + warnings ──
   const [marginWarning, setMarginWarning] = useState<MarginEvent | null>(null);
@@ -501,7 +504,11 @@ export default function App() {
     });
 
     setPositions(updatedPositions);
-    const randomDrift = (Math.random() - 0.48) * 0.035;
+    // Soul pass: ORACLE FORESIGHT. Tomorrow's drift is pre-rolled each day;
+    // while chartInsightDays > 0 the Trade Desk reveals it before you trade.
+    const rolledDrift = pendingDriftRef.current ?? (Math.random() - 0.48) * 0.035;
+    const randomDrift = rolledDrift;
+    pendingDriftRef.current = (Math.random() - 0.48) * 0.035;
     const newSpot = Math.max(10, Number((spot * (1 + randomDrift)).toFixed(2)));
     const randomIvDrift = (Math.random() - 0.5) * 0.02;
     // NG+ bear regime: IV floor DOUBLED — volatility spikes are the weather now.
@@ -519,6 +526,8 @@ export default function App() {
       const restoredHearts = Math.min(prev.maxHearts, prev.hearts + 0.5);
       const restoredMana = Math.min(prev.maxMana, prev.mana + 15);
       const newFlorins = prev.florins + expiredSettlementFlorins;
+      // Oracle Foresight window burns down one market day at a time.
+      const insightDays = Math.max(0, (prev.chartInsightDays || 0) - 1);
       const marginUtil = prev.marginLimit > 0 ? prev.marginUsed / prev.marginLimit : 0;
       let heartPenalty = 0;
       let failReason: TradeFailReason | null = null;
@@ -549,6 +558,7 @@ export default function App() {
         florins: newFlorins,
         failedTrades: [...prev.failedTrades, ...failedTradesThisDay],
         failedTradesCount: prev.failedTradesCount + failedTradesThisDay.length,
+        chartInsightDays: insightDays,
         oracleBondLevel: Math.min(5, prev.oracleBondLevel + (failedTradesThisDay.length === 0 ? 0.1 : 0))
       };
     });
@@ -1130,11 +1140,14 @@ export default function App() {
       setPlayer(prev => ({
         ...prev,
         florins: prev.florins + 400,
+        chartInsightDays: 3,
         grahamProtections: prev.grahamProtections.includes(puzzle.protectionId as any)
           ? prev.grahamProtections
           : [...prev.grahamProtections, puzzle.protectionId as any]
       }));
-      setTerminalLog(prev => [...prev.slice(-10), `🕯 CHART ROOM SOLVED: ${puzzle.pattern} read correctly! +400ƒ • ${puzzle.explanation}`]);
+      // Pre-roll tomorrow's tape so the Trade Desk can reveal it (foresight window).
+      if (pendingDriftRef.current === null) pendingDriftRef.current = (Math.random() - 0.48) * 0.035;
+      setTerminalLog(prev => [...prev.slice(-10), `🕯 CHART ROOM SOLVED: ${puzzle.pattern} read correctly! +400ƒ • ORACLE FORESIGHT 3 market days — the Trade Desk reveals the next tape • ${puzzle.explanation}`]);
     } else {
       sound.playAlarmSound();
       setTerminalLog(prev => [...prev.slice(-10), `🕯 CHART ROOM FAILED: ${puzzle.trap} • Sanctuary lesson: ${puzzle.lesson}`]);
@@ -1690,6 +1703,11 @@ export default function App() {
               asset={assetQuote}
               spreadWiden={player.ngPlus ? 1.15 : 1}
               items={player.items}
+              foresight={
+                (player.chartInsightDays || 0) > 0 && pendingDriftRef.current !== null
+                  ? { drift: pendingDriftRef.current, days: player.chartInsightDays || 0 }
+                  : undefined
+              }
               onExecuteTrade={handleExecuteTrade}
               onClose={() => { setActiveModal(null); setCurrentView('MAP'); }}
             />
@@ -1928,6 +1946,11 @@ export default function App() {
             asset={assetQuote}
             spreadWiden={player.ngPlus ? 1.15 : 1}
             items={player.items}
+            foresight={
+              (player.chartInsightDays || 0) > 0 && pendingDriftRef.current !== null
+                ? { drift: pendingDriftRef.current, days: player.chartInsightDays || 0 }
+                : undefined
+            }
             onExecuteTrade={handleExecuteTrade}
             onClose={() => setActiveModal(null)}
           />

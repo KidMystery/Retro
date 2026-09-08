@@ -224,6 +224,9 @@ export interface PlayerStats {
   ngPlus?: boolean; // bear regime: doubled IV floor, wider spreads, 2 starting hearts
   secondOracleDefeated?: boolean; // mirror-self boss conquered in NG+
   items?: string[]; // Item chain (itemsData.ts) — curriculum boss drops
+  // Soul pass: chart-shrine rewards feed the trade desk. Correct chart reads
+  // grant `chartInsightDays` market days of ORACLE FORESIGHT (next-tape reveal).
+  chartInsightDays?: number;
 
 }
 

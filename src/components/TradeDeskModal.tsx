@@ -13,6 +13,8 @@ interface TradeDeskModalProps {
   spreadWiden?: number;
   /** Owned item-chain ids (itemsData.ts) — gate LEAPS/straddles, show lens + Kelly meter. */
   items?: string[];
+  /** Soul pass ORACLE FORESIGHT: chart-shrine buff reveals the pre-rolled next tape. */
+  foresight?: { drift: number; days: number };
 }
 
 // Strategy metadata with Olmstead chapter progression + fantasy lore
@@ -124,7 +126,8 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
   onExecuteTrade,
   onClose,
   spreadWiden = 1,
-  items = []
+  items = [],
+  foresight
 }) => {
   const [strategy, setStrategy] = useState<StrategyType>('LONG_CALL');
   const [strikeOffset, setStrikeOffset] = useState<number>(0);
@@ -456,6 +459,19 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
             <div className="mt-1 text-[11px] text-slate-400 italic line-clamp-2">
               {asset.lore} • Oracle Bond reveals true worth beneath Mr. Market's mood swings.
             </div>
+            {/* Soul pass ORACLE FORESIGHT: chart-shrine buff — the next tape is REVEALED. */}
+            {foresight && (() => {
+              const bull = foresight.drift >= 0;
+              return (
+                <div className="mt-2 flex flex-wrap items-center gap-2 px-2 py-1.5 rounded bg-gradient-to-r from-indigo-950 to-purple-950 border border-amber-600/40">
+                  <span className="oracle-rune-glow text-xs text-amber-300 font-bold">🔮 ORACLE FORESIGHT</span>
+                  <span className={`text-xs font-bold ${bull ? 'text-green-300' : 'text-red-300'}`}>
+                    NEXT TAPE: {bull ? '▲ BULLISH' : '▼ BEARISH'} ({bull ? '+' : ''}{(foresight.drift * 100).toFixed(1)}%)
+                  </span>
+                  <span className="text-[11px] text-purple-300">revealed by the chart shrines • {foresight.days} market {foresight.days === 1 ? 'day' : 'days'} of insight remain</span>
+                </div>
+              );
+            })()}
             {/* 🔍 VALUE LENS item: intrinsic value band */}
             {hasLens && (
               <div className="mt-2 p-2 bg-black/40 border border-emerald-500/30 rounded-lg text-[11px] flex flex-wrap items-center gap-x-3 gap-y-1">
