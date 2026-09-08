@@ -434,6 +434,55 @@
   }
 }
 
+/* ==================== MOBILE PASS (LUNA NIGHT SHIFT) ====================
+ * Targets ≥44px touch, no horizontal overflow at 390px (iPhone SE), body
+ * text ≥14px on mobile. Scoped under max-width:768px so desktop is untouched.
+ */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+  }
+  /* Touch targets: every real button gets at least 44x44 */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  /* Modals sized for 390px — never wider than the viewport */
+  .oracle-bottom-sheet,
+  .zelda-panel {
+    max-width: calc(100vw - 16px) !important;
+    overflow-x: hidden;
+  }
+  .oracle-bottom-sheet > div,
+  .zelda-panel > div {
+    max-width: 100%;
+    min-width: 0;
+  }
+  /* Kill over-wide fixed paddings that push past 390px */
+  .oracle-bottom-sheet,
+  .zelda-panel {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  /* Minimum readable font on mobile — lift tiny utility sizes to 14px.
+     (Attribute selectors hit Tailwind arbitrary values + text-xs.) */
+  [class*="text-[9px]"],
+  [class*="text-[10px]"],
+  [class*="text-[11px]"],
+  .text-xs,
+  .text-\[10px\] {
+    font-size: 14px !important;
+  }
+  .text-\[11px\] {
+    font-size: 14px !important;
+  }
+  /* Fixed action bars stay within thumb reach without side overflow */
+  .fixed.bottom-3.left-3.right-3 {
+    left: 8px;
+    right: 8px;
+  }
+}
+
 /* ==================== PATH INDICATORS ==================== */
 .path-trader {
   border-color: #ef4444;

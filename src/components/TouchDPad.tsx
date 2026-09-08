@@ -18,7 +18,7 @@ export const TouchDPad: React.FC<TouchDPadProps> = ({ onMove, onAction, onSecond
     <div className="fixed bottom-3 left-3 right-3 z-40 flex items-end justify-between pointer-events-none md:hidden">
       {/* D-Pad */}
       <div className="pointer-events-auto bg-slate-950/85 backdrop-blur-md border-2 border-amber-500/40 rounded-2xl p-2 shadow-2xl">
-        <div className="grid grid-cols-3 gap-1.5 w-32 h-32">
+        <div className="grid grid-cols-3 gap-1 w-44 h-44">
           <div />
           <button
             onTouchStart={(e)=>{ e.preventDefault(); handleTouch('UP'); }}
@@ -58,7 +58,7 @@ export const TouchDPad: React.FC<TouchDPadProps> = ({ onMove, onAction, onSecond
           <button
             onTouchStart={(e)=>{ e.preventDefault(); onSecondary(); }}
             onMouseDown={onSecondary}
-            className="w-14 h-14 bg-slate-900/90 border-2 border-emerald-500/50 rounded-full flex items-center justify-center shadow-xl active:scale-95 active:bg-emerald-500 active:text-black backdrop-blur-md"
+            className="w-16 h-16 bg-slate-900/90 border-2 border-emerald-500/50 rounded-full flex items-center justify-center shadow-xl active:scale-95 active:bg-emerald-500 active:text-black backdrop-blur-md"
             aria-label="Interact"
           ><Sparkles className="w-6 h-6 text-emerald-300" /></button>
         )}
