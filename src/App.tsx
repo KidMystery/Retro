@@ -33,7 +33,8 @@ import {
   getScaledEnemyStats,
   resolveCombatAction,
   enforceBossSpecialMove,
-  bossSpecialMoveTelegraph
+  bossSpecialMoveTelegraph,
+  greekMarketIdleTalk
 } from './lib/combatEngine';
 
 import { DOSHeader } from './components/DOSHeader';
@@ -1144,7 +1145,8 @@ export default function App() {
   const handleInteractEntity = (entity: ZeldaEntity) => {
     if (entity.type === 'NPC_SAGE') {
       sound.playSecretChime();
-      setNpcDialogue({ name: entity.name, lines: entity.dialogue || ['"Margin of Safety, apprentice."'], lore: entity.lore, portrait: sageSpriteUrl });
+      // Overworld reacts to positions: the sage quotes your ACTUAL greeks.
+      setNpcDialogue({ name: entity.name, lines: [...(entity.dialogue || ['"Margin of Safety, apprentice."']), greekMarketIdleTalk(player, positions)], lore: entity.lore, portrait: sageSpriteUrl });
     } else if (entity.type === 'NPC_BROKER') {
       sound.playCommandBeep();
       // McMillan mechanic gate first: read the mechanic beat + answer a real options MCQ
@@ -1542,6 +1544,28 @@ export default function App() {
 
           {currentView === 'DUNGEON' && (() => {
             const dun = DUNGEONS[player.chapter] || DUNGEONS[1];
+            // PHASE 2b: patrol scammers hunt harder as your risk score climbs.
+            const riskScore = riskInfo.riskScore;
+            const speedMult = 1 + riskScore / 200; // 1.0x SAFE → ~1.5x CRITICAL
+            const basePatrols = dun.patrols || [];
+            const scaledPatrols = basePatrols.map(p => ({
+              ...p,
+              speed: Number((p.speed * speedMult).toFixed(2)),
+              prompt: riskScore >= 45 ? `${p.prompt} (your risk score ${riskScore} put him on alert!)` : p.prompt
+            }));
+            if (riskScore >= 50 && basePatrols.length > 0) {
+              const p = basePatrols[0];
+              scaledPatrols.push({
+                ...p,
+                id: `${p.id}_shadow`,
+                name: `Shadow Chaser (summoned by risk ${riskScore})`,
+                speed: Number((p.speed * speedMult * 1.15).toFixed(2)),
+                waypoints: [...p.waypoints].reverse()
+              });
+            }
+            // PHASE 2c: theta is everywhere — long options burn the torch faster.
+            const holdsLongOptions = positions.some(p => p.quantity > 0 && ['LONG_CALL', 'LONG_PUT', 'LONG_STRADDLE'].includes(p.strategy));
+            const torchDrain = (dun.torchDrainPerSec || 0) * (holdsLongOptions ? 1.35 : 1);
             return (
               <>
                 <DungeonView
@@ -1549,8 +1573,8 @@ export default function App() {
                   spawn={dun.playerSpawn}
                   actLabel={dun.actLabel}
                   lightRadius={dun.lightRadius}
-                  torchDrainPerSec={dun.torchDrainPerSec}
-                  patrols={dun.patrols}
+                  torchDrainPerSec={torchDrain}
+                  patrols={scaledPatrols}
                   gatesOpen={spreadLegsPlaced.length >= 2}
                   onPatrolCaught={(pid) => {
                     // ACT VERB (Act III): getting SEEN by a patrolling scammer forces a bad trade.

@@ -287,6 +287,32 @@ export function enforceBossSpecialMove(
   return res;
 }
 
+/**
+ * OVERWORLD REACTS TO POSITIONS — town NPC idle talk quotes the player's
+ * ACTUAL greeks/positions. One dynamic line appended to sage dialogue.
+ */
+export function greekMarketIdleTalk(player: PlayerStats, positions: OptionContract[]): string {
+  if (positions.length === 0) {
+    return '"Empty book, friend. No greeks, no grief — but no income either. Even an empty ledger is a position."';
+  }
+  const marginUtil = player.marginLimit > 0 ? player.marginUsed / player.marginLimit : 0;
+  const d = player.netDelta, t = player.netTheta, v = player.netVega;
+  const greekBits = `Δ ${d >= 0 ? '+' : ''}${d.toFixed(2)}, Θ ${t >= 0 ? '+' : ''}${t.toFixed(1)}ƒ/day, ν ${v.toFixed(2)}, ${positions.length} leg${positions.length > 1 ? 's' : ''}`;
+  if (marginUtil > 0.6) {
+    return `"${greekBits}... and ${(marginUtil * 100).toFixed(0)}% margin drawn?! Markets hate an unprepared man, friend. Trim before the reaper trims you."`;
+  }
+  if (t < -50) {
+    return `"${greekBits}. You're bleeding ${Math.abs(t).toFixed(0)}ƒ of theta a DAY, friend — markets hate an unprepared man. Sell something, or the decay will."`;
+  }
+  if (Math.abs(d) > 3) {
+    return `"${greekBits}. That's ${Math.abs(d).toFixed(1)} of naked ${d > 0 ? 'bull' : 'bear'} in you, friend — markets hate an unprepared man. Hedge it."`;
+  }
+  if (t > 10) {
+    return `"${greekBits}. Positive theta — YOU collect while the town sleeps. Sit with the masters, friend."`;
+  }
+  return `"${greekBits}. Balanced book, disciplined size. The Ledger smiles on you, friend."`;
+}
+
 /** Telegraph line shown in the fight-intro combat log. */
 export function bossSpecialMoveTelegraph(enemyId: string): string | null {
   switch (enemyId) {
