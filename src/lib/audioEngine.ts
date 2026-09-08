@@ -393,8 +393,7 @@ class MythicalAudioEngine {
     this.initContext();
     if (!this.ctx) return;
 
-    const normalizedTrack: MythicalTrack = 
-      track === 'dungeon' ? 'overworld' : 
+    const normalizedTrack: MythicalTrack =
       track === 'combat' ? 'battle' : track;
 
     this.currentTrack = normalizedTrack;
@@ -408,6 +407,8 @@ class MythicalAudioEngine {
       this.playBattleThemeLoop();
     } else if (normalizedTrack === 'village') {
       this.playVillageThemeLoop();
+    } else if (normalizedTrack === 'dungeon') {
+      this.playDungeonDepthsLoop();
     } else {
       this.playOverworldMarchLoop();
     }
@@ -655,6 +656,86 @@ class MythicalAudioEngine {
         this.step++;
       } catch {}
     }, stepDuration);
+  }
+
+  /**
+   * Track 5: Dungeon Depths — dark D-minor ostinato (the dungeon's own identity;
+   * previously aliased to the overworld march, which broke underground mood).
+   */
+  private playDungeonDepthsLoop() {
+    const melody = [
+      146.83, 0, 174.61, 0,          // D3, F3
+      220.00, 0, 174.61, 0,          // A3, F3
+      146.83, 0, 130.81, 0,          // D3, C3
+      174.61, 0, 110.00, 0,          // F3, A2
+      146.83, 0, 174.61, 0,
+      220.00, 233.08, 220.00, 174.61,
+      164.81, 0, 146.83, 0,          // E3, D3
+      130.81, 0, 146.83, 0           // C3, D3
+    ];
+    const stepDuration = 300;
+    this.loopTimer = setInterval(() => {
+      if (!this.ctx || this.isMuted) return;
+      try {
+        const curStep = this.step % melody.length;
+        const now = this.ctx.currentTime;
+        const f = melody[curStep];
+        if (f > 0) {
+          // Hollow square lead, low register
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'square';
+          osc.frequency.setValueAtTime(f, now);
+          gain.gain.setValueAtTime(0.06 * this.masterVolume, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.26);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.26);
+          // Dread pad underneath every 4 steps
+          if (curStep % 4 === 0) {
+            const pad = this.ctx.createOscillator();
+            const padGain = this.ctx.createGain();
+            pad.type = 'sine';
+            pad.frequency.setValueAtTime(f / 2, now);
+            padGain.gain.setValueAtTime(0.1 * this.masterVolume, now);
+            padGain.gain.exponentialRampToValueAtTime(0.001, now + 1.1);
+            pad.connect(padGain);
+            padGain.connect(this.ctx.destination);
+            pad.start(now);
+            pad.stop(now + 1.1);
+          }
+        }
+        this.step++;
+      } catch {}
+    }, stepDuration);
+  }
+
+  /**
+   * Victory sting — boss down. Ascending fanfare figure resolving on the
+   * overworld motif's first four notes (musical callback = identity).
+   */
+  public playVictorySting() {
+    if (this.isMuted) return;
+    this.initContext();
+    if (!this.ctx) return;
+    try {
+      // Brassy hit + rising resolve: F A C F' then overworld tag (F G A C)
+      const notes = [349.23, 440.00, 523.25, 698.46, 698.46, 587.33, 659.25, 783.99, 1046.50];
+      notes.forEach((f, i) => {
+        const osc = this.ctx!.createOscillator();
+        const gain = this.ctx!.createGain();
+        const t = this.ctx!.currentTime + i * 0.11;
+        osc.type = i < 4 ? 'sawtooth' : 'triangle';
+        osc.frequency.setValueAtTime(f, t);
+        gain.gain.setValueAtTime(0.13 * this.masterVolume, t);
+        gain.gain.exponentialRampToValueAtTime(0.001, t + 0.4);
+        osc.connect(gain);
+        gain.connect(this.ctx!.destination);
+        osc.start(t);
+        osc.stop(t + 0.4);
+      });
+    } catch {}
   }
 
   public stopMusic() {

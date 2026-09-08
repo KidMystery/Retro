@@ -65,6 +65,8 @@ import { ProvingVaultModal } from './components/ProvingVaultModal';
 import { ProvingVaultResult, TOTAL_CURRICULUM_LESSONS } from './lib/curriculum/provingVault';
 import { ITEMS, BOSS_DROPS, grantItems, hasItem, ItemId } from './lib/itemsData';
 import { Play, Award, Save, Sparkles, Crown, Shield, BookOpen, Coins } from 'lucide-react';
+import { wrenLine, wrenIdle, WrenContext, WrenEvent } from './lib/companion';
+import { CompanionBubble } from './components/CompanionBubble';
 import titleBgUrl from './assets/textures/title_background.jpg';
 import sageSpriteUrl from './assets/sprites/sage.png';
 
@@ -192,6 +194,51 @@ export default function App() {
   const [vaultResult, setVaultResult] = useState<ProvingVaultResult | null>(null);
   // ── Wiring 4: chart puzzle rooms ──
   const [activeChartPuzzle, setActiveChartPuzzle] = useState<ChartPuzzle | null>(null);
+  // ── Soul pass: WREN, the Oracle's Ledger given voice ──
+  const [wrenSays, setWrenSays] = useState<string | null>(null);
+  const wrenTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const wrenMetRef = useRef(false);
+  const sayWren = useCallback((event: WrenEvent) => {
+    const line = wrenLine(event, {
+      day: player.day,
+      marketPhase: marketPhase(player.day),
+      iv: assetQuote.iv,
+      spot: assetQuote.spotPrice,
+      path: player.currentPath,
+      scamsFallen: player.scamsFallen,
+      scamsAvoided: player.scamsAvoided,
+      failedTrades: player.failedTradesCount,
+      successfulTrades: player.successfulTradesCount,
+      protections: player.grahamProtections,
+      ngPlus: !!player.ngPlus,
+      positionCount: positions.length,
+      marginUsed: player.marginUsed
+    });
+    if (!line) return;
+    setWrenSays(line);
+    if (wrenTimerRef.current) clearTimeout(wrenTimerRef.current);
+    wrenTimerRef.current = setTimeout(() => setWrenSays(null), 9000);
+  }, [player, assetQuote.iv, assetQuote.spotPrice, positions.length]);
+  // Idle chatter: when the map is quiet, Wren offers an unsolicited opinion.
+  useEffect(() => {
+    if (currentView !== 'MAP' || wrenSays) return;
+    const t = setTimeout(() => {
+      const line = wrenIdle({
+        day: player.day, marketPhase: marketPhase(player.day), iv: assetQuote.iv, spot: assetQuote.spotPrice,
+        path: player.currentPath, scamsFallen: player.scamsFallen, scamsAvoided: player.scamsAvoided,
+        failedTrades: player.failedTradesCount, successfulTrades: player.successfulTradesCount,
+        protections: player.grahamProtections, ngPlus: !!player.ngPlus,
+        positionCount: positions.length, marginUsed: player.marginUsed
+      });
+      if (line) {
+        setWrenSays(line);
+        if (wrenTimerRef.current) clearTimeout(wrenTimerRef.current);
+        wrenTimerRef.current = setTimeout(() => setWrenSays(null), 9000);
+      }
+    }, 20000);
+    return () => clearTimeout(t);
+  }, [currentView, player.day, wrenSays]);
+
 
   const [terminalLog, setTerminalLog] = useState<string[]>([
     '◈ Daen Alterspire awakens... Obsidian altar with floating amber runes, pulsing emerald core.',
@@ -389,6 +436,7 @@ export default function App() {
       sound.playAlarmSound();
       if (evt.severity === 'liquidation') {
         setPositions([]);
+        sayWren({ kind: 'liquidation' });
         setPlayer(prev => {
           // Margin Boots are CURSED: liquidation hits for DOUBLE hearts.
           const dmg = hasItem(prev, 'margin_boots') ? 2 : 1;
@@ -516,7 +564,8 @@ export default function App() {
       soldLossDuringNoiseRef.current = false; // fresh iron-hands window for this event
       setActiveNoise(noise[0]);
     }
-  }, [assetQuote.spotPrice, assetQuote.iv, positions, player.day, player.grahamProtections, portfolioAnalysis.netTheta, triggerSanctuary]);
+    sayWren({ kind: 'dayAdvance', phase: marketPhase(newDay) });
+  }, [assetQuote.spotPrice, assetQuote.iv, positions, player.day, player.grahamProtections, portfolioAnalysis.netTheta, triggerSanctuary, sayWren]);
 
   // Wiring 3: badge ladder evaluated continuously against current equity, REAL
   // drawdown (computed live so a same-day crash can't dodge the gate), and the
@@ -544,6 +593,7 @@ export default function App() {
   const handleExecuteTrade = (contract: OptionContract, netCost: number, marginReq: number) => {
     sound.playCoinSound();
     setPositions(prev => [...prev, contract]);
+    const tradePositionPct = (contract.premium * 100 * Math.abs(contract.quantity)) / Math.max(1, player.portfolioValue);
 
     setPlayer(prev => {
       const newTradeCount = prev.successfulTradesCount + 1;
@@ -613,6 +663,7 @@ export default function App() {
     });
 
     setActiveModal(null);
+    sayWren({ kind: 'trade', strategy: contract.strategy, premium: contract.premium, kellyOk: tradePositionPct <= 0.25, quantity: contract.quantity, dte: contract.dte, strike: contract.strike, spot: assetQuote.spotPrice });
     setTerminalLog(prev => [
       ...prev.slice(-12),
       `◈ ORACLE FORGED: ${contract.quantity}x ${contract.strategy} Strike ${contract.strike} ${contract.dte}DTE Premium ${contract.premium.toFixed(2)}ƒ • Path ${player.currentPath} • Bond Lv ${(player.oracleBondLevel + 0.15).toFixed(1)} • Life +0.5♥`
@@ -624,6 +675,7 @@ export default function App() {
     if (!pos) return;
     const entryCost = pos.entryPrice * 100 * Math.abs(pos.quantity);
     const pnl = currentMarketValue - entryCost;
+    sayWren({ kind: 'tradeClosed', pnl: Math.round(pnl), strategy: pos.strategy });
     const isLoss = pnl < -entryCost * 0.2;
     const isBigWin = currentMarketValue >= entryCost * 1.5;
 
@@ -800,6 +852,7 @@ export default function App() {
       ? Math.max(0, (baseDamage + bonusDamage) * 2)
       : Math.max(0, baseDamage + bonusDamage);
     const updatedEnemyHp = Math.max(0, combatState.enemy.currentHp - totalPlayerDamage);
+    if (!isCorrect) sayWren({ kind: 'combatLoss' });
     let heartDelta = 0;
     if (isCorrect) heartDelta = 0.5;
     else { heartDelta = -1.0; sound.playAlarmSound(); }
@@ -810,6 +863,7 @@ export default function App() {
     });
 
     if (updatedEnemyHp <= 0) {
+      sound.playVictorySting();
       sound.playFanfare();
       sound.startMusic('dungeon');
       if (isMirrorBoss) {
@@ -870,6 +924,7 @@ export default function App() {
         setTerminalLog(prev2 => [...prev2.slice(-10), `🎁 LOOT: ${drops.map(d => `${ITEMS[d].icon} ${ITEMS[d].name}`).join(' + ')} dropped! Check INVENTORY.`]);
       }
       setTerminalLog(prev => [...prev.slice(-10), `◈ GUARDIAN VANQUISHED! Act ${player.chapter} cleared! +${lootGold}ƒ +1 Heart Container! Oracle Bond +0.5! Path ${player.currentPath}`]);
+      sayWren({ kind: 'bossFall', boss: '', act: player.chapter });
       setPlayer(prev => ({ ...prev, chapter: prev.chapter + 1, mapX: 5, mapY: 4 }));
       setCurrentView('MAP');
       return;
@@ -1110,6 +1165,8 @@ export default function App() {
       setPlayer(prev => ({ ...prev, oracleBondLevel: Math.min(5, prev.oracleBondLevel + 0.2), hearts: Math.min(prev.maxHearts, prev.hearts + 0.5) }));
     } else if (entity.type === 'PORTAL') {
       sound.playSecretChime();
+      sound.startMusic('dungeon');
+      sayWren({ kind: 'dungeonEnter', act: player.chapter });
       const dun = DUNGEONS[player.chapter] || DUNGEONS[1];
       setTerminalLog(prev => [...prev.slice(-10), `🕳 You descend into ${entity.name}. ${dun.actLabel}`]);
       setCurrentView('DUNGEON');
@@ -1193,6 +1250,7 @@ export default function App() {
       };
     });
     setTerminalLog(prev => [...prev.slice(-10), `🚨 RUG PULL: Fell for ${scam.title}! -${scam.temptationOutcome.heartsLost}♥ -${scam.costFlorins}ƒ • Fail->Graham loop: ${scam.temptationOutcome.lessonId}`]);
+    sayWren({ kind: 'scamFell', title: scam.title });
     if (!player.grahamProtections.includes(activeScamEncounter.temptationOutcome.lessonId)) {
       setSanctuaryReason(activeScamEncounter.temptationOutcome.failReason);
       setSanctuaryLessonId(activeScamEncounter.temptationOutcome.lessonId);
@@ -1225,6 +1283,7 @@ export default function App() {
       };
     });
     setTerminalLog(prev => [...prev.slice(-10), `✅ DISCIPLINED: Exposed ${scam.title}! +${scam.rejectionOutcome.rewardFlorins}ƒ • ${scam.rejectionOutcome.rewardWisdom} • Protection ${scam.rejectionOutcome.protectionGranted || 'none'}`]);
+    sayWren({ kind: 'scamRejected', title: scam.title });
   };
 
   const handleReviveInSanctuary = (lessonId?: GrahamProtectionId) => {
@@ -1425,6 +1484,10 @@ export default function App() {
                 sound.playFanfare();
                 sound.startMusic('overworld');
                 setIsBgmOn(true);
+                if (!wrenMetRef.current) {
+                  wrenMetRef.current = true;
+                  sayWren({ kind: 'firstMeet' });
+                }
                 setCurrentView('MAP');
                 setTerminalLog(prev => [...prev.slice(-10), `◈ QUEST START: Valen enters Whispering Grove. Oracle Stone bonded. Path ${player.currentPath}. Graham protections ${player.grahamProtections.length}.`]);
               }}
@@ -1446,6 +1509,7 @@ export default function App() {
                 onInteractEntity={handleInteractEntity}
                 onSwordSlash={() => sound.playSwordSlash()}
               />
+              <CompanionBubble line={wrenSays} />
             </>
           )}
 

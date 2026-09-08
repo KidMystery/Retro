@@ -434,6 +434,11 @@
   }
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* ==================== MOBILE PASS (LUNA NIGHT SHIFT) ====================
  * Targets ≥44px touch, no horizontal overflow at 390px (iPhone SE), body
  * text ≥14px on mobile. Scoped under max-width:768px so desktop is untouched.
