@@ -230,7 +230,10 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
       // ── Draw: viewport window with camera offset ──
       const cam = cameraFor(motion.pos, worldWpx, worldHpx);
       frame++;
-      ctx.fillStyle = "#060a12";
+      // Luna spec: bright daylight presentation. Clear color = base terrain,
+      // never near-black. No screen-wide darkening.
+      ctx.imageSmoothingEnabled = false;
+      ctx.fillStyle = "#49A94B";
       ctx.fillRect(0, 0, VIEW_W_PX, VIEW_H_PX);
       const groundImg = getGroundImg(act);
       const t0x = Math.floor(cam.x / TILE_SIZE);
@@ -267,39 +270,39 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
             if (groundImg) {
               ctx.drawImage(groundImg, ((x * 13 + y * 7) % 2) * 32, ((x * 7 + y * 11) % 2) * 32, 32, 32, px, py, TILE_SIZE, TILE_SIZE);
             } else {
-              ctx.fillStyle = "#1a2e1a";
+              ctx.fillStyle = "#3F8A46"; // Luna: canopy backing, not near-black
               ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
             }
             blitGrid(ctx, OAK, BASE_PALETTE, px, py, 2);
           } else if (tile === "~") {
             blitGrid(ctx, TILE_WATER16, BASE_PALETTE, px, py, 2);
           } else if (tile === "=") {
-            ctx.fillStyle = "#0369a1";
+            ctx.fillStyle = "#3F9ED0";
             ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
-            ctx.fillStyle = "#854d0e";
+            ctx.fillStyle = "#8B5A3C";
             ctx.fillRect(px, py + 4, TILE_SIZE, TILE_SIZE - 8);
-            ctx.fillStyle = "#451a03";
+            ctx.fillStyle = "#5d3a26";
             ctx.fillRect(px + 8, py + 4, 2, TILE_SIZE - 8);
             ctx.fillRect(px + 18, py + 4, 2, TILE_SIZE - 8);
             ctx.fillRect(px + 28, py + 4, 2, TILE_SIZE - 8);
-            ctx.fillStyle = "#ca8a04";
+            ctx.fillStyle = "#C19A5B";
             ctx.fillRect(px, py + 2, TILE_SIZE, 3);
             ctx.fillRect(px, py + TILE_SIZE - 5, TILE_SIZE, 3);
           } else if (tile === "#") {
-            ctx.fillStyle = "#1e293b";
+            ctx.fillStyle = "#5b7057"; // Luna: readable stone, not navy-black
             ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
-            ctx.fillStyle = "#334155";
+            ctx.fillStyle = "#7d947b";
             ctx.fillRect(px + 2, py + 2, TILE_SIZE - 4, TILE_SIZE - 4);
-            ctx.strokeStyle = "#0f172a";
+            ctx.strokeStyle = "#173B2B";
             ctx.lineWidth = 2;
             ctx.strokeRect(px + 2, py + 2, TILE_SIZE - 4, TILE_SIZE - 4);
-            ctx.fillStyle = "#475569";
+            ctx.fillStyle = "#93a892";
             ctx.fillRect(px + 6, py + 6, 12, 10);
           } else if (tile === "D") {
             if (groundImg) {
               ctx.drawImage(groundImg, ((x * 13 + y * 7) % 2) * 32, ((x * 7 + y * 11) % 2) * 32, 32, 32, px, py, TILE_SIZE, TILE_SIZE);
             } else {
-              ctx.fillStyle = "#2d6a2f";
+              ctx.fillStyle = "#49A94B";
               ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
             }
             ctx.fillStyle = "#0f172a";
@@ -499,11 +502,12 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
         ctx.stroke();
       }
 
-      // NG+ corrupted wash over the VIEWPORT (not world coords).
+      // NG+ corrupted wash over the VIEWPORT — Luna spec: capped atmosphere,
+      // never a heavy darkening multiply.
       if (corrupted) {
-        ctx.fillStyle = "rgba(8, 2, 20, 0.45)";
+        ctx.fillStyle = "rgba(20, 5, 35, 0.30)";
         ctx.fillRect(0, 0, VIEW_W_PX, VIEW_H_PX);
-        const pulse = 0.1 + 0.06 * Math.sin(frame * 0.35);
+        const pulse = 0.08 + 0.05 * Math.sin(frame * 0.35);
         const vign = ctx.createRadialGradient(
           VIEW_W_PX / 2, VIEW_H_PX / 2, Math.min(VIEW_W_PX, VIEW_H_PX) * 0.25,
           VIEW_W_PX / 2, VIEW_H_PX / 2, Math.max(VIEW_W_PX, VIEW_H_PX) * 0.7,
@@ -512,7 +516,7 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
         vign.addColorStop(1, `rgba(120, 0, 40, ${pulse.toFixed(3)})`);
         ctx.fillStyle = vign;
         ctx.fillRect(0, 0, VIEW_W_PX, VIEW_H_PX);
-        ctx.fillStyle = "rgba(0,0,0,0.28)";
+        ctx.fillStyle = "rgba(0,0,0,0.18)";
         for (let sy = (frame * 2) % 8; sy < VIEW_H_PX; sy += 8) {
           ctx.fillRect(0, sy, VIEW_W_PX, 2);
         }

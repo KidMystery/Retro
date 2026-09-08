@@ -530,3 +530,20 @@
 .title-cursor-blink {
   animation: title-cursor-blink 1s step-end infinite;
 }
+
+/* Luna text-panel spec: visible SNES-styled scrollbar for dialogue panels */
+.dialogue-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #E8C766 #1d3826;
+}
+.dialogue-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+.dialogue-scroll::-webkit-scrollbar-track {
+  background: #1d3826;
+}
+.dialogue-scroll::-webkit-scrollbar-thumb {
+  background: #E8C766;
+  border-radius: 5px;
+  border: 2px solid #1d3826;
+}

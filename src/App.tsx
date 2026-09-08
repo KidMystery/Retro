@@ -2001,27 +2001,32 @@ export default function App() {
         )}
 
         {npcDialogue && (
-          <div className="fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-4 backdrop-blur-sm">
-            <div className="zelda-panel w-full max-w-xl p-4 space-y-3 shadow-2xl rounded-xl">
-              <div className="flex items-center justify-between border-b-2 border-amber-500/30 pb-2">
-                <span className="font-cinzel text-amber-200 text-sm flex items-center gap-2">
+          <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
+            {/* Luna text-panel spec: opaque fill, gold frame, REAL scrolling,
+                non-italic readable body, sentence case, max-height cap. */}
+            <div className="w-full max-w-xl rounded-xl shadow-2xl border-2 border-[#E8C766] bg-[#24452F] flex flex-col" style={{ maxHeight: 'min(70vh, 520px)' }}>
+              <div className="flex items-center justify-between px-4 py-2.5 border-b-2 border-[#E8C766]/60 bg-[#1d3826] rounded-t-xl">
+                <span className="font-cinzel text-[#FFF2C2] text-sm flex items-center gap-2">
                   <div className="oracle-glyph w-6 h-6"><div className="oracle-emerald-core w-2 h-2" /></div>
                   {npcDialogue.name}
                 </span>
                 <button onClick={() => { setNpcDialogue(null); setPlayer(prev => ({ ...prev, oracleBondLevel: Math.min(5, prev.oracleBondLevel + 0.1) })); }} className="snes-btn px-2 py-1 text-xs rounded-md">[ESC] CLOSE</button>
               </div>
-              <div className="space-y-2 text-sm leading-relaxed text-slate-200 font-snes flex gap-3">
+              <div className="overflow-y-auto overscroll-contain px-4 py-3 flex gap-3 dialogue-scroll">
                 {npcDialogue.portrait && (
-                  <img src={npcDialogue.portrait} alt={npcDialogue.name} className="w-24 h-24 shrink-0 rounded-lg border-2 border-amber-500/50 bg-black/60 object-contain" style={{ imageRendering: 'pixelated' }} />
+                  <img src={npcDialogue.portrait} alt={npcDialogue.name} className="w-20 h-20 shrink-0 rounded-lg border-2 border-[#E8C766]/70 bg-black/40 object-contain self-start" style={{ imageRendering: 'pixelated' }} />
                 )}
-                <div className="space-y-2">
-                {npcDialogue.lines.map((line, idx) => (
-                  <p key={idx} className="italic">{line}</p>
-                ))}
-                {npcDialogue.lore && <p className="text-[11px] text-amber-200/50 italic border-l-2 border-amber-500/30 pl-2">{npcDialogue.lore}</p>}
+                <div className="space-y-2.5 min-w-0">
+                  {npcDialogue.lines.map((line, idx) => (
+                    <p key={idx} className="text-[15px] leading-relaxed text-[#FFF2C2]" style={{ textShadow: '1px 1px 0 #3B241B' }}>{line}</p>
+                  ))}
+                  {npcDialogue.lore && <p className="text-xs text-[#FFF2C2]/70 border-l-2 border-[#E8C766]/50 pl-2 leading-relaxed">{npcDialogue.lore}</p>}
                 </div>
               </div>
-              <button onClick={() => { setNpcDialogue(null); setPlayer(prev => ({ ...prev, oracleBondLevel: Math.min(5, prev.oracleBondLevel + 0.1) })); }} className="snes-btn-primary w-full py-2.5 text-sm rounded-xl">CONTINUE [SPACE] • Oracle Bond +0.1</button>
+              <div className="px-4 py-2.5 border-t-2 border-[#E8C766]/60 bg-[#1d3826] rounded-b-xl flex items-center justify-between">
+                <span className="text-[11px] text-[#FFF2C2]/60">Scroll for more ↓</span>
+                <button onClick={() => { setNpcDialogue(null); setPlayer(prev => ({ ...prev, oracleBondLevel: Math.min(5, prev.oracleBondLevel + 0.1) })); }} className="snes-btn-primary px-4 py-2 text-sm rounded-lg">CONTINUE [SPACE] • Oracle Bond +0.1</button>
+              </div>
             </div>
           </div>
         )}

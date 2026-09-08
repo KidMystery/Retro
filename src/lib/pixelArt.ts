@@ -8,24 +8,24 @@
 export type Palette = Record<string, string>;
 
 export const BASE_PALETTE: Palette = {
-  k: '#0d0b16', // outline
-  s: '#1a1a2e', // shadow
-  g: '#2d7a36', // grass mid
-  G: '#3c9a44', // grass light
-  d: '#24571f', // grass dark
-  t: '#5c381c', // trunk
-  t2: '#3d2311', // trunk dark
-  l: '#2f7d46', // leaf dark
-  L: '#4aa85c', // leaf mid
-  H: '#6cc47e', // leaf light
-  w: '#096b9e', // water
-  W: '#1e8fd1', // water light
+  k: '#173B2B', // outline (Luna spec: deep occlusion, no pure black)
+  s: '#2E7D3F', // shadow
+  g: '#49A94B', // grass mid (Luna base)
+  G: '#78C850', // grass light (Luna highlight)
+  d: '#2E7D3F', // grass dark
+  t: '#8B5A3C', // trunk (Luna wood)
+  t2: '#5d3a26', // trunk dark
+  l: '#2E7D3F', // leaf dark
+  L: '#4CAF5E', // leaf mid
+  H: '#78C850', // leaf light
+  w: '#2F86C0', // water (Luna-bright)
+  W: '#3F9ED0', // water light (Luna)
   w2: '#bae6fd', // wave
-  P: '#8a6b3f', // path
-  p: '#a98a55', // path light
-  pt: '#5a4630', // path dark
-  D: '#70502a', // dirt edge (darker)
-  F: '#4a5a34', // ledge face fill (desaturated grass)
+  P: '#C19A5B', // path (Luna dirt)
+  p: '#D4B276', // path light
+  pt: '#8B6B44', // path dark
+  D: '#8B5A3C', // dirt edge
+  F: '#6b9a4e', // ledge face fill (bright desaturated grass)
   ' ': '',       // transparent
 };
 
