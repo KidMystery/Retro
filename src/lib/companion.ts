@@ -1,6 +1,6 @@
 /**
  * WREN — the Oracle's Ledger given voice.
- * Soul-pass companion: accompanies Valen, COMMENTS on trades, has opinions,
+ * Soul-pass companion: accompanies Rowan, COMMENTS on trades, has opinions,
  * disagrees with dangerous positions, and REMEMBERS (seeded from persistent
  * player state: scamsFallen, failedTrades, grahamProtections, path scores —
  * so her memory survives saves and NG+ for free).
@@ -53,7 +53,7 @@ export function wrenLine(event: WrenEvent, ctx: WrenContext): string | null {
 
   switch (event.kind) {
     case 'firstMeet':
-      return 'Wren: "Oh. You can hear me now. Good — I have watched every ledger in Valuaria, and none of them had hands. Do not make me regret lending you mine."';
+      return 'Wren: "The storehouse ledger shows an empty granary and a debt marked PAID IN A TOKEN THAT NO LONGER EXISTS. I have corrected the entry. Walk east, Rowan — the Ashen Acre teaches what the Rug-Pull cost. I will keep the books."';
 
     case 'trade': {
       const isNaked = event.strategy === 'LONG_CALL' || event.strategy === 'LONG_PUT';

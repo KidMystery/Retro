@@ -96,7 +96,7 @@ export default function App() {
   const [npcDialogue, setNpcDialogue] = useState<{ name: string; lines: string[]; lore?: string; portrait?: string } | null>(null);
 
   const [player, setPlayer] = useState<PlayerStats>({
-    name: 'Valen',
+    name: 'Rowan',
     title: 'Orphan of Whispering Grove',
     avatar: {
       tunicColor: 'green',
@@ -252,7 +252,7 @@ export default function App() {
 
   const [terminalLog, setTerminalLog] = useState<string[]>([
     '◈ Daen Alterspire awakens... Obsidian altar with floating amber runes, pulsing emerald core.',
-    '◈ Valen, orphan of Grove, bonds Oracle Ledger to soul. Floating glyph-circle shows live prices, greeks, portfolio.',
+    '◈ Rowan Vale, field-hand of Bramble Acre, bonds Oracle Ledger to soul. Floating glyph-circle shows live prices, greeks, portfolio.',
     '◈ Village elder rug-pulled same night you found Stone. Quest born: learn to invest, not save princess.',
     '[WASD/Arrows] move • [SPACE/E] interact & sword • Oracle Ledger reveals market truth • Fail->Graham loop teaches',
     'Paths: TRADER (aggressive defined-risk) • INVESTOR (slow value-first) • HYBRID • Same true ending: crown of richest investor'
@@ -1453,7 +1453,7 @@ export default function App() {
     // The Seal Sigil (Vex drop) is the NG+ key.
     if (startNGPlus && (!sealsOk || !hasItem(player, 'seal_sigil'))) return;
     setPlayer({
-      name: 'Valen',
+      name: 'Rowan',
       title: startNGPlus ? 'Oracle of the Second Cycle' : 'Orphan of Whispering Grove',
       avatar: { tunicColor: startNGPlus ? 'black' : 'green', hairColor: 'blonde', shieldStyle: startNGPlus ? 'mirror' : 'hylian', avatarTitle: startNGPlus ? 'Shadow-Walker of Valuaria' : 'Hero of Valuaria - Oracle Bonded' },
       hearts: startNGPlus ? 2.0 : 4.0,
@@ -1630,7 +1630,7 @@ export default function App() {
                   sayWren({ kind: 'firstMeet' });
                 }
                 setCurrentView('MAP');
-                setTerminalLog(prev => [...prev.slice(-10), `◈ QUEST START: Valen enters Whispering Grove. Oracle Stone bonded. Path ${player.currentPath}. Graham protections ${player.grahamProtections.length}.`]);
+                setTerminalLog(prev => [...prev.slice(-10), `◈ QUEST START: Rowan leaves Bramble Acre for the Whispering Grove. Oracle Stone bonded. Path ${player.currentPath}. Graham protections ${player.grahamProtections.length}.`]);
               }}
               onContinue={() => { sound.playKeyClick(); setSaveModalMode('LOAD'); setIsAtSaveShrine(false); setShowSaveModal(true); }}
               onAbout={() => setActiveModal('GRIMOIRE')}

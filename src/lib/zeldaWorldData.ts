@@ -57,8 +57,8 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
   1: {
     act: 1,
     name: 'The Whispering Grove of Strikes',
-    regionTitle: 'Act 1: Origin - Grove of Valen, Orphan Finds Oracle Stone',
-    storyBeat: 'You are Valen, orphan of Grove. Village elder\'s life savings rug-pulled by charm monster same night you find Oracle\'s Stone in forgotten sanctum. Two events collide: quest born. MASTER: Calls & Puts, Delta.',
+    regionTitle: 'Act 1: The Ashen Acre - The Field That Cannot Be Planted',
+    storyBeat: 'You are Rowan Vale of Bramble Acre. The Great Rug-Pull took your family\'s seed fund — the Red Herring\'s golden token vanished overnight. The village storehouse stands empty. A sealed letter from the Crown of the Richest Investor promises a charter that can restore the common seed stores, but only its bearer can activate it. Walk. Learn. Return. — same night you find Oracle\'s Stone in forgotten sanctum. Two events collide: quest born. MASTER: Calls & Puts, Delta.',
     masterLesson: 'Calls & Puts, Delta, Direction. Olmstead Ch1. Investment vs Speculation.',
     width: 20,
     height: 14,
@@ -90,7 +90,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
         interactPrompt: 'Speak to Sage Graham [Margin of Safety - Origin]',
         lore: 'Warm, epic, patient and dry. Not cynical.',
         dialogue: [
-          '"Greetings, Valen. Welcome to Valuaria! You found Daen Alterspire — obsidian altar with floating amber runes and pulsing emerald core."',
+          '"Greetings, Rowan Vale. Welcome to Valuaria! You found Daen Alterspire — obsidian altar with floating amber runes and pulsing emerald core."',
           '"Touching it bonded Oracle\'s Ledger to your soul: floating glyph-circle shows live prices, greeks, portfolio. This is wink at Bloomberg — as fantasy divination, not terminal."',
           '"Your HEARTS are life force. Sound trades replenish. Every 3 sound trades = Heart Container. But fail->learn is core: bad trade cracks hearts, pulls you to Sanctuary of Quiet Oracle."',
           '"You answer one Graham reflection question. Cannot leave until correct. Answering correctly permanently unlocks protection vs that mistake."',
@@ -201,7 +201,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
   2: {
     act: 2,
     name: 'The Theta Steppes of Decay',
-    regionTitle: 'Act 2: Time - Chrono-Sphinx Froze River of Time',
+    regionTitle: 'Act 2: The Glassmarket - The Mirror Merchant Froze the River of Time',
     storyBeat: 'Chrono-Sphinx froze river of time; options rot to nothingness. MASTER: Theta decay, calendar spreads. Riddle: "What does 0-DTE lottery call truly cost you?" Answer: patience + capital.',
     masterLesson: 'Theta, Calendar Spreads. Olmstead Ch5. Mr Market patience.',
     width: 20,
@@ -325,7 +325,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
   3: {
     act: 3,
     name: 'The Iron Sanctuary of Neutrality',
-    regionTitle: 'Act 3: Range - Crab Golem Clamped Realm in Iron Bands',
+    regionTitle: 'Act 3: The Windglass Pass - The Two-Faced Wyvern Clamped the Realm in Iron Bands',
     storyBeat: 'Crab Golem clamped realm in iron bands; price can\'t break out. MASTER: Iron Condors, selling premium, defined-risk range plays. Lesson: "nothing happens" is profit. Disciplined trader earns while gambler starves.',
     masterLesson: 'Iron Condors, Cash-Secured Puts, Covered Calls. Olmstead Ch3-4,6. Margin of Safety.',
     width: 20,
@@ -439,7 +439,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
   4: {
     act: 4,
     name: 'The Volatility Caldera',
-    regionTitle: 'Act 4: Vol - Hydra of Implied Vega, Every Head Market Shock',
+    regionTitle: 'Act 4: The Longacre Vale - The Hydra of Implied Vega, Every Head a Market Shock',
     storyBeat: 'Hydra of Implied Vega - every head market shock spitting IV crush. MASTER: Vega, buying cheap IV, selling euphoric IV. Buy shield when everyone else fire.',
     masterLesson: 'Vega, Long Straddle, IV Crush. Olmstead Ch7. Be fearful when others greedy.',
     width: 20,
@@ -554,7 +554,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
   5: {
     act: 5,
     name: 'The Citadel of Marduk Vex',
-    regionTitle: 'Act 5: Citadel - Liquidation Lord Marduk Vex, Fallen Oracle-Sage',
+    regionTitle: 'Act 5: The Shatterchain - Citadel of the Red Herring, Marduk Vex the Fallen Oracle-Sage',
     storyBeat: 'Liquidation Lord Marduk Vex, fallen Oracle-Sage who rejected margin of safety for max leverage. MASTER: capital preservation + Kelly / position sizing / when NO trade. TRUE END: you don\'t kill — you out-discipline. He confesses he once valued margin of safety, one ruinous year broke him. Sits as humble student. Richest investor = survival first, growth after safety.',
     masterLesson: 'Kelly Criterion, Position Sizing, NO trade. Graham Ch20. Olmstead Final. True Ending.',
     width: 20,
@@ -586,7 +586,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
         sprite: 'SAGE',
         interactPrompt: 'Final Sage [Kelly + NO Trade - True Ending]',
         dialogue: [
-          '"Final lesson, Valen: Marduk Vex was once Master Oracle like me. Taught margin of safety."',
+          '"Final lesson, Rowan: Marduk Vex was once Master Oracle like me. Taught margin of safety."',
           '"One ruinous year, he sought max leverage, rejected Graham. Broke. Became Liquidation Lord."',
           '"MASTER: capital preservation + Kelly Criterion / position sizing / knowing when NO trade is best trade."',
           '"TRUE ENDING: you don\'t kill him — you out-discipline him. He confesses, sits as humble student."',
