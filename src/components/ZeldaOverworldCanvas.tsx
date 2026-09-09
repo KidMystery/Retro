@@ -283,21 +283,46 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
           const py = y * TILE_SIZE - cam.y;
           if (tile === ".") {
             if (groundImg) {
+              // Per-tile variation: 4 texture quadrants + hash-chosen subtle
+              // tuft, so the field doesn't read as one stamped tile.
               const qx = ((x * 13 + y * 7) % 2) * 32;
               const qy = ((x * 7 + y * 11) % 2) * 32;
               ctx.drawImage(groundImg, qx, qy, 32, 32, px, py, TILE_SIZE, TILE_SIZE);
             } else {
               blitGrid(ctx, TILE_GRASS16, BASE_PALETTE, px, py, 2);
             }
+            const gh = (x * 7 + y * 13) % 5;
+            if (gh === 0) {
+              ctx.fillStyle = "rgba(255,242,194,0.5)";
+              ctx.fillRect(px + 8, py + 10, 2, 2);
+              ctx.fillRect(px + 26, py + 24, 2, 2);
+            } else if (gh === 1) {
+              ctx.fillStyle = "rgba(23,59,43,0.35)";
+              ctx.fillRect(px + 18, py + 6, 3, 1);
+              ctx.fillRect(px + 6, py + 28, 3, 1);
+            } else if (gh === 2) {
+              ctx.fillStyle = "#78C850";
+              ctx.fillRect(px + 12, py + 18, 1, 3);
+              ctx.fillRect(px + 13, py + 17, 1, 2);
+            }
           } else if (tile === "F") {
-            ctx.fillStyle = "#2d6a2f";
-            ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
-            ctx.fillStyle = "#4ade80";
-            ctx.fillRect(px + 17, py + 16, 4, 10);
-            ctx.fillStyle = (x + y) % 2 === 0 ? "#fde047" : "#f43f5e";
-            ctx.fillRect(px + 14, py + 12, 10, 10);
-            ctx.fillStyle = "#ffffff";
-            ctx.fillRect(px + 17, py + 15, 4, 4);
+            // Unified-world pass: meadow tile = grass base + tiny ALttP-style
+            // flower/tuft details (2-3px), varied per-tile so nothing repeats
+            // as a block of color.
+            if (groundImg) {
+              ctx.drawImage(groundImg, ((x * 13 + y * 7) % 2) * 32, ((x * 7 + y * 11) % 2) * 32, 32, 32, px, py, TILE_SIZE, TILE_SIZE);
+            } else {
+              blitGrid(ctx, TILE_GRASS16, BASE_PALETTE, px, py, 2);
+            }
+            const h = (x * 31 + y * 17) % 4;
+            const fx = [10, 22, 15, 26][h];
+            const fy = [12, 20, 25, 9][h];
+            ctx.fillStyle = h % 2 === 0 ? "#fde047" : "#f472b6";
+            ctx.fillRect(px + fx, py + fy, 3, 3);
+            ctx.fillRect(px + fx - 1, py + fy + 1, 1, 1);
+            ctx.fillRect(px + fx + 3, py + fy + 1, 1, 1);
+            ctx.fillStyle = "#166534";
+            ctx.fillRect(px + fx + 1, py + fy + 3, 1, 3);
           } else if (tile === "P") {
             blitGrid(ctx, TILE_DIRT16, BASE_PALETTE, px, py, 2);
           } else if (tile === "T") {
@@ -349,6 +374,41 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
             ctx.fillStyle = "#f59e0b";
             ctx.fillRect(px + 4, py + 14, 3, 3);
             ctx.fillRect(px + 31, py + 14, 3, 3);
+          }
+        }
+      }
+
+      // ── Unified-world pass: shoreline foam + path edge blending ──
+      for (let y = t0y; y <= t1y; y++) {
+        for (let x = t0x; x <= t1x; x++) {
+          const tile = mapData.tiles[y]?.[x] || ".";
+          const px = x * TILE_SIZE - cam.x;
+          const py = y * TILE_SIZE - cam.y;
+          const solidAt = (tx: number, ty: number) => {
+            const t = mapData.tiles[ty]?.[tx];
+            return t === "T" || t === "#" || t === "~";
+          };
+          if (tile === "~") {
+            // Foam where water touches land (ALttP shoreline)
+            ctx.fillStyle = "rgba(186,230,253,0.85)";
+            if (!solidAt(x, y - 1)) ctx.fillRect(px, py, TILE_SIZE, 3);
+            if (!solidAt(x, y + 1)) ctx.fillRect(px, py + TILE_SIZE - 3, TILE_SIZE, 3);
+            if (!solidAt(x - 1, y)) ctx.fillRect(px, py, 3, TILE_SIZE);
+            if (!solidAt(x + 1, y)) ctx.fillRect(px + TILE_SIZE - 3, py, 3, TILE_SIZE);
+            // animated shimmer line
+            const sh = (x * 3 + y * 5 + Math.floor(frame / 24)) % 4;
+            if (sh === 0) {
+              ctx.fillStyle = "rgba(255,255,255,0.35)";
+              ctx.fillRect(px + 8, py + 14, 10, 2);
+            }
+          } else if (tile === "P") {
+            // Soft grass overhang on path edges facing grass (kills hard seams)
+            const grassAt = (tx: number, ty: number) => (mapData.tiles[ty]?.[tx] || ".") === ".";
+            ctx.fillStyle = "rgba(120,200,80,0.5)";
+            if (grassAt(x, y - 1)) { ctx.fillRect(px + 2, py, 6, 2); ctx.fillRect(px + 22, py, 6, 2); }
+            if (grassAt(x, y + 1)) { ctx.fillRect(px + 2, py + TILE_SIZE - 2, 6, 2); ctx.fillRect(px + 22, py + TILE_SIZE - 2, 6, 2); }
+            if (grassAt(x - 1, y)) { ctx.fillRect(px, py + 2, 2, 6); ctx.fillRect(px, py + 22, 2, 6); }
+            if (grassAt(x + 1, y)) { ctx.fillRect(px + TILE_SIZE - 2, py + 2, 2, 6); ctx.fillRect(px + TILE_SIZE - 2, py + 22, 2, 6); }
           }
         }
       }
