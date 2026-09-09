@@ -71,6 +71,8 @@ interface DungeonViewProps {
   onPatrolCaught?: (patrolId: string) => void;
   /** Spread-gates ('G' tiles) open when both legs are placed. */
   gatesOpen?: boolean;
+  /** Fired when the player presses ESC / Q to leave the dungeon. */
+  onExit?: () => void;
 }
 
 const ENCOUNTER_RANGE = 0.75;
@@ -84,7 +86,7 @@ const spriteFor = (id: string): string | null => {
   return null;
 };
 
-export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters = [], onEncounter, map, spawn, actLabel = 'ACT I · THE SEALED VESTIBULE', lightRadius = 9, torchDrainPerSec = 0, patrols = [], onPatrolCaught, gatesOpen = false }) => {
+export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters = [], onEncounter, map, spawn, actLabel = 'ACT I · THE SEALED VESTIBULE', lightRadius = 9, torchDrainPerSec = 0, patrols = [], onPatrolCaught, gatesOpen = false, onExit }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const posRef = useRef({ x: (spawn?.x ?? 2) + 0.5, y: (spawn?.y ?? 4) + 0.5 });
   const dirRef = useRef(0);
@@ -92,6 +94,8 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters
   const animRef = useRef(0);
   const encRef = useRef(encounters);
   const onEncRef = useRef(onEncounter);
+  const onExitRef = useRef(onExit);
+  useEffect(() => { onExitRef.current = onExit; }, [onExit]);
   const mapRef = useRef(map || MAP);
   const gatesRef = useRef(gatesOpen);
   const lightRef = useRef(lightRadius);
@@ -509,6 +513,10 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters
         const near = findNear();
         if (near) onEncRef.current?.(near.id);
       }
+      // GAME-FEEL: ESC / Q = leave the dungeon (was button-only, undiscoverable)
+      if ((e.code === 'Escape' || e.code === 'KeyQ') && !e.repeat) {
+        onExitRef.current?.();
+      }
     };
     const ku = (e: KeyboardEvent) => { keysRef.current[e.code] = false; };
     window.addEventListener('keydown', kd);
@@ -593,6 +601,7 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters
     return () => {
       window.removeEventListener('keydown', kd);
       window.removeEventListener('keyup', ku);
+      // (refs auto-track latest via re-render)
       cancelAnimationFrame(raf);
     };
   }, []);

@@ -1681,6 +1681,7 @@ export default function App() {
             return (
               <>
                 <DungeonView
+                  onExit={() => { sound.playSecretChime(); setCurrentView('MAP'); setTerminalLog(prev => [...prev.slice(-10), `🕳 You climb the stairs back to the overworld.`]); }}
                   map={dun.tiles}
                   spawn={dun.playerSpawn}
                   actLabel={dun.actLabel}
@@ -1769,7 +1770,7 @@ export default function App() {
                 />
                 <div className="mt-2 flex justify-center">
                   <button onClick={() => { sound.playSecretChime(); setCurrentView('MAP'); setTerminalLog(prev => [...prev.slice(-10), `🕳 You climb the stairs back to the overworld.`]); }} className="snes-btn px-6 py-2 rounded-xl text-xs">
-                    ◀ LEAVE DUNGEON • Return to Overworld
+                    ◀ LEAVE DUNGEON [ESC] • Return to Overworld
                   </button>
                 </div>
               </>
