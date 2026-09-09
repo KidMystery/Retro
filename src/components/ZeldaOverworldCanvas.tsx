@@ -20,6 +20,22 @@ import lmShrineUrl from '../assets/sprites/landmarks/lm_shrine.png';
 import lmPortalUrl from '../assets/sprites/landmarks/lm_portal.png';
 import lmBossUrl from '../assets/sprites/landmarks/lm_boss.png';
 import lmAssetUrl from '../assets/sprites/landmarks/lm_asset.png';
+import heroDownUrl from '../assets/sprites/hero_down.png';
+import heroUpUrl from '../assets/sprites/hero_up.png';
+import heroLeftUrl from '../assets/sprites/hero_left.png';
+import heroRightUrl from '../assets/sprites/hero_right.png';
+import grassTile0 from '../assets/textures/tiles/grass_0.png';
+import grassTile1 from '../assets/textures/tiles/grass_1.png';
+import grassTile2 from '../assets/textures/tiles/grass_2.png';
+import grassTile3 from '../assets/textures/tiles/grass_3.png';
+import pathTile0 from '../assets/textures/tiles/path_0.png';
+import pathTile1 from '../assets/textures/tiles/path_1.png';
+import pathTile2 from '../assets/textures/tiles/path_2.png';
+import pathTile3 from '../assets/textures/tiles/path_3.png';
+import waterTile0 from '../assets/textures/tiles/water_0.png';
+import waterTile1 from '../assets/textures/tiles/water_1.png';
+import waterTile2 from '../assets/textures/tiles/water_2.png';
+import waterTile3 from '../assets/textures/tiles/water_3.png';
 import { Compass, MessageCircle, Swords } from "lucide-react";
 
 // MILESTONE B (game-feel rework): the overworld is now a SCROLLING WINDOW onto
@@ -53,6 +69,46 @@ const getLandmarkImg = (type: string): HTMLImageElement | null => {
   return img.complete && img.naturalWidth > 0 ? img : null;
 };
 const LM_DRAW = 44; // draw size in px on the 38px tile (slight overhang reads ALttP)
+
+// ART BATCH 3: true terrain tile variants (4 per type, hash-picked) kill the
+// stamped-tile grid; AI hero sprites by facing kill the code-drawn avatar.
+const HERO_IMG_SRC: Record<string, string> = {
+  DOWN: heroDownUrl, UP: heroUpUrl, LEFT: heroLeftUrl, RIGHT: heroRightUrl,
+};
+const loadedHeroImgs = new Map<string, HTMLImageElement>();
+const getHeroImg = (facing: string): HTMLImageElement | null => {
+  const s = HERO_IMG_SRC[facing] || heroDownUrl;
+  let img = loadedHeroImgs.get(s);
+  if (!img) {
+    img = new Image();
+    img.src = s;
+    loadedHeroImgs.set(s, img);
+  }
+  return img.complete && img.naturalWidth > 0 ? img : null;
+};
+const TILE_VARIANTS: Record<string, string[]> = {
+  ".": [grassTile0, grassTile1, grassTile2, grassTile3],
+  P: [pathTile0, pathTile1, pathTile2, pathTile3],
+  "~": [waterTile0, waterTile1, waterTile2, waterTile3],
+};
+const loadedVariantImgs = new Map<string, HTMLImageElement[]>();
+const getVariantImgs = (tile: string): HTMLImageElement[] | null => {
+  const srcs = TILE_VARIANTS[tile];
+  if (!srcs) return null;
+  let imgs = loadedVariantImgs.get(tile);
+  if (!imgs) {
+    imgs = srcs.map((s) => {
+      const im = new Image();
+      im.src = s;
+      return im;
+    });
+    loadedVariantImgs.set(tile, imgs);
+  }
+  const ready = imgs.filter((im) => im.complete && im.naturalWidth > 0);
+  return ready.length ? ready : null;
+};
+// Stable per-tile pseudo-hash: same tile always picks the same variant.
+const tileHash = (x: number, y: number): number => ((x * 73856093) ^ (y * 19349663)) >>> 0;
 
 const ACT_GROUND_URLS: Record<number, string> = {
   2: act2GroundUrl,
@@ -281,29 +337,18 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
           const tile = mapData.tiles[y]?.[x] || ".";
           const px = x * TILE_SIZE - cam.x;
           const py = y * TILE_SIZE - cam.y;
-          if (tile === ".") {
+          const variants = getVariantImgs(tile);
+          if (variants) {
+            // ART BATCH 3: pick a stable variant per tile → organic field, no stamping
+            const img = variants[tileHash(x, y) % variants.length];
+            ctx.drawImage(img, px, py, TILE_SIZE, TILE_SIZE);
+          } else if (tile === ".") {
             if (groundImg) {
-              // Per-tile variation: 4 texture quadrants + hash-chosen subtle
-              // tuft, so the field doesn't read as one stamped tile.
               const qx = ((x * 13 + y * 7) % 2) * 32;
               const qy = ((x * 7 + y * 11) % 2) * 32;
               ctx.drawImage(groundImg, qx, qy, 32, 32, px, py, TILE_SIZE, TILE_SIZE);
             } else {
               blitGrid(ctx, TILE_GRASS16, BASE_PALETTE, px, py, 2);
-            }
-            const gh = (x * 7 + y * 13) % 5;
-            if (gh === 0) {
-              ctx.fillStyle = "rgba(255,242,194,0.5)";
-              ctx.fillRect(px + 8, py + 10, 2, 2);
-              ctx.fillRect(px + 26, py + 24, 2, 2);
-            } else if (gh === 1) {
-              ctx.fillStyle = "rgba(23,59,43,0.35)";
-              ctx.fillRect(px + 18, py + 6, 3, 1);
-              ctx.fillRect(px + 6, py + 28, 3, 1);
-            } else if (gh === 2) {
-              ctx.fillStyle = "#78C850";
-              ctx.fillRect(px + 12, py + 18, 1, 3);
-              ctx.fillRect(px + 13, py + 17, 1, 2);
             }
           } else if (tile === "F") {
             // Unified-world pass: meadow tile = grass base + tiny ALttP-style
@@ -453,19 +498,29 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
       ctx.fillStyle = "#5c381c";
       ctx.fillRect(px + 12, py + 29 - legOff, 6, 6);
       ctx.fillRect(px + 21, py + 29 - (2 - legOff), 6, 6);
-      const heroScale = 2;
-      const heroW = 16 * heroScale;
-      const heroH = 20 * heroScale;
       const bob = walkFrame === 1 || walkFrame === 3 ? 1 : 0;
-      blitGrid(
-        ctx,
-        HERO_D,
-        BASE_PALETTE,
-        px + (TILE_SIZE - heroW) / 2,
-        py + (TILE_SIZE - heroH) - 2 - bob,
-        heroScale,
-        { tunic: tunic.main, hair, accent: "#f59e0b" }
-      );
+      const heroImg = getHeroImg(motion.facing);
+      if (heroImg) {
+        // ART BATCH 3: AI hero sprite, anchored bottom-center like landmarks
+        const hs = 46; // draw size (slight overhang of the 38px tile)
+        const aspect = heroImg.naturalHeight / heroImg.naturalWidth;
+        const hh = Math.min(hs, Math.round(hs * aspect));
+        const hw = Math.round(hh / aspect);
+        ctx.drawImage(heroImg, motion.pos.x - cam.x - hw / 2, motion.pos.y - cam.y - hh + 6 - bob, hw, hh);
+      } else {
+        const heroScale = 2;
+        const heroW = 16 * heroScale;
+        const heroH = 20 * heroScale;
+        blitGrid(
+          ctx,
+          HERO_D,
+          BASE_PALETTE,
+          px + (TILE_SIZE - heroW) / 2,
+          py + (TILE_SIZE - heroH) - 2 - bob,
+          heroScale,
+          { tunic: tunic.main, hair, accent: "#f59e0b" }
+        );
+      }
       if (isSlashing) {
         ctx.strokeStyle = "#38bdf8";
         ctx.lineWidth = 4;
