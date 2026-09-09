@@ -1644,6 +1644,7 @@ export default function App() {
               <ZeldaOverworldCanvas
                 act={player.chapter}
                 player={player}
+                openedChestIds={(player.openedChests || []).map(k => k.split(':')[1])}
                 asset={assetQuote}
                 corrupted={!!player.ngPlus}
                 onMove={handleOverworldMove}

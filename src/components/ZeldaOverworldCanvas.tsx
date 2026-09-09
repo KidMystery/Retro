@@ -132,6 +132,8 @@ const getGroundImg = (act: number): HTMLImageElement | null => {
 interface ZeldaOverworldCanvasProps {
   act: number;
   player: PlayerStats;
+  /** Chest ids already looted (one-shot chests render open/empty). */
+  openedChestIds?: string[];
   asset: AssetQuote;
   onMove: (
     x: number,
@@ -170,6 +172,7 @@ const KEY_DIRS: Record<string, Dir> = {
 export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
   act,
   player,
+  openedChestIds = [],
   onMove,
   onInteractEntity,
   onSwordSlash,
@@ -195,6 +198,8 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
   const lastCommittedRef = useRef({ x: player.mapX, y: player.mapY });
   const heldDirsRef = useRef<Set<Dir>>(new Set());
   const stepOnceRef = useRef<Dir | null>(null);
+  const openedChestsRef = useRef<Set<string>>(new Set(openedChestIds));
+  useEffect(() => { openedChestsRef.current = new Set(openedChestIds); }, [openedChestIds]);
   const lastBlockAlarmRef = useRef(0);
 
   const isSolid = useCallback(
@@ -219,12 +224,17 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
   }, [player.mapX, player.mapY]);
 
   // Proximity prompt (Zelda-style): the ONLY place landmark names appear.
+  // Looted chests say they're empty instead of offering to open.
   useEffect(() => {
     const found = mapData.entities.find(
       (e) => Math.abs(e.x - lastCommittedRef.current.x) + Math.abs(e.y - lastCommittedRef.current.y) <= 1.2,
     );
-    setNearbyEntity(found || null);
-  }, [player.mapX, player.mapY, mapData.entities]);
+    if (found && found.type === "CHEST" && openedChestsRef.current.has(found.id)) {
+      setNearbyEntity({ ...found, interactPrompt: "The chest is empty — already looted" });
+    } else {
+      setNearbyEntity(found || null);
+    }
+  }, [player.mapX, player.mapY, mapData.entities, openedChestIds]);
 
   const triggerSlash = useCallback(() => {
     sound.playSwordSlash();
@@ -478,7 +488,17 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
           const aspect = img.naturalHeight / img.naturalWidth;
           const dh = Math.min(LM_DRAW, Math.round(LM_DRAW * aspect));
           const dw = Math.round(dh / aspect);
-          ctx.drawImage(img, ex + (TILE_SIZE - dw) / 2, ey + TILE_SIZE - dh + 3, dw, dh);
+          if (entity.type === "CHEST" && openedChestsRef.current.has(entity.id)) {
+            // LOOTED: dimmed, desaturated, lid drawn open + dark interior.
+            ctx.save();
+            ctx.filter = "grayscale(0.8) brightness(0.55)";
+            ctx.drawImage(img, ex + (TILE_SIZE - dw) / 2, ey + TILE_SIZE - dh + 3, dw, dh);
+            ctx.restore();
+            ctx.fillStyle = "rgba(10,8,4,0.75)";
+            ctx.fillRect(ex + (TILE_SIZE - dw) / 2 + dw * 0.2, ey + TILE_SIZE - dh * 0.55 + 3, dw * 0.6, dh * 0.28);
+          } else {
+            ctx.drawImage(img, ex + (TILE_SIZE - dw) / 2, ey + TILE_SIZE - dh + 3, dw, dh);
+          }
         } else if (entity.type === "SHRINE") {
           ctx.fillStyle = "rgba(245,158,11,0.25)";
           ctx.beginPath();
