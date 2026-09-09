@@ -12,6 +12,14 @@ import act2GroundUrl from '../assets/textures/act2_ground.png';
 import act3GroundUrl from '../assets/textures/act3_ground.png';
 import act4GroundUrl from '../assets/textures/act4_ground.png';
 import act5GroundUrl from '../assets/textures/act5_ground.png';
+import lmSageUrl from '../assets/sprites/landmarks/lm_sage.png';
+import lmBrokerUrl from '../assets/sprites/landmarks/lm_broker.png';
+import lmScammerUrl from '../assets/sprites/landmarks/lm_scammer.png';
+import lmChestUrl from '../assets/sprites/landmarks/lm_chest.png';
+import lmShrineUrl from '../assets/sprites/landmarks/lm_shrine.png';
+import lmPortalUrl from '../assets/sprites/landmarks/lm_portal.png';
+import lmBossUrl from '../assets/sprites/landmarks/lm_boss.png';
+import lmAssetUrl from '../assets/sprites/landmarks/lm_asset.png';
 import { Compass, MessageCircle, Swords } from "lucide-react";
 
 // MILESTONE B (game-feel rework): the overworld is now a SCROLLING WINDOW onto
@@ -19,6 +27,32 @@ import { Compass, MessageCircle, Swords } from "lucide-react";
 // with NO floating name plates. Names appear only in the contextual prompt bar
 // when standing near a landmark (Zelda-style). Tile-accurate commits via onMove
 // keep saves, encounters, and the debug harness working unchanged.
+// ART BATCH 2: landmarks are AI-generated 16-bit sprites (Luna style-lock),
+// chroma-keyed, drawn at 44px (fits a 38px tile with overhang like ALttP).
+
+const LANDMARK_IMG_SRC: Record<string, string> = {
+  NPC_SAGE: lmSageUrl,
+  NPC_BROKER: lmBrokerUrl,
+  NPC_SCAMMER: lmScammerUrl,
+  CHEST: lmChestUrl,
+  SHRINE: lmShrineUrl,
+  PORTAL: lmPortalUrl,
+  BOSS: lmBossUrl,
+  NPC_ASSET: lmAssetUrl,
+};
+const loadedLandmarkImgs = new Map<string, HTMLImageElement>();
+const getLandmarkImg = (type: string): HTMLImageElement | null => {
+  const src = LANDMARK_IMG_SRC[type];
+  if (!src) return null;
+  let img = loadedLandmarkImgs.get(src);
+  if (!img) {
+    img = new Image();
+    img.src = src;
+    loadedLandmarkImgs.set(src, img);
+  }
+  return img.complete && img.naturalWidth > 0 ? img : null;
+};
+const LM_DRAW = 44; // draw size in px on the 38px tile (slight overhang reads ALttP)
 
 const ACT_GROUND_URLS: Record<number, string> = {
   2: act2GroundUrl,
@@ -328,135 +362,19 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
         const ex = entity.x * TILE_SIZE - cam.x;
         const ey = entity.y * TILE_SIZE - cam.y;
         if (!inView(entity.x * TILE_SIZE, entity.y * TILE_SIZE)) return;
-        if (entity.type === "SHRINE") {
+        // ART BATCH 2: AI-generated 16-bit landmark sprite (chroma-keyed PNG),
+        // anchored bottom-center on the tile with slight overhang; code glyphs
+        // remain as fallback while the image loads.
+        const img = getLandmarkImg(entity.type);
+        if (img) {
+          const aspect = img.naturalHeight / img.naturalWidth;
+          const dh = Math.min(LM_DRAW, Math.round(LM_DRAW * aspect));
+          const dw = Math.round(dh / aspect);
+          ctx.drawImage(img, ex + (TILE_SIZE - dw) / 2, ey + TILE_SIZE - dh + 3, dw, dh);
+        } else if (entity.type === "SHRINE") {
           ctx.fillStyle = "rgba(245,158,11,0.25)";
           ctx.beginPath();
           ctx.arc(ex + 19, ey + 24, 20, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.fillStyle = "#94a3b8";
-          ctx.fillRect(ex + 7, ey + 24, 24, 10);
-          ctx.fillStyle = "#e2e8f0";
-          ctx.fillRect(ex + 9, ey + 22, 20, 4);
-          ctx.fillStyle = "#f8fafc";
-          ctx.fillRect(ex + 13, ey + 10, 12, 14);
-          ctx.fillStyle = "#cbd5e1";
-          ctx.beginPath();
-          ctx.moveTo(ex + 13, ey + 14);
-          ctx.lineTo(ex + 4, ey + 8);
-          ctx.lineTo(ex + 13, ey + 22);
-          ctx.fill();
-          ctx.beginPath();
-          ctx.moveTo(ex + 25, ey + 14);
-          ctx.lineTo(ex + 34, ey + 8);
-          ctx.lineTo(ex + 25, ey + 22);
-          ctx.fill();
-          ctx.fillStyle = "#f59e0b";
-          ctx.beginPath();
-          ctx.arc(ex + 19, ey + 8, 6, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.fillStyle = "#fef08a";
-          ctx.beginPath();
-          ctx.arc(ex + 19, ey + 8, 3, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.fillStyle = "rgba(254,240,138,0.8)";
-          ctx.fillRect(ex + 14, ey + 20 - fairySparkOffset, 3, 3);
-          ctx.fillRect(ex + 22, ey + 15 - ((fairySparkOffset + 12) % 30), 2, 2);
-        } else if (entity.type === "NPC_SAGE") {
-          ctx.fillStyle = "#1e3a8a";
-          ctx.fillRect(ex + 10, ey + 14, 18, 20);
-          ctx.fillStyle = "#ffedd5";
-          ctx.fillRect(ex + 13, ey + 8, 12, 8);
-          ctx.fillStyle = "#e2e8f0";
-          ctx.fillRect(ex + 12, ey + 14, 14, 12);
-          ctx.fillStyle = "#1e3a8a";
-          ctx.beginPath();
-          ctx.moveTo(ex + 8, ey + 8);
-          ctx.lineTo(ex + 19, ey - 2);
-          ctx.lineTo(ex + 30, ey + 8);
-          ctx.fill();
-          ctx.fillStyle = "#facc15";
-          ctx.fillRect(ex + 26, ey + 16, 6, 12);
-        } else if (entity.type === "NPC_BROKER") {
-          // Broker desk: counter + hanging scale, no text.
-          ctx.fillStyle = "#7e22ce";
-          ctx.fillRect(ex + 6, ey + 16, 26, 6);
-          ctx.fillStyle = "#5b21b6";
-          ctx.fillRect(ex + 8, ey + 22, 22, 12);
-          ctx.fillStyle = "#fbbf24";
-          ctx.fillRect(ex + 18, ey + 6, 2, 10);
-          ctx.beginPath();
-          ctx.moveTo(ex + 10, ey + 8);
-          ctx.lineTo(ex + 28, ey + 8);
-          ctx.stroke();
-          ctx.fillStyle = "#fbbf24";
-          ctx.beginPath();
-          ctx.arc(ex + 10, ey + 10, 3, 0, Math.PI * 2);
-          ctx.arc(ex + 28, ey + 10, 3, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.strokeStyle = "#fbbf24";
-          ctx.beginPath();
-          ctx.moveTo(ex + 10, ey + 8);
-          ctx.lineTo(ex + 28, ey + 8);
-          ctx.stroke();
-        } else if (entity.type === "NPC_SCAMMER") {
-          ctx.fillStyle = "#18181b";
-          ctx.fillRect(ex + 9, ey + 10, 20, 24);
-          ctx.fillStyle = "#ef4444";
-          ctx.fillRect(ex + 13, ey + 15, 3, 2);
-          ctx.fillRect(ex + 22, ey + 15, 3, 2);
-          ctx.fillStyle = "#a855f7";
-          ctx.beginPath();
-          ctx.arc(ex + 27, ey + 22, 5, 0, Math.PI * 2);
-          ctx.fill();
-        } else if (entity.type === "NPC_ASSET") {
-          // Gold nugget mound with sparkle, no text.
-          ctx.fillStyle = "#ca8a04";
-          ctx.beginPath();
-          ctx.moveTo(ex + 4, ey + 32);
-          ctx.lineTo(ex + 12, ey + 12);
-          ctx.lineTo(ex + 24, ey + 18);
-          ctx.lineTo(ex + 34, ey + 32);
-          ctx.closePath();
-          ctx.fill();
-          ctx.fillStyle = "#fef08a";
-          ctx.fillRect(ex + 14, ey + 20, 4, 4);
-          ctx.fillRect(ex + 24, ey + 26, 3, 3);
-        } else if (entity.type === "CHEST") {
-          ctx.fillStyle = "#78350f";
-          ctx.fillRect(ex + 8, ey + 14, 22, 18);
-          ctx.fillStyle = "#f59e0b";
-          ctx.fillRect(ex + 8, ey + 18, 22, 4);
-          ctx.fillRect(ex + 17, ey + 20, 4, 5);
-        } else if (entity.type === "PORTAL") {
-          const swirl = 0.6 + 0.4 * Math.sin(frame * 0.08);
-          ctx.fillStyle = `rgba(124,58,237,${0.25 + 0.2 * swirl})`;
-          ctx.beginPath();
-          ctx.arc(ex + 19, ey + 22, 22, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.fillStyle = "#2e1065";
-          ctx.fillRect(ex + 9, ey + 10, 20, 26);
-          ctx.fillStyle = "#7c3aed";
-          for (let s = 0; s < 4; s++) {
-            ctx.fillRect(ex + 11, ey + 13 + s * 6, 16 - s * 3, 3);
-          }
-        } else if (entity.type === "BOSS") {
-          // Horned menace silhouette, no text.
-          ctx.fillStyle = "#991b1b";
-          ctx.beginPath();
-          ctx.ellipse(ex + 19, ey + 24, 16, 12, 0, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.fillRect(ex + 8, ey + 10, 4, 10);
-          ctx.fillRect(ex + 26, ey + 10, 4, 10);
-          ctx.fillStyle = "#fca5a5";
-          ctx.fillRect(ex + 12, ey + 20, 3, 3);
-          ctx.fillRect(ex + 23, ey + 20, 3, 3);
-          ctx.fillStyle = "#fef2f2";
-          ctx.beginPath();
-          ctx.moveTo(ex + 13, ey + 30);
-          ctx.lineTo(ex + 19, ey + 34);
-          ctx.lineTo(ex + 25, ey + 30);
-          ctx.lineTo(ex + 19, ey + 32);
-          ctx.closePath();
           ctx.fill();
         }
       });
