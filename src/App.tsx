@@ -245,7 +245,7 @@ export default function App() {
         if (wrenTimerRef.current) clearTimeout(wrenTimerRef.current);
         wrenTimerRef.current = setTimeout(() => setWrenSays(null), 9000);
       }
-    }, 20000);
+    }, 45000);
     return () => clearTimeout(t);
   }, [currentView, player.day, wrenSays]);
 

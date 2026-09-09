@@ -162,11 +162,11 @@ function bfsPath(start, goal) {
   await page.waitForTimeout(300);
 
   // ── 2. ENTER ACT I DUNGEON via portal (overworld walk, retried for render races) ──
-  await page.evaluate(() => window.__valhalla.patch({ mapX: 16, mapY: 9 }));
+  await page.evaluate(() => window.__valhalla.patch({ mapX: 12, mapY: 2 }));
   await page.waitForTimeout(400);
   for (let i = 0; i < 6; i++) {
     const cx = await page.evaluate(() => window.__valhalla.player().mapX);
-    if (cx !== 17) { await page.keyboard.press('ArrowRight'); await page.waitForTimeout(400); }
+    if (cx !== 13) { await page.keyboard.press('ArrowRight'); await page.waitForTimeout(400); }
     await dungeonInteract();
     if ((await V()).view === 'DUNGEON') break;
     await page.waitForTimeout(400);

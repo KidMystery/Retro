@@ -194,6 +194,7 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
   const targetTileRef = useRef<{ x: number; y: number } | null>(null);
   const lastCommittedRef = useRef({ x: player.mapX, y: player.mapY });
   const heldDirsRef = useRef<Set<Dir>>(new Set());
+  const stepOnceRef = useRef<Dir | null>(null);
   const lastBlockAlarmRef = useRef(0);
 
   const isSolid = useCallback(
@@ -245,6 +246,8 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
         e.preventDefault();
         heldDirsRef.current.delete(dir);
         heldDirsRef.current.add(dir); // re-insert → last pressed wins
+        // Tap = one step (grid compat: harness + quick taps). Hold = smooth walk.
+        if (!movingRef.current) stepOnceRef.current = dir;
       } else if (["Space", "KeyE", "Enter"].includes(e.code)) {
         e.preventDefault();
         if (nearbyEntity) onInteractEntity(nearbyEntity);
@@ -284,10 +287,10 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
       lastT = now;
       const motion = motionRef.current;
 
-      // Step initiation: idle + a direction held → begin one smooth tile step.
-      if (!movingRef.current && heldDirsRef.current.size > 0) {
-        const dirs = [...heldDirsRef.current];
-        const dir = dirs[dirs.length - 1];
+      // Step initiation: idle + direction held (or tapped) → one smooth tile step.
+      if (!movingRef.current && (stepOnceRef.current || heldDirsRef.current.size > 0)) {
+        const dir = stepOnceRef.current || [...heldDirsRef.current][heldDirsRef.current.size - 1];
+        stepOnceRef.current = null;
         const cur = pxToTile(motion.pos);
         const nx = cur.x + (dir === "LEFT" ? -1 : dir === "RIGHT" ? 1 : 0);
         const ny = cur.y + (dir === "UP" ? -1 : dir === "DOWN" ? 1 : 0);
@@ -522,17 +525,27 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
         );
       }
       if (isSlashing) {
-        ctx.strokeStyle = "#38bdf8";
-        ctx.lineWidth = 4;
-        ctx.beginPath();
-        if (motion.facing === "RIGHT") ctx.arc(px + 26, py + 18, 20, -Math.PI / 3, Math.PI / 3);
-        else if (motion.facing === "LEFT") ctx.arc(px + 12, py + 18, 20, (2 * Math.PI) / 3, (4 * Math.PI) / 3);
-        else if (motion.facing === "UP") ctx.arc(px + 19, py + 10, 20, -Math.PI, 0);
-        else ctx.arc(px + 19, py + 28, 20, 0, Math.PI);
-        ctx.stroke();
-        ctx.strokeStyle = "#ffffff";
-        ctx.lineWidth = 2;
-        ctx.stroke();
+        // Sword swing: a rotating blade line + fading trail (reads as a sword,
+        // not a bow). Sweep angle animates over the 240ms slash window.
+        const t = Math.min(1, (performance.now() % 240) / 240);
+        const baseAngle =
+          motion.facing === "RIGHT" ? 0 : motion.facing === "DOWN" ? Math.PI / 2 :
+          motion.facing === "LEFT" ? Math.PI : -Math.PI / 2;
+        const sweep = (a: number) => baseAngle + (a - 0.5) * 1.9;
+        const cx = motion.pos.x - cam.x, cy = motion.pos.y - cam.y - 4;
+        const R = 26;
+        for (let k = 0; k < 5; k++) {
+          const a = sweep(t - k * 0.055);
+          const alpha = 0.85 - k * 0.17;
+          const x1 = cx + Math.cos(a) * (R - 14), y1 = cy + Math.sin(a) * (R - 14);
+          const x2 = cx + Math.cos(a) * R, y2 = cy + Math.sin(a) * R;
+          ctx.strokeStyle = k === 0 ? `rgba(240,249,255,${alpha})` : `rgba(56,189,248,${alpha * 0.7})`;
+          ctx.lineWidth = k === 0 ? 4 : 3;
+          ctx.beginPath();
+          ctx.moveTo(x1, y1);
+          ctx.lineTo(x2, y2);
+          ctx.stroke();
+        }
       }
 
       // NG+ corrupted wash over the VIEWPORT — Luna spec: capped atmosphere,
