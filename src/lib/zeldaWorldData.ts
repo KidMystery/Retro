@@ -82,7 +82,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
     entities: [
       {
         id: 'sage_graham',
-        name: 'Sage Benjamin Graham',
+        name: 'Bram Ashfall — Keeper of the Storehouse',
         type: 'NPC_SAGE',
         x: 3,
         y: 2,
@@ -188,7 +188,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
       },
       {
         id: 'boss_bear',
-        name: 'Grizzly Bear of Drawdowns',
+        name: 'The Tithe-Monger — Collector of the Harvest',
         type: 'BOSS',
         x: 14,
         y: 12,
@@ -226,7 +226,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
     entities: [
       {
         id: 'sage_graham_2',
-        name: 'Chrono-Sage Echo of Graham',
+        name: 'Mira Vey — Signal-Warden of the Pass',
         type: 'NPC_SAGE',
         x: 3,
         y: 2,
@@ -313,7 +313,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
       },
       {
         id: 'boss_sphinx',
-        name: 'The Chrono-Sphinx',
+        name: 'The Mirror Merchant — Who Changes Value When You Look Away',
         type: 'BOSS',
         x: 14,
         y: 12,
@@ -350,7 +350,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
     entities: [
       {
         id: 'sage_graham_3',
-        name: 'Bastion Sage - Graham of Range',
+        name: 'Oren Olm — Surveyor of Longacre',
         type: 'NPC_SAGE',
         x: 3,
         y: 2,
@@ -427,7 +427,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
       },
       {
         id: 'boss_crab',
-        name: 'Crab Golem of Sideways Range',
+        name: 'The Two-Faced Wyvern — One Head Promises, One Head Collects',
         type: 'BOSS',
         x: 14,
         y: 12,
@@ -464,7 +464,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
     entities: [
       {
         id: 'sage_graham_4',
-        name: 'Volcano Sage - Vega Master',
+        name: 'Mira Vey — Caldera Aspect',
         type: 'NPC_SAGE',
         x: 3,
         y: 2,
@@ -542,7 +542,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
       },
       {
         id: 'boss_hydra',
-        name: 'Hydra of Implied Vega',
+        name: 'The Vacant Manor — The Estate That Grows When You Borrow',
         type: 'BOSS',
         x: 14,
         y: 12,
@@ -579,7 +579,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
     entities: [
       {
         id: 'sage_graham_final',
-        name: 'Sage Graham - Final Sanctuary',
+        name: 'Bram Ashfall — Final Sanctuary',
         type: 'NPC_SAGE',
         x: 3,
         y: 2,
@@ -648,7 +648,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
       },
       {
         id: 'boss_vex',
-        name: 'Liquidation Lord Marduk Vex',
+        name: 'THE RED HERRING — Marduk Vex, the Fallen Oracle-Sage',
         type: 'BOSS',
         x: 14,
         y: 12,
