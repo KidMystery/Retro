@@ -1,0 +1,2553 @@
+===== SOURCE CHAPTER 1 | PDF PAGES 22-35 =====
+
+===== PDF PAGE 22 =====
+3
+1
+INTRODUCTION
+Why Options?
+hy should someone who invests or speculates in the market
+learn to use options? The simple answer is that options can
+greatly enhance your profit from stocks and/or provide the
+means to protect your portfolio. The goal of this chapter is to familiar-
+ize the beginner with call and put options, and demonstrate some of
+the basic ways that options are used.
+Suppose you buy a stock for $30 a share and it goes to $33. The stock
+price has risen by 10 percent and accordingly you have a 10 percent prof-
+it. That’s nice! If instead of buying the stock, you buy an appropriate
+option, you might make a 100 percent profit or even more for the same
+10 percent rise in the stock price. That’s better than nice. That’s fantastic!
+Of course, there are risks associated with options, just as there are risks
+with any investment. Y ou need to understand the risks as well as the
+advantages of options in order to optimize your results.
+Throughout this book, the use of call and put options are illustrated
+through a variety of examples. For simplicity, the focus is on equity
+options—that is, options associated with individual stocks. With minor
+variations, the same concepts apply to most other kinds of options,
+such as those associated with an index such as the Dow or those that
+represent an industry such as the semiconductor industry.
+The Basic Concept of Options
+T o understand the basic concept of options, let’s start with a simplified
+look at how they work.
+W
+
+===== PDF PAGE 23 =====
+An (equity) option is linked to a specific stock. The price of the option
+is much less than the price of the underlying stock, which is a major
+reason for the attractiveness of options. If the price of the stock
+changes, the price of the option will also change, although by a smaller
+amount. As the price of a stock goes through its daily ups and downs,
+the price of an associated option will undergo related fluctuations.
+The price of an option can be viewed and followed in much the same
+way as a stock price. There are numerous online services, including the
+data feed for your brokerage account, that provide the prices of options.
+The Chicago Board Options Exchange (CBOE) offers a free online serv-
+ice for quotes on option prices that are 20 minutes delayed.
+For a call option, if the stock price goes up, the option price also
+increases. If the stock price goes down, the price of the call decreases.
+For a put option, if the stock price goes down, the option price increases.
+If the stock price goes up, the price of the put decreases.
+This sounds like owning a call option is similar to holding a long posi-
+tion in the stock, because you have the potential to make a profit when
+the stock price goes up. And owning a put option is similar to holding
+a short position in the stock, because you have the potential to make a
+profit when the stock price goes down. In a rough sense, this analogy is
+true, but there are some significant differences.
+Major Differences Between Stocks and Options
+Leverage
+Options typically cost only a fraction of the stock price. If you think
+XYZ stock, currently at $49 per share, is going up in price, you can pur-
+chase 100 shares at a cost of $4,900. If instead you buy 1 call option
+contract (1 contract represents 100 shares of stock), you might pay only
+$2 per share for a total of only $200 to participate in an upward price
+movement of XYZ.
+Analogously, if you think XYZ is going down in price, you could short
+100 shares of stock, but that creates a margin responsibility in your bro-
+kerage account, which can become costly if XYZ goes up. If instead you
+4 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 24 =====
+buy one put contract, you might pay just $2 per share for a total of only
+$200 to participate in a downward price movement of XYZ.
+Time Limitation
+One reason options are cheap is that they are time limited. A long or
+short position involving stock can be held indefinitely, but an option
+expires on a fixed date. The expiration date is typically the third Friday
+of the expiration month designated in the option contract. When you
+buy an option, you can select from various expiration months, includ-
+ing the current month as well as other months going out possibly as far
+as two years.
+The longer you want to hold an option, the more expensive it will be. If
+a price of $1 per share applies to an option expiring in two months, a
+similar option expiring in four months might be priced at $2 per share.
+For 12 months, the price could be as much as $7 per share, but even this
+would typically be a small fraction of the stock price.
+Another important aspect of being time limited is that the value of an
+option will decrease with time when there is no change in the stock
+price. If you buy an option for $1 per share with two months until expi-
+ration, for example, it might be worth only $.65 with one month to go
+if the stock price has not gone up. This is one of the risks of owning an
+option, namely that its value diminishes over time when the stock price
+remains unchanged.
+Price Movement
+As the stock price changes, the option price also changes, but by a lesser
+amount. How closely the change in the option price matches the
+change in the stock price depends on the reference price designated in
+the option contract. This reference price is called the strike price.
+When you decide to purchase an option, there will be several strike
+prices from which to make a selection. For most stocks, the strike prices
+of its options are set at $5 increments within the broad trading range of
+the stock. For some lower- and medium-priced stocks, strike prices are
+offered in increments of $2.50, whereas options on some high-priced
+stocks only have strike price increments of $10.
+Chapter 1 Introduction 5
+
+===== PDF PAGE 25 =====
+There is a terminology used by options traders to describe the relative
+relationship between the stock price and the strike price of an option. If
+the strike price of either a call or a put is close to the price of the stock,
+the option is said to be at-the-money. If the strike price of a call (put) is
+above (below) the stock price, the option is said to beout-of-the-money.
+If the strike price of a call (put) is below (above) the stock price, the
+option is said to be in-the-money.
+For an at-the-money option, the price of the option will change by about
+50 percent of the amount of change in the stock price. For an out-of-the
+money option, the price of the option will change by less than 50 percent
+of the change in the stock price. The price of an in-the-money option
+will move by more than 50 percent of the change in the stock price.
+For example, suppose XYZ stock is priced at $49 and a call option with
+a $50 strike price is purchased for $2 per share. If the price of XYZ stock
+rises by $2 up to $51 soon after purchasing the option, the price of the
+call would typically increase by about $1, raising its price by up to
+$3 per share. Suppose instead, a call option with a $55 strike price was
+purchased for $.75 per share. Then the same $2 move in the stock price
+might increase the price of the call by only $.20, up to $.95 per share.
+On the other hand, a call option with a $45 strike price and a cost of
+$5 per share might see an increase in the price of the call by as much as
+$1.60, up to $6.60 per share.
+Of course, if XYZ fell $2 from $49 down to $47, the call option with a
+$50 strike price could be expected to lose about $1 per share, reducing
+its price from $2 down to $1. This illustrates how the leverage of options
+works in both directions.
+Financial Risk
+When you buy an option, your maximum risk is limited to your origi-
+nal cost of that option. The worst outcome is that you hold the option
+until expiration, at which time it has become worthless because the
+stock price failed to move in a beneficial manner.
+For example, if you buy one option contract for a price of $2 per share,
+your cost is $200 (2 × 100 = 200). This is the most that you can lose.
+Compare that dollar risk with the risk of either owning or shorting
+6 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 26 =====
+100 shares of stock. When the stock price undergoes a substantial move
+against your long or short position in the stock, the dollar loss will be
+much greater than the cost of a call or put option.
+A major risk with options is that you invest heavily by purchasing
+numerous contracts and then allow them to expire worthless. This rep-
+resents a 100 percent loss on a significant investment. Of course, it is
+rarely necessary to lose all of your original investment when the stock
+does not move as expected. Typically, you can sell your options before
+expiration and recover some part of your original cost.
+A Detailed Explanation of Options
+Additional insight into options from both the owner and seller view-
+points is provided in the more detailed explanation that follows here.
+The Option Contract
+An (equity) option represents a contract between a buyer and a seller.
+This contract is an agreement concerning the buying or selling of a
+stock at a reference price during a stipulated time frame. Y ou will never
+see any written document for this contract, just as you do not see actu-
+al shares of stock that you purchase in your brokerage account. The
+existence of the option contract is implied as soon as you buy or sell an
+option through your broker.
+We will continually refer to the buying and selling of options. In case
+you are wondering where all this buying and selling takes place, there
+are exchanges for trading options similar to the exchanges for trading
+stocks. Y our broker routes your order to buy or sell an option to one of
+those option exchanges, just like he sends your order to buy or sell stock
+to a stock exchange.
+There are rights and obligations associated with an option contract,
+which need to be understood. Options associated with individual
+stocks trade in a manner called “American style, ” which permits the
+owner of the option to exercise the rights of the contract at any time
+before the option expires. T o better comprehend the implications of
+an option being exercised, we examine the call option and the put
+Chapter 1 Introduction 7
+
+===== PDF PAGE 27 =====
+option from the viewpoints of both the buyer (owner) and the seller
+(writer).
+The Call Option
+The buyer (owner) of a call option has the right to purchase 100 shares
+of stock at the strike price designated in the contract. This right to pur-
+chase can be exercised anytime before the contract expires. Typically,
+the time frame of the option extends through the third Friday of the
+expiration month stipulated in the contract.
+The seller (writer) of a call option has the obligation to supply 100 shares
+of stock for purchase at the strike price, if so requested by the owner of
+the option. This obligation to supply the stock may be required at any
+time before the contract expires. As a practical matter, if the stock price
+is below the strike price, the stock is almost never “called” away from the
+seller. Even when the stock price goes above the strike price, the assign-
+ment of a call rarely happens until near the expiration date.
+BUYING A CALL OPTION
+The motivation to buy a call option could be based on your expectation
+that the price of XYZ stock will soon rise above its current level. Let’s
+set up a possible trade, clarify its risk, and examine some possible out-
+comes resulting from the trade:
+■ Tr ade.In early February, with XYZ trading at $49, you decide
+to buy one call contract to benefit from the expected rise in the
+stock price. T o allow a reasonable amount of time for XYZ to
+advance, you select a contract with an April expiration. Y ou also
+select a strike price of $50. Option prices are quoted on a per-
+share basis, and let’s suppose that this call option costs $2 per
+share. Because the option covers 100 shares of stock, this means
+you pay $200 to own this particular call contract.
+In the jargon of options, you are “long one XYZ Apr 50 call. ”
+Now you have the right to purchase 100 shares of XYZ stock at
+$50 per share anytime before the close of trading on the third
+Friday of April.
+8 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 28 =====
+This right to purchase XYZ stock for $50 per share does not
+look so good at the moment, because the stock is priced in the
+market at only $49. Indeed, why have you paid $2 per share for
+something that presently has no intrinsic value? Because the
+expression “time is money” is most appropriate as it applies to
+options. Y ou paid $2 per share as a cheap way to participate in
+the movement of the price of XYZ stock until the call expires in
+two months.
+■ Risk. Y our risk on this trade is limited to the $200 paid for one
+call contract.
+■ Outcome. Let’s examine a few scenarios to see how this trade
+might work out:
+1. Suppose your faith in XYZ stock is validated as its price
+reaches $54 by the end of March. Now your right to pur-
+chase XYZ at $50 looks good, and you decide it is time to
+take your profit. Should you call your broker and tell him to
+exercise your right to purchase this stock at $50? No, because
+you will do much better if you just sell the option. The
+option you bought for $2 is likely to now be worth $5.50. So,
+the contract for which you paid $200 can now be sold for
+$550, giving you a nice $350 profit. That represents a
+175 percent profit on the option, whereas the stock price has
+risen only 15 percent.
+Why is this option worth $5.50 when its intrinsic value is
+only $4 (54 – 50 = 4)? Again, because “time is money, ” and
+the person who buys your call option is paying the extra
+$1.50 per share over its intrinsic value in hopes that XYZ
+stock will go even higher before the April expiration.
+Let’s see why selling the option is more profitable than
+exercising it. If you had exercised your option to buy XYZ
+stock at $50 and then immediately sold the stock at $54,
+that would be a $400 gain on the stock, less the $200 cost
+of the option for a net profit of only $200. So, exercising the
+option yields only a 100 percent profit as compared with
+the 175 percent profit received from selling the option. Also,
+Chapter 1 Introduction 9
+
+===== PDF PAGE 29 =====
+selling the option avoids any issue about having enough
+cash in your brokerage account to take ownership of the
+stock.
+2. In contrast to the happy Scenario 1, let’s see what happens in
+the unfortunate case when XYZ is under $50 when the April
+options expiration date arrives. If you remained stubbornly
+optimistic until the end, you would have seen the value of
+your option diminish until it expired worthless. In this
+worst-case situation, you would lose all of the $200 that you
+originally paid for the option. Usually, there is no need to
+incur such a complete loss. If XYZ is still around $49 in early
+April with only a couple of weeks left until expiration, you
+might conclude that the chance for success looks remote.
+Then sell your option for whatever value remains. Suppose
+that you could sell the option for $1 per share and thereby
+close the trade for a 50 percent loss. The decision to limit
+your loss on a long option trade to 50 percent is a reasonable
+exit strategy.
+SELLING A CALL OPTION
+Suppose that you own 100 shares of ZYX stock, which at the current
+price of $67 is above where you bought it, but now seems to be stalled.
+It would be nice to make a bit more money on this stock, and you
+would be quite happy to part with it at $70 per share. This could be
+your motivation to sell a call. Selling a call would immediately bring
+some cash into your brokerage account, and if ultimately you are
+required to give up your stock for $70 per share, that is an additional
+gain. Let’s set up a possible trade, clarify its risk, and examine some pos-
+sible outcomes resulting from the trade:
+■ Tr ade.In early February, you decide to sell one call contract on
+ZYX. Y ou pick the $70 strike price and a March expiration. The
+March option is selected so as to have an early resolution as to
+whether your stock will be retained or sold. Suppose that you
+are able to sell the March call for $2 per share. Because the
+contract covers 100 shares of stock, that brings in $200, which
+is yours to keep.
+10 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 30 =====
+In the jargon of options, you are “short one ZYX Mar 70 call. ”
+Also, this particular combination of owning a stock and selling
+a call is referred to as a covered call position. Chapter 14,
+“Covered Calls, ” discusses this type of trade more fully.
+Y ou now have the obligation to give up your stock at $70 a
+share if someone exercises that right against you before the
+close of trading on the third Friday of March. Does this mean
+your stock will be called away as soon as its price is a penny
+over $70? No, because under most circumstances you only need
+worry about losing your stock within a few days of the expira-
+tion date. Why? As illustrated previously, until near the expira-
+tion date, the owner of the option will always profit more by
+selling it than by exercising it. Of course, as the expiration date
+is reached with ZYX above $70, someone is ultimately going to
+exercise their option and call away your stock.
+■ Risk. Y our risk here is the usual risk of owning a stock, because
+its price could drop significantly. T o a small degree, this risk is
+offset by the decrease in value of the short call.
+■ Outcome. Let’s examine a few scenarios to see how this trade
+might work out:
+1. At expiration, ZYX is at $71. Y our stock is called away for
+$70. Y ou have made $2 per share for the call that you sold,
+and the stock is being sold for $3 more than the $67 it was
+worth when you sold the option. Thus, you have a $500 gain
+since the time that you initiated the option trade.
+Things look a little different if ZYX is $74 at expiration.
+Y our stock will still be taken away at $70, and you have
+exactly the same $500 gain that you had when ZYX closed
+at $71. But in this case, you could have made $700 on the
+stock if you had not sold the option. Of course, that $700
+gain is unrealized unless you actually sell the stock at $74.
+One benefit of the covered call trade is that it forces some
+discipline upon you to take a profit and get rid of a stock
+that possibly has little upside left in it.
+Chapter 1 Introduction 11
+
+===== PDF PAGE 31 =====
+2. If ZYX is slightly above $70 as expiration nears, you might
+decide that you do not want to part with your stock. Then
+you must buy back the short call. If ZYX is hovering around
+$71 on the expiration day, you can probably buy back the
+call option for a bit more than $1 a share (even at expiration
+it will cost you a little more than its intrinsic value). This
+gives you a profit of the difference between the $2 that you
+took in from the sale of the call less your approximate cost of
+$1 from buying it back. Now you get to keep your stock, but
+if its price soon begins to fall, you may regret the decision to
+keep it.
+3. If ZYX is only $69 at expiration, the call that you sold
+expires worthless. Y ou already have the $2 from selling the
+option, and you also retain your stock. The cost basis for
+your stock has been lowered by $2 per share. Now you can
+repeat the process in the next month. If you were able to
+continue bringing in $200 every month with this covered call
+strategy, that represents a 36 percent annual return on a
+$67 stock that does not even need to go up in price. If the
+stock goes up gradually and each month you can sell a call at
+a higher strike price, things are even better.
+4. Suppose that ZYX has pulled back to $64 at expiration. Now
+your stock has lost $3 per share from the time that you sold
+the call. This unpleasant situation is somewhat relieved by
+the $2 per share received for the call that you sold. In this
+case, your net loss is only $1 per share.
+The Put Option
+The buyer (owner) of a put option has the right to sell 100 shares of
+stock at the strike price designated in the contract. This right to sell can
+be exercised anytime before the contract expires. Typically, the time
+frame of the option extends through the third Friday of the expiration
+month stipulated in the contract.
+The seller (writer) of a put option has the obligation to buy 100 shares
+of stock at the strike price, if so requested by the owner of the option.
+12 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 32 =====
+This obligation to purchase the stock may be required at any time
+before the contract expires. As a practical matter, the stock is never
+“put” to seller if the stock price is above the strike price. Even if the
+stock price is below the strike price, the put assignment typically does
+not happen until near the expiration date.
+BUYING A PUT OPTION
+The motivation to buy a put option could be based on your expectation
+that the price of XYZ stock will soon fall from its current level. Let’s set
+up a possible trade, clarify its risk, and examine some possible out-
+comes resulting from the trade:
+■ Tr ade.In early February, with XYZ trading at $39, you decide
+to buy one put contract to benefit from the expected fall in the
+stock price. Because you expect XYZ to decline following an
+earnings report in early March, you choose a March option.
+Y ou also decide on a strike price of $40. Let’s say this put
+option costs $3 per share. Because the option covers 100 shares
+of stock, this means that you pay $300 to become the owner of
+this particular put contract. Y ou are now “long one XYZ Mar 40
+put. ” This gives you the right to sell 100 shares of XYZ stock at
+$40 per share anytime before the close of trading on the third
+Friday of March. This right to sell at $40 per share is a slight
+improvement over its current price of $39; however, that gain
+of $1 per share is offset by the $3 per share paid for the option.
+Why have you paid $3 for something that has an intrinsic value
+of only $1? Again, “time is money, ” and you have paid an extra
+$2 per share of time value in order to play XYZ for a downward
+move until the put expires in March.
+■ Risk. Y our risk on this trade is limited to the $300 paid for one
+put contract.
+■ Outcome. Let’s examine a few scenarios to see how this trade
+might work out:
+1. The earnings report for XYZ is indeed weak and the stock
+sinks to $34. Now your right to sell XYZ at $40 per share
+looks good. Does it matter that you do not own any XYZ
+Chapter 1 Introduction 13
+
+===== PDF PAGE 33 =====
+stock to sell? No, because if you are ready to take your profit,
+all you need do is sell the option. The option you bought for
+$3 is likely to now be worth $7. So, the contract for which
+you paid $300 can now be sold for $700, giving you a nice
+$400 profit. That represents a 133 percent profit on the
+option, whereas the stock dropped only about 13 percent.
+Why is the option worth $7 when its intrinsic value is only
+$6 (40 – 34 = 6)? As said before, time is money, and the
+person who buys your put option for $7 is paying an extra
+$1 per share over its intrinsic value in hopes that XYZ will go
+even lower before the March expiration.
+Let’s see why selling the option is better than exercising it. T o
+assign the option, you would first need to buy the stock at
+$34 per share and then exercise your right to have someone
+buy the stock at $40 per share. Y our gain would be $600 on
+the stock less the $300 you paid for the option, giving a net
+profit of only $300. So, exercising the option yields a
+100 percent profit as compared with the 133 percent profit
+received from selling the option.
+2. In contrast to the happy Scenario 1, let’s see what happens in
+the case when the price of XYZ stock is still at $39 when the
+March options expiration date arrives. The earnings report
+failed to negatively impact the stock price and you have
+stubbornly refused to accept that outcome until the end.
+Then you would have seen the value of your option shrink
+from $3 down to its intrinsic value of $1. Y ou could then sell
+the option for $100, which represents a $200 loss based on
+the $300 paid for the option.
+SELLING A PUT OPTION
+Suppose that you shorted 100 shares of ZYX stock when it was $65 a
+share. It has fallen to $62 in early February, but seems to be stalled at
+that price level. Y ou do have a $300 profit, but your original goal was to
+ride this stock down to $60 for a profit of $500. This could be the moti-
+vation for selling a put option. Selling a put would immediately bring
+some cash into your brokerage account, and if ultimately you are
+14 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 34 =====
+required to close your short position at $60 per share, that is an addi-
+tional gain. Let’s set up a possible trade, clarify its risk, and examine
+some possible outcomes resulting from the trade:
+■ Tr ade.In February, you decide to sell a March contract so as to
+have an early resolution on the position of being short ZYX
+stock. Y ou find that you can sell the March $60 put for $2 per
+share, which brings $200 into your brokerage account. Y ou are
+now “short one Mar 60 put. ” This means that you might be
+required to buy 100 shares of ZYX at $60 per share at anytime
+before the March options expiration date. For all practical pur-
+poses, this is not going to happen unless ZYX is below $60 as
+the expiration date nears. If you are required to buy the stock at
+$60, your broker will immediately use those shares to close
+your short position in ZYX, which you initiated at $65.
+■ Risk. Y our risk here is the usual risk of being short a stock,
+because its price could rise significantly. T o a small degree, this
+risk is offset by the decrease in value of the short put.
+■ Outcome. Let’s examine some scenarios to see how this trade
+might work out:
+1. Suppose that ZYX is still at $62 when the March expiration
+date arrives. Because the stock price is above the strike price
+at expiration, the option expires worthless. Now you can keep
+the $200 that you received from selling the put option and
+your short position in the stock remains in place. Thus, you
+have managed to make some additional profit on this short
+position, even though the stock is right where it was when
+you sold the put.
+2. If the price of ZYX is at $59 at expiration in March, you
+would be required to buy 100 shares of the stock at $60 per
+share. These purchased shares would immediately close your
+short position in ZYX. Now you have achieved your original
+goal of riding the stock down from $65 to $60, plus you have
+brought in an extra $2 per share from selling the put. This
+yields $500 from the short sale of the stock plus $200 from
+the option for a total profit of $700.
+Chapter 1 Introduction 15
+
+===== PDF PAGE 35 =====
+Comments
+The discussion in this chapter focused only on some of the more com-
+mon uses of call and put options. A variety of strategies use options in
+other ways to enhance the opportunity for making a profit under the
+appropriate circumstances. Many of those strategies are presented in
+this book.
+Time is money. This phrase should always be in the back of your mind
+as you deal with options. Remember that the value of an option
+decreases in time when everything else remains unchanged. When you
+own an option, time is your enemy. When you have sold an option,
+time is your friend.
+Before you can begin trading options, you need to consult your broker
+to determine what types of option trading will be allowed in your
+account. The types of allowed trades will depend on the size of
+your account as well as whether it is a retirement account. Upon receiv-
+ing approval, you will be able to do options trading in your brokerage
+account much like you do stock trading, either by directing your broker
+to place orders or by online transactions done by yourself.
+16 OPTIONS FOR THE BEGINNER AND BEYOND
+===== SOURCE CHAPTER 4 | PDF PAGES 52-59 =====
+
+===== PDF PAGE 52 =====
+33
+4
+THE GREEKS
+s you learn about options and listen to the conversations of
+options traders, you will hear certain Greek letters mentioned.
+What are they talking about when they mention the delta, theta,
+gamma, vega (not a Greek letter), and rho? Are they referring to their
+favorite college fraternity or sorority?
+The “Greeks, ” as they are called in the terminology of options trading,
+are one-word expressions used to describe how the price of an option
+changes when something else changes. The origin of this terminology
+lies in the theory of options pricing where these Greek letters were first
+introduced to define these price changes in exact mathematical state-
+ments. The main goal of this chapter is to provide an overview of the
+Greeks and their role in the trading of options.
+Delta
+The most basic and useful of the Greeks is the delta. Even with a simple
+working knowledge of the delta, you are immediately going to be a bet-
+ter options trader.
+Delta: The amount that the price of an option changes as compared to
+a $1 increase in the stock price. This quantity is typically expressed as
+either a decimal or a percentage.
+Computing the Delta of a Call Option 
+Let’s illustrate with some examples:
+■ Example 1. XYZ is at $30 per share. The Mar 30 call, which
+expires in three weeks, is priced at $2 per share. Suppose the
+price of XYZ increases by $2 up to $32 per share. Typically, this
+A
+
+===== PDF PAGE 53 =====
+will cause the price of the Mar 30 call to increase by $1 up to
+$3 per share.
+Let’s compute the delta for this Mar 30 call: Its price increased
+by $1 when the stock price increased by $2. Thus, the delta is
+given by the fraction 1/2 = .50, or 50 percent. So, a delta of
+.50 indicates that the price of the option increases by 50 percent
+the amount of the increase in the price of the stock.
+This example illustrates an important basic property that
+holds for most options, namely, an at-the-money call (that is,
+strike price nearly the same as the stock price) typically has a
+delta of about .50.
+■ Example 2. XYZ is at $30 per share. The Mar 25 call, which
+expires in three weeks, is priced at $6 per share. Suppose the
+price of XYZ increases by $2 up to $32 per share. This might
+cause the price of the Mar 25 call to increase by $1.60 up to
+$7.60 per share.
+Let’s compute the delta for this Mar 25 call: Its price increased
+by $1.60 when the stock priced increased by $2. Thus the delta
+is given by the fraction 1.6/2 = .80, or 80 percent.
+This example illustrates another basic property of options,
+namely, an in-the-money call (that is, strike price well below the
+stock price) will have a delta greater than .50 but less than 1.0.
+The deeper-in-the-money, the closer the delta will be to 1.0.
+■ Example 3. XYZ is at $30 per share. The Mar 35 call, which
+expires in three weeks, is priced at $.60 per share. Suppose the
+price of XYZ increases by $2 up to $32 per share. This might
+cause the price of the Mar 35 call to increase by $.20 up to
+$.80 per share.
+Let’s compute the delta for this Mar 35 call: Its price increased
+by $.20 when the stock price increased by $2. Thus the delta is
+given by the fraction 0.2/2 = .10, or 10 percent.
+This example illustrates yet another basic property of options,
+namely an out-of-the-money call (that is, strike price well
+above the stock price) will have a delta less than .50. The fur-
+ther out-of the-money, the smaller will be the delta.
+34 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 54 =====
+The delta values described in the preceding examples are typical for
+options that are not too close to expiration. Near-expiration, all in-the-
+money options will have a delta close to one, and all out-of-the-money
+will have a delta close to zero.
+Application of the Delta
+Now let’s see how our experience with these three examples can help us
+with our options trading. Y ou believe that the stock price of XYZ is
+going to increase in the near future and you want to play this move with
+options. What are you choices?
+Buy an in-the-money call: If you want to capture an almost dollar-for-
+dollar increase in the price of the stock, you need to purchase an
+option with a high delta. This means selecting a deep-in-the-money
+call. If the option has a delta of .80, it will increase $.80 in price for
+every $1 increase in the price of XYZ. The deep-in-the-money call will
+be relatively expensive, but it will capture more of the price move in
+the stock.
+Buy an at-the-money or out-of-the-money call: If you can count on
+a significant move in the stock within a short period of time, an at-
+the-money or out-of-the money call can yield a higher percentage
+increase in the price of the call. If the option has a delta of .50, a
+$2 increase in the price of XYZ will produce a $1 increase in the price
+of the option. If the option has delta of .20, a $2 increase the stock
+price will produce a $.40 increase in the price of the option. Because
+an at-the-money call will be relatively cheap and an out-of-the-
+money call will be even cheaper, these options offer more leverage for
+a profit.
+At first glance, it might seem that you would always choose the at-the-
+money or out-of-the money call, because of the higher leverage.
+The real issue is whether the stock price will rise high enough and
+quickly enough for the extra leverage to yield a better profit. Suppose
+the trades in the above Examples 1, 2, and 3 were initiated when the
+March options were only three weeks from expiration. Also, suppose
+that XYZ waits until one week before expiration to make the $2 rise
+Chapter 4 The Greeks 35
+
+===== PDF PAGE 55 =====
+from $30 to $32. Let’s follow up to see what might happen in the above
+examples.
+■ Example 1 follow-up. All the value of the Mar 30 call was
+time value. With only one week to go until expiration, its price
+could have fallen to $1, whereas its delta might still be .50.
+Then, the $2 move in XYZ would yield a $1 increase in the
+price of the option, bringing its value back to $2 per share for
+break-even.
+■ Example 2 follow-up. The Mar 25 call had only $1 of time
+value (25 + 6 – 30 = 1), so its price might have fallen to $5.40,
+with its delta remaining at .80. Then, the $2 move in XYZ
+would yield a $1.60 increase in the price of the option, bringing
+its value to $7 per share, for a net profit of $1 per share.
+■ Example 3 follow-up. All of the value of the Mar 35 call
+was time value. Being so far out-of-the money with only a
+week until expiration, its price might have dropped to $.15 a
+share with its delta remaining at .10. Then, the $2 move in
+XYZ would yield a $.20 increase in the price of the option,
+bringing its value to $.35 per share, for a net loss of $.25 per
+share.
+What has been learned about the delta in these examples?
+When considering an option to buy, make a mental estimate of the
+delta for that option. Y ou do not necessarily need a precise value.
+Decide on a realistic increase in the price of the stock you are following.
+T o estimate the new option price, first multiply the change in the stock
+price by the (approximate) delta of the option to see how much the
+value of the option would increase. Add that increase to the purchase
+price of the option, while allowing for some loss of time value in the
+option. If this estimate of the new price of the option represents an
+acceptable profit, you have a good reason to buy the option.
+The delta of an option is not fixed. When the price of the stock moves
+significantly, the delta of an option will change. In Example 1, if XYZ
+moves up to $35, the Mar 30 call is no longer an at-the-money option.
+It has become an in-the-money option, and its delta will then be
+36 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 56 =====
+Chapter 4 The Greeks 37
+considerably larger. This works in your favor, because as the stock price
+rises to higher levels, the option price responds with a greater percent-
+age of the stock gain.
+Computing the Delta of a Put Option
+The distinction between the delta for a call and the delta for a put
+is that the delta of a long put is always negative. This is because
+an increase in the stock price results in a decrease in the price of a
+put. Analogous to a call option, an at-the-money put generally has a
+delta of about –.50. An in-the-money put will have a delta between
+–.50 and –1.0. An out-of-the-money put will have a delta between –.5
+and 0.
+Theta
+The next most commonly encountered Greek is the theta. The
+theta provides an estimate of how quickly your option is losing it time
+value.
+Theta: The amount that the price of an option changes as compared to
+the passage of a unit of time (typically one day).
+The value of theta is always a negative number, because the value of an
+option diminishes over time. In the terminology of options, the loss of
+time value is referred to as theta decay.
+As a rough guide, the magnitude of theta for an at-the-money option
+varies inversely as the square root of the time remaining until expira-
+tion. For example, an option that has 40 days until expiration loses time
+value twice as fast as it did when it had 160 days until expiration
+[square root (160/40) = 2]. An option that has only 10 days until expi-
+ration loses value 6 times as fast as it did when it had 360 days until
+expiration [square root (360/10) = 6].
+Some traders make a practice of never holding a long at-the-money
+option that has less than three weeks until expiration, because of the
+increasing rate at which the option will lose its value. With an out-of-
+the-money option, the situation can be even worse.
+
+===== PDF PAGE 57 =====
+An easy way to get a rough measure of the theta of an option is to com-
+pare two options with the same strike price that have different expira-
+tion dates. For example, suppose your at-the-money option has a value
+of $4.30 per share with four months until expiration, whereas the option
+with the same strike price and only two months until expiration has a
+value of $2.50 per share. This means that, if the stock price remains
+unchanged over the next 60 days, your option will lose about $1.80 in
+value. That translates to a theta of approximately –$.03 per day
+[–1.80/60 = –.03], which may not seem like much until you recognize
+that it can add up to a 42 percent loss in the value of your option over
+the next two months.
+Gamma
+Gamma: The amount that the delta changes as compared to a $1 increase
+in the price of the stock.
+The gamma becomes important in situations where the delta of an
+option becomes especially sensitive to changes in the price of the stock.
+Such situations are said to have gamma risk . One such scenario in
+which gamma becomes important occurs as an option approaches its
+expiration date.
+As expiration gets close, the usual delta values of in-the-money and
+out-of-the-money options become distorted. All in-the-money options
+will have a delta closer to one, whereas all out-of-the-money options
+will have a delta that is closer to zero. So, a small increase in the stock
+price, from slightly below a strike price to slightly above it, will cause a
+change in the option delta from near zero to near one. This yields a
+large value of gamma. There is considerable risk in such situations,
+because a small decrease in the stock price can change a profitable call
+into one that is worthless.
+Ve g a  
+The “vega” of an option provides a measure of its volatility. Just as
+stocks can be volatile, options can also be volatile, although there is not
+always a direct correlation of those volatilities. A stock whose price is
+38 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 58 =====
+volatile will typically have options with inflated prices, but it is also
+possible for options prices to inflate with little or no movement in the
+underlying stock price.
+The point here is that each option has its own individual measure of
+volatility that is dictated by its particular price action. In options termi-
+nology, this individual volatility is called the implied volatility .T h e
+manner in which implied volatility is determined is discussed in
+Chapter 29, “Implied Volatility and the Black-Scholes Formula. ”
+Ve ga:The amount that the price of an option changes as compared to a
+unit increase in the volatility of the stock.
+The importance of vega is seen whenever circumstances surrounding
+the stock become excited for any one of a variety of reasons. Rumors
+that a stock might be bought out will quickly inflate the prices of the
+options associated with the stock. Under such a scenario, there can be a
+large increase in the price of an option even if the stock price changes
+little. This gives rise to a high vega.
+Rho
+Rho: The amount that the price of an option changes as compared to a
+unit increase in the risk-free interest rate (that is, the rate for a U.S.
+treasury bill).
+Rho is positive for calls and negative for puts. With interest rates at the
+relatively modest levels seen in recent years, the influence on the price
+of options is slight.
+Chapter 4 The Greeks 39
+
+===== PDF PAGE 59 =====
+This page intentionally left blank 
+===== SOURCE CHAPTER 5 | PDF PAGES 60-65 =====
+
+===== PDF PAGE 60 =====
+41
+5
+RISK GRAPHS
+n ancient Chinese proverb declares: “One picture is worth more
+than ten thousand words. ” And so it is with understanding
+options trading. Because the value of an option depends on sev-
+eral factors, it is difficult to visualize the variety of ways its price can
+change without some kind of chart. The chart used to track the progress
+of an options trade is called a risk graph.
+T o follow the price movement of a specific option, the two factors of
+primary importance are the price of the underlying stock and the time
+remaining until expiration. The risk graph provides the visual means to
+comprehend how the profit or loss in an options trade is affected by
+changes in stock price as well as changes in time.
+Risk graphs are used liberally throughout this book as a supplemental
+tool for visualizing the detailed workings of an options trade. These
+graphs are generated by a special calculator based on the Black-Scholes
+formula for pricing options, which is discussed in Chapter 29, “Implied
+Volatility and the Black-Scholes Formula. ” It is not necessary to under-
+stand how this calculator works, but only to accept that it does an excel-
+lent job in generating accurate options pricing data.
+Basically, the risk graph is a two-dimensional plot of stock price versus
+the profit or loss in the options trade. In this book, the modern style of
+presentation is used, where the stock price is shown on the vertical scale
+and the profit or loss in the trade is displayed on the horizontal scale.
+(The old-fashion style of presentation interchanges these vertical and
+horizontal scales.)
+Note that it is not an option price shown on the horizontal scale of the
+risk graph, because many risk graphs involve more than one option. It
+A
+
+===== PDF PAGE 61 =====
+is much more convenient to have those options prices converted into a
+net profit or loss figure for display purposes. This allows the observer
+to easily identify the desired price range of the stock for achieving a
+profit on the trade.
+T o illustrate how the progression of time influences a trade, four time
+lines are displayed on each risk graph. One of the time lines always rep-
+resents the current state of the trade. If the trade has just been initiated,
+that time line is the current state. Another time line always provides the
+projected profit or loss information at expiration. The other two time
+lines provide the projected state of the trade at times between the cur-
+rent state and expiration.
+Single Option Trade
+Let’s look at an example of a risk graph to illustrate a trade involving a
+single long call:
+■ Example 1. This example recalls Example 3 from Chapter 2,
+“Option Selection. ” We use a risk graph to demonstrate how the
+information provided in that example was determined.
+Y ou think that XYZ is going to rise in price in the near to inter-
+mediate future. In early April, XYZ is at $67.
+Y ou buy 1 Apr 70 call, which is priced at $1.50 per share.
+See Figure 5-1 for the risk graph that depicts this trade of being a long
+one XYZ Apr 70 call with 17 days until the option expires.
+In Figure 5-1, the price of XYZ stock is shown on the vertical axis. On
+the horizontal axis is the profit or loss in the value of the option, with
+the zero point dividing the profit and loss regimes. The trade at the
+time of initiation is represented by the line labeled as “today: 17 days
+left. ” The time line representing the trade at expiration is labeled as
+“Expiry: 0 days left. ” In between are additional time lines for “12 days
+left” and “6 days left. ”
+This option seems cheap enough, but is it a good one to buy? T o answer
+this question, let’s see what XYZ needs to do for this option to provide
+a reasonable profit.
+42 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 62 =====
+Chapter 5 Risk Graphs 43
+The Apr 70 call expires in a little over two weeks. Because this option is
+out-of-the-money, all of its $1.50 price is time value.
+If XYZ rockets up to $73 in one week, the option might become worth
+$3.70 ($3 intrinsic value and $.70 time value). This represents a nice
+$2.20 profit on a $1.50 investment, but it required a 9 percent gain in
+the stock price in one week.
+This profit information is found from the risk graph by moving hori-
+zontally along the stock price line for $73 until a point is reached,
+between the 6 days and 12 days time lines, which would represent
+10 days left. Dropping down from that point to the horizontal axis
+indicates a profit in the trade of approximately $220. Because this trade
+involves only one Apr 70 call contract purchased for $150, this implies
+an option price of $3.70 per share [(150 + 220)/100 = 3.7].
+Today: 17 days left
+12 days left
+6 days left
+Expiry: 0 days left
+–1000
+60 80 70
+Stock Price
+500 700 900100 300–500 –300 –100–700
+Figure 5-1
+
+===== PDF PAGE 63 =====
+44 OPTIONS FOR THE BEGINNER AND BEYOND
+If XYZ only manages to rise gradually over the next two weeks to reach
+$71.50 just at expiration, the option will be worth $1.50 (all intrinsic
+value and no time value at expiration). In this scenario, XYZ has gone up
+by 7 percent in three weeks, but you only break even on the option trade.
+This information is found from the risk graph by noting that the time
+line at expiration crosses the zero profit axis at $71.50.
+Suppose XYZ barely edges up to $68.50 with one week remaining.
+Then, this option might be worth only $1 (all time value), because it is
+still out-of-the-money and has only one week of life remaining. Now
+you have lost $.50 per share on the option even though the stock has
+moved up slightly, and there is almost no time left to recover.
+This information is found from the risk graph by moving horizontally
+along the stock price line for $68.50 until a point is reached just to the
+right of the 6 days time line. Dropping down from that point to the
+horizontal axis indicates a loss in the trade of approximately $50. This
+implies an option price of $1 per share [(150 – 50)/100 = 1.0].
+Multiple Option Trade
+Next, let’s consider a trade involving two options. One option will be a
+long call that expires in a distant month, and the other option will be a
+short call in a near month. Both options have the same strike price. This
+type of trade is known as a calendar spread.
+■ Example 2. This example of a calendar spread is presented and
+discussed in Chapter 12, “Calendar Spreads. ” Our goal here is
+just to look at the risk graph and see how to read it.
+The stock price of XYZ is expected to trade within a narrow
+range around $35 for the next several months. In early May with
+XYZ at $34.70, the following trade is initiated. Y ou buy 1 Nov
+35 call for $3.50 per share and sell 1 Jun 35 call for $1.30 per
+share. Y our net cost and maximum risk on this trade is $220
+[(3.50 − 1.30) × 100 = 220].
+See Figure 5-2 for a risk graph that depicts this calendar trade.
+
+===== PDF PAGE 64 =====
+Chapter 5 Risk Graphs 45
+In Figure 5-2, note that on the day this trade is initiated, it is shown to
+expire in 39 days. This is reflecting that the Jun 35 call will expire 39 days
+after the date it is sold in early May. The Nov 35 call does not expire for
+another 150 days following the June expiration. This illustrates an
+important feature of risk graphs. They are only valid up until the expi-
+ration date of the earliest expiring option. T o follow the progress of the
+trade after that date requires the calculation of a new risk graph.
+From Figure 5-2, it is easy to see where you would like the price of XYZ
+stock to be when the Jun 35 call expires. The time line representing the
+trade at the June expiration date crosses the zero profit axis at $33 and
+$38. Thus, this calendar trade returns a profit at the June expiration if
+the price of XYZ is between $33 and $38 with a maximum profit of $90
+if the stock price is exactly $35.
+Today: 39 days left
+26 days left
+13 days left
+Expiry: 0 days left
+–300 –200 –100 0
+30 40
+Stock Price
+Figure 5-2
+
+===== PDF PAGE 65 =====
+Comments
+Even for a single option trade like that of Example 1, a risk graph can
+prove useful in making decisions about exiting a trade. Knowing that
+the option will achieve a profit only if the stock price rises by a certain
+amount before a particular date can be crucial information.
+For trades with multiple options, particularly where the options have
+different expiration dates, the risk graph provides information that is
+very difficult to otherwise determine. In Example 2, the existence of a
+profit zone between $33 and $38 would be a mystery without the ben-
+efit of the risk graph.
+Note in both of the examples that the point on the initial time line cor-
+responding to the stock price at the time of entry lies slightly to the left
+of the zero profit axis. That is, as soon as the trade is entered, it is show-
+ing a small loss. This is known as slippage. It results from the difference
+between the bid and ask prices for an option, which was discussed in
+Chapter 3, “Entering and Exiting Option Trades. ”
+Risk graphs can also be adjusted to reflect the influence of other factors
+that affect the price of an option. Most notable are the changes in the
+risk graph due to a significant change in the volatility of the option
+prices.
+46 OPTIONS FOR THE BEGINNER AND BEYOND
+===== SOURCE CHAPTER 7 | PDF PAGES 72-77 =====
+
+===== PDF PAGE 72 =====
+53
+7
+ASSIGNMENT
+ANXIETY
+ne thing that causes anxiety for beginning options traders is the
+prospect of receiving an assignment on an option that they have
+sold. The goal in this chapter is to relieve some of the anxiety
+about this aspect of options trading.
+In this chapter, it is assumed that you do not have a naked short call or
+a naked short put position. If you do, you are entirely justified in being
+anxious, because you are vulnerable to substantial risk. Only experi-
+enced options traders should venture into naked option trading. This
+aspect of options trading is discussed later in Chapter 20, “Naked
+Option Writing, ” and Chapter 21, “Stock Substitutes. ”
+So, it is assumed here that your short option position is covered by
+either long stock or a long option position. By having a compensating
+stock or option position, you will be well placed to emerge from an
+assignment with only limited loss or even possibly a profit depending
+on the circumstances of the trade. This chapter uses a variety of exam-
+ples to clarify your thinking about the possibility of an assignment.
+T o begin, let’s look at the typical circumstances under which you might
+be subjected to an early option assignment (that is, an option is exer-
+cised against you before the expiration date of the option):
+Guideline 1: If the short option is out-of-the-money, you will (essen-
+tially) never receive an assignment.
+O
+
+===== PDF PAGE 73 =====
+T o understand why this is true, consider these examples:
+■ Example 1. In early November, the price of XYZ stock is $38,
+and you are short the Nov 40 call. Someone who wants to own
+XYZ stock is not going to exercise his right to buy the stock
+from you at $40 per share, because he can buy the stock in the
+market for only $38 per share.
+■ Example 2. In early November, the price of XYZ stock is $38,
+and you are short the Nov 35 put. Someone who wants to sell
+his XYZ stock is not going to exercise his right to make you buy
+his stock at $35 per share when he can sell it in the market for
+$38 per share.
+Guideline 2: If the option is in-the-money, there is not going to be an
+early assignment as long as there is sufficient time value included in the
+price of the option.
+T o illustrate this concept, consider these examples:
+■ Example 3. In early November, the price of XYZ stock is $41,
+and you are short the Nov 40 call, which is currently being bid
+at $2. Y ou are not going to receive an assignment when the
+option price includes time value of $1 [2.0 – (41 – 40) = 1.0].
+If the person who holds the Nov 40 call wants to own the stock,
+he is much better off buying the stock in the market for $41
+and selling his call to someone else for $2. If he did require
+you to sell him your stock at $40, it is true that he would save
+$1 per share on the purchase price of the stock, but he would
+give up the opportunity to collect $2 per share by selling his
+option.
+■ Example 4. In early November, the price of XYZ stock is $34,
+and you are short the Nov 35 put, which is currently being bid
+at $2. Y ou are not going to receive an assignment when there is
+time value of $1 [2.0 – (35 – 34) = 1.0]. If the person who
+holds the Nov 35 put wants to get rid of his stock, he is much
+better off selling the stock in the market for $34 and selling his
+put to someone else for $2. If he did require you to buy his
+stock at $35, it is true that he would gain $1 per share on the
+54 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 74 =====
+sale price of the stock, but he would give up the opportunity to
+collect $2 per share by selling his option.
+Guideline 3: When the expiration date of a short option is close and the
+time value of an in-the-money option has almost disappeared, the pos-
+sibility of an early assignment becomes much more likely.
+Let’s reexamine Examples 3 and 4 in the last few days before the
+November expiration date:
+■ Example 5. One week before the November options expire, the
+price of XYZ is $41. Y ou are short the Nov 40 call, which is cur-
+rently bid at $1.10. With time value of only $.10 [1.10 – (41 –
+40) = .10], there is a real possibility of an early assignment.
+Someone who wants to own this stock may decide that the
+extra $.10 per share that could be gained from buying the stock
+and selling the option is not worth the trouble.
+■ Example 6. One week before the November options expire, the
+price of XYZ is $34. Y ou are short the Nov 35 put, which is cur-
+rently bid at $1.10. With time value of only $.10 [1.10 – (35 –
+34) = .10], there is a real possibility of an early assignment.
+Someone who wants to get rid of his stock may decide that the
+extra $.10 per share that could be gained from selling the stock
+and selling the option is not worth the trouble.
+Comments 
+Examples 1 and 2 suggest that an early assignment is not going to occur
+when there is $1 (or more) of time value, whereas Examples 3 and 4
+suggest that you should be prepared for an early assignment when the
+time value is $.10 (or less). As a general guideline, the dividing point
+between these two outcomes is about $.15 to $.20 of time value. If the
+bid price of the option includes at least $.20 of time value, an early
+assignment is rather unlikely. If the bid price of the option includes no
+more than $.15 of time value, the possibility of an early assignment is
+more likely.
+In comparing the scenarios of Examples 5 and 6, the early assignment
+of the put option happens more often than the early assignment of the
+Chapter 7 Assignment Anxiety 55
+
+===== PDF PAGE 75 =====
+call option. Someone who wants to get rid of his stock via an assign-
+ment is usually in a rush to get the cash from the sale and move on to a
+new investment. Someone who is considering buying the stock via an
+assignment is more likely to postpone the purchase as long as possible
+so as to avoid committing the cash until absolutely necessary.
+The possibility of an early assignment can sometimes depend on a divi-
+dend payment. Y ou may be more susceptible to the early assignment of
+a short call from someone who wants to collect an upcoming dividend.
+Y ou may be less susceptible to an early assignment of a short put from
+someone who wants to wait for the dividend payment before selling his
+stock.
+Whenever your short option becomes deep-in-the-money, there will be
+very little time value in the bid price of the option, even if the expira-
+tion date is far into the future. This situation makes early assignment a
+definite possibility.
+If you judge that your situation is such that an early assignment is a
+possibility, check the open interest (number of outstanding contracts)
+on your option. A low level of open interest makes an early assignment
+more likely.
+Applications
+Now let’s look at some situations involving either a covered call trade or
+a spread trade. In a covered call trade, your short option is hedged by
+stock that you own. In a spread trade, your short option is hedged by a
+long option.
+■ Example 7. Covered call. Y ou own 100 shares of XYZ stock, and
+you have sold one Nov 40 call for $2.50 per share. As long as
+the stock price is below $40, as in Example 1, you have no con-
+cern about early assignment. Even when the stock price is above
+$40, there is no concern if there is sufficient time value in the
+option price, as in Example 3. Only when the stock price is
+above $40 and the time value included in the option price falls
+to $.15 or less do you need to worry about an early assignment,
+as in Example 5.
+56 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 76 =====
+In a covered call trade, if an early assignment becomes a real
+possibility, you must decide on a course of action:
+1. Y ou can elect to do nothing, in which case your stock even-
+tually will be bought from you at the strike price of the short
+option. This need not be viewed as an undesirable outcome.
+Y ou get to keep the cash received from the sale of the short
+call, and you might be taking a profit on a stock that is soon
+due for a pullback.
+2. Y ou can elect to “roll out” of your short call. In Example 5,
+you can buy back the Nov 40 call and then sell a Dec 45 call.
+This will allow your stock to run to the $45 level until the
+December options expiration date.
+■ Example 8. Bull call spread. Being bullish on XYZ stock, you
+buy one Nov 35 call for $4.70 per share and sell one Nov 40 call
+for $2.50 per share. This represents a net cost of $220 [(4.70 –
+2.50) × 100 = 220]. If XYZ is above $40 at expiration, the
+spread should ideally be showing a profit of $280 [(40 – 35) ×
+100 – 220 = 280]. Suppose that as the November expiration
+arrives, XYZ is trading at $41. Y ou will often find that if you try
+to exit the spread by buying back the Nov 40 call and then sell-
+ing the Nov 35 call, you will only be able to bring in something
+like $4.80 per share rather than the expected $5 per share. This
+is due to the slippage in the bid and ask prices on the options.
+T o get the full $5, allow your short Nov 40 call to be assigned,
+while you exercise your right of the Nov 35 call to buy the stock
+at $35. So XYZ stock will be bought at exactly $35 and then
+sold at exactly $40, giving you the $5 difference that you
+deserve.
+■ Example 9. Calendar spread. XYZ is trading near $40 and the
+front-month options seem to have extra time value, so you
+decide to capture some of that premium through a calendar
+spread. Y ou buy one Jan 40 call for $4 per share and sell one
+Nov 35 call for $2.50 per share for a net cost of $150 [(4.00 –
+2.50) × 100 = 150]. Soon after you initiate this trade, it is
+announced that XYZ is being bought by another company for
+Chapter 7 Assignment Anxiety 57
+
+===== PDF PAGE 77 =====
+$50 per share. As a result of this situation, you will find that
+both the Nov 40 call and the Jan 40 call are priced close to
+$10 per share with essentially no time value. Y ou are likely
+to soon be assigned on your short call. The easiest way to
+counteract this assignment is to exercise your right of the
+Jan 40 call to buy XYZ at $40 per share. So XYZ stock will be
+bought at $40 per share and sold at $40 per share. Y our loss on
+this calendar spread is limited to the original cost of $150 to
+initiate the trade.
+58 OPTIONS FOR THE BEGINNER AND BEYOND
+===== SOURCE CHAPTER 10 | PDF PAGES 90-97 =====
+
+===== PDF PAGE 90 =====
+10
+VERTICAL SPREADS
+he most basic option trade is to buy a call or a put depending on
+which way you think the underlying stock is going to move. The
+next stage of options trading is the use of spreads. In the simplest
+spread trade, you buy one option and sell another in order to reduce the
+cost of the trade. There are a variety of spread trades, which are discussed
+in this book. The focus of this chapter is on vertical spread trades. Of all
+the spread trades, these are perhaps the easiest to implement and to follow.
+What does a vertical spread offer beyond just buying a call or a put? The
+simple answer is that a vertical spread may offer an improved opportu-
+nity for profit with reduced risk.
+A vertical spread can be one of two basic types: a debit vertical spread or
+a credit vertical spread. Furthermore, each of these basic types can be
+structured as either a bullish or bearish trade. A debit spread is typically
+used when you expect the stock movement to occur over an intermedi-
+ate to long-term period of time, whereas a credit spread is typically used
+when you want to take advantage of a short-term situation.
+Let’s look individually at each of these vertical spread trades to see how
+they work and when you might use them. We will illustrate each of the
+four vertical spreads, which are commonly referred to as Bull Call
+Spread, Bear Put Spread, Bull Put Spread, Bear Call Spread.
+Debit V ertical Spreads
+Bull Call Spread 
+During July, you decide that XYZ is going to make a significant
+move up over the next four months going into the fall of the year. XYZ
+T
+71
+
+===== PDF PAGE 91 =====
+is currently at $35 per share, and you feel it will be at $40 or higher
+by November.
+T o play this expected rise in XYZ with options, you consider buying a
+Nov 35 call for $4.10 per share. But this is an expensive option, when
+you recognize that all of the $4.10 is time value. Suppose that XYZ
+barely reaches $40 just as this option expires in November. In this situ-
+ation, the Nov 35 call option would only be worth $5 per share. This
+represents a profit of just $.90 per share [5.0 – 4.1 = 0.9], for a return of
+just 22 percent on your original risk of $410 per contract.
+T o lower the risk, consider a bull call spread.
+Trade: Buy 1 Nov 35 call for $4.10 per share and sell 1 Nov 40 call
+for $2.10 per share. This represents a net debit of $2 per share.
+Cost = $200 [(4.10 – 2.10) × 100 = 200].
+Max risk = $200.
+Suppose that XYZ is $40 (or higher) at the November options expira-
+tion. Because all the time value in both options will have vanished, the
+difference in their prices will be equal to the difference in the strike
+prices, or $5 in this example. Thus, you will have a profit of $3 per share
+[5.0 – 2.0 = 3.0], for a return of 150 percent on your original risk of
+$200 per contract.
+See Figure 10-1 for a risk graph that depicts this trade.
+Bear Put Spread
+During July, you decide that XYZ has no more upside and should
+fall back to a lower level over the next four months. With XYZ currently
+at $35, you judge that it will drop to the $30 level or lower by next fall.
+T o play this drop in XYZ with options, you consider buying a Nov 35
+put for $3.90 per share. Again, this is an expensive option, because you
+are buying only time value. Suppose that XYZ barely falls to $30 as this
+option expires in November. This option could only be sold for $5 per
+share for a profit of $1.10 per share [5.0 – 3.9 = 1.10]. This represents
+just a 28 percent profit on your original risk of $390 per contract.
+72 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 92 =====
+T o lower the risk, consider a bear put spread.
+Trade: Buy 1 Nov 35 put for $3.90 per share and sell 1 Nov 30 put
+for $1.80 per share. This represents a net debit of $2.10 per share.
+Cost = $210[(3.9 – 1.8) × 100 = 210].
+Max risk = $210.
+Now, suppose that your negative view of XYZ is correct and the stock is
+at $30 at the November options expiration. Because all the time value
+in both options will have vanished, the difference in their prices will be
+equal to the difference in the strike prices, or $5 in this example. Thus,
+you will have a profit of $2.90 per share [5.0 – 2.1 = 2.9], for a return of
+138 percent on your original risk of $210 per contract.
+See Figure 10-2 for a risk graph that depicts this trade.
+Chapter 10 V ertical Spreads 73
+Today: 126 days left
+84 days left
+42 days left
+Expiry: 0 days left
+–300 –200 –100 0 100 200 300 4030 50
+Stock Price
+Figure 10–1
+
+===== PDF PAGE 93 =====
+Comments 
+The bull call spread and the bear put spread are debit spreads. For these
+trades to pay off, the stock needs to have enough time to move to the
+targeted level. For this reason, you want to use options with expiration
+months that allow enough time for this move to occur.
+T o achieve the maximum profit, the stock price needs to have reached
+(or exceeded) the strike price of the short option at expiration. The
+maximum possible profit is always the difference between the strike
+prices of the long and short options less the original cost of the spread.
+Typically, you need to wait until near expiration to get the best payoff
+from a debit spread. This allows the short option to lose all of its time
+value. If the stock reaches (or exceeds) the target price well before the
+options expire, the spread will show a profit that is usually much less
+than the maximum.
+74 OPTIONS FOR THE BEGINNER AND BEYOND
+Today: 126 days left
+84 days left
+42 days left
+Expiry: 0 days left
+–300 –200 –100 0 100 20030 50 40
+Stock Price
+Figure 10–2
+
+===== PDF PAGE 94 =====
+Credit V ertical Spreads
+Bull Put Spread
+Y ou feel that current circumstances surrounding ZYX are likely to drive
+up the price of ZYX in the near future. ZYX is currently at $45, and you
+feel that it will surpass its recent high of $50 before the May options
+expire in six weeks.
+This scenario can be played with a bull put spread.
+Trade: Buy 1 May 45 put for $2.70 per share and sell 1 May 50 put
+for $5.30 per share. This produces a net credit of $2.60 per share.
+Credit = $260.
+Max risk = $240.
+If ZYX is above $50 at the May options expiration, both options will
+expire worthless and the initial credit of $260 will be yours to keep. This
+is the maximum possible profit on the trade. In the case of credit trades,
+the return is calculated from comparing the profit achieved to the max-
+imum risk, or 108 percent in this example [(260/240) = 1.08].
+The maximum loss of $240 occurs if ZYX is below $45 at the May
+expiration date. In this situation, both options must be closed at a cost
+equal to the difference in the strike prices, or $5 in this example.
+[(2.6 – 5.0) × 100 = –240] 
+See Figure 10-3 for a risk graph that depicts this trade.
+Bear Call Spread
+Due to some weakening of the economy, you foresee a dramatic fall in
+the price of ZYX in the near future. With ZYX currently at $45, you
+judge that it will fall back to its recent low of $40 by mid-May.
+This scenario can be played with a bear call spread.
+Trade: Buy 1 May 45 call for $3 per share and sell 1 May 40 call
+for $5.70 per share. This produces a net credit of $2.70 per share.
+Credit = $270.
+Max risk = $230.
+Chapter 10 V ertical Spreads 75
+
+===== PDF PAGE 95 =====
+If ZYX is below $40 at the May options expiration, both options
+will expire worthless and the initial credit of $270 will be yours to keep.
+This is the maximum possible profit on this trade. The profit achieved
+as compared to the maximum risk on this trade is 117 percent
+[(270/230) = 1.17].
+The maximum loss of $230 occurs if ZYX is above $45 at the May expi-
+ration date. In this situation, both options must be closed at a cost
+of the difference between the two strike prices, or $5 in this example.
+[(2.7 – 5.0) × 100 = –230].
+See Figure 10-4 for a risk graph that depicts this trade.
+Comments 
+The bull put spread and the bear call spread are credit spreads. These
+trades bring money into your account, which ultimately becomes a
+76 OPTIONS FOR THE BEGINNER AND BEYOND
+Today: 44 days left
+30 days left
+15 days left
+Expiry: 0 days left
+–300 –200 –100 0 100 20030 40 60 50
+Stock Price
+Figure 10–3
+
+===== PDF PAGE 96 =====
+profit if the stock price reaches (or exceeds) the targeted level at expira-
+tion. These trades are typically short-term trades that seek to capture
+the credit as soon as reasonably possible.
+As in the case of debit spreads, the maximum profit is achieved if the
+stock price reaches (or exceeds) the strike price of the short option at
+expiration. The maximum profit is the amount of the original credit.
+Also, as in the case of debit spreads, the maximum profit will typically
+be realized at expiration. Credit spreads enjoy an advantage over debit
+spreads in that, when their target is reached, no action is required at
+expiration. Both options expire worthless.
+Chapter 10 V ertical Spreads 77
+Today: 44 days left
+30 days left
+15 days left
+Expiry: 0 days left
+–300 –200 –100 0 100 200
+30 40 50
+Stock Price
+Figure 10–4
+
+===== PDF PAGE 97 =====
+This page intentionally left blank 
+===== SOURCE CHAPTER 12 | PDF PAGES 106-113 =====
+
+===== PDF PAGE 106 =====
+87
+12
+CALENDAR SPREADS
+he focus of this chapter is on calendar spread trades, also known
+as horizontal spread tradesor time spread trades. These trades work
+best on stocks whose price moves within a reasonably narrow
+range. Volatile stocks that can move up or down 15 percent within the
+time frame of one month are generally not suitable for calendar spreads.
+In a basic calendar spread, you buy a distant month option and sell a
+closer month option. Both options have the same strike price, which is
+typically selected to be the one nearest the price of the stock at the time
+the trade is initiated. When things progress well in a calendar spread, the
+short option ultimately expires worthless while the stock price remains
+essentially unchanged. This leaves the long option with a reduced cost
+basis, which can be either sold for profit or used for further trading.
+Calendar spreads can be created with either call options or with put
+options. For purposes of this introductory discussion, we assume that
+call options are used. A comment on using put options for a calendar
+spread will be included at the end.
+Suppose that XYZ has traded in a relatively narrow price range over the
+past few months and you expect that trend to continue. In early May,
+XYZ is trading at $34.70, which makes the $35 strike price a good choice
+for a calendar spread. Here is a typical calendar spread trade on XYZ:
+Trade: Buy 1 Nov 35 call for $3.50 per share and sell 1 Jun 35
+call for $1.30 per share.
+Cost = $220.
+Maximum risk = $220.
+See Figure 12-1 for a risk graph that depicts this trade.
+T
+
+===== PDF PAGE 107 =====
+Suppose that six weeks later, at the June options expiration date, XYZ is
+still at $34.70. The short Jun 35 call will expire worthless. This leaves the
+Nov 35 call with a cost basis of $2.20 per share. Using an options calcu-
+lator, we can estimate the value of the Nov 35 call at that time to be
+$3 per share. If on the Monday after the June expiration date, the Nov 35
+is sold for that price, then a profit of $80 is achieved [(3.00 – 2.20) ×
+100 = 80]. That gain is also seen in the risk graph of Figure 12-1. The
+profit here represents a gain of 36 percent based on the original risk of
+$220. Note that this gain is achieved in about six weeks.
+T o understand how this profit was made, let’s look at the details of the
+trade. The Jun 35 call was sold for $1.20 per share, which was all time
+value. Because the price of XYZ was under $35 at the expiration date,
+the Jun 35 call expired worthless, and all of that time value is gained.
+The Nov 35 call lost only $.50 of time value as its price decreased from
+88 OPTIONS FOR THE BEGINNER AND BEYOND
+Today: 39 days left
+26 days left
+13 days left
+Expiry: 0 days left
+–300 –200 –100 0 30 40
+Stock Price
+Figure 12-1
+
+===== PDF PAGE 108 =====
+$3.50 per share to $3 per share at the June expiration. Our profit was
+derived from the fact that the November option was less sensitive to the
+loss of time value than was the June option. Thus, the calendar spread
+profited by gaining $1.30 per share from the Jun 35 call, while losing
+only $.50 per share in the Nov 35 call. This resulted in a net profit of
+$.80 per share [1.30 – .50 = .80].
+As an alternative to selling the Nov 35 call following the June expiration
+date, it may be worthwhile to hold this option and establish a new cal-
+endar spread by selling the Jul 35 call. This illustrates one of the poten-
+tial benefits of calendar spreads, namely the ability to continue selling
+front-month options to reduce the cost basis of the longer-term option.
+Let’s examine this new calendar spread.
+Following the expiration of the Jun 35 call, you are holding one Nov 35
+call with an effective cost basis of $2.20 per share. Then sell one Jul 35
+call for $1 per share. (Note that this is less than received for the Jun 35 call
+because there would be only about four weeks until the July expiration
+date.) Now, your current net debit and maximum risk is $120 [(2.20 –
+1.00) × 100 = 120].
+At the July expiration date, suppose that XYZ is again at the same price
+of $34.70. The short Jul 35 call would expire worthless. This leaves the
+Nov 35 call with an even lower cost basis of $1.20 per share. Using an
+options calculator, we can estimate the value of the Nov 35 call to be
+$2 per share. If on the Monday after the July expiration date, the Nov 35
+call is sold for that price, a profit of $80 is achieved. That represents a
+gain of 67 percent based on the current risk of $120.
+The preceding results assume a highly idealized scenario in which the
+price of XYZ at the June expiration date is $34.70, exactly the same as
+when the trade was initiated in early May. Furthermore, if the trade was
+continued by selling the Jul 35 call, the stock price was assumed to be
+again at $34.70 at the July expiration. T o have a more realistic view of
+calendar spreads, we need to see what happens when the stock price is
+not the same at expiration as it was when the trade was initiated.
+Suppose that the price of XYZ has fallen to $33.75 at the June expira-
+tion date. The short Jun 35 call will again expire worthless. An options
+calculator estimates that the value of the Nov 35 call at that time would
+Chapter 12 Calendar Spreads 89
+
+===== PDF PAGE 109 =====
+be $2.50 per share. Selling the Nov 35 call at that value returns a $30
+profit [(2.50 – 2.20) × 100 = 30]. Even though the price of XYZ has
+fallen, there is still a gain on the trade of 9 percent based on the original
+risk of $220. The lower return in this scenario is a result of not only the
+lost time value in the Nov 35 call, but also lost intrinsic value due to the
+lower stock price.
+How low can the price of XYZ be at the June expiration and still achieve
+a profit? An options calculator shows that the break-even point is a
+stock price of about $33, as seen in Figure 12-1. If the stock price is
+below that level at the June expiration date, the calendar spread will
+show a net loss. For example, if XYZ is at $31, the net loss will be about
+$80. The maximum that can be lost is the original cost of $220 to estab-
+lish the spread. A loss close to the maximum is incurred if XYZ drops
+to $25 or less.
+Even if XYZ is below $33 at the June expiration and the spread fails to
+show a profit at that time, it might still be worthwhile to continue hold-
+ing the Nov 35 call with a reduced cost basis of $2.20 per share. This
+makes it easier to achieve profitability if the stock price eventually
+begins to rise.
+Consider another scenario in which the price of XYZ has risen to
+$36.50 at the June expiration date. Then, the short Jun 35 call will have
+a value of $1.50 per share (all intrinsic value). An options calculator
+estimates the value of the Nov 35 call to be $4 per share. T o close the
+trade near the June expiration, it is necessary to buy back the Jun 35 call
+and sell the Nov 35 call for a net of $2.50 per share [4.00 – 1.50 = 2.50].
+This represents a profit of $30 [(2.50 – 2.20) × 100 = 30], for a 14 per-
+cent gain on the original risk of $220.
+In this scenario where XYZ is above $35 at the June expiration, the fact
+that the Jun 35 call did not expire worthless was offset by the increased
+value of the Nov 35 call. With an even higher price of XYZ at expira-
+tion, the value of the Nov 35 call would also be even higher, but that
+gain would be offset by an increased value of the Jun 35 call.
+How high can the price of XYZ be at the June expiration and still have
+the calendar spread achieve a profit? An options calculator shows that
+the break-even point is a stock price of about $38, as seen in Figure 12-1.
+90 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 110 =====
+At that level, the Jun 35 call would have a value of $3 per share, while
+the Nov 35 call would have a value of $5.20 per share. Closing out both
+options would produce $220 [(5.20 – 3.00) × 100 = 220], which exactly
+offsets the original cost of the spread trade. If the price of XYZ is above
+$38 at expiration, the price of the Jun 25 call will have increased more
+than the Nov 35 call. This results in a net difference of less than $220
+and hence a loss on the trade. If XYZ reaches $42, the calendar spread
+will show a net loss of about $100 at expiration.
+The Rollout Maneuver
+As previously mentioned, a primary feature of the calendar spread is
+the ability to continue establishing a new calendar spread each month.
+In the ideal scenario, as illustrated previously, the front-month option
+is allowed to expire worthless, thereby leaving the long-term option
+with a reduced cost basis. Then the next-month option with the same
+strike can be sold to establish the new calendar spread.
+The process of converting the old calendar spread into a new calendar
+spread does not necessarily require waiting until the expiration date
+arrives. Frequently, the conversion is best accomplished by buying back
+the front-month option before expiration while simultaneously selling
+the next-month option. This maneuver is called the rollout.
+The rollout maneuver is a necessity when the short option is in-the-
+money as expiration nears. In this situation, the short option must be
+bought back to avoid an assignment. It may also be advantageous to use
+a rollout even when the short option is out-of-the-money. What are the
+circumstances under which a rollout should be considered?
+Let’s first look at the case where the short option is in-the-money as
+expiration nears. An in-the-money option will often have lost almost all
+of its time value with 8 to 10 days still remaining until expiration. In
+this circumstance, there is a good reason to proceed immediately with a
+roll into the next month. There is little to be gained from holding the
+front-month option until expiration, while the next-month option that
+you hope to sell is undergoing some significant price erosion. The goal
+is to perform the rollout when the differential between the front-month
+Chapter 12 Calendar Spreads 91
+
+===== PDF PAGE 111 =====
+option and the next-month option is maximized. This frequently occurs
+before the expiration date.
+The case in which the short option is out-of-the-money is a bit differ-
+ent. The market makers will often keep the ask price for an out-of-the-
+money option abnormally high, even going into the day of expiration.
+They may keep the ask price at $0.15 per share or higher with only a few
+days remaining until expiration, so as to make it expensive for you to
+eliminate the risk of your short option. In this circumstance, it is often
+best to proceed with the rollout several days early and not wait until
+expiration just to collect that extra $0.15 per share. Here again, the goal
+is to perform the rollout when the differential between the front-month
+option and the next-month option is greatest.
+Comments
+The objective of a calendar spread trade is to capture the time value in
+a front-month option, which will decay faster than the time value in a
+more distant month option. T o exploit this difference, it is generally
+wise to initially have at least one month between the expiration of the
+long option and that of the short option. This allows for at least one
+new calendar spread to be established after the first expiration date.
+A calendar spread is only profitable if the stock price at the options
+expiration date is within a fairly narrow range. The risk graph of
+Figure 12-1 is fairly typical for a calendar spread. As seen in that exam-
+ple, the range of profitability at the June expiration was $33 to $38. This
+means that the price of XYZ at expiration needs to be within a price
+range that is neither 9 percent above nor 6 percent below the $35 strike
+price to achieve a profit. This emphasizes the importance of analyzing
+the expected trading range of a stock being considered for a calendar
+spread.
+The preceding discussion focused on calendar spread trades using call
+options. Calendar spread trades using put options can work equally
+well. Often the decision as to whether to use calls or puts for a calendar
+spread depends upon a more likely direction of drift in the stock price.
+Generally speaking, a call spread is used when the expected drift is
+92 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 112 =====
+toward a higher stock price, whereas a put spread is used when a down-
+ward drift in the stock price is considered more likely.
+When should a calendar spread be abandoned? Although it is true that
+you can never lose more than your original debit in a calendar spread
+trade, it may nevertheless be prudent to exit early to limit your loss. A
+reasonable criterion is to exit a calendar spread when the loss reaches
+50 percent of the amount paid to establish the trade.
+When should you take a profit and terminate the calendar spread rather
+than establish a new calendar in the next month? Anytime you can real-
+ize at least 50 percent of the maximum possible profit in a calendar
+spread, consider closing the trade for a profit.
+Chapter 12 Calendar Spreads 93
+
+===== PDF PAGE 113 =====
+This page intentionally left blank 
+===== SOURCE CHAPTER 14 | PDF PAGES 126-133 =====
+
+===== PDF PAGE 126 =====
+107
+14
+COVERED CALLS 
+ne of the first strategies that someone new to options hears
+about is the covered call trade. Frequently, this strategy is touted
+as a safe and simple way to make money with options. Many
+brokerage firms allow covered calls as the only option trade that can be
+made in a retirement account because it is “conservative. ”
+Unfortunately, describing covered call trades as conservative is some-
+what misleading. Those same brokers who only allow covered call
+trades in retirement accounts will claim that selling naked puts is much
+too risky to be allowed in a retirement account. Well, at least they got
+that part correct—selling naked puts does involve significant risk. The
+truth is that a covered call trade carries essentially the same risk as sell-
+ing a naked put. Later, it will demonstrated why this is true.
+In its simplest form, the covered call trade requires that you own 100
+shares of stock and then sell 1 out-of-the-money call contract. In this
+trade, the short call is described as covered because it is secured by your
+long stock. If the option is exercised, you possess the stock required for
+sale at the strike price.
+The cash received from selling the call is yours to keep, provided that
+you do not decide later to buy back the call. If the stock price is above
+the strike price of the call at expiration, your stock will be called away for
+a price that is higher than it was when you sold the call. Thus, you have
+made money on the stock as well as the option. On the other hand, if the
+stock price is below the strike price of the call at expiration, the option
+expires worthless and you keep your stock. Then, the money received
+from the sale of the option has reduced the cost basis of your stock, and
+you are free to repeat the process in the next monthly option cycle.
+O
+
+===== PDF PAGE 127 =====
+If the covered call trade can be successfully repeated month after
+month, it has the potential to produce a regular infusion of cash into
+your brokerage account. Unfortunately, the process is not as simple as it
+might seem. T o do covered call trading, you need to understand the
+inherent risk in this type of trade and be prepared to make some tough
+decisions as each month’s expiration date draws near.
+An Idealized Trade
+Let’s first examine how an idealized covered call trade might work to
+perfection.
+Y ou buy 100 shares of XYZ at $30 per share for a total investment of
+$3,000. Over the next seven months, this stock averages a monthly rise
+of 9.5 percent as it moves up to $50 per share, for a great $2,000 profit.
+T o enhance this profit in each month along the way, you sell 1 call con-
+tract (1 contract = 100 shares) on XYZ at a strike price that is about
+10 percent to 15 percent above the stock price. Suppose that your sell-
+ing price for each covered call is $1.20 per share, which brings in an
+additional $120 per month. Assuming that the price of XYZ is never
+above the strike price of the current month option as it expires, you will
+be able to hold the stock through all seven months while bringing in an
+additional profit of $840 [7 × 120 = 840]. So, when this covered call
+strategy is working perfectly, you have increased your profit on this
+investment from $2,000 (67 percent) to $2,840 (95 percent).
+Although this idealized scenario could happen as described, it rarely
+does. The most unrealistic aspect of this idealized trade is that it
+requires the stock price to move up month by month in a perfectly
+coordinated manner with the strike price of the short call.
+A Realistic Trade
+Let’s look at a real-life example of a covered call trade that did not
+progress quite so idealistically.
+In the preceding idealized example, the overall price movement of XYZ
+is similar to that of Qualcomm Inc (QCOM) during 2003. From May
+2003 to December 2003, QCOM moved from $30 to $50. Unfortunately,
+108 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 128 =====
+the month-by-month price movement of QCOM was not always coor-
+dinated with the options expiration date so as to allow for an easy deci-
+sion about how to proceed into the next month.
+Suppose that you bought 100 shares of QCOM in May 2003 for $30
+and sold 1 Jun 35 call for $1 a share. See Figure 14-1 for the risk graph
+that depicts this trade. Note in the risk graph that the maximum profit
+on the trade is $600 no matter how high the stock price climbs.
+Chapter 14 Covered Calls 109
+Today: 50 days left
+34 days left
+17 days left
+Expiry: 0 days left
+–1000 –700 –500 –300 –100 100 300 500 700 90020 30 40 50
+Stock Price
+Figure 14-1
+When the June expiration date arrives, you are confronted with a diffi-
+cult decision, because the stock price is near $37. Do you (1) buy back
+the short option for a loss so as to continue holding the stock or (2) do
+you give up on any future gains in the stock by letting it be called away,
+for a quick profit of $6 per share [35 – 30 + 1 = 6]?
+If you decide to hold on to the stock, you must buy back the short call
+for $2 per share, resulting in a loss of $1 per share in the option. Y ou
+
+===== PDF PAGE 129 =====
+could then sell the Jul 40 call for $2 per share. At the July expiration, the
+$40 call expired worthless because QCOM had fallen back to $35. Y ou
+again had a difficult decision to make. Do you (1) sell one Aug 40 call
+for only $.35 per share, while hoping for the stock price to recover, or
+(2) sell one Aug 35 call for $2 per share in case the stock continues to
+fall or just goes sideways for the next month? 
+So, in both of the first two months of this trade, tough decisions had to
+be made. In later months, other difficult decisions presented them-
+selves. Although not every month will necessarily pose such problems,
+you can be sure that similar difficult decisions are going to arise if you
+plan to hold your stock over a long period of time. The lesson here is
+that the actual management of covered calls is rarely as straightforward
+as described by an idealized example.
+Covered Call vs. Naked Put
+Now let’s get back to the issue of the risk in a covered call trade. T o
+make things definite, we will again use QCOM as an example. In late
+December 2003, you buy 100 shares of QCOM at $53, and to complete
+the covered call trade, you sell 1 Feb 55 call for $2 per share. This means
+that you have equivalently purchased the stock for $51 per share, and
+hence your maximum risk on this covered call trade is $5,100. See
+Figure 14-2 for a risk graph that depicts this trade.
+If QCOM is above $55 at the February options expiration, your stock will
+be called away, which provides you a profit of $4 per share [55 – 51 = 4].
+On the other hand, if QCOM has fallen to $45 as the option expires, you
+will be able to keep your stock, but the value of your stock will have
+decreased by $6 per share [51 – 45 = 6]. Now you are showing a loss of
+$600 on the covered call trade.
+Let’s compare this “conservative” covered call trade with the “risky”
+trade of selling a naked put on QCOM. Instead of buying QCOM stock,
+suppose that you sell one Feb 55 put for $4 per share. The risk here is
+that you will be required to buy 100 shares of QCOM at the equivalent
+price of $51 per share [55 – 4 = 51], so again your maximum risk is
+$5,100. See Figure 14-3 for a risk graph that depicts this trade.
+110 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 130 =====
+If QCOM is above $55 at the February options expiration, the short
+option will expire worthless and the cash brought in from selling the
+put can then be counted as a $4 profit [4 – 0 = 4]. On the other hand,
+if QCOM has fallen to $45 as the option expires, the put will be exer-
+cised, requiring you to buy the stock at $55 per share. This means that
+you will then own 100 shares of QCOM stock in which you have suf-
+fered a loss of $6 per share [55 – 4 – 45 = 6].
+Thus, in either trade, similar circumstances lead to the same result of
+net profit or net loss. This equivalence of the two trades is further
+demonstrated by comparing Figure 14-2 with Figure 14-3. The bottom
+line is that no matter what QCOM does, our profit or loss in selling a
+naked put is the same as the covered call trade.
+Chapter 14 Covered Calls 111
+Today: 53 days left
+36 days left
+18 days left
+Expiry: 0 days left
+–1000 –700 –500 –300 –100 100 300 500 700 90050 60 70
+Stock Price
+Figure 14-2
+
+===== PDF PAGE 131 =====
+Comments
+Covered call trades are not really “conservative. ” Buying 100 shares of
+stock typically involves a significant outlay of capital. If the stock price
+then falls precipitously, the dollar loss on the trade can be substantial.
+This loss is exactly the same as if a naked put was sold and then the
+stock price fell. Also, the potential profit from a covered call is capped,
+just as it is when a naked put is sold.
+The month-by-month management of covered call trades can be tricky.
+Some months are going to require a tough decision as the expiration
+date arrives.
+One advantage enjoyed by a covered call over a naked put is that you do
+participate in any dividend payments. Naked put positions enjoy the
+advantage of tying up less cash and creating extra leverage in your bro-
+kerage account. Y ou must, however, be wary of using that extra leverage
+112 OPTIONS FOR THE BEGINNER AND BEYOND
+Today: 53 days left
+36 days left
+18 days left
+Expiry: 0 days left
+–1000 –700 –500 –300 –100 100 300 500 700 90050 60 70
+Stock Price
+Figure 14-3
+
+===== PDF PAGE 132 =====
+in an unwise manner, such as increasing the size of your naked put
+position beyond a reasonable level. This can lead to an unpleasant mar-
+gin call from your broker if the stock suffers a sudden drop.
+Here are some suggestions for handling covered call trades:
+1. Because almost all your risk is in what you paid for the
+stock, keep you eyes on the stock price and to a much lesser
+extent on the option price. Decide on an appropriate stop
+loss price for the stock, and if it falls to that level, protect the
+major portion of your investment by selling the stock and
+buying back the call. Do not hang on to a falling stock to
+collect an extra $.40 on the short option.
+2. When deciding on the strike price of the call that you are
+going to sell, make sure it is a price you will feel comfortable
+about giving up your stock if that becomes necessary. If your
+primary goal is to keep your stock, select a higher strike
+price. If you are willing to sell your stock at a price closer to
+its current value, pick a nearby strike price to bring in more
+cash.
+3. Do not go too far out in time. Those juicy premiums in the
+longer-term options are tempting, but you will generally do
+better by selling either the front-month call or the next
+month out. In today’s volatile market, the price of a stock
+can move significantly (up or down) in four to eight weeks.
+By selling near-month options, you will be better placed to
+make an adjustment when the expiration date arrives.
+4. Do not be greedy. If the stock price is above the strike price
+at expiration, avoid buying back the option for a loss unless
+you have a good reason to do so. If you have followed Step 2,
+you should be willing to let the stock go and take your profit.
+Avoid the situation in which you buy back the option for a
+loss to keep your stock, and then have the stock price col-
+lapse. This compounds a loss on the option with a loss on
+the stock.
+Chapter 14 Covered Calls 113
+
+===== PDF PAGE 133 =====
+This page intentionally left blank 
+===== SOURCE CHAPTER 15 | PDF PAGES 134-141 =====
+
+===== PDF PAGE 134 =====
+115
+15
+STRADDLES AND
+STRANGLES
+he straddle trade and the strangle trade are intended to take
+advantage of stock movement in either direction. They use a
+combination of a call option and a put option to benefit from a
+significant move up or down in the stock price.
+The Straddle Trade
+Upon first learning about the straddle trade, it sounds like the answer
+to a trader’s dream. Y ou will hear that, with a straddle, you do not need
+to guess which way the stock will move. The straddle can make money
+if either the stock price goes up or it goes down. What could be better
+than that?
+The basic idea of a straddle trade is to buy a call and buy a put with the
+same strike price. These options should also have the same expiration
+month, usually about two to three months in the future. The reason
+given for doing this type of trade is that if the stock price goes up, the
+call will show a profit; and if the stock price goes down, the put will
+show a profit. The catch here is that when one option shows a profit,
+the other option will show a loss.
+Even though the straddle trade concept sounds wonderful, it is actually
+one of the more difficult option trades with which to make a profit. For
+the straddle to become profitable, the stock price must move far
+enough so that the profit in one option more than offsets the loss in the
+other. If the stock price manages only a modest move in either direction
+before the options expire, the trade will lose money.
+T
+
+===== PDF PAGE 135 =====
+The major obstacle to a successful straddle trade is time. Remember
+that when you own an option, time is your enemy. With a straddle, you
+own two options, so time is working against both legs of the trade.
+Sooner or later, you will want to try a straddle trade. Under the right
+circumstances, a straddle can work well. The difficulty is in identifying
+a stock that meets the right criteria.
+Let’s look at an example of a straddle trade:
+■ Example 1. In late May, XYZ stock is trading around $30. There
+is conflicting news surrounding XYZ. Some reports are saying
+that the company will soon issue a warning that its next quarter
+earnings will fall far short of expectations. Other reports are
+suggesting that a competitor is planning to make an offer to
+buy out XYZ at a substantial premium.
+T o cater to either of these dramatic events, you initiate a strad-
+dle trade by buying both a call option and a put option with
+the same strike price. Here is how that might look:
+Trade: Buy 1 Aug 30 call for $2.10 per share and buy 1 Aug 30
+put for $1.90 per share.
+Cost = $400 [(2.10 + 1.90) × 100 = 400].
+Max risk = $400.
+Figure 15-1 provides a risk graph that depicts this trade.
+Now the argument is made that you do not care what happens with XYZ.
+If the stock makes a big move up or down, one of your options is going to
+provide a nice profit. This is the attractive feature of the straddle trade; it
+has the potential to make money no matter which way the stock moves.
+First, let’s consider some ideal scenarios which lead to profitable out-
+comes for this straddle trade on XYZ:
+1. In mid-June, the earnings warning on XYZ is issued, and the
+stock price quickly drops to $25. Because of the rapid drop,
+the price of the Aug 30 put expands to $6.20 per share. The
+Aug 30 call still has two months before expiration and man-
+ages to hold on to a price of $.50 a share. By selling both
+options for a total of $670 [(6.20 + .50) × 100 = 670], you
+have made a $270 profit for a gain of 68 percent.
+116 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 136 =====
+2. There is no earnings warning and in early July an offer is
+made to buy out XYZ at $35 per share. The price of XYZ
+stock becomes essentially frozen at the buy out price, and the
+options lose most of their time value. The Aug 30 call is priced
+at $5.30 per share and the Aug 30 put at $.20 per share. By
+selling both options for a total of $550 [(5.30 + .20) × 100 =
+550], you have made a $150 profit for a gain of 38 percent.
+3. Occasionally, it is possible to profit from both options. When
+XYZ issues the earnings warning that drops the stock to $25,
+you sell the Aug 30 put for $6.20 per share. The put leg of the
+straddle has then produced a profit of $430 [(6.20 – 1.90) ×
+100 = 430]. Having a guaranteed profit of $30 [430 – 400 =
+30] on the overall trade, you decide not to sell your Aug 30
+call for $.50 per share, but rather hold it for future
+developments. This decision is rewarded a few weeks
+later when the deal to buy XYZ at $35 does take place and
+Chapter 15 Straddles and Strangles 117
+Today: 106 days left
+71 days left
+36 days left
+Expiry: 0 days left
+–1000 –700 –500 –300 –100 100 300 500 700 90020 30 40
+Stock Price
+Figure 15-1
+
+===== PDF PAGE 137 =====
+118 OPTIONS FOR THE BEGINNER AND BEYOND
+you are able to sell the Aug 30 call for $5.30 per share.
+The call leg of the straddle has then produced a profit $320
+[(5.30 – 2.10) × 100 = 320]. The combined profits from both
+legs of the straddle trade is $750 [430 + 320 = 750], for a
+fantastic gain of 188 percent.
+Now let’s be a little more realistic and see how easy it is for the possible
+outcomes of the straddle trade to be less than ideal:
+1A. The disappointing earnings for XYZ are not revealed until
+late July, and the stock price only drops to $27.50. With
+just a few weeks remaining until the options expire, there
+is little time value remaining in the Aug 30 put, which is
+priced at $2.80 per share. The Aug 30 call is priced at only
+$.20 per share. Y ou exit both options for $300 [(2.80 +
+.20) × 100 = 300]. This represents a loss of $100 or
+25 percent of your original investment of $400.
+2A. There is no earnings warning and in early August a hostile
+offer for XYZ at $32 is made public. Again with just a cou-
+ple of weeks of life remaining in the Aug 30 call, it is priced
+at only $2.30 per share, whereas the Aug 30 put has fallen
+to $.15 per share. Y ou exit both options for $245 [(2.30 +
+.15) × 100 = 245]. This represents a loss of $155, or
+39 percent of your original investment.
+3A. Y ou wait hopefully until the second week of August, but no
+bad earnings news or potential buyout of XYZ is reported.
+The stock price has remained in a narrow range around
+$30 ever since you initiated the straddle trade. Now with
+almost no time remaining until the options expire, the
+Aug 30 call is priced at $.80 per share and the Aug 30 put
+at $.60 per share. If you exit both options for $140 [(.80 +
+.60) × 100 = 140], you will have experienced a loss of $360,
+or 90 percent of your original investment.
+By contrasting the losing outcomes 1A, 2A, and 3A with the profitable
+outcomes of 1, 2, and 3, several drawbacks of the straddle trade become
+apparent. Most important, any event that you are expecting to move the
+stock price must be significant enough to cause a large increase in the
+price of the appropriate option. Also, the event must occur relatively
+
+===== PDF PAGE 138 =====
+soon after initiating the straddle to avoid the loss of too much time
+value. With a straddle, the ongoing loss of time value is doubly harmful
+because it is occurring in both options of the trade.
+There is another subtle danger with straddle trades. If the rumors about
+a possible price-altering event are fairly well circulated, the prices of the
+at-the-money options will become inflated due to the increase in
+implied volatility (see Chapter 28, “Theory of Maximum Pain”). This
+makes it more expensive to initiate the straddle, thereby reducing the
+chance for a profit even if the desired event does come to pass. In
+the preceding example, a heightened interest in XYZ might increase the
+purchase price of the Aug 30 call and Aug 30 put by $.85 per share each.
+Then the cost of initiating the straddle would become $570. Now out-
+come 2 results in a loss, and 1 is substantially less profitable.
+Comments
+The key to a successful straddle trade is to identify a stock that satisfies
+the right criteria. Here are some guidelines:
+1. The stock price should be within the range of $20 to $50. If
+the stock is cheaper than $20, it may not have enough room
+for the price to fall. If the stock price is above $50, the
+options may be too expensive to create a straddle with a
+good potential for profit.
+2. Identify an upcoming event that could significantly impact
+the price of the stock. Ideally, the event needs to be such that
+the stock price will rise on positive news and fall on negative
+news. Good candidates are earnings announcements, court
+decisions, and FDA rulings.
+3. The upcoming event should be at least 30 to 60 days away.
+The options used for the straddle should not expire until at
+least 30 days after the expected event. This typically means
+that the options used will have a life of at least 60 to 90 days
+at the time the straddle is initiated.
+4. The upcoming event should not yet have generated enough
+excitement to cause the options prices to be overly inflated.
+This can be judged in several ways. Check the level of open
+Chapter 15 Straddles and Strangles 119
+
+===== PDF PAGE 139 =====
+interest and trading volume in the options. Compare the
+current implied volatility of the options against historical
+averages.
+5. Look for a stock that has been trading sideways within a nar-
+row price range. This signifies an even battle between the
+buyers and sellers of the stock. When the stock does break-
+out (up or down), the option prices will gain extra time
+value and the straddle has an increased potential for profit.
+Here are some guidelines for exiting the straddle trade:
+1. Sometimes it will be best to exit one side of the straddle
+before the expected event occurs. For example, in an earn-
+ings run, the stock price may move up sharply just prior to
+the scheduled earnings announcement. In this case, it may
+be wise to take the profit on the call leg before the actual
+announcement and hold the put until afterward. If the stock
+price then falls after the announcement, there will be a better
+exit price for the put.
+2. Do not stay in the straddle too long after the event has
+taken place. If the event does cause a significant move in the
+stock price, it will temporarily pump extra time value into
+the price of the profitable option. Sell the profitable option
+before that extra time value shrinks.
+3. Never hold both sides of the straddle until expiration.
+Generally, this will lead to a near maximum loss on the
+trade. If nothing has happened to create a price move, the
+straddle will lose a substantial portion of its value during the
+last three to four weeks of its life. Exit when there is at least
+three to four weeks before the options expire to recover what
+you can of your original investment. This is the reason that
+options expiring at least 30 days after the expected event are
+used in the straddle trade.
+The Strangle Trade
+A strangle trade is similar to a straddle trade, except that the call and
+put options have different strike prices. The idea is to lower the cost of
+120 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 140 =====
+the trade by using out-of-the-money options. Essentially, this is a more
+aggressive version of the straddle trade.
+Let’s reconsider Example 1, where XYZ is trading around $30 in late
+May. Now try to play the upcoming events with a strangle trade.
+Trade: Buy 1 Aug 35 call for $.80 per share and buy 1 Aug 25 put
+for $.70 per share.
+Cost = $150 [(0.80 + 0.70) × 100 = 150].
+Max risk = $150.
+See Figure 15-2 for a risk graph that depicts this trade.
+Chapter 15 Straddles and Strangles 121
+Today: 106 days left
+71 days left
+36 days left
+Expiry: 0 days left
+–1000 –700 –500 –300 –100 100 300 500 700 90020 30 40
+Stock Price
+Figure 15-2
+This straddle trade is a much cheaper trade than the corresponding
+straddle trade. A comparison of Figure 15-1 and Figure 15-2 indicates
+that for the strangle to achieve the same percentage profit after 70 days
+requires a larger move in the stock price.
+
+===== PDF PAGE 141 =====
+This page intentionally left blank 
+===== SOURCE CHAPTER 17 | PDF PAGES 150-155 =====
+
+===== PDF PAGE 150 =====
+131
+17
+MARRIED PUTS
+very time you buy a stock, you are exposing your investment
+capital to substantial risk. Fortunately, there is an inexpensive
+way to protect your investment while waiting for the stock to
+move up. This protection is established through an “arranged mar-
+riage” between your stock and an appropriate put option. In options
+terminology, this is known as the married put strategy.
+As soon as you buy a stock, you are particularly anxious as you wait for
+it to begin moving upward. Obviously, you bought the stock because
+you believe its price is going up and you also believe that this upward
+move is going to happen soon. Even for disciplined investors, it is diffi-
+cult to get rid of a nonperforming stock within the first few weeks after
+it is purchased. This means admitting you were either wrong about the
+stock or wrong about the timing, or both. So, all too frequently, we
+watch the price of our newly purchased stock drift downward as we try
+to assure ourselves that this is only a temporary setback and soon our
+rosy evaluation of this stock will be validated.
+Many investors think that the solution to this situation is to use a stop
+loss order, which is set to trigger when the stock price moves down
+about 7 percent to 10 percent below the purchase price of the stock.
+There are two major problems with the stop loss approach: (1) If the
+stock gaps down, say 15 percent to 20 percent or more on some unex-
+pected bad news, your stop loss will be executed at that much lower
+level. (2) Soon after you purchase the stock, it pulls back just enough to
+trigger the stop loss and then rebounds to a 15 percent gain. Y ou will
+have been taken out of the trade and miss the opportunity to make a
+nice profit.
+E
+
+===== PDF PAGE 151 =====
+The married put strategy offers a way to avoid the problems posed by
+the stop loss order. It will allow you to hold your stock for several weeks
+(or longer) without concern for a pullback, while waiting for the antic-
+ipated move up in price. There are several variations of the married put
+strategy, but the one described here is the simplest and least expensive
+to employ.
+The basic idea of the married put strategy is to buy an appropriate put
+option at the same time you purchase stock. Typically, a put is selected
+that will provide several weeks of protection against a downside move
+in the stock price, while you comfortably wait for the expected uptrend
+to begin. As the put nears its expiration date, some decision will have to
+be made about continuing to hold the stock. We examine several sce-
+narios to see how an appropriate decision is reached.
+Let’s look at an example to see how the married put strategy works.
+In late August, you decide to buy 100 shares of XYZ at $31 per share,
+because you are convinced that this stock will soon be headed toward
+$35 and perhaps much higher. For protection you also buy the Sept 30
+put at $.80 per share.
+Trade: Buy 100 shares of XYZ at $31 a share and buy 1 contract
+of the Sept 30 put at $.80 per share.
+Cost = (100 × 31) + (100 × .8) = $3,180.
+Max risk = $180.
+See Figure 17-1 for a risk graph that depicts this trade.
+Note that the maximum risk on this combination of the stock and the
+married put is only $180. Compare that with a maximum risk of $3,100
+if the protective put is not in place.
+How do we determine that the maximum risk is $180? If the stock is
+anywhere below $30 at any time before the September options expira-
+tion date, you can elect to exercise your option and sell your stock for
+$30 per share. That represents a loss of $1 per share on 100 shares for a
+total of $100. We must also include the expense of buying the put
+option at $.80 per share for a cost of $80 for the one contract. Thus, we
+obtain the maximum risk of $180 [100 + 80 = 180].
+132 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 152 =====
+If some unexpected bad news on XYZ surfaces overnight and the
+stock opens at $25 on the following day, those who own 100 shares
+of stock without the married put will suffer an immediate loss of
+$600. Moreover, things might get even worse as the price of XYZ
+falls even further in the next few days. Do you sell or hang on with
+the hope of some recovery? This difficult question is of no concern if
+you own the Sept 30 put. Y ou know that you cannot lose more than
+$180 no matter what happens to the stock. Y ou can comfortably wait
+to see whether the bad news is reversed and the stock recovers to show
+a profit.
+How is the appropriate put selected for protection of the stock? First,
+decide on the expiration month and then choose a strike price.
+My recommendation for the choice of expiration month is the current
+month if there are at least three weeks remaining until expiration. If
+Chapter 17 Married Puts 133
+Today: 21 days left
+14 days left
+7 days left
+Expiry: 0 days left
+–200 –100 0 100 200 30023 24 25 26 27 28 29 30 31 32 33 34 35
+Stock Price
+Figure 17-1
+
+===== PDF PAGE 153 =====
+there are less than three weeks until expiration, use a put that expires
+the following month. In the latter case, you are going to have at least
+five weeks and possibly as many as seven weeks of protection. Avoid
+going out any further in time, because the options will be too expen-
+sive. The general idea here is to allow your stock between three and
+seven weeks to start showing the strength you are expecting.
+As for the strike price, it is usually best to select the nearest strike price
+that is below the stock price, as illustrated in the preceding example.
+This way, you will only be paying for time value and that should not be
+too expensive since the option is never more than seven weeks from
+expiration. The exception to this choice is when the stock price is just
+below the next higher strike price. Then consider going to that higher
+strike option so as to provide sufficient protection. In the preceding
+example, suppose the purchase price for the XYZ stock had been $34.
+Then, the Sept 35 put at $1.90 per share might be a better choice to
+avoid $4 of risk in the stock price. The general idea here is to provide
+some protection of the purchase price of your stock without paying too
+much for the put.
+What happens when the expiration date for the protective put arrives?
+This is when you will need to make a hard decision as to how you feel
+about this stock that interested you several weeks ago. Y ou have had a
+chance to “test drive” this stock without concern. Now you must decide
+whether you really want to own it for the long term.
+If the stock price has gone up, the decision will be easy. Before the put
+expires, initiate a stop loss order to protect some of your gain in the
+stock price. (Note that a stop loss order makes more sense now that
+there is some profit to act as a cushion.) This leaves you in a reasonable
+position to hold the stock for additional gains.
+If the stock price has gone down, you have a choice of actions: (1) Get
+rid of the stock by exercising the put option, which enables you to sell
+the stock at the strike price. (2) If you want to continue holding
+this stock because it seems to have found its bottom, sell the put for a
+profit, thereby lowering the cost basis for the stock.
+If the stock price has gone sideways, you might want to give serious
+thought to selling the stock and also selling the put if it has any residual
+134 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 154 =====
+value. T o justify a decision to continue holding the stock, you will need
+to consider another married put. This means the stock will need to
+make an even larger gain to offset the expense of two protective puts—
+not usually an attractive scenario.
+Comments
+Here are some variations of the married put strategy:
+■ There are times to employ this strategy other than when you
+first buy a stock. Suppose you already own a stock that has pro-
+vided a nice profit, but there is an upcoming special event
+(earnings report, FDA approval, court decision, and so on) that
+could send it into a steep decline. Use a married put to get past
+the special event. Then you will be much better placed to
+decide whether you should continue to hold the stock.
+■ For more-volatile stocks, the protective put that you would like
+to own may be rather expensive. Y ou can reduce the cost by
+using a vertical Bear Put Spread instead of a simple protective
+put. T o create the spread, buy the put you want for protection
+and then sell the one at the next-lower strike to offset the
+expense. There is risk with this approach, because the vertical
+bear spread can provide only limited protection.
+■ Another way to help finance the cost of the protective put is to
+sell a call at a strike price above the purchase price of the stock.
+This combination, known as a “collar, ” provides the desired
+protection, but it caps your upside profit. In Chapters 18,
+“Collars, ” and 19, “Advanced Collars, ” these collar trades are
+discussed in detail.
+Chapter 17 Married Puts 135
+
+===== PDF PAGE 155 =====
+This page intentionally left blank 
+===== SOURCE CHAPTER 18 | PDF PAGES 156-163 =====
+
+===== PDF PAGE 156 =====
+137
+18
+COLLARS
+he collar trade has particular appeal to conservative investors.
+This is a trade for those who like to hold stocks for the long-
+term, while using options to provide insurance and still allow for
+a nice return. One reason the collar trade is so attractive is its high level
+of protection of principal.
+During 2000 to 2002, there were many stocks that investors and ana-
+lysts believed were good to hold for the long term. Unfortunately, a sig-
+nificant number of those “good stocks” lost 40 percent to 50 percent or
+even more of their value during that period of time. If those stocks
+whose price collapsed had been properly collared with options, the loss
+would have been held to less than 10 percent. And for those collared
+stocks that did manage to move up during the bear market, annualized
+returns of 15 percent to 25 percent were possible.
+The collar trade is intended for use with stocks that are worthy of being
+held for at least 10 to 12 months. T o do a collar trade, the stock needs
+to have LEAPS options associated with it. As discussed in Chapter 6,
+“LEAPS, ” these long-term options have expiration dates that may be as
+much as two years or more into the future.
+Let’s look at an example of a collar trade:
+■ Example 1. In November 2004, you identify XYZ as a stock
+worthy of being held for the next 14 months. XYZ is currently
+trading at $19 per share and it has LEAPS options.
+Trade: Buy 100 shares of XYZ for $1,900. Buy 1 Jan (06)
+20 put for $2.90 per share and sell 1 Jan (06) 25 call for
+$1.00 per share. The net cost for the two options is
+T
+
+===== PDF PAGE 157 =====
+$190 [(2.90 – 1.00) × 100 = 190]. The net cost for the whole
+trade is $2,090 [1,900 + 190 = 2,090].
+See Figure 18-1 for a risk graph that depicts this trade.
+Although it is possible to exit this trade at any time, it is
+designed to be held until the options expiration date in
+January 2006. Let’s examine the best- and worst-case scenarios
+at expiration.
+The worst-case scenario means that the stock price is below $20
+on the options expiration date. In this situation, the Jan (06)
+25 call expires worthless, while you exercise the Jan (06) 20 put
+to force someone to buy your stock at $20 per share. Y ou
+receive $2,000 from the sale of your stock and your net loss on
+the trade is only $90 [2090 – 2000 = 90]. This small loss
+represents only 4.3 percent of your original investment.
+138 OPTIONS FOR THE BEGINNER AND BEYOND
+Today: 506 days left
+338 days left
+169 days left
+Expiry: 0 days left
+–100 0 100 200 300 400 20 30
+Stock Price
+Figure 18-1
+
+===== PDF PAGE 158 =====
+The best-case scenario occurs when the stock price is over $25
+on the option’s expiration date. In this situation, the Jan (06) 20
+put expires worthless and someone exercises the Jan (06) 25 call
+against you, so that your stock is sold for $25 per share. Y ou
+receive $2,500 for your 100 shares of stock, and your net profit
+on the trade is $410 [2,500 – 2,090 = 410]. This represents a
+gain of 20 percent on your original investment. For the
+14-month period that you are in this trade, that translates
+to a 17 percent gain on an annualized basis.
+From Example 1, you can see why this combination of stock and
+options is called a collar trade. The two options form a “collar”
+around the long stock position. The long Jan (06) 20 put forms
+the protective part of the collar by insuring that the stock can be
+sold for no less than $20 per share anytime before the option
+expires. The Jan (06) 25 call, which was sold to reduce the cost
+of the put, forms the restrictive part of the collar that limits the
+upside selling price of the stock to $25 per share.
+It is often possible to arrange the collar trade so that it is com-
+pletely without risk. Usually, this will mean giving up some of
+the potential profit. Let’s look at an example:
+■ Example 2. As in Example 1, we will buy XYZ stock for $19 per
+share with the intention of holding it for the next 14 months.
+But now we will go for an even higher level of protection.
+Trade: Buy 100 shares of XYZ for $1900. Buy 1 Jan (06) 22.5
+put for $4.50 per share and sell 1 Jan (06) 25 call for $1 per
+share. The net cost of the two options is $350 [(4.50 – 1.00) ×
+100 = 350]. The net cost for the whole trade is $2,250 [1,900 +
+350 = 2,250].
+See Figure 18-2 for a risk graph that depicts this trade.
+In this example, the worst-case scenario is the stock price below
+$22.50 on the option’s expiration date. In this situation, the Jan
+(06) 25 call expires worthless, while you exercise the Jan (06)
+22.5 put to force someone to buy your stock at $22.50 per
+share. Y ou receive $2,250 from the sale of your stock, which is
+Chapter 18 Collars 139
+
+===== PDF PAGE 159 =====
+exactly the original cost of the trade, thereby allowing you to
+exit with no loss.
+The best-case scenario is again when the price of XYZ is over
+$25 at expiration. The Jan (06) 22.5 put expires worthless and
+someone exercises the Jan (06) 25 call against you so that your
+stock is sold for $25 per share. Y ou receive $2,500 for your
+100 shares of stock and your net profit on the trade is $250
+[2,500 – 2,250 = 250]. This represents a gain of 11 percent on
+your original investment. For the 14-month period that you
+are in this trade, that translates to a 9.5 percent gain on an
+annualized basis.
+Although the maximum potential gain in Example 2 is signifi-
+cantly less than in Example 1, keep in mind that the collar
+trade in Example 2 carries no risk of principal. This may be
+140 OPTIONS FOR THE BEGINNER AND BEYOND
+Today: 506 days left
+338 days left
+169 days left
+Expiry: 0 days left
+–100 0 100 200 20 30
+Stock Price
+Figure 18-2
+
+===== PDF PAGE 160 =====
+particularly important for someone whose portfolio includes a
+large holding in XYZ stock.
+If you are willing to accept a little more risk, the collar can be
+loosened to allow for a larger profit potential, as Example 3
+shows.
+■ Example 3. As in the previous two examples, we buy XYZ stock
+for $19 per share with the intention of holding it for the next
+14 months. But now we go for a higher maximum return while
+accepting a little more risk.
+Trade: Buy 100 shares of XYZ for $1,900. Buy 2 Jan (06) 20 put
+for $2.90 per share and sell 1 Jan (06) 30 call for $.60 per share.
+The net cost for the 2 options is $230 [(2.90 – .60) × 100 = 230].
+The net cost for the whole trade is $2,130 [1,900 + 230 = 2,130].
+See Figure 18-3 for a risk graph that depicts this trade.
+Chapter 18 Collars 141
+Today: 506 days left
+338 days left
+169 days left
+Expiry: 0 days left
+–1000 –700 –500 –300 –100 100 300 500 700 90020 30
+Stock Price
+Figure 18-3
+
+===== PDF PAGE 161 =====
+As in Example 1, the worst-case scenario is the stock price
+below $20 on the option’s expiration date. In this situation, the
+Jan (06) 30 call expires worthless, while you exercise the Jan
+(06) 20 put to force someone to buy your stock at $20 per
+share. Y ou receive $2,000 from the sale of your stock, and your
+net loss on the trade is $130 [2,130 – 2,000 = 130]. This loss
+represents 6.1 percent of your original investment.
+The best-case scenario occurs again when the stock price
+is over $30 on the option’s expiration date. In this situation,
+the Jan (06) 20 put expires worthless, and someone exercises
+the Jan (06) 30 call against you, so that your stock is sold for
+$30 per share. Y ou receive $3,000 for your 100 shares of
+stock and your net profit on the trade is $870 [3,000 – 2,130 =
+870]. This represents a gain of 41 percent on your original
+investment. For the 14-month period that you are in this
+trade, that translates to a 35 percent gain on an annualized
+basis.
+In this example, the maximum gain is significantly better than
+that of Example 1, but the maximum loss has been increased.
+Let’s reconsider the Example 1 trade and see the difference if we
+extend that trade for an additional 12 months.
+■ Example 4. As in Example 1, we buy XYZ stock for $19 per
+share. But now the intention is to hold it for the next 26 months.
+Trade: Buy 100 shares of XYZ stock for $1,900. Buy 1 Jan (07)
+20 put for $3.40 per share and sell 1 Jan (07) 25 call for $2.30
+per share. The net cost for the 2 options is $110 [(3.40 – 2.30) ×
+100 = 110]. The net cost for the whole trade is $2010 [1,900 +
+110 = 2,010].
+See Figure 18-4 for a risk graph that depicts this trade.
+The worst-case scenario means that the stock price is below
+$20 on the option’s expiration date. In this situation, the
+Jan (07) 25 call expires worthless, while you exercise the
+Jan (07) 20 put to force someone to buy your stock at $20 per
+share. Y ou receive $2,000 from the sale of your stock and your
+142 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 162 =====
+net loss on the trade is only $10 [2,010 – 2,000 = 10].
+This small loss represents only 0.5 percent of your original
+investment. This is essentially a riskless trade.
+The best-case scenario occurs when the stock price is over $25
+on the option’s expiration date. In this situation, the Jan (07)
+20 put expires worthless and someone exercises the Jan (07)
+25 call against you, so that your stock is sold for $25 per share.
+Y ou receive $2,500 for your 100 shares of stock, and your net
+profit on the trade is $490 [2,500 – 2,010 = 490]. This
+represents a gain of 24 percent on your original investment. For
+the 26-month period that you are in this trade, that translates
+to an 11 percent return on an annualized basis.
+It is worthwhile to compare Examples 1 and 4. We see that by going to
+a longer-term scenario, the trade becomes essentially riskless. The max-
+imum potential profit has increased slightly, although the return on an
+Chapter 18 Collars 143
+Today: 870 days left
+580 days left
+290 days left
+Expiry: 0 days left
+–100 0 100 200 300 400 20 30
+Stock Price
+Figure 18-4
+
+===== PDF PAGE 163 =====
+annualized basis is less. The trade in Example 4 would appeal to a con-
+servative investor who is willing to accept a modest return when his
+investment capital is almost fully protected from loss.
+Comments
+Collar trades are designed to be long-term trades. Trying to set up a col-
+lar trade for a period of less than 10 to 12 months will not provide the
+level of protection seen in the examples presented here.
+Because the collar trades use LEAPS options, they generally can be
+structured for 22 to 24 months duration if so desired. With the longer
+duration, the maximum potential gain and maximum loss are typically
+better than the 10-to-12-month versions of the collar trade, as seen
+by comparing Examples 1 and 4. A major drawback to the 22-to-
+24-months collar trade is the cap placed on the upward price move-
+ment of the stock. If your stock is well above the strike price of the
+short call after 12 months, you will not be pleased that your profit is
+already capped while it will take another 10 to 12 months before the
+maximum return is achieved.
+It is possible to exit a collar trade early; however, to achieve the maxi-
+mum return generally requires staying in the trade until expiration. In
+Example 1, if XYZ reaches $25 with six months remaining until expira-
+tion, the profit would be only about half of the $410 maximum. When
+the stock price falls, it is often possible to exit the collar trade early for
+a slightly smaller loss than the maximum.
+The collar trade is enhanced if the stock pays a dividend. In Example 1,
+suppose that XYZ pays an annual dividend of $.65 per share. That rep-
+resents an annualized yield of 3.4 percent, which is equivalent to 4.0 per-
+cent for the 14-month duration of the collar. This means that the
+maximum return on the trade in Example 1 is increased to 24 percent,
+whereas the maximum loss has been reduced to a miniscule 0.3 percent.
+Collar trades on highly volatile stocks are generally not as appealing as
+they are for more conservative stocks. The higher volatility will usually
+result in a much greater net cost for the options that provide the collar.
+This will increase the maximum possible loss on the trade.
+144 OPTIONS FOR THE BEGINNER AND BEYOND
+===== SOURCE CHAPTER 20 | PDF PAGES 172-179 =====
+
+===== PDF PAGE 172 =====
+153
+20
+NAKED OPTION
+WRITING
+s you learn about options, there will come a time when you con-
+sider naked option writing . This type of trading can be reward-
+ing, but before trying it, you need to be fully aware of the risks
+involved in selling naked calls and naked puts.
+The word naked is defined in the Funk & Wagnalls Dictionary as “hav-
+ing no covering . . . ”; this is a particularly relevant description of naked
+option writing. When you sell either a call or a put without any com-
+pensating position to “cover” the short option, you are said to be
+“naked. ” By having a short naked call or naked put position in your
+brokerage account, you are exposed to substantial risk. So, it is impor-
+tant to be prepared to manage this type of trade if the underlying stock
+begins to move against you.
+In the late 1990s, there were some so-called investment gurus who
+advised that the quick way to great wealth was to sell out-of-the-money
+naked options. They argued that the vast majority of these out-of-the-
+money options expire worthless every month and therefore the risk is
+minimal. At that time, the emphasis was on selling puts because the
+prices of tech stocks were soaring, thereby causing more and more puts
+to expire worthless as the Nasdaq moved steadily upward. When the
+tech bubble burst in 2000, there were disastrous consequences for those
+gurus and their followers, whose naked put positions incurred massive
+losses.
+Because most brokerage firms forbid naked option writing in a retire-
+ment account, this issue may seem irrelevant to people who only trade
+A
+
+===== PDF PAGE 173 =====
+in that type of account. It is interesting, however, that almost all brokers
+do permit covered call strategies in retirement accounts, because a cov-
+ered call carries exactly the same risk as a naked put. This was demon-
+strated in Chapter 14, “Covered Calls. ”
+The goal of this chapter is to make you aware of the potential risks as
+well as the potential rewards of selling naked calls and puts. Let’s begin
+with the risks.
+The Risk of Naked Option Writing
+Y ou will often hear that selling a naked option exposes you to “un-
+limited risk. ” Although this is not literally true, the risk can be large
+enough to cause considerable loss in you brokerage account. T o realis-
+tically illustrate the magnitude of the risk, we will consider some actual
+market situations where substantial losses were generated for those
+traders who sold naked options.
+■ Example 1. Naked put
+In early June 2004, OVTI stock was moving up nicely as the
+earnings announcement scheduled for June 9 was approaching.
+Many analysts expected the announcement to reveal that the
+profits of this high profile company were continuing to grow as
+had been reported in the past. With the stock trading a little
+over $25 on June 8, it was certainly tempting to sell a few
+June 25 puts naked for $1 per share.
+Suppose that on June 8 you sold 5 Jun 25 puts naked to bring
+$500 cash into your account. This looked like easy money
+because the stock price seemed likely to continue upward, or at
+least stay level, following the expected rosy earnings report.
+Also, these options would expire in only two and a half weeks
+on June 18, which meant that you did not have long to wait for
+the capture of the $500 credit to be completed. See Figure 20-1
+for a risk graph that depicts this trade on June 8.
+After the market closed on June 8, OVTI issued a statement
+that its earnings announcement would be delayed until June 23
+154 OPTIONS FOR THE BEGINNER AND BEYOND
+
+===== PDF PAGE 174 =====
+due to an internal investigation regarding the need to restate its
+earnings for the past year. On June 9, the stock opened at $19
+and continued trading down until it closed at $15.50 as the
+options expired on June 18. At this point, you would have to
+decide between two unpleasant choices: (1) Buy back the
+5 short puts for $9.50 per share, or (2) accept the assignment
+to buy 500 shares of the stock at $25 per share. In either case,
+the value of your brokerage account was diminished by $4,250.
+The reason for this massive loss was that the short Jun 25 puts
+were naked. They were not covered by any other position to
+limit the risk.
+See Figure 20-2 for a risk graph that depicts this situation on
+June 18.
+Chapter 20 Naked Option Writing 155
+Today: 10 days left
+7 days left
+4 days left
+Expiry: 0 days left
+–6000 –5000 –4000 –3000 –2000 –1000 020 30
+Stock Price
+Figure 20-1
+
+===== PDF PAGE 175 =====
+■ Example 2. Naked call
+In early June 2004, CYBX stock was trading at $18. The
+rumor surrounding this company was that an FDA panel
+might disapprove its implant device to treat severely depressed
+patients. The Jun 20 calls were trading at $3.50 per share.
+It seemed that selling a few of these calls naked might be
+profitable, because some analysts projected that the stock price
+would only move up a few dollars even if the implant device
+was approved.
+Suppose that on Jun 10 you sold three Jun 20 calls naked to
+bring $1,050 cash into your account.
+See Figure 20-3 for a risk graph that depicts this trade on
+June 10.
+156 OPTIONS FOR THE BEGINNER AND BEYOND
+Today: 0 days left
+0 days left
+0 days left
+Expiry: 0 days left
+–6000 –5000 –4000 –3000 –2000 –1000 020 30
+Stock Price
+Figure 20-2
+
+===== PDF PAGE 176 =====
+After the close of trading on June 15, just three days before the
+options were to expire, CYBX announced that the implant
+device had been approved by the FDA panel. The next day,
+CYBX opened at $31, and by the expiration date of June 18,
+the stock was at $37. At this point, you would have to decide
+between two unpleasant choices: (1) Buy back the 3 short calls
+for $19 per share, or (2) wait for the assignment on the follow-
+ing Monday and be forced to buy 300 shares of CYBX stock at
+$37 (possibly even higher) and deliver it at $20. In either case,
+you would see an immediate reduction in the value of your
+brokerage account by an amount of $4,650.
+Again, the reason for this massive loss was that the short Jun 20
+calls were naked. They were not covered by any other position
+to limit the risk.
+Chapter 20 Naked Option Writing 157
+Today: 8 days left
+6 days left
+3 days left
+Expiry: 0 days left
+–2000 –1000 0 100010 20
+Stock Price
+Figure 20-3
+
+===== PDF PAGE 177 =====
+See Figure 20-4 for a risk graph that depicts this situation on
+June 18.
+Now that you have been sufficiently warned about the danger of naked
+option writing, let’s look at one situation in which it might be an
+acceptable strategy.
+Acquiring Stock with Naked Puts
+Let’s see how naked puts can be used as a strategy to acquire a good stock
+at a desirable price. An example will be used to illustrate this strategy:
+■ Example 3. Suppose that you have carefully researched XYZ
+stock. Y ou believe that buying 200 shares of this stock would be
+a sound investment for the future. XYZ is currently selling for
+$31 per share, and although you are prepared to buy the stock
+at that price, it would be nice to get it for a little less.
+158 OPTIONS FOR THE BEGINNER AND BEYOND
+Today: 0 days left
+0 days left
+0 days left
+Expiry: 0 days left
+–5000 –4000 –3000 –2000 –1000 0 1000
+10 20 30 40
+Stock Price
+Figure 20-4
+
+===== PDF PAGE 178 =====
+Y ou note that the front month $30 puts are being sold at $1.25
+per share. If you sell two of these puts naked, this brings $250
+into your brokerage account. By being naked in those 2 puts,
+you must be prepared to buy 200 shares of the stock at $30 if
+necessary. This must be regarded as acceptable, because you
+were already prepared to purchase the stock for $31.
+When the front-month options expire, there are two possible
+outcomes to consider:
+1. If XYZ is above $30, the short puts expire worthless and you
+keep the $250. If it still seems like a good investment to
+acquire this stock, you can repeat the process for the follow-
+ing month. Otherwise, you move on to another stock of
+interest.
+2. If XYZ is below $30, the short puts will be exercised and you
+will be required to buy the 200 shares for $30 per share. Y our
+actual cost basis for the stock is only $28.75 per share
+because of the $1.25 per share that you received from the
+sale of the puts.
+If XYZ had experienced a pullback to $29, you would still be
+buying the stock for an equivalent price of $28.75 per share.
+Note how this is much better than having bought the stock at
+$31 per share when you initially decided to acquire this stock.
+It is wise to have some sort of stop loss strategy in mind when selling
+naked options. Think of this as the same as initiating stop loss when
+you buy the stock. In the preceding example, if XYZ was at $31 when
+you sold the naked put, your mental stop loss might be at $28, which
+represents a 10 percent pullback in the stock price. So, if XYZ falls to
+$28, buy back the naked put for, say, $2.60 per share. This represents a
+loss of $1.35 per share [2.60 – 1.25 = 1.35]. Notice that this is a signifi-
+cant improvement over a loss of $3 per share that would have been real-
+ized if the stock had been purchased at $31.
+Chapter 20 Naked Option Writing 159
+
+===== PDF PAGE 179 =====
+This page intentionally left blank 

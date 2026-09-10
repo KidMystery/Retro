@@ -1,0 +1,439 @@
+
+===== PDF PAGE 4 =====
+iv Contents 
+Execution of the Covered Write Order ................................. 56 
+Selecting a Covered Writing Position . .................................. 58 
+Writing against Stock Already Owned . ................................. 62 
+Diversifying Return and Protection in a Covered Write .................... 66 
+Follow-Up Action ........ .......................................... 70 
+Special Writing Situations ........................................... 87 
+Covered Call Writing Summary ...................................... 93 
+Chapter3 
+Call Buying . ............................................... 95 
+Why Buy? ....................................................... 95 
+Risk and Reward for the Call Buyer ................................... 97 
+Which Option to Buy? .............. ............................... 101 
+Advanced Selection Criteria ........................................ 103 
+Follow-Up Action ............... .................................. 107 
+A Further Comment on Spreads ..................................... 117 
+Chapter4 
+Other Call Buying Strategies ................................ 118 
+The Protected Short Sale (or Synthetic Put) ............................ 118 
+Follow-Up Action . ................................................ 122 
+The Reverse Hedge (Simulated Straddle) ...... ......................... 123 
+Follow-Up Action ...... ........................................... 126 
+Altering the Ratio of Long Calls to Short Stock . ......................... 128 
+Summary . ...................................................... 131 
+Chapter 5 
+Naked Call Writing ........................................ 132 
+The Uncovered (Naked) Call Option .... .............................. 133 
+Investment Required ............ .................................. 135 
+The Philosophy of Selling Naked Options .............................. 137 
+Risk and Reward ................................................. 138 
+Summary ....................................................... 144 
+Chapter 6 
+Ratio Call Writing ......................................... 146 
+The Ratio Write .................................................. 146 
+Investment Required .... ..................... _ ..................... 150 
+===== PDF PAGE 5 =====
+Contents V 
+Selection Criteria . ................................................ 151 
+The Variable Ratio Write . .......................................... 155 
+Follow-Up Action . ................................................ 158 
+An Introduction to Call Spread Strategies .. ............................ 168 
+Chapter7 
+Bull Spreads .............................................. 172 
+Degrees of Aggressiveness .......................................... 175 
+Ranking Bull Spreads ............................................. 176 
+Follow-Up Action . ................................................ 179 
+Other Uses of Bull Spreads ......................................... 180 
+Summary .... ................................................... 185 
+Chapter 8 
+Bear Spreads Using Call Options ............................ 186 
+The Bear Spread ................................................. 186 
+Selecting a Bear Spread ... ......................................... 189 
+Follow-Up Action . ................................................ 190 
+Summary ......... .............................................. 190 
+Chapter9 
+Calendar Spreads .......................................... 191 
+The Neutral Calendar Spread ..... .................................. 192 
+Follow-Up Action . ................................................ 194 
+The Bullish Calendar Spread ... ..................................... 196 
+Follow-Up Action ........ ......................................... 197 
+Using All Three Expiration Series .................................... 198 
+Summary . ...................................................... 199 
+Chapter 10 
+The Butterfly Spread ....................................... 200 
+Selecting the Spread . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 203 
+Follow-Up Action ... .............................................. 206 
+Summary ....................................................... 209 
+Chapter 11 
+Ratio Call Spreads ......................................... 210 
+Differing Philosophies ............................................. 213 
+===== PDF PAGE 6 =====
+vi Contents 
+Follow-Up Action ..... ............................................ 217 
+Sumniary ....................................................... 221 
+Chapter 12 
+Combining Calendar and Ratio Spreads ...................... 222 
+Ratio Calendar Spread ............................................ 222 
+Choosing the Spread .............................................. 225 
+Follow-Up Action ... .............................................. 226 
+Delta-Neutral Calendar Spreads ....... .............................. 227 
+Follow-Up Action ... .............................................. 229 
+Chapter 13 
+Reverse Spreads ........................................... 230 
+Reverse Calendar Spread . .......................................... 230 
+Reverse Ratio Spread (Backspread) . .................................. 232 
+Chapter 14 
+Diagonalizing a Spread . .................................... 236 
+The Diagonal Bull Spread .......................................... 236 
+Owning a Call for "Free" ............ ............................... 239 
+Diagonal Backspreads ............................................. 240 
+Call Option Sumniary ............................................. 241 
+Part III 
+PUT OPTION STRATEGIES 
+Chapter 15 
+Put Option Basics . ....................................... ~ " 245 
+Put Strategies. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 245 
+Pricing Put Options ............................................... 247 
+The Effect of Dividends on Put Option Premiums ........................ 248 
+Exercise and Assignment ........................................... 250 
+Conversion . ..................................................... 253 
+Chapter 16 
+Put Option Buying . ........................................ 256 
+Put Buying versus Short Sale .. ...................................... 256 
+Selecting Which Put to Buy . ........................................ 258 
+===== PDF PAGE 7 =====
+Contents vii 
+Ranking Prospective Put Purchases ................................... 261 
+Follow-Up Action . ................................................ 262 
+Loss-Limiting Actions ............................................. 267 
+Equivalent Positions .. ............................................. 270 
+Chapter 17 
+Put Buying in Conjunction with Common Stock Ownership ..... 271 
+Which Put to Buy ................................................ 273 
+Tax Considerations ............................................... 275 
+Put Buying As Protection for _the Covered Call Writer .................... 275 
+No-Cost Collars . ................................................. 278 
+Chapter18 
+Buying Puts in Conjunction with Call Purchases ............... 281 
+Straddle Buying . ................................................. 282 
+Selecting a Straddle Buy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 285 
+Follow-Up Action . ................................................ 285 
+Buying a Strangle ................................................ 288 
+Chapter 19 
+The Sale of a Put ..................................... : .... 292 
+The Uncovered Put Sale . ........................................... 292 
+Follow-Up Action .......... ....................................... 295 
+Evaluating a Naked Put Write . ...................................... 296 
+Buying Stock below Its Market Price . ................................. 299 
+The Covered Put Sale ............................................. 300 
+Ratio Put Writing . ................................................ 300 
+Chapter 20 
+The Sale of a Straddle ...................................... 302 
+The Covered Straddle Write ........................................ 302 
+The Uncovered Straddle Write ...................................... 305 
+Selecting a Straddle Write .......................................... 307 
+Follow-Up Action ....... .......................................... 308 
+Equivalent Stock Position Follow-Up . ................................. 312 
+Starting Out with the Protection in Place .............................. 313 
+Strangle (Combination) Writing ..................................... 315 
+Further Comments on Uncovered Straddle and Strangle Writing . ........... 318 
+===== PDF PAGE 8 =====
+viii Contents 
+Chapter21 
+Synthetic Stock Positions Created by Puts and Calls ............ 321 
+Synthetic Long Stock . ............................................. 321 
+Synthetic Short Sale . .............................................. 323 
+Splitting the Strikes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 325 
+Summary ....................................................... 328 
+Chapter22 
+Basic Put Spreads . ......................................... 329 
+Bear Spread . .................................................... 329 
+Bull Spread ..................................................... 332 
+Calendar Spread ................................................. 333 
+Chapter 23 
+Spreads Combining Calls and Puts . .......................... 336 
+The Butterfly Spread . ............................................. 336 
+Combining an Option Purchase and a Spread . .......................... 339 
+A Simple Follow-Up Action for Bull or Bear Spreads ..................... 342 
+Three Useful but Complex Strategies . ................................. 345 
+Selecting the Spreads . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 353 
+Summary ........................................................ 356 
+Chapter 24 
+Ratio Spreads Using Puts ................................... 358 
+The Ratio Put Spread . ............................................. 358 
+Using Deltas . .................................................... 361 
+The Ratio Put Calendar Spread . ..................................... 361 
+A Logical Extension (The Ratio Calendar Combination) .... ............... 364 
+Put Option Summary . ............................................. 366 
+Chapter 25 
+LEAPS ................................................... 367 
+The Basics ...................................................... 368 
+Pricing LEAPS . .................................................. 369 
+Comparing LEAPS and Short-Term Options ............................ 374 
+LEAPS Strategies . ................................................ 375 
+Speculative Option Buying with LEAPS ............................... 382 
+Selling LEAPS ................................................... 390 
+===== PDF PAGE 9 =====
+Contents ix 
+Spreads Using LEAPS ............................................. 403 
+Sum111ary ....................................................... 409 
+PartIV 
+ADDITIONAL CONSIDERATIONS 
+Chapter 26 
+Buying Options and Treasury Bills ........................... 413 
+How the Treasury Bill/Option Strategy Operates ......................... 413 
+Sum111ary ....................................................... 421 
+Chapter 27 
+Arbitrage . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 422 
+Basic Put and Call Arbitrage ("Discounting") . .......................... 423 
+Dividend Arbitrage ............................................... 425 
+Conversions and Reversals . ......................................... 428 
+More on Carrying Costs ............................................ 430 
+Back to Conversions and Reversals ................................... 431 
+Risks in Conversions and Reversals ................................... 433 
+Sum111ary of Conversion Arbitrage ................................... 437 
+The "Interest Play" .... ............................................ 438 
+The Box Spread .................................................. 439 
+Variations on Equivalence Arbitrage .................................. 443 
+The Effects of Arbitrage . ........................................... 444 
+Risk Arbitrage Using Options ....................................... 445 
+Pairs Trading .................................................... 454 
+Facilitation (Block Positioning) ...................................... 455 
+Chapter 28 
+Mathematical Applications . ................................. 456 
+The Black-Scholes Model . .......................................... 456 
+Expected Return ................................................. 466 
+Applying the Calculations to Strategy Decisions ......................... 472 
+Facilitation or Institutional Block Positioning ........................... 482 
+Aiding in Follow-Up Action . ........................................ 485 
+Implementation .................................................. 488 
+Sum111ary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 489 
+===== PDF PAGE 10 =====
+X Contents 
+PartV 
+INDEX OPTIONS AND FUTURES 
+Chapter 29 
+Introduction to Index Option Products and Futures . ............ 493 
+Indices ............................................ : ............ 493 
+Cash-Based Options .............................................. 500 
+Futures ........................................................ 506 
+Options on Index Futures .......................................... 512 
+Standard Options Strategies Using Index Options ........... ............. 516 
+Put-Call Ratio ................................................... 520 
+Summary ....................................................... 523 
+Chapter30 
+Stock Index Hedging Strategies . ............................. 531 
+Market Baskets .................................................. 531 
+Program Trading ................................................. 537 
+Index Arbitrage .................................................. 547 
+Follow-Up Strategies . ............................................. 557 
+Market Basket Risk ............................................... 560 
+Impact on the Stock Market . ........................................ 561 
+Simulating an Index . .............................................. 566 
+Trading the Tracking Error .... ..................................... 574 
+Summary ....................................................... 577 
+Chapter31 
+Index Spreading ........................................... 579 
+Inter-Index Spreading .. ........................................... 579 
+Summary ....................................................... 588 
+Chapter32 
+Structured Products ........................................ 589 
+Part I: "Riskless" Ownership of a Stock or Index ........................ 590 
+The "Structure" of a Structured Product . .............................. 590 
+Cash Value . ..................................................... 593 
+The Cost of the Imbedded Call Option ................................ 594 
+Price Behavior Prior to Maturity . .................................... 595 
+SIS ............................................................ 596 
+===== PDF PAGE 11 =====
+Contents xi 
+Computing the Value of the Imhedded Call When the Underlying 
+Is Trading at a Discount ......................................... 602 
+The Adjustment Factor ............................................ 602 
+Other Constructs ................................................. 607 
+Option Strategies Involving Structured Products ........................ 613 
+Lists of Structured Products ........................................ 618 
+Part II: Products Designed to Provide "Income" ......................... 618 
+PERCS ......................................................... 618 
+Call Feature . .................................................... 620 
+A PERCS Is a Covered Call Write .................................... 622 
+Price Behavior . .................................................. 623 
+PERCS Strategies ................................................ 625 
+PERCS Summary ................................................ 636 
+Other Structured Products ......................................... 637 
+Structured Product Summary ....................................... 640 
+Chapter33 
+Mathematical Considerations for Index Products ............... 641 
+Arbitrage ....................................................... 641 
+Mathematical Applications ......................................... 644 
+Chapter34 
+Futures and Futures Options ................................ 652 
+Futures Contracts ................................................ 653 
+Options on Futures ............................................... 660 
+Futures Option Trading Strategies .. .................................. 674 
+Commonplace Mispricing Strategies .................................. 683 
+Summary . ...................................................... 695 
+Chapter 35 
+Futures Option Strategies for Futures Spreads ................. 696 
+Futures Spreads . ................................................. 696 
+Using Futures Options in Futures Spreads ............................. 704 
+Summary ....................................................... 720 
+===== PDF PAGE 12 =====
+xii Contents 
+Part VI 
+MEASURING AND TRADING VOLATILITY 
+Chapter36 
+The Basics of Volatility Trading . ............................. 727 
+Definitions of Volatility ............................................ 728 
+Another Approach: GARCH ........................................ 731 
+Moving Averages ................................................. 732 
+Implied Volatility . ................................................ 732 
+The Volatility of Volatility .......................................... 734 
+Volatility Trading . ................................................ 743 
+Why Does Volatility Reach Extremes? . ................................ 744 
+Summary ....................................................... 7 48 
+Chapter37 
+How Volatility Affects Popular Strategies ..................... 749 
+Vega ........................................................... 749 
+Implied Volatility and Delta ........................................ 753 
+Effects on Neutrality .... .......................................... 755 
+Position Vega .................................................... 757 
+Outright Option Purchases and Sales ................................. 757 
+Time Value Premium is a Misnomer .................................. 762 
+Volatility and the Put Option . ....................................... 765 
+Straddle or Strangle Buying and Selling ............................... 766 
+Call Bull Spreads . ................................................ 767 
+Vertical Put Spreads .............................................. 775 
+Put Bear Spreads . ................................................ 777 
+Calendar Spreads ................................................ 778 
+Ratio Spreads and Backspreads . ..................................... 780 
+Summary ....................................................... 782 
+Chapter38 
+The Distribution of Stock Prices ............................. 783 
+Misconceptions about Volatility ...................................... 783 
+Volatility Buyer's Rule! ............................................ 787 
+The Distribution of Stock Prices ..................................... 789 
+What This Means for Option Traders ................................. 795 
+Stock Price Distribution Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 796 
+===== PDF PAGE 13 =====
+Contents xiii 
+The Pricing of Options . ............................................ 798 
+The Probability of Stock Price Movement .............................. 798 
+EX'f)ected Return ................................................. 809 
+Summary . ...................................................... 810 
+Chapter39 
+Volatility Trading Techniques ............................... 812 
+Two Ways Volatility Predictions Can Be Wrong ......................... 813 
+Trading the Volatility Prediction ..................................... 814 
+Trading the Volatility Skew ......................................... 837 
+Volatility Trading Summary ............ ............................. 844 
+Chapter40 
+Advanced Concepts ........................................ 846 
+Neutrality ...................................................... 846 
+The "Greeks" .................................................... 848 
+Strategy Considerations: Using the "Greeks" . ........................... 866 
+Advanced Mathematical Concepts . ................................... 901 
+Summary ....................................................... 907 
+Chapter41 
+Taxes . .................................................... 908 
+History .. ....................................................... 908 
+Basic Tax Treatment . .............................................. 910 
+Exercise and Assignment ........................................... 913 
+Special Tax Problems .............................................. 922 
+Summary ....................................................... 925 
+Tax Planning Strategies for Equity Options . ............................ 925 
+Summary ....................................................... ·930 
+Chapter42 
+The Best Strategy? ......................................... 932 
+General Concepts: Market Attitude and Equivalent Positions ............... 932 
+What Is Best for Me Might Not Be Best for You ......................... 934 
+Mathematical Ranking . ............................................ 936 
+Summary ....................................................... 937 
+Postscript . ................................................ 938 
+===== PDF PAGE 14 =====
+xiv 
+Appendix A 
+Part VII 
+APPENDICES 
+Contents 
+Strategy Summary ......................................... 943 
+AppendixB 
+Equivalent Positions ....................................... 945 
+AppendixC 
+Formulae ................................................. 947 
+AppendixD 
+Graphs ................................................... 957 
+Appendix E 
+Qualified Covered Calls .................................... 961 
+Glossary . ....................................................... 963 
+Index .......................................................... 983 
+===== PDF PAGE 15 =====
+Preface 
+When the listed option market originated in April 1973, a new world of investment 
+strategies was opened to the investing public. The standardization of option terms 
+and the formation of a liquid secondary market created new investment vehicles that, 
+adapted properly, can enhance almost every investment philosophy, from the con­
+servative to the speculative. This book is about those option strategies -which ones 
+work in which situations and why they work. 
+Some of these strategies are traditionally considered to be complex, but with 
+the proper knowledge of their underlying principles, most investors can understand 
+them. While this book contains all the basic definitions concerning options, little time 
+or space is spent on the most elementary definitions. For example, the reader should 
+be familiar with what a call option is, what the CBOE is, and how to find and read 
+option quotes in a newspaper. In essence, everything is contained here for the novice 
+to build on, but the bulk of the discussion is above the beginner level. The reader 
+should also be somewhat familiar with technical analysis, understanding at least the 
+terms support and resistance. 
+Certain strategies can be, and have been, the topic of whole books - call buy­
+ing, for example. While some of the strategies discussed in this book receive a more 
+thorough treatment than others, this is by no means a book about only one or two 
+strategies. Current literature on stock options generally does not treat covered call 
+writing in a great deal of detail. But because it is one of the most widely used option 
+strategies by the investing public, call writing is the subject of one of the most in­
+depth discussions presented here. The material presented herein on call and put 
+buying is not particularly lengthy, although much of it is of an advanced nature -
+especially the parts regarding buying volatility and should be useful even to sophis­
+ticated traders. In discussing each strategy, particular emphasis is placed on showing 
+why one would want to implement the strategy in the first place and on demonstrat-
+xv 
+===== PDF PAGE 16 =====
+xviii Preface 
+are made for using the computer as a tool in follow-up action, including an example 
+printout of an advanced follow-up analysis. 
+THIRD EDITION 
+There were originally six new chapters in the third edition. There were new chapters 
+on LEAPS, CAPS, and PERCS, since they were new option or option-related prod­
+ucts at that time. 
+LEAPS are merely long-term options. However, as such, they require a little 
+different viewpoint than regular short-term options. For example, short-term inter­
+est rates have a much more profound influence on a longer-term option than on a 
+short-term one. Strategies are presented for using LEAPS as a substitute for stock 
+ownership, as well as for using LEAPS in standard strategies. 
+PERCS are actually a type of preferred stock, with a redemption feature built 
+in. They also pay significantly larger dividends than the ordinary common stock. The 
+redemption feature makes a PERCS exactly like a covered call option write. As such, 
+several strategies apply to PERCS that would also apply to covered writers. 
+Moreover, suggestions are given for hedging PERCS. Subsequently, the PERCS 
+chapter was enveloped into a larger chapter in the fourth edition. 
+The chapters on futures and other non-equity options that were written for the 
+second edition were deleted and replaced by two entirely new chapters on futures 
+options. Strategists should familiarize themselves with futures options, for many prof­
+it opportunities exist in this area. Thus, even though futures trading may be unfamil­
+iar to many customers and brokers who are equity traders, it behooves the serious 
+strategist to acquire a knowledge of futures options. A chapter on futures concentrates 
+on definitions, pricing, and strategies that are unique to futures options; another chap­
+ter centers on the use of futures options in spreading strategies. These spreading 
+strategies are different from the ones described in the first part of the book, although 
+the calendar spread looks similar, but is really not. Futures traders and strategists 
+spend a great deal of time looking at futures spreads, and the option strategies pre­
+sented in this chapter are designed to help make that type of trading more profitable. 
+A new chapter dealing with advanced mathematical concepts was added near 
+the end of the book. As option trading matured and the computer became more of 
+an integral way of life in monitoring and evaluating positions, more advanced tech­
+niques were used to monitor risk. This chapter describes the six major measures of 
+risk of an option position or portfolio. The application of these measures to initialize 
+positions that are doubly or triply neutral is discussed. Moreover, the use of the com­
+puter to predict the results and "shape" of a position at points in the future is 
+described. 

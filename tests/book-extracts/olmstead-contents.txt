@@ -1,0 +1,230 @@
+
+===== PDF PAGE 4 =====
+T o my wife Pandy, who gleaned enough 
+from the contents herein to become a 
+very proficient trader in her own right.
+T o my sons Hal and Randy, who 
+shared in my development as 
+an options trader.
+===== PDF PAGE 5 =====
+This page intentionally left blank 
+===== PDF PAGE 6 =====
+Acknowledgments xix
+About the Author xxi
+Preface xxiii
+Section I: Basic Concepts 1
+1
+INTRODUCTION 3
+Why Options? 3
+The Basic Concept of Options 3
+Major Differences Between Stocks and Options 4
+Leverage 4
+Time Limitation 5
+Price Movement 5
+Financial Risk 6
+A Detailed Explanation of Options 7
+The Option Contract 7
+The Call Option 8
+The Put Option 12
+Comments 16
+xi
+CONTENTS
+===== PDF PAGE 7 =====
+2
+OPTION SELECTION 17
+What Is a Cheap Option? 17
+Selecting a Call 20
+Overall Evaluation 24
+Selecting a Put 24
+3
+ENTERING AND EXITING OPTION TRADES 27
+Entering a Trade 29
+Exiting a Trade 30
+4
+THE GREEKS 33
+Delta 33
+Computing the Delta of a Call Option 33
+Application of the Delta 35
+Computing the Delta of a Put Option 37
+Theta 37
+Gamma 38
+Ve ga 38
+Rho 39
+5
+RISK GRAPHS 41
+Single Option Trade 42
+xii OPTIONS FOR THE BEGINNER AND BEYOND
+===== PDF PAGE 8 =====
+Multiple Option Trade 44
+Comments 46
+6
+LEAPS 47
+Comments 52
+7
+ASSIGNMENT ANXIETY 53
+Comments 55
+Applications 56
+8
+BROKER SELECTION 59
+Types of Brokers 59
+Commissions 59
+Trading Platform 60
+Margin and Trading Limitations 61
+Live Broker Assistance 62
+Comments 62
+9
+MISCELLANEOUS TIPS 63
+Time Is Money 63
+Trading with the Trend 64
+Risk Capital for Options Trading 64
+Contents xiii
+===== PDF PAGE 9 =====
+Tracking Trades 65
+Anticipating Events 66
+Real-Time Quotes 66
+Market Orders with Options 66
+Options Calculator 67
+Section II: Trading Strategies 69
+10
+VERTICAL SPREADS 71
+Debit Vertical Spreads 71
+Bull Call Spread 71
+Bear Put Spread 72
+Comments 74
+Credit Vertical Spreads 75
+Bull Put Spread 75
+Bear Call Spread 75
+Comments 76
+11*
+EVENT-PRODUCING CREDIT SPREADS 79
+Comments 85
+12
+CALENDAR SPREADS 87
+The Rollout Maneuver 91
+Comments 92
+xiv OPTIONS FOR THE BEGINNER AND BEYOND
+*Chapters with more advanced content are marked with an asterisk and can be passed over by
+beginners during the first reading of this book.
+===== PDF PAGE 10 =====
+13*
+ADV ANCED CALENDAR SPREADS 95
+Volatility Skew Trades 95
+Comments 98
+Ratio Calendar Spread Trades 99
+Comments 101
+Deep-in-the-Money LEAPS Put Calendar Spreads 101
+Diagonal Calendar Spread Trades 103
+14
+COVERED CALLS 107
+An Idealized Trade 108
+A Realistic Trade 108
+Covered Call vs. Naked Put 110
+Comments 112
+15
+STRADDLES AND STRANGLES 115
+The Straddle Trade 115
+Comments 119
+The Strangle Trade 120
+16
+STOCK REPAIR AND STOCK ENHANCEMENT 123
+Stock Repair Strategy 124
+Comment 127
+Stock Enhancement Strategy 127
+Contents xv
+===== PDF PAGE 11 =====
+17
+MARRIED PUTS 131
+Comments 135
+18
+COLLARS 137
+Comments 144
+19*
+ADV ANCED COLLARS 145
+Comments 151
+20
+NAKED OPTION WRITING 153
+The Risk of Naked Option Writing 154
+Acquiring Stock with Naked Puts 158
+21
+STOCK SUBSTITUTES 161
+Synthetic Long Stock 161
+Comments 163
+Deep-in-the-Money Put 163
+Deep-in-the-Money Call 165
+xvi OPTIONS FOR THE BEGINNER AND BEYOND
+===== PDF PAGE 12 =====
+22
+BACKSPREADS 169
+Comments 174
+23
+BUTTERFLY SPREADS 177
+Standard Butterfly Trade 177
+Comments 179
+Butterfly Trade with Adjustments 180
+Comment 182
+Unbalanced Butterfly Trade 182
+24
+IRON CONDORS AND DOUBLE DIAGONALS 185
+The Iron Condor Trade 185
+The Double Diagonal Trade 187
+Comments 189
+25
+AN END-OF-YEAR TAX STRATEGY 191
+T ax Code Restrictions 191
+Qualified Covered Calls 192
+Basic Strategy 193
+Follow-Up Variations 196
+Comments 197
+Contents xvii
+===== PDF PAGE 13 =====
+Section III Special T opics 199
+26*
+DAY TRADING AN INDEX WITH OPTIONS 201
+Comments 204
+27*
+DELTA-NEUTRAL TRADING 205
+28*
+THEORY OF MAXIMUM PAIN 211
+29*
+IMPLIED VOLATILITY AND THE 
+BLACK-SCHOLES FORMULA 215
+Historical Background 215
+Derivation of the Black-Scholes Formula 216
+Application of the Black-Scholes Formula 217
+Implied Volatility 218
+Applications of Implied Volatility 219
+Comments 220
+30*
+THE PUT-CALL PARITY RELATIONSHIP 221
+Calls Cost More Than Puts 221
+Applications of Put-Call Parity 224
+xviii OPTIONS FOR THE BEGINNER AND BEYOND
+===== PDF PAGE 14 =====
+xix
+am deeply indebted to Gregory Spear and Kathy Butler of
+Independent Investor, Inc., without whom The Options Professor
+newsletter and the contents of this book never would have been
+realized.
+I
+ACKNOWLEDGMENTS
+===== PDF PAGE 15 =====
+This page intentionally left blank 
+===== PDF PAGE 16 =====
+xxi
+ABOUT THE AUTHOR
+W . Edward Olmstead has a B.S. from Rice University and a Ph.D
+from Northwestern University, where he is currently Professor of
+Applied Mathematics in the McCormick School of Engineering
+and Applied Sciences. He has received several prestigious awards for
+teaching excellence, and has published extensively in engineering and
+applied mathematics journals.
+In the world of finance, Dr. Olmstead has more than ten years of experi-
+ence as an options trader. He also has taught courses that cover both the
+theory of options pricing and practical strategies for trading options.
+Since 2003, he has been the editor of The Options Professor newsletter
+published by Independent Investor, Inc. Presently, he also serves as an
+options analyst for Spear Capital Management. His consulting activities
+include work on short-term trading strategies for a member company of
+the Chicago Mercantile Exchange.
+For more information about The Options Professor newsletter and semi-
+nars given by Dr. Olmstead, go to www.spearreport.com
