@@ -393,6 +393,43 @@ export interface OptionsMechanicChallenge {
   explanation: string;
 }
 
+// A richer, source-backed trade encounter: a real options structure with a stated
+// thesis, entry cost/credit, risk boundaries (max profit / max loss / breakeven),
+// and a player decision whose choice carries a real consequence.
+export interface TradeEncounterChoice {
+  text: string;
+  correct: boolean;
+  outcome: string;
+  /** Florins awarded (+) or lost (−) when this choice is made. */
+  florins?: number;
+  /** Hearts lost when this choice is made (wrong decisions pull the Sanctuary). */
+  hearts?: number;
+}
+
+export interface TradeEncounter {
+  id: string;
+  tiedLessonId: GrahamProtectionId;
+  strategy: StrategyType;
+  title: string;
+  /** The market view / rationale the structure is built on. */
+  thesis: string;
+  /** Entry cost (debit) or credit collected, per contract. */
+  entry: string;
+  maxProfit: string;
+  maxLoss: string;
+  /** Breakeven at expiry — only where the structure has one. */
+  breakeven?: string;
+  /** Where the numbers come from (book chapter / extract). */
+  source: string;
+  /** Sanctuary fail->learn reason when the player decides wrong. */
+  failReason: TradeFailReason;
+  decision: {
+    prompt: string;
+    choices: TradeEncounterChoice[];
+    explanation: string;
+  };
+}
+
 export interface StoryChoice {
   text: string;
   costFlorins?: number;

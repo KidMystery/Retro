@@ -17,6 +17,8 @@ import {
   ScamEncounter,
   GrahamProtectionId,
   TradeFailReason,
+  TradeEncounter,
+  TradeEncounterChoice,
   FailedTradeRecord,
   PlayerPath,
   EnemyStats,
@@ -26,7 +28,7 @@ import { REALM_MAPS, BOSS_ENEMIES, STORY_QUESTS } from './lib/questData';
 import { ZELDA_MAPS, ZeldaEntity, DUNGEONS } from './lib/zeldaWorldData';
 import { UNDERVALUED_ASSETS } from './lib/undervaluedAssetsData';
 import { SCAM_ENCOUNTERS } from './lib/scamsData';
-import { INTELLIGENT_INVESTOR_LESSONS, getTradeMechanicGate } from './lib/intelligentInvestorData';
+import { INTELLIGENT_INVESTOR_LESSONS, getTradeMechanicGate, getTradeEncounter } from './lib/intelligentInvestorData';
 import { calculateBlackScholes } from './lib/blackScholes';
 import { sound } from './lib/audioEngine';
 import {
@@ -47,6 +49,7 @@ import { UndervaluedAssetModal } from './components/UndervaluedAssetModal';
 import { RugPullLessonModal } from './components/RugPullLessonModal';
 import { IntelligentInvestorSanctuaryModal } from './components/IntelligentInvestorSanctuaryModal';
 import { OptionsMechanicGate } from './components/OptionsMechanicGate';
+import { TradeEncounterModal } from './components/TradeEncounterModal';
 import { TradeDeskModal } from './components/TradeDeskModal';
 import { PortfolioLedgerModal } from './components/PortfolioLedgerModal';
 import { GrimoireModal } from './components/GrimoireModal';
@@ -93,6 +96,10 @@ export default function App() {
   const [sanctuaryLessonId, setSanctuaryLessonId] = useState<GrahamProtectionId>('margin_of_safety');
   // McMillan mechanic gate: blocks a trade encounter until a real options-mechanics MCQ is answered.
   const [mechanicGate, setMechanicGate] = useState<{ lessonId: GrahamProtectionId } | null>(null);
+  // Source-backed trade encounter shown after the mechanic gate passes, before
+  // the Trade Desk opens. Correct decision -> florins + Trade Desk; wrong ->
+  // hearts/florins penalty + fail->learn Sanctuary (same loop as the gate).
+  const [tradeEncounter, setTradeEncounter] = useState<TradeEncounter | null>(null);
   const [npcDialogue, setNpcDialogue] = useState<{ name: string; lines: string[]; lore?: string; portrait?: string } | null>(null);
 
   const [player, setPlayer] = useState<PlayerStats>({
@@ -372,8 +379,39 @@ export default function App() {
     setPlayer(prev => ({ ...prev, oracleBondLevel: Math.min(5, prev.oracleBondLevel + 0.1) }));
     setTerminalLog(prev => [...prev.slice(-10), `◈ MECHANIC RUNE: ${lessonId} options mechanics absorbed • Oracle Bond +0.1`]);
     setMechanicGate(null);
-    setActiveModal('TRADE');
-    setCurrentView('ORACLE_LEDGER');
+    // Mechanic passed -> the day's source-backed trade encounter stands between
+    // the apprentice and the Trade Desk.
+    setTradeEncounter(getTradeEncounter(player.day));
+  };
+
+  // Trade encounter resolution: correct decision pays florins and opens the
+  // Trade Desk; a wrong decision costs hearts+florins and pulls the Sanctuary
+  // (same fail->learn loop as the mechanic gate).
+  const handleTradeEncounterResolve = (encounter: TradeEncounter, choice: TradeEncounterChoice) => {
+    setTradeEncounter(null);
+    if (choice.correct) {
+      sound.playCoinSound();
+      const reward = choice.florins || 0;
+      setPlayer(prev => ({
+        ...prev,
+        florins: prev.florins + reward,
+        oracleBondLevel: Math.min(5, prev.oracleBondLevel + 0.1)
+      }));
+      setTerminalLog(prev => [...prev.slice(-10), `◈ TRADE ENCOUNTER: "${encounter.title}" — disciplined decision. +${reward}ƒ • Oracle Bond +0.1`]);
+      setActiveModal('TRADE');
+      setCurrentView('ORACLE_LEDGER');
+    } else {
+      const heartsLost = choice.hearts || 1;
+      const florinsLost = 150;
+      setPlayer(prev => ({
+        ...prev,
+        hearts: Math.max(0, prev.hearts - heartsLost),
+        hp: Math.round(Math.max(0, prev.hearts - heartsLost) * 25),
+        florins: Math.max(0, prev.florins - florinsLost)
+      }));
+      setTerminalLog(prev => [...prev.slice(-10), `◈ TRADE ENCOUNTER FAILED: ${encounter.failReason} • Sanctuary lesson: ${encounter.tiedLessonId}`]);
+      triggerSanctuary(encounter.failReason, encounter.tiedLessonId, florinsLost);
+    }
   };
 
   // McMillan mechanic gate: wrong mechanics -> costs hearts+florins, fail->learn via Sanctuary.
@@ -2031,6 +2069,14 @@ export default function App() {
               </div>
             </div>
           </div>
+        )}
+
+        {tradeEncounter && (
+          <TradeEncounterModal
+            encounter={tradeEncounter}
+            onResolve={handleTradeEncounterResolve}
+            onClose={() => { setTradeEncounter(null); setCurrentView('MAP'); }}
+          />
         )}
 
         {mechanicGate && (() => {
