@@ -101,6 +101,10 @@ export default function App() {
   // hearts/florins penalty + fail->learn Sanctuary (same loop as the gate).
   const [tradeEncounter, setTradeEncounter] = useState<TradeEncounter | null>(null);
   const [npcDialogue, setNpcDialogue] = useState<{ name: string; lines: string[]; lore?: string; portrait?: string } | null>(null);
+  // PROGRESSION BEAT: after a guardian falls, show the region-gate opening —
+  // the cleared act falls behind, the next region is named and offered. The
+  // player must SEE the world advance, not just respawn on a new map.
+  const [regionTransition, setRegionTransition] = useState<{ clearedAct: number; nextAct: number } | null>(null);
 
   const [player, setPlayer] = useState<PlayerStats>({
     name: 'Rowan',
@@ -214,6 +218,10 @@ export default function App() {
   // ── Soul pass: WREN, the Oracle's Ledger given voice ──
   const [wrenSays, setWrenSays] = useState<string | null>(null);
   const wrenTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // ONE-SHOT CHESTS: in-flight loot lock. Two interactions landing in the same
+  // render cycle both read the stale pre-loot openedChests and double-pay;
+  // this ref makes the second one a no-op until React state catches up.
+  const chestLootLockRef = useRef<string | null>(null);
   const wrenMetRef = useRef(false);
   const sayWren = useCallback((event: WrenEvent) => {
     const line = wrenLine(event, {
@@ -389,6 +397,14 @@ export default function App() {
   // (same fail->learn loop as the mechanic gate).
   const handleTradeEncounterResolve = (encounter: TradeEncounter, choice: TradeEncounterChoice) => {
     setTradeEncounter(null);
+    // DECISION LEDGER: every tape-reading call is journaled with its outcome.
+    pushTrade({
+      asset: encounter.title.slice(0, 80),
+      direction: 'PLAY',
+      size: 0,
+      result: choice.correct ? 'WIN' : 'LOSS',
+      pnl: choice.correct ? (choice.florins || 0) : -150
+    });
     if (choice.correct) {
       sound.playCoinSound();
       const reward = choice.florins || 0;
@@ -457,6 +473,14 @@ export default function App() {
       setPlayer(prev => (prev.heldThroughNoise ? prev : { ...prev, heldThroughNoise: true }));
       setTerminalLog(prev => [...prev.slice(-10), `🦾 IRON HANDS: You held a losing position through "${activeNoise.headline}" without selling. The hands do not shake.`]);
     }
+    // DECISION LEDGER: headline reactions are decisions — journal them.
+    pushTrade({
+      asset: activeNoise.headline.slice(0, 80),
+      direction: 'PLAY',
+      size: 0,
+      result: correct ? 'WIN' : 'LOSS',
+      pnl: correct ? 250 : -300
+    });
     setPlayer(prev => ({
       ...prev,
       florins: Math.max(0, prev.florins + (correct ? 250 : -300)),
@@ -1039,6 +1063,8 @@ export default function App() {
       setTerminalLog(prev => [...prev.slice(-10), `◈ GUARDIAN VANQUISHED! Act ${player.chapter} cleared! +${lootGold}ƒ +1 Heart Container! Oracle Bond +0.5! Path ${player.currentPath}`]);
       sayWren({ kind: 'bossFall', boss: '', act: player.chapter });
       setPlayer(prev => ({ ...prev, chapter: prev.chapter + 1, mapX: 5, mapY: 4 }));
+      // PROGRESSION BEAT: name the conquered region, open the road onward.
+      setRegionTransition({ clearedAct: player.chapter, nextAct: player.chapter + 1 });
       setCurrentView('MAP');
       return;
     }
@@ -1061,6 +1087,13 @@ export default function App() {
         : { ...prev.enemy!, currentHp: updatedEnemyHp }
     }));
   };
+
+  // The region-gate beat yields the moment the player moves on to anything
+  // other than the map (e.g. the debug harness chains straight into the next
+  // fight) so it can never block combat or menus.
+  useEffect(() => {
+    if (currentView !== 'MAP' && regionTransition) setRegionTransition(null);
+  }, [currentView, regionTransition]);
 
   const handleCombatShield = () => {
     sound.playShieldBlock();
@@ -1235,7 +1268,7 @@ export default function App() {
     if (entity.type === 'NPC_SAGE') {
       sound.playSecretChime();
       // Overworld reacts to positions: the sage quotes your ACTUAL greeks.
-      setNpcDialogue({ name: entity.name, lines: [...(entity.dialogue || ['"Margin of Safety, apprentice."']), greekMarketIdleTalk(player, positions)], lore: entity.lore, portrait: sageSpriteUrl });
+      setNpcDialogue({ name: entity.name, lines: [...(entity.dialogue || ['"Margin of Safety, apprentice."']), greekMarketIdleTalk(player, positions)], portrait: sageSpriteUrl });
     } else if (entity.type === 'NPC_BROKER') {
       sound.playCommandBeep();
       // McMillan mechanic gate first: read the mechanic beat + answer a real options MCQ
@@ -1261,39 +1294,57 @@ export default function App() {
       setActiveUndervaluedAsset(asset);
     } else if (entity.type === 'CHEST') {
       // GAME-FEEL (one-shot chests): a chest pays ONCE per save. Keyed by
-      // act + entity id + tile coords so regen'd layouts can't collide.
+      // act + entity id + tile coords so regen'd layouts can't collide. The
+      // in-flight lock ref stops a same-tick double interaction from paying
+      // twice before persisted state catches up.
       const chestKey = `${player.chapter}:${entity.id}:${Math.round(entity.x)},${Math.round(entity.y)}`;
+      if (chestLootLockRef.current === chestKey) return;
       if ((player.openedChests || []).includes(chestKey)) {
         sound.playKeyClick();
-        setTerminalLog(prev => [...prev.slice(-10), `📦 The chest is empty — already looted. Only dust and a faint scent of florins remain.`]);
+        setTerminalLog(prev => [...prev.slice(-10), `📦 The chest is empty — you already looted it. Only dust and a faint scent of florins remain.`]);
         return;
       }
+      chestLootLockRef.current = chestKey;
+      setTimeout(() => { if (chestLootLockRef.current === chestKey) chestLootLockRef.current = null; }, 900);
       sound.playCoinSound();
       const rewardFlorins = 400 + player.chapter * 180;
       const relicChance = Math.random() > 0.6 ? ['Silver Vein Compass'] : [];
       // Item chain (cursed loot): deep-dark chests (Act IV+) hold the Margin Boots.
       const bootsDrop = player.chapter >= 4 && !hasItem(player, 'margin_boots');
-      if (bootsDrop) {
-        setPlayer(prev => ({
+      // Single atomic transaction: mark looted + pay in one setPlayer so a
+      // re-entrant call reading persisted state can never re-fire the reward.
+      setPlayer(prev => {
+        if ((prev.openedChests || []).includes(chestKey)) return prev;
+        const next = {
           ...prev,
-          items: grantItems(prev.items, ['margin_boots']),
+          openedChests: [...(prev.openedChests || []), chestKey],
+          florins: prev.florins + rewardFlorins,
+          hearts: Math.min(prev.maxHearts, prev.hearts + 1.0),
+          hp: Math.round(Math.min(prev.maxHearts, prev.hearts + 1.0) * 25),
+          potions: { ...prev.potions, healthElixir: prev.potions.healthElixir + 1 },
+          relics: [...prev.relics, ...relicChance],
+          totalValueInvested: prev.totalValueInvested + rewardFlorins,
+          oracleBondLevel: Math.min(5, prev.oracleBondLevel + 0.1)
+        };
+        if (bootsDrop) {
+          next.items = grantItems(prev.items, ['margin_boots']);
           // CURSED: leverage forced ON the moment you lace them.
-          marginUsed: Math.max(prev.marginUsed, 8000)
-        }));
+          next.marginUsed = Math.max(prev.marginUsed, 8000);
+        }
+        return next;
+      });
+      if (bootsDrop) {
         setTerminalLog(prev => [...prev.slice(-10), `🥾 CURSED LOOT: Margin Boots! Leverage forced ON (8,000ƒ drawn) and liquidation now hits DOUBLE hearts. Beware the bog.`]);
       }
-      setPlayer(prev => ({
-        ...prev,
-        openedChests: [...(prev.openedChests || []), chestKey],
-        florins: prev.florins + rewardFlorins,
-        hearts: Math.min(prev.maxHearts, prev.hearts + 1.0),
-        hp: Math.round(Math.min(prev.maxHearts, prev.hearts + 1.0) * 25),
-        potions: { ...prev.potions, healthElixir: prev.potions.healthElixir + 1 },
-        relics: [...prev.relics, ...relicChance],
-        totalValueInvested: prev.totalValueInvested + rewardFlorins
-      }));
+      // DECISION LEDGER: chest windfalls are part of the florin story.
+      pushTrade({
+        asset: `Treasury Chest (Act ${player.chapter})`,
+        direction: 'PLAY',
+        size: 0,
+        result: 'CASH_OUT',
+        pnl: rewardFlorins
+      });
       setTerminalLog(prev => [...prev.slice(-10), `◈ Treasury Chest! +${rewardFlorins}ƒ +1 Elixir +1♥ • Relic chance! • Oracle Bond +0.1`]);
-      setPlayer(prev => ({ ...prev, oracleBondLevel: Math.min(5, prev.oracleBondLevel + 0.1) }));
     } else if (entity.type === 'SHRINE') {
       sound.playSaveGame();
       setIsAtSaveShrine(true);
@@ -1356,6 +1407,15 @@ export default function App() {
     if (choice.spotShiftPercent) {
       setAssetQuote(prev => ({ ...prev, spotPrice: Number((prev.spotPrice * (1 + choice.spotShiftPercent)).toFixed(2)) }));
     }
+    // DECISION LEDGER: capital-deployment choices are trades too — log the
+    // position (asset, direction, size) and its realized outcome.
+    pushTrade({
+      asset: `${activeUndervaluedAsset.symbol} · ${choice.title}`.slice(0, 80),
+      direction: choice.actionType === 'SHORT_THE_ASSET' ? 'SHORT' : 'LONG',
+      size: choice.costFlorins,
+      result: choice.heartsEffect < 0 ? 'LOSS' : 'WIN',
+      pnl: choice.florinsGain - choice.costFlorins
+    });
     setTerminalLog(prev => [...prev.slice(-10), `◈ VALUE DISCOVERY: ${choice.title} ${choice.florinsGain >=0?'+':''}${choice.florinsGain}ƒ • Path ${choice.pathScore ? JSON.stringify(choice.pathScore) : ''} • Relic ${choice.relicReward || 'none'}`]);
     setActiveUndervaluedAsset(null);
   };
@@ -1639,6 +1699,7 @@ export default function App() {
               onOpenPortfolio={() => { setActiveModal('PORTFOLIO'); setCurrentView('PORTFOLIO'); }}
               onOpenGrimoire={() => { setActiveModal('GRIMOIRE'); setCurrentView('GRIMOIRE'); }}
               onAdvanceDay={handleAdvanceDay}
+              onOpenHistory={() => { sound.playKeyClick(); setActiveModal('PORTFOLIO'); }}
             />
             {/* Wiring 2: margin utilization meter + danger warning banner */}
             {(player.marginUsed > 0 || hasItem(player, 'margin_boots')) && (
@@ -2060,7 +2121,6 @@ export default function App() {
                   {npcDialogue.lines.map((line, idx) => (
                     <p key={idx} className="text-[15px] leading-relaxed text-[#FFF2C2]" style={{ textShadow: '1px 1px 0 #3B241B' }}>{line}</p>
                   ))}
-                  {npcDialogue.lore && <p className="text-xs text-[#FFF2C2]/70 border-l-2 border-[#E8C766]/50 pl-2 leading-relaxed">{npcDialogue.lore}</p>}
                 </div>
               </div>
               <div className="px-4 py-2.5 border-t-2 border-[#E8C766]/60 bg-[#1d3826] rounded-b-xl flex items-center justify-between">
@@ -2070,6 +2130,33 @@ export default function App() {
             </div>
           </div>
         )}
+
+        {regionTransition && (() => {
+          const cleared = ZELDA_MAPS[regionTransition.clearedAct];
+          const next = ZELDA_MAPS[regionTransition.nextAct];
+          if (!cleared || !next) return null;
+          return (
+            <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 backdrop-blur-sm">
+              <div className="zelda-panel w-full max-w-2xl p-6 rounded-xl shadow-2xl text-center space-y-4">
+                <div className="font-cinzel text-amber-300 text-xs tracking-[0.3em]">REGION CLEARED • ACT {regionTransition.clearedAct}</div>
+                <h2 className="font-cinzel text-2xl font-bold text-amber-200">{cleared.name} falls behind you</h2>
+                <div className="flex items-center justify-center gap-3 py-1">
+                  <div className="oracle-glyph w-10 h-10"><div className="oracle-emerald-core w-3 h-3" /></div>
+                  <span className="text-amber-300/80 text-lg">▶</span>
+                  <div className="oracle-glyph w-10 h-10 border-amber-300"><div className="oracle-emerald-core w-3 h-3" /></div>
+                </div>
+                <div className="bg-slate-900/80 border-2 border-amber-500/40 p-4 rounded-xl space-y-2 text-left">
+                  <div className="font-cinzel text-amber-200 text-lg font-bold">{next.regionTitle}</div>
+                  <p className="text-sm text-slate-200 leading-relaxed">{next.storyBeat}</p>
+                  <div className="text-[11px] text-amber-300/80 border-t border-amber-500/20 pt-2">Master lesson of this land: {next.masterLesson}</div>
+                </div>
+                <button onClick={() => setRegionTransition(null)} className="snes-btn-primary w-full py-3 rounded-xl text-base">
+                  OPEN THE WAY ▶ {next.name}
+                </button>
+              </div>
+            </div>
+          );
+        })()}
 
         {tradeEncounter && (
           <TradeEncounterModal

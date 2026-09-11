@@ -87,15 +87,15 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
         x: 3,
         y: 2,
         sprite: 'SAGE',
-        interactPrompt: 'Speak to Sage Graham [Margin of Safety - Origin]',
+        interactPrompt: 'Speak to Bram Ashfall [The Keeper of the Storehouse]',
         lore: 'Warm, epic, patient and dry. Not cynical.',
         dialogue: [
-          '"Greetings, Rowan Vale. Welcome to Valuaria! You found Daen Alterspire — obsidian altar with floating amber runes and pulsing emerald core."',
-          '"Touching it bonded Oracle\'s Ledger to your soul: floating glyph-circle shows live prices, greeks, portfolio. This is wink at Bloomberg — as fantasy divination, not terminal."',
-          '"Your HEARTS are life force. Sound trades replenish. Every 3 sound trades = Heart Container. But fail->learn is core: bad trade cracks hearts, pulls you to Sanctuary of Quiet Oracle."',
-          '"You answer one Graham reflection question. Cannot leave until correct. Answering correctly permanently unlocks protection vs that mistake."',
-          '"Beware charm monsters overpromising; Ponzi Alchemist SBF + $DogeTulip Goblin are crypto bait. Seek true Undervalued Assets with Margin of Safety!"',
-          '"Multiple paths to same ending: trader-path (aggressive but defined-risk), investor-path (slow value-first), hybrid. True end same — crown of richest investor — reached by whichever discipline you practiced."'
+          '"Rowan Vale. So the letter found you after all. Come in, come in — you are standing in the Sanctum of Daen Alterspire, though the villagers just call it the shrine."',
+          '"The stone you touched is older than any of us. It bonded the Oracle\'s Ledger to your soul — see how the glyph-circle hovers at your shoulder? It shows what things are truly worth: live prices, the greeks, all of it. Merchants in the capital would trade a kingdom for what you now carry for free."',
+          '"Listen well. Your hearts are your life force, and sound trades will refill them — every third disciplined trade earns you a new heart container. But hear the harder truth: a bad trade cracks a heart, and the Oracle will pull you to the Sanctuary of the Quiet Oracle to learn from it. Failure here is not the end. It is the lesson."',
+          '"When you fall, the Sanctuary will ask you one question from the Book of Graham. You cannot leave until you answer it truly — and once you do, that protection is yours for the rest of your days. No mistake can claim you twice."',
+          '"Two warnings before you walk. First: charm monsters haunt these roads, promising ten thousand percent a year — the Ponzi Alchemist and his $DogeTulip Goblin are bait, nothing more. Second: real treasure hides in what others overlook. Seek undervalued assets, and never buy without a margin of safety."',
+          '"One last thing, and then I will let you go. There are many roads up this mountain — the quick blade of the trader, the slow plough of the investor, or a path that walks between them. They all end at the same crown: the Crown of the Richest Investor. Whichever discipline you truly practice will carry you there."'
         ]
       },
       {
@@ -152,7 +152,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
         x: 3,
         y: 11,
         sprite: 'ASSET',
-        interactPrompt: 'Inspect Abandoned Mine [Deep Value $42→$78 - Investor Path]',
+        interactPrompt: 'Inspect Abandoned Mine [Deeds & assay reports lie in the moss]',
         targetId: 'silver_mine',
         lore: 'Margin of Safety 46%, IV 18% cheap'
       },
@@ -233,10 +233,10 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
         sprite: 'SAGE',
         interactPrompt: 'Consult Graham Echo [Time & Theta]',
         dialogue: [
-          '"Here in Desert of Time, Theta decay accelerates! Final 30-7 days hyper-speed!"',
-          '"Buying short-dated lottery calls = slow suicide. Intelligent investor sells premium or calendar spreads."',
-          '"Riddle: What does 0-DTE lottery truly cost? Answer: patience + capital. Nothing happens is profit for disciplined trader."',
-          '"Fail->Graham loop: bad trade cracks hearts → Sanctuary of Quiet Oracle → reflection question → permanent theta_protection."'
+          '"Welcome to the Theta Steppes, traveler. Out here, time itself decays — watch how an option\'s price speeds up as its final week becomes its final days."',
+          '"Buying short-dated lottery calls is slow suicide on this sand. The patient either sell premium for income, or build calendar spreads and let the far leg ride."',
+          '"I will leave you with the river\'s riddle: what does a zero-day lottery ticket truly cost you? The answer is patience and capital — for the disciplined, nothing happening is itself profit."',
+          '"And should a bad trade crack your heart, do not despair: the Sanctuary of the Quiet Oracle will teach you, and its protection against time\'s decay will never leave you."'
         ]
       },
       {
@@ -357,10 +357,10 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
         sprite: 'SAGE',
         interactPrompt: 'Bastion Sage [Nothing Happens Is Profit]',
         dialogue: [
-          '"Welcome to Iron Sanctuary. Price locked $118-$124. Directional traders lose to commission+theta."',
-          '"Is there no spell to profit when nothing moves? Yes — Iron Condor: Sell OTM Call spread + OTM Put spread, collect credit, win when market sleeps."',
-          '"Covered Calls + Cash-Secured Puts = farmer income. Own wonderful business, harvest premium. Buffett-style."',
-          '"Trader path: aggressive but defined-risk condors. Investor path: slow covered calls. Both valid. Same true end."'
+          '"Welcome to the Iron Sanctuary, surveyor. The fortress has clamped the price between $118 and $124 — every directional trader down here bleeds commissions and theta."',
+          '"You ask whether any spell profits when nothing moves. There is: the Iron Condor. Sell an out-of-the-money call spread and an out-of-the-money put spread, collect the credit, and win while the market sleeps."',
+          '"The farmer\'s way works the same fields: covered calls and cash-secured puts are rent collected from a business you are proud to own."',
+          '"The condor is the quicker blade and the covered call the slower plough — both are disciplined, and both lead to the same crown."'
         ]
       },
       {
@@ -471,11 +471,11 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
         sprite: 'SAGE',
         interactPrompt: 'Volcano Sage [Buy Shield When Others Fire]',
         dialogue: [
-          '"Volatility Caldera: Hydra every head shock spitting IV crush."',
-          '"Pre-earnings IV 80% pumps premiums, then collapses post-announcement even if direction correct. Naked long options lose."',
-          '"MASTER: Vega, buying cheap IV when others fearful, selling euphoric IV when others greedy."',
-          '"Vertical spreads hedge Vega: long vega hedged by short vega. Iron Condor neutralizes."',
-          '"Fail->Graham: bad vol trade → Sanctuary → vega_protection permanent."'
+          '"Mind your footing — this is the Volatility Caldera, and every head of the Hydra spits a fresh shock of implied volatility."',
+          '"Before earnings, implied volatility can climb to eighty percent and pump every premium fat. When the announcement lands, it collapses — even if you called the direction rightly, a naked long option dies in your hands."',
+          '"The lesson of this mountain: buy volatility when others are fearful and it is cheap; sell it when others are euphoric and it is rich."',
+          '"And hedge what you cannot avoid — a vertical spread balances the vega you buy against the vega you sell, and the Iron Condor neutralizes the beast entirely."',
+          '"If a volatile trade burns you anyway, the Sanctuary will make the protection permanent. Fear is a teacher here, not an executioner."'
         ]
       },
       {
@@ -586,12 +586,12 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
         sprite: 'SAGE',
         interactPrompt: 'Final Sage [Kelly + NO Trade - True Ending]',
         dialogue: [
-          '"Final lesson, Rowan: Marduk Vex was once Master Oracle like me. Taught margin of safety."',
-          '"One ruinous year, he sought max leverage, rejected Graham. Broke. Became Liquidation Lord."',
-          '"MASTER: capital preservation + Kelly Criterion / position sizing / knowing when NO trade is best trade."',
-          '"TRUE ENDING: you don\'t kill him — you out-discipline him. He confesses, sits as humble student."',
-          '"Richest investor is one who learned rich is survival first, growth after safety."',
-          '"Multiple paths same destination: trader-path aggressive but defined-risk, investor-path slow value-first, hybrid. Whichever discipline you practiced, crown same."'
+          '"Come close, Rowan, for this is my final lesson. Marduk Vex was once a Master Oracle, as I am — and in his day, no one taught the margin of safety better than he did."',
+          '"Then came one ruinous year. He reached for maximum leverage, cast Graham\'s teachings aside, and the market broke him. What crawled out of that ruin calls itself the Liquidation Lord."',
+          '"So master what he forgot: preserve capital first. Let the Kelly Criterion size every position, and know that sometimes the best trade you will ever make is no trade at all."',
+          '"And know this of your ending with him: you will not kill Marduk Vex. You will out-discipline him — and when he confesses what he lost, he will sit as a humble student at your feet."',
+          '"The richest investor in Valuaria is simply the one who learned that being rich means surviving first and growing only after safety."',
+          '"However you have walked — the trader\'s quick blade, the investor\'s slow plough, or both in hand — every disciplined road ends at the same crown."'
         ]
       },
       {

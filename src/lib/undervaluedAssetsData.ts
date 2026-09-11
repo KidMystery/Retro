@@ -7,7 +7,7 @@ export const UNDERVALUED_ASSETS: { [key: string]: UndervaluedAsset } = {
     symbol: '$SLVR',
     category: 'Hard Commodities & Mining - Act 1 Origin',
     locationName: 'Forgotten Quarry - Grove of Strikes',
-    description: 'Hidden beneath moss and broken cart tracks, you discover deeds and assay reports of forgotten silver mine. Panic drove quote to $42 ƒ, yet vaults hold verified bullion + liquid cash worth $78 ƒ per share, zero debt! Oracle Stone reveals true worth: amber runes pulse 46% margin of safety. This is investor-path: buy wonderful business at discount, sell covered calls for income.',
+    description: 'Hidden beneath moss and broken cart tracks, you discover deeds and assay reports of forgotten silver mine. Panic drove quote to $42 ƒ, yet vaults hold verified bullion + liquid cash worth $78 ƒ per share, zero debt! Oracle Stone reveals true worth: amber runes pulse 46% margin of safety. The farmer\'s way is open here: buy a wonderful business at a discount, then let it pay you to own it.',
     marketSpot: 42,
     intrinsicValue: 78,
     bookValuePerShare: 78,
@@ -20,7 +20,7 @@ export const UNDERVALUED_ASSETS: { [key: string]: UndervaluedAsset } = {
     oracleInsight: 'Oracle Lens: Dark stone and amber sigils show intrinsic $78 vs spot $42. IV 18% dirt cheap - options have minimal extrinsic. Perfect for deep ITM LEAPS or covered calls. Buffett-style.',
     choices: [
       {
-        title: 'Deep Value Buy & Sell Covered Call (Strike $50, 45 DTE) - Investor Path',
+        title: 'Deep Value Buy & Sell Covered Call (Strike $50, 45 DTE)',
         description: 'Acquire 100 shares at $42, sell OTM Call to harvest premium while retaining upside to $50. The farmer way.',
         actionType: 'VALUE_BUY_COVERED_CALL',
         costFlorins: 3800,
@@ -33,7 +33,7 @@ export const UNDERVALUED_ASSETS: { [key: string]: UndervaluedAsset } = {
         relicReward: 'Silver Vein Compass'
       },
       {
-        title: 'Deep ITM LEAPS (Strike $30 Call, 180 DTE) - Hybrid Path',
+        title: 'Deep ITM LEAPS (Strike $30 Call, 180 DTE)',
         description: 'High-delta, low-extrinsic long-term options to gain leverage on rerating with defined downside.',
         actionType: 'DEEP_ITM_LEAPS',
         costFlorins: 1500,
@@ -46,7 +46,7 @@ export const UNDERVALUED_ASSETS: { [key: string]: UndervaluedAsset } = {
         relicReward: 'LEAPS Hourglass'
       },
       {
-        title: 'Quick Flip to Shady Speculator for 300ƒ (Speculation - Fail Path)',
+        title: 'Quick Flip to Shady Speculator for 300ƒ',
         description: 'Sell deeds instantly to pawn merchant for meager markup.',
         actionType: 'QUICK_SPECULATE_FLIP',
         costFlorins: 0,
@@ -57,7 +57,7 @@ export const UNDERVALUED_ASSETS: { [key: string]: UndervaluedAsset } = {
         pathScore: { trader: 0, investor: 0 }
       },
       {
-        title: 'Short Asset (Buy OTM Put) Betting Decline Continues (Wrong)',
+        title: 'Short Asset (Buy OTM Put) Betting Decline Continues',
         description: 'Follow crowd momentum, buy Puts betting further fall.',
         actionType: 'SHORT_THE_ASSET',
         costFlorins: 400,
@@ -88,7 +88,7 @@ export const UNDERVALUED_ASSETS: { [key: string]: UndervaluedAsset } = {
     oracleInsight: 'Theta 0.22 low, but time decay teaches: cash-secured puts = get paid to buy wonderful business at deeper bargain $25. If not assigned, keep premium. Buffett-style.',
     choices: [
       {
-        title: 'Cash-Secured Put Strike $25 Collect 250ƒ Premium - Investor',
+        title: 'Cash-Secured Put Strike $25 Collect 250ƒ Premium',
         description: 'Agree to buy at even deeper bargain $25 if assigned, collecting premium meanwhile.',
         actionType: 'VALUE_BUY_COVERED_CALL',
         costFlorins: 0,
@@ -113,7 +113,7 @@ export const UNDERVALUED_ASSETS: { [key: string]: UndervaluedAsset } = {
         relicReward: 'Harvest Scythe'
       },
       {
-        title: 'Gamble 0-DTE OTM Calls Strike $45 (Theta Trap)',
+        title: 'Gamble 0-DTE OTM Calls Strike $45',
         description: 'Bet stock jumps 60% by tomorrow.',
         actionType: 'SHORT_THE_ASSET',
         costFlorins: 350,
@@ -144,7 +144,7 @@ export const UNDERVALUED_ASSETS: { [key: string]: UndervaluedAsset } = {
     oracleInsight: 'Oracle Lens: Moat utility, monopoly, 11% yield. IV 15% ultra cheap - perfect for bull call spread financing long with short. Defined risk, low theta.',
     choices: [
       {
-        title: 'Bull Call Spread Buy 50 Call / Sell 70 Call - Trader Defined Risk',
+        title: 'Bull Call Spread Buy 50 Call / Sell 70 Call',
         description: 'Define risk, finance long with short, target re-pricing $70.',
         actionType: 'VALUE_BUY_COVERED_CALL',
         costFlorins: 600,
@@ -157,7 +157,7 @@ export const UNDERVALUED_ASSETS: { [key: string]: UndervaluedAsset } = {
         relicReward: 'Bridge Keystone'
       },
       {
-        title: 'Covered Call + Cash-Secured Put Combo - Pure Investor',
+        title: 'Covered Call + Cash-Secured Put Combo',
         description: 'Buy 100 shares $50, sell $70 call + sell $45 put for income.',
         actionType: 'VALUE_BUY_COVERED_CALL',
         costFlorins: 4800,
@@ -201,7 +201,7 @@ export const UNDERVALUED_ASSETS: { [key: string]: UndervaluedAsset } = {
     oracleInsight: 'IV 80% = SELL premium, not buy! Iron Condor or Bear Put Spread hedging Vega. Long straddle only if buying cheap IV at 15%, not euphoric 80%.',
     choices: [
       {
-        title: 'Iron Condor Sell Euphoric IV - Trader Mastery',
+        title: 'Iron Condor Sell Euphoric IV',
         description: 'Sell 130 Put / Buy 125 Put & Sell 140 Call / Buy 145 Call for credit. Profit when IV crushes.',
         actionType: 'VALUE_BUY_COVERED_CALL',
         costFlorins: 0,
@@ -214,7 +214,7 @@ export const UNDERVALUED_ASSETS: { [key: string]: UndervaluedAsset } = {
         relicReward: 'Hydra Scale'
       },
       {
-        title: 'Buy Cheap IV Straddle Before Pump - Contrarian',
+        title: 'Buy Cheap IV Straddle Before Pump',
         description: 'Wait for IV 15% cheap, buy ATM Call+Put, sell into 80% euphoric.',
         actionType: 'DEEP_ITM_LEAPS',
         costFlorins: 800,
@@ -227,7 +227,7 @@ export const UNDERVALUED_ASSETS: { [key: string]: UndervaluedAsset } = {
         relicReward: 'Vol Pearl'
       },
       {
-        title: 'Buy Naked 85% IV Calls Before Earnings (IV Crush Trap)',
+        title: 'Buy Naked 85% IV Calls Before Earnings',
         description: 'FOMO buy overpriced calls.',
         actionType: 'SHORT_THE_ASSET',
         costFlorins: 700,

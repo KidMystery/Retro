@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { UndervaluedAsset, PlayerStats } from '../types';
 import { sound } from '../lib/audioEngine';
-import { Award, CheckCircle2, Crown, Sparkles } from 'lucide-react';
+import { Award, CheckCircle2, Sparkles } from 'lucide-react';
 
 interface UndervaluedAssetModalProps {
   asset: UndervaluedAsset;
@@ -25,11 +25,6 @@ export const UndervaluedAssetModal: React.FC<UndervaluedAssetModalProps> = ({ as
 
   const activeChoice = selectedIdx !== null ? asset.choices[selectedIdx] : null;
 
-  const pathColor =
-    asset.pathAffinity === 'INVESTOR' ? 'border-green-400 bg-green-950/20 text-green-200' :
-    asset.pathAffinity === 'TRADER' ? 'border-red-400 bg-red-950/20 text-red-200' :
-    'border-sky-400 bg-sky-950/20 text-sky-200';
-
   return (
     <div className="fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-3 backdrop-blur-sm">
       <div className="zelda-panel w-full max-w-3xl p-4 max-h-[92vh] overflow-y-auto rounded-xl shadow-2xl">
@@ -38,7 +33,6 @@ export const UndervaluedAssetModal: React.FC<UndervaluedAssetModalProps> = ({ as
             <div className="flex items-center gap-2">
               <span className="bg-amber-400 text-black font-bold px-2 py-0.5 text-[11px] rounded">SECRET DISCOVERY • Oracle Lens</span>
               <h2 className="font-cinzel text-base md:text-lg font-bold text-amber-200">{asset.name} ({asset.symbol})</h2>
-              <span className={`text-[11px] px-2 py-0.5 border rounded font-bold ${pathColor}`}>{asset.pathAffinity}</span>
             </div>
             <p className="text-xs text-slate-400 mt-1">{asset.locationName} • {asset.category}</p>
           </div>
@@ -69,15 +63,12 @@ export const UndervaluedAssetModal: React.FC<UndervaluedAssetModalProps> = ({ as
             <div className="space-y-2">
               {asset.choices.map((c, idx) => {
                 const canAfford = player.florins >= c.costFlorins;
-                const pathScore = c.pathScore ? `T+${c.pathScore.trader||0} I+${c.pathScore.investor||0}` : '';
                 return (
                   <button key={idx} disabled={!canAfford} onClick={() => handleChoose(idx)} className={`w-full text-left p-3 border-2 rounded-xl transition-all ${canAfford ? 'bg-slate-900/60 border-slate-600 hover:border-amber-400 hover:bg-slate-800 text-slate-200' : 'opacity-40 cursor-not-allowed border-slate-800 text-slate-600'}`}>
                     <div className="flex items-center justify-between font-bold mb-1 text-sm">
                       <span>[{idx+1}] {c.title}</span>
                       <span className="flex items-center gap-2">
                         {c.costFlorins>0 ? <span className="text-amber-300">Cost {c.costFlorins}ƒ</span> : <span className="text-emerald-400">Credit</span>}
-                        {pathScore && <span className="text-[10px] px-1.5 py-0.5 bg-slate-800 border border-amber-500/20 rounded">{pathScore}</span>}
-                        {c.relicReward && <span className="text-[10px] px-1.5 py-0.5 bg-amber-950 border border-amber-500/30 text-amber-300 rounded flex items-center gap-1"><Crown className="w-3 h-3" />{c.relicReward}</span>}
                       </span>
                     </div>
                     <p className="text-xs opacity-80 leading-relaxed">{c.description}</p>

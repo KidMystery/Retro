@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PlayerStats, AssetQuote } from '../types';
-import { Heart, Coins, Award, ChevronDown, ChevronUp } from 'lucide-react';
+import { Heart, Coins, Award, ChevronDown, ChevronUp, ScrollText } from 'lucide-react';
 
 interface ZeldaHeartsHUDProps {
   player: PlayerStats;
@@ -9,6 +9,8 @@ interface ZeldaHeartsHUDProps {
   onOpenPortfolio: () => void;
   onOpenGrimoire: () => void;
   onAdvanceDay: () => void;
+  /** Decision-review ledger: every trade/choice journaled, viewable in place. */
+  onOpenHistory: () => void;
 }
 
 /**
@@ -23,7 +25,8 @@ export const ZeldaHeartsHUD: React.FC<ZeldaHeartsHUDProps> = ({
   onOpenTrade,
   onOpenPortfolio,
   onOpenGrimoire,
-  onAdvanceDay
+  onAdvanceDay,
+  onOpenHistory
 }) => {
   const [expanded, setExpanded] = useState(false);
   const totalContainers = player.maxHearts || 4;
@@ -76,12 +79,20 @@ export const ZeldaHeartsHUD: React.FC<ZeldaHeartsHUDProps> = ({
         </div>
 
         <button
-          onClick={() => setExpanded(e => !e)}
-          className="snes-btn px-3 py-1 text-xs rounded-md flex items-center gap-1 shrink-0"
-          aria-expanded={expanded}
+        onClick={onOpenHistory}
+        className="snes-btn px-3 py-1 text-xs rounded-md flex items-center gap-1 shrink-0"
+        title="Decision ledger — every trade and choice journaled (day, position, size, outcome, P/L)"
         >
-          {expanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-          <span>MARKET</span>
+        <ScrollText className="w-3.5 h-3.5" />
+        <span>HISTORY</span>
+        </button>
+        <button
+        onClick={() => setExpanded(e => !e)}
+        className="snes-btn px-3 py-1 text-xs rounded-md flex items-center gap-1 shrink-0"
+        aria-expanded={expanded}
+        >
+        {expanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+        <span>MARKET</span>
         </button>
       </div>
 

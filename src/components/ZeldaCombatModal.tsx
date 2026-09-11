@@ -41,7 +41,20 @@ export const ZeldaCombatModal: React.FC<ZeldaCombatModalProps> = ({
   const openAttackPuzzle = () => {
     const tier = player.investorTier || 1;
     const p = getAttackPuzzleForTier(tier);
-    setActivePuzzle(p);
+    // SPOILER-SAFE SHUFFLE: every puzzle shipped with its correct answer in
+    // slot A, so mashing "A" cleared every boss. Fisher-Yates the options on
+    // each encounter and relabel by displayed position — the right answer
+    // moves every attempt and the letters always read A, B, C… top to bottom.
+    const options = [...p.options];
+    for (let i = options.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [options[i], options[j]] = [options[j], options[i]];
+    }
+    const shuffled: CombatAttackPuzzle = {
+      ...p,
+      options: options.map((o, idx) => ({ ...o, label: String.fromCharCode(65 + idx) }))
+    };
+    setActivePuzzle(shuffled);
     setSelectedOption(null);
     setPuzzleOutcome(null);
   };

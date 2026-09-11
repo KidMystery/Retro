@@ -289,7 +289,7 @@ export const STORY_QUESTS: { [key: string]: QuestNode } = {
     optionsLesson: 'Lesson 1: Calls & Puts, Delta. Trader vs Investor path begins. Olmstead Chapter 1.',
     choices: [
       {
-        text: 'Touch Oracle Stone - Bond Ledger to Soul (Investor Path +1)',
+        text: 'Touch Oracle Stone — bind the Ledger to your soul',
         outcomeText: 'Emerald core pulses! Glyph-circle floats beside you, showing $AETH 100 ƒ, IV 28%, Delta, Theta. You feel Graham\'s whisper: "Margin of Safety." Path: INVESTOR +2',
         action: (state) => {
           state.florins += 150;
@@ -391,7 +391,7 @@ export const STORY_QUESTS: { [key: string]: QuestNode } = {
     optionsLesson: 'Iron Condor, Covered Calls, Cash-Secured Puts. Olmstead Ch3-4,6. Margin of Safety.',
     choices: [
       {
-        text: 'Teach Iron Condor + Covered Call harvest (Investor Path)',
+        text: 'Teach the Iron Condor and the Covered Call harvest',
         outcomeText: 'Merchants rejoice! "Bounded cage of four strikes! Collect credit, win when market sleeps!" Reward 500 ƒ + Condor Crest + investor path.',
         action: (state) => {
           state.florins += 500;
