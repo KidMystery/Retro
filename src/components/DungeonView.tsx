@@ -89,6 +89,15 @@ const spriteFor = (id: string): string | null => {
 export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters = [], onEncounter, map, spawn, actLabel = 'ACT I · THE SEALED VESTIBULE', lightRadius = 9, torchDrainPerSec = 0, patrols = [], onPatrolCaught, gatesOpen = false, onExit }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const posRef = useRef({ x: (spawn?.x ?? 2) + 0.5, y: (spawn?.y ?? 4) + 0.5 });
+  // Floor switches change the spawn prop — re-position the hero (component may not remount).
+  const spawnKey = `${spawn?.x ?? 2},${spawn?.y ?? 4}`;
+  const lastSpawnKeyRef = useRef(spawnKey);
+  useEffect(() => {
+    if (spawnKey !== lastSpawnKeyRef.current) {
+      lastSpawnKeyRef.current = spawnKey;
+      posRef.current = { x: (spawn?.x ?? 2) + 0.5, y: (spawn?.y ?? 4) + 0.5 };
+    }
+  }, [spawnKey]);
   const dirRef = useRef(0);
   const keysRef = useRef<Record<string, boolean>>({});
   const animRef = useRef(0);
@@ -188,7 +197,7 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters
       if (t === 'G') return gatesRef.current ? '.' : 'G';
       return t;
     };
-    const walkable = (t: string) => t === '.' || t === 'o';
+    const walkable = (t: string) => t === '.' || t === 'o' || t === 'S' || t === 'U';
 
     const render = () => {
       const pos = posRef.current, dir = dirRef.current, anim = animRef.current;

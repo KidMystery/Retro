@@ -25,7 +25,7 @@ import {
   TradeRecord
 } from './types';
 import { REALM_MAPS, BOSS_ENEMIES, STORY_QUESTS } from './lib/questData';
-import { ZELDA_MAPS, ZeldaEntity, DUNGEONS } from './lib/zeldaWorldData';
+import { ZELDA_MAPS, ZeldaEntity, DUNGEONS, DungeonConfig } from './lib/zeldaWorldData';
 import { UNDERVALUED_ASSETS } from './lib/undervaluedAssetsData';
 import { SCAM_ENCOUNTERS } from './lib/scamsData';
 import { INTELLIGENT_INVESTOR_LESSONS, getTradeMechanicGate, getTradeEncounter } from './lib/intelligentInvestorData';
@@ -96,6 +96,8 @@ export default function App() {
   const [sanctuaryLessonId, setSanctuaryLessonId] = useState<GrahamProtectionId>('margin_of_safety');
   // McMillan mechanic gate: blocks a trade encounter until a real options-mechanics MCQ is answered.
   const [mechanicGate, setMechanicGate] = useState<{ lessonId: GrahamProtectionId } | null>(null);
+  // MULTI-FLOOR DUNGEONS: current floor index per act (persisted on player for resume).
+  const [dungeonFloor, setDungeonFloor] = useState(0);
   // Source-backed trade encounter shown after the mechanic gate passes, before
   // the Trade Desk opens. Correct decision -> florins + Trade Desk; wrong ->
   // hearts/florins penalty + fail->learn Sanctuary (same loop as the gate).
@@ -521,6 +523,38 @@ export default function App() {
       }
     }
   }, [player.marginUsed, marginEquity]);
+
+  // MULTI-FLOOR: poll the dungeon debug hook for stairs — stepping on 'S' descends,
+  // 'U' ascends. Runs only while in dungeon view; cheap (10Hz).
+  useEffect(() => {
+    if (currentView !== 'DUNGEON') return;
+    let lastSwitch = 0;
+    const iv = setInterval(() => {
+      const now = Date.now();
+      const d = (window as any).__dungeon;
+      if (!d?.pos || !d?.walkableAt) return;
+      const baseDun = DUNGEONS[player.chapter] || DUNGEONS[1];
+      const floors = baseDun.floors;
+      if (!floors) return;
+      const cfg = dungeonFloor === 0 ? baseDun : { tiles: floors[dungeonFloor - 1].tiles };
+      const tx = Math.floor(d.pos.x), ty = Math.floor(d.pos.y);
+      const tile = cfg.tiles[ty]?.[tx];
+      if (now - lastSwitch < 1200) return; // debounce: ignore stale pos right after a switch
+      if (tile === 'S' && dungeonFloor < (floors.length || 0)) {
+        const next = floors[dungeonFloor]; // floors[dungeonFloor] is the NEXT floor (index: floors[] starts at 2F)
+        setDungeonFloor(f => Math.min(floors.length, f + 1));
+        setTerminalLog(prev => [...prev.slice(-10), `🕳 You descend the stairs... ${next.label || 'deeper into the dungeon'}.`]);
+        sound.playSecretChime();
+        lastSwitch = Date.now();
+      } else if (tile === 'U' && dungeonFloor > 0) {
+        setDungeonFloor(f => Math.max(0, f - 1));
+        setTerminalLog(prev => [...prev.slice(-10), `🕳 You climb the stairs back up.`]);
+        sound.playSecretChime();
+        lastSwitch = Date.now();
+      }
+    }, 100);
+    return () => clearInterval(iv);
+  }, [currentView, player.chapter, dungeonFloor]);
 
   const handleAdvanceDay = useCallback(() => {
     sound.playCommandBeep();
@@ -1354,6 +1388,7 @@ export default function App() {
     } else if (entity.type === 'PORTAL') {
       sound.playSecretChime();
       sound.startMusic('dungeon');
+      setDungeonFloor(0);
       sayWren({ kind: 'dungeonEnter', act: player.chapter });
       const dun = DUNGEONS[player.chapter] || DUNGEONS[1];
       setTerminalLog(prev => [...prev.slice(-10), `🕳 You descend into ${entity.name}. ${dun.actLabel}`]);
@@ -1647,6 +1682,7 @@ export default function App() {
       player: () => player,
       positions: () => positions,
       view: () => currentView,
+      dungeonFloor: () => dungeonFloor,
       patch: (p: Partial<PlayerStats>) => setPlayer(prev => ({ ...prev, ...p })),
       heal: () => setPlayer(prev => ({ ...prev, hearts: prev.maxHearts, hp: prev.maxHearts * 25, florins: prev.florins + 3000 })),
       startCombat: (ch: number) => { setPlayer(prev => ({ ...prev, chapter: ch })); initiateCombat(ch); },
@@ -1755,7 +1791,11 @@ export default function App() {
           )}
 
           {currentView === 'DUNGEON' && (() => {
-            const dun = DUNGEONS[player.chapter] || DUNGEONS[1];
+            const baseDun = DUNGEONS[player.chapter] || DUNGEONS[1];
+            const floorCfg = baseDun.floors?.[dungeonFloor];
+            const dun: DungeonConfig = floorCfg
+              ? { ...baseDun, tiles: floorCfg.tiles, playerSpawn: floorCfg.playerSpawn, actLabel: floorCfg.label || baseDun.actLabel }
+              : baseDun;
             // PHASE 2b: patrol scammers hunt harder as your risk score climbs.
             const riskScore = riskInfo.riskScore;
             const speedMult = 1 + riskScore / 200; // 1.0x SAFE → ~1.5x CRITICAL
@@ -1781,7 +1821,7 @@ export default function App() {
             return (
               <>
                 <DungeonView
-                  onExit={() => { sound.playSecretChime(); setCurrentView('MAP'); setTerminalLog(prev => [...prev.slice(-10), `🕳 You climb the stairs back to the overworld.`]); }}
+                  onExit={() => { sound.playSecretChime(); setCurrentView('MAP'); setDungeonFloor(0); setTerminalLog(prev => [...prev.slice(-10), `🕳 You climb the stairs back to the overworld.`]); }}
                   map={dun.tiles}
                   spawn={dun.playerSpawn}
                   actLabel={dun.actLabel}
@@ -1869,7 +1909,7 @@ export default function App() {
                   onSecondary={() => { }}
                 />
                 <div className="mt-2 flex justify-center">
-                  <button onClick={() => { sound.playSecretChime(); setCurrentView('MAP'); setTerminalLog(prev => [...prev.slice(-10), `🕳 You climb the stairs back to the overworld.`]); }} className="snes-btn px-6 py-2 rounded-xl text-xs">
+                  <button onClick={() => { sound.playSecretChime(); setCurrentView('MAP'); setDungeonFloor(0); setTerminalLog(prev => [...prev.slice(-10), `🕳 You climb the stairs back to the overworld.`]); }} className="snes-btn px-6 py-2 rounded-xl text-xs">
                     ◀ LEAVE DUNGEON [ESC] • Return to Overworld
                   </button>
                 </div>

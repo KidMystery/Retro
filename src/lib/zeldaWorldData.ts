@@ -51,6 +51,8 @@ export interface DungeonConfig {
   patrols?: PatrolRoute[];
   /** True when the act uses spread-gates ('G' tiles). */
   hasSpreadGates?: boolean;
+  /** Multi-floor dungeons: floors[0] is the entry floor. 'S' = stairs down, 'U' = stairs up. */
+  floors?: Array<{ tiles: string[]; playerSpawn: { x: number; y: number }; label?: string }>;
 }
 
 export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
@@ -680,7 +682,7 @@ export const DUNGEONS: { [act: number]: DungeonConfig } = {
       '#######.#.#.###.###',
       '#.....#.#.#...#...#',
       '#..####.#.#.#.#.#.#',
-      '#.......#...#.#...#',
+      '#.S.....#...#.#...#',
       '#.#.#.###.###.#.#.#',
       '#...#...#...#.#.#.#',
       '#..####.###.#.#.###',
@@ -695,6 +697,54 @@ export const DUNGEONS: { [act: number]: DungeonConfig } = {
     ],
     playerSpawn: { x: 2, y: 4 },
     actLabel: 'ACT I · THE SEALED VESTIBULE',
+    floors: [
+      { // 2F — the Gated Ring (spread-legs open the inner chamber)
+        label: 'ACT I · VESTIBULE 2F — THE GATED RING',
+        playerSpawn: { x: 1, y: 1 },
+        tiles: [
+          '###################',
+          '#.................#',
+          '#.####.#####.####.#',
+          '#.#..#.#...#.#..#.#',
+          '#.#..U.#.o.#.S..#.#',
+          '#.####.#...#.####.#',
+          '#......#.G.#......#',
+          '#.####.#...#.####.#',
+          '#.#..#.#.o.#.#..#.#',
+          '#.#..#.#####.#..#.#',
+          '#.#..C.......#..#.#',
+          '#.####.#####.####.#',
+          '#.................#',
+          '#.####.#####.####.#',
+          '#.#..C.......#..#.#',
+          '#.####.#####.####.#',
+          '###################',
+        ],
+      },
+      { // B1 — the Vault (drawdown gauntlet; the boss waits at the heart)
+        label: 'ACT I · VESTIBULE B1 — THE VAULT',
+        playerSpawn: { x: 4, y: 4 },
+        tiles: [
+          '###################',
+          '#.......#.........#',
+          '#.#####.#.#####..C#',
+          '#.#...#.#.#...#...#',
+          '#.#.o.#...#.#.#.#.#',
+          '#.#...#####.#.#.#.#',
+          '#.#.........#...#.#',
+          '#.#########.###.#.#',
+          '#.#.......#.#...#.#',
+          '#.#.#####.#.#.###.#',
+          '#.#.#...#...#.#...#',
+          '#.#.#.#.#####.#.###',
+          '#...#.#.........#.#',
+          '#.###.#########.#.#',
+          '#.#.........#...#.#',
+          '#...#.....B.#.C...#',
+          '###################',
+        ],
+      },
+    ],
   },
   2: {
     tiles: [
