@@ -73,6 +73,8 @@ interface DungeonViewProps {
   gatesOpen?: boolean;
   /** Fired when the player presses ESC / Q to leave the dungeon. */
   onExit?: () => void;
+  /** When true (dialog/modal open), ESC closes the overlay instead of leaving. */
+  suppressExit?: boolean;
 }
 
 const ENCOUNTER_RANGE = 0.75;
@@ -86,7 +88,7 @@ const spriteFor = (id: string): string | null => {
   return null;
 };
 
-export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters = [], onEncounter, map, spawn, actLabel = 'ACT I · THE SEALED VESTIBULE', lightRadius = 9, torchDrainPerSec = 0, patrols = [], onPatrolCaught, gatesOpen = false, onExit }) => {
+export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters = [], onEncounter, map, spawn, actLabel = 'ACT I · THE SEALED VESTIBULE', lightRadius = 9, torchDrainPerSec = 0, patrols = [], onPatrolCaught, gatesOpen = false, onExit, suppressExit = false }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const posRef = useRef({ x: (spawn?.x ?? 2) + 0.5, y: (spawn?.y ?? 4) + 0.5 });
   // Floor switches change the spawn prop — re-position the hero (component may not remount).
@@ -104,7 +106,9 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters
   const encRef = useRef(encounters);
   const onEncRef = useRef(onEncounter);
   const onExitRef = useRef(onExit);
+  const suppressExitRef = useRef(suppressExit);
   useEffect(() => { onExitRef.current = onExit; }, [onExit]);
+  useEffect(() => { suppressExitRef.current = suppressExit; }, [suppressExit]);
   const mapRef = useRef(map || MAP);
   const gatesRef = useRef(gatesOpen);
   const lightRef = useRef(lightRadius);
@@ -522,8 +526,9 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters
         const near = findNear();
         if (near) onEncRef.current?.(near.id);
       }
-      // GAME-FEEL: ESC / Q = leave the dungeon (was button-only, undiscoverable)
-      if ((e.code === 'Escape' || e.code === 'KeyQ') && !e.repeat) {
+      // GAME-FEEL: ESC / Q = leave the dungeon — suppressed while a dialog is open
+      // (ESC there closes the dialog instead; modal layer handles it).
+      if ((e.code === 'Escape' || e.code === 'KeyQ') && !e.repeat && !suppressExitRef.current) {
         onExitRef.current?.();
       }
     };

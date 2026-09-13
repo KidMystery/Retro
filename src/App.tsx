@@ -1269,8 +1269,28 @@ export default function App() {
       y: c[1] + 0.5,
       prompt: `Read the tape • ${chartPuzzles[i % chartPuzzles.length].pattern}`,
     })) : [];
-    return base.concat(gateLegs).concat(gauntlet).concat(secondOracle).concat(chartRooms);
-  }, [player.chapter, player.ngPlus, player.secondOracleDefeated, spreadLegsPlaced, gauntletProgress]);
+    // MULTI-FLOOR (Act I): floors 2F/B1 carry their own encounters — the 1F roster
+    // stays on 1F; deeper floors hold vault loot + the boss at the heart.
+    let floorEntities: Array<{ id: string; name: string; x: number; y: number; prompt: string }> = [];
+    if (player.chapter === 1 && dungeonFloor === 1) {
+      floorEntities = [
+        { id: 'chest_ring_nw', name: 'Sealed Ring Chest — West Alcove', x: 5.5, y: 10.5, prompt: 'Open the alcove chest [Gated Ring loot]' },
+        { id: 'chest_ring_se', name: 'Sealed Ring Chest — East Alcove', x: 13.5, y: 14.5, prompt: 'Open the alcove chest [Gated Ring loot]' },
+        { id: 'sage_ring', name: 'Echo of Ashfall — The Ring', x: 9.5, y: 6.5, prompt: 'Hear the Echo: defined risk is the gate key [spread legs to open]' },
+      ];
+    } else if (player.chapter === 1 && dungeonFloor === 2) {
+      floorEntities = [
+        { id: 'chest_vault', name: 'Vault Chest — The Last Reserve', x: 17.5, y: 15.5, prompt: 'Open the vault chest [deep loot]' },
+        { id: 'shrine_vault', name: 'Vault Shrine — Ledger of the Deep', x: 15.5, y: 2.5, prompt: 'Rest at the deep shrine [save + bond]' },
+        { id: 'boss_bear', name: 'The Tithe-Monger — Collector of the Harvest', x: 10.5, y: 15.5, prompt: 'Face the Tithe-Monger [Act I Boss — drawdown made flesh]' },
+      ];
+    }
+    const actOneFloorFilter = player.chapter === 1 && dungeonFloor > 0
+      ? [] // base 1F roster only on floor 0
+      : base;
+    const chartRoomsFiltered = player.chapter === 1 && dungeonFloor > 0 ? [] : chartRooms;
+    return actOneFloorFilter.concat(floorEntities).concat(gateLegs).concat(gauntlet).concat(secondOracle).concat(chartRoomsFiltered);
+  }, [player.chapter, player.ngPlus, player.secondOracleDefeated, spreadLegsPlaced, gauntletProgress, dungeonFloor]);
 
   // Wiring 4: resolve a chart puzzle answer. Correct = rune + florin bonus;
   // wrong = sanctuary loop with the explanation as the lesson.
@@ -1829,6 +1849,7 @@ export default function App() {
                   torchDrainPerSec={torchDrain}
                   patrols={scaledPatrols}
                   gatesOpen={spreadLegsPlaced.length >= 2}
+                  suppressExit={!!npcDialogue || !!mechanicGate || !!activeChartPuzzle}
                   onPatrolCaught={(pid) => {
                     // ACT VERB (Act III): getting SEEN by a patrolling scammer forces a bad trade.
                     setPlayer(prev => ({
@@ -1896,6 +1917,24 @@ export default function App() {
                       sound.startMusic('battle');
                       setTerminalLog(prev => [...prev.slice(-10), `🪞 The shadow wears YOUR face. It opens what you open — at twice the size. Hedge, or be mirrored into ruin.`]);
                       initiateSecondOracle();
+                      return;
+                    }
+                    // MULTI-FLOOR (Act I): deep-floor entities live outside ZELDA_MAPS.
+                    if (player.chapter === 1 && dungeonFloor === 1 && (id === 'chest_ring_nw' || id === 'chest_ring_se')) {
+                      handleInteractEntity({ id, name: 'Ring Chest', type: 'CHEST', x: 0, y: 0, sprite: 'CHEST', interactPrompt: 'Open the alcove chest' });
+                      return;
+                    }
+                    if (player.chapter === 1 && dungeonFloor === 1 && id === 'sage_ring') {
+                      sound.playSecretChime();
+                      setNpcDialogue({ name: 'Echo of Ashfall', lines: ['"A single leg is a coin flip. Two legs bound together are a structure." — the Echo gestures at the sealed inner chamber.', '"Place the long call and the short put on the shrines. What opens the gate will teach your hands what defined risk feels like."'] });
+                      return;
+                    }
+                    if (player.chapter === 1 && dungeonFloor === 2 && id === 'chest_vault') {
+                      handleInteractEntity({ id, name: 'Vault Chest', type: 'CHEST', x: 0, y: 0, sprite: 'CHEST', interactPrompt: 'Open the vault chest' });
+                      return;
+                    }
+                    if (player.chapter === 1 && dungeonFloor === 2 && id === 'shrine_vault') {
+                      handleInteractEntity({ id, name: 'Vault Shrine', type: 'SHRINE', x: 0, y: 0, sprite: 'SHRINE', interactPrompt: 'Rest at the deep shrine' });
                       return;
                     }
                     const mapData = ZELDA_MAPS[player.chapter] || ZELDA_MAPS[1];
