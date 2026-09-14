@@ -510,8 +510,19 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters
         ctx.font = 'bold 11px monospace';
         ctx.fillText('♥', 15 + i * 16, 22);
       }
-      ctx.fillStyle = '#e8a33a'; ctx.font = 'bold 8px monospace';
-      ctx.textAlign = 'right'; ctx.fillText(actLabelRef.current, W - 10, 20); ctx.textAlign = 'left';
+      // floor plaque (council signage pass): wood chip + gold hairline behind the label
+      const label = actLabelRef.current;
+      ctx.font = 'bold 8px monospace';
+      const labelW = Math.ceil(ctx.measureText(label).width);
+      const plaqueW = labelW + 14;
+      ctx.fillStyle = 'rgba(5,3,2,0.55)';
+      ctx.fillRect(W - plaqueW - 10, 8, plaqueW, 16);
+      ctx.strokeStyle = '#6b4a2c'; ctx.lineWidth = 1;
+      ctx.strokeRect(W - plaqueW - 9.5, 8.5, plaqueW - 1, 15);
+      ctx.strokeStyle = 'rgba(212,175,55,0.45)';
+      ctx.strokeRect(W - plaqueW - 8.5, 9.5, plaqueW - 3, 13);
+      ctx.fillStyle = '#e8a33a';
+      ctx.textAlign = 'right'; ctx.fillText(label, W - 17, 20); ctx.textAlign = 'left';
       // torch fuel bar (light-resource acts)
       if (torchDrainRef.current > 0) {
         const t = torchRef.current;
