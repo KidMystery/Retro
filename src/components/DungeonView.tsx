@@ -81,6 +81,9 @@ interface DungeonViewProps {
 }
 
 const ENCOUNTER_RANGE = 0.75;
+// Bosses sit at the climax of a floor — forgive a looser stand-off so the fight
+// never hinges on pixel-perfect positioning (cycle-D clickthrough finding).
+const BOSS_RANGE = 1.05;
 
 // Encounter id prefix → real generated sprite (batch-1 art pass)
 const spriteFor = (id: string): string | null => {
@@ -553,14 +556,15 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters
       };
     }
     const findNear = () => {
-      const p = posRef.current;
-      let best: { e: typeof encRef.current[number]; d: number } | null = null;
-      for (const enc of encRef.current) {
-        const d = Math.hypot(enc.x - p.x, enc.y - p.y);
-        if (d <= ENCOUNTER_RANGE && (!best || d < best.d)) best = { e: enc, d };
-      }
-      return best ? best.e : null;
-    };
+          const p = posRef.current;
+          let best: { e: typeof encRef.current[number]; d: number } | null = null;
+          for (const enc of encRef.current) {
+            const range = /boss/i.test(enc.id) ? BOSS_RANGE : ENCOUNTER_RANGE;
+            const d = Math.hypot(enc.x - p.x, enc.y - p.y);
+            if (d <= range && (!best || d < best.d)) best = { e: enc, d };
+          }
+          return best ? best.e : null;
+        };
     const kd = (e: KeyboardEvent) => {
       if (['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyW','KeyS','KeyA','KeyD'].includes(e.code)) e.preventDefault();
       keysRef.current[e.code] = true;
