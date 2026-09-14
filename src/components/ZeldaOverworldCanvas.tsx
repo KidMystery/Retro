@@ -471,6 +471,42 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
         }
       }
 
+      // ── COUNCIL AMBIENT PASS 9/13: grass sway (blade tufts bend with frame) ──
+      for (let y = t0y; y <= t1y; y++) {
+        for (let x = t0x; x <= t1x; x++) {
+          const tile = mapData.tiles[y]?.[x] || ".";
+          if (tile !== "." && tile !== "F") continue;
+          const px = x * TILE_SIZE - cam.x;
+          const py = y * TILE_SIZE - cam.y;
+          // 2 blades per grass tuft, phase-locked per tile, sway = sin(frame*0.05 + hash)
+          const hash = (x * 31 + y * 17) % 7;
+          const sway = Math.sin(frame * 0.05 + hash * 1.7);
+          ctx.fillStyle = "rgba(22,101,52,0.55)";
+          const bx = px + 6 + (hash % 3) * 7;
+          const by = py + 12 + (hash % 2) * 6;
+          ctx.fillRect(bx, by, 1, 3);
+          ctx.fillRect(bx + Math.round(sway), by - 1, 1, 3);
+          ctx.fillRect(bx + 14 - (hash % 3) * 5, py + 18, 1, 2);
+          ctx.fillRect(bx + 14 - (hash % 3) * 5 + Math.round(sway), py + 17, 1, 3);
+        }
+      }
+
+      // ── COUNCIL AMBIENT PASS 9/13: cloud shadows drifting across the viewport ──
+      // Screen-space soft ellipses, parallax-drifted against camera for depth.
+      // Cheap: 3 blobs, radial gradients, 20% opacity — mood without entity logic.
+      for (let c = 0; c < 3; c++) {
+        const cloudSeed = c * 5301;
+        const period = 1900 + c * 700; // px of horizontal travel per loop
+        const cx = ((frame * (0.35 + c * 0.15) + cloudSeed) % period) / period * (VIEW_W_PX + 320) - 160;
+        const cy = ((cloudSeed * 7) % (VIEW_H_PX + 200)) - 100 + Math.sin(frame * 0.004 + c) * 30;
+        const rMax = 150 + (c % 2) * 60;
+        const g = ctx.createRadialGradient(cx, cy, rMax * 0.15, cx, cy, rMax);
+        g.addColorStop(0, "rgba(16,42,24,0.16)");
+        g.addColorStop(1, "rgba(16,42,24,0)");
+        ctx.fillStyle = g;
+        ctx.fillRect(cx - rMax, cy - rMax, rMax * 2, rMax * 2);
+      }
+
       // ── Landmarks as drawn glyphs — NO floating name plates, NO text ──
       const inView = (ex: number, ey: number) =>
         ex + TILE_SIZE > cam.x - TILE_SIZE && ex < cam.x + VIEW_W_PX + TILE_SIZE &&

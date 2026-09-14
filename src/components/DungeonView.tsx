@@ -75,6 +75,9 @@ interface DungeonViewProps {
   onExit?: () => void;
   /** When true (dialog/modal open), ESC closes the overlay instead of leaving. */
   suppressExit?: boolean;
+  /** Council pass 9/13: per-floor light temperature — tints the depth fog + torch glow.
+   *  'warm' = amber teaching halls, 'cool' = blue ring chamber, 'vault' = deep sepia. */
+  floorTint?: 'warm' | 'cool' | 'vault';
 }
 
 const ENCOUNTER_RANGE = 0.75;
@@ -88,7 +91,7 @@ const spriteFor = (id: string): string | null => {
   return null;
 };
 
-export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters = [], onEncounter, map, spawn, actLabel = 'ACT I · THE SEALED VESTIBULE', lightRadius = 9, torchDrainPerSec = 0, patrols = [], onPatrolCaught, gatesOpen = false, onExit, suppressExit = false }) => {
+export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters = [], onEncounter, map, spawn, actLabel = 'ACT I · THE SEALED VESTIBULE', lightRadius = 9, torchDrainPerSec = 0, patrols = [], onPatrolCaught, gatesOpen = false, onExit, suppressExit = false, floorTint }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const posRef = useRef({ x: (spawn?.x ?? 2) + 0.5, y: (spawn?.y ?? 4) + 0.5 });
   // Floor switches change the spawn prop — re-position the hero (component may not remount).
@@ -208,6 +211,15 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters
       const sx = Math.cos(dir), sy = Math.sin(dir);
       const plx = -sy, ply = sx;
 
+      // COUNCIL PASS 9/13 — per-floor light temperature. Fog + glow take the floor's
+      // temperature so 1F/2F/B1 read as different PLACES, not the same maze re-tinted.
+      const TINTS: Record<string, { fog: string; glow: string; ceil: string | null }> = {
+        warm:  { fog: '26,16,8',   glow: 'rgba(255,176,84,0.16)', ceil: null },
+        cool:  { fog: '10,18,30',  glow: 'rgba(120,170,255,0.13)', ceil: null },
+        vault: { fog: '22,14,26',  glow: 'rgba(190,140,220,0.10)', ceil: null },
+      };
+      const tint = TINTS[floorTint || 'warm'] || TINTS.warm;
+
       const cg = ctx.createLinearGradient(0, 0, 0, H / 2);
       cg.addColorStop(0, COLORS.ceiling1); cg.addColorStop(1, COLORS.ceiling2);
       ctx.fillStyle = cg; ctx.fillRect(0, 0, W, H / 2);
@@ -312,12 +324,16 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters
           if (isGate) { ctx.fillStyle = 'rgba(120,60,200,0.55)'; ctx.fillRect(col, drawStart, 1, Math.max(1, drawEnd - drawStart)); }
           if (side === 1) { ctx.fillStyle = 'rgba(0,0,0,0.28)'; ctx.fillRect(col, drawStart, 1, Math.max(1, drawEnd - drawStart)); }
           const fogMix = Math.min(0.96, Math.max(0, ((perp - effR * 0.25) / (effR * 0.85)) * 0.9));
-          if (fogMix > 0) { ctx.fillStyle = `rgba(0,0,0,${fogMix.toFixed(3)})`; ctx.fillRect(col, drawStart, 1, Math.max(1, drawEnd - drawStart)); }
+          if (fogMix > 0) { ctx.fillStyle = `rgba(${tint.fog},${fogMix.toFixed(3)})`; ctx.fillRect(col, drawStart, 1, Math.max(1, drawEnd - drawStart)); }
         } else {
           const base = isGate ? '#5a2a8a' : isDoor ? '#7a3b10' : (side === 1 ? COLORS.stone3 : '#2a2420');
           const fogMix = Math.min(0.96, Math.max(0, ((perp - effR * 0.25) / (effR * 0.85)) * 0.9));
           ctx.fillStyle = blendColor(base, '#000000', fogMix);
-          ctx.fillRect(col, drawStart, 1, Math.max(1, drawEnd - drawStart));
+          if (fogMix > 0) {
+            // temperature wash on the fallback path too (council pass 9/13)
+            ctx.fillStyle = `rgba(${tint.fog},${(fogMix * 0.85).toFixed(3)})`;
+            ctx.fillRect(col, drawStart, 1, Math.max(1, drawEnd - drawStart));
+          }
           if (lineH > 50) {
             ctx.fillStyle = 'rgba(0,0,0,0.35)';
             const block = Math.round(lineH / 26);
@@ -331,6 +347,21 @@ export const DungeonView: React.FC<DungeonViewProps> = ({ onInteract, encounters
       const glow = ctx.createRadialGradient(W/2, H*0.62, 20, W/2, H*0.62, H*0.95 * flicker);
       glow.addColorStop(0, COLORS.torchGlow); glow.addColorStop(1, 'rgba(0,0,0,0)');
       ctx.fillStyle = glow; ctx.fillRect(0, 0, W, H);
+      // floor-temperature wash over the whole viewport (council pass 9/13)
+      ctx.fillStyle = tint.glow; ctx.fillRect(0, 0, W, H);
+
+      // DUST MOTES — motes drift in torchlight (council ambient #1: aliveness per hour)
+      const moteSeed = Math.sin(anim * 0.013) * 7919;
+      for (let m = 0; m < 14; m++) {
+        const mx = (Math.sin(m * 12.9898 + moteSeed) * 43758.5453) % 1;
+        const myFrac = (Math.sin(m * 78.233 + anim * 0.02) * 43758.5453) % 1;
+        const driftY = (Math.sin(anim * 0.011 + m * 2.3) * 0.5 + 0.5) * H;
+        const driftX = ((Math.abs(mx) * W) + Math.sin(anim * 0.007 + m) * 24 + W) % W;
+        const moteY = (Math.abs(myFrac) * H * 0.7) * 0.35 + driftY * 0.5;
+        const a = 0.10 + 0.14 * (0.5 + 0.5 * Math.sin(anim * 0.05 + m * 1.7));
+        ctx.fillStyle = `rgba(255,226,168,${a.toFixed(3)})`;
+        ctx.fillRect(Math.round(driftX), Math.round(moteY), 2, 2);
+      }
 
       // ENCOUNTER NODES — billboarded pulsing embers projected via player pos+dir
       const encs = encRef.current;

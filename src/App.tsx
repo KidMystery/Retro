@@ -1838,6 +1838,9 @@ export default function App() {
             // PHASE 2c: theta is everywhere — long options burn the torch faster.
             const holdsLongOptions = positions.some(p => p.quantity > 0 && ['LONG_CALL', 'LONG_PUT', 'LONG_STRADDLE'].includes(p.strategy));
             const torchDrain = (dun.torchDrainPerSec || 0) * (holdsLongOptions ? 1.35 : 1);
+            // COUNCIL PASS 9/13 — floor light temperature: 1F warm teaching halls,
+            // 2F cool ring chamber, B1 deep vault sepia. Plaque rides actLabel already.
+            const floorTint: 'warm' | 'cool' | 'vault' = dungeonFloor === 0 ? 'warm' : dungeonFloor === 1 ? 'cool' : 'vault';
             return (
               <>
                 <DungeonView
@@ -1845,6 +1848,7 @@ export default function App() {
                   map={dun.tiles}
                   spawn={dun.playerSpawn}
                   actLabel={dun.actLabel}
+                  floorTint={floorTint}
                   lightRadius={dun.lightRadius}
                   torchDrainPerSec={torchDrain}
                   patrols={scaledPatrols}
