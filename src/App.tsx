@@ -59,7 +59,7 @@ import { SaveGameModal } from './components/SaveGameModal';
 import { TitleScreen } from './components/TitleScreen';
 import { TouchDPad } from './components/TouchDPad';
 import { InventoryModal } from './components/InventoryModal';
-import { SaveSlotData } from './types';
+import { SaveSlotData, PriceCandle } from './types';
 import { pickNoiseEvents, NoiseEvent } from './lib/curriculum/noiseEvents';
 import { NoiseTicker } from './components/NoiseTicker';
 import { MarginEvent, MarginState, describeMarginDanger, marginUtilization } from './lib/curriculum/marginDanger';
@@ -181,6 +181,10 @@ export default function App() {
     trend: 'BULLISH',
     lore: 'Sovereign underlying powering economic currents of Valuaria. Oracle Stone reveals true worth beneath Mr Market mood swings.'
   });
+
+  // COUNCIL CANDLES (9/13 night): realized OHLC history — one candle per COMPLETED market day.
+  // Wick = the real intraday path (8 drift steps), never IV-derived (implied ≠ realized).
+  const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
 
   const [combatState, setCombatState] = useState<CombatState>({
     inCombat: false,
@@ -609,7 +613,25 @@ export default function App() {
     const rolledDrift = pendingDriftRef.current ?? (Math.random() - 0.48) * 0.035;
     const randomDrift = rolledDrift;
     pendingDriftRef.current = (Math.random() - 0.48) * 0.035;
-    const newSpot = Math.max(10, Number((spot * (1 + randomDrift)).toFixed(2)));
+    // COUNCIL CANDLES: the day prints a REALIZED intraday path (8 steps). The day's total
+    // drift == the same rolledDrift draw (split across steps) so the price ENGINE distribution
+    // is unchanged — we only observe it more finely. High/low come from the path itself.
+    const STEPS = 8;
+    const stepDrift = Math.pow(1 + randomDrift, 1 / STEPS) - 1;
+    const intraday: number[] = [spot];
+    for (let i = 0; i < STEPS; i++) {
+      const wiggle = (Math.random() - 0.5) * 0.006; // tiny per-step noise, mean ~0
+      intraday.push(Math.max(1, intraday[intraday.length - 1] * (1 + stepDrift + wiggle)));
+    }
+    const newSpot = Math.max(10, Number(intraday[intraday.length - 1].toFixed(2)));
+    const candle: PriceCandle = {
+      d: player.day,
+      o: Number(spot.toFixed(2)),
+      h: Number(Math.max(...intraday).toFixed(2)),
+      l: Number(Math.min(...intraday).toFixed(2)),
+      c: newSpot
+    };
+    setPriceHistory(prev => [...prev.slice(-59), candle]);
     const randomIvDrift = (Math.random() - 0.5) * 0.02;
     // NG+ bear regime: IV floor DOUBLED — volatility spikes are the weather now.
     const ivFloor = player.ngPlus ? 0.24 : 0.12;
@@ -1422,6 +1444,7 @@ export default function App() {
     setPlayer(data.player);
     setPositions(data.positions || []);
     if (data.assetQuote) setAssetQuote(data.assetQuote);
+    if (data.priceHistory) setPriceHistory(data.priceHistory); else setPriceHistory([]);
     if (data.terminalLog) setTerminalLog(data.terminalLog);
     setCurrentView('MAP');
     setShowSaveModal(false);
@@ -1461,6 +1484,20 @@ export default function App() {
     });
     if (choice.spotShiftPercent) {
       setAssetQuote(prev => ({ ...prev, spotPrice: Number((prev.spotPrice * (1 + choice.spotShiftPercent)).toFixed(2)) }));
+      // Council candles: an event jump prints on the tape — extend today's candle and label it,
+      // so rug-pulls and squeezes are VISIBLE history the player can study afterward.
+      setPriceHistory(prev => {
+        if (!prev.length) return prev;
+        const last = prev[prev.length - 1];
+        const newClose = Number((last.c * (1 + choice.spotShiftPercent!)).toFixed(2));
+        return [...prev.slice(0, -1), {
+          ...last,
+          c: newClose,
+          h: Math.max(last.h, newClose),
+          l: Math.min(last.l, newClose),
+          event: choice.label || choice.id || 'market event'
+        }];
+      });
     }
     // DECISION LEDGER: capital-deployment choices are trades too — log the
     // position (asset, direction, size) and its realized outcome.
@@ -1985,6 +2022,7 @@ export default function App() {
               asset={assetQuote}
               spreadWiden={player.ngPlus ? 1.15 : 1}
               items={player.items}
+              priceHistory={priceHistory}
               foresight={
                 (player.chartInsightDays || 0) > 0 && pendingDriftRef.current !== null
                   ? { drift: pendingDriftRef.current, days: player.chartInsightDays || 0 }
@@ -2268,6 +2306,7 @@ export default function App() {
             asset={assetQuote}
             spreadWiden={player.ngPlus ? 1.15 : 1}
             items={player.items}
+            priceHistory={priceHistory}
             foresight={
               (player.chartInsightDays || 0) > 0 && pendingDriftRef.current !== null
                 ? { drift: pendingDriftRef.current, days: player.chartInsightDays || 0 }
@@ -2353,6 +2392,7 @@ export default function App() {
             positions={positions}
             assetQuote={assetQuote}
             terminalLog={terminalLog}
+            priceHistory={priceHistory}
             initialMode={saveModalMode}
             isAtShrine={isAtSaveShrine}
             onLoadGame={handleLoadGame}

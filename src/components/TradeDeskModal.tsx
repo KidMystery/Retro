@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { StrategyType, PlayerStats, AssetQuote, OptionContract, GrahamProtectionId } from '../types';
+import { StrategyType, PlayerStats, AssetQuote, OptionContract, GrahamProtectionId, PriceCandle } from '../types';
+import { CandleChart } from './CandleChart';
 import { calculateBlackScholes, generateAsciiPayoffChart } from '../lib/blackScholes';
 import { sound } from '../lib/audioEngine';
 import { X, Sparkles, Shield, TrendingUp, Clock, Zap, Coins, BookOpen } from 'lucide-react';
@@ -15,6 +16,8 @@ interface TradeDeskModalProps {
   items?: string[];
   /** Soul pass ORACLE FORESIGHT: chart-shrine buff reveals the pre-rolled next tape. */
   foresight?: { drift: number; days: number };
+  /** Council Candles: realized OHLC history (completed days only). */
+  priceHistory?: PriceCandle[];
 }
 
 // Strategy metadata with Olmstead chapter progression + fantasy lore
@@ -127,7 +130,8 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
   onClose,
   spreadWiden = 1,
   items = [],
-  foresight
+  foresight,
+  priceHistory
 }) => {
   const [strategy, setStrategy] = useState<StrategyType>('LONG_CALL');
   const [strikeOffset, setStrikeOffset] = useState<number>(0);
@@ -459,6 +463,15 @@ export const TradeDeskModal: React.FC<TradeDeskModalProps> = ({
             <div className="mt-1 text-[11px] text-slate-400 italic line-clamp-2">
               {asset.lore} • Oracle Bond reveals true worth beneath Mr. Market's mood swings.
             </div>
+            {/* Council Candles: realized OHLC tape — completed days only (no lookahead). */}
+            {priceHistory && priceHistory.length > 0 && (
+              <div className="mt-2 p-2 rounded bg-black/40 border border-amber-700/30">
+                <div className="text-[10px] text-amber-300/80 font-mono tracking-widest mb-1">
+                  ◈ THE TAPE — LAST {Math.min(30, priceHistory.length)} DAYS
+                </div>
+                <CandleChart history={priceHistory} />
+              </div>
+            )}
             {/* Soul pass ORACLE FORESIGHT: chart-shrine buff — the next tape is REVEALED. */}
             {foresight && (() => {
               const bull = foresight.drift >= 0;

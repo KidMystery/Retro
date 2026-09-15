@@ -20,6 +20,7 @@ export interface SaveSlotData {
   positions: OptionContract[];
   assetQuote: AssetQuote;
   terminalLog: string[];
+  priceHistory?: PriceCandle[];
 }
 
 export type ContractType = 'CALL' | 'PUT';
@@ -54,6 +55,16 @@ export interface OptionContract {
   entrySpot?: number;
   entryIv?: number;
   isProtectedByGraham?: boolean;
+}
+
+// OHLC candle for the trade-desk price chart (one per completed market day).
+export interface PriceCandle {
+  d: number;   // in-game day the candle completed
+  o: number;   // open (previous day's close)
+  h: number;   // high (realized intraday max)
+  l: number;   // low (realized intraday min)
+  c: number;   // close (the day's settled spot)
+  event?: string; // optional market-event label (rug-pull, squeeze...) that shaped it
 }
 
 export interface AssetQuote {

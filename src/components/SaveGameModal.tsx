@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { PlayerStats, OptionContract, AssetQuote, SaveSlotData, TunicColor } from '../types';
+import { PlayerStats, OptionContract, AssetQuote, SaveSlotData, TunicColor, PriceCandle } from '../types';
 import { SaveSystem } from '../lib/saveSystem';
 import { sound } from '../lib/audioEngine';
 import { Save, Download, Trash2, Sparkles, Check, Clock, MapPin, Heart, X } from 'lucide-react';
@@ -9,6 +9,7 @@ interface SaveGameModalPropsBase {
   positions: OptionContract[];
   assetQuote: AssetQuote;
   terminalLog: string[];
+  priceHistory?: PriceCandle[];
   isAtSaveShrine?: boolean;
   onLoadGame: (data: SaveSlotData) => void;
   onClose: () => void;
@@ -32,7 +33,7 @@ export const SaveGameModal: React.FC<Props> = (props: any) => {
 
   const handleSaveToSlot = (slotNumber: number) => {
     sound.playSaveGame();
-    SaveSystem.saveToSlot(slotNumber, locationName, props.player, props.positions, props.assetQuote, props.terminalLog);
+    SaveSystem.saveToSlot(slotNumber, locationName, props.player, props.positions, props.assetQuote, props.terminalLog, props.priceHistory);
     refreshSlots();
     setSaveSuccessNotice(`Adventure preserved in Slot ${slotNumber}! Oracle Bond +0.2`);
     setTimeout(()=>setSaveSuccessNotice(null), 2800);

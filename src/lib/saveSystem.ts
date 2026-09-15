@@ -1,4 +1,4 @@
-import { SaveSlotData, PlayerStats, OptionContract, AssetQuote } from '../types';
+import { SaveSlotData, PlayerStats, OptionContract, AssetQuote , PriceCandle } from '../types';
 
 const SAVE_KEY_PREFIX = 'valuaria_save_slot_';
 const AUTO_SAVE_KEY = 'valuaria_auto_save';
@@ -34,7 +34,8 @@ export class SaveSystem {
     player: PlayerStats,
     positions: OptionContract[],
     assetQuote: AssetQuote,
-    terminalLog: string[]
+    terminalLog: string[],
+    priceHistory?: PriceCandle[]
   ): SaveSlotData {
     const saveData: SaveSlotData = {
       id: `slot_${slotNumber}_${Date.now()}`,
@@ -45,7 +46,8 @@ export class SaveSystem {
       player,
       positions,
       assetQuote,
-      terminalLog: terminalLog.slice(-15)
+      terminalLog: terminalLog.slice(-15),
+      ...(priceHistory ? { priceHistory } : {})
     };
 
     try {
@@ -64,7 +66,8 @@ export class SaveSystem {
     player: PlayerStats,
     positions: OptionContract[],
     assetQuote: AssetQuote,
-    terminalLog: string[]
+    terminalLog: string[],
+    priceHistory?: PriceCandle[]
   ): void {
     const saveData: SaveSlotData = {
       id: `autosave_${Date.now()}`,
@@ -75,7 +78,8 @@ export class SaveSystem {
       player,
       positions,
       assetQuote,
-      terminalLog: terminalLog.slice(-15)
+      terminalLog: terminalLog.slice(-15),
+      ...(priceHistory ? { priceHistory } : {})
     };
 
     try {
