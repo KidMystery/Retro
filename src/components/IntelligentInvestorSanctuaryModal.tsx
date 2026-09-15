@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { INTELLIGENT_INVESTOR_LESSONS } from '../lib/intelligentInvestorData';
 import { PlayerStats, GrahamProtectionId, TradeFailReason } from '../types';
 import { sound } from '../lib/audioEngine';
+import { useShuffledChoices } from '../lib/choiceShuffle';
 import { BookOpen, Sparkles, Heart, ShieldCheck, Crown } from 'lucide-react';
 
 interface IntelligentInvestorSanctuaryModalProps {
@@ -21,6 +22,8 @@ export const IntelligentInvestorSanctuaryModal: React.FC<IntelligentInvestorSanc
   const lesson = forcedLessonId 
     ? INTELLIGENT_INVESTOR_LESSONS.find(l => l.id === forcedLessonId) || INTELLIGENT_INVESTOR_LESSONS[0]
     : INTELLIGENT_INVESTOR_LESSONS[player.intelligentInvestorRevivals % INTELLIGENT_INVESTOR_LESSONS.length];
+  // Anti-A-spam: deterministic per-lesson shuffle.
+  const choiceOrder = useShuffledChoices(lesson.reflectionQuestion.choices.length, lesson.id);
 
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [answered, setAnswered] = useState(false);
@@ -86,17 +89,18 @@ export const IntelligentInvestorSanctuaryModal: React.FC<IntelligentInvestorSanc
           </div>
           <p className="mb-3 text-sm font-bold text-slate-100">{lesson.reflectionQuestion.prompt}</p>
           <div className="space-y-2">
-            {lesson.reflectionQuestion.choices.map((choice, idx) => {
-              const isSelected = selectedAnswer === idx;
+            {choiceOrder.map((origIdx, disp) => {
+              const choice = lesson.reflectionQuestion.choices[origIdx];
+              const isSelected = selectedAnswer === origIdx;
               let btnStyle = 'border-slate-600 bg-slate-900/60 hover:bg-sky-900/30 hover:border-sky-400 text-slate-200';
               if (answered) {
-                if (idx === lesson.reflectionQuestion.correctIndex) btnStyle = 'border-green-400 bg-green-950/60 text-green-200 font-bold';
+                if (origIdx === lesson.reflectionQuestion.correctIndex) btnStyle = 'border-green-400 bg-green-950/60 text-green-200 font-bold';
                 else if (isSelected) btnStyle = 'border-red-500 bg-red-950/60 text-red-200';
                 else btnStyle = 'opacity-30 border-slate-800 text-slate-600';
               }
               return (
-                <button key={idx} disabled={answered} onClick={() => handleSelectAnswer(idx)} className={`w-full text-left p-2.5 border-2 rounded-lg transition-all text-sm cursor-pointer ${btnStyle}`}>
-                  <span className="font-bold mr-2">[{String.fromCharCode(65+idx)}]</span>{choice}
+                <button key={origIdx} disabled={answered} onClick={() => handleSelectAnswer(origIdx)} className={`w-full text-left p-2.5 border-2 rounded-lg transition-all text-sm cursor-pointer ${btnStyle}`}>
+                  <span className="font-bold mr-2">[{String.fromCharCode(65+disp)}]</span>{choice}
                 </button>
               );
             })}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useShuffledChoices } from '../lib/choiceShuffle';
 import { ChartPuzzle } from '../lib/curriculum/chartPuzzles';
 
 /**
@@ -17,6 +18,8 @@ const W = 320, H = 160, PAD = 16;
 export const ChartPuzzleModal: React.FC<ChartPuzzleModalProps> = ({ puzzle, onAnswer, onLeave }) => {
   const [picked, setPicked] = React.useState<number | null>(null);
   const [revealed, setRevealed] = React.useState(false);
+  // Anti-A-spam: display order shuffles per puzzle id (answer logic uses original indices).
+  const order = useShuffledChoices(puzzle.choices.length, puzzle.id);
 
   const los = puzzle.candles.map(c => c.l);
   const his = puzzle.candles.map(c => c.h);
@@ -54,23 +57,24 @@ export const ChartPuzzleModal: React.FC<ChartPuzzleModalProps> = ({ puzzle, onAn
           </div>
           <p className="font-mono text-xs text-slate-200 leading-relaxed">{puzzle.question}</p>
           <div className="space-y-2">
-            {puzzle.choices.map((choice, i) => {
-              const isCorrect = i === puzzle.correctIndex;
+            {order.map((origIdx, disp) => {
+              const choice = puzzle.choices[origIdx];
+              const isCorrect = origIdx === puzzle.correctIndex;
               const style = !revealed
                 ? 'border-sky-500/50 text-sky-200 hover:bg-sky-500/15'
                 : isCorrect
                   ? 'border-green-500 text-green-300 bg-green-500/10'
-                  : picked === i
+                  : picked === origIdx
                     ? 'border-red-500 text-red-300 bg-red-500/10'
                     : 'border-slate-700 text-slate-500 opacity-60';
               return (
                 <button
-                  key={i}
+                  key={origIdx}
                   disabled={revealed}
-                  onClick={() => { setPicked(i); setRevealed(true); }}
+                  onClick={() => { setPicked(origIdx); setRevealed(true); }}
                   className={`w-full text-left font-mono text-xs px-3 py-2 border-2 rounded transition-colors ${style}`}
                 >
-                  {String.fromCharCode(65 + i)}. {choice}
+                  {String.fromCharCode(65 + disp)}. {choice}
                 </button>
               );
             })}

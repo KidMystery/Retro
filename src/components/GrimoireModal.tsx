@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { OPTIONS_LESSONS } from '../lib/lessonsData';
+import { useShuffledChoices } from '../lib/choiceShuffle';
 import { sound } from '../lib/audioEngine';
 import { BookOpen, CheckCircle, X, Award, HelpCircle, Crown } from 'lucide-react';
 
@@ -14,6 +15,8 @@ export const GrimoireModal: React.FC<GrimoireModalProps> = ({ onAwardFlorins, on
   const [solvedQuizzes, setSolvedQuizzes] = useState<{ [lessonId: string]: boolean }>({});
 
   const activeLesson = OPTIONS_LESSONS.find(l => l.id === selectedLessonId) || OPTIONS_LESSONS[0];
+  // Anti-A-spam: stable per-lesson shuffle (deterministic seed = lesson id).
+  const choiceOrder = useShuffledChoices(activeLesson.quizQuestion.options.length, activeLesson.id);
 
   const handleSelectAnswer = (optionIdx: number) => {
     sound.playKeyClick();
@@ -83,14 +86,15 @@ export const GrimoireModal: React.FC<GrimoireModalProps> = ({ onAwardFlorins, on
               </div>
               <p className="font-bold text-sm text-slate-100">{activeLesson.quizQuestion.prompt}</p>
               <div className="space-y-1.5">
-                {activeLesson.quizQuestion.options.map((opt, oIdx) => {
-                  const isChosen = quizAnswers[activeLesson.id] === oIdx;
-                  const isCorrect = oIdx === activeLesson.quizQuestion.correctIndex;
+                {choiceOrder.map((origIdx, disp) => {
+                  const opt = activeLesson.quizQuestion.options[origIdx];
+                  const isChosen = quizAnswers[activeLesson.id] === origIdx;
+                  const isCorrect = origIdx === activeLesson.quizQuestion.correctIndex;
                   let btnStyle = 'border-slate-600 bg-slate-900/60 hover:bg-slate-800 text-slate-200';
                   if (isChosen) btnStyle = isCorrect ? 'border-emerald-400 bg-emerald-950/60 text-emerald-200 font-bold' : 'border-red-500 bg-red-950/60 text-red-200 font-bold';
                   return (
-                    <button key={oIdx} onClick={() => handleSelectAnswer(oIdx)} className={`w-full text-left p-2.5 border-2 rounded-xl cursor-pointer text-sm ${btnStyle}`}>
-                      <span className="mr-1.5 opacity-60">[{String.fromCharCode(65+oIdx)}]</span>{opt}
+                    <button key={origIdx} onClick={() => handleSelectAnswer(origIdx)} className={`w-full text-left p-2.5 border-2 rounded-xl cursor-pointer text-sm ${btnStyle}`}>
+                      <span className="mr-1.5 opacity-60">[{String.fromCharCode(65+disp)}]</span>{opt}
                     </button>
                   );
                 })}

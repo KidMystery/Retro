@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IntelligentInvestorLesson, OptionsMechanicChallenge } from '../types';
 import { sound } from '../lib/audioEngine';
+import { useShuffledChoices } from '../lib/choiceShuffle';
 import { X } from 'lucide-react';
 import brokerGateUrl from '../assets/sprites/broker_gate.png';
 
@@ -19,6 +20,8 @@ export const OptionsMechanicGate: React.FC<OptionsMechanicGateProps> = ({ lesson
   const [selected, setSelected] = useState<number | null>(null);
   const [answered, setAnswered] = useState(false);
   const correct = selected === challenge.correctIndex;
+  // Anti-A-spam: deterministic per-challenge shuffle.
+  const choiceOrder = useShuffledChoices(challenge.choices.length, challenge.id || challenge.prompt);
 
   const handleAnswer = (idx: number) => {
     if (answered) return;
@@ -55,9 +58,10 @@ export const OptionsMechanicGate: React.FC<OptionsMechanicGateProps> = ({ lesson
           <div className="border-t border-amber-500/20 pt-3">
             <p className="text-[13px] text-cyan-300 mb-2">» {challenge.prompt}</p>
             <div className="space-y-1.5">
-              {challenge.choices.map((choice, idx) => {
-                const isPicked = selected === idx;
-                const isRight = idx === challenge.correctIndex;
+              {choiceOrder.map((origIdx, disp) => {
+                const choice = challenge.choices[origIdx];
+                const isPicked = selected === origIdx;
+                const isRight = origIdx === challenge.correctIndex;
                 let cls = 'border-slate-700 text-slate-300 hover:border-amber-500/60 hover:bg-amber-500/5';
                 if (answered) {
                   if (isRight) cls = 'border-emerald-500 bg-emerald-500/10 text-emerald-300';
@@ -66,12 +70,12 @@ export const OptionsMechanicGate: React.FC<OptionsMechanicGateProps> = ({ lesson
                 }
                 return (
                   <button
-                    key={idx}
-                    onClick={() => handleAnswer(idx)}
+                    key={origIdx}
+                    onClick={() => handleAnswer(origIdx)}
                     disabled={answered}
                     className={`w-full text-left px-3 py-2 border text-[12px] transition-colors ${cls}`}
                   >
-                    <span className="text-amber-500 mr-2">{String.fromCharCode(65 + idx)}.</span>{choice}
+                    <span className="text-amber-500 mr-2">{String.fromCharCode(65 + disp)}.</span>{choice}
                   </button>
                 );
               })}
