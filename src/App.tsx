@@ -1021,11 +1021,22 @@ export default function App() {
     const totalPlayerDamage = isMirrorBoss && isCorrect
       ? Math.max(0, (baseDamage + bonusDamage) * 2)
       : Math.max(0, baseDamage + bonusDamage);
-    const updatedEnemyHp = Math.max(0, combatState.enemy.currentHp - totalPlayerDamage);
+    // PLAYTEST#8 (D2): mashing A still cleared bosses — wrong answers were too cheap. Now a
+    // wrong answer makes the boss COLLECT: it heals 8% of maxHp (the tithe) and the player
+    // pays hearts. Blind mashing is now NET NEGATIVE — you must actually read the tape.
+    const bossHealsOnWrong = !isCorrect && !isMirrorBoss
+      ? Math.round(combatState.enemy.maxHp * 0.08)
+      : 0;
+    const updatedEnemyHp = Math.max(0,
+      Math.min(combatState.enemy.maxHp,
+        combatState.enemy.currentHp - totalPlayerDamage + bossHealsOnWrong));
     if (!isCorrect) sayWren({ kind: 'combatLoss' });
     let heartDelta = 0;
     if (isCorrect) heartDelta = 0.5;
     else { heartDelta = -1.0; sound.playAlarmSound(); }
+    if (bossHealsOnWrong > 0) {
+      setTerminalLog(prev => [...prev.slice(-10), `💀 THE TITHE: ${combatState.enemy.name} feeds on your error and recovers ${bossHealsOnWrong} HP. Wrong answers aren't free — read, then strike.`]);
+    }
 
     // BOSS SPECIALMOVE ENFORCEMENT — each act boss's rule fires every turn the
     // fight continues (telegraphed in the intro log). Not applied on the
@@ -1296,8 +1307,8 @@ export default function App() {
     let floorEntities: Array<{ id: string; name: string; x: number; y: number; prompt: string }> = [];
     if (player.chapter === 1 && dungeonFloor === 1) {
       floorEntities = [
-        { id: 'chest_ring_nw', name: 'Sealed Ring Chest — West Alcove', x: 5.5, y: 10.5, prompt: 'Open the alcove chest [Gated Ring loot]' },
-        { id: 'chest_ring_se', name: 'Sealed Ring Chest — East Alcove', x: 13.5, y: 14.5, prompt: 'Open the alcove chest [Gated Ring loot]' },
+        { id: 'chest_ring_nw', name: 'Sealed Ring Chest — Vault of the Gate', x: 8.5, y: 7.5, prompt: 'Open the alcove chest [Gated Ring loot]' },
+        { id: 'chest_ring_se', name: 'Sealed Ring Chest — Outer Ring East', x: 13.5, y: 14.5, prompt: 'Open the alcove chest [Gated Ring loot]' },
         { id: 'sage_ring', name: 'Echo of Ashfall — The Ring', x: 9.5, y: 6.5, prompt: 'Hear the Echo: defined risk is the gate key [spread legs to open]' },
       ];
     } else if (player.chapter === 1 && dungeonFloor === 2) {
@@ -1849,7 +1860,7 @@ export default function App() {
 
           {currentView === 'DUNGEON' && (() => {
             const baseDun = DUNGEONS[player.chapter] || DUNGEONS[1];
-            const floorCfg = baseDun.floors?.[dungeonFloor];
+            const floorCfg = baseDun.floors?.[dungeonFloor - 1]; // floors[] starts at 2F (floor 0 = base map) — off-by-one fixed 9/14
             const dun: DungeonConfig = floorCfg
               ? { ...baseDun, tiles: floorCfg.tiles, playerSpawn: floorCfg.playerSpawn, actLabel: floorCfg.label || baseDun.actLabel }
               : baseDun;
