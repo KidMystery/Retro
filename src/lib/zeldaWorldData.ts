@@ -74,9 +74,9 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
       'T....P======P....PT',
       'TT.T.P~~~~~~~P....PT',
       'T....PPPPPPPPP....PT',
-      'T.F......T........PT',
-      'T........T..F.....PT',
-      'T..D.....T........PT',
+      'T.F......T........PP',
+      'T........T..F.....PP',
+      'T..D.....T........PP',
       'T........T....D...PT',
       'TTTTTTTTTTTTTTTTTTTT'
     ],
@@ -218,8 +218,8 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
       '#....P======P....P#',
       '##.#.P~~~~~~~P....P#',
       '#....PPPPPPPPP....P#',
-      '#........#........P#',
-      '#........#........P#',
+      'P........#........P#',
+      'P........#........P#',
       '#..D.....#........P#',
       '#........#....D...P#',
       '####################'
@@ -674,6 +674,14 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
  *        sequence before Vex, no sanctuary between.
  * All mazes BFS-validated fully connected (Act II once gates open).
  */
+
+// EDGE-DOOR WORLD MAP (council verdict 9/14): regions connect at their borders.
+// east/west = which border of the region; gateChapter = minimum player.chapter to cross.
+export const REGION_LINKS: { [region: number]: { east?: { region: number; gateChapter: number }; west?: { region: number; gateChapter: number } } } = {
+  1: { east: { region: 2, gateChapter: 2 } },
+  2: { west: { region: 1, gateChapter: 1 } },
+};
+
 export const DUNGEONS: { [act: number]: DungeonConfig } = {
   1: {
     tiles: [

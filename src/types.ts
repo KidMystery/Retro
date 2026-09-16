@@ -203,6 +203,8 @@ export interface PlayerStats {
   mapX: number;
   mapY: number;
   facing: 'UP' | 'DOWN' | 'LEFT' | 'RIGHT';
+  /** Edge-door world map: which region's overworld the player currently walks (defaults to chapter). */
+  overworldRegion?: number;
   potions: {
     healthElixir: number;
     ivStabilizer: number;

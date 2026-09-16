@@ -25,7 +25,7 @@ import {
   TradeRecord
 } from './types';
 import { REALM_MAPS, BOSS_ENEMIES, STORY_QUESTS } from './lib/questData';
-import { ZELDA_MAPS, ZeldaEntity, DUNGEONS, DungeonConfig } from './lib/zeldaWorldData';
+import { ZELDA_MAPS, ZeldaEntity, DUNGEONS, DungeonConfig, REGION_LINKS } from './lib/zeldaWorldData';
 import { UNDERVALUED_ASSETS } from './lib/undervaluedAssetsData';
 import { SCAM_ENCOUNTERS } from './lib/scamsData';
 import { INTELLIGENT_INVESTOR_LESSONS, getTradeMechanicGate, getTradeEncounter } from './lib/intelligentInvestorData';
@@ -1215,6 +1215,32 @@ export default function App() {
   };
 
   const handleOverworldMove = (x: number, y: number, facing: 'UP' | 'DOWN' | 'LEFT' | 'RIGHT') => {
+    // EDGE-DOOR WORLD MAP (council 9/14): stepping onto a carved border pass transitions
+    // regions. Gate = chapter. Crossing snaps the player to the opposite edge of the target.
+    const region = player.overworldRegion ?? player.chapter;
+    const link = REGION_LINKS[region];
+    const atEastEdge = x >= 19, atWestEdge = x <= 0;
+    if (link && (atEastEdge || atWestEdge)) {
+      const crossing = atEastEdge ? link.east : link.west;
+      if (crossing && player.chapter >= crossing.gateChapter) {
+        const newX = atEastEdge ? 1 : 18;
+        setPlayer(prev => ({
+          ...prev,
+          overworldRegion: crossing.region,
+          mapX: newX,
+          mapY: Math.max(1, Math.min(12, y)),
+          facing
+        }));
+        setTerminalLog(prev => [...prev.slice(-10), `🗺 You cross into ${ZELDA_MAPS[crossing.region]?.regionTitle || 'the next region'}.`]);
+        sound.playSecretChime();
+        return;
+      }
+      if (crossing && player.chapter < crossing.gateChapter) {
+        setTerminalLog(prev => [...prev.slice(-10), `🚧 The way east is sealed — the Grove's lesson isn't finished. (Reach Act ${crossing.gateChapter} to travel.)`]);
+        sound.playAlarmSound();
+        return;
+      }
+    }
     setPlayer(prev => ({ ...prev, mapX: x, mapY: y, facing }));
   };
 
@@ -1845,7 +1871,7 @@ export default function App() {
               {/* OVERWORLD — the primary game space (principal directive): talk to NPCs,
                   see story, prepare; dungeons are DESTINATIONS entered via PORTAL markers. */}
               <ZeldaOverworldCanvas
-                act={player.chapter}
+                act={player.overworldRegion ?? player.chapter}
                 player={player}
                 openedChestIds={(player.openedChests || []).map(k => k.split(':')[1])}
                 asset={assetQuote}
