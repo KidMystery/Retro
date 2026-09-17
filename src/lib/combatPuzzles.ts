@@ -1,4 +1,10 @@
 import { CombatAttackPuzzle } from '../types';
+import { OPTIONS_LESSONS } from './lessonsData';
+import { INTELLIGENT_INVESTOR_LESSONS } from './intelligentInvestorData';
+import { GRAHAM_CORE_LESSONS } from './curriculum/grahamCore';
+import { OLMSTEAD_TRACK_LESSONS } from './curriculum/olmsteadTrack';
+import { MCMILLAN_TRACK_LESSONS } from './curriculum/mcmillanTrack';
+import { CRYPTO_ARC_LESSONS } from './curriculum/cryptoArc';
 
 export const COMBAT_ATTACK_PUZZLES: CombatAttackPuzzle[] = [
   // TIER 1 (Novice: 3-4 Hearts)
@@ -211,9 +217,67 @@ export const COMBAT_ATTACK_PUZZLES: CombatAttackPuzzle[] = [
   }
 ];
 
+// ── PLAYTEST#9 DEFECT FIX (founder report: "every answer was B / same question twice") ──
+// Root cause: the handcrafted pool was 7 puzzles (tier-1 pool = 3), so questions repeated
+// within a session and 3 options made blind mashing 33% effective. The curriculum banks
+// already hold 60+ MCQ questions with 4 choices each — generate the combat pool from them.
+
+function qChoices(q: any): any[] { return Array.isArray(q?.choices) ? q.choices : Array.isArray(q?.options) ? q.options : []; }
+function qOk(q: any): boolean { return Array.isArray(qChoices(q)) && qChoices(q).length >= 3 && typeof q?.correctIndex === 'number' && q.correctIndex >= 0; }
+function qExpl(q: any): string { return q?.explanation ?? ''; }
+
+function buildGeneratedPuzzles(): CombatAttackPuzzle[] {
+  const out: CombatAttackPuzzle[] = [];
+  const push = (bank: string, tier: number, id: string, q: any) => {
+    const choices = qChoices(q);
+    if (!Array.isArray(choices) || choices.length < 3 || typeof q?.correctIndex !== 'number' || q.correctIndex < 0 || q.correctIndex >= choices.length) return;
+    out.push({
+      id: `gen_${bank}_${id}`,
+      difficultyTier: tier,
+      prompt: q.prompt || 'Read the tape and choose.',
+      context: `${bank.toUpperCase()} CURRICULUM`,
+      options: choices.map((text: string, i: number) => ({
+        label: '',
+        text,
+        isCorrect: i === q.correctIndex,
+        explanation: i === q.correctIndex ? (q.explanation || 'The ledger confirms this path.') : `The ledger rejects this path. ${q.explanation || ''}`,
+        damageBonus: i === q.correctIndex ? 6 + tier * 2 : 0,
+      })),
+    });
+  };
+  for (const l of GRAHAM_CORE_LESSONS as any[]) {
+    const q = (l as any).quiz ?? (l as any).question ?? (Array.isArray((l as any).choices) ? l : null);
+    if (q) push('graham', 1, String((l as any).id ?? out.length), q);
+  }
+  for (const l of OPTIONS_LESSONS as any[]) if ((l as any).quizQuestion) push('options', 1, String((l as any).id ?? out.length), (l as any).quizQuestion);
+  for (const l of OLMSTEAD_TRACK_LESSONS as any[]) {
+    const q = (l as any).quiz ?? (l as any).question ?? (Array.isArray((l as any).choices) ? l : null);
+    if (q) push('olmstead', 2, String((l as any).id ?? out.length), q);
+  }
+  for (const l of CRYPTO_ARC_LESSONS as any[]) {
+    const q = (l as any).quiz ?? (l as any).question ?? (Array.isArray((l as any).choices) ? l : null);
+    if (q) push('crypto', 2, String((l as any).id ?? out.length), q);
+  }
+  for (const l of INTELLIGENT_INVESTOR_LESSONS as any[]) if ((l as any).reflectionQuestion) push('intel', 3, String((l as any).id ?? out.length), (l as any).reflectionQuestion);
+  for (const l of MCMILLAN_TRACK_LESSONS as any[]) {
+    const q = (l as any).quiz ?? (l as any).question ?? (Array.isArray((l as any).choices) ? l : null);
+    if (q) push('mcmillan', 3, String((l as any).id ?? out.length), q);
+  }
+  return out;
+}
+
+const GENERATED_PUZZLES: CombatAttackPuzzle[] = buildGeneratedPuzzles();
+const FULL_POOL: CombatAttackPuzzle[] = [...COMBAT_ATTACK_PUZZLES, ...GENERATED_PUZZLES];
+
+// Session anti-repeat: cycle the pool before re-dealing a question.
+const recentIds: string[] = [];
+
 export function getAttackPuzzleForTier(tier: number): CombatAttackPuzzle {
-  const matching = COMBAT_ATTACK_PUZZLES.filter(p => p.difficultyTier <= tier);
-  if (matching.length === 0) return COMBAT_ATTACK_PUZZLES[0];
-  const randIdx = Math.floor(Math.random() * matching.length);
-  return matching[randIdx];
+  const pool = [...COMBAT_ATTACK_PUZZLES, ...GENERATED_PUZZLES].filter(p => p.difficultyTier <= tier);
+  const fresh = pool.filter(p => !recentIds.includes(p.id));
+  const source = fresh.length > 0 ? fresh : pool;
+  const pick = source[Math.floor(Math.random() * source.length)];
+  recentIds.push(pick.id);
+  if (recentIds.length > 12) recentIds.shift();
+  return pick;
 }
