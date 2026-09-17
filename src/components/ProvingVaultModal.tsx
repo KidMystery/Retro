@@ -23,6 +23,7 @@ export function ProvingVaultModal({ startEquity, onComplete }: Props) {
   const [maxDrawdownPct, setMaxDrawdownPct] = useState(0);
   const [allocation, setAllocation] = useState(50);
   const [liquidated, setLiquidated] = useState(false);
+  const [liquidationCount, setLiquidationCount] = useState(0);
   const [log, setLog] = useState<string[]>([
     `◈ THE PROVING VAULT: 60 days, scripted tape. Start equity ${Math.round(startEquity).toLocaleString()}ƒ.`,
     '◈ Pass = finish at or above start, drawdown never worse than 25%, zero liquidations.',
@@ -41,25 +42,40 @@ export function ProvingVaultModal({ startEquity, onComplete }: Props) {
     const newDay = day + 1;
     const nextPhase = vaultPhaseForDay(Math.min(60, newDay));
 
+    // COUNCIL FIX (Voltron M5): ONE liquidation is a survivable lesson — fail→learn is the
+    // game's own doctrine. First blowup: salvage 25% recovery capital and the run CONTINUES.
+    // A second liquidation seals the vault: the lesson didn't land.
     let newLog = log;
-    let isLiquidated = liquidated;
-    if (newEquity <= 0) {
-      isLiquidated = true;
-      newLog = [...log.slice(-6), `☠ DAY ${day}: LIQUIDATED. The vault door seals shut.`];
+    let endRun = false;
+    let endEquity = newEquity;
+    let salvageNote = '';
+    if (newEquity <= 0 && liquidationCount === 0) {
+      const salvage = Math.max(1000, Math.round(startEquity * 0.25));
+      endEquity = salvage;
+      salvageNote = `☠ DAY ${day}: LIQUIDATED. The Oracle grants ${salvage.toLocaleString()}ƒ recovery capital — one ruin is a lesson, not a verdict. Sized wrong, the whole account dies; keep the allocation small.`;
+      newLog = [...log.slice(-5), salvageNote];
+      setLiquidated(true);
+      setLiquidationCount(1);
+    } else if (newEquity <= 0) {
+      salvageNote = `☠ DAY ${day}: LIQUIDATED AGAIN. The vault door seals shut — the first lesson didn't land.`;
+      newLog = [...log.slice(-5), salvageNote];
+      setLiquidated(true);
+      setLiquidationCount(2);
+      endEquity = 0;
+      endRun = true;
     } else {
       const note = nextPhase !== phase ? ` → ${nextPhase} begins` : '';
       newLog = [...log.slice(-6), `◈ DAY ${day} [${phase}]: market ${r >= 0 ? '+' : ''}${(r * 100).toFixed(1)}% × ${allocation}% invested → equity ${Math.round(newEquity).toLocaleString()}ƒ • dd ${dd.toFixed(1)}%${note}`];
     }
 
     setDay(newDay);
-    setEquity(newEquity);
-    setPeak(newPeak);
+    setEquity(endEquity);
+    setPeak(Math.max(peak, endEquity));
     setMaxDrawdownPct(newMaxDd);
-    setLiquidated(isLiquidated);
     setLog(newLog);
 
-    if (isLiquidated || newDay > 60) {
-      const result = gradeProvingVault(startEquity, isLiquidated ? 0 : newEquity, newMaxDd, isLiquidated, day);
+    if (endRun || newDay > 60) {
+      const result = gradeProvingVault(startEquity, endEquity, newMaxDd, endRun, day, liquidationCount + (newEquity <= 0 ? 1 : 0));
       setTimeout(() => onComplete(result), 400);
     }
   };

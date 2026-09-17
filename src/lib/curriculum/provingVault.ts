@@ -54,16 +54,21 @@ export interface ProvingVaultResult {
   liquidated: boolean;
   win: boolean;
   daysSurvived: number;
+  liquidationCount?: number;
 }
 
 /** Win = end >= start AND maxDrawdown < 25% AND zero liquidations. */
+// Council fix (9/16): ONE liquidation is a survivable lesson (fail→learn is the game's own
+// doctrine — a single early ruin shouldn't permanently sink an otherwise-disciplined run).
+// TWO or more liquidations = the discipline seal fails.
 export function gradeProvingVault(
   startEquity: number,
   endEquity: number,
   maxDrawdownPct: number,
   liquidated: boolean,
-  daysSurvived: number
+  daysSurvived: number,
+  liquidationCount: number = liquidated ? 1 : 0
 ): ProvingVaultResult {
-  const win = !liquidated && endEquity >= startEquity && maxDrawdownPct < 25;
-  return { startEquity, endEquity, maxDrawdownPct, liquidated, win, daysSurvived };
+  const win = liquidationCount <= 1 && endEquity >= startEquity && maxDrawdownPct < 25;
+  return { startEquity, endEquity, maxDrawdownPct, liquidated, win, daysSurvived, liquidationCount };
 }
