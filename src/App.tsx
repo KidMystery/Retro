@@ -44,6 +44,7 @@ import { DOSHeader } from './components/DOSHeader';
 import { ZeldaHeartsHUD } from './components/ZeldaHeartsHUD';
 import { ZeldaOverworldCanvas } from './components/ZeldaOverworldCanvas';
 import { DungeonView } from './components/DungeonView';
+import { DungeonRooms } from './components/DungeonRooms';
 import { ZeldaCombatModal } from './components/ZeldaCombatModal';
 import { UndervaluedAssetModal } from './components/UndervaluedAssetModal';
 import { RugPullLessonModal } from './components/RugPullLessonModal';
@@ -1915,9 +1916,11 @@ export default function App() {
             // COUNCIL PASS 9/13 — floor light temperature: 1F warm teaching halls,
             // 2F cool ring chamber, B1 deep vault sepia. Plaque rides actLabel already.
             const floorTint: 'warm' | 'cool' | 'vault' = dungeonFloor === 0 ? 'warm' : dungeonFloor === 1 ? 'cool' : 'vault';
+            // VOLTRON M1: chapter 1 renders the top-down room engine; acts 2-5 stay raycaster until migrated.
+            const DungeonRenderer = player.chapter === 1 ? DungeonRooms : DungeonView;
             return (
               <>
-                <DungeonView
+                <DungeonRenderer
                   onExit={() => { sound.playSecretChime(); setCurrentView('MAP'); setDungeonFloor(0); setTerminalLog(prev => [...prev.slice(-10), `🕳 You climb the stairs back to the overworld.`]); }}
                   map={dun.tiles}
                   spawn={dun.playerSpawn}
