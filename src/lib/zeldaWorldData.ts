@@ -78,7 +78,7 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
       'T........T..F.....PP',
       'T..D.....T........PP',
       'T........T....D...PT',
-      'TTTTTTTTTTTTTTTTTTTT'
+      'TTTTTTTTTTTTTTTTTTTT',
     ],
     playerSpawn: { x: 5, y: 4 },
     entities: [
@@ -218,11 +218,11 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
       '#....P======P....P#',
       '##.#.P~~~~~~~P....P#',
       '#....PPPPPPPPP....P#',
-      'P........#........P#',
-      'P........#........P#',
-      '#..D.....#........P#',
+      'P........#........PP',
+      'P........#........PP',
+      '#..D.....#........PP',
       '#........#....D...P#',
-      '####################'
+      '####################',
     ],
     playerSpawn: { x: 5, y: 4 },
     entities: [
@@ -342,11 +342,11 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
       '#....P======P....P#',
       '##.#.P~~~~~~~P....P#',
       '#....PPPPPPPPP....P#',
-      '#........#........P#',
-      '#........#........P#',
-      '#..D.....#........P#',
+      'P........#........PP',
+      'P........#........PP',
+      'P..D.....#........PP',
       '#........#....D...P#',
-      '####################'
+      '####################',
     ],
     playerSpawn: { x: 5, y: 4 },
     entities: [
@@ -456,11 +456,11 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
       '#....P======P....P#',
       '##.#.P~~~~~~~P....P#',
       '#....PPPPPPPPP....P#',
-      '#........#........P#',
-      '#........#........P#',
-      '#..D.....#........P#',
+      'P........#........PP',
+      'P........#........PP',
+      'P..D.....#........PP',
       '#........#....D...P#',
-      '####################'
+      '####################',
     ],
     playerSpawn: { x: 5, y: 4 },
     entities: [
@@ -571,11 +571,11 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
       '#....P======P....P#',
       '##.#.P~~~~~~~P....P#',
       '#....PPPPPPPPP....P#',
-      '#........#........P#',
-      '#........#........P#',
-      '#..D.....#........P#',
+      'P........#........P#',
+      'P........#........P#',
+      'P..D.....#........P#',
       '#........#....D...P#',
-      '####################'
+      '####################',
     ],
     playerSpawn: { x: 5, y: 4 },
     entities: [
@@ -679,7 +679,10 @@ export const ZELDA_MAPS: { [act: number]: ZeldaMap } = {
 // east/west = which border of the region; gateChapter = minimum player.chapter to cross.
 export const REGION_LINKS: { [region: number]: { east?: { region: number; gateChapter: number }; west?: { region: number; gateChapter: number } } } = {
   1: { east: { region: 2, gateChapter: 2 } },
-  2: { west: { region: 1, gateChapter: 1 } },
+  2: { west: { region: 1, gateChapter: 1 }, east: { region: 3, gateChapter: 3 } },
+  3: { west: { region: 2, gateChapter: 2 }, east: { region: 4, gateChapter: 4 } },
+  4: { west: { region: 3, gateChapter: 3 }, east: { region: 5, gateChapter: 5 } },
+  5: { west: { region: 4, gateChapter: 4 } },
 };
 
 export const DUNGEONS: { [act: number]: DungeonConfig } = {

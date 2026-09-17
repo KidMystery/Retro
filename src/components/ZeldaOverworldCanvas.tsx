@@ -146,6 +146,8 @@ interface ZeldaOverworldCanvasProps {
   onOpenSaveModal?: () => void;
   /** NG+ Second Cycle: darkened corrupted palette variant. */
   corrupted?: boolean;
+  /** Edge-door gate refusal — renders a fading banner when a border is sealed (Voltron M4). */
+  borderMessage?: string | null;
 }
 
 const TUNIC_COLORS: Record<TunicColor, { main: string; shadow: string; highlight: string }> = {
@@ -177,6 +179,7 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
   onInteractEntity,
   onSwordSlash,
   corrupted = false,
+  borderMessage,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const mapData: ZeldaMap = ZELDA_MAPS[act] || ZELDA_MAPS[1];
@@ -624,11 +627,26 @@ export const ZeldaOverworldCanvas: React.FC<ZeldaOverworldCanvasProps> = ({
         }
       }
 
+      // Voltron M4: gate-refusal banner (fading)
+      if (borderMessage) {
+        const t = (performance.now() % 4000) / 4000;
+        const alpha = t < 0.1 ? t / 0.1 : t > 0.85 ? (1 - t) / 0.15 : 1;
+        ctx.font = 'bold 12px monospace'; ctx.textAlign = 'center';
+        const tw = ctx.measureText(borderMessage).width + 24;
+        ctx.fillStyle = `rgba(5,3,2,${(0.72 * alpha).toFixed(3)})`;
+        ctx.fillRect(VIEW_W_PX / 2 - tw / 2, 26, tw, 22);
+        ctx.strokeStyle = `rgba(212,175,55,${(0.6 * alpha).toFixed(3)})`;
+        ctx.strokeRect(VIEW_W_PX / 2 - tw / 2 + 0.5, 26.5, tw - 1, 21);
+        ctx.fillStyle = `rgba(232,163,58,${alpha.toFixed(3)})`;
+        ctx.fillText(borderMessage, VIEW_W_PX / 2, 41);
+        ctx.textAlign = 'left';
+      }
+
       raf = requestAnimationFrame(loop);
     };
     raf = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(raf);
-  }, [act, mapData, player.avatar, corrupted, isSlashing, onMove, isSolid, worldWpx, worldHpx]);
+  }, [act, mapData, player.avatar, corrupted, isSlashing, onMove, isSolid, worldWpx, worldHpx, borderMessage]);
 
   // Touch/click step support: click a tile edge of the canvas to step (mobile).
   const stepTouch = useCallback(

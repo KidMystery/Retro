@@ -185,7 +185,9 @@ export default function App() {
 
   // COUNCIL CANDLES (9/13 night): realized OHLC history — one candle per COMPLETED market day.
   // Wick = the real intraday path (8 drift steps), never IV-derived (implied ≠ realized).
-  const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
+    // Voltron M4: sealed-border banner message (fades on canvas)
+  const [borderMessage, setBorderMessage] = useState<string | null>(null);
+const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
 
   const [combatState, setCombatState] = useState<CombatState>({
     inCombat: false,
@@ -635,7 +637,12 @@ export default function App() {
     setPriceHistory(prev => [...prev.slice(-59), candle]);
     const randomIvDrift = (Math.random() - 0.5) * 0.02;
     // NG+ bear regime: IV floor DOUBLED — volatility spikes are the weather now.
-    const ivFloor = player.ngPlus ? 0.24 : 0.12;
+    // VOLTRON M4: regional risk premium — each region carries its own volatility climate.
+    // Ashen Acre calm (foundations) → Shatterchain storms (scams). Diversification across
+    // regions is a MECHANIC: the same premium behaves differently by geography.
+    const REGION_IV_FLOOR: { [region: number]: number } = { 1: 0.12, 2: 0.16, 3: 0.20, 4: 0.14, 5: 0.28 };
+    const regionKey = player.overworldRegion ?? player.chapter;
+    const ivFloor = (player.ngPlus ? 0.24 : (REGION_IV_FLOOR[regionKey] || 0.12));
     const newIv = Math.max(ivFloor, Math.min(0.95, Number((assetQuote.iv + randomIvDrift).toFixed(3))));
     setAssetQuote(prev => ({
       ...prev,
@@ -1237,6 +1244,9 @@ export default function App() {
         return;
       }
       if (crossing && player.chapter < crossing.gateChapter) {
+        const msg = `🚧 SEALED — reach Act ${crossing.gateChapter} to travel east`;
+        setBorderMessage(msg);
+        setTimeout(() => setBorderMessage(null), 4000);
         setTerminalLog(prev => [...prev.slice(-10), `🚧 The way east is sealed — the Grove's lesson isn't finished. (Reach Act ${crossing.gateChapter} to travel.)`]);
         sound.playAlarmSound();
         return;
@@ -1873,6 +1883,7 @@ export default function App() {
               {/* OVERWORLD — the primary game space (principal directive): talk to NPCs,
                   see story, prepare; dungeons are DESTINATIONS entered via PORTAL markers. */}
               <ZeldaOverworldCanvas
+                borderMessage={borderMessage}
                 act={player.overworldRegion ?? player.chapter}
                 player={player}
                 openedChestIds={(player.openedChests || []).map(k => k.split(':')[1])}
