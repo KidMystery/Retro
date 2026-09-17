@@ -26,6 +26,7 @@ import {
 } from './types';
 import { REALM_MAPS, BOSS_ENEMIES, STORY_QUESTS } from './lib/questData';
 import { ZELDA_MAPS, ZeldaEntity, DUNGEONS, DungeonConfig, REGION_LINKS } from './lib/zeldaWorldData';
+import { ACT_COORDS, CHART_ROOM_COORDS, FLOOR_ENTITIES, baseRosterForAct } from './lib/dungeonDomain';
 import { UNDERVALUED_ASSETS } from './lib/undervaluedAssetsData';
 import { SCAM_ENCOUNTERS } from './lib/scamsData';
 import { INTELLIGENT_INVESTOR_LESSONS, getTradeMechanicGate, getTradeEncounter } from './lib/intelligentInvestorData';
@@ -1261,40 +1262,7 @@ const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
   const dungeonEncounters = useMemo(() => {
     const mapData = ZELDA_MAPS[player.chapter] || ZELDA_MAPS[1];
     // Per-act placements on that act's own maze (tile coords).
-    const actCoords: { [act: number]: Array<[number, number]> } = {
-      1: [
-        // M2 expanded floor (45x22, six rooms): sage / broker / scammers / asset / shrine / chest
-        [3, 4], [19, 4], [33, 4], [34, 8], [21, 7], [4, 15], [7, 15], [19, 16],
-      ],
-      2: [
-        [4, 1],   // sage
-        [7, 2],   // broker
-        [1, 9],   // scam: leverage lord (left chamber)
-        [16, 9],  // scam: vol siren (right chamber — behind the gates)
-        [17, 3],  // undervalued asset
-        [2, 13],  // shrine
-        [17, 13], // chest (right chamber — better loot past the gates)
-        [17, 11], // boss sphinx
-      ],
-      3: [
-        [2, 13],  // sage
-        [9, 6],   // shrine (brazier court)
-        [16, 1],  // broker
-        [16, 13], // undervalued bridge
-        [2, 9],   // scam: range gambler (static)
-        [16, 9],  // chest
-        [9, 13],  // boss crab
-      ],
-      4: [
-        [1, 13],  // sage
-        [17, 13], // broker
-        [9, 11],  // scam: vol siren
-        [1, 1],   // undervalued obsidian shrine
-        [9, 3],   // shrine
-        [17, 1],  // chest (deep dark = better loot)
-        [9, 9],   // boss hydra (deepest chamber)
-      ],
-    };
+    const actCoords = ACT_COORDS;
     const coords = actCoords[player.chapter] || actCoords[1];
     const base = mapData.entities
       .filter(e => e.type !== 'PORTAL')
@@ -1332,7 +1300,7 @@ const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
       prompt: player.secondOracleDefeated ? 'The shadow is gone. Only the crown remains.' : 'Face THE SECOND ORACLE [NG+ Final Boss • it mirrors your positions at 2x — hedge what you open]',
     }] : [];
     // Chart puzzle rooms stay in the Act I teaching dungeon.
-    const chartRoomCoords: Array<[number, number]> = [[9, 5], [25, 4], [9, 16], [25, 16]];
+    const chartRoomCoords = CHART_ROOM_COORDS;
     const chartRooms = player.chapter === 1 ? chartRoomCoords.map((c, i) => ({
       id: `chart-room-${i}`,
       name: `Chart Shrine ${i + 1}`,
@@ -1342,20 +1310,8 @@ const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
     })) : [];
     // MULTI-FLOOR (Act I): floors 2F/B1 carry their own encounters — the 1F roster
     // stays on 1F; deeper floors hold vault loot + the boss at the heart.
-    let floorEntities: Array<{ id: string; name: string; x: number; y: number; prompt: string }> = [];
-    if (player.chapter === 1 && dungeonFloor === 1) {
-      floorEntities = [
-        { id: 'chest_ring_nw', name: 'Sealed Ring Chest — Vault of the Gate', x: 5.5, y: 4.5, prompt: 'Open the alcove chest [Gated Ring loot]' },
-        { id: 'chest_ring_se', name: 'Sealed Ring Chest — Outer Ring East', x: 35.5, y: 16.5, prompt: 'Open the alcove chest [Gated Ring loot]' },
-        { id: 'sage_ring', name: 'Echo of Ashfall — The Ring', x: 22.5, y: 11.5, prompt: 'Hear the Echo: defined risk is the gate key [spread legs to open]' },
-      ];
-    } else if (player.chapter === 1 && dungeonFloor === 2) {
-      floorEntities = [
-        { id: 'chest_vault', name: 'Vault Chest — The Last Reserve', x: 33.5, y: 8.5, prompt: 'Open the vault chest [deep loot]' },
-        { id: 'shrine_vault', name: 'Vault Shrine — Ledger of the Deep', x: 12.5, y: 16.5, prompt: 'Rest at the deep shrine [save + bond]' },
-        { id: 'boss_bear', name: 'The Tithe-Monger — Collector of the Harvest', x: 25.5, y: 12.5, prompt: 'Face the Tithe-Monger [Act I Boss — drawdown made flesh]' },
-      ];
-    }
+    const floorEntities: Array<{ id: string; name: string; x: number; y: number; prompt: string }> =
+      player.chapter === 1 ? (FLOOR_ENTITIES[dungeonFloor] || []) : [];
     const actOneFloorFilter = player.chapter === 1 && dungeonFloor > 0
       ? [] // base 1F roster only on floor 0
       : base;
