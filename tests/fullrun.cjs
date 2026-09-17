@@ -64,6 +64,7 @@ function bfsPath(start, goal) {
   const body = () => page.evaluate(() => document.body.innerText);
   const V = () => page.evaluate(() => window.__valhalla && {
     view: window.__valhalla.view(),
+    floor: window.__valhalla.dungeonFloor(),
     chapter: window.__valhalla.player().chapter,
     hearts: window.__valhalla.player().hearts,
     florins: window.__valhalla.player().florins,
@@ -175,19 +176,29 @@ function bfsPath(start, goal) {
   await log(`portal: view=${v.view} (expect DUNGEON)`);
   await shot('02-dungeon-act1-entry');
 
-  // ── 3. ACT I encounters: sage, chart room, then boss ──
-  for (const stop of [[2, 4, 'sage'], [5, 5, 'chart-room'], [17, 15, 'boss']]) {
+  // ── 3. ACT I encounters: sage, chart room, then boss (descend 1F→2F→B1; M2 45x22 floors) ──
+  for (const stop of [[3, 4, 'sage'], [9, 5, 'chart-room'], [19, 16, 'chest'], [38, 16, 'descend'], [22, 11, 'sage-ring'], [40, 16, 'descend'], [25, 12, 'boss']]) {
     const ok = await walkTo([stop[0], stop[1]]);
     if ((await V()).view === 'COMBAT') break;
+    if (stop[2] === 'descend') {
+      await page.waitForTimeout(1800);
+      const diag = await page.evaluate(() => {
+        const d = window.__dungeon;
+        const p = d ? d.pos : null;
+        return { hasD: !!d, pos: p, walkS: d ? d.walkableAt(38.5, 16.5) : null, floor: window.__valhalla.dungeonFloor(), view: window.__valhalla.view() };
+      });
+      await log(`descend diag: ${JSON.stringify(diag)}`);
+      continue;
+    } // stairs poll descends
     await dungeonInteract();
     await page.waitForTimeout(600);
     await shot(`03-act1-${stop[2]}`);
     await log(`act1 encounter ${stop[2]} @${stop[0]},${stop[1]} reached=${ok}`);
     // close any dialog if one opened (except combat which we handle below)
     const inCombat = (await V()).view === 'COMBAT';
-    if (!inCombat) {
+    if (!inCombat && !stop[3]) {
       await page.keyboard.press('Escape');
-      await clickBtn(/CLOSE|CONTINUE|LEAVE/i, 0);
+      await clickBtn(/CLOSE|CONTINUE/i, 0);
       await page.waitForTimeout(300);
     } else break;
   }
@@ -204,7 +215,7 @@ function bfsPath(start, goal) {
     await dungeonInteract();
     v = await V();
   }
-  await log(`act1 boss: view=${v.view} (expect COMBAT)`);
+  await log(`act1 boss: view=${v.view} floor=${v.floor} (expect COMBAT)`);
   await shot('04-act1-boss-combat');
   await page.evaluate(() => window.__valhalla.winCombat());
   await page.waitForTimeout(900);
