@@ -26,7 +26,8 @@ export const ZeldaHeartsHUD: React.FC<ZeldaHeartsHUDProps> = ({
   onOpenPortfolio,
   onOpenGrimoire,
   onAdvanceDay,
-  onOpenHistory
+  onOpenHistory,
+  onOpenOracle
 }) => {
   const [expanded, setExpanded] = useState(false);
   const totalContainers = player.maxHearts || 4;
@@ -85,6 +86,13 @@ export const ZeldaHeartsHUD: React.FC<ZeldaHeartsHUDProps> = ({
         >
         <ScrollText className="w-3.5 h-3.5" />
         <span>HISTORY</span>
+        </button>
+        <button
+        onClick={onOpenOracle}
+        className="snes-btn px-3 py-1 text-xs rounded-md flex items-center gap-1 shrink-0"
+        title="The Oracle's Ledger — trades, portfolio, inventory, codex, save"
+        >
+        <span>⌘ ORACLE</span>
         </button>
         <button
         onClick={() => setExpanded(e => !e)}

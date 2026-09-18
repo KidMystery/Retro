@@ -1764,11 +1764,15 @@ const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
     snes: 'text-[#f3e9c9] bg-[#0a0e1d]'
   };
 
+  // VOLTRON F2 — de-chrome: app chrome hidden during gameplay; ?chrome forces it for debugging.
+  const gameplayView = ['MAP', 'DUNGEON', 'COMBAT', 'TITLE'].includes(currentView);
+  const showChrome = !gameplayView || new URLSearchParams(window.location.search).has('chrome');
+
   // VOLTRON F1 — modal queue: exactly ONE blocking modal renders; others stay queued.
   const topModal = resolveTopModal({
     provingVault: currentView === 'PROVING_VAULT',
     combat: combatState.inCombat,
-    rugpull: !!activeScamEncounter && activeScamEncounter.includes?.('rug') || undefined,
+    rugpull: !!activeScamEncounter,
     sanctuary: showSanctuary,
     story: !!npcDialogue,
     mechanicGate: !!mechanicGate,
@@ -1789,6 +1793,7 @@ const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
     <div className={`min-h-screen ${themeClassMap[theme]} relative transition-colors duration-200 font-snes`}>
       <div className="fixed inset-0 pointer-events-none bg-gradient-to-b from-amber-500/[0.03] via-transparent to-sky-500/[0.03] z-0" />
       <div className="max-w-6xl mx-auto p-2 sm:p-4 min-h-screen flex flex-col justify-between relative z-10">
+        {showChrome && (
         <DOSHeader
           theme={theme}
           setTheme={setTheme}
@@ -1809,10 +1814,12 @@ const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
             setShowSaveModal(true);
           }}
         />
+        )}
 
         {currentView !== 'INTRO' && (
           <div className="mb-2">
             <ZeldaHeartsHUD
+          onOpenOracle={() => setCurrentView('ORACLE_LEDGER')}
               player={player}
               asset={assetQuote}
               onOpenTrade={() => { setActiveModal('TRADE'); setCurrentView('ORACLE_LEDGER'); }}
@@ -2199,7 +2206,8 @@ const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
         </main>
 
         <footer className="mt-2">
-          <TerminalCommandLine
+          {showChrome && (
+        <TerminalCommandLine
             onCommand={(cmd) => {
               const command = cmd.trim().toUpperCase();
               if (command === 'HELP') {
@@ -2220,6 +2228,7 @@ const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
             }}
             outputLog={terminalLog}
           />
+        )}
         </footer>
 
         {topModal === 'undervalued' && activeUndervaluedAsset && (
