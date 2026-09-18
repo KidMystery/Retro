@@ -77,7 +77,7 @@ function bfsPath(start, goal) {
   const log = async msg => { transcript.push(msg); console.log(msg); };
   const clickBtn = async (re, idx = 0) => page.evaluate(({ src, i }) => {
     const rx = new RegExp(src);
-    const all = [...document.querySelectorAll('button')].filter(b => rx.test(b.innerText));
+    const all = [...document.querySelectorAll('button')].filter(b => rx.test(b.innerText) && b.offsetParent !== null);
     if (all[i]) { all[i].click(); return true; }
     return false;
   }, { src: re.source, i: idx });
@@ -112,7 +112,7 @@ function bfsPath(start, goal) {
 
   // ── 1b. GAME-FEEL: one-shot chest + resolved scam encounter ──
   // Chest at (17,2): first open pays once; second open is empty feedback.
-  await page.evaluate(() => window.__valhalla.patch({ mapX: 17, mapY: 1 }));
+  await page.evaluate(() => window.__valhalla.patch({ mapX: 15, mapY: 22 }));
   await page.waitForTimeout(400);
   const f0 = (await V()).florins;
   await dungeonInteract();
@@ -129,7 +129,7 @@ function bfsPath(start, goal) {
 
   // Scam resolution: INVEST → WITHDRAW PROFITS banks the win and closes the
   // desk; re-approach is on cooldown; REST +1 reopens it.
-  await page.evaluate(() => window.__valhalla.patch({ mapX: 14, mapY: 5 }));
+  await page.evaluate(() => window.__valhalla.patch({ mapX: 27, mapY: 12 }));
   await page.waitForTimeout(400);
   await dungeonInteract();
   await page.waitForTimeout(500);
@@ -150,6 +150,8 @@ function bfsPath(start, goal) {
   await page.waitForTimeout(500);
   const reopenedEarly = await page.evaluate(() => document.body.innerText.includes('INVEST'));
   if (reopenedEarly) { console.log('COOLDOWN FAIL: scam reopened immediately'); process.exit(4); }
+  await clickBtn(/MARKET/i, 0); // expand the HUD panel (REST lives behind the MARKET toggle)
+  await page.waitForTimeout(250);
   await clickBtn(/REST \+1 DAY|REST \+1/i);
   await page.waitForTimeout(600);
   await clickBtn(/IGNORE/i, 0); // dismiss a day-advance noise popup if one fired
@@ -163,11 +165,11 @@ function bfsPath(start, goal) {
   await page.waitForTimeout(300);
 
   // ── 2. ENTER ACT I DUNGEON via portal (overworld walk, retried for render races) ──
-  await page.evaluate(() => window.__valhalla.patch({ mapX: 12, mapY: 2 }));
+  await page.evaluate(() => window.__valhalla.patch({ mapX: 23, mapY: 13 }));
   await page.waitForTimeout(400);
   for (let i = 0; i < 6; i++) {
     const cx = await page.evaluate(() => window.__valhalla.player().mapX);
-    if (cx !== 13) { await page.keyboard.press('ArrowRight'); await page.waitForTimeout(400); }
+    if (cx !== 24) { await page.keyboard.press('ArrowRight'); await page.waitForTimeout(400); }
     await dungeonInteract();
     if ((await V()).view === 'DUNGEON') break;
     await page.waitForTimeout(400);
