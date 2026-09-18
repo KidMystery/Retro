@@ -1,0 +1,119 @@
+[
+ {
+  "file": "lessonsData.ts",
+  "export": "OPTIONS_LESSONS",
+  "ids": 9,
+  "ids_sample": [
+   "lesson_calls_puts",
+   "lesson_theta_decay",
+   "lesson_greeks_balance"
+  ],
+  "correctIndex_out_of_range": 0
+ },
+ {
+  "file": "intelligentInvestorData.ts",
+  "export": "INTELLIGENT_INVESTOR_LESSONS",
+  "ids": 15,
+  "ids_sample": [
+   "margin_of_safety",
+   "mr_market",
+   "investment_vs_speculation"
+  ],
+  "correctIndex_out_of_range": 0
+ },
+ {
+  "file": "curriculum/grahamCore.ts",
+  "export": "GRAHAM_CORE_LESSONS",
+  "ids": 9,
+  "ids_sample": [
+   "diversification",
+   "intrinsic_value",
+   "enterprising_vs_defensive"
+  ],
+  "correctIndex_out_of_range": 0
+ },
+ {
+  "file": "curriculum/olmsteadTrack.ts",
+  "export": "OLMSTEAD_TRACK_LESSONS",
+  "ids": 13,
+  "ids_sample": [
+   "option_selection",
+   "greeks_beyond_delta",
+   "risk_graphs"
+  ],
+  "correctIndex_out_of_range": 0
+ },
+ {
+  "file": "curriculum/mcmillanTrack.ts",
+  "export": "MCMILLAN_TRACK_LESSONS",
+  "ids": 12,
+  "ids_sample": [
+   "hedging_basics",
+   "protective_put",
+   "collars"
+  ],
+  "correctIndex_out_of_range": 0
+ },
+ {
+  "file": "curriculum/cryptoArc.ts",
+  "export": "CRYPTO_ARC_LESSONS",
+  "ids": 12,
+  "ids_sample": [
+   "recovery_math",
+   "fomo_protection",
+   "leverage_liquidation"
+  ],
+  "correctIndex_out_of_range": 0
+ },
+ {
+  "file": "curriculum/chartPuzzles.ts",
+  "export": "CHART_PUZZLES",
+  "ids": 12,
+  "ids_sample": [
+   "room-doji-shrine",
+   "room-hammer-forge",
+   "room-star-summit"
+  ],
+  "correctIndex_out_of_range": 0
+ },
+ {
+  "file": "curriculum/noiseEvents.ts",
+  "export": "NOISE",
+  "ids": 20,
+  "ids_sample": [
+   "eup-influencer-500",
+   "eup-quant-exits",
+   "eup-tulip-mania"
+  ],
+  "correctIndex_out_of_range": 0
+ },
+ {
+  "file": "curriculum/marginDanger.ts",
+  "export": "MARGIN",
+  "ids": 8,
+  "ids_sample": [
+   "margin_ladder_40",
+   "margin_ladder_30",
+   "margin_ladder_50"
+  ],
+  "correctIndex_out_of_range": 0
+ },
+ {
+  "file": "curriculum/dopamineBadges.ts",
+  "export": "BADGES",
+  "ids": 11,
+  "ids_sample": [
+   "first-thousand-florin-stretch",
+   "quarter-century-club",
+   "half-century-mark"
+  ],
+  "correctIndex_out_of_range": 0
+ },
+ {
+  "file": "curriculum/provingVault.ts",
+  "export": "VAULT",
+  "ids": 0,
+  "ids_sample": [],
+  "correctIndex_out_of_range": 0
+ }
+]
