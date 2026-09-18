@@ -1229,11 +1229,13 @@ const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
     // regions. Gate = chapter. Crossing snaps the player to the opposite edge of the target.
     const region = player.overworldRegion ?? player.chapter;
     const link = REGION_LINKS[region];
-    const atEastEdge = x >= 19, atWestEdge = x <= 0;
+    const regionMapW = (ZELDA_MAPS[region] || ZELDA_MAPS[1]).width;
+    const atEastEdge = x >= regionMapW - 1, atWestEdge = x <= 0;
     if (link && (atEastEdge || atWestEdge)) {
       const crossing = atEastEdge ? link.east : link.west;
       if (crossing && player.chapter >= crossing.gateChapter) {
-        const newX = atEastEdge ? 1 : 18;
+        const targetW = (ZELDA_MAPS[crossing.region] || ZELDA_MAPS[1]).width;
+        const newX = atEastEdge ? 1 : targetW - 2;
         setPlayer(prev => ({
           ...prev,
           overworldRegion: crossing.region,
