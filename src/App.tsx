@@ -46,6 +46,7 @@ import { ZeldaHeartsHUD } from './components/ZeldaHeartsHUD';
 import { ZeldaOverworldCanvas } from './components/ZeldaOverworldCanvas';
 import { DungeonView } from './components/DungeonView';
 import { DungeonRooms } from './components/DungeonRooms';
+import { resolveTopModal } from './lib/modalQueue';
 import { ZeldaCombatModal } from './components/ZeldaCombatModal';
 import { UndervaluedAssetModal } from './components/UndervaluedAssetModal';
 import { RugPullLessonModal } from './components/RugPullLessonModal';
@@ -1763,6 +1764,27 @@ const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
     snes: 'text-[#f3e9c9] bg-[#0a0e1d]'
   };
 
+  // VOLTRON F1 — modal queue: exactly ONE blocking modal renders; others stay queued.
+  const topModal = resolveTopModal({
+    provingVault: currentView === 'PROVING_VAULT',
+    combat: combatState.inCombat,
+    rugpull: !!activeScamEncounter && activeScamEncounter.includes?.('rug') || undefined,
+    sanctuary: showSanctuary,
+    story: !!npcDialogue,
+    mechanicGate: !!mechanicGate,
+    chart: !!activeChartPuzzle,
+    tradeEncounter: !!tradeEncounter,
+    undervalued: !!activeUndervaluedAsset,
+    grimoire: activeModal === 'GRIMOIRE',
+    tradeDesk: activeModal === 'TRADE',
+    ledger: activeModal === 'PORTFOLIO',
+    inventory: activeModal === 'INVENTORY',
+    quest: activeModal === 'QUEST',
+    save: showSaveModal,
+    fanfare: !!fanfareBadge,
+    noise: !!activeNoise,
+  });
+
   return (
     <div className={`min-h-screen ${themeClassMap[theme]} relative transition-colors duration-200 font-snes`}>
       <div className="fixed inset-0 pointer-events-none bg-gradient-to-b from-amber-500/[0.03] via-transparent to-sky-500/[0.03] z-0" />
@@ -2005,7 +2027,7 @@ const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
             );
           })()}
 
-          {currentView === 'COMBAT' && (
+          {topModal === 'combat' && currentView === 'COMBAT' && (
             <ZeldaCombatModal
               combat={combatState}
               player={player}
@@ -2200,7 +2222,7 @@ const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
           />
         </footer>
 
-        {activeUndervaluedAsset && (
+        {topModal === 'undervalued' && activeUndervaluedAsset && (
           <UndervaluedAssetModal
             asset={activeUndervaluedAsset}
             player={player}
@@ -2209,7 +2231,7 @@ const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
           />
         )}
 
-        {activeScamEncounter && (
+        {topModal === 'rugpull' && activeScamEncounter && (
           <RugPullLessonModal
             scam={activeScamEncounter}
             player={player}
@@ -2220,7 +2242,7 @@ const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
           />
         )}
 
-        {showSanctuary && (
+        {topModal === 'sanctuary' && showSanctuary && (
           <IntelligentInvestorSanctuaryModal
             player={player}
             forcedLessonId={sanctuaryLessonId}
@@ -2287,7 +2309,7 @@ const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
           );
         })()}
 
-        {tradeEncounter && (
+        {topModal === 'tradeEncounter' && tradeEncounter && (
           <TradeEncounterModal
             encounter={tradeEncounter}
             onResolve={handleTradeEncounterResolve}
@@ -2295,7 +2317,7 @@ const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
           />
         )}
 
-        {mechanicGate && (() => {
+        {topModal === 'mechanicGate' && mechanicGate && (() => {
           const { lesson, challenge } = getTradeMechanicGate(player.day);
           return (
             <OptionsMechanicGate
@@ -2308,7 +2330,7 @@ const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
           );
         })()}
 
-        {activeModal === 'TRADE' && currentView !== 'ORACLE_LEDGER' && (
+        {topModal === 'tradeDesk' && activeModal === 'TRADE' && currentView !== 'ORACLE_LEDGER' && (
           <TradeDeskModal
             player={player}
             asset={assetQuote}
@@ -2325,7 +2347,7 @@ const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
           />
         )}
 
-        {activeModal === 'PORTFOLIO' && currentView !== 'PORTFOLIO' && (
+        {topModal === 'ledger' && activeModal === 'PORTFOLIO' && currentView !== 'PORTFOLIO' && (
           <PortfolioLedgerModal
             player={player}
             positions={positions}
@@ -2338,7 +2360,7 @@ const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
           />
         )}
 
-        {activeModal === 'GRIMOIRE' && currentView !== 'GRIMOIRE' && (
+        {topModal === 'grimoire' && activeModal === 'GRIMOIRE' && currentView !== 'GRIMOIRE' && (
           <GrimoireModal
             onAwardFlorins={(amount) => {
               sound.playCoinSound();
@@ -2351,15 +2373,15 @@ const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
         )}
 
         {/* Wiring 1: market noise ticker popup */}
-        {activeNoise && <NoiseTicker event={activeNoise} onChoose={handleNoiseChoice} />}
+        {topModal === 'noise' && activeNoise && <NoiseTicker event={activeNoise} onChoose={handleNoiseChoice} />}
 
         {/* Wiring 3: full-screen badge fanfare */}
-        {fanfareBadge && (
+        {topModal === 'fanfare' && fanfareBadge && (
           <BadgeFanfare badge={fanfareBadge} onDismiss={() => setFanfareBadge(null)} />
         )}
 
         {/* Wiring 4: chart puzzle room */}
-        {activeChartPuzzle && (
+        {topModal === 'chart' && activeChartPuzzle && (
           <ChartPuzzleModal
             puzzle={activeChartPuzzle}
             onAnswer={handleChartPuzzleAnswer}
@@ -2367,7 +2389,7 @@ const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
           />
         )}
 
-        {activeModal === 'QUEST' && activeQuest && (
+        {topModal === 'quest' && activeModal === 'QUEST' && activeQuest && (
           <StoryDialogModal
             quest={activeQuest}
             playerFlorins={player.florins}
@@ -2394,7 +2416,7 @@ const [priceHistory, setPriceHistory] = useState<PriceCandle[]>([]);
           />
         )}
 
-        {showSaveModal && (
+        {topModal === 'save' && showSaveModal && (
           <SaveGameModal
             player={player}
             positions={positions}
